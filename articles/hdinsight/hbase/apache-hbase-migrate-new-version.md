@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910268"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697660"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Effectuer la migration d’un cluster Apache HBase vers une nouvelle version
 
@@ -223,7 +223,7 @@ Pour mettre à niveau votre cluster Apache HBase sur Azure HDInsight, procédez 
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. Si vous mettez à niveau HDInsight 3.6 vers 4.0, suivez les étapes ci-dessous, sinon passez à l’étape 10 :
+1. Si vous mettez à niveau HDInsight 3.6 vers la version 4.0, suivez les étapes ci-dessous, sinon passez à l’étape 13 :
 
     1. Redémarrez tous les services requis dans Ambari en sélectionnant **Services** > **Restart All Required** (Redémarrer tous les services requis).
     1. Arrêtez le service HBase.

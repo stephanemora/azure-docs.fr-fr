@@ -1,7 +1,7 @@
 ---
 title: Transformation de données dans le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez comment transformer des données dans le concepteur Azure Machine Learning pour créer vos propres jeux de données.
+description: Découvrez comment importer et transformer des données dans le concepteur Azure Machine Learning pour créer vos propres jeux de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312804"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554013"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformer des données dans le concepteur Azure Machine Learning
 
@@ -74,7 +74,7 @@ Dans cette section, vous utilisez le module [Split Data](algorithm-module-refere
 
 1. Dans le volet d’informations du module à droite du canevas, définissez **Splitting mode** (Mode de fractionnement) sur **Regular Expression** (Expression régulière).
 
-1. Entrez l’ **expression régulière**  : `\"native-country" United-States`.
+1. Entrez l’**expression régulière** : `\"native-country" United-States`.
 
     Le mode **Regular expression** (Expression régulière) teste une seule colonne pour une valeur. Pour plus d’informations sur le module Split Data, consultez la [page de référence du module d’algorithme](algorithm-module-reference/split-data.md) associée.
 
@@ -105,7 +105,7 @@ Maintenant que votre pipeline est configuré pour fractionner les données, vous
     
     **Datastore type** (Type de magasin de données) : Stockage Blob Azure
 
-    **Banque de données**  : Sélectionnez un magasin de données existant ou sélectionnez « Nouveau magasin de banques » pour en créer un maintenant.
+    **Banque de données** : Sélectionnez un magasin de données existant ou sélectionnez « Nouveau magasin de banques » pour en créer un maintenant.
 
     **Path** (Chemin d’accès) : `/data/us-income`
 
@@ -122,7 +122,7 @@ Maintenant que votre pipeline est configuré pour fractionner les données, vous
     
     **Datastore type** (Type de magasin de données) : Stockage Blob Azure
 
-    **Banque de données**  : Sélectionnez le même magasin de données comme ci-dessus
+    **Banque de données** : Sélectionnez le même magasin de données comme ci-dessus
 
     **Path** (Chemin) : `/data/non-us-income`
 

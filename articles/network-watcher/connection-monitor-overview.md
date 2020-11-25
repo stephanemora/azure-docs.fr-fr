@@ -1,6 +1,6 @@
 ---
-title: Moniteur de connexion (préversion) | Microsoft Docs
-description: Apprenez à utiliser la fonctionnalité Moniteur de connexion (préversion) pour surveiller les communications réseau dans un environnement distribué.
+title: Moniteur de connexion | Microsoft Docs
+description: Apprenez à utiliser la fonctionnalité Moniteur de connexion pour surveiller les communications réseau dans un environnement distribué.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699234"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Surveillance de la connectivité réseau à l'aide du Moniteur de connexion (préversion)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
-La fonctionnalité Moniteur de connexion (préversion) permet une surveillance unifiée et de bout en bout des connexions dans Azure Network Watcher. Elle prend en charge les déploiements hybrides et cloud Azure. Network Watcher fournit des outils pour surveiller, diagnostiquer et consulter les métriques de connectivité de vos déploiements Azure.
+La fonctionnalité Moniteur de connexion permet une vérification unifiée et de bout en bout de la connectivité dans Azure Network Watcher. Elle prend en charge les déploiements hybrides et cloud Azure. Network Watcher fournit des outils pour surveiller, diagnostiquer et consulter les métriques de connectivité de vos déploiements Azure.
 
-Voici quelques cas d'usage du Moniteur de connexion (préversion) :
+Voici quelques cas d’usage de Moniteur de connexion :
 
 - Votre machine virtuelle de serveur web front-end communique avec une machine virtuelle de serveur de base de données dans une application multiniveau. Vous souhaitez vérifier la connectivité réseau entre les deux machines virtuelles.
 - Vous souhaitez que les machines virtuelles de la région USA Est puissent effectuer un test Ping ciblant les machines virtuelles de la région USA Centre, et vous souhaitez comparer les temps de réponse du réseau entre les régions.
@@ -34,9 +34,9 @@ Voici quelques cas d'usage du Moniteur de connexion (préversion) :
 - Votre application hybride doit être connectée à un point de terminaison Stockage Azure. Votre site local et votre application Azure se connectent au même point de terminaison Stockage Azure. Vous souhaitez comparer les temps de réponse du site local avec ceux de l'application Azure.
 - Vous souhaitez vérifier la connectivité entre vos installations locales et les machines virtuelles Azure qui hébergent votre application cloud.
 
-Actuellement en phase de préversion, le Moniteur de connexion allie le meilleur des deux fonctionnalités suivantes : la fonctionnalité [Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher, et la fonctionnalité [Moniteur de connectivité de service](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Surveillance ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm) et [Analyse des performances](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) de Network Performance Monitor (NPM).
+Moniteur de connexion allie le meilleur des deux fonctionnalités suivantes : la fonctionnalité [Moniteur de connexion (Classique)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher et la fonctionnalité [Moniteur de connectivité de service](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Surveillance ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm) et [Analyse des performances](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) de Network Performance Monitor (NPM).
 
-Le Moniteur de connexion (préversion) présente notamment les avantages suivants :
+Moniteur de connexion présente notamment les avantages suivants :
 
 * Expérience unifiée et intuitive pour les besoins de supervision des clouds Azure et hybride
 * Surveillance de la connectivité entre les régions et entre les espaces de travail
@@ -47,7 +47,7 @@ Le Moniteur de connexion (préversion) présente notamment les avantages suivant
 
 ![Diagramme montrant comment le Moniteur de connexion interagit avec les machines virtuelles Azure, les hôtes non Azure, les points de terminaison et les emplacements de stockage de données](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Pour commencer à utiliser le Moniteur de connexion (préversion) à des fins de surveillance, procédez comme suit : 
+Pour commencer à utiliser Moniteur de connexion à des fins de surveillance, procédez comme suit : 
 
 1. Installez des agents de surveillance.
 1. Activez Network Watcher sur votre abonnement.
@@ -59,11 +59,11 @@ Pour plus d'informations, lisez les sections suivantes.
 
 ## <a name="install-monitoring-agents"></a>Installer des agents de supervision
 
-Le Moniteur de connexion s'appuie sur des exécutables légers pour effectuer les vérifications de la connectivité.  Il prend en charge les vérifications de la connectivité à partir des environnements Azure et des environnements locaux. L'exécutable à utiliser varie selon que votre machine virtuelle est hébergée sur Azure ou en local.
+Le Moniteur de connexion s'appuie sur des exécutables légers pour effectuer les vérifications de la connectivité. Il prend en charge les vérifications de la connectivité à partir des environnements Azure et des environnements locaux. L'exécutable à utiliser varie selon que votre machine virtuelle est hébergée sur Azure ou en local.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agents pour les machines virtuelles Azure
 
-Pour que le Moniteur de connexion reconnaisse vos machines virtuelles Azure comme sources de surveillance, installez l'extension de machine virtuelle Network Watcher Agent sur celles-ci. Cette extension est également connue sous le nom d' *extension Network Watcher*. Les machines virtuelles Azure ont besoin de cette extension pour déclencher une surveillance de bout en bout et d'autres fonctionnalités avancées. 
+Pour que le Moniteur de connexion reconnaisse vos machines virtuelles Azure comme sources de surveillance, installez l'extension de machine virtuelle Network Watcher Agent sur celles-ci. Cette extension est également connue sous le nom d'*extension Network Watcher*. Les machines virtuelles Azure ont besoin de cette extension pour déclencher une surveillance de bout en bout et d'autres fonctionnalités avancées. 
 
 Vous pouvez installer l'extension Network Watcher au moment de la [création d'une machine virtuelle](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Vous pouvez également procéder à l'installation, à la configuration et à la résolution des problèmes liés à l'extension Network Watcher séparément pour [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) et [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
 
@@ -89,29 +89,29 @@ Le Moniteur de connexion surveille la communication à intervalles réguliers. I
 
 Les sources peuvent être des machines virtuelles Azure ou des machines locales sur lesquelles un agent de surveillance est installé. Les points de terminaison de destination peuvent être des URL Microsoft 365, des URL Dynamics 365, des URL personnalisées, des ID de ressources de machine virtuelle Azure, des adresses IPv4 ou IPv6, un FQDN ou un nom de domaine.
 
-### <a name="access-connection-monitor-preview"></a>Accéder au Moniteur de connexion (préversion)
+### <a name="access-connection-monitor"></a>Accéder à Moniteur de connexion
 
 1. Sur la page d'accueil du portail Azure, accédez à **Network Watcher**.
-1. Sur la gauche, dans la section **Surveillance** , sélectionnez **Moniteur de connexion (préversion)** .
-1. Tous les moniteurs de connexion créés dans la fonctionnalité Moniteur de connexion (préversion) sont répertoriés. Pour afficher les moniteurs de connexion créés dans l'expérience utilisateur classique du Moniteur de connexion, accédez à l'onglet **Moniteur de connexion**.
+1. Sur la gauche, dans la section **Surveillance**, sélectionnez **Moniteur de connexion**.
+1. Tous les moniteurs de connexion créés dans la fonctionnalité Moniteur de connexion sont répertoriés. Pour afficher les moniteurs de connexion créés dans l'expérience utilisateur classique du Moniteur de connexion, accédez à l'onglet **Moniteur de connexion**.
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Capture d'écran illustrant des moniteurs de connexion créés dans le Moniteur de connexion (préversion)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Capture d’écran illustrant des moniteurs de connexion créés dans Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Créer un moniteur de connexion
 
-Dans les moniteurs de connexion que vous créez à partir de la fonctionnalité Moniteur de connexion (préversion), vous pouvez aussi bien ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
+Dans les moniteurs de connexion que vous créez à l’aide de la fonctionnalité Moniteur de connexion, vous pouvez ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
 
-Le Moniteur de connexion (préversion) inclut les entités suivantes :
+Le Moniteur de connexion inclut les entités suivantes :
 
-* **Ressource de moniteur de connexion**  : ressource Azure spécifique à la région. Toutes les entités ci-dessous sont des propriétés d'une ressource de moniteur de connexion.
-* **Point de terminaison**  : source ou destination qui participe aux vérifications de la connectivité. Les machines virtuelles Azure, les agents locaux, les URL et les adresses IP sont des exemples de points de terminaison.
-* **Configuration de test**  : configuration spécifique à un protocole dans le cadre d'un test. En fonction du protocole que vous avez choisi, vous pouvez définir le port, les seuils, la fréquence de test et d'autres paramètres.
-* **Groupe de tests**  : groupe contenant les points de terminaison sources, les points de terminaison de destination et les configurations de test. Un moniteur de connexion peut contenir plusieurs groupes de tests.
-* **Test**  : combinaison d'un point de terminaison source, d'un point de terminaison de destination et d'une configuration de test. Un test correspond au niveau le plus granulaire auquel les données de surveillance sont disponibles. Les données de surveillance incluent le pourcentage de vérifications qui ont échoué et la durée des boucles.
+* **Ressource de moniteur de connexion** : ressource Azure spécifique à la région. Toutes les entités ci-dessous sont des propriétés d'une ressource de moniteur de connexion.
+* **Point de terminaison** : source ou destination qui participe aux vérifications de la connectivité. Les machines virtuelles Azure, les agents locaux, les URL et les adresses IP sont des exemples de points de terminaison.
+* **Configuration de test** : configuration spécifique à un protocole dans le cadre d'un test. En fonction du protocole que vous avez choisi, vous pouvez définir le port, les seuils, la fréquence de test et d'autres paramètres.
+* **Groupe de tests** : groupe contenant les points de terminaison sources, les points de terminaison de destination et les configurations de test. Un moniteur de connexion peut contenir plusieurs groupes de tests.
+* **Test** : combinaison d'un point de terminaison source, d'un point de terminaison de destination et d'une configuration de test. Un test correspond au niveau le plus granulaire auquel les données de surveillance sont disponibles. Les données de surveillance incluent le pourcentage de vérifications qui ont échoué et la durée des boucles.
 
  ![Diagramme illustrant un moniteur de connexion, avec définition de la relation entre les groupes de tests et les tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Vous pouvez créer une préversion du moniteur de connexion à l’aide du [portail Azure](connection-monitor-preview-create-using-portal.md) ou d’[ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Vous pouvez créer un moniteur de connexion à l’aide du [portail Azure](connection-monitor-preview-create-using-portal.md) ou d’[ARMClient](connection-monitor-preview-create-using-arm-client.md).
 
 Toutes les sources, destinations et configurations de test que vous ajoutez à un groupe de tests sont réparties en tests individuels. Voici un exemple de répartition des sources et des destinations :
 
@@ -151,7 +151,7 @@ Après la création d'un moniteur de connexion, les sources vérifient la connec
 
 ### <a name="checks-in-a-test"></a>Vérifications dans un test
 
-En fonction du protocole que vous avez choisi dans la configuration de test, le Moniteur de connexion (préversion) exécute une série de vérifications pour la paire source-destination. Les vérifications sont exécutées en fonction de la fréquence de test que vous avez choisie.
+En fonction du protocole que vous avez choisi dans la configuration de test, Moniteur de connexion exécute une série de vérifications pour la paire source-destination. Les vérifications sont exécutées en fonction de la fréquence de test que vous avez choisie.
 
 Si vous utilisez HTTP, le service calcule le nombre de réponses HTTP qui ont renvoyé un code de réponse valide. Les codes de réponse valides peuvent être définis à l’aide de PowerShell et de l’interface CLI. Le résultat détermine le pourcentage de vérifications qui ont échoué. Pour calculer la durée des boucles, le service mesure le délai entre un appel HTTP et la réponse.
 
@@ -161,17 +161,17 @@ Si vous utilisez TCP ou ICMP, le service calcule le pourcentage de perte de paqu
 
 Sur la base des données renvoyées par les vérifications, les tests peuvent présenter les états suivants :
 
-* **Réussite**  : les valeurs réelles du pourcentage de vérifications qui ont échoué et de la durée des boucles se situent dans les seuils spécifiés.
-* **Échec**  : les valeurs réelles du pourcentage de vérifications qui ont échoué et de la durée des boucles ont dépassé les seuils spécifiés. Si aucun seuil n'est spécifié, un test atteint l'état Échec lorsque le pourcentage de vérifications qui ont échoué est de 100.
-* **Avertissement**  : 
-     * si le seuil est spécifié et que le Moniteur de connexion (préversion) constate un pourcentage d’échec de vérification supérieur à 80 % du seuil, le test est marqué en tant qu’avertissement.
-     * En l’absence de seuils spécifiés, le Moniteur de connexion (préversion) attribue automatiquement un seuil. Lorsque ce seuil est dépassé, l'état du test passe à Avertissement. Pour la durée de l’aller-retour dans les tests TCP ou ICMP, le seuil est de 750 msec. Pour le pourcentage de vérifications ayant échoué, le seuil est de 10 %. 
+* **Réussite** : les valeurs réelles du pourcentage de vérifications qui ont échoué et de la durée des boucles se situent dans les seuils spécifiés.
+* **Échec** : les valeurs réelles du pourcentage de vérifications qui ont échoué et de la durée des boucles ont dépassé les seuils spécifiés. Si aucun seuil n'est spécifié, un test atteint l'état Échec lorsque le pourcentage de vérifications qui ont échoué est de 100.
+* **Avertissement** : 
+     * si le seuil est spécifié et que Moniteur de connexion constate un pourcentage d’échec de vérification supérieur à 80 % du seuil, le test est marqué en tant qu’avertissement.
+     * En l’absence de seuils spécifiés, Moniteur de connexion attribue automatiquement un seuil. Lorsque ce seuil est dépassé, l'état du test passe à Avertissement. Pour la durée de l’aller-retour dans les tests TCP ou ICMP, le seuil est de 750 msec. Pour le pourcentage de vérifications ayant échoué, le seuil est de 10 %. 
 * **indéterminé**  : aucune donnée dans l’espace de travail Log Analytics.  Vérifiez les mesures. 
 * **Pas en cours d’exécution**  : désactivé par désactivation du groupe de tests.  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Collecte de données, analyse et alertes
 
-Les données collectées par le Moniteur de connexion (préversion) sont stockées dans l'espace de travail Log Analytics. Vous avez configuré cet espace de travail lors de la création du Moniteur de connexion. 
+Les données collectées par Moniteur de connexion sont stockées dans l’espace de travail Log Analytics. Vous avez configuré cet espace de travail lors de la création du Moniteur de connexion. 
 
 Les données de supervision sont également disponibles dans les métriques d’Azure Monitor. Vous pouvez utiliser Log Analytics pour conserver vos données de surveillance aussi longtemps que vous le souhaitez. Par défaut, Azure Monitor ne stocke les données que pendant 30 jours. 
 
@@ -181,11 +181,11 @@ Vous pouvez [définir des alertes basées sur des métriques pour les données](
 
 Les tableaux de bord de surveillance présentent la liste des moniteurs de connexion auxquels vous pouvez accéder pour vos abonnements, régions, horodatages, sources et types de destination.
 
-Lorsque vous accédez au Moniteur de connexion (préversion) à partir de Network Watcher, vous pouvez afficher les données par :
+Lorsque vous accédez à Moniteur de connexion à partir de Network Watcher, vous pouvez afficher les données par :
 
-* **Moniteur de connexion**  : liste de tous les moniteurs de connexion créés pour vos abonnements, régions, horodatages, sources et types de destination. Il s'agit de la vue par défaut.
-* **Groupes de tests**  : liste de tous les groupes de tests créés pour vos abonnements, régions, horodatages, sources et types de destination. Ces groupes de tests ne sont pas filtrés par moniteurs de connexion.
-* **Test**  : liste de tous les tests qui s'exécutent pour vos abonnements, régions, horodatages, sources et types de destination. Ces tests ne sont pas filtrés par moniteurs de connexion ou groupes de tests.
+* **Moniteur de connexion** : liste de tous les moniteurs de connexion créés pour vos abonnements, régions, horodatages, sources et types de destination. Il s'agit de la vue par défaut.
+* **Groupes de tests** : liste de tous les groupes de tests créés pour vos abonnements, régions, horodatages, sources et types de destination. Ces groupes de tests ne sont pas filtrés par moniteurs de connexion.
+* **Test** : liste de tous les tests qui s'exécutent pour vos abonnements, régions, horodatages, sources et types de destination. Ces tests ne sont pas filtrés par moniteurs de connexion ou groupes de tests.
 
 Sur l'illustration suivante, les trois vues de données sont signalées par la flèche 1.
 
@@ -194,23 +194,23 @@ Sur le tableau de bord, vous pouvez développer chaque moniteur de connexion pou
 Vous pouvez filtrer une liste en fonction des critères suivants :
 
 * **Filtres de niveau supérieur** : liste de recherche par texte, type d’entité (Moniteur de connexion, groupe de test ou test), horodateur et étendue. L’étendue comprend les abonnements, les régions, les sources et les types de destinations. Voir la zone 1 dans l’image suivante.
-* **Filtres basés sur l'état**  : filtres basés sur l'état du moniteur de connexion, du groupe de tests ou du test. Voir la zone 2 dans l'image suivante.
-* **Filtre basé sur des alertes**  : filtre par alertes déclenchées sur la ressource du moniteur de connexion. Voir la zone 3 dans l’image suivante.
+* **Filtres basés sur l'état** : filtres basés sur l'état du moniteur de connexion, du groupe de tests ou du test. Voir la zone 2 dans l'image suivante.
+* **Filtre basé sur des alertes** : filtre par alertes déclenchées sur la ressource du moniteur de connexion. Voir la zone 3 dans l’image suivante.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Capture d'écran montrant comment filtrer les vues des moniteurs de connexion, des groupes de tests et des tests dans le Moniteur de connexion (préversion)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Capture d’écran montrant comment filtrer les vues des moniteurs de connexion, des groupes de tests et des tests dans Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-Par exemple, pour afficher dans le Moniteur de connexion (préversion) tous les tests dont l'adresse IP source correspond à 10.192.64.56 :
+Par exemple, pour afficher dans Moniteur de connexion tous les tests dont l’adresse IP source correspond à 10.192.64.56 :
 1. Remplacez la vue par **Test**.
 1. Dans le champ de recherche, entrez *10.192.64.56*
-1. Dans **Étendue** dans filtre de niveau supérieur, sélectionnez **sources**.
+1. Dans **Étendue** dans le filtre de niveau supérieur, sélectionnez **Sources**.
 
-Pour n'afficher dans le Moniteur de connexion (préversion) que les tests qui ont échoué et dont l'adresse IP source correspond à 10.192.64.56 :
+Pour n’afficher dans Moniteur de connexion que les tests qui ont échoué et dont l’adresse IP source correspond à 10.192.64.56 :
 1. Remplacez la vue par **Test**.
 1. Pour le filtre basé sur l'état, sélectionnez **Échec**.
 1. Dans le champ de recherche, entrez *10.192.64.56*
 1. Dans **Étendue** dans le filtre de niveau supérieur, sélectionnez **Sources**.
 
-Pour n'afficher dans le Moniteur de connexion (préversion) que les tests qui ont échoué et dont la destination est outlook.office365.com :
+Pour n’afficher dans Moniteur de connexion que les tests qui ont échoué et dont la destination est outlook.office365.com :
 1. Remplacez la vue par **Test**.
 1. Pour le filtre basé sur l'état, sélectionnez **Échec**.
 1. Dans le champ de recherche, entrez *outlook.office365.com*.
@@ -265,9 +265,9 @@ Utilisez Log Analytics pour créer des vues personnalisées de vos données de s
 
 #### <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
-Dans les moniteurs de connexion créés avant le lancement de la fonctionnalité Moniteur de connexion (préversion), les quatre mesures suivantes sont disponibles : % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (préversion) et RoundTripTimeMs (préversion). Dans les moniteurs de connexion créés à partir de la fonctionnalité Moniteur de connexion (préversion), les données sont uniquement disponibles pour les métriques portant l'étiquette *(Préversion)* .
+Dans les moniteurs de connexion créés avant le lancement de la fonctionnalité Moniteur de connexion, les quatre métriques suivantes sont disponibles : % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (Préversion) et RoundTripTimeMs (Préversion). Dans les moniteurs de connexion créés à partir de la fonctionnalité Moniteur de connexion, les données sont uniquement disponibles pour les métriques portant l’étiquette *(Préversion)* .
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Capture d'écran illustrant les métriques dans le Moniteur de connexion (préversion)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Capture d’écran illustrant les métriques dans Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Lorsque vous utilisez des métriques, définissez le type de ressource sur Microsoft.Network/networkWatchers/connectionMonitors
 
@@ -282,19 +282,19 @@ Lorsque vous utilisez des métriques, définissez le type de ressource sur Micro
 
 Vous pouvez créer des alertes de métriques sur des moniteurs de connexion à l’aide des méthodes ci-dessous 
 
-1. Dans le Moniteur de connexion (préversion), lors de la création du Moniteur de connexion [à l’aide du portail Azure](connection-monitor-preview-create-using-portal.md#) 
-1. À partir du Moniteur de connexion (préversion), à l’aide de « Configurer des alertes » dans le tableau de bord 
+1. Dans Moniteur de connexion, lors de la création du moniteur de connexion [à l’aide du portail Azure](connection-monitor-preview-create-using-portal.md#) 
+1. Dans Moniteur de connexion, à l’aide de « Configurer des alertes » dans le tableau de bord 
 1. À partir d’Azure Monitor, pour créer une alerte dans Azure Monitor : 
-    1. Choisissez la ressource de moniteur de connexion que vous avez créée dans le Moniteur de connexion (préversion).
+    1. Choisissez la ressource de moniteur de connexion que vous avez créée dans Moniteur de connexion.
     1. Assurez-vous que **Métrique** apparaît comme type de signal pour le moniteur de connexion.
-    1. Dans **Ajouter une condition** , pour le **Nom du signal** , sélectionnez **ChecksFailedPercent (préversion)** ou **RoundTripTimeMs (préversion)** .
-    1. Pour le **Type de signal** , choisissez **Métriques**. Par exemple, sélectionnez **ChecksFailedPercent (préversion)** .
-    1. Toutes les dimensions de la métrique sont répertoriées. Choisissez le nom et la valeur de dimension. Par exemple, sélectionnez **Adresse source** , puis entrez l'adresse IP d'une source dans votre moniteur de connexion.
-    1. Dans **Logique d'alerte** , renseignez les informations suivantes :
-        * **Type de condition**  : **Statique**.
+    1. Dans **Ajouter une condition**, pour le **Nom du signal**, sélectionnez **ChecksFailedPercent (préversion)** ou **RoundTripTimeMs (préversion)** .
+    1. Pour le **Type de signal**, choisissez **Métriques**. Par exemple, sélectionnez **ChecksFailedPercent (préversion)** .
+    1. Toutes les dimensions de la métrique sont répertoriées. Choisissez le nom et la valeur de dimension. Par exemple, sélectionnez **Adresse source**, puis entrez l'adresse IP d'une source dans votre moniteur de connexion.
+    1. Dans **Logique d'alerte**, renseignez les informations suivantes :
+        * **Type de condition** : **Statique**.
         * **Condition** et **Seuil**.
-        * **Granularité d'agrégation et fréquence d'évaluation**  : le Moniteur de connexion (préversion) met à jour les données toutes les minutes.
-    1. Dans **Actions** , choisissez votre groupe d'actions.
+        * **Granularité d'agrégation et fréquence d'évaluation** : Moniteur de connexion met à jour les données toutes les minutes.
+    1. Dans **Actions**, choisissez votre groupe d'actions.
     1. Indiquez les détails de l'alerte.
     1. Créez la règle d’alerte
 
@@ -302,7 +302,7 @@ Vous pouvez créer des alertes de métriques sur des moniteurs de connexion à l
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnostiquer les problèmes de votre réseau
 
-Le Moniteur de connexion (préversion) vous aide à diagnostiquer les problèmes liés à votre moniteur de connexion et à votre réseau. Les problèmes liés à votre réseau hybride sont détectés par les agents Log Analytics que vous avez précédemment installés. Les problèmes liés à Azure sont détectés par l'extension Network Watcher. 
+Moniteur de connexion vous aide à diagnostiquer les problèmes liés à votre moniteur de connexion et à votre réseau. Les problèmes liés à votre réseau hybride sont détectés par les agents Log Analytics que vous avez précédemment installés. Les problèmes liés à Azure sont détectés par l'extension Network Watcher. 
 
 Vous pouvez afficher les problèmes liés au réseau Azure dans la topologie du réseau.
 
@@ -348,5 +348,5 @@ Pour les réseaux dont les sources sont des machines virtuelles Azure, les probl
 
 ## <a name="next-steps"></a>Étapes suivantes
     
-   * Découvrez [comment créer une instance Moniteur de connexion (préversion) à l’aide du portail Azure](connection-monitor-preview-create-using-portal.md)  
-   * Découvrez [comment créer une instance Moniteur de connexion (préversion) à l’aide du ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Découvrez [comment créer une instance Moniteur de connexion à l’aide du portail Azure](connection-monitor-preview-create-using-portal.md)  
+   * Découvrez [comment créer une instance Moniteur de connexion à l’aide d’ARMClient](connection-monitor-preview-create-using-arm-client.md)  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410575"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696215"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 
@@ -38,7 +38,7 @@ Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure
 
 ### <a name="azure-tenancy"></a>Location Azure
 
-La location Azure (abonnement Azure) fait référence à une relation « client/facturation » et à un [client](../../active-directory/develop/quickstart-create-new-tenant.md) unique dans [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). L’isolation au niveau du client dans Microsoft Azure est obtenue à l’aide d’Azure Active Directory et des [contrôles basés sur les rôles](../../role-based-access-control/overview.md) qu’il propose. Chaque abonnement Azure est associé à un répertoire Azure Active Directory (AD).
+La location Azure (abonnement Azure) fait référence à une relation « client/facturation » et à un [client](../../active-directory/develop/quickstart-create-new-tenant.md) unique dans [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). L’isolation au niveau du client dans Microsoft Azure est obtenue à l’aide d’Azure Active Directory et du [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) qu’il propose. Chaque abonnement Azure est associé à un répertoire Azure Active Directory (AD).
 
 Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les ressources de l’abonnement Azure. Vous pouvez affecter ces droits d’accès à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure. Un client Azure AD est logiquement isolé à l’aide de limites de sécurité afin qu’aucun client ne puisse accéder aux autres clients, ni leur nuire intentionnellement ou accidentellement. Azure AD s’exécute sur les serveurs de « systèmes nus » isolés sur un segment réseau séparé, où le filtrage de paquets au niveau de l’hôte et le pare-feu Windows bloquent le trafic et les connexions indésirables.
 
@@ -52,7 +52,7 @@ Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les r
 
 - L’accès physique aux serveurs qui composent le service Azure AD et l’accès direct aux systèmes de serveur principal AD sont limités.
 
-- Les utilisateurs d’Azure AD n’ont pas accès aux emplacements ou aux ressources physiques, et il leur est donc impossible de contourner les vérifications de stratégie RBAC logique stipulées ci-après.
+- Les utilisateurs d’Azure AD n’ont pas accès aux emplacements ou aux ressources physiques, et il leur est donc impossible de contourner les vérifications de stratégie Azure RBAC logique stipulées ci-après.
 
 Pour les diagnostics et les besoins de maintenance, un modèle opérationnel qui fait appel à un système d’élévation des privilèges immédiat est nécessaire et utilisé. Azure AD Privileged Identity Management (PIM) introduit le concept d’administrateur éligible. Les [administrateurs](../../active-directory/privileged-identity-management/pim-configure.md) éligibles doivent être des utilisateurs qui nécessitent un accès privilégié de temps à autres, mais pas tous les jours. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée.
 
@@ -80,7 +80,7 @@ Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base
 
 Les autres rôles Azure dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de contributeur de machine virtuelle permet à l’utilisateur de créer et gérer des machines virtuelles. Il ne lui donne pas accès au réseau virtuel Azure, ni au sous-réseau auquel la machine virtuelle se connecte.
 
-Les [rôles RBAC intégrés](../../role-based-access-control/built-in-roles.md) répertorient les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs. Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](../../role-based-access-control/custom-roles.md).
+Les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) répertorient les rôles disponibles dans Azure. Elle indique les opérations et l’étendue que chaque rôle intégré accorde aux utilisateurs. Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, découvrez comment créer [des rôles personnalisés dans RBAC Azure](../../role-based-access-control/custom-roles.md).
 
 Certaines autres fonctionnalités pour Azure Active Directory incluent :
 

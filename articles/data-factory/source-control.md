@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 523f28cdd32c5176160587a8531aa66c0621d5a7
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330671"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566705"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -29,7 +29,7 @@ Par défaut, l’interface utilisateur d’Azure Data Factory publie directement
 Pour améliorer l’expérience de création, Azure Data Factory permet de configurer un dépôt Git avec Azure Repos ou GitHub. Git est un système de contrôle de version qui facilite le suivi des modifications et la collaboration. Cet article explique comment configurer et utiliser un référentiel Git, met en évidence les meilleures pratiques et constitue un guide de résolution des problèmes.
 
 > [!NOTE]
-> L’intégration Git de fabrique de données Azure n’est pas disponible dans Microsoft Azure Government.
+> L’intégration Git d’Azure Data Factory n’est pas disponible dans le cloud Azure Government.
 
 Pour en savoir plus sur la façon dont Azure Data Factory s’intègre à git, consultez le didacticiel vidéo de 15 minutes ci-dessous :
 

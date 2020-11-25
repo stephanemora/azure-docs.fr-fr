@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093291"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701311"
 ---
 # <a name="list-blobs-with-net"></a>Lister les objets blob avec .NET
 
@@ -51,11 +51,7 @@ Les surcharges de ces méthodes fournissent des options supplémentaires pour g�
 
 ### <a name="manage-how-many-results-are-returned"></a>Gérez le nombre de résultats retournés
 
-Par défaut, une opération de liste renvoie jusqu’à 5 000 résultats à la fois, mais vous pouvez spécifier le nombre de résultats que chaque opération de liste doit renvoyer. Les exemples présentés dans cet article vous montrent comment procéder.
-
-Si une opération de liste retourne plus de 5 000 objets blob, ou si le nombre d’objets blob disponibles dépasse le nombre que vous avez spécifié, le stockage Azure retourne un *jeton de continuation* avec la liste d’objets blob. Un jeton de continuation est une valeur opaque que vous pouvez utiliser pour récupérer le jeu de résultats suivant à partir du stockage Azure.
-
-Dans votre code, vérifiez la valeur du jeton de continuation pour déterminer s’il s’agit d’une valeur Null. Lorsque le jeton de continuation a la valeur Null, l’ensemble de résultats est complété. Si le jeton de continuation n’a pas la valeur Null, appelez à nouveau l’opération de création de liste, en lui passant le jeton de continuation pour récupérer l’ensemble de résultats suivant, jusqu’à ce que le jeton de continuation ait la valeur Null.
+Par défaut, une opération de liste renvoie jusqu’à 5 000 résultats à la fois, mais vous pouvez spécifier le nombre de résultats que chaque opération de liste doit renvoyer. Les exemples présentés dans cet article vous montrent comment restituer les résultats en pages.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrez les résultats avec un préfixe
 
@@ -63,11 +59,15 @@ Pour filtrer la liste de blobs, spécifiez une chaîne pour le paramètre `prefi
 
 ### <a name="return-metadata"></a>Retourner les métadonnées
 
-Vous pouvez retourner des métadonnées d’objet blob avec les résultats. 
+Vous pouvez retourner des métadonnées d’objet blob avec les résultats.
 
 - Si vous utilisez le Kit de développement logiciel (SDK) .NET v12, spécifiez la valeur **Metadata** pour l’énumération [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits).
 
 - Si vous utilisez le Kit de développement logiciel (SDK) .NET v11, spécifiez la valeur **Metadata** pour l’énumération [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Le stockage Azure inclut des métadonnées avec chaque objet blob retourné. Vous n’avez donc pas besoin d’appeler l’une des méthodes **FetchAttributes** dans ce contexte pour récupérer les métadonnées des objets blob.
+
+### <a name="list-blob-versions-or-snapshots"></a>Répertorier les versions ou les instantanés de blobs
+
+Pour répertorier les versions ou les instantanés de blobs avec la bibliothèque de client .NET v12, spécifiez le paramètre [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) avec le champ **Version** ou **Instantané**. Les versions et les instantanés sont répertoriés du plus ancien au plus récent. Pour plus d’informations sur la liste des versions, consultez [Répertorier les versions de blobs](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Création d’une liste plate ou d’une liste hiérarchique
 
@@ -90,6 +90,10 @@ Si vous avez activé la fonctionnalité d’espace de noms hiérarchique sur vot
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Si une opération de liste retourne plus de 5 000 objets blob, ou si le nombre d’objets blob disponibles dépasse le nombre que vous avez spécifié, le stockage Azure retourne un *jeton de continuation* avec la liste d’objets blob. Un jeton de continuation est une valeur opaque que vous pouvez utiliser pour récupérer le jeu de résultats suivant à partir du stockage Azure.
+
+Dans votre code, vérifiez la valeur du jeton de continuation pour déterminer s’il s’agit d’une valeur Null. Lorsque le jeton de continuation a la valeur Null, l’ensemble de résultats est complété. Si le jeton de continuation n’a pas la valeur Null, appelez à nouveau l’opération de création de liste, en lui passant le jeton de continuation pour récupérer l’ensemble de résultats suivant, jusqu’à ce que le jeton de continuation ait la valeur Null.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

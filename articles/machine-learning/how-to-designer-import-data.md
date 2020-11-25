@@ -1,21 +1,21 @@
 ---
 title: Importer des données dans le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez comment importer des données dans le concepteur Azure Machine Learning depuis différentes sources de données.
+description: Découvrez comment importer des données dans le concepteur Azure Machine Learning à l’aide de jeux de données Azure Machine Learning et du module Importer des données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985609"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591986"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importer des données dans le concepteur Azure Machine Learning
 
@@ -53,6 +53,8 @@ Si les données de sortie du module sont dans un format tabulaire, vous devez ch
 ### <a name="use-a-dataset"></a>Utiliser un jeu de données
 
 Vos jeux de données inscrits se trouvent dans la palette de modules, sous **Jeux de données**. Pour utiliser un jeu de données, faites-le glisser et déposez-le sur le canevas du pipeline. Ensuite, connectez le port de sortie du jeu de données à d’autres modules du canevas. 
+
+Si vous inscrivez un jeu de données de fichiers, le type de port de sortie du jeu de données est **AnyDirectory**. Si vous inscrivez un jeu de données tabulaire, le type de port de sortie du jeu de données est **DataFrameDirectory**. Notez que si vous connectez le port de sortie du jeu de données à d’autres modules dans le concepteur, le type de port des jeux de données et des modules doit être aligné.
 
 ![Capture d’écran montrant l’emplacement des jeux de données enregistrés dans la palette du concepteur](media/how-to-designer-import-data/use-datasets-designer.png)
 

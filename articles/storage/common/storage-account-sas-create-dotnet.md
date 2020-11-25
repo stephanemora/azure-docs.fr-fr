@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091676"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593601"
 ---
 # <a name="create-an-account-sas-with-net"></a>Créer une SAP de compte avec .NET
 
@@ -25,6 +25,14 @@ ms.locfileid: "92091676"
 Cet article explique comment utiliser la clé du compte de stockage pour créer une SAP de compte avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Créer une SAP de compte
+
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Une SAP de compte est signée avec la clé d’accès au compte. Utilisez la classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) afin de créer les informations d’identification utilisées pour signer le jeton SAS. Créez ensuite un objet [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) et appelez [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) pour obtenir la chaîne de jeton SAP.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 Pour créer une SAP de compte pour un conteneur, appelez la méthode [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature).
 
@@ -52,9 +60,21 @@ static string GetAccountSASToken()
 }
 ```
 
+---
+
 ## <a name="use-an-account-sas-from-a-client"></a>Utilisation d’une SAP de compte à partir d’un client
 
-Afin utiliser la SAP de compte pour accéder aux API au niveau du service pour le service BLOB, construisez un client de service d’objet blob à l’aide de la SAP et du point de terminaison de stockage d’objets blob de votre compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+Afin utiliser la SAP de compte pour accéder aux API au niveau du service pour le service BLOB, construisez un client de service d’objet blob à l’aide de la SAP et du point de terminaison de stockage d’objets blob de votre compte de stockage.
+
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Dans cet extrait de code, remplacez l’espace réservé `<storage-account>` par le nom de votre compte de stockage.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -95,6 +115,8 @@ static void UseAccountSAS(string sasToken)
     Console.WriteLine(serviceProperties.HourMetrics.Version);
 }
 ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091353"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686274"
 ---
 # <a name="encrypt-deployment-data"></a>Chiffrer les données de déploiement
 
@@ -59,7 +59,7 @@ Si vous n’êtes pas en mesure de créer correctement le principal de service 
 
 ### <a name="create-a-key-vault-resource"></a>Créez une ressource Key Vault
 
-Créez un coffre de clés Azure Key Vault à l’aide du [Portail Azure](../key-vault/secrets/quick-create-portal.md#create-a-vault), de l’[interface CLI](../key-vault/secrets/quick-create-cli.md) ou de [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Créez un coffre de clés Azure à l’aide du [portail Azure](../key-vault/general/quick-create-portal.md), d’[Azure CLI](../key-vault/general/quick-create-cli.md) ou d’[Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Pour les propriétés de votre coffre de clés, respectez les recommandations suivantes : 
 * Nom : un nom unique est obligatoire. 
@@ -84,7 +84,7 @@ Créez une nouvelle stratégie d’accès pour autoriser le service ACI à accé
 * Une fois votre clé générée, revenez dans le panneau de vos ressources du coffre de clés et, sous Paramètres, cliquez sur **Stratégies d’accès**.
 * Dans la page « Stratégies d’accès » de votre coffre de clés, cliquez sur **Ajouter une stratégie d’accès**.
 * Définissez les *Autorisations de clé* pour inclure **Get** et **Unwrap Key** ![Définir des autorisations de clé](./media/container-instances-encrypt-data/set-key-permissions.png)
-* Pour *Sélectionner un principal* , sélectionnez **Service Azure Container Instances**
+* Pour *Sélectionner un principal*, sélectionnez **Service Azure Container Instances**
 * En bas, cliquez sur **Ajouter**. 
 
 La stratégie d’accès doit maintenant apparaître dans les stratégies d’accès de votre coffre de clés.

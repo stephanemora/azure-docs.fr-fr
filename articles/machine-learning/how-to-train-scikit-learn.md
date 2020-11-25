@@ -1,7 +1,7 @@
 ---
 title: Entraîner des modèles Machine Learning scikit-learn
 titleSuffix: Azure Machine Learning
-description: Découvrez comment exécuter vos scripts de formation scikit-learn sur Azure Machine Learning.
+description: Découvrez la façon dont Azure Machine Learning vous permet d’effectuer un scale-out d’un travail de formation scikit-learn à l’aide de ressources de calcul de cloud élastique.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4758e937a0ed105bf136acf7e78f2d44c84e74fb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360902"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536052"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Former des modèles scikit-learn à l’échelle avec Azure Machine Learning
 
@@ -144,9 +144,9 @@ Quand l’exécution est lancée, elle passe par les phases suivantes :
 
 - **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui stocke cet environnement organisé est utilisée.
 
-- **Mise à l’échelle**  : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
+- **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
-- **En cours d’exécution**  : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
+- **En cours d’exécution** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
 
 - **Post-traitement** : le dossier **./outputs** de l’exécution est copié dans l’historique des exécutions.
 

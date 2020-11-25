@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737085"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565923"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Sauvegarder automatiquement des magasins App Configuration
 
@@ -37,14 +37,17 @@ La motivation derrière la sauvegarde des magasins App Configuration est d’uti
 
 Dans ce didacticiel, vous allez créer un magasin secondaire dans la région `centralus` et toutes les autres ressources dans la région `westus`.
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Abonnement Azure. [Créez-en un gratuitement](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Prérequis 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) avec la charge de travail Développement Azure.
-- [SDK .NET Core](https://dotnet.microsoft.com/download).
-- Version la plus récente d’Azure CLI (2.3.1 ou version ultérieure). Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous utilisez l’interface de ligne de commande Azure, vous devez d’abord vous connecter à l’aide de `az login`. Vous pouvez également utiliser Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [SDK .NET Core](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Cet tutoriel nécessite la version 2.3.1 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -213,7 +216,7 @@ Pour vérifier que tout fonctionne, vous pouvez créer, mettre à jour ou suppri
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Vous avez déclenché l’événement. Dans quelques instants, Event Grid enverra la notification d’événement à votre file d’attente. *Après la prochaine exécution planifiée de votre fonction* , affichez les paramètres de configuration dans votre magasin secondaire pour voir s’il contient la paire clé-valeur mise à jour du magasin principal.
+Vous avez déclenché l’événement. Dans quelques instants, Event Grid enverra la notification d’événement à votre file d’attente. *Après la prochaine exécution planifiée de votre fonction*, affichez les paramètres de configuration dans votre magasin secondaire pour voir s’il contient la paire clé-valeur mise à jour du magasin principal.
 
 > [!NOTE]
 > Vous pouvez [déclencher votre fonction manuellement](../azure-functions/functions-manually-run-non-http.md) pendant le test et la résolution des problèmes sans attendre le déclenchement du minuteur planifié.

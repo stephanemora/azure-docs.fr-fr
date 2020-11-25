@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701131"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Créer un index de recherche de base dans Recherche cognitive Azure
 
@@ -59,7 +59,7 @@ L’élaboration d’un index final est un processus itératif. Il est courant d
 
    ![Ajouter une page d’index avec les attributs par type de données](media/search-what-is-an-index//field-definitions.png "Ajouter une page d’index avec les attributs par type de données")
 
-1. Téléchargez le schéma d’index à l’aide de [Get Index (REST API)](/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-postman.md). Vous disposez maintenant d’une représentation JSON de l’index que vous pouvez adapter pour le code.
+1. Téléchargez le schéma d’index à l’aide de [Get Index (REST API)](/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-rest.md). Vous disposez maintenant d’une représentation JSON de l’index que vous pouvez adapter pour le code.
 
 1. [Chargez votre index avec des données](search-what-is-data-import.md). La Recherche cognitive Azure accepte les documents JSON. Pour charger vos données par programmation, vous pouvez utiliser Postman avec des documents JSON dans la charge utile de demande. S’il n’est pas facilement d’exprimer vos données au format JSON, cette étape sera la plus fastidieuse. 
 
@@ -70,7 +70,7 @@ L’élaboration d’un index final est un processus itératif. Il est courant d
 Pendant le développement, prévoyez des régénérations fréquentes. Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) pour la plupart des modifications apportées à une définition de champ existante. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
 > [!Tip]
-> Il est préférable d’utiliser du code plutôt que le portail pour travailler simultanément sur la conception de l’index et l’importation des données. Sinon, les outils tels que [Postman et l’API REST](search-get-started-postman.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
+> Il est préférable d’utiliser du code plutôt que le portail pour travailler simultanément sur la conception de l’index et l’importation des données. Sinon, les outils tels que [Postman et Visual Studio Code](search-get-started-rest.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
 ## <a name="index-schema"></a>Schéma d’index
 

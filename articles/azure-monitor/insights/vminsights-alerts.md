@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254803"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686175"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Comment créer des alertes à partir d’Azure Monitor pour machines virtuelles
 [Les alertes dans Azure Monitor](../platform/alerts-overview.md) vous informent de façon proactive des données et des modèles intéressants dans vos données de surveillance. Azure Monitor pour machines virtuelles n’inclut pas de règles d’alerte préconfigurées, mais vous pouvez créer vos propres règles en fonction des données collectées. Cet article fournit des conseils sur la création de règles d’alerte, y compris un ensemble d’exemples de requêtes.
+
+> [!IMPORTANT]
+> Les alertes décrites dans cet article sont basées sur des requêtes de journal à partir de données collectées par Azure Monitor pour machines virtuelles. Cela diffère des alertes créées par [Intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-overview.md), qui est une fonctionnalité actuellement en préversion publique. À mesure que cette fonctionnalité se rapproche de la disponibilité générale, des conseils sur les alertes seront consolidés.
 
 
 ## <a name="alert-rule-types"></a>Types de règles d’alerte

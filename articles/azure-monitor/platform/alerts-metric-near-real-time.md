@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108811"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566484"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -26,7 +26,7 @@ Vous pouvez également utiliser des alertes de métriques plus récentes sur des
 ## <a name="metrics-and-dimensions-supported"></a>Métriques et dimensions prises en charge
 Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Tous les métriques pris en charge, ainsi que les dimensions applicables, peuvent être examinés et visualisés à partir [d’Azure Monitor - Metrics Explorer](./metrics-charts.md).
 
-Voici la liste complète des sources de métrique d’Azure Monitor prises en charge par les alertes plus récentes :
+Voici la liste complète des sources de métrique d’Azure Monitor prises en charge par les alertes plus récentes :
 
 |Type de ressource  |Dimensions prises en charge |Alertes à plusieurs ressources| Mesures disponibles|
 |---------|---------|-----|----------|

@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028125"
 ---
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -45,7 +45,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 Une définition d’image est un regroupement logique des versions d’une image. La définition d’image contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et d’autres informations sur l’utilisation de l’image. Une définition d’image est similaire à un plan, qui inclut l’ensemble des détails concernant la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition d’image, mais à partir des versions de l’image créées sur la base de la définition.
 
-Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher** , **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
+Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher**, **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
 |Définition de l’image|Serveur de publication|Offre|Sku|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 - Étiquette : vous pouvez ajouter des étiquettes lorsque vous créez votre définition d’image. Pour en savoir plus sur les étiquettes, voir [Organisation des ressources Azure à l’aide d’étiquettes](../articles/azure-resource-manager/management/tag-resources.md).
 - Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 - Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
-- Informations sur le plan d’achat d’images de la Place de marché - `-PurchasePlanPublisher`, `-PurchasePlanName` et `-PurchasePlanProduct`. Pour en savoir plus sur les informations relatives au plan d’achat, consultez [Trouver des images dans la Place de marché Azure](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) et [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](../articles/virtual-machines/marketplace-images.md).
+- Informations sur le plan d’achat d’images de la Place de marché - `-PurchasePlanPublisher`, `-PurchasePlanName` et `-PurchasePlanProduct`. Pour en savoir plus sur les informations relatives au plan d’achat, consultez [Trouver des images dans la Place de marché Azure](../articles/virtual-machines/windows/cli-ps-findimage.md) et [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](../articles/virtual-machines/marketplace-images.md).
 
 
 ## <a name="image-versions"></a>Versions d’images
@@ -110,7 +110,7 @@ Certaines limites par abonnement ont été définies pour le déploiement de res
 - 10 réplicas de version d’image par abonnement et par région
 - Tout disque attaché à l’image doit avoir une taille inférieure ou égale à 1 To
 
-Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier l’utilisation des ressources par rapport aux limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits), qui indiquent comment vérifier l’utilisation actuelle.
+Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier l’utilisation des ressources par rapport aux limites](../articles/networking/check-usage-against-limits.md), qui indiquent comment vérifier l’utilisation actuelle.
  
 ## <a name="scaling"></a>Mise à l'échelle
 La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
@@ -128,7 +128,7 @@ De plus, nous recommandons toujours de surapprovisionner le nombre de réplicas,
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) fournit une résilience élevée contre une défaillance de la Zone de disponibilité dans la région. Avec la disponibilité générale de la galerie d’images partagées, vous pouvez choisir de stocker vos images dans les comptes ZRS au sein de régions avec des Zones de disponibilité. 
 
-Vous pouvez également choisir le type de compte de chaque région cible. Le type de compte de stockage par défaut est Standard_LRS, mais vous pouvez choisir Standard_ZRS pour les régions avec des Zones de disponibilité. Vérifiez la disponibilité régionale de ZRS [ici](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+Vous pouvez également choisir le type de compte de chaque région cible. Le type de compte de stockage par défaut est Standard_LRS, mais vous pouvez choisir Standard_ZRS pour les régions avec des Zones de disponibilité. Vérifiez la disponibilité régionale de ZRS [ici](../articles/storage/common/storage-redundancy.md).
 
 ![Graphique affiche ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -183,11 +183,11 @@ Version d’image :
 
 Les SDK suivants prennent en charge la création de galeries d’images partagées :
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.JS](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](/azure/go/)
 
 ## <a name="templates"></a>Modèles
 
@@ -244,8 +244,8 @@ Oui. Il existe 3 scénarios basés sur les types d’images.
 
  Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger sur une image managée pour pouvoir ensuite créer une définition et une version de cette image.
 
-- Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
@@ -310,4 +310,4 @@ Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiq
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?
 
-Oui, vous pouvez mettre à jour la référence d’image de groupe identique à partir d’une image managée vers une image de galerie d’images partagées, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images. 
+Oui, vous pouvez mettre à jour la référence d’image de groupe identique à partir d’une image managée vers une image de galerie d’images partagées, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images.

@@ -1,7 +1,7 @@
 ---
-title: Créer une instance Moniteur de connexion (préversion) – Portail Azure
+title: Créer une instance Moniteur de connexion – Portail Azure
 titleSuffix: Azure Network Watcher
-description: Cet article explique comment créer une analyse dans la préversion du Moniteur de connexion à l’aide du portail Azure.
+description: Cet article explique comment créer un moniteur dans Moniteur de connexion à l’aide du portail Azure.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 97d20f2b6b7b355ea5c810ad46b084f42b9bd6d1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447452"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699370"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Créer une analyse dans la préversion du Moniteur de connexion à l’aide du portail Azure
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Créer un moniteur dans Moniteur de connexion à l’aide du portail Azure
 
-Découvrez comment utiliser la préversion du Moniteur de connexion pour surveiller la communication entre vos ressources. Cet article explique comment créer une analyse à l’aide du portail Azure. Le Moniteur de connexion prend en charge les déploiements cloud hybrides et Azure.
+Découvrez comment utiliser Moniteur de connexion pour surveiller la communication entre vos ressources. Cet article explique comment créer une analyse à l’aide du portail Azure. Le Moniteur de connexion prend en charge les déploiements cloud hybrides et Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
-Dans les moniteurs de connexion que vous créez à l’aide de la préversion du Moniteur de connexion, vous pouvez aussi bien ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
+Dans les moniteurs de connexion que vous créez à l’aide de Moniteur de connexion, vous pouvez ajouter des machines locales et des machines virtuelles Azure en tant que sources. Ces moniteurs de connexion peuvent également surveiller la connectivité aux points de terminaison. Les points de terminaison peuvent se trouver sur Azure ou sur toute autre URL ou adresse IP.
 
 Voici quelques définitions pour démarrer :
 
@@ -47,24 +47,24 @@ Voici quelques définitions pour démarrer :
 
 ## <a name="create-a-connection-monitor"></a>Créer un moniteur de connexion
 
-Pour créer une analyse dans la préversion du Moniteur de connexion à l’aide du portail Azure :
+Pour créer un moniteur dans Moniteur de connexion à l’aide du portail Azure :
 
 1. Sur la page d'accueil du portail Azure, accédez à **Network Watcher**.
-1. Dans le volet gauche, dans la section **Surveillance** , sélectionnez **Moniteur de connexion (préversion)** .
+1. Dans le volet gauche, dans la section **Surveillance**, sélectionnez **Moniteur de connexion**.
 
-   Tous les moniteurs de connexion créés dans la préversion du Moniteur de connexion sont répertoriés. Pour afficher les moniteurs de connexion créés dans le Moniteur de connexion classique, accédez à l’onglet **Moniteur de connexion**.
+   Tous les moniteurs de connexion créés dans Moniteur de connexion sont répertoriés. Pour afficher les moniteurs de connexion créés dans le Moniteur de connexion classique, accédez à l’onglet **Moniteur de connexion**.
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Capture d’écran montrant des moniteurs de connexion créés dans la prévision du Moniteur de connexion.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Capture d’écran montrant des moniteurs de connexion créés dans Moniteur de connexion.":::
    
     
-1. En haut à gauche du tableau de bord **Moniteur de connexion (préversion)** , sélectionnez **Créer**.
+1. En haut à gauche du tableau de bord **Moniteur de connexion**, sélectionnez **Créer**.
 
    
 
-1. Sous l'onglet **Informations de base** , entrez les informations relatives à votre moniteur de connexion : 
+1. Sous l'onglet **Informations de base**, entrez les informations relatives à votre moniteur de connexion : 
    * **Nom du moniteur de connexion** : Entrez un nom pour votre moniteur de connexion. Appliquez les règles de nommage standard des ressources Azure.
-   * **Abonnement** : Sélectionnez un abonnement pour votre moniteur de connexion.
-   * **Région**  : Sélectionnez une région pour votre moniteur de connexion. Vous ne pouvez sélectionner que les machines virtuelles sources créées dans cette région.
+   * **Abonnement**: Sélectionnez un abonnement pour votre moniteur de connexion.
+   * **Région** : Sélectionnez une région pour votre moniteur de connexion. Vous ne pouvez sélectionner que les machines virtuelles sources créées dans cette région.
    * **Configuration de l’espace de travail** : Choisissez un espace de travail personnalisé ou l’espace de travail par défaut. Votre espace de travail contient vos données de surveillance.
        * Pour utiliser l'espace de travail par défaut, cochez la case. 
        * Pour choisir un espace de travail personnalisé, décochez la case. Sélectionnez ensuite l’abonnement et la région de votre espace de travail personnalisé. 
@@ -83,16 +83,16 @@ Pour créer une analyse dans la préversion du Moniteur de connexion à l’aide
 
 1. En bas de l'onglet, sélectionnez **Suivant : Vérifier + créer**.
 
-1. Sous l'onglet **Examiner + créer** , passez en revue les informations de base et les groupes de tests avant de créer le moniteur de connexion. Si vous devez modifier le moniteur de connexion, vous pouvez le faire en revenant aux onglets correspondants. 
+1. Sous l'onglet **Examiner + créer**, passez en revue les informations de base et les groupes de tests avant de créer le moniteur de connexion. Si vous devez modifier le moniteur de connexion, vous pouvez le faire en revenant aux onglets correspondants. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Capture d’écran montrant l’onglet Vérifier + créer dans Moniteur de connexion.":::
    > [!NOTE] 
-   > L’onglet **Vérifier + créer** indique le coût mensuel pendant la phase de préversion du Moniteur de connexion. Actuellement, rien n’apparaît dans la colonne **Coût actuel/mois**. Lorsque le Moniteur de connexion sera mis à la disposition générale, cette colonne affichera les frais mensuels. 
+   > L’onglet **Vérifier + créer** indique le coût mensuel pendant la phase Moniteur de connexion. Actuellement, rien n’apparaît dans la colonne **Coût actuel/mois**. Lorsque le Moniteur de connexion sera mis à la disposition générale, cette colonne affichera les frais mensuels. 
    > 
-   > En revanche, des frais d’ingestion de Log Analytics s’appliquent pendant la phase de préversion du Moniteur de connexion.
+   > En revanche, des frais d’ingestion de Log Analytics s’appliquent pendant la phase Moniteur de connexion.
 
 1. Lorsque vous êtes prêt à créer le moniteur de connexion, sélectionnez **Créer** en bas de l'onglet **Examiner + créer**.
 
-La préversion du Moniteur de connexion crée la ressource de moniteur de connexion en arrière-plan.
+Moniteur de connexion crée la ressource de moniteur de connexion en arrière-plan.
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a>Créer des groupes de tests dans un moniteur de connexion
 
@@ -119,7 +119,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
    
        Si nécessaire, procurez-vous Network Performance Monitor à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
    
-       Sous **Créer un moniteur de connexion** , dans l’onglet **Informations de base** , la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau** , vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé. Vous pouvez également modifier le sélecteur **Grouper par** pour regrouper par agents.
+       Sous **Créer un moniteur de connexion**, dans l’onglet **Informations de base**, la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé. Vous pouvez également modifier le sélecteur **Grouper par** pour regrouper par agents.
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-sources.png" alt-text="Capture d’écran montrant le volet Ajouter des sources et l’onglet Points de terminaison non Azure dans Moniteur de connexion.":::
 
@@ -142,7 +142,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
     
       Si nécessaire, procurez-vous Network Performance Monitor à partir de la Place de marché Azure pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
 
-      Sous  **Créer un moniteur de connexion** , dans l’onglet  **Informations de base** , la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau** , vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé.  
+      Sous  **Créer un moniteur de connexion**, dans l’onglet  **Informations de base** , la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé.  
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-dest.png" alt-text="Capture d’écran montrant le volet Ajouter des destinations et l’onglet Points de terminaison non Azure.":::
     
@@ -158,7 +158,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
 * **Configurations de test** : Vous pouvez ajouter une ou plusieurs configurations de test à un groupe de tests. Créez une nouvelle configuration de test à l’aide de l’onglet **Nouvelle configuration**. Vous pouvez également ajouter une configuration de test à partir d’un autre groupe de tests dans le même moniteur de connexion dans l’onglet **Choisir une existante**.
 
     * **Nom de la configuration de test** : Donnez un nom à la configuration de test.
-    * **Protocole** : Sélectionnez **TCP** , **ICMP** ou **HTTP**. Pour remplacer HTTP par HTTPS, sélectionnez le protocole **HTTP** puis le port **443**.
+    * **Protocole** : Sélectionnez **TCP**, **ICMP** ou **HTTP**. Pour remplacer HTTP par HTTPS, sélectionnez le protocole **HTTP** puis le port **443**.
         * **Créer une configuration de test TCP** : Cette case à cocher n’apparaît que si vous sélectionnez **HTTP** dans la liste **Protocole**. Cochez cette case pour créer une autre configuration de test utilisant les mêmes sources et destinations que celles que vous avez spécifiées ailleurs dans votre configuration. La nouvelle configuration de test est nommée **\<name of test configuration>_networkTestConfig**.
         * **Désactiver traceroute** : Cette case à cocher s’applique lorsque le protocole est TCP ou ICMP. Cochez cette case pour empêcher les sources de découvrir la topologie et la durée des boucles tronçon par tronçon.
     * **Port de destination** : Vous pouvez spécifier le port de destination de votre choix.
@@ -184,7 +184,7 @@ Dans le portail Azure, pour créer des alertes pour un moniteur de connexion, vo
 
 - **Nom du groupe d’actions** : Vous pouvez entrer votre adresse e-mail directement ou vous pouvez créer des alertes via des groupes d’actions. Si vous entrez votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé. L’ID d’e-mail est ajouté à ce groupe d’actions. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour en savoir plus sur la création d’un groupe d’actions, consultez [Créer des groupes d’actions dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Une fois l’alerte créée, vous pouvez [gérer vos alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
 
-- **Nom de la règle d’alerte**  : Nom du moniteur de connexion.
+- **Nom de la règle d’alerte** : Nom du moniteur de connexion.
 
 - **Activer la règle lors de sa création** : Cochez cette case pour activer la règle d’alerte en fonction de la condition. Décochez cette case si vous souhaitez créer la règle sans l’activer. 
 

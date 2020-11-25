@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542272"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697983"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -71,18 +71,7 @@ Oui, vous pouvez gérer le service Gestion des API par programme en utilisant :
 * Les applets de commande PowerShell de [déploiement du service](/powershell/module/wds) et de [gestion du service](/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Comment ajouter un utilisateur au groupe d’administrateurs ?
-Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
-3. Dans Gestion des API, attribuez le rôle **Contributeur de services de gestion d’API** à l’utilisateur.
-
-Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](/powershell/azure/) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
-
-1. Utilisez l’applet de commande `Connect-AzAccount` pour vous connecter.
-2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Obtenez une URL d’authentification unique à l’aide de `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Utilisez l’URL pour accéder au portail d’administration.
+Les groupes d’administrateurs sont un groupe système immuable. Les administrateurs d’abonnements Azure sont membres de ce groupe. Vous ne pouvez pas ajouter d’utilisateur à ce groupe. Pour plus d’informations, consultez [Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure](./api-management-howto-create-groups.md).
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?
 Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](./api-management-policies.md).

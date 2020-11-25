@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129590"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628286"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Comment planifier une offre de machine virtuelle
 
@@ -47,7 +47,7 @@ Les exigences techniques des offres de machines virtuelles sont les suivantes :
 
 Une machine virtuelle contient deux composants :
 
-- **Disque dur virtuel de système d’exploitation**  : contient le système d’exploitation et la solution déployée avec votre offre. Le processus de préparation du disque dur virtuel est différent en fonction du type de machine virtuelle (Linux, Windows ou personnalisée).
+- **Disque dur virtuel de système d’exploitation** : contient le système d’exploitation et la solution déployée avec votre offre. Le processus de préparation du disque dur virtuel est différent en fonction du type de machine virtuelle (Linux, Windows ou personnalisée).
 - **Disques durs virtuels de données** (facultatifs) : stockage persistant dédié à une machine virtuelle. N’utilisez pas le disque dur virtuel du système d’exploitation (par exemple le lecteur C:) pour stocker des informations persistantes. 
     - Vous pouvez inclure jusqu’à 16 disques de données.
     - Utilisez un disque dur virtuel par disque de données, même si le disque est vide.
@@ -59,7 +59,7 @@ Pour obtenir des instructions détaillées sur la préparation de vos ressources
 
 ## <a name="preview-audience"></a>Public de préversion
 
-Un public de préversion peut accéder à votre offre de machine virtuelle avant sa publication sur la Place de marché Azure, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion** , vous pouvez définir un public de préversion limité. 
+Un public de préversion peut accéder à votre offre de machine virtuelle avant sa publication sur la Place de marché Azure, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion**, vous pouvez définir un public de préversion limité. 
 
 > [!NOTE]
 > Le public d’une préversion diffère de celui d’un plan privé. Un plan privé est un plan que vous mettez à la disposition d’un public spécifique que vous choisissez. Cela vous permet de négocier un plan personnalisé avec des clients spécifiques. Pour plus d’informations, consultez la section suivante : Plans.
@@ -100,7 +100,7 @@ L’exemple suivant montre une offre de machine virtuelle de la Place de marché
 
 Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme de plan privé. Les plans privés vous permettent de créer des offres exclusives pour vos clients les plus fidèles, ainsi que de proposer des conditions et logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les plans privés vous permettent d’offrir des tarifs ou produits spécifiques à un ensemble limité de clients.
 
-Pour plus d’informations, consultez [Plans et tarification pour les offres de la Place de marché commerciale](plans-pricing.md) et [Offres privées sur la Place de marché Azure](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Pour plus d’informations, consultez [Plans et tarification pour les offres du marketplace commercial](plans-pricing.md) et [Offres privées sur le marketplace commercial de Microsoft](private-offers.md).
 
 ## <a name="test-drives"></a>Versions d’évaluation
 

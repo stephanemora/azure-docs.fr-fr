@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 07/21/2020
-ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f0f352e2c803eb1f0638f2f517b97a931ebcc889
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87087779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996931"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 
@@ -62,7 +62,7 @@ Avant de créer votre première instance Database Migration Service, vous devez 
 
         Le réseau virtuel fournit à Azure Database Migration Service un accès à la base de données source et à l’environnement cible.
 
-        Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/vnet).
+        Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
 
     - Sélectionnez De base : 1 vCore pour le **Niveau tarifaire**.
 

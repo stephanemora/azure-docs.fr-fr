@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318592"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592428"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -23,14 +23,15 @@ Dans cet article, vous allez découvrir l’ensemble complet des magasins de don
 
 Le tableau ci-dessous détaille les sources de données prises en charge pour Azure Data Share. 
 
-| Banque de données | Partage basé sur une capture instantanée | Partage en place 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Stockage Blob Azure |✓ | |
-| Azure Data Lake Storage Gen1 |✓ | |
-| Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |✓ | |
-| Azure Synapse Analytics (anciennement Azure SQL DW) |✓ | |
-| Explorateur de données Azure | |✓ |
+| Banque de données | Partage basé sur un instantané (instantané complet) | Partage basé sur un instantané (instantané incrémentiel) | Partage en place 
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Stockage Blob Azure |✓ |✓ | |
+| Azure Data Lake Storage Gen1 |✓ |✓ | |
+| Azure Data Lake Storage Gen2 |✓ |✓ ||
+| Azure SQL Database |✓ | | |
+| Azure Synapse Analytics (anciennement Azure SQL DW) |✓ | | |
+| Pool SQL Azure Synapse Analytics (espace de travail) | Version préliminaire publique | | |
+| Explorateur de données Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice de prise en charge des magasins de données
 
@@ -38,14 +39,15 @@ Azure Data Share offre une flexibilité aux consommateurs de données lorsqu’i
 
 Le tableau ci-dessous détaille les différentes combinaisons et choix à la disposition des consommateurs de données, lors de l’acceptation et de la configuration de leur partage de données. Pour plus d’informations sur la configuration des mappages de jeu de données, consultez le [Guide pratique pour configurer les mappages de jeu de données](how-to-configure-mapping.md).
 
-| Banque de données | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Explorateur de données Azure
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Stockage Blob Azure | ✓ || ✓ ||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
-| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
-| Explorateur de données Azure |||||| ✓ |
+| Banque de données | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anciennement Azure SQL DW) | Pool SQL Azure Synapse Analytics (espace de travail) | Explorateur de données Azure
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
+| Stockage Blob Azure | ✓ || ✓ |||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Pool SQL Azure Synapse Analytics (espace de travail) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Explorateur de données Azure ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
 Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. L’instantané incrémentiel est basé sur l’heure de la dernière modification des fichiers. Les fichiers existants portant le même nom seront remplacés.
@@ -53,10 +55,10 @@ Azure Data Share prend en charge le partage de fichiers, dossiers et de système
 Pour plus d’informations, consultez [Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage](how-to-share-from-storage.md).
 
 ## <a name="share-from-a-sql-based-source"></a>Partager à partir d’une source SQL
-Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Les consommateurs de données peuvent choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure sous la forme d’un fichier csv ou parquet, et sous la forme de tables dans Azure SQL Database ou Azure Synapse Analytics.
+Azure Data Share prend en charge le partage des tables et des vues d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW) et le partage des tables du pool SQL dédié Azure Synapse Analytics (espace de travail). Le partage à partir d’un pool SQL serverless Azure Synapse Analytics (espace de travail) n’est pas pris en charge actuellement. Les consommateurs de données peuvent choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure en tant que fichier csv ou parquet, ainsi que dans Azure SQL Database et Azure Synapse Analytics en tant que tables.
 
-Lors de l’acceptation des données dans Azure Data Lake Store Gen2 ou Stockage Blob Azure, des captures instantanées complètes remplacent le contenu du fichier cible s’il existe déjà.
-Lorsque les données sont reçues dans une table, et si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe déjà une table cible du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge.
+Lors de l’acceptation de données dans Azure Data Lake Store Gen 2 ou Stockage Blob Azure, des captures instantanées complètes remplacent le contenu du fichier cible s’il existe déjà.
+Lors de la réception de données dans une table, si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe une table cible du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge.
 
 Pour plus d’informations, consultez [Partager et recevoir des données à partir d’Azure SQL Database et d’Azure Synapse Analytics](how-to-share-from-sql.md).
 

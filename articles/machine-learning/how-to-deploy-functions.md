@@ -1,7 +1,7 @@
 ---
 title: Déployer des modèles ML sur Azure Functions Apps (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser Azure Machine Learning pour déployer un modèle sur une application de fonction Azure.
+description: Découvrez comment utiliser Azure Machine Learning pour empaqueter et déployer un modèle en tant que service web dans une application Azure Functions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324591"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630343"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 
@@ -58,7 +58,7 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
 
 Pour plus d’informations sur le script d’entrée, consultez [Définir le code de scoring](./how-to-deploy-and-where.md#define-an-entry-script).
 
-* **Dépendances** , comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
+* **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
 Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
@@ -144,7 +144,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     }
     ```
 
-    Enregistrez le nom d’utilisateur ( __username__ ), ainsi que l’un des mots de passe ( __passwords__ ).
+    Enregistrez le nom d’utilisateur (__username__), ainsi que l’un des mots de passe (__passwords__).
 
 1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, les commandes suivantes montrent comment créer ces deux éléments :
 

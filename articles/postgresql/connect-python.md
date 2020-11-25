@@ -9,11 +9,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
 ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998938"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser Python afin de se connecter à Azure Database pour PostgreSQL et d’interroger les données – Serveur unique
 
@@ -45,7 +45,7 @@ Voici les prérequis pour ce guide de démarrage rapide :
 La connexion d’une base de données Azure Database pour PostgreSQL nécessite un nom de serveur complet et des informations d’identification de connexion. Vous pouvez vous procurer ces informations à partir du portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), cherchez et sélectionnez le nom de votre serveur Azure Database pour PostgreSQL.
-1. Sur la page **Vue d’ensemble** du serveur, copiez le **nom du serveur** complet et le **nom d’utilisateur administrateur**. Le **nom de serveur complet** a toujours la forme *\<my-server-name>.postgres.database.azure.com* , et le **nom d’utilisateur administrateur** a toujours la forme *\<my-admin-username>@\<my-server-name>* .
+1. Sur la page **Vue d’ensemble** du serveur, copiez le **nom du serveur** complet et le **nom d’utilisateur administrateur**. Le **nom de serveur complet** a toujours la forme *\<my-server-name>.postgres.database.azure.com*, et le **nom d’utilisateur administrateur** a toujours la forme *\<my-admin-username>@\<my-server-name>* .
 
    Vous avez aussi besoin de votre mot de passe d’administrateur. Si vous l’avez oublié, vous pouvez le réinitialiser à partir de cette page.
 

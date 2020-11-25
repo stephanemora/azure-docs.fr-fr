@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992974"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660778"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importer le renseignement sur les menaces dans Azure Sentinel
 
@@ -44,7 +44,7 @@ Comme toutes les autres données d’événement dans Azure Sentinel, les indica
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Ajout d’indicateurs de menace à Azure Sentinel avec le connecteur de données Plateformes Threat Intelligence
 
-De nombreuses organisations utilisent des solutions de plateforme Threat Intelligence (TIP) pour agréger les flux d’indicateurs de menace provenant de diverses sources, organiser les données au sein de la plateforme, puis choisir les indicateurs de menace à appliquer à différentes solutions de sécurité, comme les appareils réseau, les solutions de protection avancée contre les menaces ou les solutions SIEM comme Azure Sentinel. Si votre organisation utilise une solution de plateforme Threat Intelligence (TIP) intégrée, comme MISP, Anomali ThreatStream, ThreatConnect ou MineMeld de Palo Alto Networks, le **connecteur de données Plateformes Threat Intelligence** vous permet d’utiliser votre plateforme Threat Intelligence pour importer des indicateurs de menace dans Azure Sentinel. Étant donné que le connecteur fonctionne avec l’[API Microsoft Graph Security tiIndicators](https://docs.microsoft.com/graph/api/resources/tiindicator) pour effectuer cette opération, le connecteur peut également être utilisé par n’importe quelle plateforme de renseignement sur les menaces personnalisée afin de tirer parti de l’API tiIndicators pour envoyer des indicateurs à Azure Sentinel (et à d’autres solutions de sécurité Microsoft comme Defender ATP).
+De nombreuses organisations utilisent des solutions de plateforme Threat Intelligence (TIP) pour agréger les flux d’indicateurs de menace provenant de diverses sources, organiser les données au sein de la plateforme, puis choisir les indicateurs de menace à appliquer à différentes solutions de sécurité, comme les appareils réseau, les solutions de protection avancée contre les menaces ou les solutions SIEM comme Azure Sentinel. Si votre organisation utilise une solution TIP intégrée, comme MISP, Anomali ThreatStream, ThreatConnect, EclecticIQ Platform, la plateforme de renseignement sur les menaces ThreatQ ou MineMeld de Palo Alto Networks, le **connecteur de données Plateformes Threat Intelligence** vous permet d’utiliser votre TIP pour importer des indicateurs de menace dans Azure Sentinel. Étant donné que le connecteur fonctionne avec l’[API Microsoft Graph Security tiIndicators](/graph/api/resources/tiindicator) pour effectuer cette opération, le connecteur peut également être utilisé par n’importe quelle plateforme de renseignement sur les menaces personnalisée afin de tirer parti de l’API tiIndicators pour envoyer des indicateurs à Azure Sentinel (et à d’autres solutions de sécurité Microsoft comme Defender ATP).
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
 
@@ -78,7 +78,7 @@ Ces informations proviennent toujours de votre instance Azure Active Directory p
 
 1. Choisissez un nom pour l’inscription de votre application, sélectionnez la case d’option **Locataire unique**, puis sélectionnez **Inscrire**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Inscrire une application":::
 
 1. Dans l’écran qui s’affiche, copiez les valeurs **ID d’application (client)** et **ID de l’annuaire (locataire)** . Ce sont les deux premières informations dont vous aurez besoin ultérieurement pour configurer votre solution de plateforme Threat Intelligence (TIP) ou votre solution personnalisée afin d’envoyer des indicateurs de menace à Azure Sentinel.
 
@@ -96,13 +96,13 @@ Ces informations proviennent toujours de votre instance Azure Active Directory p
 
 1. Sélectionnez **ThreatIndicators.ReadWrite.OwnedBy**, puis **Ajouter des autorisations** pour ajouter cette autorisation à la liste d’autorisations de votre application.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Spécifier des autorisations":::
 
 **Obtenir le consentement de votre organisation pour accorder ces autorisations**
 
 1. Pour accorder un consentement, vous devez disposer d’un administrateur général Azure Active Directory qui sélectionne le bouton **Accorder un consentement d’administrateur pour votre locataire** dans la page des autorisations d’API de votre application. Si vous n’avez pas le rôle Administrateur général sur votre compte, ce bouton n’est pas disponible et vous devez demander à un Administrateur général de votre organisation d’effectuer cette étape.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Accorder le consentement":::
 
 1. Une fois le consentement accordé à votre application, vous devez voir une coche verte sous **Statut**.
  
@@ -114,7 +114,7 @@ Maintenant que votre application a été inscrite et que des autorisations ont �
 
 1. Sélectionnez **Certificats et secrets** dans le menu, puis cliquez sur le bouton **Nouveau secret client** pour obtenir un secret (clé API) pour votre application.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Obtenir un secret client":::
 
 1. Cliquez sur le bouton **Ajouter** et **veillez à copier le secret client**, car vous ne pouvez pas récupérer ce secret si vous quittez cette page. Vous aurez besoin de cette valeur quand vous configurerez votre solution de plateforme Threat Intelligence (TIP) ou votre solution personnalisée.
 
@@ -145,7 +145,7 @@ Après quelques minutes, les indicateurs de menace doivent commencer à circuler
 
 La norme du secteur la plus largement adoptée pour la transmission du renseignement sur les menaces est une [combinaison du format de données STIX et du protocole TAXII](https://oasis-open.github.io/cti-documentation/). Si votre organisation obtient des indicateurs de menace à partir de solutions qui prennent en charge la version actuelle de STIX/TAXII (2.0 ou 2.1), vous pouvez utiliser le connecteur de données **Threat Intelligence - TAXII** pour apporter vos indicateurs de menace dans Azure Sentinel. Le connecteur de données Threat Intelligence - TAXII permet à un client TAXII intégré d’Azure Sentinel d’importer le renseignement sur les menaces à partir de serveurs TAXII 2.x.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Chemin d’importation de TAXII":::
  
 Effectuez les étapes suivantes pour importer des indicateurs de menace au format STIX dans Azure Sentinel à partir d’un serveur TAXII :
 
@@ -287,7 +287,7 @@ Pour importer des indicateurs de menace dans Azure Sentinel à partir d’un ser
 
 1. Tapez un **nom** pour cette collection de serveurs TAXII, une **URL de la racine d’API**, un **ID de collection**, un **Nom d’utilisateur** (si nécessaire) et un **Mot de passe** (si nécessaire), puis cliquez sur le bouton **Ajouter**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Configurer des serveurs TAXII":::
  
 Vous devez recevoir la confirmation qu’une connexion au serveur TAXII a été établie avec succès, et vous pouvez répéter l’étape (4) ci-dessus autant de fois que vous le souhaitez pour vous connecter à plusieurs collections à partir du même serveur TAXII ou de serveurs différents.
 
@@ -307,7 +307,7 @@ Maintenant que vous avez correctement importé des indicateurs de menace dans Az
 
 Vos résultats doivent ressembler à l’exemple d’indicateur de menace illustré ci-dessous :
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Exemple de données de requête":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Gérer vos indicateurs de menace dans la nouvelle zone Threat Intelligence d’Azure Sentinel
 
@@ -322,7 +322,7 @@ Examinons deux des tâches les plus courantes : la création d’indicateurs de
 
 1. Sélectionnez le bouton **Ajouter nouveau** dans le menu en haut de la page.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Chemin d’importation du renseignement sur les menaces" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Ajouter un nouvel indicateur de menace" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Choisissez le type d’indicateur, puis renseignez les champs obligatoires marqués d’un astérisque rouge (*) dans le panneau **Nouvel indicateur**.
 
@@ -330,7 +330,7 @@ Examinons deux des tâches les plus courantes : la création d’indicateurs de
 
 L’étiquetage des indicateurs de menace est un moyen simple de les regrouper pour faciliter leur recherche. En général, vous pouvez appliquer une étiquette à des indicateurs liés à un incident particulier ou à des indicateurs représentant les menaces provenant d’un acteur connu particulier ou d’une campagne d’attaque bien connue. Vous pouvez étiqueter les indicateurs de menace individuellement, ou sélectionner plusieurs indicateurs et les étiqueter tous en même temps. L’exemple ci-dessous montre l’étiquetage de plusieurs indicateurs avec un ID d’incident. Étant donné que l’étiquetage est de forme libre, il est recommandé de créer des conventions de nommage standard pour les étiquettes d’indicateur de menace. Vous pouvez appliquer plusieurs étiquettes à chaque indicateur.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Chemin d’importation du renseignement sur les menaces" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Appliquer des étiquettes à des indicateurs de menace" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>L’analytique exploite vos indicateurs de menace pour détecter des menaces potentielles
 
@@ -350,11 +350,11 @@ Examinons l’un de ces modèles de règle et découvrons comment activer et con
 
 1. Accédez à la règle intitulée **TI map IP entity to AzureActivity** (Carte de renseignement sur les menaces - Entité IP sur AzureActivity), puis vérifiez que vous avez connecté toutes les sources de données nécessaires, comme indiqué ci-dessous.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Sources de données nécessaires":::
 
 1. Sélectionnez cette règle, puis sélectionnez le bouton **Créer une règle**. Cette opération ouvre un Assistant permettant de configurer la règle. Renseignez les paramètres affichés ici, puis sélectionnez le bouton **Suivant : Définir la logique de la règle >** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Créer une règle d’analytique":::
 
 1. La partie logique de règle de l’Assistant contient les éléments suivants :
     - La requête qui sera utilisée dans la règle.
@@ -397,7 +397,7 @@ Examinons comment trouver le classeur Threat Intelligence fourni dans Azure Sent
 
 1. Accédez au classeur intitulé **Threat Intelligence**, puis vérifiez que vous avez des données dans la table **ThreatIntelligenceIndicator**, comme indiqué ci-dessous.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Vérifier les données":::
  
 1. Sélectionnez le bouton **Enregistrer**, puis choisissez un emplacement Azure pour stocker le classeur. Cette étape est nécessaire si vous envisagez de modifier le classeur de quelque façon que ce soit et d’enregistrer les modifications apportées.
 
@@ -417,7 +417,7 @@ Examinons comment trouver le classeur Threat Intelligence fourni dans Azure Sent
 
 1. Sélectionnez le bouton **Modification terminée**. Vous avez créé un graphique pour votre classeur.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Chemin d’importation du renseignement sur les menaces":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Graphique à barres":::
 
 Les classeurs fournissent des tableaux de bord interactifs puissants qui vous donnent des insights de tous les aspects d’Azure Sentinel. Il y a beaucoup de choses que vous pouvez faire avec des classeurs, et même si les modèles fournis constituent un excellent point de départ, vous voudrez probablement aller plus loin en personnalisant ces modèles, ou en créant des tableaux de bord qui combinent de nombreuses sources de données différentes pour vous permettre de visualiser vos données de manière unique. Étant donné que les classeurs Azure Sentinel sont basés sur des classeurs Azure Monitor, une documentation complète et de nombreux autres modèles sont déjà disponibles. Cet article est idéal pour découvrir comment [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
 

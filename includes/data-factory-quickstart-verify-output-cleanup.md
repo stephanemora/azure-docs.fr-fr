@@ -5,17 +5,17 @@ ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
 ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013352"
 ---
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 Le pipeline crée automatiquement le dossier de sortie dans le conteneur d’objets blob adftutorial. Ensuite, il copie le fichier emp.txt à partir du dossier d’entrée dans le dossier de sortie. 
 
-1. Dans le portail Azure, dans la page du conteneur **adftutorial** , sélectionnez **Actualiser** pour voir le dossier de sortie. 
+1. Dans le portail Azure, dans la page du conteneur **adftutorial**, sélectionnez **Actualiser** pour voir le dossier de sortie. 
     
     ![Capture d’écran montrant la page du conteneur dans laquelle vous pouvez actualiser la page.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 

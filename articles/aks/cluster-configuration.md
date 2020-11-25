@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072082"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698068"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Si vous souhaitez créer des pools de nœuds avec l’image AKS Ubuntu 16.04, vous pouvez omettre la balise `--aks-custom-headers` personnalisée.
 
+## <a name="container-runtime-configuration"></a>Configuration du runtime de conteneur
 
-## <a name="container-runtime-configuration-preview"></a>Configuration du runtime de conteneur (préversion)
+Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Les clusters AKS utilisant des pools de nœuds Kubernetes version 1.19 et ultérieure utilisent`containerd` comme runtime de conteneur. Les clusters AKS utilisant une version de Kubernetes antérieure à v1.19 pour les pools de nœuds utilisent [Moby](https://mobyproject.org/) (Docker en amont) comme runtime de conteneur.
 
-Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Aujourd’hui, AKS utilise [Moby](https://mobyproject.org/) (docker en amont) comme runtime de conteneur. 
-    
 ![CRI Docker 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby utilisée par AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus. 
+[`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby utilisée par AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus.
 
-Grâce à un nœud basé sur un conteneur et des pools de nœuds, au lieu de communiquer avec le `dockershim`, le kubelet communique directement avec `containerd` via le plug-in CRI (interface du runtime de conteneur), ce qui supprime les tronçons additionnels sur le flux par rapport à l’implémentation de la CRI Docker. Ainsi, vous constaterez une meilleure latence au démarrage du pod et une moindre utilisation des ressources (processeur et mémoire).
+Grâce à un nœud et à des pools de nœuds `containerd`, au lieu de communiquer avec le `dockershim`, le kubelet communique directement avec `containerd` via le plug-in CRI (interface du runtime de conteneur), ce qui supprime les tronçons additionnels sur le flux par rapport à l’implémentation de la CRI Docker. Ainsi, vous constaterez une meilleure latence au démarrage du pod et une moindre utilisation des ressources (processeur et mémoire).
 
 En utilisant `containerd` pour les nœuds AKS, la latence au démarrage du pod s’améliore et la consommation des ressources de nœud par le runtime de conteneur diminue. Ces améliorations sont rendues possibles grâce à cette nouvelle architecture dans laquelle le kubelet communique directement avec `containerd` via le plug-in CRI. Dans l’architecture Moby ou Docker, le kubelet communiquerait avec le `dockershim` et le moteur Docker avant d’atteindre `containerd`, ce qui donne lieu à des tronçons additionnels sur le flux.
 
 ![CRI Docker 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` fonctionne sur chaque version GA de Kubernetes dans AKS et dans chaque version de Kubernetes en amont ultérieure à v1.10 et prend en charge toutes les fonctionnalités Kubernetes et AKS.
+`Containerd` fonctionne sur chaque version GA de Kubernetes dans AKS et dans chaque version de Kubernetes en amont ultérieure à v1.19 et prend en charge toutes les fonctionnalités Kubernetes et AKS.
 
 > [!IMPORTANT]
-> Une fois que `containerd` est en disponibilité générale sur AKS, il s’agit de l’option par défaut et la seule disponible pour le runtime de conteneur sur les nouveaux clusters. Vous pouvez toujours utiliser les clusters et les pools de nœuds Moby sur des versions antérieures prises en charge jusqu’à ce qu’elles ne le soient plus. 
+> Les clusters avec des pools de nœuds créés sur Kubernetes v1.19 ou version ultérieure ont par défaut `containerd` comme runtime de conteneur. Les clusters avec des pools de nœuds sur une version de Kubernetes prise en charge antérieure à v1.19 reçoivent `Moby` comme runtime de conteneur, mais seront mis à jour vers `ContainerD` une fois la version de Kubernetes du pool de nœuds mise à jour vers la version 1.19 ou ultérieure. Vous pouvez toujours utiliser les clusters et les pools de nœuds `Moby` sur des versions antérieures tant qu’elles sont prises en charge.
 > 
-> Nous vous recommandons de tester vos charges de travail sur des pools de nœuds `containerd` avant de mettre à niveau ou de créer des clusters à l’aide de ce runtime de conteneur.
+> Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS avec `containerD` avant d’utiliser des clusters sur la version 1.19 ou ultérieure.
+
+La section suivante explique comment utiliser et tester AKS avec `containerD` sur des clusters qui n’utilisent pas encore une version Kubernetes 1.19 ou ultérieure, ou qui ont été créés avant que cette fonctionnalité devienne généralement disponible, en utilisant la préversion de la configuration du runtime de conteneur.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>Utiliser `containerd` comme runtime de conteneur (préversion)
 

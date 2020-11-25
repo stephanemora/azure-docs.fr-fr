@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604493"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522940"
 ---
 # <a name="about-the-move-process"></a>À propos du processus de déplacement
 
@@ -25,8 +25,8 @@ Ces composants sont utilisés pendant le changement de région.
 
 **Composant** | **Détails**
 --- | ---
-**Resource Mover** |  Resource Mover se coordonne avec des [fournisseurs de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) pour orchestrer le déplacement des ressources entre les régions. Resource Mover analyse les dépendances des ressources, puis gère leur état pendant le processus de déplacement. 
-**Collection de déplacement** |  Une collection de déplacement est un objet [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).<br/><br/> Elle est créée pendant le processus de changement de région, pour chaque combinaison de régions source et cible dans un abonnement. La collection contient des métadonnées et des informations de configuration sur les ressources à déplacer.<br/><br/>Les ressources ajoutées à une collection de déplacement doivent figurer dans le même abonnement, mais peuvent se trouver dans des groupes de ressources différents. 
+**Resource Mover** |  Resource Mover se coordonne avec des [fournisseurs de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md) pour orchestrer le déplacement des ressources entre les régions. Resource Mover analyse les dépendances des ressources, puis gère leur état pendant le processus de déplacement. 
+**Collection de déplacement** |  Une collection de déplacement est un objet [Azure Resource Manager](../azure-resource-manager/management/overview.md).<br/><br/> Elle est créée pendant le processus de changement de région, pour chaque combinaison de régions source et cible dans un abonnement. La collection contient des métadonnées et des informations de configuration sur les ressources à déplacer.<br/><br/>Les ressources ajoutées à une collection de déplacement doivent figurer dans le même abonnement, mais peuvent se trouver dans des groupes de ressources différents. 
 **Ressource de déplacement** | Lorsque vous ajoutez une ressource à une collection de déplacement, elle est suivie par Resource Mover en tant que ressource de déplacement.<br/><br/> Resource Mover conserve des informations sur toutes les ressources de déplacement dans la collection de déplacement, puis gère une relation un-à-un entre la ressource source et la ressource cible. 
 **Dépendances** | Resource Mover valide les ressources que vous ajoutez à une collection, puis vérifie si ces ressources ont des dépendances qui ne sont pas dans la collection de déplacement.<br/><br/> Après avoir identifié les dépendances d’une ressource, vous pouvez soit les ajouter à la collection de déplacement pour les déplacer également, soit sélectionner d’autres ressources existantes dans la région cible. Toutes les dépendances doivent être résolues avant de commencer le déplacement. 
 

@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bde1b7be15d49d82818f26d07c2ec633dc4526c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726352"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523261"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Ruby
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser Ruby pour charger,
 Vérifiez que les prérequis suivants sont installés :
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Bibliothèque Stockage Azure pour Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage), en utilisant le package rubygem : 
+* [Bibliothèque Stockage Azure pour Ruby](), en utilisant le package rubygem : 
 
     ```
     gem install azure-storage-blob
@@ -90,7 +90,7 @@ La première chose à faire est de créer les références aux objets utilisés 
 Une fois que vous avez le conteneur d’objets blob de cloud, vous pouvez créer l’objet **Block** qui pointe vers l’objet blob spécifique qui vous intéresse, puis effectuer des opérations de chargement, de téléchargement et de copie.
 
 > [!IMPORTANT]
-> Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Dans cette section, vous configurez une instance du client Stockage Azure, instanciez l’objet du service blob, créez un conteneur et définissez les autorisations sur le conteneur pour que les objets blob soient publics. Le conteneur est appelé **quickstartblobs**. 
 
@@ -189,7 +189,7 @@ Consultez ces ressources supplémentaires sur le développement Ruby avec le sto
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage blob Azure avec Ruby. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le guide pratique des opérations Stockage Blob.
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations Stockage Blob](./storage-ruby-how-to-use-blob-storage.md)
+> [Guide pratique des opérations Stockage Blob]()
 
 
 Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

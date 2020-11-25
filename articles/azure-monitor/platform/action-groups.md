@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336117"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746361"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -20,8 +20,8 @@ Cet article vous montre comment créer et gérer des groupes d’actions dans le
 
 Chaque action se compose des propriétés suivantes :
 
-* **Type**  : notification ou action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
-* **Name**  : identificateur unique au sein du groupe d’actions.
+* **Type** : notification ou action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
+* **Name** : identificateur unique au sein du groupe d’actions.
 * **Détails** : détails correspondants qui varient selon le *type*.
 
 Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](./action-groups-create-resource-manager-template.md).
@@ -30,21 +30,21 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Monitor** Le volet **Moniteur** consolide tous vos paramètres et données de supervision dans une même vue.
 
-1. Sélectionnez **Alertes** , puis **Gérer les actions**.
+1. Sélectionnez **Alertes**, puis **Gérer les actions**.
 
     ![Bouton Gérer les actions](./media/action-groups/manage-action-groups.png)
     
-1. Sélectionnez **Ajouter un groupe d’actions** , puis remplissez les champs appropriés dans l’expérience de l’assistant.
+1. Sélectionnez **Ajouter un groupe d’actions**, puis remplissez les champs appropriés dans l’expérience de l’assistant.
 
     ![La commande « Ajouter un groupe d’actions »](./media/action-groups/add-action-group.PNG)
 
 ### <a name="configure-basic-action-group-settings"></a>Configurer les paramètres du groupe d’actions de base
 
-Sous **Détails du projet**  :
+Sous **Détails du projet** :
 
-Sélectionnez l’ **Abonnement** et le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
+Sélectionnez l’**Abonnement** et le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
 
-Sous **Détails de l’instance**  :
+Sous **Détails de l’instance** :
 
 1. Entrez un **Nom de groupe d’actions**.
 
@@ -55,15 +55,15 @@ Sous **Détails de l’instance**  :
 
 ### <a name="configure-notifications"></a>Configurer les notifications
 
-1. Cliquez sur le bouton **Suivant : Notifications >** pour accéder à l’onglet **Notifications** , ou sélectionnez l’onglet **Notifications** en haut de l’écran.
+1. Cliquez sur le bouton **Suivant : Notifications >** pour accéder à l’onglet **Notifications**, ou sélectionnez l’onglet **Notifications** en haut de l’écran.
 
 1. Définissez une liste de notifications à envoyer quand une alerte est déclenchée. Fournissez les informations suivantes pour chaque notification :
 
-    a. **Type de notification**  : Sélectionnez le type de notification que vous souhaitez envoyer. Options disponibles :
+    a. **Type de notification** : Sélectionnez le type de notification que vous souhaitez envoyer. Options disponibles :
       * Envoyer un e-mail à un rôle Azure Resource Manager - Envoyer un e-mail aux utilisateurs affectés à certains rôles ARM au niveau abonnement.
       * E-mail/SMS/Push/Voice - Envoie ces types de notifications à des destinataires spécifiques.
     
-    b. **Name**  : entrez un nom pour la notifications.
+    b. **Name** : entrez un nom pour la notifications.
 
     c. **Détails** : en fonction du type de notification sélectionné, entrez une adresse e-mail, un numéro de téléphone, etc.
     
@@ -73,15 +73,15 @@ Sous **Détails de l’instance**  :
     
 ### <a name="configure-actions"></a>Configurer les actions
 
-1. Cliquez sur le bouton **Suivant : Actions >** pour accéder à l’onglet **Actions** , ou sélectionnez l’onglet **Actions** en haut de l’écran.
+1. Cliquez sur le bouton **Suivant : Actions >** pour accéder à l’onglet **Actions**, ou sélectionnez l’onglet **Actions** en haut de l’écran.
 
 1. Définissez une liste d’actions à déclencher quand une alerte est déclenchée. Fournissez les informations suivantes pour chaque action :
 
     a. **Type d’action** : sélectionnez Automation Runbook, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
     
-    b. **Nom**  : entrez un nom unique pour l’action.
+    b. **Nom** : entrez un nom unique pour l’action.
 
-    c. **Détails** : selon le type d’action, saisissez un URI de Webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’ **élément de travail** et les autres champs nécessaires à votre outil ITSM.
+    c. **Détails** : selon le type d’action, saisissez un URI de Webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
     
     d. **Schéma d’alerte courant** : Vous pouvez également utiliser le [schéma d’alerte commun](./alerts-common-schema.md), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor.
     
@@ -131,7 +131,7 @@ Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’action
 ### <a name="email-azure-resource-manager-role"></a>Envoyer un message au rôle Azure Resource Manager
 Envoyer un message aux membres du rôle de l’abonnement. L’e-mail sera envoyé uniquement aux **utilisateurs Azure AD** membres du rôle. L’e-mail ne sera pas envoyé aux groupes ou principaux du service Azure AD.
 
-Un e-mail de notification est envoyé uniquement à l’ *adresse e-mail principale*.
+Un e-mail de notification est envoyé uniquement à l’*adresse e-mail principale*.
 
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
@@ -266,22 +266,108 @@ Les Webhooks sont exécutés avec les règles suivantes
 - Les deuxième et troisième tentatives attendent 30 secondes pour une réponse.
 - Une fois que les 3 tentatives d’appel du webhook ont échoué, aucun groupe d’actions n’appellera le point de terminaison pendant 15 minutes.
 
-Plage d’adresses IP sources
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Plages d’adresses IP sources :
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020:a04:402::178/125
+ - 2603:1020:b04:402::178/125
+ - 2603:1020:c04:402::178/125
+ - 2603:1020:d04:402::178/125
+ - 2603:1020:e04:402::178/125
+ - 2603:1020:f04:402::178/125
+ - 2603:1020:1004:800::f8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030:f:400::978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400::f0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40b:400::978/125
+ - 2603:1030:40c:402::178/125
+ - 2603:1030:504:802::f8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030:a07:402::8f8/125
+ - 2603:1030:b04:402::178/125
+ - 2603:1030:c06:400::978/125
+ - 2603:1030:f05:402::178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040:a06:402::178/125
+ - 2603:1040:b04:402::178/125
+ - 2603:1040:c06:402::178/125
+ - 2603:1040:d04:800::f8/125
+ - 2603:1040:f05:402::178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400::1f8/125
 
 Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une alerte Service Health qui surveille les notifications d’information relatives au service Groupes d’actions.
 
@@ -293,10 +379,10 @@ Les mises à jour fréquentes des adresses IP source peuvent prendre beaucoup de
 Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses inclus dans l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes des règles de sécurité réseau pour un ActionGroup.
 
 1. Dans le portail Azure, sous services Azure, recherchez *Groupe de sécurité réseau*.
-2. Cliquez sur **Ajouter** , puis créez un groupe de sécurité réseau.
+2. Cliquez sur **Ajouter**, puis créez un groupe de sécurité réseau.
 
    1. Ajoutez le nom du groupe de ressources, puis entrez les *Détails de l’instance*.
-   1. Cliquez sur **Vérifier + créer** , puis sur *Créer*.
+   1. Cliquez sur **Vérifier + créer**, puis sur *Créer*.
    
    :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemple de création d’un groupe de sécurité réseau."border="true":::
 

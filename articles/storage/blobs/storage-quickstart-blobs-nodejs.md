@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307532"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012763"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v12 en Node.js
 
@@ -24,7 +24,7 @@ Ressources supplémentaires :
 * [Documentation de référence de l’API](/javascript/api/@azure/storage-blob)
 * [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Package (Gestionnaire de package Node)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Exemples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -314,6 +314,6 @@ Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d�
 > [!div class="nextstepaction"]
 > [Centre de développement Azure pour JavaScript](/azure/developer/javascript/)
 
-* Pour savoir comment déployer une application Web qui utilise le stockage d’objets Blob Azure, consultez [Didacticiel : Charger des données d’image dans le cloud avec Stockage Azure](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
+* Pour savoir comment déployer une application Web qui utilise le stockage d’objets Blob Azure, consultez [Didacticiel : Charger des données d’image dans le cloud avec Stockage Azure](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
 * Pour voir des exemples d’applications de stockage Blob, passez à [Exemples JavaScript de bibliothèques clientes Stockage Blob Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
 * Pour plus d’informations, consultez la [bibliothèque cliente Stockage Blob Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

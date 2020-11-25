@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126734"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630292"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -52,10 +52,11 @@ Définissez vos informations de facturation pour le programme Business Applicati
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
-1. Sous **Compte** , sélectionnez **Profil de facturation**.
-1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique, et faites les mises à jour nécessaires.
+1. Sous **Paramètres du compte**, sélectionnez **Profil de facturation**.
+1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique.
+1. Pour apporter des modifications, sélectionnez **Mettre à jour**.
 1. Le cas échéant, spécifiez vos paramètres d’identifiant fiscal / de n° de TVA.
-1. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
+1. Pour enregistrer vos modifications, sélectionnez **Mettre à jour**.
 
 > [!NOTE]
 > Vous pouvez mettre à jour votre profil de facturation à tout moment. Toutefois, le *nom de l’entreprise* et le *pays* de l’adresse de facturation ne peuvent pas être modifiés ultérieurement.

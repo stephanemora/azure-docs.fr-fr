@@ -6,11 +6,11 @@ ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
 ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890392"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978554"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure
 
@@ -40,7 +40,7 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
 
     |Nom|Valeur|
     |----|----|
-    |**Groupe de ressources**|Sélectionnez **Créer nouveau** , puis spécifiez un nom de groupe de ressources de votre choix. Sur la capture d’écran, le nom du groupe de ressources est *mystorage1016rg*. Un groupe de ressources est un conteneur pour les ressources Azure. Un groupe de ressources facilite la gestion des ressources Azure. |
+    |**Groupe de ressources**|Sélectionnez **Créer nouveau**, puis spécifiez un nom de groupe de ressources de votre choix. Sur la capture d’écran, le nom du groupe de ressources est *mystorage1016rg*. Un groupe de ressources est un conteneur pour les ressources Azure. Un groupe de ressources facilite la gestion des ressources Azure. |
     |**Nom**|attribuez un nom unique à votre compte de stockage. Le nom du compte de stockage doit être unique dans Azure, et ne contenir que des lettres minuscules et des chiffres. Le nom doit être compris entre 3 et 24 caractères. Si vous obtenez un message d’erreur indiquant que « le nom de compte de stockage 'mystorage1016' est déjà utilisé », essayez d’utiliser **&lt;votre nom>stockage&lt;Date du jour au format MMJJ>** , par exemple  **johndolestorage1016**. Pour plus d’informations, consultez la page [Règles et restrictions de nommage](/azure/architecture/best-practices/resource-naming).|
 
     Vous pouvez utiliser les valeurs par défaut pour les autres propriétés.
@@ -77,18 +77,18 @@ Le portail Azure peut être utilisé pour effectuer des modifications de base du
 
 Azure requiert que chaque service Azure ait un nom unique. Le déploiement peut échouer si vous avez entré un nom de compte de stockage déjà existant. Pour éviter ce problème, modifiez le modèle pour utiliser un appel de fonction de modèle `uniquestring()` pour générer un nom de compte de stockage unique.
 
-1. Dans le menu du portail Azure, dans la zone de recherche, tapez **déployer** , puis sélectionnez **Déployer un modèle personnalisé**.
+1. Dans le menu du portail Azure, dans la zone de recherche, tapez **déployer**, puis sélectionnez **Déployer un modèle personnalisé**.
 
     ![Bibliothèque des modèles Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
 
 1. Sélectionnez **Générer votre propre modèle dans l’éditeur**.
-1. Sélectionnez **Charger le fichier** , puis suivez les instructions pour charger le fichier template.json téléchargé dans la section précédente.
+1. Sélectionnez **Charger le fichier**, puis suivez les instructions pour charger le fichier template.json téléchargé dans la section précédente.
 1. Apportez les trois modifications suivantes au modèle :
 
     ![Modèles Microsoft Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-   - Supprimez le paramètre **storageAccountName** , comme indiqué dans la capture d’écran précédente.
-   - Ajoutez une variable appelée **storageAccountName** , comme illustré dans la capture d’écran précédente :
+   - Supprimez le paramètre **storageAccountName**, comme indiqué dans la capture d’écran précédente.
+   - Ajoutez une variable appelée **storageAccountName**, comme illustré dans la capture d’écran précédente :
 
        ```json
        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486387"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695892"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,15 +26,15 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
 
 -   **Authentification Kerberos**
 
-    Kerberos est un protocole d’authentification utilisé pour vérifier l’identité d’un utilisateur ou d’un hôte. Pour plus d’informations sur Kerberos, consultez [Vue d’ensemble de l’authentification Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    Kerberos est un protocole d’authentification utilisé pour vérifier l’identité d’un utilisateur ou d’un hôte. Pour plus d’informations sur Kerberos, consultez [Vue d’ensemble de l’authentification Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **Protocole SMB (Server Message Block)**
 
-    SMB est un protocole de partage de fichier réseau standard. SMB est aussi appelé Common Internet File System ou CIFS. Pour plus d’informations sur SMB, consultez [Vue d’ensemble du protocole SMB et du protocole CIFS de Microsoft](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB est un protocole de partage de fichier réseau standard. SMB est aussi appelé Common Internet File System ou CIFS. Pour plus d’informations sur SMB, consultez [Vue d’ensemble du protocole SMB et du protocole CIFS de Microsoft](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) est le service cloud de gestion des identités et des annuaires multilocataire de Microsoft. Azure AD associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution. Les machines virtuelles Windows jointes à un domaine Azure AD peuvent accéder aux partages de fichiers Azure à l’aide de vos informations d’identification Azure AD. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) est le service cloud de gestion des identités et des annuaires multilocataire de Microsoft. Azure AD associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution. Les machines virtuelles Windows jointes à Azure AD ne peuvent pas accéder aux partages de fichiers Azure à l’aide de vos informations d’identification Azure AD. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure Active Directory Domain Services (Azure AD DS)**
 
@@ -42,7 +42,7 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
 
 - **Active Directory Domain Services (AD DS) en local**
 
-    L’intégration d’Active Directory Domain Services (AD DS) local à Azure Files fournit les méthodes permettant de stocker des données d’annuaire tout en les mettant à la disposition des utilisateurs et administrateurs du réseau. La sécurité est intégrée avec AD DS par le biais de l’authentification d’ouverture de session et du contrôle d’accès aux objets de l’annuaire. Avec une simple ouverture de session réseau, les administrateurs peuvent gérer les données et l’organisation de l’annuaire au sein de leur réseau, et les utilisateurs du réseau autorisés peuvent accéder aux ressources n’importe où sur le réseau. AD DS est couramment adopté par des entreprises dans des environnements locaux, et les informations d’identification AD DS sont utilisées comme identité pour le contrôle d’accès. Pour plus d’informations, voir [Présentation des services de domaine Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    L’intégration d’Active Directory Domain Services (AD DS) local à Azure Files fournit les méthodes permettant de stocker des données d’annuaire tout en les mettant à la disposition des utilisateurs et administrateurs du réseau. La sécurité est intégrée avec AD DS par le biais de l’authentification d’ouverture de session et du contrôle d’accès aux objets de l’annuaire. Avec une simple ouverture de session réseau, les administrateurs peuvent gérer les données et l’organisation de l’annuaire au sein de leur réseau, et les utilisateurs du réseau autorisés peuvent accéder aux ressources n’importe où sur le réseau. AD DS est couramment adopté par des entreprises dans des environnements locaux, et les informations d’identification AD DS sont utilisées comme identité pour le contrôle d’accès. Pour plus d’informations, voir [Présentation des services de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**
 
@@ -128,7 +128,7 @@ Une fois l’authentification Azure AD DS ou AD DS locale activée, vous pouvez 
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configurer des autorisations au niveau du répertoire ou du fichier pour Azure Files
 
-Le service Azure Files applique des autorisations de fichiers Windows standard au niveau du répertoire et du fichier, y compris au niveau du répertoire racine. La configuration des autorisations au niveau du répertoire ou du fichier est prise en charge sur SMB et REST. Montez le partage de fichiers cible à partir de votre machine virtuelle, et configurez des autorisations à l’aide de l’Explorateur de fichiers Windows, de la commande Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) ou de la commande [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6).
+Le service Azure Files applique des autorisations de fichiers Windows standard au niveau du répertoire et du fichier, y compris au niveau du répertoire racine. La configuration des autorisations au niveau du répertoire ou du fichier est prise en charge sur SMB et REST. Montez le partage de fichiers cible à partir de votre machine virtuelle, et configurez des autorisations à l’aide de l’Explorateur de fichiers Windows, de la commande Windows [icacls](/windows-server/administration/windows-commands/icacls) ou de la commande [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6).
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Utiliser la clé de compte de stockage pour les autorisations de superutilisateur
 
@@ -139,7 +139,7 @@ Un utilisateur disposant de la clé de compte de stockage peut accéder aux part
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Conserver les ACL de répertoire et de fichier lors de l’importation de données dans des partages de fichiers Azure
 
-Le service Azure Files prend en charge la conservation des ACL de répertoire ou de fichier lors de la copie de données vers des partages de fichiers Azure. Vous pouvez copier des listes de contrôle d’accès (ACL) d’un répertoire ou d’un fichier vers des partages de fichiers Azure à l’aide d’Azure File Sync ou d’outils de déplacement de fichiers communs. Par exemple, vous pouvez utiliser [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) avec l’étiquette `/copy:s` pour copier des données et des ACL vers un partage de fichiers Azure. Les listes de contrôle d’accès étant conservées par défaut, vous n’êtes pas obligé d’activer l’authentification basée sur l’identité sur votre compte de stockage pour les conserver.
+Le service Azure Files prend en charge la conservation des ACL de répertoire ou de fichier lors de la copie de données vers des partages de fichiers Azure. Vous pouvez copier des listes de contrôle d’accès (ACL) d’un répertoire ou d’un fichier vers des partages de fichiers Azure à l’aide d’Azure File Sync ou d’outils de déplacement de fichiers communs. Par exemple, vous pouvez utiliser [robocopy](/windows-server/administration/windows-commands/robocopy) avec l’étiquette `/copy:s` pour copier des données et des ACL vers un partage de fichiers Azure. Les listes de contrôle d’accès étant conservées par défaut, vous n’êtes pas obligé d’activer l’authentification basée sur l’identité sur votre compte de stockage pour les conserver.
 
 ## <a name="pricing"></a>Tarifs
 L’activation d’une authentification basée sur l’identité via SMB sur votre compte de stockage n’engendre pas de frais de service supplémentaires. Pour plus d’informations sur les prix, consultez [Tarifs Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) et [Tarifs Azure AD Domain Services](https://azure.microsoft.com/pricing/details/active-directory-ds/).

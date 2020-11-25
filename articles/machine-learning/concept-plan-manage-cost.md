@@ -1,7 +1,7 @@
 ---
 title: Prévoir et gérer les coûts
 titleSuffix: Azure Machine Learning
-description: Planifiez et gérez les coûts d’Azure Machine Learning avec l’analyse des coûts dans le portail Azure. Lorsque vous générez des modèles Machine Learning, découvrez des conseils supplémentaires pour réduire les coûts.
+description: Planifiez et gérez les coûts d’Azure Machine Learning avec l’analyse des coûts dans le portail Azure. Découvrez d’autres conseils permettant de réduire vos coûts lors de la création de modèles ML.
 author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322988"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541706"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planifier et gérer les coûts d’Azure Machine Learning
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur l’attribution de l’accès aux données Azure 
 
 ## <a name="estimate-costs"></a>Estimer les coûts
 
-Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Machine Learning. Sur la gauche, sélectionnez **AI + Machine Learning** , puis sélectionnez **Azure Machine Learning** pour commencer.  
+Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Machine Learning. Sur la gauche, sélectionnez **AI + Machine Learning**, puis sélectionnez **Azure Machine Learning** pour commencer.  
 
 La capture d’écran suivante montre l’estimation des coûts effectuée par la calculatrice :
 

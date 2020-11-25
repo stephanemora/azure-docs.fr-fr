@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899550"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535943"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Déployer une application sans état PHP Guestbook avec Redis sur un cluster Kubernetes avec Arc sur Azure Stack Edge Pro avec GPU
 
@@ -79,7 +79,7 @@ Procédez comme suit pour configurer la ressource Azure Arc afin de déployer un
 
 1. Accédez à **configurations**, puis sélectionnez **+ Ajouter une configuration**.
 
-    ![Accéder à Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Capture d’écran montrant le cluster Kubernetes Azure Arc avec l’option Ajouter une configuration sélectionnée.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. Dans la boîte de dialogue **Ajouter une configuration**, entrez les valeurs appropriées pour les champs, puis sélectionnez **Appliquer**.
 
@@ -100,11 +100,11 @@ Procédez comme suit pour configurer la ressource Azure Arc afin de déployer un
 
 1. Le déploiement de la configuration démarre et l’**État de l’opérateur** indique **En attente**. 
 
-    ![Accéder à Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Capture d’écran montrant le cluster Kubernetes Azure Arc dans un état en attente pendant qu’il s’actualise.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. Le déploiement prend quelques minutes. Une fois le déploiement terminé, l’**État de l’opérateur** indique **Installé**.
 
-    ![Accéder à Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Capture d’écran montrant le cluster Kubernetes Azure Arc dans un état installé.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement

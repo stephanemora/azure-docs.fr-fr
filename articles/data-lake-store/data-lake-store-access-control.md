@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190162"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701447"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 
@@ -280,7 +280,11 @@ Dans les ACL, les entrées sont stockées sous forme de GUID qui correspondent a
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Pourquoi est-ce que je vois parfois des GUID dans les ACL lorsque j’utilise le portail ?
 
-Un GUID apparaît lorsque l’utilisateur n’existe plus dans Azure AD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans Azure AD.
+Un GUID apparaît lorsque l’utilisateur n’existe plus dans Azure AD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans Azure AD. En outre, assurez-vous d’utiliser le bon ID pour définir les ACL (détails dans la question ci-dessous).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Lorsque j’utilise le principe du service, quel ID dois-je utiliser pour définir les ACL ?
+
+Dans le portail Azure, accédez à **Azure Active Directory > Applications d’entreprise**, puis sélectionnez votre application. L’onglet **Vue d’ensemble** doit afficher un ID d’objet, et c’est ce dernier qui doit être utilisé lors de l’ajout d’ACL pour l’accès aux données (et non l’ID d’application).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 prend-il en charge l’héritage des ACL ?
 

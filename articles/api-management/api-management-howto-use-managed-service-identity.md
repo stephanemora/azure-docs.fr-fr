@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558037"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686223"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilisation d’identités managées dans le service Gestion des API Azure
 
@@ -123,9 +123,9 @@ La propriété `tenantId` identifie le locataire Azure AD auquel appartient l’
 > [!NOTE]
 > Une instance Gestion des API peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Scénarios pris en charge utilisant l’identité affectée par le système
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtenir un certificat TLS/SSL personnalisé pour l’instance Gestion des API à partir de Azure Key Vault
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtenir un certificat TLS/SSL personnalisé pour l’instance Gestion des API à partir de Azure Key Vault
 Vous pouvez utiliser l’identité affectée par le système d’une instance Gestion des API pour récupérer les certificats TLS/SSL personnalisés stockés dans Azure Key Vault. Vous pouvez ensuite affecter ces certificats à des domaines personnalisés dans l’instance Gestion des API. Gardez à l’esprit les éléments suivants :
 
 - Le type de contenu du secret doit être *application/x-pkcs12*.
@@ -262,7 +262,7 @@ L’exemple suivant illustre un modèle Azure Resource Manager qui contient les 
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>S’authentifier auprès du back end à l’aide d’une identité Gestion des API
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>S’authentifier auprès du back end à l’aide d’une identité Gestion des API
 
 Vous pouvez utiliser l’identité affectée par le système pour vous authentifier auprès du back end par le biais de la stratégie [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
 
@@ -281,7 +281,7 @@ Pour configurer une identité managée dans le portail, vous devez d’abord cr�
 3. Dans l’onglet **Attribuée par l’utilisateur**, sélectionnez **Ajouter**.
 4. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Sélectionnez **Ajouter**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Sélections pour activer une identité managée affectée par le système" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Sélections pour activer une identité managée affectée par l’utilisateur" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ La propriété `principalId` est un identificateur unique pour l’identité qui
 > [!NOTE]
 > Une instance Gestion des API peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Scénarios pris en charge utilisant l’identité managée affectée par l’utilisateur
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>S’authentifier auprès du back end à l’aide d’une identité affectée par l’utilisateur
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obtenir un certificat TLS/SSL personnalisé pour l’instance Gestion des API à partir de Azure Key Vault
+Vous pouvez utiliser n’importe quelle identité affectée par l’utilisateur pour établir une relation de confiance entre une instance Gestion des API et Azure Key Vault. Cette confiance peut ensuite être utilisée pour récupérer des certificats TLS/SSL personnalisés stockés dans Azure Key Vault. Vous pouvez ensuite affecter ces certificats à des domaines personnalisés dans l’instance Gestion des API. 
+
+Gardez à l’esprit les éléments suivants :
+
+- Le type de contenu du secret doit être *application/x-pkcs12*.
+- Utilisez le point de terminaison du secret de certificat Key Vault, qui contient le secret.
+
+> [!Important]
+> Si vous ne fournissez pas la version de l’objet du certificat n’est pas fournie, le service Gestion des API obtiendra automatiquement la version la plus récente du certificat dans les quatre heures qui suivent sa mise à jour dans Key Vault.
+
+Pour obtenir le modèle complet, consultez [Gestion des API avec SSL basé sur Key Vault à l’aide de l’identité affectée par l’utilisateur](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+Dans ce modèle, vous allez déployer :
+
+* Gestion des API Azure
+* Identité affectée par l’utilisateur gérée par Azure
+* Azure Key Vault pour le stockage du certificat SSL/TLS
+
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>S’authentifier auprès du back end à l’aide d’une identité affectée par l’utilisateur
 
 Vous pouvez utiliser l’identité affectée par l’utilisateur pour vous authentifier auprès du back end par le biais de la stratégie [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
 

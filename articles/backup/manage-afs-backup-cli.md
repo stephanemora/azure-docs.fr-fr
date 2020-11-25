@@ -3,29 +3,27 @@ title: Gérer les sauvegardes de partage de fichiers Azure avec l'interface de l
 description: Découvrez comment utiliser l'interface de ligne de commande Azure pour gérer et superviser les partages de fichiers Azure sauvegardés par Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332744"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566450"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gérer les sauvegardes de partage de fichiers Azure avec l'interface de ligne de commande Azure
 
 L’interface de ligne de commande Azure permet de gérer les ressources Azure. Elle constitue un excellent outil pour générer une automatisation personnalisée afin d'utiliser des ressources Azure. Cet article explique comment effectuer les tâches pour gérer et superviser les partages de fichiers Azure sauvegardés par [Sauvegarde Azure](./backup-overview.md). Vous pouvez également suivre ces étapes avec le [portail Azure](https://portal.azure.com/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà d’un partage de fichiers Azure sauvegardé par [Sauvegarde Azure](./backup-overview.md). Si ce n'est pas le cas, consultez [Sauvegarder des partages de fichiers Azure avec l’interface de ligne de commande](backup-afs-cli.md) afin de configurer la sauvegarde pour vos partage de fichiers. Pour cet article, vous allez utiliser les ressources suivantes :
-
-* **Groupe de ressources** : *azurefiles*
-* **RecoveryServicesVault** : *azurefilesvault*
-* **Compte de stockage** : *afsaccount*
-* **Partage de fichiers** : *azurefiles*
+   -  **Groupe de ressources** : *azurefiles*
+   -  **RecoveryServicesVault** : *azurefilesvault*
+   -  **Compte de stockage** : *afsaccount*
+   -  **Partage de fichiers** : *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - Cet tutoriel nécessite la version 2.0.18 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 

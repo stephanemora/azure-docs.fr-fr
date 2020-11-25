@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217787"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543168"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob
 
@@ -36,7 +36,7 @@ Au premier lancement, la fenêtre **Explorateur Stockage Microsoft Azure - Se co
 |Utiliser un URI de chaîne de connexion ou de signature d’accès partagé | Peut être utilisé pour accéder directement à un conteneur ou un compte de stockage avec un jeton SAP ou une chaîne de connexion partagée. |
 |Utiliser le nom et la clé d’un compte de stockage| Utilisez le nom et la clé et de votre compte de stockage pour vous connecter à Stockage Azure.|
 
-Sélectionnez **Ajouter un compte Azure** , puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
+Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
 ![Capture d’écran de la fenêtre de connexion à l’Explorateur Stockage Microsoft Azure.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -48,15 +48,15 @@ Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge
 
 Les objets blob sont toujours chargés dans un conteneur. Cela vous permet d’organiser des groupes d’objets blob comme vous organisez vos fichiers dans des dossiers sur votre ordinateur.
 
-Pour créer un conteneur, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneurs d’objets blob** , cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob** . Entrez le nom de votre conteneur d’objets blob. Consultez la section [Créer un conteneur](storage-quickstart-blobs-dotnet.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob. Lorsque vous avez terminé, appuyez sur **Entrée** pour créer le conteneur d’objets blob. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
+Pour créer un conteneur, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneurs d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Consultez la section [Créer un conteneur](storage-quickstart-blobs-dotnet.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob. Lorsque vous avez terminé, appuyez sur **Entrée** pour créer le conteneur d’objets blob. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
 
 ## <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les fichiers de disque dur virtuel utilisés pour appuyer les machines virtuelles IaaS sont des objets blob de pages. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des fichiers stockés dans Stockage Blob sont des objets blob de blocs.
 
-Dans le ruban du conteneur, sélectionnez **Télécharger** . Ce faisant, vous avez la possibilité de télécharger un dossier ou un fichier.
+Dans le ruban du conteneur, sélectionnez **Télécharger**. Ce faisant, vous avez la possibilité de télécharger un dossier ou un fichier.
 
-Choisissez les fichiers ou le dossier à télécharger. Sélectionnez le **type d’objet blob** . Les choix acceptables sont **Ajout** , **Page** ou **Bloc** .
+Choisissez les fichiers ou le dossier à télécharger. Sélectionnez le **type d’objet blob**. Les choix acceptables sont **Ajout**, **Page** ou **Bloc**.
 
 Si vous téléchargez un fichier .vhd or .vhdx, sélectionnez **Charger les fichiers .vhd/.vhdx en tant qu'objets blob de pages (recommandé)** .
 
@@ -64,21 +64,21 @@ Dans le champ **Charger dans le dossier** (facultatif), sélectionnez un nom de 
 
 ![Explorateur Stockage Microsoft Azure - Charger un objet blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 
-Lorsque vous sélectionnez **OK** , les fichiers sélectionnés sont mis en file d’attente de téléchargement ; ils sont traités un à un. Une fois le téléchargement terminé, les résultats s’affichent dans la fenêtre **Activités** .
+Lorsque vous sélectionnez **OK**, les fichiers sélectionnés sont mis en file d’attente de téléchargement ; ils sont traités un à un. Une fois le téléchargement terminé, les résultats s’affichent dans la fenêtre **Activités**.
 
 ## <a name="view-blobs-in-a-container"></a>Afficher les objets blob d’un conteneur
 
-Dans l’application **Explorateur Stockage Azure** , sélectionnez un conteneur sous un compte de stockage. Le volet principal affiche une liste des objets blobs hébergés dans le conteneur sélectionné.
+Dans l’application **Explorateur Stockage Azure**, sélectionnez un conteneur sous un compte de stockage. Le volet principal affiche une liste des objets blobs hébergés dans le conteneur sélectionné.
 
 ![Capture d’écran montrant où sélectionner un conteneur dans l’Explorateur Stockage Microsoft Azure.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Télécharger des objets blob
 
-Pour télécharger les objets blob à l’aide de l’ **Explorateur Stockage Azure** , avec un objet blob sélectionné, sélectionnez **Télécharger** dans le ruban. La boîte de dialogue qui s’ouvre vous permet de saisir un nom de fichier. Sélectionnez **Enregistrer** pour démarrer le téléchargement d’un objet blob sur l’emplacement local.
+Pour télécharger les objets blob à l’aide de l’**Explorateur Stockage Azure**, avec un objet blob sélectionné, sélectionnez **Télécharger** dans le ruban. La boîte de dialogue qui s’ouvre vous permet de saisir un nom de fichier. Sélectionnez **Enregistrer** pour démarrer le téléchargement d’un objet blob sur l’emplacement local.
 
 ## <a name="manage-snapshots"></a>Gérer les instantanés
 
-L’Explorateur Stockage Azure vous permet de prendre et de gérer des [instantanés](storage-blob-snapshots.md) de vos objets blob. Pour prendre un instantané d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Create Snapshot** (Créer un instantané). Pour afficher les instantanés d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Manage Snapshots** (Gérer les instantanés). Une liste des instantanés associés à l’objet blob s’affiche dans l’onglet actuel.
+L’Explorateur Stockage Azure vous permet de prendre et de gérer des [instantanés](./snapshots-overview.md) de vos objets blob. Pour prendre un instantané d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Create Snapshot** (Créer un instantané). Pour afficher les instantanés d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Manage Snapshots** (Gérer les instantanés). Une liste des instantanés associés à l’objet blob s’affiche dans l’onglet actuel.
 
 ![Capture d’écran montrant une liste d’objets blob dans l’Explorateur Stockage Microsoft Azure.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -90,13 +90,13 @@ Sélectionnez **Ajouter** pour ajouter une stratégie d’accès et définir les
 
 ## <a name="work-with-shared-access-signatures"></a>Utiliser les signatures d’accès partagé
 
-Les signatures d’accès partagé sont à récupérer via l’Explorateur Stockage. Cliquez sur un compte de stockage, sur un conteneur ou sur un objet blob, puis sélectionnez **Obtenir une signature d’accès partagé...** . Sélectionnez l’heure de départ et d’expiration, ainsi que les autorisations pour l’URL de la stratégie d’accès partagé, puis sélectionnez **Créer** . L’URL complète avec la chaîne de requête, ainsi que la chaîne de requête individuellement sont fournies ; ces valeurs peuvent être copiées à partir de l’écran suivant.
+Les signatures d’accès partagé sont à récupérer via l’Explorateur Stockage. Cliquez sur un compte de stockage, sur un conteneur ou sur un objet blob, puis sélectionnez **Obtenir une signature d’accès partagé...** . Sélectionnez l’heure de départ et d’expiration, ainsi que les autorisations pour l’URL de la stratégie d’accès partagé, puis sélectionnez **Créer**. L’URL complète avec la chaîne de requête, ainsi que la chaîne de requête individuellement sont fournies ; ces valeurs peuvent être copiées à partir de l’écran suivant.
 
 ![Explorateur Stockage Microsoft Azure - Liste des objets blob dans un conteneur](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage Blob Azure à l’aide de l’ **Explorateur Stockage Azure** . Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
+Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage Blob Azure à l’aide de l’**Explorateur Stockage Azure**. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations Stockage Blob](storage-how-to-use-blobs-powershell.md)
+> [Guide pratique des opérations Stockage Blob](./storage-quickstart-blobs-powershell.md)

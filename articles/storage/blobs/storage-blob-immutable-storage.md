@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448332"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658551"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -102,17 +102,21 @@ Les limites suivantes s’appliquent aux conservations légales :
 - Pour un conteneur, 10 journaux d’activité de stratégie de rétention légale au maximum sont conservés pour la durée de la stratégie.
 
 ## <a name="scenarios"></a>Scénarios
+
 Le tableau suivant montre les types d’opérations de stockage blob qui sont désactivés dans chaque scénario immuable. Pour plus d’informations, consultez la documentation [API REST du service Blob Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
 
-|Scénario  |État des objets blob  |Opérations Blob refusées  |Protection de conteneur et de compte
-|---------|---------|---------|---------|
-|L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie     |Immuable : non modifiable et non supprimable         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, t Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Suppression de conteneur refusée ; Suppression de compte de stockage refusée         |
-|L’intervalle de rétention effective sur l’objet blob a expiré et aucune conservation légale n’est définie    |Non modifiable seulement (suppressions autorisées)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Suppression de conteneur refusée s’il existe au moins 1 objet blob dans le conteneur protégé ; suppression de compte de stockage refusée uniquement pour les stratégies limitées dans le temps *verrouillées*         |
-|Aucune stratégie WORM appliquée (aucune rétention limitée dans le temps et aucune balise de conservation légale)     |Mutable         |None         |None         |
+| Scénario | État des objets blob | Opérations Blob refusées | Protection de conteneur et de compte |
+|--|--|--|--|
+| L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie | Immuable : non modifiable et non supprimable | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, t Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Suppression de conteneur refusée ; Suppression de compte de stockage refusée |
+| L’intervalle de rétention effective sur l’objet blob a expiré et aucune conservation légale n’est définie | Non modifiable seulement (suppressions autorisées) | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Suppression de conteneur refusée s’il existe au moins 1 objet blob dans le conteneur protégé ; suppression de compte de stockage refusée uniquement pour les stratégies limitées dans le temps *verrouillées* |
+| Aucune stratégie WORM appliquée (aucune rétention limitée dans le temps et aucune balise de conservation légale) | Mutable | None | None |
 
 <sup>1</sup> Le service Blob permet à ces opérations de créer un seul objet blob. Toutes les opérations d’écrasement ultérieures sur un chemin d’objets blob existant dans un conteneur immuable ne sont pas autorisées.
 
 <sup>2</sup> Append Block n’est autorisé que pour les stratégies de rétention limitée dans le temps avec la propriété `allowProtectedAppendWrites` activée. Pour plus d’informations, consultez la section [Autoriser les écritures protégées d’objets blob d’ajout](#allow-protected-append-blobs-writes).
+
+> [!IMPORTANT]
+> Certaines charges de travail, telles que [Sauvegarde SQL vers une URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), créent un blob et l’ajoutent ensuite. Si le conteneur est dotée d’une stratégie active de rétention basée sur le temps ou d’une conservation légale en place, ce modèle échouera.
 
 ## <a name="pricing"></a>Tarifs
 

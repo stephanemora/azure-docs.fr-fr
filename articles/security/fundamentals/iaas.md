@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c68bb9c7a94cf32bd1d9342660a9f0029f5d10d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410400"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698782"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -37,16 +37,16 @@ La première étape dans la protection de vos machines virtuelles consiste à vo
 >
 >
 
-**Bonne pratique**  : contrôler l’accès à la machine virtuelle.   
-**Détail**  : utilisez des [stratégies Azure](../../governance/policy/overview.md) pour établir des conventions pour les ressources de votre organisation et créer des stratégies personnalisées. Appliquez ces stratégies à vos ressources, telles que les [groupes de ressources](../../azure-resource-manager/management/overview.md). Les machines virtuelles qui appartiennent à un groupe de ressources héritent des stratégies de ce dernier.
+**Bonne pratique** : contrôler l’accès à la machine virtuelle.   
+**Détail** : utilisez des [stratégies Azure](../../governance/policy/overview.md) pour établir des conventions pour les ressources de votre organisation et créer des stratégies personnalisées. Appliquez ces stratégies à vos ressources, telles que les [groupes de ressources](../../azure-resource-manager/management/overview.md). Les machines virtuelles qui appartiennent à un groupe de ressources héritent des stratégies de ce dernier.
 
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. [Les groupes d’administration Azure](../../governance/management-groups/overview.md) fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en groupes d’administration (conteneurs) et vous appliquez vos conditions de gouvernance à ces groupes. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées au groupe. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.
 
-**Bonne pratique**  : réduire la variabilité au niveau de la configuration et du déploiement des machines virtuelles.   
-**Détail**  : utilisez des modèles [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour renforcer vos choix de déploiement, mais aussi gérer et inventorier plus facilement les machines virtuelles de votre environnement.
+**Bonne pratique** : réduire la variabilité au niveau de la configuration et du déploiement des machines virtuelles.   
+**Détail** : utilisez des modèles [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour renforcer vos choix de déploiement, mais aussi gérer et inventorier plus facilement les machines virtuelles de votre environnement.
 
-**Bonne pratique**  : Sécuriser l’accès privilégié.   
-**Détail**  : utilisez [l’approche des privilèges minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et des rôles Azure intégrés pour permettre aux utilisateurs d’accéder aux machines virtuelles et de les configurer :
+**Bonne pratique** : Sécuriser l’accès privilégié.   
+**Détail** : utilisez [l’approche des privilèges minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et des rôles Azure intégrés pour permettre aux utilisateurs d’accéder aux machines virtuelles et de les configurer :
 
 - [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ni le compte de stockage auxquels elles sont connectées.
 - [Contributeur de machine virtuelle Classic](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées selon le modèle de déploiement Classic, mais pas le réseau virtuel ni le compte de stockage auxquels elles sont connectées.
@@ -74,17 +74,17 @@ Le logiciel Microsoft Antimalware inclut des fonctionnalités telles que la prot
 
 Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](../../security-center/index.yml) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
 
-**Bonne pratique**  : installer une solution anti-programme malveillant.   
-**Détail**  : [Installer une solution partenaire Microsoft ou Microsoft Antimalware](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-).
+**Bonne pratique** : installer une solution anti-programme malveillant.   
+**Détail** : [Installer une solution partenaire Microsoft ou Microsoft Antimalware](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-).
 
-**Bonne pratique**  : intégrer la solution anti-programme malveillant à Security Center pour surveiller l’état de la protection.   
-**Détail**  : [Gérer les problèmes de protection des points de terminaison avec Security Center](../../security-center/security-center-partner-integration.md).
+**Bonne pratique** : intégrer la solution anti-programme malveillant à Security Center pour surveiller l’état de la protection.   
+**Détail** : [Gérer les problèmes de protection des points de terminaison avec Security Center](../../security-center/security-center-partner-integration.md).
 
 ## <a name="manage-your-vm-updates"></a>Gérer les sauvegardes des machines virtuelles
 Les machines virtuelles Azure, comme toutes les machines virtuelles locales, sont destinées à être gérées par l’utilisateur. Azure ne leur envoie donc pas les mises à jour Windows. Vous devez gérer vous-même les mises à jour de vos machines virtuelles.
 
-**Bonne pratique**  : veiller à ce que les machines virtuelles soient toujours à jour.   
-**Détail**  : utilisez la solution [Update Management](../../automation/update-management/overview.md) d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, dans des environnements locaux ou auprès d’autres fournisseurs de cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
+**Bonne pratique** : veiller à ce que les machines virtuelles soient toujours à jour.   
+**Détail** : utilisez la solution [Update Management](../../automation/update-management/overview.md) d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, dans des environnements locaux ou auprès d’autres fournisseurs de cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
 
 Les ordinateurs gérés par Update Management utilisent les configurations suivantes pour effectuer l’évaluation et les déploiements de mises à jour :
 
@@ -95,20 +95,20 @@ Les ordinateurs gérés par Update Management utilisent les configurations suiva
 
 Si vous utilisez Windows Update, veillez à ce que la configuration automatique de Windows Update reste activée.
 
-**Bonne pratique**  : faire en sorte, au moment du déploiement, que les images créées intègrent les dernières mises à jour Windows.   
-**Détail**  : recherchez et installez toutes les mises à jour Windows au début de chaque déploiement. Cette phase est particulièrement importante lorsque vous déployez les images que vous avez créées ou issues de votre propre bibliothèque. Bien que les images obtenues via la Place de marché Microsoft Azure soient automatiquement mises à jour par défaut, il peut y avoir un décalage (jusqu’à plusieurs semaines) après la publication d’une version publique.
+**Bonne pratique** : faire en sorte, au moment du déploiement, que les images créées intègrent les dernières mises à jour Windows.   
+**Détail** : recherchez et installez toutes les mises à jour Windows au début de chaque déploiement. Cette phase est particulièrement importante lorsque vous déployez les images que vous avez créées ou issues de votre propre bibliothèque. Bien que les images obtenues via la Place de marché Microsoft Azure soient automatiquement mises à jour par défaut, il peut y avoir un décalage (jusqu’à plusieurs semaines) après la publication d’une version publique.
 
-**Bonne pratique**  : redéployer régulièrement les machines virtuelles pour actualiser la version du système d’exploitation.   
-**Détail**  : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
+**Bonne pratique** : redéployer régulièrement les machines virtuelles pour actualiser la version du système d’exploitation.   
+**Détail** : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
 
-**Bonne pratique**  : appliquer rapidement les mises à jour de sécurité pour les machines virtuelles.   
-**Détail**  : activer Azure Security Center (niveau Gratuit ou Standard) pour [identifier les mises à jour de sécurité manquantes et les appliquer](../../security-center/asset-inventory.md).
+**Bonne pratique** : appliquer rapidement les mises à jour de sécurité pour les machines virtuelles.   
+**Détail** : activer Azure Security Center (niveau Gratuit ou Standard) pour [identifier les mises à jour de sécurité manquantes et les appliquer](../../security-center/asset-inventory.md).
 
-**Bonne pratique**  : installer les dernières mises à jour de sécurité.   
-**Détail**  : Parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vos machines virtuelles Azure hébergent des applications ou des services qui doivent être accessibles par Internet, soyez vigilant sur les mises à jour correctives. Installez les correctifs au-delà du système d’exploitation. Des vulnérabilités non corrigées sur des applications partenaires peuvent également entraîner des problèmes pouvant être facilement évités avec une gestion efficace des correctifs.
+**Bonne pratique** : installer les dernières mises à jour de sécurité.   
+**Détail** : Parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vos machines virtuelles Azure hébergent des applications ou des services qui doivent être accessibles par Internet, soyez vigilant sur les mises à jour correctives. Installez les correctifs au-delà du système d’exploitation. Des vulnérabilités non corrigées sur des applications partenaires peuvent également entraîner des problèmes pouvant être facilement évités avec une gestion efficace des correctifs.
 
-**Bonne pratique**  : déployer et tester une solution de sauvegarde.   
-**Détail**  : gérez la sauvegarde de la même façon que toutes les autres opérations. Cela s’applique aux systèmes qui font partie de votre environnement de production étendu au cloud.
+**Bonne pratique** : déployer et tester une solution de sauvegarde.   
+**Détail** : gérez la sauvegarde de la même façon que toutes les autres opérations. Cela s’applique aux systèmes qui font partie de votre environnement de production étendu au cloud.
 
 Les systèmes de développement et de test doivent suivre des stratégies de sauvegarde capables de fournir des capacités de restauration similaires à ce à quoi les utilisateurs se sont habitués au cours de leur expérience avec des environnements sur site. Les charges de travail migrées vers Azure doivent s’intégrer avec les solutions de sauvegarde existantes lorsque cela est possible. Vous pouvez également utiliser [Azure Backup](../../backup/backup-azure-vms-first-look-arm.md) pour répondre à vos exigences de sauvegarde.
 
@@ -151,17 +151,17 @@ Nous vous recommandons de chiffrer vos disques durs virtuels (VHD) afin de prot�
 
 Voici les meilleures pratiques en matière d’utilisation d’Azure Disk Encryption :
 
-**Bonne pratique**  : activer le chiffrement sur les machines virtuelles.   
-**Détail**  : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Bonne pratique** : activer le chiffrement sur les machines virtuelles.   
+**Détail** : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
-**Bonne pratique**  : utiliser une clé de chiffrement à clé pour renforcer la sécurité des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
-**Détail**  : Utilisez la cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../../key-vault/keys/hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
+**Bonne pratique** : utiliser une clé de chiffrement à clé pour renforcer la sécurité des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
+**Détail** : Utilisez la cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../../key-vault/keys/hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
 
-**Bonne pratique**  : prendre un [instantané](../../virtual-machines/windows/snapshot-copy-managed-disk.md) ou faire une sauvegarde avant de chiffrer les disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
-**Détail**  : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md).
+**Bonne pratique** : prendre un [instantané](../../virtual-machines/windows/snapshot-copy-managed-disk.md) ou faire une sauvegarde avant de chiffrer les disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
+**Détail** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md).
 
-**Bonne pratique**  : faire en sorte, pour Azure Disk Encryption, que le coffre de clés se trouve dans la même région que les machines virtuelles pour que les secrets de chiffrement ne franchissent pas les limites régionales.   
-**Détail**  : créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer.
+**Bonne pratique** : faire en sorte, pour Azure Disk Encryption, que le coffre de clés se trouve dans la même région que les machines virtuelles pour que les secrets de chiffrement ne franchissent pas les limites régionales.   
+**Détail** : créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer.
 
 Azure Disk Encryption répond aux besoins métiers suivants :
 
@@ -171,14 +171,14 @@ Azure Disk Encryption répond aux besoins métiers suivants :
 ## <a name="restrict-direct-internet-connectivity"></a>Limiter la connectivité Internet directe
 Surveillez et limitez la connectivité Internet directe des machines virtuelles. Les attaquants analysent en permanence des plages IP de cloud public pour détecter les ports de gestion ouverts et tentent des attaques « faciles » comme l’identification de mots de passe courants et des vulnérabilités non corrigées connues. Le tableau suivant répertorie les meilleures pratiques contribuant à protéger les utilisateurs contre ces attaques :
 
-**Bonne pratique**  : empêcher une exposition involontaire au routage et à la sécurité du réseau.   
-**Détail**  : utiliser RBAC pour garantir que seul le groupe de mise en réseau central possède l’autorisation d’accès aux ressources réseau.
+**Bonne pratique** : empêcher une exposition involontaire au routage et à la sécurité du réseau.   
+**Détail** : utiliser Azure RBAC pour garantir que seul le groupe central de mise en réseau possède l’autorisation d’accès aux ressources réseau.
 
-**Bonne pratique**  : identifier les machines virtuelles exposées qui autorisent l’accès à partir de « n’importe quelle » adresse IP source et y remédier.   
-**Détail**  : utiliser Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos Groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Security Center vous recommande de modifier ces règles de trafic entrant afin de [restreindre l’accès](../../security-center/security-center-network-recommendations.md) aux adresses IP source qui en ont réellement besoin.
+**Bonne pratique** : identifier les machines virtuelles exposées qui autorisent l’accès à partir de « n’importe quelle » adresse IP source et y remédier.   
+**Détail** : utiliser Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos Groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Security Center vous recommande de modifier ces règles de trafic entrant afin de [restreindre l’accès](../../security-center/security-center-network-recommendations.md) aux adresses IP source qui en ont réellement besoin.
 
-**Bonne pratique**  : restreindre les ports de gestion (RDP, SSH).   
-**Détail**  : [L’accès juste-à-temps (JAT) aux machines virtuelles](../../security-center/security-center-just-in-time.md) peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. Lorsque l’accès JAT est activé, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de Groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution JAT.
+**Bonne pratique** : restreindre les ports de gestion (RDP, SSH).   
+**Détail** : [L’accès juste-à-temps (JAT) aux machines virtuelles](../../security-center/security-center-just-in-time.md) peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. Lorsque l’accès JAT est activé, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de Groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution JAT.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

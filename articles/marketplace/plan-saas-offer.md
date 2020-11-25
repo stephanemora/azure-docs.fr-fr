@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 7f3f3b2c5927b31bde4575a08888e8844f2a1027
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129998"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734393"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article explique les différentes options et exigences relatives à la publi
 
 ## <a name="listing-options"></a>Options de référencement
 
-Lors de la préparation de la publication d’une nouvelle offre SaaS, vous devez choisir une option de _référencement_. Cela permet de déterminer les informations supplémentaires que vous à fournir lors de la création de l’offre dans l’Espace partenaires. Vous allez définir votre option de référencement sur la page **Configuration de l’offre** , comme expliqué dans [Créer une offre SaaS dans la place de marché commerciale](create-new-saas-offer.md).
+Lors de la préparation de la publication d’une nouvelle offre SaaS, vous devez choisir une option de _référencement_. L’option de référencement que vous choisissez détermine les informations supplémentaires que vous devrez fournir lorsque vous créerez votre offre dans Espace partenaires. Vous allez définir votre option de référencement sur la page **Configuration de l’offre**, comme expliqué dans [Créer une offre SaaS dans la place de marché commerciale](create-new-saas-offer.md).
 
 Le tableau suivant présente les options de référencement des offres SaaS dans la place de marché commerciale.
 
@@ -30,7 +30,7 @@ Le tableau suivant présente les options de référencement des offres SaaS dans
 | Me contacter | Le client vous contacte directement à partir des informations fournies dans votre référencement.``*`` |
 | Essai gratuit | Le client est redirigé vers votre URL cible via Azure Active Directory (Azure AD).``*`` |
 | Obtenez-en une maintenant (gratuit) | Le client est redirigé vers votre URL cible via Azure AD.``*`` |
-| Vendre via Microsoft  | Les offres vendues par le biais de Microsoft sont qualifiées de _pouvant faire l’objet d’une transaction_. Une offre pouvant faire l’objet d’une transaction est une offre dans laquelle Microsoft facilite l’échange d’argent contre l’acquisition d’une licence logicielle au nom de l’éditeur. Nous facturons les offres SaaS selon le modèle de tarification de votre choix, et vous gérez les transactions client en votre nom. En tant que partenaire, vous êtes directement facturé pour les frais d’utilisation de l’infrastructure Azure. Vous devez tenir compte des frais d’infrastructure dans votre modèle de tarification. Cette procédure est expliquée de façon plus détaillée dans [Facturation de SaaS](#saas-billing).  |
+| Vendre via Microsoft  | Les offres vendues par le biais de Microsoft sont qualifiées de _pouvant faire l’objet d’une transaction_. Une offre pouvant faire l’objet d’une transaction est une offre dans laquelle Microsoft facilite l’échange d’argent contre l’acquisition d’une licence logicielle au nom de l’éditeur. Nous facturons les offres SaaS selon le modèle de tarification de votre choix, et vous gérez les transactions client en votre nom. En tant que partenaire, les frais d’utilisation de l’infrastructure Azure vous sont directement facturés. Vous devez tenir compte des frais d’infrastructure dans votre modèle de tarification. Cette procédure est expliquée de façon plus détaillée dans [Facturation de SaaS](#saas-billing).  |
 |||
 
 ``*`` Les éditeurs sont responsables de la prise en charge de tous les aspects de la transaction de licence logicielle, notamment, la commande, la réalisation, le contrôle, la facturation, le paiement et la collecte.
@@ -45,20 +45,20 @@ Une fois votre offre publiée, l’option de référencement que vous avez chois
 
 Les exigences techniques varient en fonction de l’option de référencement que vous choisissez pour votre offre.
 
-L’option de référencement _Me contacter_ n’est assortie d’aucune exigence technique. Pour gérer les prospects, vous avez la possibilité de connecter un système de gestion des relations avec la clientèle (CRM) décrit dans la section [Prospects](#customer-leads), plus loin dans cet article.
+L’option de référencement _Me contacter_ n’est assortie d’aucune exigence technique. Vous avez la possibilité de connecter un système de Gestion des relations avec la clientèle (CRM) pour gérer les prospects. Ce point est décrit dans la section [Prospects](#customer-leads), plus loin dans cet article.
 
 Les options de référencement _Obtenir maintenant (gratuit)_ ,  _Essai gratuit_ et _Vendre via Microsoft_ sont assortie des exigences techniques suivantes :
 
 - Votre application SaaS doit être une solution mutualisée.
 - Vous pouvez activer les Comptes Microsoft (MSA) et [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) pour l’authentification des utilisateurs.
-- Vous devez créer une page d’arrivée. Après qu’un utilisateur a acheté votre offre, il est dirigé vers la page d’arrivée pour faciliter l’approvisionnement ou la configuration supplémentaires requis. Pour des conseils sur la création de la page d’arrivée, consultez les articles suivants :
+- Vous devez créer une page d’arrivée. Une fois que l’utilisateur a acheté votre offre, il est dirigé vers la page d’arrivée. Cela lui permet d’effectuer tout approvisionnement ou toute configuration supplémentaire requis. Pour des conseils sur la création de la page d’arrivée, consultez les articles suivants :
   - [Créer la page d'accueil de votre offre SaaS avec transaction dans la Place de marché commerciale](azure-ad-transactable-saas-landing-page.md)
   - [Créer la page d'accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale](azure-ad-free-or-trial-landing-page.md)
 
 Ces exigences techniques supplémentaires s’appliquent uniquement à l’option de référencement _Vendre via Microsoft_ (pouvant faire l’objet d’une transaction) :
 
 - Azure AD avec la gestion de l’identité et l’authentification unique (SSO) est requis pour l’utilisateur acheteur qui accède à la page de destination. Pour des instructions détaillées, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la place de marché commerciale](azure-ad-saas.md).
-- Vous devez utiliser les [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) pour l’intégration avec la Place de marché Azure et Microsoft AppSource. Vous devez exposer un service capable d’interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. Des diagrammes et des explications détaillées décrivant l’utilisation des champs collectés sont disponibles dans la documentation des [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
+- Vous devez utiliser les [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) pour l’intégration avec la Place de marché Azure et Microsoft AppSource. Vous devez exposer un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte d’utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. Des diagrammes et des explications détaillées décrivant l’utilisation des champs collectés sont disponibles dans la documentation des [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Vous devez créer au moins un plan pour votre offre. Votre plan est facturé en fonction du modèle de tarification que vous sélectionnez avant la publication : _forfaitaire_ ou _par utilisateur_. Vous trouverez des détails supplémentaires sur les [plans](#plans) plus loin dans cet article.
 - Le client peut annuler votre offre à tout moment.
 
@@ -66,7 +66,7 @@ Ces exigences techniques supplémentaires s’appliquent uniquement à l’opti
 
 Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez collecter les informations suivantes pour la page **Configuration technique**. Si vous choisissez de traiter les transactions de façon indépendante au lieu de créer une offre pouvant faire l’objet d’une transaction, ignorez cette section et accédez à [Versions d’évaluation](#test-drives).
 
-- **URL de la page d’arrivée**  : URL du site SaaS (par exemple, `https://contoso.com/signup`) vers lequel les utilisateurs sont dirigés après avoir acquis votre offre sur la place de marché commerciale, déclenchant le processus de configuration à partir du nouvel abonnement SaaS créé. Cette URL reçoit un jeton utilisable pour appeler les API de traitement afin d’obtenir les détails de l’approvisionnement pour votre page d’inscription interactive.
+- **URL de la page d’arrivée** : URL du site SaaS (par exemple, `https://contoso.com/signup`) vers lequel les utilisateurs sont dirigés après avoir acquis votre offre sur la place de marché commerciale, déclenchant le processus de configuration à partir du nouvel abonnement SaaS créé. Cette URL reçoit un jeton utilisable pour appeler les API de traitement afin d’obtenir les détails de l’approvisionnement pour votre page d’inscription interactive.
 
   Cette URL sera appelée avec le paramètre de jeton d’identification d’achat de la place de marché, qui identifie de façon unique l’achat de SaaS du client spécifique. Vous devez échanger ce jeton contre les détails de l’abonnement SaaS correspondant à l’aide de l’[API de résolution](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Ces informations et toutes celles que vous souhaitez recueillir doivent être utilisées au sein d’une page web interactive destinée au client, intégrée dans votre expérience afin de terminer l’inscription du client et d’activer son achat. Sur cette page, l’utilisateur doit s’inscrire via une authentification en un clic à l’aide d’Azure Active Directory (Azure AD).
 
@@ -74,16 +74,16 @@ Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez
 
     La page d’arrivée que vous configurez ici doit être opérationnelle en permanence. C’est la seule façon pour vous d’être averti des nouveaux achats de vos offres SaaS effectués sur la place de marché commerciale, ou des demandes de configuration pour un abonnement actif à une offre.
 
-- **Webhook de connexion**  : pour tous les événements asynchrones que Microsoft doit vous envoyer (par exemple, lors de l’annulation d’un abonnement SaaS), nous vous demandons de fournir une URL de webhook de connexion. Nous appellerons cette URL pour vous informer de l’événement.
+- **Webhook de connexion** : pour tous les événements asynchrones que Microsoft doit vous envoyer (par exemple, lors de l’annulation d’un abonnement SaaS), nous vous demandons de fournir une URL de webhook de connexion. Nous appellerons cette URL pour vous informer de l’événement.
 
-  Le webhook que vous fournissez doit être opérationnel en permanence, car c’est la seule façon pour vous d’être informé des mises à jour concernant les abonnements SaaS de vos clients achetés via la place de marché commerciale.
+  Le webhook que vous fournissez doit être opérationnel 24 heures sur 24, 7 jours sur 7. C’est la seule façon pour vous d’être informé des mises à jour concernant les abonnements SaaS de vos clients achetés via le marketplace commercial.
 
   > [!NOTE]
-  > À l’intérieur du portail Azure, nous vous recommandons de créer une [application Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) monolocataire pour permettre l’utilisation d’un seul ID d’application Azure pour authentifier la connexion entre nos deux services. Pour trouver l’ [ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), accédez à votre Azure Active Directory, sélectionnez **Propriétés** , puis cherchez le numéro d’ID de répertoire répertorié. Par exemple : `50c464d3-4930-494c-963c-1e951d15360e`.
+  > À l’intérieur du portail Azure, nous vous recommandons de créer une [application Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) monolocataire pour permettre l’utilisation d’un seul ID d’application Azure pour authentifier la connexion entre nos deux services. Pour trouver l’[ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), accédez à votre Azure Active Directory, sélectionnez **Propriétés**, puis cherchez le numéro d’ID de répertoire répertorié. Par exemple : `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **ID de locataire Azure Active Directory**  : (également appelé ID de répertoire). À l’intérieur du portail Azure, nous exigeons que vous [inscriviez une application Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) afin de pouvoir l’ajouter à la liste de contrôle d’accès (ACL) de l’API pour vous assurer que vous êtes autorisé à l’appeler. Pour trouver l’ID de locataire de votre application Azure Active Directory (AD), accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage** , sélectionnez l’application. Recherchez ensuite le numéro d’ **ID de répertoire (locataire)** référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **ID de locataire Azure Active Directory** : (également appelé ID de répertoire). À l’intérieur du portail Azure, nous exigeons que vous [inscriviez une application Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) afin de pouvoir l’ajouter à la liste de contrôle d’accès (ACL) de l’API pour vous assurer que vous êtes autorisé à l’appeler. Pour trouver l’ID de locataire de votre application Azure Active Directory (AD), accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application. Recherchez ensuite le numéro d’**ID de répertoire (locataire)** référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **ID d’application Azure Active Directory**  : vous avez également besoin de votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Pour en connaître la valeur, accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage** , sélectionnez l’application. Recherchez ensuite le numéro d’ID d’application (client) référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **ID d’application Azure Active Directory** : vous avez également besoin de votre [ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Pour en connaître la valeur, accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application. Recherchez ensuite le numéro d’ID d’application (client) référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
 
   L’ID d’application Azure AD est associé à votre ID d’éditeur dans votre compte de l’Espace partenaires. Vous devez utiliser le même ID d’application pour toutes les offres dans ce compte.
 
@@ -104,7 +104,7 @@ Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou apr�
 
 ## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
 
-Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Pour plus d’informations sur la sélection d’un magasin en ligne, consultez [Sélection d’un magasin en ligne](determine-your-listing-type.md#selecting-an-online-store).
+Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Pour plus d’informations sur les options de référencement prises en charge par les magasins en ligne, consultez [Options de référencement et de tarification par magasin en ligne](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Pour plus d’informations sur les catégories et les sous-catégories, consultez [Catégories et sous-catégories dans le marketplace commercial](categories.md).
 
 ## <a name="legal-contracts"></a>Contrats juridiques
 
@@ -151,22 +151,22 @@ L’exemple suivant montre un référencement d’offre dans le portail Azure.
 
 Pour faciliter la création de votre offre, préparez certains de ces éléments à l’avance. Sauf indication contraire, les éléments suivants sont requis.
 
-- **Name**  : ce nom apparaîtra en tant que titre du référencement de votre annonce dans la place de marché commerciale. Le nom peut être une marque. Il ne peut pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
-- **Résultats de recherche récapitulatifs**  : décrivez l’objectif ou la fonction de votre offre sous la forme d’une phrase sans saut de ligne de maximum 100 caractères. Ce récapitulatif est utilisé dans les résultats de recherche dans les référencements de la place de marché commerciale.
-- **Description**  : cette description s’affichera dans la vue d’ensemble des référencements de la place de marché commerciale. Vous pouvez inclure une proposition de valeur, des avantages clés, une base utilisateur visée, des associations de catégorie ou de secteur, des opportunités d’achats dans l’application, des informations requises et un lien pour en savoir plus.
-    
+- **Name** : ce nom apparaîtra en tant que titre du référencement de votre annonce dans la place de marché commerciale. Le nom peut être une marque. Il ne peut pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
+- **Résultats de recherche récapitulatifs** : décrivez l’objectif ou la fonction de votre offre sous la forme d’une phrase sans saut de ligne de maximum 100 caractères. Ce récapitulatif est utilisé dans les résultats de recherche dans les référencements de la place de marché commerciale.
+- **Description** : cette description s’affichera dans la vue d’ensemble des référencements de la place de marché commerciale. Vous pouvez inclure une proposition de valeur, des avantages clés, une base utilisateur visée, des associations de catégorie ou de secteur, des opportunités d’achats dans l’application, des informations requises et un lien pour en savoir plus.
+
     Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML compris. Pour obtenir plus d’astuces, consultez [Rédiger une bonne description d’application](/windows/uwp/publish/write-a-great-app-description).
 
-- **Instructions de prise en main**  : si vous choisissez de vendre votre offre par via Microsoft (offre pouvant faire l’objet d’une transaction), ce champ est obligatoire. Ces instructions sont destinées à aider les clients à se connecter à votre offre SaaS. Vous pouvez ajouter jusqu’à 3 000 caractères de texte et des liens vers une documentation en ligne plus détaillée.
+- **Instructions de prise en main** : si vous choisissez de vendre votre offre par via Microsoft (offre pouvant faire l’objet d’une transaction), ce champ est obligatoire. Ces instructions aident les clients à se connecter à votre offre SaaS. Vous pouvez ajouter jusqu’à 3 000 caractères de texte et des liens vers une documentation en ligne plus détaillée.
 - **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les magasins en ligne. Vous n’avez pas besoin d’inclure le **Nom** et la **Description** l’offre : ce texte est inclus automatiquement dans la recherche.
-- **Lien vers la politique de confidentialité**  : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
-- **Informations de contact**  : vous devez désigner les contacts suivants de votre organisation :
-  - **Contact de support**  : indiquez le nom, le numéro de téléphone et l’adresse e-mail des partenaires Microsoft à utiliser quand vos clients ouvrent des tickets. Vous devez également inclure l’URL de votre site web de support.
-  - **Contact d’ingénierie**  : indiquez le nom, le numéro de téléphone et l’adresse e-mail de Microsoft à utiliser directement en cas de problème avec votre offre. Ces informations de contact ne sont pas répertoriées dans la place de marché commerciale.
+- **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
+- **Informations de contact** : Vous devez fournir les contacts suivants de votre organisation :
+  - **Contact de support** : indiquez le nom, le numéro de téléphone et l’adresse e-mail des partenaires Microsoft à utiliser quand vos clients ouvrent des tickets. Vous devez également inclure l’URL de votre site web de support.
+  - **Contact d’ingénierie** : indiquez le nom, le numéro de téléphone et l’adresse e-mail de Microsoft à utiliser directement en cas de problème avec votre offre. Ces informations de contact ne sont pas répertoriées dans la place de marché commerciale.
   - **Contact du programme du fournisseur de solutions cloud** (facultatif) : indiquez le nom, le numéro de téléphone et l’adresse e-mail si vous optez pour le programme CSP, afin que ces partenaires puissent vous contacter pour toute question. Vous pouvez également inclure une URL pour vos documents marketing.
 - **Liens utiles** (facultatif) : vous pouvez fournir des liens vers diverses ressources destinées aux utilisateurs de votre offre. Par exemple, forums, FAQ et notes de publication.
-- **Documents associés**  : vous pouvez fournir jusqu’à trois documents destinés aux clients, tels que des livres blancs, des brochures, des listes de contrôle ou des présentations PowerPoint.
-- **Média – Logos**  : Fournissez un fichier PNG pour le logo de **grande taille**. L'Espace partenaires l'utilisera pour créer un logo **Petit** et **Moyen**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
+- **Documents associés** : vous pouvez fournir jusqu’à trois documents destinés aux clients, tels que des livres blancs, des brochures, des listes de contrôle ou des présentations PowerPoint.
+- **Média – Logos** : fournissez un fichier PNG pour le logo **Grande taille**. L'Espace partenaires l'utilisera pour créer un logo de **Petite taille**  et un logo de **Taille moyenne**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
 
    - Grande taille (de 216 x 216 à 350 x 350 px, obligatoire)
    - Moyen (90 x 90 px, facultatif)
@@ -178,7 +178,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
   - Le logo moyen s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
   - Le grand logo s’affiche sur la page de référencement de votre offre dans la Place de marché Azure et Microsoft AppSource.
 
-- **Média – Captures d’écran**  : vous devez ajouter au moins une et cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
+- **Média – Captures d’écran** : vous devez ajouter au moins une et cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
   - 1280 x 720 pixels
   - Fichier .png
   - Doit inclure une légende
@@ -191,7 +191,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 > Pour être publiées sur la place de marché commerciale, votre offre doit respecter les [stratégies de certification de la place de marché commerciale](/legal/marketplace/certification-policies#100-general) et les [stratégies SaaS](/legal/marketplace/certification-policies#1000-software-as-a-service-saas).
 
 ## <a name="preview-audience"></a>Public de la préversion
-Le public de la préversion peut accéder à votre offre avant sa publication dans les magasins en ligne, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion** , vous pouvez définir un public de préversion limité. Ce paramètre n’est pas disponible si vous choisissez de traiter les transactions de façon indépendante au lieu de vendre votre offre via Microsoft. Dans ce cas, vous pouvez ignorer cette section et accéder à [Opportunités de ventes supplémentaires](#additional-sales-opportunities).
+Le public de la préversion peut accéder à votre offre avant sa publication dans les magasins en ligne, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion**, vous pouvez définir un public de préversion limité. Ce paramètre n’est pas disponible si vous choisissez de traiter les transactions de façon indépendante au lieu de vendre votre offre via Microsoft. Dans ce cas, vous pouvez ignorer cette section et accéder à [Opportunités de ventes supplémentaires](#additional-sales-opportunities).
 
 > [!NOTE]
 > Le public d’une préversion diffère de celui d’un plan privé. Un plan privé est un plan que vous mettez à la disposition d’un public spécifique que vous choisissez. Cela vous permet de négocier un plan personnalisé avec des clients spécifiques. Pour plus d’informations, consultez la section suivante : Plans.
@@ -221,7 +221,7 @@ Pour les applications SaaS qui s’exécutent dans votre abonnement Azure (d’�
 
 Les offres d’application SaaS vendues via Microsoft prennent en charge une facturation mensuelle ou annuelle basée sur un tarif forfaitaire, par utilisateur, ou une facturation à l’utilisation à l’aide du [service de facturation contrôlée](./partner-center-portal/saas-metered-billing.md). La place de marché commerciale fonctionne selon un modèle d’agence. Les prix sont définis par l’éditeur, les factures sont établies par Microsoft, et l’éditeur est payé par Microsoft après déduction des frais d’agence.
 
-Voici un exemple de répartition des coûts et des paiements pour illustrer le modèle d’agence. Dans cet exemple, Microsoft facture 100 $ au client pour votre licence logicielle et verse 80 $ à l’éditeur.
+Vous trouverez ci-dessous un exemple de ventilation des coûts et des paiements pour illustrer le modèle de l’agence. Dans cet exemple, Microsoft facture 100 $ au client pour votre licence logicielle et verse 80 $ à l’éditeur.
 
 | Coût de votre licence | 100 $/mois |
 | ------------ | ------------- |
@@ -231,15 +231,15 @@ Voici un exemple de répartition des coûts et des paiements pour illustrer le m
 | Microsoft vous verse 80 % des revenus générés par les licences<br>`*` Pour les applications SaaS qualifiées, Microsoft paie 90 % de vos frais de licence| 80 $/mois<br>``*`` 90 $/mois |
 |||
 
-**`*` Frais de service de place de marché réduits**  : pour certaines offres SaaS que vous avez publiées sur notre place de marché commerciale, Microsoft réduit ses frais de service de place de marché de 20 % (comme indiqué dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq (5) jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Les frais de service réduits du marketplace s’appliquent aux offres SaaS de co-vente Azure IP incitatives, aux machines virtuelles, aux applications managées et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
+**`*` Frais de service de place de marché réduits** : pour certaines offres SaaS que vous avez publiées sur notre place de marché commerciale, Microsoft réduit ses frais de service de place de marché de 20 % (comme indiqué dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq (5) jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Les frais de service réduits du marketplace s’appliquent aux machines virtuelles et applications managées incitatives de co-vente Azure IP et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
 
 ## <a name="additional-sales-opportunities"></a>Opportunités de ventes supplémentaires
 
 Vous pouvez opter pour des canaux marketing et de vente pris en charge par Microsoft. Lorsque vous créez votre offre dans l’Espace partenaires, deux onglets s’affichent vers la fin du processus :
 
-- **Revendre via des fournisseurs de solutions cloud**  : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](cloud-solution-providers.md).
+- **Revendre via des fournisseurs de solutions cloud** : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](cloud-solution-providers.md).
 
-- **Co-vendre avec Microsoft**  : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option Co-vente de l’Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md).
+- **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option Co-vente de l’Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dbdd5153186ee47e37856637eac16d6d450cc5a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226894"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695178"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -90,6 +90,26 @@ Pour activer TLS 1.2, procédez comme suit.
     ```
 
 1. Redémarrez le serveur.
+
+## <a name="known-limitations"></a>Limitations connues
+Les limitations connues sont les suivantes :
+
+### <a name="delta-synchronization"></a>Synchronisation d’écart
+
+- Le filtrage de l’étendue du groupe pour la synchronisation delta ne prend pas en charge plus de 1 500 membres
+- Lorsque vous supprimez un groupe utilisé dans le cadre d’un filtre d’étendue de groupe, les utilisateurs qui sont membres du groupe ne sont pas supprimés. 
+- Lorsque vous renommez l’unité d’organisation ou le groupe qui se trouve dans l’étendue, la synchronisation delta ne supprime pas les utilisateurs.
+
+### <a name="provisioning-logs"></a>Journaux de provisionnement
+- Les journaux d’approvisionnement ne font pas clairement la différence entre les opérations de création et de mise à jour.  Vous pouvez voir une opération de création pour une mise à jour et une opération de mise à jour pour une création.
+
+### <a name="cross-domain-references"></a>Références entre les domaines
+- Si vous avez des utilisateurs ayant des références de membre dans un autre domaine, ils ne seront pas synchronisés dans le cadre de la synchronisation de votre domaine actuel pour cet utilisateur. 
+- (Exemple : un gestionnaire de l’utilisateur que vous synchronisez se trouve dans le domaine B et l’utilisateur se trouve dans le domaine A. Lorsque vous synchronisez à la fois le domaine A et le domaine B, ils seront synchronisés, mais le gestionnaire de l’utilisateur ne sera pas reporté.)
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Renommer le groupe ou renommer l’unité d’organisation
+- Si vous renommez un groupe ou une unité d’organisation dans Active Directory dans le cadre d’une configuration donnée, le travail d’approvisionnement cloud ne pourra pas reconnaître le changement de nom dans Active Directory. Le travail ne sera pas mis en quarantaine et restera sain.
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

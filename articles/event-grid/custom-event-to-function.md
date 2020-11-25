@@ -4,11 +4,11 @@ description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI ou le 
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324390"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996341"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers une fonction Azure avec Event Grid
 
@@ -26,7 +26,7 @@ Avant de nous abonner à la rubrique personnalisée, créez une fonction pour g�
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Sélectionner le déclencheur Event Grid":::
 3. Dans la page **Nouvelle fonction**, entrez un nom pour la fonction, puis sélectionnez **Créer une fonction**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Sélectionner le déclencheur Event Grid":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Page Nouvelle fonction":::
 4. Utilisez la page **Code + test** pour voir le code existant de la fonction et le mettre à jour. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -46,7 +46,7 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 4. Dans la page **Créer une rubrique**, procédez comme suit :
 
     1. Donnez un **nom** unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom : il doit comprendre entre 3 et 50 caractères, et contenir uniquement des valeurs a-z, A-Z, 0-9 et « - ».
-    2. Sélectionnez votre **abonnement**Azure.
+    2. Sélectionnez votre **abonnement** Azure.
     3. Sélectionnez le même groupe de ressources que celui des étapes précédentes.
     4. Sélectionnez un **emplacement** pour la rubrique Event Grid.
     5. Conservez la valeur par défaut **Schéma Event Grid** pour le champ **Schéma d’événement**. 
@@ -88,7 +88,7 @@ Vous vous abonnez à une rubrique Event Grid pour indiquer à Event Grid les év
     
         Le traitement par lot peut vous offrir un débit élevé. Pour **Nb max. d’événements par lot**, définissez le nombre maximal d’événements qu’un abonnement doit inclure dans un lot. La taille de lot par défaut définit la limite supérieure par défaut de la taille de lot en kilo-octets, mais peut être dépassée si un seul événement est supérieur à ce seuil.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Sélectionner le déclencheur Event Grid":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Activer le traitement par lot":::
     6. Dans la page **Créer un abonnement aux événements**, sélectionnez **Créer**.
 
 ## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique

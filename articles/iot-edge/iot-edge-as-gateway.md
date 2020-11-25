@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444349"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536436"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -45,21 +45,21 @@ Tous les modèles de passerelles fournissent les avantages suivants :
 
 Dans le modèle de passerelle transparente, les appareils qui, en théorie, peuvent se connecter à IoT Hub peuvent se connecter à un appareil de passerelle à la place. Les appareils situés en aval ont leurs propres identités IoT Hub et se connectent à l’aide des protocoles MQTT ou AMQP. La passerelle se contente de transférer les communications entre les appareils et IoT Hub. Les appareils et les utilisateurs qui interagissent avec eux par le biais d’IoT Hub ne savent pas qu’une passerelle effectue la médiation de leurs communications. Cette ignorance signifie que la passerelle est considérée comme *transparente*.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-Les appareils IoT Edge peuvent se connecter via des passerelles transparentes, ainsi qu’à l’aide d’appareils IoT standard.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 Les appareils IoT Edge ne peuvent pas se trouver en aval d’une passerelle IoT Edge.
 
 ![Diagramme : modèle de passerelle transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+À partir de la version 1.2.0, les appareils IoT Edge peuvent se connecter via des passerelles transparentes.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ Lorsque plusieurs passerelles IoT Edge se connectent les unes aux autres dans un
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>Capacités de l’appareil derrière les passerelles transparentes
 
-
 Toutes les primitives IoT Hub qui fonctionnent avec le pipeline de messagerie d’IoT Edge prennent également en charge les scénarios de passerelle transparente. Chaque passerelle IoT Edge dispose de capacités de stockage et de transfert pour les messages qui passent par elle.
 
 Utilisez le tableau suivant pour voir comment différentes capacités IoT Hub sont prises en charge par les appareils, par rapport aux appareils qui se trouvent derrière les passerelles.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Fonctionnalité | Appareil IoT | IoT derrière une passerelle |
+| ---------- | ---------- | -------------------- |
+| [Messages appareil-à-cloud (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Oui : IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : IoT D2C enfant](./media/iot-edge-as-gateway/check-yes.png) |
+| [Messages cloud-à-appareil (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Oui : IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : IoT C2D enfant](./media/iot-edge-as-gateway/check-yes.png) |
+| [Méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Oui : méthode directe IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : méthode directe IoT enfant](./media/iot-edge-as-gateway/check-yes.png) |
+| [Jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) et [jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md) | ![Oui : jumeaux IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : jumeaux IoT enfant](./media/iot-edge-as-gateway/check-yes.png) |
+| [Chargement de fichiers](../iot-hub/iot-hub-devguide-file-upload.md) | ![Oui : chargement de fichier IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Non : chargement de fichier enfant IoT](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ Utilisez le tableau suivant pour voir comment différentes capacités IoT Hub so
 **Les images de conteneur** peuvent être téléchargées, stockées et transmises d’appareils parents vers des appareils enfants.
 
 **Les blobs**, y compris les offres groupées d’assistance et les journaux, peuvent être chargés d’appareils enfants sur des appareils parents.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| Fonctionnalité | Appareil IoT | IoT derrière une passerelle |
-| ---------- | ---------- | -------------------- |
-| [Messages appareil-à-cloud (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Oui : IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : IoT D2C enfant](./media/iot-edge-as-gateway/check-yes.png) |
-| [Messages cloud-à-appareil (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Oui : IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : IoT C2D enfant](./media/iot-edge-as-gateway/check-yes.png) |
-| [Méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Oui : méthode directe IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : méthode directe IoT enfant](./media/iot-edge-as-gateway/check-yes.png) |
-| [Jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) et [jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md) | ![Oui : jumeaux IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Oui : jumeaux IoT enfant](./media/iot-edge-as-gateway/check-yes.png) |
-| [Chargement de fichiers](../iot-hub/iot-hub-devguide-file-upload.md) | ![Oui : chargement de fichier IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Non : chargement de fichier enfant IoT](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

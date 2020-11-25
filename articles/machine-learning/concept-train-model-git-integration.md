@@ -1,20 +1,20 @@
 ---
 title: Intégration de Git pour Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment Azure Machine Learning intègre un dépôt Git local. Lors de l’envoi d’une exécution d’entraînement à partir d’un répertoire local, qui est un dépôt Git, les informations relatives au dépôt, à la branche et à la validation actuelle sont suivies dans le cadre de l’exécution.
+description: Découvrez la façon dont Azure Machine Learning s’intègre à un référentiel Git local pour suivre les informations relatives au référentiel, aux branches et aux validations actuelles dans le cadre d’une exécution de formation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324767"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701634"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) : Démarrez à l’ **étape 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) : Démarrez à l’**étape 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Démarrez à **étape 4**.
 
@@ -153,9 +153,9 @@ Les informations Git sont stockées dans les propriétés d’une exécution d�
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le [portail Studio](https://ml.azure.com), sélectionnez votre espace de travail.
-1. Sélectionnez __Expériences__ , puis sélectionnez l’une de vos expériences.
+1. Sélectionnez __Expériences__, puis sélectionnez l’une de vos expériences.
 1. Sélectionnez l’une des exécutions dans la colonne __NUMÉRO D’EXÉCUTION__.
-1. Sélectionnez __Sorties + Journaux__ , puis développez les entrées __logs__ (journaux) et __azureml__. Sélectionnez le lien qui commence par __###\_azure__.
+1. Sélectionnez __Sorties + Journaux__, puis développez les entrées __logs__ (journaux) et __azureml__. Sélectionnez le lien qui commence par __###\_azure__.
 
 Les informations journalisées contiennent du texte similaire au code JSON suivant :
 

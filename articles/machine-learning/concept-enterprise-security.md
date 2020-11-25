@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441781"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561316"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sécurité et gouvernance de l’entreprise pour Azure Machine Learning
 
 Dans cet article, vous allez découvrir les fonctionnalités de sécurité disponibles pour Azure Machine Learning.
 
-Quand vous utilisez un service cloud, une bonne pratique consiste à limiter l’accès aux seuls utilisateurs qui en ont besoin. Commencez par comprendre le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau ou joindre de manière sécurisée des ressources de votre réseau local au cloud. Le chiffrement des données est également essentiel, aussi bien au repos et pendant le déplacement de données entre les services. Vous pouvez également créer des stratégies pour appliquer certaines configurations ou consigner dans le journal les configurations non conformes créées. Enfin, vous devez pouvoir superviser le service et produire un journal d’audit de toutes les activités.
+Quand vous utilisez un service cloud, une bonne pratique consiste à limiter l’accès aux seuls utilisateurs qui en ont besoin. Commencez par comprendre le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau ou joindre de manière sécurisée des ressources de votre réseau local au cloud. Le chiffrement des données est également essentiel, aussi bien au repos et pendant le déplacement de données entre les services. Vous pouvez également créer des stratégies pour appliquer certaines configurations ou consigner les cas où des configurations non conformes sont créées. Enfin, vous devez pouvoir superviser le service et produire un journal d’audit de toutes les activités.
 
 > [!NOTE]
 > Les informations contenues dans cet article fonctionnent avec le kit de développement logiciel (SDK) Python Azure Machine Learning 1.0.83.1 ou version ultérieure.
@@ -105,7 +105,13 @@ Si vous le souhaitez, vous pouvez configurer vos propres identités managées po
 
 Pour restreindre l’accès physique aux ressources Azure Machine Learning, vous pouvez utiliser Azure Virtual Network (VNet). Les réseaux virtuels vous permettent de créer des environnements réseau partiellement ou entièrement isolés de l’Internet public. Cela a pour effet de réduire la surface d’attaque de votre solution, ainsi que les risques d’exfiltration de données.
 
-Pour plus d’informations, voir [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
+Pour plus d’informations, consultez les documents suivants :
+
+* [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
+* [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
+* [Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
+* [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+* [Utiliser le studio dans un réseau virtuel sécurisé](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -123,10 +129,11 @@ Vous pouvez aussi chiffrer des [informations de diagnostic enregistrées à part
 
 Il existe plusieurs scénarios de surveillance avec Azure Machine Learning, en fonction du rôle et de l’objet de la surveillance.
 
-| Role | Surveillance d’utilisation |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Métriques Azure Monitor](#azure-monitor), [journal d’activité](#activity-log), [analyse des vulnérabilités](#vulnerability-scanning) |
-| Scientifique des données. MLOps | [Surveiller les exécutions](#monitor-runs) |
+| Role | Surveillance d’utilisation | Description |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Métriques Azure Monitor](#azure-monitor), [journal d’activité](#activity-log), [analyse des vulnérabilités](#vulnerability-scanning) | Informations sur le niveau de service |
+| Scientifique des données. MLOps | [Surveiller les exécutions](#monitor-runs) | Informations consignées lors des exécutions de formation |
+| MLOps | [Collecter les données de modèle](how-to-enable-data-collection.md), [Surveiller avec Application Insights](how-to-enable-app-insights.md) | Informations consignées par les modèles déployés en tant que services web ou modules IoT Edge|
 
 ### <a name="monitor-runs"></a>Surveiller les exécutions
 

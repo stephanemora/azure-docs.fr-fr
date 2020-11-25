@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439110"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013324"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -58,7 +58,7 @@ Les pipelines peuvent ingérer des données provenant de différents magasins de
 
 ## <a name="install-the-python-package"></a>Installer le package Python
 
-1. Ouvrez un terminal ou une invite de commandes avec des privilèges d’administrateur. 
+1. Ouvrez un terminal ou une invite de commandes avec des privilèges d’administrateur. 
 2. D’abord, installez le package Python pour les ressources de gestion Azure :
 
     ```python
@@ -257,7 +257,7 @@ Pour surveiller l’exécution du pipeline, ajoutez le code suivant à la métho
 
 ```
 
-Maintenant, ajoutez l’instruction suivante pour appeler la méthode**main** lorsque le programme est exécuté :
+Maintenant, ajoutez l’instruction suivante pour appeler la méthode **main** lorsque le programme est exécuté :
 
 ```python
 # Start the main method

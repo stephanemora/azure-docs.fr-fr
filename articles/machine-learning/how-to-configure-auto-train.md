@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352572"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535331"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -346,6 +346,9 @@ Vous pouvez consulter vos résultats de formation dans un widget ou en ligne si 
 Consultez [Évaluer les résultats d’expérience du machine learning automatisé](how-to-understand-automated-ml.md) pour obtenir des définitions et des exemples des graphiques de performances et des métriques fournis pour chaque exécution. 
 
 Pour obtenir un résumé de caractérisation et comprendre les fonctionnalités qui ont été ajoutées à un modèle particulier, consultez [Transparence de la caractérisation](how-to-configure-auto-features.md#featurization-transparency). 
+
+> [!NOTE]
+> Les algorithmes utilisés par le ML automatisé ont un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final des modèles recommandés, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que le fractionnement de test de formation, le fractionnement de validation de formation ou la validation croisée, le cas échéant. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences en raison de ces facteurs. 
 
 ## <a name="register-and-deploy-models"></a>Inscrire et déployer des modèles
 

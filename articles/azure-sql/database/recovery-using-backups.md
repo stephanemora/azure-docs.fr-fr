@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
-ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/13/2020
+ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790336"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629187"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -108,15 +108,18 @@ Vous pouvez restaurer une base de données supprimée à l’heure de sa suppres
 
 Vous pouvez restaurer des bases de données supprimées à partir du Portail Azure à partir de la ressource de serveur et de l’instance gérée.
 
+> [!TIP]
+> Plusieurs minutes peuvent être nécessaires pour que les bases de données récemment supprimées apparaissent sur la page **Bases de données supprimées** dans Portail Azure, ou lors de l’affichage des bases de données supprimées [par programmation](#programmatic-recovery-using-automated-backups).
+
 #### <a name="sql-database"></a>SQL Database
 
-Pour récupérer une base de données qui a été supprimée telle qu'elle était au moment de sa suppression à partir du portail Azure, ouvrez la page de présentation du serveur et sélectionnez **Bases de données supprimées** . Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+Pour récupérer une base de données qui a été supprimée telle qu'elle était au moment de sa suppression à partir du portail Azure, ouvrez la page de présentation du serveur et sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
   ![Capture d’écran de la restauration d’une base de données supprimée](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instance managée SQL
 
-Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de vue d’ensemble de l’instance managée, puis sélectionnez **Bases de données supprimées** . Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de vue d’ensemble de l’instance managée, puis sélectionnez **Bases de données supprimées**. Sélectionnez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
   ![Capture d’écran de la restauration d’une base de données Azure SQL Managed Instance supprimée](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,10 +157,10 @@ La géorestauration constitue l’option de récupération par défaut lorsque l
 
 Pour géorestaurer une base de données unique à partir du portail Azure dans la région et le serveur de votre choix, effectuez les étapes suivantes :
 
-1. À partir du **Tableau de bord** , sélectionnez **Ajouter** > **Créer une base de données SQL** . Sous l’onglet **De base** , entrez les informations nécessaires.
-2. Sélectionnez **Paramètres supplémentaires** .
-3. Pour **Utiliser des données existantes** , sélectionnez **Sauvegarde** .
-4. Pour **Sauvegarde** , sélectionnez une sauvegarde dans la liste des sauvegardes de géorestauration disponibles.
+1. À partir du **Tableau de bord**, sélectionnez **Ajouter** > **Créer une base de données SQL**. Sous l’onglet **De base**, entrez les informations nécessaires.
+2. Sélectionnez **Paramètres supplémentaires**.
+3. Pour **Utiliser des données existantes**, sélectionnez **Sauvegarde**.
+4. Pour **Sauvegarde**, sélectionnez une sauvegarde dans la liste des sauvegardes de géorestauration disponibles.
 
     ![Capture d’écran des options de création de base de données SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
@@ -167,9 +170,9 @@ Terminez le processus de création d’une nouvelle base de données depuis la s
 
 Pour géorestaurer une base de données d’instance managée du portail Azure vers une instance managée existante dans une région de votre choix, sélectionnez une instance managée sur laquelle vous souhaitez restaurer une base de données. Procédez comme suit :
 
-1. Sélectionnez **Nouvelle base de données** .
+1. Sélectionnez **Nouvelle base de données**.
 2. Tapez le nom de base de données souhaité.
-3. Sous **Utiliser des données existantes** , sélectionnez **Sauvegarde** .
+3. Sous **Utiliser des données existantes**, sélectionnez **Sauvegarde**.
 4. Sélectionnez une sauvegarde dans la liste des sauvegardes de géorestauration disponibles.
 
     ![Capture d’écran des options de nouvelle base de données](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)

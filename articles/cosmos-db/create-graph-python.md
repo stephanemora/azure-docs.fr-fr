@@ -10,11 +10,11 @@ ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
 ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972475"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de Python et du portail Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -75,7 +75,7 @@ Pour être en mesure de créer une base de données de graphiques, vous devez av
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Tous les extraits de code sont tirés du fichier *connect.py* dans le dossier *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
 
-* Le `client` Gremlin est initialisé à la ligne 104 du fichier *connect.py*  :
+* Le `client` Gremlin est initialisé à la ligne 104 du fichier *connect.py* :
 
     ```python
     ...
@@ -129,7 +129,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
         password="<YOUR_PASSWORD>")
     ```
 
-4. Dans la page **Clés** , utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `<YOUR_PASSWORD>` dans le paramètre `password=<YOUR_PASSWORD>`.
+4. Dans la page **Clés**, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `<YOUR_PASSWORD>` dans le paramètre `password=<YOUR_PASSWORD>`.
 
     L’ensemble de définition de l’objet `client` doit désormais ressembler à ce code :
     ```python
@@ -171,11 +171,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur de données et voir les sommets ajoutés au graphe. Vous pouvez également ajouter des points de données supplémentaires.
 
-1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données** , développez **sample-graph** , sélectionnez **Graphe** , puis sélectionnez **Appliquer un filtre**. 
+1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graphe**, puis sélectionnez **Appliquer un filtre**. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Capture d’écran montrant Graph sélectionné dans la zone de l’API avec l’option Appliquer le filtre.":::
 
-2. Dans la liste **Résultats** , vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
+2. Dans la liste **Résultats**, vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Nouveaux sommets dans le graphe dans l’Explorateur de données du portail Azure":::
 
@@ -218,11 +218,11 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
     À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats** , puis sélectionnez le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
+12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Changer la cible d’un sommet dans un graphe":::
 
-13. Dans la zone **Cible** , tapez *rakesh*. Dans la zone **Étiquette de l’arête** , tapez *knows* , puis cochez la case.
+13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Étiquette de l’arête**, tapez *knows*, puis cochez la case.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données":::
 
