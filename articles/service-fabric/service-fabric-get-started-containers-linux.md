@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004226"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -235,11 +235,11 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** , *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
 
-Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true** , un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* est défini sur **true** , des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 

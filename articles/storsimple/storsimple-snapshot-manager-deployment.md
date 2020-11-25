@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055076"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003869"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
 

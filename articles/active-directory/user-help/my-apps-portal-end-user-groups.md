@@ -13,15 +13,15 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124150"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004147"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
 
-Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications** , contactez le support technique pour obtenir l’autorisation.
+Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web 
 
 ## <a name="view-your-groups-information"></a>Afficher les informations relatives à vos groupes
 
-Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Groupes** , vous pouvez :
+Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Groupes**, vous pouvez :
 
 - **En tant que membre d'un groupe.** Afficher les informations relatives à un groupe ou quitter celui-ci.
 
@@ -68,7 +68,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 ## <a name="create-a-new-group"></a>Créer un groupe
 
-1. Sur la page **Groupes** , sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire**.
+1. Sur la page **Groupes**, sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire**.
 
     La boîte de dialogue **Créer un groupe** s'affiche.
 
@@ -96,7 +96,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y compris mettre à jour des informations existantes.
 
-1. Sélectionnez le groupe que vous souhaitez modifier sur la page **Groupes** , puis choisissez **Modifier les détails** sur la page *&lt;nom_groupe&gt;* .
+1. Sélectionnez le groupe que vous souhaitez modifier sur la page **Groupes**, puis choisissez **Modifier les détails** sur la page *&lt;nom_groupe&gt;* .
 
     La boîte de dialogue **Modifier les détails** s'affiche et vous pouvez mettre à jour les informations que vous avez ajoutées lors de la création du groupe.
 
@@ -110,7 +110,7 @@ Vous pouvez ajouter ou supprimer des membres pour tous les groupes dont vous êt
 
     ![Ajouter un membre au groupe, avec le signe + mis en évidence](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Recherchez le membre que vous souhaitez ajouter dans la boîte de dialogue **Ajouter des membres** , puis sélectionnez **Ajouter**.
+2. Recherchez le membre que vous souhaitez ajouter dans la boîte de dialogue **Ajouter des membres**, puis sélectionnez **Ajouter**.
 
     ![Boîte de dialogue Ajouter des membres, avec nouveau membre à ajouter](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -130,7 +130,7 @@ Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 e
 
 2. Cliquez sur **OK** pour fermer le message de confirmation.
 
-    Une fois la page actualisée, les dates de **Dernier renouvellement** et d' **Expiration du groupe** s'affichent.
+    Une fois la page actualisée, les dates de **Dernier renouvellement** et d'**Expiration du groupe** s'affichent.
 
 ## <a name="delete-a-group"></a>Supprimer un groupe
 
@@ -148,17 +148,17 @@ Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. To
 
 Vous pouvez rejoindre ou quitter un groupe existant à partir de la page **Groupes**.
 
-1. Sur la page **Groupes** , sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre**.
+1. Sur la page **Groupes**, sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre**.
 
     La page **Rejoindre des groupes** s'affiche.
 
     ![Page Rejoindre des groupes, avec le bouton Rejoindre le groupe mis en évidence](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Sur la page **Rejoindre des groupes** , sélectionnez le nom du groupe que vous souhaitez rejoindre, consultez les détails relatifs à ce groupe et, s'il est disponible, choisissez **Rejoindre le groupe**.
+2. Sur la page **Rejoindre des groupes**, sélectionnez le nom du groupe que vous souhaitez rejoindre, consultez les détails relatifs à ce groupe et, s'il est disponible, choisissez **Rejoindre le groupe**.
 
     Si le groupe exige que son propriétaire approuve la demande d'adhésion, vous êtes invité à entrer une justification métier expliquant pourquoi vous souhaitez rejoindre le groupe, puis à sélectionner **Demander**. Si aucune approbation n'est requise, vous rejoignez immédiatement le groupe et celui-ci apparaît dans votre liste **Groupes dont je suis membre**.
 
-3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes** , puis choisir **Quitter le groupe**.
+3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes**, puis choisir **Quitter le groupe**.
 
     ![Page Rejoindre des groupes, avec le bouton Quitter le groupe mis en évidence](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
