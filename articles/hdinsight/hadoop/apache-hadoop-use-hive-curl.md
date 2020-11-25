@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533765"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000491"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de REST
 
@@ -31,7 +31,7 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Ap
 
 ## <a name="base-uri-for-rest-api"></a>URI de base pour l’API Rest
 
-L’URI (Uniform Resource Identifier) de base pour l’API REST sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse** .  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
+L’URI (Uniform Resource Identifier) de base pour l’API REST sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse**.  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
 
 ## <a name="authentication"></a>Authentification
 
@@ -120,7 +120,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Utilisez la commande suivante pour créer une table nommée **log4jLogs**  :
+1. Utilisez la commande suivante pour créer une table nommée **log4jLogs** :
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` : formatage des données. Les champs de chaque journal sont séparés par un espace.
    * `STORED AS TEXTFILE LOCATION` : emplacement de stockage des données (répertoire example/data) stockées sous forme de texte.
-   * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3** , car trois lignes contiennent cette valeur.
+   * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
      > [!NOTE]  
      > Notez que les espaces entre les instructions HiveQL sont remplacés par le caractère `+` lorsqu'ils sont utilisés avec Curl. Les valeurs citées qui contiennent un espace, tel que le séparateur, ne doivent pas être remplacées par `+`.
@@ -181,9 +181,9 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Si la tâche est terminée, l’état est **TERMINÉ** .
+    Si la tâche est terminée, l’état est **TERMINÉ**.
 
-1. Une fois que le statut de la tâche est passé à **TERMINÉ** , vous pouvez récupérer les résultats depuis le stockage blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas `/example/rest`. Cette adresse stocke le résultat dans le répertoire `example/curl` dans le stockage en cluster par défaut.
+1. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas `/example/rest`. Cette adresse stocke le résultat dans le répertoire `example/curl` dans le stockage en cluster par défaut.
 
     Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation d’Azure CLI avec Stockage Azure, consultez le document [Utiliser Azure CLI avec Stockage Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 

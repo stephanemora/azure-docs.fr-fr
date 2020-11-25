@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235895"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999431"
 ---
 Cette fonctionnalité est facile à configurer, mais il est possible que vous rencontriez des problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du Portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à **Outils** > **Kudu**. Vous pouvez également accéder à la console Kudo via le site [nom du site].scm.azurewebsites.net. Une fois le site chargé, accédez à l’onglet **Console de débogage**. Pour accéder à la console hébergée par le Portail Azure à partir de votre application, accédez à **Outils** > **Console**.
 
 #### <a name="tools"></a>Outils
-Dans les applications Windows natives, les outils **ping** , **nslookup** et **tracert** ne fonctionnent pas dans la console en raison de contraintes de sécurité (ils fonctionnent dans des [conteneurs Windows personnalisés](../articles/app-service/quickstart-custom-container.md)). Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé **nameresolver.exe**. La syntaxe est :
+Dans les applications Windows natives, les outils **ping**, **nslookup** et **tracert** ne fonctionnent pas dans la console en raison de contraintes de sécurité (ils fonctionnent dans des [conteneurs Windows personnalisés](../articles/app-service/quickstart-custom-container.md)). Deux outils distincts ont été ajoutés pour les remplacer. Pour tester les fonctionnalités DNS, nous avons ajouté un outil nommé **nameresolver.exe**. La syntaxe est :
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -26,7 +26,7 @@ Vous pouvez utiliser nameresolver pour vérifier les noms d’hôte dont dépend
 > nameresolver.exe ne fonctionne pas actuellement dans les conteneurs Windows personnalisés.
 >
 
-Vous pouvez utiliser l’outil suivant pour tester la connectivité TCP avec une combinaison hôte-port. Il s’agit de l’outil **tcpping** , dont la syntaxe est la suivante :
+Vous pouvez utiliser l’outil suivant pour tester la connectivité TCP avec une combinaison hôte-port. Il s’agit de l’outil **tcpping**, dont la syntaxe est la suivante :
 
 ```console
 tcpping.exe hostname [optional: port]

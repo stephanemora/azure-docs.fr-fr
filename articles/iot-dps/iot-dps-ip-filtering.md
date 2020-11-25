@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000366"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Utiliser les filtres de connexion IP d’instance IoT DPS Azure
 
@@ -22,7 +22,7 @@ La sécurité est un aspect important de toute solution IoT. Parfois, dans le ca
 
 Il existe deux cas d’utilisation spécifiques dans lesquels il est utile de bloquer les connexions à un point de terminaison d’instance DPS à partir de certaines adresses IP :
 
-* Votre instance DPS doit recevoir le trafic uniquement d’une plage d’adresses IP spécifiée et refuser tout le reste. Par exemple, vous utilisez votre instance DPS avec [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) pour créer des connexions privées entre une instance DPS et vos appareils.
+* Votre instance DPS doit recevoir le trafic uniquement d’une plage d’adresses IP spécifiée et refuser tout le reste. Par exemple, vous utilisez votre instance DPS avec [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) pour créer des connexions privées entre une instance DPS et vos appareils.
 
 * Vous devez refuser le trafic provenant d’adresses IP qui ont été identifiées comme suspectes par l’administrateur de l’instance DPS.
 
@@ -48,7 +48,7 @@ Après avoir sélectionné **Ajouter une règle de filtre IP**, renseignez les c
 
 ![Après avoir sélectionné Ajouter une règle de filtre IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Donnez un **nom** à la règle de filtre IP. Ce nom doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères. Seuls les caractères alphanumériques ASCII 7 bits et `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sont acceptés.
+* Donnez un **nom** à la règle de filtre IP. Ce nom doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères. Seuls les caractères alphanumériques ASCII 7 bits et `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sont acceptés.
 
 * Fournissez une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 192.168.100.0/22 représente les 1024 adresses IPv4 allant de 192.168.100.0 à 192.168.103.255.
 
@@ -74,7 +74,7 @@ Pour supprimer une règle de filtre IP, sélectionnez l’icône de la corbeille
 
 ## <a name="update-ip-filter-rules-in-code"></a>Modifier des règles de filtre IP dans le code
 
-Vous pouvez récupérer et modifier le filtre IP de votre instance DPS via le point de terminaison REST du fournisseur de ressources Azure. Reportez-vous à `properties.ipFilterRules` dans la [méthode createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Vous pouvez récupérer et modifier le filtre IP de votre instance DPS via le point de terminaison REST du fournisseur de ressources Azure. Reportez-vous à `properties.ipFilterRules` dans la [méthode createorupdate](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 La mise à jour des règles de filtre IP de l’instance DPS n’est pas prise en charge avec Azure CLI ou Azure PowerShell pour le moment mais peut être effectuée avec des modèles Azure Resource Manager. Consultez [Modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md) pour obtenir des instructions sur l’utilisation des modèles Resource Manager. Les exemples de modèles ci-dessous montrent comment créer, modifier et supprimer des règles de filtre IP d’instance DPS.
 
@@ -136,7 +136,7 @@ Modifiez les attributs de la règle de filtre IP du modèle selon vos besoins.
 | Attribut                | Description |
 | ------------------------ | ----------- |
 | **FilterName**           | Donnez un nom à la règle de filtre IP. Ce nom doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères. Seuls les caractères alphanumériques ASCII 7 bits sont acceptés ainsi que les suivants : {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}. |
-| **Action**               | Les valeurs autorisées sont **Accepter** ou **Refuser** pour l’action de la règle de filtre IP. |
+| **Action**               | Les valeurs autorisées sont **Accepter** ou  **Refuser** pour l’action de la règle de filtre IP. |
 | **ipMask**               | Fournissez une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 192.168.100.0/22 représente les 1024 adresses IPv4 allant de 192.168.100.0 à 192.168.103.255. |
 
 

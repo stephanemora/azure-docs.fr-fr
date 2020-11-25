@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000689"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Résoudre les problèmes de création de ressources dans Azure HDInsight
 
@@ -37,11 +37,11 @@ Pour demander une augmentation de quota, procédez comme suit :
 
 1. Sélectionnez **Nouvelle demande de support**.
 
-1. Sous l’onglet **Informations de base** dans la page **Nouvelle demande de support** , fournissez les informations suivantes :
+1. Sous l’onglet **Informations de base** dans la page **Nouvelle demande de support**, fournissez les informations suivantes :
 
    * **Type de problème :** Sélectionnez **Limites du service et de l’abonnement (quotas)** .
    * **Abonnement :** Sélectionnez l’abonnement que vous souhaitez modifier.
-   * **Type de quota**  : Sélectionnez **HDInsight**.
+   * **Type de quota** : Sélectionnez **HDInsight**.
 
 Pour plus d’informations, consultez [Créer un ticket de support pour augmenter le nombre de cœurs](hdinsight-capacity-planning.md#quotas).
 

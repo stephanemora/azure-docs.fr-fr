@@ -3,16 +3,17 @@ title: Configurer Oracle ASM sur une machine virtuelle Linux Azure | Microsoft D
 description: Rendez Oracle ASM opérationnel rapidement dans votre environnement Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999992"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
 
@@ -317,7 +318,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
     FRA
    ```
 
-9. Modifiez les mots de passe pour les utilisateurs de la racine, d’Oracle et de Grid **Prenez note de ces nouveaux mots de passe** , car vous les utiliserez plus tard pendant l’installation.
+9. Modifiez les mots de passe pour les utilisateurs de la racine, d’Oracle et de Grid **Prenez note de ces nouveaux mots de passe**, car vous les utiliserez plus tard pendant l’installation.
 
    ```bash
    passwd oracle 
@@ -346,7 +347,7 @@ Pour télécharger et préparer Oracle Grid Infrastructure, procédez comme suit
 
 1. Téléchargez Oracle Grid Infrastructure à partir de la [page de téléchargement d’Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-   Sous le téléchargement intitulé **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64** , téléchargez les deux fichiers .zip.
+   Sous le téléchargement intitulé **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, téléchargez les deux fichiers .zip.
 
 2. Une fois que vous avez téléchargé les fichiers .zip sur votre ordinateur client, vous pouvez utiliser SCP (Secure Copy Protocol) pour les copier sur votre machine virtuelle :
 
@@ -385,7 +386,7 @@ Pour télécharger et préparer Oracle Grid Infrastructure, procédez comme suit
    vi /etc/waagent.conf
    ```
 
-   Recherchez `ResourceDisk.SwapSizeMB` et remplacez la valeur par **8192**. Vous devez appuyer sur `insert` pour passer en mode d’insertion, saisir la valeur **8192** , puis appuyer sur `esc` pour revenir au mode de commande. Pour écrire les modifications et fermer le fichier, saisissez `:wq` et appuyez sur `enter`.
+   Recherchez `ResourceDisk.SwapSizeMB` et remplacez la valeur par **8192**. Vous devez appuyer sur `insert` pour passer en mode d’insertion, saisir la valeur **8192**, puis appuyer sur `esc` pour revenir au mode de commande. Pour écrire les modifications et fermer le fichier, saisissez `:wq` et appuyez sur `enter`.
    
    > [!NOTE]
    > Nous vous recommandons vivement d’utiliser `WALinuxAgent` pour configurer l’espace d’échange afin qu’il soit toujours créé sur le disque éphémère local (temporaire). Vous bénéficierez ainsi de performances optimales. Pour plus d’informations, consultez [Comment faire pour ajouter un fichier d’échange dans des machines virtuelles Azure Linux](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
@@ -553,8 +554,8 @@ Le logiciel de base de données Oracle est déjà installé sur l’image de la 
 
    - Entrez un nom pour la base de données.
    - Pour **Storage Type** (Type de stockage), assurez-vous que l’option **Automatic Storage Management (ASM)** est sélectionnée.
-   - Pour l’ **emplacement des fichiers de base de données** , utilisez l’emplacement par défaut ASM suggéré.
-   - Pour la **zone de récupération rapide** , utilisez l’emplacement par défaut ASM suggéré.
+   - Pour l’**emplacement des fichiers de base de données**, utilisez l’emplacement par défaut ASM suggéré.
+   - Pour la **zone de récupération rapide**, utilisez l’emplacement par défaut ASM suggéré.
    - Saisissez un **mot de passe administrateur** et **confirmez le mot de passe**.
    - Vérifiez que l’option `create as container database` est sélectionnée.
    - Saisissez une valeur pour `pluggable database name`.

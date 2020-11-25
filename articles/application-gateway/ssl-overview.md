@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001284"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway
 
@@ -23,7 +23,7 @@ Transport Layer Security (TLS), anciennement appelé Secure Sockets Layer (SSL),
 Application Gateway prend en charge l’arrêt TLS au niveau de la passerelle, après lequel le trafic transite généralement de façon non chiffrée vers les serveurs backend. La terminaison TLS établie au niveau de la passerelle offre un certain nombre d’avantages :
 
 - **Amélioration des performances** – Lors du déchiffrement TLS, la négociation initiale est l’opération qui dégrade le plus les performances. Pour améliorer les performances, le serveur qui effectue le déchiffrement met en cache les ID de session TLS et gère les tickets de session TLS. Si cela est fait au niveau de la passerelle d’application, toutes les requêtes d’un même client peuvent utiliser les valeurs mises en cache. Si cela est fait sur les serveurs principaux, le client doit s’authentifier chaque fois que les requêtes du client sont adressées à un serveur différent. L’utilisation de tickets TLS peut aider à atténuer ce problème, mais ces tickets ne sont pas pris en charge par tous les clients et peuvent être difficiles à configurer et à gérer.
-- **Meilleure utilisation des serveurs principaux**   - Le traitement SSL/TLS nécessite une grande quantité de ressources processeur et, à mesure qu’il s’intensifie, la taille des clés augmente. Ce travail n’est plus dévolu aux serveurs principaux si bien qu’ils peuvent se concentrer sur ce qu’ils savent faire le mieux : diffuser du contenu.
+- **Meilleure utilisation des serveurs principaux**  - Le traitement SSL/TLS nécessite une grande quantité de ressources processeur et, à mesure qu’il s’intensifie, la taille des clés augmente. Ce travail n’est plus dévolu aux serveurs principaux si bien qu’ils peuvent se concentrer sur ce qu’ils savent faire le mieux : diffuser du contenu.
 - **Routage intelligent** – En déchiffrant le trafic, la passerelle d’application a accès au contenu de la requête, comme les en-têtes, l’URI, etc. et peut utiliser ces données pour acheminer les requêtes.
 - **Gestion des certificats** - Il suffit d’acheter et d’installer les certificats sur la passerelle d’application et non sur tous les serveurs principaux. Cela permet d’économiser du temps et de l’argent.
 

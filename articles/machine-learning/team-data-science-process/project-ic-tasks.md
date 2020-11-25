@@ -11,15 +11,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321919"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000995"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
 
-Cette rubrique décrit les tâches qu’un *contributeur individuel* doit effectuer pour configurer un projet dans le processus TDSP ( [Team Data Science Process](overview.md)). L’objectif est de travailler dans un environnement de collaboration en équipe conforme au processus TDSP. Ce dernier est conçu pour améliorer la collaboration et l’apprentissage en équipe. Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre du processus TDSP, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Cette rubrique décrit les tâches qu’un *contributeur individuel* doit effectuer pour configurer un projet dans le processus TDSP ([Team Data Science Process](overview.md)). L’objectif est de travailler dans un environnement de collaboration en équipe conforme au processus TDSP. Ce dernier est conçu pour améliorer la collaboration et l’apprentissage en équipe. Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre du processus TDSP, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Le diagramme suivant montre les tâches que chaque contributeur de projet (scientifique des données) doit effectuer pour configurer son environnement d’équipe. Pour obtenir des instructions sur la façon d’exécuter un projet de science des données dans le cadre du processus TDSP, consultez [Exécution de projets de science des données](./agile-development.md). 
 
@@ -47,8 +47,8 @@ Pour cloner des référentiels et modifier leur contenu sur votre ordinateur loc
 - Un abonnement Azure.
 - Git installé sur votre ordinateur. Si vous utilisez une machine virtuelle DSVM, Git est préinstallé. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).
 - Si vous souhaitez utiliser une machine virtuelle DSVM, l’instance DSVM Windows ou Linux doit être créée et configurée dans Azure. Pour obtenir des informations complémentaires et des instructions, consultez la [documentation sur Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
-- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md* , accédez à la section **Télécharger et installer** , puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
-- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’ [annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md*, accédez à la section **Télécharger et installer**, puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
+- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 - Informations relatives au stockage de fichiers Azure pour tout stockage de ce type à monter sur votre machine virtuelle DSVM. 
 
 ## <a name="clone-repositories"></a>Cloner des dépôts
@@ -61,7 +61,7 @@ Pour utiliser localement des dépôts et envoyer (push) vos changements aux dép
    
 1. Dans la page du dépôt, sélectionnez **Cloner** en haut à droite.
    
-1. Dans la boîte de dialogue **Cloner le dépôt** , sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone figurant sous **Ligne de commande** dans votre Presse-papiers.
+1. Dans la boîte de dialogue **Cloner le dépôt**, sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone figurant sous **Ligne de commande** dans votre Presse-papiers.
    
    ![Cloner le dépôt](./media/project-ic-tasks/clone.png)
    

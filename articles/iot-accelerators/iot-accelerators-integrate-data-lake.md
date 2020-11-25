@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000468"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Créez une tâche Azure Stream Analytics pour transmettre les données du hub IoT à Azure Data Lake Store.
 
-1. Cliquez sur **Créer une ressource** , sélectionnez Internet des objets à partir de la Place de marché, puis cliquez sur **Tâche Stream Analytics**.
+1. Cliquez sur **Créer une ressource**, sélectionnez Internet des objets à partir de la Place de marché, puis cliquez sur **Tâche Stream Analytics**.
 
     ![Nouvelle tâche Stream Analytics](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -83,7 +83,7 @@ Créez une tâche Azure Stream Analytics pour transmettre les données du hub Io
 
     ![Ajouter une entrée](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
-1. Sous l’onglet Nouvelle entrée, entrez un alias d’entrée d’ **IoTHub**.
+1. Sous l’onglet Nouvelle entrée, entrez un alias d’entrée d’**IoTHub**.
 
 1. Dans la liste déroulante Groupe de consommateurs, sélectionnez le groupe de consommateurs que vous avez créé précédemment. Nous utilisons ici **streamanalyticsjob**.
 

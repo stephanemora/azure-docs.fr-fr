@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369945"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999227"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -25,13 +25,13 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 
 **Start Date** et **End Date** : dates de début et de fin du profilage des données prises en compte pour la génération de rapport. Par défaut, la date de début est la date à laquelle le profilage démarre, et la date de fin est la date à laquelle le profilage s’arrête. Il peut s’agir des valeurs StartDate et EndDate si le rapport est généré avec ces paramètres.
 
-**Total number of profiling days**  : le nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
+**Total number of profiling days** : le nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
 
 **Number of compatible virtual machines** : nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, ainsi que le nombre requis de comptes de stockage et de cœurs Azure sont calculés.
 
 **Total number of disks across all compatible virtual machines** : le nombre total de disques sur toutes les machines virtuelles compatibles.
 
-**Average number of disks per compatible virtual machine**  : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
+**Average number of disks per compatible virtual machine** : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
 
 **Average disk size (GB)**  : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
 
@@ -49,22 +49,22 @@ La feuille Recommandations d’Hyper-V pour le rapport Azure présente les déta
 ### <a name="profile-data"></a>Données de profil
 ![Données de profil](media/hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**Profiled data period** : la période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut dans le calcul toutes les données profilées. Si vous avez utilisé les options StartDate et EndDate dans la génération de rapport, il génère le rapport correspondant à la période concernée. 
+**Profiled data period**: la période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut dans le calcul toutes les données profilées. Si vous avez utilisé les options StartDate et EndDate dans la génération de rapport, il génère le rapport correspondant à la période concernée. 
 
 **Number of Hyper-V servers profiled** : nombre de serveurs Hyper-V pour lesquels un rapport de machines virtuelles est généré. Sélectionnez le nombre pour afficher le nom des serveurs Hyper-V. La feuille Exigences de stockage en local s’ouvre : elle présente tous les serveurs ainsi que leurs besoins en stockage. 
 
-**Desired RPO**  :l’objectif de point de récupération (RPO) de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre DesiredRPOinMin lors de la génération de rapport, cette valeur est affichée dans le résultat Desired RPO.
+**Desired RPO** :l’objectif de point de récupération (RPO) de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre DesiredRPOinMin lors de la génération de rapport, cette valeur est affichée dans le résultat Desired RPO.
 
 ### <a name="profiling-overview"></a>Vue d’ensemble du profilage
 ![Vue d’ensemble du profilage](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
-**Total Profiled Virtual Machines**  : le nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces dernières ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
+**Total Profiled Virtual Machines** : le nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces dernières ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
 
 **Compatible Virtual Machines** : le nombre de machines virtuelles pouvant être protégées dans Azure à l’aide d’Azure Site Recovery. Il s’agit du nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, le nombre de comptes de stockage et le nombre de cœurs Azure sont calculés. Les détails de chaque machine virtuelle compatible sont disponibles dans la section « Machines virtuelles compatibles ».
 
-**Incompatible Virtual Machines**  : le nombre de machines virtuelles qui sont incompatibles pour la protection assurée avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
+**Incompatible Virtual Machines** : le nombre de machines virtuelles qui sont incompatibles pour la protection assurée avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
 
-**Desired RPO**  : votre objectif de point de récupération souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante **Desired RPO** dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre -DesiredRPO avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante **Desired RPO** .
+**Desired RPO** : votre objectif de point de récupération souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante **Desired RPO** dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre -DesiredRPO avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante **Desired RPO**.
 
 ### <a name="required-network-bandwidth-mbps"></a>Bande passante réseau requise (Mbits/s)
 ![Bande passante réseau requise](media/hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
@@ -152,17 +152,17 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 ## <a name="vm-storage-placement-recommendation"></a>Recommandation relative au placement de stockage des machines virtuelles 
 ![VM-storage placement](media/hyper-v-deployment-planner-analyze-report/vm-storage-placement-h2a.png)
 
-**Disk Storage Type**  : le compte de stockage standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **VMs to Place** .
+**Disk Storage Type** : le compte de stockage standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **VMs to Place**.
 
-**Suggested Prefix**  : le préfixe suggéré à trois caractères qui permet de nommer le compte de stockage. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](/en-in/azure/storage/blobs/storage-performance-checklist).
+**Suggested Prefix** : le préfixe suggéré à trois caractères qui permet de nommer le compte de stockage. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](/en-in/azure/storage/blobs/storage-performance-checklist).
 
-**Suggested Account Name**  : le nom du compte de stockage après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
+**Suggested Account Name** : le nom du compte de stockage après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
 **Log Storage Account :** tous les journaux d’activité de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux d’activité.
 
-**Suggested Log Account Name**  : le nom de votre compte de stockage des journaux après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
+**Suggested Log Account Name** : le nom de votre compte de stockage des journaux après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
-**Placement Summary**  : un résumé de la charge totale des machines virtuelles sur le compte de stockage au moment de la réplication et du test de basculement/basculement. Le résumé inclut les données suivantes :
+**Placement Summary** : un résumé de la charge totale des machines virtuelles sur le compte de stockage au moment de la réplication et du test de basculement/basculement. Le résumé inclut les données suivantes :
 
 * Nombre total de machines virtuelles mappées au compte de stockage. 
 * Total des IOPS en lecture/écriture sur toutes les machines virtuelles placées dans ce compte de stockage.
@@ -179,7 +179,7 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 **VM Name** : nom de la machine virtuelle utilisé dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques (VHD) qui sont attachés aux machines virtuelles. Les noms incluent les noms d’hôte Hyper-V sur lesquels les machines virtuelles ont été placées lorsqu’elles ont été découvertes par l’outil pendant le profilage.
 
-**VM Compatibility**  : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/disks-types.md). Ici, le disque profilé à forte activité ou à IOPS élevé s’ajuste dans une taille de disque premium supérieure à la taille mappée au disque. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille : 
+**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/disks-types.md). Ici, le disque profilé à forte activité ou à IOPS élevé s’ajuste dans une taille de disque premium supérieure à la taille mappée au disque. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille : 
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15.
 * 256 Go à 512 Go : disque P20.
@@ -189,11 +189,11 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 Par exemple, si les caractéristiques de charge de travail d’un disque le placent dans la catégorie P20 ou P30, mais que la taille le mappe à un niveau ou à un type de disque de stockage premium inférieur, l’outil marque cette machine virtuelle comme **Oui**\*. L’outil recommande également que vous modifiiez la taille du disque source pour que celui s’adapte au type de disque de stockage premium recommandé, ou que vous modifiiez le type de disque cible après le basculement.
 
-**Storage Type**  : standard ou premium.
+**Storage Type** : standard ou premium.
 
-**Suggested Prefix**  : le préfixe de compte de stockage à trois caractères.
+**Suggested Prefix** : le préfixe de compte de stockage à trois caractères.
 
-**Storage Account**  : le nom utilisé par le préfixe du compte de stockage suggéré.
+**Storage Account** : le nom utilisé par le préfixe du compte de stockage suggéré.
 
 **Peak R/W IOPS (with Growth Factor)** : pic d’IOPS en lecture/écriture de la charge de travail sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Le total d’IOPS en lecture/écriture d’une machine virtuelle n’est pas toujours la somme des IOPS en lecture/écriture des disques individuels de la machine virtuelle. Le pic d’IOPS en lecture/écriture de la machine virtuelle désigne le pic de la somme des IOPS en lecture/écriture de ses différents disques à chaque minute de la période de profilage.
 
@@ -205,11 +205,11 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Disk size (GB)** : taille totale de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
-**Cores**  : le nombre de cœurs de processeur de la machine virtuelle.
+**Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
 **Memory (MB)**  : la mémoire RAM de la machine virtuelle.
 
-**NICs**  : le nombre de cartes réseau de la machine virtuelle.
+**NICs** : le nombre de cartes réseau de la machine virtuelle.
 
 **Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.
 
@@ -220,7 +220,7 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 **VM Name** : nom de la machine virtuelle utilisé dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques (VHD) qui sont attachés aux machines virtuelles. Les noms incluent les noms d’hôte Hyper-V sur lesquels les machines virtuelles ont été placées lorsqu’elles ont été découvertes par l’outil pendant le profilage.
 
-**VM Compatibility**  : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](/en-in/azure/storage/common/scalability-targets-standard-account), peuvent figurer parmi les suivantes :
+**VM Compatibility** : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](/en-in/azure/storage/common/scalability-targets-standard-account), peuvent figurer parmi les suivantes :
 
 * La taille du disque est supérieure à 4 095 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de données supérieures à 4 095 Go.
 
@@ -260,11 +260,11 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 **Disk Size (GB)** : taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
-**Cores**  : le nombre de cœurs de processeur de la machine virtuelle.
+**Cores** : le nombre de cœurs de processeur de la machine virtuelle.
 
 **Memory (MB)**  : la quantité de RAM sur la machine virtuelle.
 
-**NICs**  : le nombre de cartes réseau de la machine virtuelle.
+**NICs** : le nombre de cartes réseau de la machine virtuelle.
 
 **Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.
 
@@ -321,7 +321,7 @@ Dès lors que vous respectez l’exigence de stockage local recommandée pour ch
 ![Détails complémentaires du traitement par lot de la réplication initiale](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo2-h2a.png)
 
 ### <a name="each-batch-provides-the-following-information"></a>Chaque lot fournit les informations suivantes : 
-**Hyper-V host** : l’hôte Hyper-V de la machine virtuelle à protéger.
+**Hyper-V host**: l’hôte Hyper-V de la machine virtuelle à protéger.
 
 **Virtual Machine** : machine virtuelle à protéger. 
 

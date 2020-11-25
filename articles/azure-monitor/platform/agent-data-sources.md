@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000740"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Sources de données d’agent Log Analytics dans Azure Monitor
 Les données qu’Azure Monitor collecte à partir des machines virtuelles avec l’[agent Log Analytics](log-analytics-agent.md) sont définies par les sources de données que vous configurez dans l’[espace de travail Log Analytics](data-platform-logs.md).   Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.

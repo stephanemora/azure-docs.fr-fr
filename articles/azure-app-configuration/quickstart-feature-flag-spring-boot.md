@@ -8,11 +8,11 @@ ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
 ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001466"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -47,7 +47,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
    * Générez un projet **Maven** avec **Java**.
    * Spécifiez une version de **Spring Boot** égale ou supérieure à 2.0.
-   * Indiquez les noms du **Groupe** et de l’ **Artefact** de votre application.  Cet article utilise `com.example` et `demo`.
+   * Indiquez les noms du **Groupe** et de l’**Artefact** de votre application.  Cet article utilise `com.example` et `demo`.
    * Ajoutez la dépendance **Spring Web**.
 
 1. Une fois les options précédentes spécifiées, sélectionnez **Générer le projet**. Quand vous y êtes invité, téléchargez le projet sur votre ordinateur local.
@@ -288,7 +288,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
     ![Capture d’écran montrant une fenêtre de navigateur avec un message d’accueil.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. Dans le portail App Configuration, sélectionnez **Gestionnaire de fonctionnalités** , puis changez la valeur de la clé **Bêta** en **On**  :
+1. Dans le portail App Configuration, sélectionnez **Gestionnaire de fonctionnalités**, puis changez la valeur de la clé **Bêta** en **On** :
 
     | Clé | State |
     |---|---|

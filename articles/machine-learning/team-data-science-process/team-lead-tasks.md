@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000026"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tâches du responsable d’équipe TDSP (Team Data Science Process)
 
@@ -62,8 +62,8 @@ Pour pouvoir cloner des dépôts et modifier leur contenu sur votre ordinateur l
 - Un abonnement Azure.
 - Git installé sur votre ordinateur. Si vous utilisez une machine virtuelle DSVM, Git est préinstallé. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).
 - Si vous souhaitez utiliser une machine virtuelle DSVM, l’instance DSVM Windows ou Linux doit être créée et configurée dans Azure. Pour obtenir des informations complémentaires et des instructions, consultez la [documentation sur Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
-- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md* , accédez à la section **Télécharger et installer** , puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
-- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’ [annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Pour une machine virtuelle DSVM Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installé sur votre ordinateur. Dans le fichier *README.md*, accédez à la section **Télécharger et installer**, puis sélectionnez le **programme d’installation le plus récent**. Téléchargez le programme d’installation *.exe* et exécutez-le. 
+- Pour une machine virtuelle DSVM Linux, une clé publique SSH créée dans votre instance DSVM et ajoutée à Azure DevOps. Pour obtenir des informations complémentaires et des instructions, consultez la section **Créer une clé publique SSH** dans l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 
 ## <a name="create-a-team-project-and-repositories"></a>Créer un projet d’équipe et des dépôts
 
@@ -89,9 +89,9 @@ Pour créer un projet distinct pour votre équipe :
    
    ![Sélectionner Nouveau projet](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. Dans la boîte de dialogue **Créer un projet** , entrez le nom de votre équipe, par exemple *MyTeam* , en dessous de **Nom du projet** , puis sélectionnez **Avancé**. 
+1. Dans la boîte de dialogue **Créer un projet**, entrez le nom de votre équipe, par exemple *MyTeam*, en dessous de **Nom du projet**, puis sélectionnez **Avancé**. 
    
-1. En dessous de **Gestion de version** , sélectionnez **Git** , puis en dessous de **Processus d’élément de travail** , sélectionnez **Agile**. Sélectionnez ensuite **Créer**. 
+1. En dessous de **Gestion de version**, sélectionnez **Git**, puis en dessous de **Processus d’élément de travail**, sélectionnez **Agile**. Sélectionnez ensuite **Créer**. 
    
    ![Créer un projet](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -99,28 +99,28 @@ La page **Résumé** du projet d’équipe s’ouvre à l’URL *https:\//\<serv
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Renommer le dépôt par défaut MyTeam TeamUtilities
 
-1. Dans la page **Résumé** de **MyTeam** , en dessous de **Par quel service voulez-vous commencer ?** , sélectionnez **Dépôts**. 
+1. Dans la page **Résumé** de **MyTeam**, en dessous de **Par quel service voulez-vous commencer ?** , sélectionnez **Dépôts**. 
    
    ![Sélectionner Dépôts](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
-1. Dans la page du dépôt **MyTeam** , sélectionnez le dépôt **MyTeam** en haut de la page, puis sélectionnez **Gérer les dépôts** dans la liste déroulante. 
+1. Dans la page du dépôt **MyTeam**, sélectionnez le dépôt **MyTeam** en haut de la page, puis sélectionnez **Gérer les dépôts** dans la liste déroulante. 
    
    ![Sélectionner Gérer les dépôts](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
-1. Dans la page **Paramètres du projet** , sélectionnez **...** en regard du dépôt **MyTeam** , puis sélectionnez **Renommer le dépôt**. 
+1. Dans la page **Paramètres du projet**, sélectionnez **...** en regard du dépôt **MyTeam**, puis sélectionnez **Renommer le dépôt**. 
    
    ![Sélectionner Renommer le dépôt](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. Dans la fenêtre contextuelle **Renommer le dépôt MyTeam** , entrez *TeamUtilities* , puis sélectionnez **Renommer**. 
+1. Dans la fenêtre contextuelle **Renommer le dépôt MyTeam**, entrez *TeamUtilities*, puis sélectionnez **Renommer**. 
 
 ### <a name="create-the-teamtemplate-repository"></a>Créer le dépôt TeamTemplate
 
-1. Dans la page **Paramètres du projet** , sélectionnez **Nouveau dépôt**. 
+1. Dans la page **Paramètres du projet**, sélectionnez **Nouveau dépôt**. 
    
    ![Sélectionner Nouveau dépôt](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
    
-   Vous pouvez aussi sélectionner **Dépôts** dans le volet de navigation gauche de la page **Résumé** du projet **MyTeam** , sélectionner un dépôt en haut de la page, puis sélectionner **Nouveau dépôt** dans le menu déroulant.
+   Vous pouvez aussi sélectionner **Dépôts** dans le volet de navigation gauche de la page **Résumé** du projet **MyTeam**, sélectionner un dépôt en haut de la page, puis sélectionner **Nouveau dépôt** dans le menu déroulant.
    
-1. Dans la boîte de dialogue **Créer un dépôt** , vérifiez que **Git** est sélectionné en dessous de **Type**. Entrez *TeamTemplate* en dessous de **Nom du dépôt** , puis sélectionnez **Créer**.
+1. Dans la boîte de dialogue **Créer un dépôt**, vérifiez que **Git** est sélectionné en dessous de **Type**. Entrez *TeamTemplate* en dessous de **Nom du dépôt**, puis sélectionnez **Créer**.
    
    ![Créer un dépôt](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -132,15 +132,15 @@ La page **Résumé** du projet d’équipe s’ouvre à l’URL *https:\//\<serv
 
 Pour remplir les dépôts de votre équipe avec le contenu des dépôts communs du groupe créés par votre responsable de groupe :
 
-1. Dans la page d’accueil de votre projet **MyTeam** , sélectionnez **Dépôts** dans le volet de navigation gauche. Si vous obtenez un message indiquant que le modèle **MyTeam** est introuvable, sélectionnez le lien dans **. Sinon, accédez à votre dépôt TeamTemplate par défaut.** 
+1. Dans la page d’accueil de votre projet **MyTeam**, sélectionnez **Dépôts** dans le volet de navigation gauche. Si vous obtenez un message indiquant que le modèle **MyTeam** est introuvable, sélectionnez le lien dans **. Sinon, accédez à votre dépôt TeamTemplate par défaut.** 
    
    Le dépôt **TeamTemplate** par défaut s’ouvre. 
    
-1. Dans la page **TeamTemplate est vide** , sélectionnez **Importer**. 
+1. Dans la page **TeamTemplate est vide**, sélectionnez **Importer**. 
    
    ![Sélectionner Importer](./media/team-lead-tasks/import-repo.png)
    
-1. Dans la boîte de dialogue **Importer un dépôt Git** , sélectionnez **Git** comme **Type de source** , puis entrez l’URL du dépôt de modèles commun de votre groupe en dessous de **URL clone**. L’URL est *https:\//\<server name>/\<organization name>/_git/\<repository name>* . Par exemple : *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Dans la boîte de dialogue **Importer un dépôt Git**, sélectionnez **Git** comme **Type de source**, puis entrez l’URL du dépôt de modèles commun de votre groupe en dessous de **URL clone**. L’URL est *https:\//\<server name>/\<organization name>/_git/\<repository name>* . Par exemple : *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Sélectionnez **Importer**. Le contenu du dépôt de modèles de votre groupe est importé dans le dépôt de modèles de votre équipe. 
    
@@ -148,7 +148,7 @@ Pour remplir les dépôts de votre équipe avec le contenu des dépôts communs 
    
 1. En haut de la page **Dépôts** de votre projet, déroulez la liste et sélectionnez le dépôt **TeamUtilities**.
    
-1. Répétez le processus d’importation pour importer le contenu du dépôt d’utilitaires commun de votre groupe, par exemple *GroupUtilities* , dans votre dépôt **TeamUtilities**. 
+1. Répétez le processus d’importation pour importer le contenu du dépôt d’utilitaires commun de votre groupe, par exemple *GroupUtilities*, dans votre dépôt **TeamUtilities**. 
    
 À présent, les deux dépôts de votre équipe contiennent chacun les fichiers du dépôt commun du groupe correspondant. 
 
@@ -158,7 +158,7 @@ Si vous voulez personnaliser le contenu des dépôts de votre équipe pour répo
 
 Pour modifier, charger ou créer des fichiers ou dossiers directement dans Azure DevOps :
 
-1. Dans la page **Résumé** du projet **MyTeam** , sélectionnez **Dépôts**. 
+1. Dans la page **Résumé** du projet **MyTeam**, sélectionnez **Dépôts**. 
    
 1. En haut de la page, sélectionnez le dépôt que vous voulez personnaliser.
 
@@ -184,11 +184,11 @@ Pour pouvoir utiliser les dépôts sur votre ordinateur local ou machine virtuel
 
 Pour cloner les dépôts :
 
-1. Dans la page **Résumé** du projet **MyTeam** , sélectionnez **Dépôts** puis, en haut de la page, sélectionnez le dépôt que vous voulez cloner.
+1. Dans la page **Résumé** du projet **MyTeam**, sélectionnez **Dépôts** puis, en haut de la page, sélectionnez le dépôt que vous voulez cloner.
    
 1. Dans la page du dépôt, sélectionnez **Cloner** en haut à droite.
    
-1. Dans la boîte de dialogue **Cloner le dépôt** , en dessous de **Ligne de commande** , sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone dans votre Presse-papiers.
+1. Dans la boîte de dialogue **Cloner le dépôt**, en dessous de **Ligne de commande**, sélectionnez **HTTPS** pour une connexion HTTP ou **SSH** pour une connexion SSH, puis copiez l’URL clone dans votre Presse-papiers.
    
    ![Copier l’URL clone](./media/team-lead-tasks/clone.png)
    
@@ -238,30 +238,30 @@ git push
 
 Pour ajouter des membres à l’équipe :
 
-1. Dans Azure DevOps, à partir de la page d’accueil du projet **MyTeam** , sélectionnez **Paramètres du projet** dans le volet de navigation gauche. 
+1. Dans Azure DevOps, à partir de la page d’accueil du projet **MyTeam**, sélectionnez **Paramètres du projet** dans le volet de navigation gauche. 
    
-1. Dans le volet de navigation gauche **Paramètres du projet** , sélectionnez **Équipes** puis, dans la page **Équipes** , sélectionnez l’ **équipe MyTeam**. 
+1. Dans le volet de navigation gauche **Paramètres du projet**, sélectionnez **Équipes** puis, dans la page **Équipes**, sélectionnez l’**équipe MyTeam**. 
    
    ![Configurer des équipes](./media/team-lead-tasks/teams.png)
    
-1. Dans la page **Profil de l’équipe** , sélectionnez **Ajouter**.
+1. Dans la page **Profil de l’équipe**, sélectionnez **Ajouter**.
    
    ![Ajouter à l’équipe MyTeam](./media/team-lead-tasks/add-to-team.png)
    
-1. Dans la boîte de dialogue **Ajouter des utilisateurs et des groupes** , recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer les modifications**. 
+1. Dans la boîte de dialogue **Ajouter des utilisateurs et des groupes**, recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer les modifications**. 
    
    ![Ajoutez des utilisateurs et des groupes](./media/team-lead-tasks/add-users.png)
    
 
 Pour configurer des autorisations pour les membres de l’équipe :
 
-1. Dans le volet de navigation gauche **Paramètres du projet** , sélectionnez **Autorisations**. 
+1. Dans le volet de navigation gauche **Paramètres du projet**, sélectionnez **Autorisations**. 
    
-1. Dans la page **Autorisations** , sélectionnez le groupe auquel vous voulez ajouter les membres. 
+1. Dans la page **Autorisations**, sélectionnez le groupe auquel vous voulez ajouter les membres. 
    
-1. Dans la page du groupe, sélectionnez **Membres** , puis **Ajouter**. 
+1. Dans la page du groupe, sélectionnez **Membres**, puis **Ajouter**. 
    
-1. Dans la fenêtre contextuelle **Inviter des membres** , recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer**. 
+1. Dans la fenêtre contextuelle **Inviter des membres**, recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer**. 
    
    ![Accorder des autorisations aux membres](./media/team-lead-tasks/grant-permissions.png)
 
@@ -296,7 +296,7 @@ Pour savoir comment partager d’autres ressources avec votre équipe, par exemp
    
 1. Sélectionnez le compte de stockage à utiliser ou créez-en un dans l’abonnement sélectionné. Vous pouvez utiliser des caractères en minuscules, des chiffres et des traits d’union dans le nom du stockage de fichiers Azure.
    
-1. Pour faciliter le montage et le partage du stockage, appuyez sur Entrée ou entrez *Y* pour enregistrer les informations sur le stockage de fichiers Azure dans un fichier texte dans le répertoire actif. Vous pouvez archiver ce fichier texte dans votre dépôt **TeamTemplate** , de préférence sous **Docs\DataDictionaries** , pour le rendre accessible à tous les projets de votre équipe. Vous avez aussi besoin des informations du fichier pour monter votre stockage de fichiers Azure sur votre machine virtuelle Azure DSVM dans la section suivante. 
+1. Pour faciliter le montage et le partage du stockage, appuyez sur Entrée ou entrez *Y* pour enregistrer les informations sur le stockage de fichiers Azure dans un fichier texte dans le répertoire actif. Vous pouvez archiver ce fichier texte dans votre dépôt **TeamTemplate**, de préférence sous **Docs\DataDictionaries**, pour le rendre accessible à tous les projets de votre équipe. Vous avez aussi besoin des informations du fichier pour monter votre stockage de fichiers Azure sur votre machine virtuelle Azure DSVM dans la section suivante. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Monter le stockage de fichiers Azure sur votre ordinateur local ou machine virtuelle DSVM
 
@@ -318,7 +318,7 @@ Pour savoir comment partager d’autres ressources avec votre équipe, par exemp
    
 1. Appuyez sur Entrée ou entrez *Y* pour continuer si vous avez enregistré un fichier d’informations sur le stockage de fichiers Azure à l’étape précédente. Entrez le chemin et le nom complets du fichier que vous avez créé. 
    
-   Si vous n’avez pas de fichier d’informations sur le stockage de fichiers Azure, entrez *n* , puis suivez les instructions pour entrer les informations sur votre abonnement, votre compte de stockage Azure et votre stockage de fichiers Azure.
+   Si vous n’avez pas de fichier d’informations sur le stockage de fichiers Azure, entrez *n*, puis suivez les instructions pour entrer les informations sur votre abonnement, votre compte de stockage Azure et votre stockage de fichiers Azure.
    
 1. Entrez le nom d’un lecteur local ou TDSP pour y monter le partage de fichiers. L’écran affiche la liste des noms de lecteurs existants. Indiquez un nom de lecteur qui n’existe pas déjà.
    

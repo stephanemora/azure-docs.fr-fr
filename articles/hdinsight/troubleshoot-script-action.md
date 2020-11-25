@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000672"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Résoudre les problèmes liés aux actions de script dans Azure HDInsight
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser l’interface utilisateur web d’Apache Ambari pour affich
 
     ![Apache Ambari - Action de script, opérations](./media/troubleshoot-script-action/ambari-script-action.png)
 
-    Pour voir les sorties **STDOUT** et **STDERR** , sélectionnez l’entrée **run\customscriptaction** et suivez les différents liens. Une sortie est générée à chaque exécution du script. Elle contient des informations potentiellement utiles.
+    Pour voir les sorties **STDOUT** et **STDERR**, sélectionnez l’entrée **run\customscriptaction** et suivez les différents liens. Une sortie est générée à chaque exécution du script. Elle contient des informations potentiellement utiles.
 
 ### <a name="default-storage-account"></a>Compte de stockage par défaut
 
@@ -45,13 +45,13 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
     ![Journaux d’actions de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal** , le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
+    Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 
-    * **Nœud principal**  : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Nœud principal** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nœud worker**  : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nœud worker** : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nœud zookeeper**  : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nœud zookeeper** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Toutes les valeurs **stdout** et **stderr** de l’hôte correspondant sont chargées vers le compte de stockage. Il existe un fichier **output-\*.txt** et un fichier **errors-\*.txt** pour chaque action de script. Le fichier **output-*.txt** contient des informations sur l’URI du script exécuté sur l’ordinateur hôte. Le texte suivant constitue un exemple de ces informations :
 
@@ -59,7 +59,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster** , créé à différentes dates ressemble aux entrées de journaux suivantes :
+* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster**, créé à différentes dates ressemble aux entrées de journaux suivantes :
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
