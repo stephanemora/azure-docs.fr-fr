@@ -1,6 +1,6 @@
 ---
 title: Délégation Kerberos contrainte avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’implémentation de la délégation Kerberos contrainte avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113914"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577122"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Authentification Windows-délégation Kerberos confrontée avec Azure Active Directory
 
@@ -36,11 +36,11 @@ Il est nécessaire de fournir un accès à distance, de protéger avec l’authe
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : Accède à l’application héritée prise en charge par le proxy d’application.
+* **Utilisateur** : Accède à l’application héritée prise en charge par le proxy d’application.
 
 * **Navigateur Web** : Composant avec lequel l’utilisateur interagit pour accéder à l’URL externe de l’application.
 
-* **Azure AD**  : Authentifie l’utilisateur. 
+* **Azure AD** : Authentifie l’utilisateur. 
 
 * **Service Proxy d’application** : Agit comme un proxy inversé pour envoyer la demande de l’utilisateur à l’application locale. Il se trouve dans Azure AD. Le proxy d’application peut également appliquer toutes les politiques d’accès conditionnel.
 
@@ -48,7 +48,7 @@ Il est nécessaire de fournir un accès à distance, de protéger avec l’authe
 
 * **Active Directory** : Envoie le jeton Kerberos pour l’application au connecteur de proxy d’application.
 
-* **Applications héritées**  : Applications qui reçoivent les requêtes des utilisateurs du proxy d’application. Les applications héritées renvoient la réponse au connecteur de proxy d’application.
+* **Applications héritées** : Applications qui reçoivent les requêtes des utilisateurs du proxy d’application. Les applications héritées renvoient la réponse au connecteur de proxy d’application.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implémenter l’authentification Windows (KCD) avec Azure AD
 

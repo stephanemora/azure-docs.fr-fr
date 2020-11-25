@@ -1,6 +1,6 @@
 ---
 title: Authentification OpenID Connect avec Azure Active Directory
-description: Conseils architecturaux pour bénéficier de ce modèle d'authentification
+description: Guide architectural sur l’implémentation de l’authentification OpenID Connect avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113899"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576986"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Authentification OpenID Connect avec Azure Active Directory
 
@@ -38,13 +38,13 @@ Le consentement de l'utilisateur et la connexion web sont nécessaires.
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : sollicite un service à partir de l'application.
+* **Utilisateur** : sollicite un service à partir de l'application.
 
-* **Agent approuvé**  : composant avec lequel l'utilisateur interagit. Cet agent approuvé est généralement un navigateur web.
+* **Agent approuvé** : composant avec lequel l'utilisateur interagit. Cet agent approuvé est généralement un navigateur web.
 
-* **Application**  : l'application, ou serveur de ressources, est l'emplacement où résident la ressource ou les données. Elle se fie au fournisseur d'identité pour authentifier et autoriser de manière sécurisée l'agent approuvé. 
+* **Application** : l'application, ou serveur de ressources, est l'emplacement où résident la ressource ou les données. Elle se fie au fournisseur d'identité pour authentifier et autoriser de manière sécurisée l'agent approuvé. 
 
-* **Azure AD**  : Le fournisseur OIDC, également connu sous le nom de fournisseur d'identité, gère de manière sécurisée tout ce qui a trait aux informations de l'utilisateur, à son accès et aux relations d'approbation entre les parties d'un flux. Il authentifie l'identité de l'utilisateur, octroie et révoque l'accès aux ressources, et émet des jetons. 
+* **Azure AD** : Le fournisseur OIDC, également connu sous le nom de fournisseur d'identité, gère de manière sécurisée tout ce qui a trait aux informations de l'utilisateur, à son accès et aux relations d'approbation entre les parties d'un flux. Il authentifie l'identité de l'utilisateur, octroie et révoque l'accès aux ressources, et émet des jetons. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implémenter OIDC avec Azure AD
 

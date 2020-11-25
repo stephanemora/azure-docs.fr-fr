@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116295"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575881"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Guide du développeur pour la fonctionnalité d’accès conditionnel d’Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> Pour la version de cet article relatif à la plateforme Microsoft Identity, consultez [Guide du développeur pour l’accès conditionnel à Azure Active Directory](/azure/active-directory/develop/v2-conditional-access-dev-guide).
 
 La fonctionnalité d’accès conditionnel dans Azure Active Directory (Azure AD) offre l’une des méthodes que vous pouvez utiliser pour sécuriser votre application et protéger un service. L’accès conditionnel permet aux développeurs et aux clients d’entreprise de protéger les services dans une multitude de façons, notamment :
 
@@ -40,7 +43,7 @@ Il suppose une connaissance des applications [monolocataires et multilocataires]
 
 ### <a name="app-types-impacted"></a>Incidence sur les types d’application
 
-Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur. Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel. Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
+Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur.  Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel.  Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
 
 Plus précisément, les scénarios suivants requièrent un code pour gérer des « défis » d’accès conditionnel :
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322051"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023188"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ?
 
@@ -71,7 +71,7 @@ Nous prenons en charge les systèmes d’exploitation suivants ; ainsi, vérifi
 
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
 
-* Une instance [Azure Active Directory](/azure/active-directory/).
+* Une instance [Azure Active Directory](../active-directory/index.yml).
 * Un annuaire Windows Server Active Directory synchronisé avec Azure Active Directory. Vous pouvez configurer cela à l’aide d’Azure AD Connect (pour les organisations hybrides) ou d’Azure AD Domain Services (pour les organisations hybrides ou cloud).
   * Un domaine Windows Server AD synchronisé avec Azure Active Directory. L’utilisateur provient de Windows Server AD et la machine virtuelle Windows Virtual Desktop est jointe au domaine Windows Server AD.
   * Un domaine Windows Server AD synchronisé avec Azure Active Directory. L’utilisateur provient de Windows Server AD et la machine virtuelle Windows Virtual Desktop est jointe au domaine Azure AD Domain Services.
@@ -85,7 +85,7 @@ Conditions utilisateur nécessaires pour se connecter à Windows Virtual Desktop
 
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
-* être [standard jointes à un domaine](../active-directory-domain-services/active-directory-ds-comparison.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
+* être [standard jointes à un domaine](../active-directory-domain-services/compare-identity-solutions.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
 * exécuter l’une des images de [système d’exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Pour bénéficier de performances optimales, vérifiez que votre réseau remplit
 * Le trafic réseau peut circuler au-delà des frontières du pays ou de la région lorsque des machines virtuelles qui hébergent des bureaux et des applications se connectent au service de gestion
 * Pour optimiser les performances du réseau, nous vous recommandons de colocaliser les machines virtuelles de l’hôte de session dans la même région Azure que le service de gestion
 
-Vous pouvez consulter une configuration architecturale classique de Windows Virtual Desktop pour l’entreprise dans notre [documentation d’architecture](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+Vous pouvez consulter une configuration architecturale classique de Windows Virtual Desktop pour l’entreprise dans notre [documentation d’architecture](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Clients Bureau à distance pris en charge
 

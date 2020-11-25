@@ -1,6 +1,6 @@
 ---
 title: Authentification LDAP avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’implémentation de l’authentification LDAP avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a70cb4754d98f4573670860c510692a7a2d134c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113908"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577054"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Authentification LDAP avec Azure Active Directory
 
@@ -40,21 +40,21 @@ Il est nécessaire qu’une application ou un service utilise l’authentificati
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : Accède aux applications LDAP via un navigateur.
+* **Utilisateur** : Accède aux applications LDAP via un navigateur.
 
 * **Navigateur Web** : L’interface avec laquelle l’utilisateur interagit pour accéder à l’URL externe de l’application.
 
-* **Réseau virtuel**  : Un réseau privé dans Azure par le biais duquel l’application héritée peut consommer des services LDAP. 
+* **Réseau virtuel** : Un réseau privé dans Azure par le biais duquel l’application héritée peut consommer des services LDAP. 
 
-* **Applications héritées**  : Applications ou charges de travail de serveur qui nécessitent le protocole LDAP déployé dans un réseau virtuel dans Azure, ou qui ont une visibilité pour AD DS des adresses IP d’instance via des itinéraires réseau. 
+* **Applications héritées** : Applications ou charges de travail de serveur qui nécessitent le protocole LDAP déployé dans un réseau virtuel dans Azure, ou qui ont une visibilité pour AD DS des adresses IP d’instance via des itinéraires réseau. 
 
-* **Azure AD**  : Synchronise les informations d’identité à partir de l’annuaire local de l’organisation via Azure AD Connect.
+* **Azure AD** : Synchronise les informations d’identité à partir de l’annuaire local de l’organisation via Azure AD Connect.
 
 * **Azure AD Domain Services (AD DS)** : Effectue une synchronisation unidirectionnelle à partir de Azure AD pour fournir l’accès à un ensemble central d’utilisateurs, de groupes et d’informations d’identification. L’instance AD DS est assignée à un réseau virtuel. Les applications, les services et les machines virtuelles qui se connectent à ce réseau virtuel peuvent ensuite utiliser des fonctionnalités AD DS courantes telles que la jonction de domaine, la stratégie de groupe, LDAP et l’authentification Kerberos/NTLM.
    > [!NOTE]
    >  Dans les environnements où l’organisation ne peut pas synchroniser les hachages de mot de passe ou les utilisateurs se connectent à l’aide de cartes à puce, nous vous recommandons d’utiliser une forêt de ressources dans AD DS. 
 
-* **Azure AD Connect**  : Outil permettant de synchroniser les informations d’identité locales avec Microsoft Azure AD. L’Assistant Déploiement et les expériences guidées vous aident à configurer les composants requis et les composants requis pour la connexion, y compris la synchronisation et l’authentification à partir de Active Directory à Azure AD. 
+* **Azure AD Connect** : Outil permettant de synchroniser les informations d’identité locales avec Microsoft Azure AD. L’Assistant Déploiement et les expériences guidées vous aident à configurer les composants requis et les composants requis pour la connexion, y compris la synchronisation et l’authentification à partir de Active Directory à Azure AD. 
 
 * **Active Directory** : Service d’annuaire qui stocke les [informations d’identité locales, telles que les informations d’utilisateur et de compte](https://www.dnsstuff.com/active-directory-service-accounts), et les informations de sécurité telles que les mots de passe.
 

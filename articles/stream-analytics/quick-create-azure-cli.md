@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646625"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874727"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Démarrage rapide : Créer un travail Azure Stream Analytics avec l’interface de ligne de commande Azure
 
@@ -155,7 +155,7 @@ Sur votre ordinateur local, créez un fichier nommé `serialization.json` et ajo
 Ensuite, exécutez l’applet de commande `az stream-analytics input create`. Veillez à remplacer la valeur de la variable `datasource` par le chemin où vous avez stocké le fichier JSON de définition d’entrée du travail et la valeur de la variable `serialization` par le chemin où vous avez stocké le fichier JSON de sérialisation.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -191,7 +191,7 @@ Sur votre ordinateur local, créez un fichier nommé `datasink.json` et ajoutez-
 Ensuite, exécutez l’applet de commande `az stream-analytics output`. Veillez à remplacer la valeur de la variable `datasource` par le chemin où vous avez stocké le fichier JSON de définition de sortie du travail et la valeur de la variable `serialization` par le chemin où vous avez stocké le fichier JSON de sérialisation.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -206,7 +206,7 @@ Ajoutez une transformation à votre travail à l’aide de l’applet de command
 Exécutez l’applet de commande `az stream-analytics transformation create`.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -230,7 +230,7 @@ Démarrez le travail à l’aide de l’applet de commande [az stream-analytics 
 Après son exécution, l’applet de commande ci-après renvoie la valeur `True` en guise de sortie si le travail démarre. Dans le conteneur de stockage, un dossier de sortie est créé avec les données transformées.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime

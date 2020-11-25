@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944771"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886096"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,11 +23,11 @@ Pour créer une ressource Azure Communication Services, commencez par vous conne
 
 Tapez **Communication** dans la zone d’entrée **Rechercher dans le marketplace** ou dans la barre de recherche en haut du portail.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Capture d’écran illustrant le bouton Créer une ressource dans le portail Azure.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Capture d’écran illustrant une recherche de Communication Services à partir de la barre de recherche.":::
 
 Sélectionnez **Communication Services** dans les résultats, puis sélectionnez **Ajouter**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Capture d’écran illustrant le bouton Créer une ressource dans le portail Azure.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Capture d’écran illustrant le panneau Azure, avec le bouton Ajouter mis en surbrillance.":::
 
 Vous pouvez maintenant configurer votre ressource Communication Services. Dans la première page du processus de création, vous êtes invité à spécifier les informations suivantes :
 
@@ -36,7 +36,7 @@ Vous pouvez maintenant configurer votre ressource Communication Services. Dans l
 * Nom de la ressource Communication Services
 * Zone géographique à laquelle associer la ressource
 
-À l’étape suivante, vous pouvez attribuer des étiquettes à la ressource. Les étiquettes peuvent être utiles pour organiser vos ressources Azure. Pour plus d’informations sur les étiquettes, consultez la [documentation sur l’étiquetage des ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
+À l’étape suivante, vous pouvez attribuer des étiquettes à la ressource. Les étiquettes peuvent être utiles pour organiser vos ressources Azure. Pour plus d’informations sur les étiquettes, consultez la [documentation sur l’étiquetage des ressources](../../../azure-resource-manager/management/tag-resources.md).
 
 Enfin, vous pouvez vérifier votre configuration et **créer** la ressource. Notez que le déploiement prend quelques minutes.
 

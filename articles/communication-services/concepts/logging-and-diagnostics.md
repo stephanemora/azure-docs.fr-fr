@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128570"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888689"
 ---
 # <a name="communication-services-logs"></a>Journaux Communication Services
 
@@ -22,7 +22,7 @@ Azure Communication Services offre des fonctionnalités de journalisation que vo
 
 ## <a name="enable-diagnostic-logs-in-your-resource"></a>Activer les journaux de diagnostic dans votre ressource
 
-La journalisation est désactivée par défaut lors de la création d’une ressource. Pour activer la journalisation, accédez au panneau **Paramètres de diagnostic** dans le menu de ressources sous la section **Supervision** . Cliquez ensuite sur **Ajouter le paramètre de diagnostic** .
+La journalisation est désactivée par défaut lors de la création d’une ressource. Pour activer la journalisation, accédez au panneau **Paramètres de diagnostic** dans le menu de ressources sous la section **Supervision**. Cliquez ensuite sur **Ajouter le paramètre de diagnostic**.
 
 Ensuite, sélectionnez la cible d’archivage de votre choix. Nous prenons en charge les comptes de stockage et Log Analytics comme cibles d’archivage. Après avoir sélectionné les types de journaux que vous souhaitez capturer, enregistrez les paramètres de diagnostic.
  
@@ -30,15 +30,15 @@ Les nouveaux paramètres prennent effet au bout de dix minutes environ. Les jour
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Options Paramètres de diagnostic d’ACS":::
 
-Pour plus d’informations sur la configuration des diagnostics, consultez la vue d’ensemble des [journaux de ressources Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Pour plus d’informations sur la configuration des diagnostics, consultez la vue d’ensemble des [journaux de ressources Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Catégories de journaux de ressources
 
 Communication Services propose trois types de journaux que vous pouvez activer :
 
-* **Journaux d’utilisation**  : fournit les données d’utilisation associées à chaque offre de service facturée
-* **Journaux des opérations de la conversation**  : fournit les informations de base relatives au service de conversation
-* **Journaux des opérations du service de SMS**  : fournit les informations de base relatives au service de SMS
+* **Journaux d’utilisation** : fournit les données d’utilisation associées à chaque offre de service facturée
+* **Journaux des opérations de la conversation** : fournit les informations de base relatives au service de conversation
+* **Journaux des opérations du service de SMS** : fournit les informations de base relatives au service de SMS
 
 ### <a name="usage-logs-schema"></a>Schéma des journaux d’utilisation
 

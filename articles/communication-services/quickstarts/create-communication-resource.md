@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667501"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886109"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Démarrage rapide : Créer et gérer des ressources Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Commencez avec Azure Communication Services en provisionnant votre première ressource Communication Services. Les ressources Communication Services peuvent être provisionnées via le portail Azure ou avec la bibliothèque de client .NET Management. La bibliothèque de client Management vous permet de créer, configurer, mettre à jour et supprimer votre ressource et vos interfaces à l’aide d’[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), le service de gestion et de déploiement d’Azure. Toutes les fonctionnalités disponibles dans les bibliothèques de client sont accessibles à partir du portail Azure. 
+Commencez avec Azure Communication Services en provisionnant votre première ressource Communication Services. Les ressources Communication Services peuvent être provisionnées via le portail Azure ou avec la bibliothèque de client .NET Management. La bibliothèque de client Management vous permet de créer, configurer, mettre à jour et supprimer votre ressource et vos interfaces à l’aide d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md), le service de gestion et de déploiement d’Azure. Toutes les fonctionnalités disponibles dans les bibliothèques de client sont accessibles à partir du portail Azure. 
 
 > [!WARNING]
 > Notez que Communication Services est disponible uniquement aux États-Unis pendant la préversion publique. Notez également que les ressources Communication ne peuvent pas être transférées vers un autre abonnement durant cette période de préversion publique.
@@ -47,8 +47,8 @@ Une fois que vous avez accédé à votre ressource Communication Services, séle
 Les bibliothèques de client Communication Services utilisent des chaînes de connexion pour autoriser les demandes adressées à Communication Services. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
 
 * Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config**. Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
-* Une application qui s’exécute dans Azure App Service peut stocker la chaîne de connexion dans les [paramètres d’application d’App Service](https://docs.microsoft.com/azure/app-service/configure-common). Ajoutez la chaîne de connexion dans la section **Chaînes de connexion** sous l’onglet Paramètres d’application dans le portail.
-* Vous pouvez stocker votre chaîne de connexion dans [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Une application qui s’exécute dans Azure App Service peut stocker la chaîne de connexion dans les [paramètres d’application d’App Service](../../app-service/configure-common.md). Ajoutez la chaîne de connexion dans la section **Chaînes de connexion** sous l’onglet Paramètres d’application dans le portail.
+* Vous pouvez stocker votre chaîne de connexion dans [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * Si vous exécutez votre application localement, vous voudrez peut-être stocker votre chaîne de connexion dans une variable d’environnement.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Stocker votre chaîne de connexion dans une variable d’environnement

@@ -1,6 +1,6 @@
 ---
 title: Services de passerelle Bureau à distance avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’obtention de services de passerelle Bureau à distance avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113897"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576793"
 ---
 # <a name="remote-desktop-gateway-services"></a>Services de passerelle Bureau à distance
 
@@ -32,15 +32,15 @@ Vous devez fournir un accès à distance et protéger votre déploiement RDS pa
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : Accède à RDS desservi par Proxy d’application.
+* **Utilisateur** : Accède à RDS desservi par Proxy d’application.
 
 * **Navigateur web**  : Composant avec lequel l’utilisateur interagit pour accéder à l’URL externe de l’application.
 
-* **Azure AD**  : Authentifie l’utilisateur. 
+* **Azure AD** : Authentifie l’utilisateur. 
 
-* **Service Proxy d’application**  : Agit en tant que proxy inverse pour transférer la requête de l’utilisateur à RDS. Proxy d’application peut également appliquer toutes les stratégies d’accès conditionnel. 
+* **Service Proxy d’application** : Agit en tant que proxy inverse pour transférer la requête de l’utilisateur à RDS. Proxy d’application peut également appliquer toutes les stratégies d’accès conditionnel. 
 
-* **Services Bureau à distance**  : Agit en tant que plateforme pour les applications virtualisées individuelles, offrant un accès sécurisé aux applications mobiles et de Bureau à distance et offrant aux utilisateurs finaux la possibilité d’exécuter leurs applications et leurs Bureaux à partir du cloud. 
+* **Services Bureau à distance** : Agit en tant que plateforme pour les applications virtualisées individuelles, offrant un accès sécurisé aux applications mobiles et de Bureau à distance et offrant aux utilisateurs finaux la possibilité d’exécuter leurs applications et leurs Bureaux à partir du cloud. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implémenter des services de passerelle Bureau à distance avec Azure AD
 

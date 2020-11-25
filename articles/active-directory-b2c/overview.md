@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396533"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953948"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -79,7 +79,7 @@ WoodGrove Groceries propose différentes options de connexion, en fonction de la
 
 * Les clients **particuliers** peuvent s’inscrire ou se connecter avec des comptes individuels, par exemple à l’aide d’un fournisseur d’identité de réseau social, ou d’une adresse e-mail et d’un mot de passe.
 * Les clients **professionnels** peuvent s’inscrire ou se connecter avec leurs informations d’identification d’entreprise.
-* Les **partenaires** et les fournisseurs sont des personnes qui approvisionnent l’épicerie en denrées à vendre. L’identité du partenaire est fournie par [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* Les **partenaires** et les fournisseurs sont des personnes qui approvisionnent l’épicerie en denrées à vendre. L’identité du partenaire est fournie par [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Pages de connexion pour les particuliers (B2C), les professionnels (B2C) et les partenaires (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Cette stratégie propose à l’utilisateur de se servir de ses informations d�
 
 Le lien **Sign in with your supplier account** (Connectez-vous avec votre compte fournisseur) utilise la fonctionnalité de collaboration d’Azure Active Directory B2B. Azure AD B2B constitue un groupe de fonctionnalités au sein d’Azure Active Directory pour gérer les identités des partenaires. Ces identités peuvent être fédérées à partir d’Azure Active Directory afin d’accéder aux applications protégées par Azure AD B2C.
 
-Apprenez-en davantage sur Azure AD B2B avec la [Présentation de l’accès utilisateur invité dans Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+Apprenez-en davantage sur Azure AD B2B avec la [Présentation de l’accès utilisateur invité dans Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code
