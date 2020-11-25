@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448160"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008971"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connexion de Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement Microsoft Endpoint Configuration Manager à Azure Monitor pour synchroniser les données de regroupement d’appareils et faire référence à ces regroupements dans Azure Monitor et Azure Automation.  
@@ -110,7 +110,7 @@ Consultez l’article [Connecter des ordinateurs Windows au service Azure Monito
 
 8. Dans la page **Configuration**, passez en revue les informations pour vérifier que les champs **Abonnements Azure**, **Groupe de ressources Azure** et **Espace de travail Operations Management Suite** sont préremplis, indiquant que l’application Azure AD dispose des autorisations suffisantes dans le groupe de ressources. Si les champs sont vides, cela signifie que votre application ne dispose pas des droits requis. Sélectionnez les regroupements d’appareils à collecter et à transférer à l’espace de travail, puis sélectionnez **Ajouter**.
 
-9. Passez en revue les options de la page**Confirmer les paramètres**, puis sélectionnez **Suivant** pour commencer à créer et à configurer la connexion.
+9. Passez en revue les options de la page **Confirmer les paramètres**, puis sélectionnez **Suivant** pour commencer à créer et à configurer la connexion.
 
 10. Une fois la configuration terminée, la page **Fin** s’affiche. Sélectionnez **Fermer**. 
 

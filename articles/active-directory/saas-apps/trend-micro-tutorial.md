@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Trend Micro Web Security (TMWS)
 
@@ -48,9 +48,9 @@ Pour configurer l’intégration de TMWS à Azure AD, vous devez ajouter TMWS, 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte Microsoft personnel.
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**.
-1. Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , entrez **Trend Micro Web Security (TMWS)** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, entrez **Trend Micro Web Security (TMWS)** dans la zone de recherche.
 1. Sélectionnez **Trend Micro Web Security (TMWS)** dans les résultats de la recherche, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso-for-tmws"></a>Configurer et tester l’authentification unique Azure AD pour TMWS
@@ -70,24 +70,24 @@ Pour configurer et tester l’authentification unique Azure AD avec TMWS, effec
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Trend Micro Web Security(TMWS)** , dans la section **Gérer** , sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez le bouton représentant un crayon et correspondant à **Configuration SAML de base** pour modifier les paramètres :
+1. Dans le [Portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Trend Micro Web Security(TMWS)** , dans la section **Gérer**, sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez le bouton représentant un crayon et correspondant à **Configuration SAML de base** pour modifier les paramètres :
 
    ![Modifier les paramètres Configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , entrez des valeurs dans les zones suivantes :
+1. Dans la section **Configuration SAML de base**, entrez des valeurs dans les zones suivantes :
 
     a. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant :
 
     `https://auth.iws-hybrid.trendmicro.com/([0-9a-f]{16})`
 
-    b. Dans la zone de texte **URL de réponse** , entrez cette URL :
+    b. Dans la zone de texte **URL de réponse**, entrez cette URL :
 
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
     > [!NOTE]
-    > La valeur de l’identificateur de l’étape précédente n’est pas celle que vous devez entrer. Vous devez utiliser l’identificateur réel. Cette valeur est indiquée dans la section **Paramètres du fournisseur de services du portail d’administration Azure** , dans la page **Méthode d’authentification** pour Azure AD en accédant à **Administration > Services d’annuaire**.
+    > La valeur de l’identificateur de l’étape précédente n’est pas celle que vous devez entrer. Vous devez utiliser l’identificateur réel. Cette valeur est indiquée dans la section **Paramètres du fournisseur de services du portail d’administration Azure**, dans la page **Méthode d’authentification** pour Azure AD en accédant à **Administration > Services d’annuaire**.
 
 1. Comme TMWS s’attend à recevoir les assertions SAML dans un format spécifique, vous devez ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. Cette capture d’écran montre les attributs par défaut :
 
@@ -100,7 +100,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | sAMAccountName | user.onpremisessamaccountname |
     | uPN | user.userprincipalname |
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (Base64)** . Sélectionnez le lien **Télécharger** à côté de ce nom de certificat pour télécharger le certificat et l’enregistrer sur votre ordinateur :
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . Sélectionnez le lien **Télécharger** à côté de ce nom de certificat pour télécharger le certificat et l’enregistrer sur votre ordinateur :
 
     ![Lien de téléchargement du certificat](common/certificatebase64.png)
 
@@ -112,51 +112,51 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B.Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**. Sélectionnez **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**. Sélectionnez **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans la zone **Nom** , entrez `B.Simon`.  
-   1. Dans la zone **Nom d’utilisateur** , entrez * *_nom_utilisateur_@* domaine_entreprise *.* extension***. Par exemple : `B.Simon@contoso.com`.
-   1. Sélectionnez **Afficher le mot de passe** , puis notez la valeur affichée dans la zone **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans la zone **Nom**, entrez `B.Simon`.  
+   1. Dans la zone **Nom d’utilisateur**, entrez **_nom_utilisateur_@* domaine_entreprise *.* extension***. Par exemple : `B.Simon@contoso.com`.
+   1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
    1. Sélectionnez **Create** (Créer).
 
 ### <a name="grant-the-azure-ad-test-user-access-to-tmws"></a>Accorder à l’utilisateur de test Azure AD l’accès à TMWS
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TMWS.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Trend Micro Web Security (TMWS)** .
-1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer** , sélectionnez **Utilisateurs et groupes**  :
+1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer**, sélectionnez **Utilisateurs et groupes** :
 
    ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Sélectionnez Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** dans la liste **Utilisateurs** , puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste **Utilisateurs**, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ### <a name="configure-user-and-group-synchronization-settings-in-azure-ad"></a>Configurer les paramètres de synchronisation des utilisateurs et des groupes dans Azure AD
 
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 
-1. Sous **Gérer** , sélectionnez **Inscriptions d’applications** , puis sélectionnez la nouvelle application d’entreprise sous **Toutes les applications**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez la nouvelle application d’entreprise sous **Toutes les applications**.
 
-1. Sous **Gérer** , sélectionnez **Certificats et secrets**.
+1. Sous **Gérer**, sélectionnez **Certificats et secrets**.
 
-1. Dans la zone **Secrets client** , sélectionnez **Nouveau secret client**.
+1. Dans la zone **Secrets client**, sélectionnez **Nouveau secret client**.
 
-1. Dans la fenêtre **Ajouter un secret client** , ajoutez éventuellement une description, sélectionnez une période d’expiration du secret client, puis sélectionnez **Ajouter**. Le nouveau secret client apparaît dans la zone **Secrets client**.
+1. Dans la fenêtre **Ajouter un secret client**, ajoutez éventuellement une description, sélectionnez une période d’expiration du secret client, puis sélectionnez **Ajouter**. Le nouveau secret client apparaît dans la zone **Secrets client**.
 
 1. Notez la valeur du secret client, car vous devrez l’entrer plus tard dans TMWS.
 
-1. Sous **Gérer** , sélectionnez **Autorisations de l’API**. 
+1. Sous **Gérer**, sélectionnez **Autorisations de l’API**. 
 
-1. Dans la fenêtre **Autorisations de l’API** , sélectionnez **Ajouter une autorisation**.
+1. Dans la fenêtre **Autorisations de l’API**, sélectionnez **Ajouter une autorisation**.
 
-1. Sous l’onglet **API Microsoft** de la fenêtre **Demander des autorisations d’API** , sélectionnez **Microsoft Graph** , puis sélectionnez **Autorisations pour les applications**.
+1. Sous l’onglet **API Microsoft** de la fenêtre **Demander des autorisations d’API**, sélectionnez **Microsoft Graph**, puis sélectionnez **Autorisations pour les applications**.
 
 1. Recherchez et ajoutez ces autorisations : 
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Sélectionnez **Ajouter des autorisations**. Un message s’affiche pour confirmer que vos paramètres ont été enregistrés. Les nouvelles autorisations s’affichent dans la fenêtre **Autorisations de l’API**.
 
-1. Dans la zone **Donner son consentement** , sélectionnez **Accorder un consentement d’administrateur pour *votre compte d’administrateur* (Répertoire par défaut)** , puis sélectionnez **Oui**. Un message s’affiche pour confirmer que le consentement d’administrateur a été accordé pour les autorisations demandées.
+1. Dans la zone **Donner son consentement**, sélectionnez **Accorder un consentement d’administrateur pour *votre compte d’administrateur* (Répertoire par défaut)** , puis sélectionnez **Oui**. Un message s’affiche pour confirmer que le consentement d’administrateur a été accordé pour les autorisations demandées.
 
 1. Sélectionnez **Vue d’ensemble**. 
 
@@ -196,9 +196,9 @@ Effectuez ces étapes pour configurer l’authentification unique pour TMWS côt
 
 1. Dans la section **Synchronization Settings** (Paramètres de synchronisation), effectuez ces étapes :
 
-    a. Dans la zone **Tenant** (Locataire), entrez l’ **ID d’annuaire (locataire)** ou le **Nom de domaine personnalisé** copié du Portail Azure.
+    a. Dans la zone **Tenant** (Locataire), entrez l’**ID d’annuaire (locataire)** ou le **Nom de domaine personnalisé** copié du Portail Azure.
 
-    b. Dans la zone **Application ID** (ID application), entrez l’ **ID d’application (client)** copié du Portail Azure.
+    b. Dans la zone **Application ID** (ID application), entrez l’**ID d’application (client)** copié du Portail Azure.
 
     c. Dans la zone **Client secret** (Secret client), entrez le **Secret client** copié du Portail Azure.
 
@@ -224,7 +224,7 @@ Après avoir configuré le service Azure AD et spécifié Azure AD comme méthod
 
 1. Accédez à un site web sur Internet. TMWS vous dirige vers le portail captif TMWS.
 
-1. Spécifiez un compte Active Directory (format : *domain*\\*sAMAccountName* ou *sAMAccountName*@*domain* ), une adresse e-mail ou un nom d’utilisateur principal (UPN), puis sélectionnez **Log On** (Ouvrir une session). TMWS vous dirige vers la fenêtre de connexion à Azure AD.
+1. Spécifiez un compte Active Directory (format : *domain*\\*sAMAccountName* ou *sAMAccountName*@*domain*), une adresse e-mail ou un nom d’utilisateur principal (UPN), puis sélectionnez **Log On** (Ouvrir une session). TMWS vous dirige vers la fenêtre de connexion à Azure AD.
 
 1. Dans la fenêtre de connexion à Azure AD, entrez les informations d’identification de votre compte Azure AD. Vous devez maintenant être connecté à TMWS.
 

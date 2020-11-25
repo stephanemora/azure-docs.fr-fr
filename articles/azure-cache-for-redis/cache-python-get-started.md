@@ -12,11 +12,11 @@ ms.custom:
 - devx-track-python
 ms.date: 11/05/2019
 ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008869"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Python
 
@@ -98,8 +98,8 @@ Si vous en avez terminé avec le groupe de ressources et les ressources Azure qu
 
 Pour supprimer le groupe de ressources et son instance Azure Cache pour Redis :
 
-1. Dans le **portail Azure** , recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
-1. Dans la zone de texte **Filtrer par nom** , entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
+1. Dans le **portail Azure**, recherchez et sélectionnez [Groupes de ressources](https://portal.azure.com).
+1. Dans la zone de texte **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre instance de cache, puis sélectionnez-le dans les résultats de la recherche. 
 1. Dans la page de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
 1. Tapez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
    

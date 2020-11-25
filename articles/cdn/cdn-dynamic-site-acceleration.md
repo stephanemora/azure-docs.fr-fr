@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778861"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008359"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accélération de site dynamique via Azure CDN
 
@@ -30,9 +30,9 @@ La fonctionnalité de réseau de distribution de contenu (CDN) standard permet d
 Les fonctionnalités **Azure CDN d’Akamai** et **Azure CDN de Verizon** offrent une fonction d’optimisation d’accélération de site dynamique au moyen du menu **Optimisé pour** durant la création du point de terminaison. L’accélération de site dynamique à partir de Microsoft est proposée par le biais d’[Azure Front Door Service](../frontdoor/front-door-overview.md).
 
 > [!Important]
-> Pour les profils **CDN Azure fournis par Akamai** , vous êtes autorisé à modifier l’optimisation d’un point de terminaison CDN après sa création.
+> Pour les profils **CDN Azure fournis par Akamai**, vous êtes autorisé à modifier l’optimisation d’un point de terminaison CDN après sa création.
 >   
-> Pour les profils **CDN Azure fournis par Verizon** , il n’est pas possible de modifier l’optimisation d’un point de terminaison CDN après sa création.
+> Pour les profils **CDN Azure fournis par Verizon**, il n’est pas possible de modifier l’optimisation d’un point de terminaison CDN après sa création.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuration d’un point de terminaison CDN pour accélérer la distribution de fichiers dynamiques
 
@@ -40,34 +40,34 @@ Pour configurer un point de terminaison CDN afin d’optimiser la remise de fich
 
 **Pour configurer un point de terminaison CDN pour l’optimisation DSA à l’aide du portail Azure :**
 
-1. Dans la page **Profil CDN** , sélectionnez **Point de terminaison** .
+1. Dans la page **Profil CDN**, sélectionnez **Point de terminaison**.
 
    ![Ajouter un nouveau point de terminaison CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    Le volet **Ajouter un point de terminaison** s’affiche.
 
-2. Sous **Optimisé pour** , sélectionnez **Accélération de site dynamique** .
+2. Sous **Optimisé pour**, sélectionnez **Accélération de site dynamique**.
 
     ![Créer un point de terminaison CDN avec accélération de site dynamique](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. Dans **Chemin d’analyse** , entrez un chemin d’accès à un fichier valide.
+3. Dans **Chemin d’analyse**, entrez un chemin d’accès à un fichier valide.
 
     Le chemin d’analyse est une fonctionnalité spécifique de DSA. Un chemin valide est requis pour la création. L’accélération de site dynamique utilise un petit fichier de *chemin d’analyse* placé sur le serveur d’origine pour optimiser les configurations de routage réseau pour le CDN. Comme chemin d’analyse, vous pouvez télécharger et charger l’exemple de fichier sur votre site, ou utiliser une ressource actuelle sur votre serveur d’origine d’environ 10 Ko.
 
-4. Entrez les autres options de point de terminaison requises (pour plus d’informations, consultez [Créer un point de terminaison CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), puis sélectionnez **Ajouter** .
+4. Entrez les autres options de point de terminaison requises (pour plus d’informations, consultez [Créer un point de terminaison CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), puis sélectionnez **Ajouter**.
 
    Une fois créé, le point de terminaison CDN applique les optimisations d’accélération de site dynamique pour tous les fichiers correspondant à certains critères. 
 
 
 **Pour configurer un point de terminaison existant pour DSA (profils Azure CDN d’Akamai uniquement) :**
 
-1. Dans la page **Profil CDN** , sélectionnez le point de terminaison que vous souhaitez modifier.
+1. Dans la page **Profil CDN**, sélectionnez le point de terminaison que vous souhaitez modifier.
 
-2. Dans le volet gauche, sélectionnez **Optimisation** . 
+2. Dans le volet gauche, sélectionnez **Optimisation**. 
 
    La page **Optimisation** s’affiche.
 
-3. Sous **Optimisé pour** , sélectionnez **Accélération de site dynamique** , puis sélectionnez **Enregistrer** .
+3. Sous **Optimisé pour**, sélectionnez **Accélération de site dynamique**, puis sélectionnez **Enregistrer**.
 
 > [!Note]
 > L’accélération de site dynamique entraîne des frais supplémentaires. Pour plus d’informations, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
@@ -153,11 +153,11 @@ Avec l’accélération de site dynamique, la mise en cache est désactivée par
 
 Si vous avez un site web combinant ressources statiques et ressources dynamiques, il est préférable d’adopter une approche hybride pour obtenir le meilleure niveau de performance. 
 
-Pour les profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Standard fourni par Akamai** , vous pouvez activer la mise en cache des points de terminaison DSA spécifiques à l’aide des [règles de mise en cache](cdn-caching-rules.md).
+Pour les profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Standard fourni par Akamai**, vous pouvez activer la mise en cache des points de terminaison DSA spécifiques à l’aide des [règles de mise en cache](cdn-caching-rules.md).
 
 Pour accéder à des règles de mise en cache :
 
-1. Dans la page **Profil CDN** , sous Paramètres, sélectionnez **Règles de mise en cache** .  
+1. Dans la page **Profil CDN**, sous Paramètres, sélectionnez **Règles de mise en cache**.  
     
     ![Bouton Règles de mise en cache CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,13 +169,13 @@ Pour les profils **Azure CDN Premium fourni par Verizon** uniquement, vous pouve
 
 Pour accéder au moteur de règles :
     
-1. Dans la page **Profil CDN** , sélectionnez **Gérer** .  
+1. Dans la page **Profil CDN**, sélectionnez **Gérer**.  
     
     ![Bouton de gestion du profil CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Le portail de gestion CDN s'ouvre.
 
-2. Dans le portail de gestion CDN, sélectionnez **ADN** , puis sélectionnez **Moteur de règles** . 
+2. Dans le portail de gestion CDN, sélectionnez **ADN**, puis sélectionnez **Moteur de règles**. 
 
     ![Moteur de règles pour DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

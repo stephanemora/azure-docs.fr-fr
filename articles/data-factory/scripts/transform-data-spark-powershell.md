@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: 3af38f4cae53807c7268f00017f02f1325116fb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008750"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell - Transformer des données dans le cloud à l’aide d’Azure Data Factory
 
@@ -26,7 +26,7 @@ Cet exemple de script PowerShell crée un pipeline qui transforme les données d
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables requises
-* **Compte Stockage Azure** . Créez un script Python et un fichier d’entrée, puis téléchargez-les sur le stockage Azure. La sortie du programme Spark est stockée dans ce compte de stockage. Le cluster Spark sur demande utilise le même compte de stockage comme stockage principal.  
+* **Compte Stockage Azure**. Créez un script Python et un fichier d’entrée, puis téléchargez-les sur le stockage Azure. La sortie du programme Spark est stockée dans ce compte de stockage. Le cluster Spark sur demande utilise le même compte de stockage comme stockage principal.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Télécharger un script Python dans votre compte de stockage d’objets Blob
 1. Créez un fichier Python nommé **WordCount_Spark.py** avec le contenu suivant : 
@@ -56,9 +56,9 @@ Cet exemple de script PowerShell crée un pipeline qui transforme les données d
     ```
 2. Remplacez **&lt;storageAccountName&gt;** par le nom de votre compte de stockage Azure. Puis enregistrez le fichier. 
 3. Dans votre stockage Blob Azure, créez un conteneur nommé **adftutorial** s’il n’existe pas. 
-4. Créez un dossier nommé **spark** .
-5. Créer un sous-dossier nommé **script** sous le dossier **spark** . 
-6. Téléchargez le fichier **WordCount_Spark.py** dans le sous-dossier **script** . 
+4. Créez un dossier nommé **spark**.
+5. Créer un sous-dossier nommé **script** sous le dossier **spark**. 
+6. Téléchargez le fichier **WordCount_Spark.py** dans le sous-dossier **script**. 
 
 
 ### <a name="upload-the-input-file"></a>Télécharger le fichier d’entrée

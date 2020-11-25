@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009226"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurer une identité commune sur une Data Science Virtual Machine
 
@@ -37,9 +37,9 @@ Azure AD DS facilite la gestion des identités en fournissant un service entièr
 
    1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
     
-   1. Sélectionnez **Azure Active Directory** , puis **Utilisateurs et groupes**.
+   1. Sélectionnez **Azure Active Directory**, puis **Utilisateurs et groupes**.
     
-   1. Dans **Utilisateurs et groupes** , sélectionnez **Tous les utilisateurs** , puis **Nouvel utilisateur**.
+   1. Dans **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**, puis **Nouvel utilisateur**.
    
         Le volet **Utilisateur** s’ouvre :
       
@@ -49,9 +49,9 @@ Azure AD DS facilite la gestion des identités en fournissant un service entièr
     
    1. Copiez ou notez d’une autre façon le mot de passe généré de sorte à pouvoir le fournir à l’utilisateur une fois ce processus terminé.
     
-   1. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil** , **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. 
+   1. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil**, **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. 
     
-   1. Sous **Utilisateur** , sélectionnez **Créer**.
+   1. Sous **Utilisateur**, sélectionnez **Créer**.
     
    1. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
 

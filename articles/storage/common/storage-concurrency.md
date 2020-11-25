@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008903"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Stockage Azure prend également en charge les en-têtes conditionnels tels que **If-Modified-Since** , **If-Unmodified-Since** et **If-None-Match** , ainsi que les associations de ces en-têtes. Pour plus d’informations, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+Stockage Azure prend également en charge les en-têtes conditionnels tels que **If-Modified-Since**, **If-Unmodified-Since** et **If-None-Match**, ainsi que les associations de ces en-têtes. Pour plus d’informations, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 Le tableau suivant résume les opérations de conteneurs qui acceptent les en-têtes conditionnels tels que **If-Match** dans la demande et qui renvoient une valeur ETag dans la réponse.
 
@@ -130,7 +130,7 @@ Le tableau suivant résume les opérations d'objets blob qui acceptent les en-t�
 
 Pour verrouiller un blob de manière à l’utiliser de manière exclusive, obtenez un [bail](/rest/api/storageservices/Lease-Blob) pour le blob en question. Lorsque vous obtenez un bail, vous spécifiez une période de temps pour le bail. Cette période varie entre 15 et 60 secondes ou est infinie, ce qui équivaut à un verrou exclusif. Renouvelez un bail à durée limitée pour le prolonger. Libérez un bail lorsque vous avez terminé. Stockage Blob libère automatiquement les baux à durée limitée quand ils expirent.
 
-Les baux permettent de prendre en charge différentes stratégies de synchronisation. Les stratégies incluent : *écriture exclusive/lecture partagée* , *écriture exclusive/lecture exclusive* et *écriture partagée/lecture exclusive*. Si un bail existe, Stockage Azure applique une stratégie d’écriture exclusive (opérations de placement, de définition et de suppression). Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.
+Les baux permettent de prendre en charge différentes stratégies de synchronisation. Les stratégies incluent : *écriture exclusive/lecture partagée*, *écriture exclusive/lecture exclusive* et *écriture partagée/lecture exclusive*. Si un bail existe, Stockage Azure applique une stratégie d’écriture exclusive (opérations de placement, de définition et de suppression). Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.
 
 L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif de 30 secondes sur un objet blob, de mise à jour du contenu de l'objet blob et de libération du bail. Si le blob fait déjà l’objet d’un bail valide quand vous tentez d’obtenir un nouveau bail, le service BLOB retourne un message d’état HTTP 409 (Conflit). L’extrait de code ci-dessous utilise un objet **AccessCondition** pour encapsuler les informations relatives au bail au moment où il formule une demande de mise à jour de l’objet blob dans le service de stockage.  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Si vous tentez de procéder à une opération d'écriture sur un objet blob faisant l'objet d'un bail sans transmettre l'identificateur de bail, un message d'erreur 412 est renvoyé. Si le bail expire avant l’appel de la méthode **UploadText** , un message d’erreur **412** est également renvoyé même si vous transmettez l’identificateur de bail. Pour plus d'informations sur la gestion des délais d’expiration des baux et des identificateurs de baux, consultez la documentation REST [Lease Blob](/rest/api/storageservices/Lease-Blob).
+Si vous tentez de procéder à une opération d'écriture sur un objet blob faisant l'objet d'un bail sans transmettre l'identificateur de bail, un message d'erreur 412 est renvoyé. Si le bail expire avant l’appel de la méthode **UploadText**, un message d’erreur **412** est également renvoyé même si vous transmettez l’identificateur de bail. Pour plus d'informations sur la gestion des délais d’expiration des baux et des identificateurs de baux, consultez la documentation REST [Lease Blob](/rest/api/storageservices/Lease-Blob).
 
 Les opérations d'objets blob suivantes peuvent utiliser des baux dans le cadre de la gestion de l'accès concurrentiel pessimiste :
 
@@ -184,7 +184,7 @@ Les opérations d'objets blob suivantes peuvent utiliser des baux dans le cadre 
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Accès concurrentiel pessimiste pour les conteneurs
 
-Les baux sur les conteneurs permettent la prise en charge des mêmes stratégies de synchronisation que sur les blobs ( *écriture exclusive/lecture partagée* , *écriture exclusive/lecture exclusive* et *écriture partagée/lecture exclusive* ). Cependant, contrairement aux blobs, le service de stockage applique uniquement l’exclusivité aux opérations de suppression. Pour supprimer un conteneur avec un bail actif, le client doit inclure l'identificateur du bail actif dans la demande de suppression. Toutes les opérations sont correctement effectuées sur les conteneurs soumis à un bail sans que l'identificateur de bail soit inclus, il s'agit alors d'opérations partagées. Si l'exclusivité est requise pour les opérations de mise à jour (Put ou Set) ou de lecture, les développeurs doivent veiller à ce que tous les clients utilisent un identificateur de bail et à ce que seul un client à la fois dispose d'un identificateur de bail valable.
+Les baux sur les conteneurs permettent la prise en charge des mêmes stratégies de synchronisation que sur les blobs (*écriture exclusive/lecture partagée*, *écriture exclusive/lecture exclusive* et *écriture partagée/lecture exclusive*). Cependant, contrairement aux blobs, le service de stockage applique uniquement l’exclusivité aux opérations de suppression. Pour supprimer un conteneur avec un bail actif, le client doit inclure l'identificateur du bail actif dans la demande de suppression. Toutes les opérations sont correctement effectuées sur les conteneurs soumis à un bail sans que l'identificateur de bail soit inclus, il s'agit alors d'opérations partagées. Si l'exclusivité est requise pour les opérations de mise à jour (Put ou Set) ou de lecture, les développeurs doivent veiller à ce que tous les clients utilisent un identificateur de bail et à ce que seul un client à la fois dispose d'un identificateur de bail valable.
 
 Les opérations de conteneurs suivantes peuvent utiliser des baux dans le cadre de la gestion de l'accès concurrentiel pessimiste :
 

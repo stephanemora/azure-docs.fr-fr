@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494438"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009804"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitations et problèmes de migration en ligne vers Azure Database pour MySQL avec Azure Database Migration Service
 
@@ -66,28 +66,28 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 ## <a name="datatype-limitations"></a>Limitations relatives au type de données
 
-- **Limitation**  : si la base de données MySQL source inclut un type de données JSON, la migration échouera lors de la synchronisation continue.
+- **Limitation** : si la base de données MySQL source inclut un type de données JSON, la migration échouera lors de la synchronisation continue.
 
-    **Solution de contournement**  : modifiez le type de données JSON dans la base de données MySQL source en choisissant le texte moyen ou le texte long.
+    **Solution de contournement** : modifiez le type de données JSON dans la base de données MySQL source en choisissant le texte moyen ou le texte long.
 
-- **Limitation**  : En l’absence de clé primaire sur les tables, la synchronisation continue échouera.
+- **Limitation** : En l’absence de clé primaire sur les tables, la synchronisation continue échouera.
 
-    **Solution de contournement**  : définissez temporairement une clé primaire pour la table afin de poursuivre la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+    **Solution de contournement** : définissez temporairement une clé primaire pour la table afin de poursuivre la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
 
 ## <a name="lob-limitations"></a>Limitations relatives aux objets LOB
 
 Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour MySQL, les types de données LOB incluent notamment : texte moyen, texte long, Blob, Mediumblob, Longblob, etc.
 
-- **Limitation**  : Si des types de données LOB sont utilisés comme clés primaires, la migration échouera.
+- **Limitation** : Si des types de données LOB sont utilisés comme clés primaires, la migration échouera.
 
-    **Solution de contournement**  : remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
+    **Solution de contournement** : remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
 
-- **Limitation**  : si la longueur de la colonne LOB (Large Object) est supérieure au paramètre « Limiter la taille LOB » (ne doit pas dépasser 64 Ko), les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
+- **Limitation** : si la longueur de la colonne LOB (Large Object) est supérieure au paramètre « Limiter la taille LOB » (ne doit pas dépasser 64 Ko), les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solution de contournement**  : si vous avez un objet LOB d’une taille supérieure à 64 Ko, utilisez le paramètre « Autoriser une taille LOB illimitée ». Notez que les migrations utilisant le paramètre « Autoriser une taille LOB illimitée » sont plus lentes que les migrations qui utilisent le paramètre « Limiter la taille LOB ».
+    **Solution de contournement** : si vous avez un objet LOB d’une taille supérieure à 64 Ko, utilisez le paramètre « Autoriser une taille LOB illimitée ». Notez que les migrations utilisant le paramètre « Autoriser une taille LOB illimitée » sont plus lentes que les migrations qui utilisent le paramètre « Limiter la taille LOB ».
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitations lors de la migration en ligne depuis AWS RDS MySQL
 
@@ -95,8 +95,8 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS MySQL v
 
 - **Erreur :** La base de données '{0}' a une ou plusieurs clés étrangères sur la cible. Corrigez la cible et démarrez une nouvelle activité de migration des données. Exécutez le script ci-après sur la cible pour lister la ou les clés étrangères.
 
-  **Limitation**  : Si vous avez des clés étrangères dans votre schéma, la charge initiale et la synchronisation continue de la migration échouent.
-  **Solution de contournement**  : Exécutez le script suivant dans MySQL Workbench pour extraire le script de clé étrangère Drop et ajouter le script de clé étrangère :
+  **Limitation** : Si vous avez des clés étrangères dans votre schéma, la charge initiale et la synchronisation continue de la migration échouent.
+  **Solution de contournement** : Exécutez le script suivant dans MySQL Workbench pour extraire le script de clé étrangère Drop et ajouter le script de clé étrangère :
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
@@ -104,21 +104,21 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS MySQL v
 
 - **Erreur :** La base de données '{0}' n’existe pas sur le serveur. Le serveur source MySQL fourni respecte la casse. Vérifiez le nom de la base de données.
 
-  **Limitation**  : Quand vous migrez une base de données MySQL vers Azure à l’aide de l’interface de ligne de commande (CLI), les utilisateurs peuvent obtenir cette erreur. Le service n’a pas pu localiser la base de données sur le serveur source, ce qui peut être dû au fait que vous avez fourni un nom de base de données incorrect ou que la base de données n’existe pas sur le serveur indiqué. Notez que les noms de base de données respectent la casse.
+  **Limitation** : Quand vous migrez une base de données MySQL vers Azure à l’aide de l’interface de ligne de commande (CLI), les utilisateurs peuvent obtenir cette erreur. Le service n’a pas pu localiser la base de données sur le serveur source, ce qui peut être dû au fait que vous avez fourni un nom de base de données incorrect ou que la base de données n’existe pas sur le serveur indiqué. Notez que les noms de base de données respectent la casse.
 
-  **Solution de contournement**  : Indiquez le nom exact de la base de données, puis réessayez.
+  **Solution de contournement** : Indiquez le nom exact de la base de données, puis réessayez.
 
 - **Erreur :** Des tables portent le même nom dans la base de données '{database}'. Azure Database pour MySQL ne prend pas en charge les tables respectant la casse.
 
-  **Limitation**  : Cette erreur se produit quand vous avez deux tables portant le même nom dans la base de données source. Azure Database pour MySQL ne prend pas en charge les tables respectant la casse.
+  **Limitation** : Cette erreur se produit quand vous avez deux tables portant le même nom dans la base de données source. Azure Database pour MySQL ne prend pas en charge les tables respectant la casse.
 
-  **Solution de contournement**  : Mettez à jour les noms de table pour qu’ils soient uniques, puis réessayez.
+  **Solution de contournement** : Mettez à jour les noms de table pour qu’ils soient uniques, puis réessayez.
 
 - **Erreur :** La base de données cible {database} est vide. Migrez le schéma.
 
-  **Limitation**  : Cette erreur se produit quand la base de données Azure Database pour MySQL cible n’a pas le schéma requis. La migration de schéma est nécessaire pour activer la migration des données vers votre cible.
+  **Limitation** : Cette erreur se produit quand la base de données Azure Database pour MySQL cible n’a pas le schéma requis. La migration de schéma est nécessaire pour activer la migration des données vers votre cible.
 
-  **Solution de contournement**  : [Migrez le schéma](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) depuis votre base de données source vers la base de données cible.
+  **Solution de contournement** : [Migrez le schéma](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) depuis votre base de données source vers la base de données cible.
 
 ## <a name="other-limitations"></a>Autres limitations
 
@@ -136,10 +136,10 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS MySQL v
 
 - Dans Azure Database Migration Service, le nombre de bases de données pouvant migrer dans le cadre d’une activité de migration unique est limité à quatre.
 
-- Azure DMS ne prend pas en charge l’action référentielle CASCADE, qui permet de supprimer ou de mettre à jour automatiquement une ligne correspondante dans la table enfant lorsqu’une ligne est supprimée ou mise à jour dans la table parente. Pour plus d’informations, dans la documentation MySQL, consultez la section Actions référentielles de l’article [Contraintes FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requiert la suppression des contraintes de clé étrangère sur le serveur de base de données cible pendant le chargement initial des données, et vous ne pouvez pas utiliser les actions référentielles. Si votre charge de travail dépend de la mise à jour d’une table enfant associée par le biais de cette action référentielle, nous vous recommandons d’effectuer [un fichier de sauvegarde et une restauration](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) à la place. 
+- Azure DMS ne prend pas en charge l’action référentielle CASCADE, qui permet de supprimer ou de mettre à jour automatiquement une ligne correspondante dans la table enfant lorsqu’une ligne est supprimée ou mise à jour dans la table parente. Pour plus d’informations, dans la documentation MySQL, consultez la section Actions référentielles de l’article [Contraintes FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requiert la suppression des contraintes de clé étrangère sur le serveur de base de données cible pendant le chargement initial des données, et vous ne pouvez pas utiliser les actions référentielles. Si votre charge de travail dépend de la mise à jour d’une table enfant associée par le biais de cette action référentielle, nous vous recommandons d’effectuer [un fichier de sauvegarde et une restauration](../mysql/concepts-migrate-dump-restore.md) à la place. 
 
 - **Erreur :** Taille de ligne trop grande (> 8126). La modification de certaines colonnes en TEXTE ou en objet BLOB peut être utile. Dans le format de ligne actuel, le préfixe BLOB de 0 octet est stocké inline.
 
-  **Limitation**  : Cette erreur se produit lorsque vous effectuez une migration vers Azure Database pour MySQL à l’aide du moteur de stockage InnoDB et que la taille de ligne de la table est trop grande (> 8 126 octets).
+  **Limitation** : Cette erreur se produit lorsque vous effectuez une migration vers Azure Database pour MySQL à l’aide du moteur de stockage InnoDB et que la taille de ligne de la table est trop grande (> 8 126 octets).
 
-  **Solution de contournement**  : Mettez à jour le schéma de la table dont la taille de ligne est supérieure à 8 126 octets. Nous vous déconseillons de modifier le mode strict, car les données seront tronquées. La modification de page_size n’est pas prise en charge.
+  **Solution de contournement** : Mettez à jour le schéma de la table dont la taille de ligne est supérieure à 8 126 octets. Nous vous déconseillons de modifier le mode strict, car les données seront tronquées. La modification de page_size n’est pas prise en charge.

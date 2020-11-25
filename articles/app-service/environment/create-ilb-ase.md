@@ -8,11 +8,11 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503519"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009549"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -96,7 +96,7 @@ Pour créer une application dans un ASE ILB, procédez de la même façon que po
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>Tâches Web, fonctions et l’environnement App Service ILB 
 
-Les fonctions et les tâches Web sont prises en charge sur un environnement App service ILB, mais pour que le portail interagisse avec eux, vous devez disposer d’un accès réseau vers le site SCM.  Cela signifie que votre navigateur doit être sur un ordinateur hôte qui se trouve dans ou connecté au réseau virtuel. Si votre ASE ILB a un nom de domaine qui ne se termine pas par *appserviceenvironment.net* , vous devrez faire en sorte que votre navigateur approuve le certificat HTTPS utilisé par votre site scm.
+Les fonctions et les tâches Web sont prises en charge sur un environnement App service ILB, mais pour que le portail interagisse avec eux, vous devez disposer d’un accès réseau vers le site SCM.  Cela signifie que votre navigateur doit être sur un ordinateur hôte qui se trouve dans ou connecté au réseau virtuel. Si votre ASE ILB a un nom de domaine qui ne se termine pas par *appserviceenvironment.net*, vous devrez faire en sorte que votre navigateur approuve le certificat HTTPS utilisé par votre site scm.
 
 ## <a name="dns-configuration"></a>Configuration DNS 
 
@@ -129,7 +129,7 @@ Le nom du site SCM vous dirige vers la console Kudu nommée **Portail avancé** 
 
 Les systèmes d’intégration continue basés sur Internet, comme GitHub et Azure DevOps, continueront de fonctionner avec un environnement ASE d’équilibreur de charge interne si l’agent de build est accessible par Internet et se trouve sur le même réseau que l’environnement ASE d’équilibreur de charge interne. Par conséquent, avec Azure DevOps, si l’agent de build est créé sur le même réseau virtuel que l’environnement ASE d’équilibreur de charge interne (vous pouvez utiliser un autre sous-réseau), il ne pourra pas extraire le code d’Azure DevOps Git et se déployer dans l’environnement ASE d’équilibreur de charge interne. Si vous ne souhaitez pas créer votre propre agent de build, vous devez utiliser un système d’intégration continue qui utilise un modèle d’extraction, par exemple Dropbox.
 
-Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Ce domaine apparaît dans le profil de publication de l’application et sur le panneau du portail de l’application ( **Vue d’ensemble** > **Bases** et également **Propriétés** ). Si vous avez un ASE ILB avec le suffixe de domaine *&lt;nom ASE&gt;.appserviceenvironment.net* et une application nommée *mytest* , utilisez *mytest.&lt;nom ASE&gt;.appserviceenvironment.net* pour FTP et *mytest.scm.contoso.net* pour le déploiement web.
+Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Ce domaine apparaît dans le profil de publication de l’application et sur le panneau du portail de l’application (**Vue d’ensemble** > **Bases** et également **Propriétés**). Si vous avez un ASE ILB avec le suffixe de domaine *&lt;nom ASE&gt;.appserviceenvironment.net* et une application nommée *mytest*, utilisez *mytest.&lt;nom ASE&gt;.appserviceenvironment.net* pour FTP et *mytest.scm.contoso.net* pour le déploiement web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configurer un ASE ILB avec un appareil WAF ##
 
