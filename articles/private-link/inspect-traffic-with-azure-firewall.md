@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236529"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017234"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utiliser Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les frais liés aux connexions à l’aide de ré
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scénario 2 : Architecture hub-and-spoke – Réseau virtuel partagé pour les points de terminaison privés et les machines virtuelles
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Réseau virtuel dédié pour les points de terminaison privés" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Points de terminaison privés et machines virtuelles dans le même réseau virtuel" border="true":::
 
 Ce scénario est implémenté dans les cas suivants :
 
@@ -78,7 +78,7 @@ Pour plus d’informations sur les frais liés aux connexions à l’aide de ré
 
 ## <a name="scenario-3-single-virtual-network"></a>Scénario 3 : Réseau virtuel unique
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Réseau virtuel dédié pour les points de terminaison privés" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Réseau virtuel unique" border="true":::
 
 La mise en œuvre présente certaines limites : une migration vers une architecture hub-and-spoke n’est pas possible. Les mêmes considérations que celles du scénario 2 s’appliquent. Dans ce scénario, les frais d’appairage de réseaux virtuels ne s’appliquent pas.
 
@@ -87,7 +87,7 @@ La mise en œuvre présente certaines limites : une migration vers une architec
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scénario 4 : Trafic local vers des points de terminaison privés
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Réseau virtuel dédié pour les points de terminaison privés" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Trafic local vers des points de terminaison privés" border="true":::
 
 Vous pouvez implémenter cette architecture si vous avez configuré la connectivité avec votre réseau local à l’aide de l’une des deux méthodes suivantes : 
 
@@ -106,7 +106,7 @@ Les mêmes considérations que celles du scénario 2 ci-dessus s’appliquent. 
 * Un abonnement Azure.
 * Un espace de travail Log Analytics.  
 
-Pour créer un espace de travail si vous n’en avez pas dans votre abonnement, consultez [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Pour créer un espace de travail si vous n’en avez pas dans votre abonnement, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -498,7 +498,7 @@ L’itinéraire envoie le trafic du sous-réseau **myVM** à l’espace d’adre
     | Resource group | Sélectionnez **myResourceGroup**.  |
     | **Détails de l’instance** |  |
     | Région | Sélectionnez **USA Centre Sud**. |
-    | Nom | Entrez**VMsubnet-to-AzureFirewall**. |
+    | Nom | Entrez **VMsubnet-to-AzureFirewall**. |
     | Propager des itinéraires de passerelle | Sélectionnez **Non**. |
 
 5. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
@@ -575,7 +575,7 @@ Dans cette section, vous allez vous connecter de manière privée à SQL Databas
     Address: 10.2.0.4
     ```
 
-2. Installez les [outils en ligne de commande SQL Server](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Installez les [outils en ligne de commande SQL Server](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Exécutez la commande suivante pour vous connecter à SQL Server. Utilisez l’administrateur de serveur et le mot de passe que vous avez définis lorsque vous avez créé le serveur SQL aux étapes précédentes.
 

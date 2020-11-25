@@ -4,11 +4,11 @@ description: Une vue d’ensemble des coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017319"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -20,9 +20,9 @@ Cet article décrit les fonctionnalités d’un coffre Recovery Services. Un cof
 
 - **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : Azure RBAC offre un contrôle très précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../role-based-access-control/built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres Recovery Services sont compatibles avec Azure RBAC, ce qui limite les accès en sauvegarde et en restauration à l’ensemble défini des rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
 
-- **Suppression réversible**  :  Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires à l’état « suppression réversible » n’engendre aucun frais pour vous. [Plus d’informations](backup-azure-security-feature-cloud.md)
+- **Suppression réversible** :  Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires à l’état « suppression réversible » n’engendre aucun frais pour vous. [Plus d’informations](backup-azure-security-feature-cloud.md)
 
-- **Restauration inter-région**  :  La restauration inter-région (CRR) peut être utilisée pour restaurer des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure. Si Azure déclare un incident dans la région primaire, les données répliquées dans la région secondaire peuvent être restaurées dans la région secondaire afin d’atténuer le temps d’arrêt réel de leur environnement dans la région principale. [Plus d’informations](backup-azure-arm-restore-vms.md#cross-region-restore)
+- **Restauration inter-région** :  La restauration inter-région (CRR) peut être utilisée pour restaurer des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure. Si Azure déclare un incident dans la région primaire, les données répliquées dans la région secondaire peuvent être restaurées dans la région secondaire afin d’atténuer le temps d’arrêt réel de leur environnement dans la région principale. [Plus d’informations](backup-azure-arm-restore-vms.md#cross-region-restore)
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Paramètres de stockage dans le coffre Recovery Services
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017404"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Créer et gérer des étendues de chiffrement (version préliminaire)
 
@@ -179,7 +179,7 @@ Pour savoir comment configurer le chiffrement du service Stockage Azure avec des
 
 Pour afficher les étendues de chiffrement pour un compte de stockage dans le Portail Azure, accédez au paramètre **Étendues de chiffrement** pour le compte de stockage. Dans ce volet, vous pouvez activer ou désactiver une étendue de chiffrement ou modifier la clé d’une étendue de chiffrement.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Capture d’écran montrant une liste des étendues de chiffrement dans le Portail Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Pour créer un conteneur avec une étendue de chiffrement par défaut dans le Po
 1. Dans la liste déroulante **Étendue de chiffrement**, sélectionnez l’étendue de chiffrement par défaut pour le conteneur.
 1. Pour exiger que tous les objets blob du conteneur utilisent l’étendue de chiffrement par défaut, activez la case à cocher pour **Utiliser cette étendue de chiffrement pour tous les objets blob dans le conteneur.** Si cette case à cocher est activée, un objet blob individuel dans le conteneur ne peut pas remplacer l’étendue de chiffrement par défaut.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Capture d’écran montrant le conteneur avec l’étendue de chiffrement par défaut":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Pour créer un conteneur avec une étendue de chiffrement par défaut avec Azure CLI, appelez la commande [az storage container create](/cli/azure/storage/container#az-storage-container-create), en spécifiant l’étendue du paramètre `--default-encryption-scope`. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `--prevent-encryption-scope-override` sur `true`.
 
-L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Vous pouvez également utiliser la clé d'accès au compte. Pour plus d’informations, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md).
+L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Vous pouvez également utiliser la clé d'accès au compte. Pour plus d’informations, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -277,7 +277,7 @@ Pour créer un blob avec une étendue de chiffrement par défaut dans le Portail
 1. Recherchez la section de liste déroulante **Étendue de chiffrement**. Par défaut, l’objet blob est créé avec l’étendue de chiffrement par défaut pour le conteneur, si elle a été spécifiée. Si le conteneur exige que les blobs utilisent le champ de chiffrement par défaut, cette section est désactivée.
 1. Pour spécifier une autre étendue pour l’objet blob que vous chargez, sélectionnez **Choisir une étendue existante**, puis sélectionnez l’étendue souhaitée dans la liste déroulante.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Capture d’écran montrant comment créer une file d’attente dans le Portail Azure":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Capture d’écran montrant comment charger un objet blob avec une étendue de chiffrement":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

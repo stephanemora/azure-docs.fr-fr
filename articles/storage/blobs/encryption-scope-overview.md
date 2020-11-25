@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326114"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017387"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)
 
@@ -52,8 +52,8 @@ Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé
 
 Si votre étendue de chiffrement est protégée par des clés gérées par le client, vous pouvez également supprimer la clé associée dans le coffre de clés afin de désactiver l’étendue de chiffrement. Gardez à l’esprit que les clés gérées par le client sont protégées par la suppression réversible et la protection contre le vidage dans le coffre de clés, et qu’une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
 
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/soft-delete-powershell.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/soft-delete-cli.md)
+- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/key-vault-recovery.md)
+- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Il n’est pas possible de supprimer une étendue de chiffrement.

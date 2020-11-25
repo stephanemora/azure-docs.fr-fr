@@ -4,11 +4,11 @@ description: Découvrez-en plus sur l’empaquetage d’une application existant
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017744"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Déployer un fichier exécutable existant sur Service Fabric
 Vous pouvez exécuter n’importe quel type de code, comme Node.js, Java ou C++ dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de service sont appelés des exécutables invités.

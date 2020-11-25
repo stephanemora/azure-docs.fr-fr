@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2661715164cc6aa5f5ff587f2ddf28c0918445d4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015988"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Créer une galerie d’images partagées à l’aide du portail
 
@@ -23,7 +23,7 @@ Une [galerie d’images partagées](shared-image-galleries.md) simplifie consid�
 
 Le service Shared Image Gallery vous permet de partager vos images de machine virtuelle personnalisées avec d’autres personnes de votre organisation, dans la même région ou des régions différentes, au sein d’un locataire Azure AD. Choisissez les images à partager, les régions dans lesquelles vous souhaitez les rendre disponibles et les personnes avec lesquelles vous voulez les partager. Vous pouvez créer plusieurs galeries afin de regrouper logiquement les images partagées. 
 
-La galerie est une ressource de niveau supérieur qui fournit le contrôle d’accès en fonction du rôle (RBAC) complet. Les versions des images peuvent être gérées, et vous pouvez choisir de répliquer chaque version d’image vers un autre ensemble de régions Azure. La galerie fonctionne uniquement avec les images managées.
+La galerie est une ressource de niveau supérieur qui fournit le contrôle d'accès en fonction du rôle Azure (Azure RBAC) complet. Les versions des images peuvent être gérées, et vous pouvez choisir de répliquer chaque version d’image vers un autre ensemble de régions Azure. La galerie fonctionne uniquement avec les images managées.
 
 La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 

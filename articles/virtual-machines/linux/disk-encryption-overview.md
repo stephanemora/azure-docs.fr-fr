@@ -9,11 +9,11 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410808"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016299"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -38,7 +38,7 @@ Les machines virtuelles Linux sont disponibles dans une [gamme de tailles](../si
 
 | Machine virtuelle | Mémoire minimale requise |
 |--|--|
-| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
+| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est de 4 Go ou moins | 8 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est supérieure à 4 Go | L’utilisation du système de fichiers racine * 2. Par exemple, une utilisation du système de fichiers racine de 16 Go nécessite au moins 32 Go de RAM |
 
@@ -48,7 +48,7 @@ Azure Disk Encryption est également disponible pour les machines virtuelles ave
 
 Azure Disk Encryption n’est pas disponible sur les [machines virtuelles de 2e génération](../generation-2.md#generation-1-vs-generation-2-capabilities) et les [machines virtuelles de la série Lsv2](../lsv2-series.md). Pour plus d’exceptions, consultez [Azure Disk Encryption : Scénarios non pris en charge](disk-encryption-linux.md#unsupported-scenarios).
 
-Azure Disk Encryption n’est pas disponible sur les images de machine virtuelle sans disque temporaire (Dv4, Dsv4, Ev4 et Esv4).  Consultez [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md).
+Azure Disk Encryption n’est pas disponible sur les images de machine virtuelle sans disque temporaire (Dv4, Dsv4, Ev4 et Esv4).  Voir [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 

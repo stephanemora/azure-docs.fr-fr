@@ -10,11 +10,11 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016690"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -69,7 +69,7 @@ Pour créer un groupe identique qui utilise une passerelle d’application, réf
 Par défaut, les groupes identiques adoptent les paramètres DNS spécifiques du réseau virtuel et du sous-réseau dans lesquels ils ont été créés. Toutefois, vous pouvez configurer les paramètres DNS directement pour un groupe identique.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Création d’un groupe identique avec les serveurs DNS configurables
-Pour créer un groupe identique avec une configuration DNS personnalisée à l’aide d’Azure CLI, ajoutez l’argument **--dns-servers** à la commande **vmss create** , suivi des adresses IP des serveurs, séparées par un espace. Par exemple :
+Pour créer un groupe identique avec une configuration DNS personnalisée à l’aide d’Azure CLI, ajoutez l’argument **--dns-servers** à la commande **vmss create**, suivi des adresses IP des serveurs, séparées par un espace. Par exemple :
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
@@ -84,7 +84,7 @@ Pour configurer des serveurs DNS personnalisés dans un modèle Azure, ajoutez u
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Création d’un groupe identique avec des noms de domaine de machines virtuelles configurables
-Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec l’interface CLI, ajoutez l’argument **--vm-domain-name** à la commande **créer un groupe de machines virtuelles identiques** , suivi d’une chaîne représentant le nom de domaine.
+Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec l’interface CLI, ajoutez l’argument **--vm-domain-name** à la commande **créer un groupe de machines virtuelles identiques**, suivi d’une chaîne représentant le nom de domaine.
 
 Pour définir le nom de domaine dans un modèle Azure, ajoutez une propriété **dnsSettings** à la section **networkInterfaceConfigurations** du groupe identique. Par exemple :
 
@@ -130,9 +130,9 @@ En règle générale, les machines virtuelles des groupes identiques Azure ne n�
 Toutefois, dans certains cas, les machines virtuelles de groupes identiques doivent posséder leurs propres adresses IP publiques. Par exemple, dans le cas des jeux vidéo, lorsqu’une console doit être directement connectée à une machine virtuelle sur Cloud qui procède à un traitement physique du jeu. Autre exemple : lorsque des machines virtuelles doivent établir des connexions externes entre elles, dans différentes régions, dans une base de données distribuée.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Création d’un groupe identique avec IP public par machine virtuelle
-Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec l’interface CLI, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create** . 
+Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec l’interface CLI, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create**. 
 
-Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets correspond au moins à la version du **30/03/2017** , et ajoutez une propriété JSON **publicIpAddressConfiguration** à la section ipConfigurations du groupe identique. Par exemple :
+Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets correspond au moins à la version du **30/03/2017**, et ajoutez une propriété JSON **publicIpAddressConfiguration** à la section ipConfigurations du groupe identique. Par exemple :
 
 ```json
 "publicIpAddressConfiguration": {
@@ -146,9 +146,9 @@ Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous q
 Exemple de modèle : [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Interrogation des adresses IP publiques des machines virtuelles dans un groupe identique
-Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec l’interface CLI, utilisez la commande **az vmss list-instance-public-ips** .
+Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec l’interface CLI, utilisez la commande **az vmss list-instance-public-ips**.
 
-Pour lister les adresses IP publiques d’un groupe identique à l’aide de PowerShell, utilisez la commande _Get-AzPublicIpAddress_ . Par exemple :
+Pour lister les adresses IP publiques d’un groupe identique à l’aide de PowerShell, utilisez la commande _Get-AzPublicIpAddress_. Par exemple :
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -165,14 +165,14 @@ Vous pouvez également afficher les adresses IP publiques attribuées aux machin
 Pour interroger [Azure Resource Explorer](https://resources.azure.com), procédez comme suit :
 
 1. Ouvrez [Azure Resource Explorer](https://resources.azure.com) dans votre navigateur web.
-1. Développez vos *abonnements* sur le côté gauche en cliquant sur les commandes *+* en regard de celle-ci. Si vous ne disposez que d’un élément dans vos *abonnements* , il est possible qu’il soit déjà développé.
+1. Développez vos *abonnements* sur le côté gauche en cliquant sur les commandes *+* en regard de celle-ci. Si vous ne disposez que d’un élément dans vos *abonnements*, il est possible qu’il soit déjà développé.
 1. Développez votre abonnement.
 1. Développez votre groupe de ressources.
-1. Développez les *fournisseurs* .
-1. Développez *Microsoft.Compute* .
-1. Développez *virtualMachineScaleSets* .
+1. Développez les *fournisseurs*.
+1. Développez *Microsoft.Compute*.
+1. Développez *virtualMachineScaleSets*.
 1. Développez votre groupe identique.
-1. Cliquez sur *publicipaddresses* .
+1. Cliquez sur *publicipaddresses*.
 
 Pour interroger l’API REST Azure, procédez comme suit :
 

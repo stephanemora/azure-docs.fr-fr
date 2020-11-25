@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016996"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -65,7 +65,7 @@ Lorsque vous créez une identité d’appareil, fournissez les informations suiv
 
 * Sélectionnez **Clé symétrique** comme type d’authentification.
 
-* Sélectionnez **Définir un appareil parent** , puis sélectionnez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Vous pourrez toujours changer de parent par la suite.
+* Sélectionnez **Définir un appareil parent**, puis sélectionnez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Vous pourrez toujours changer de parent par la suite.
 
    ![Créer un ID d’appareil avec une authentification par clé symétrique dans le portail](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -105,10 +105,10 @@ Pour l’authentification par certificat X.509 autosigné, parfois appelée aut
 
 3. Accédez à votre hub IoT dans le portail Azure et créez une nouvelle identité d’appareil IoT avec les valeurs suivantes :
 
-   * Fournissez l’ **ID d’appareil** qui correspond au nom du sujet de vos certificats d’appareil.
+   * Fournissez l’**ID d’appareil** qui correspond au nom du sujet de vos certificats d’appareil.
    * Sélectionnez **X.509 autosigné** comme type d’authentification.
    * Collez les chaînes hexadécimales que vous avez copiées à partir du certificat primaire et du certificat secondaire de votre appareil.
-   * Sélectionnez **Définir un appareil parent** , puis choisissez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Vous pourrez toujours changer de parent par la suite.
+   * Sélectionnez **Définir un appareil parent**, puis choisissez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Vous pourrez toujours changer de parent par la suite.
 
    ![Créer un ID d’appareil avec une authentification par certificat X.509 autosigné dans le portail](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -142,17 +142,17 @@ Cette section est basée sur les instructions de l’article IoT Hub [Configurer
 
    Si vous n’avez pas d’autorité de certification pour créer les certificats X.509, vous pouvez utiliser les scripts des certificats de démonstration IoT Edge pour [Créer des certificats d’appareils en aval](how-to-create-test-certificates.md#create-downstream-device-certificates). Suivez les étapes de création de certificats signés par une autorité de certification. Utilisez le même certificat d’autorité de certification racine que celui qui a généré les certificats pour votre appareil de passerelle.
 
-2. Suivez les instructions de la section [Inscrire des certificats d’autorité de certification X.509 auprès de votre IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) dans l’article *Configurer la sécurité X.509 dans votre Azure IoT Hub* . Dans cette section, vous allez effectuer les étapes suivantes :
+2. Suivez les instructions de la section [Inscrire des certificats d’autorité de certification X.509 auprès de votre IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) dans l’article *Configurer la sécurité X.509 dans votre Azure IoT Hub*. Dans cette section, vous allez effectuer les étapes suivantes :
 
-   1. Chargez un certificat d’autorité de certification racine. Si vous utilisez les certificats de démonstration, l’autorité de certification racine est **\<path>/certs/azure-iot-test-only.root.ca.cert.pem** .
+   1. Chargez un certificat d’autorité de certification racine. Si vous utilisez les certificats de démonstration, l’autorité de certification racine est **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Vérifiez que vous disposez de votre propre certificat d’autorité de certification racine.
 
-3. Suivez les instructions de la section [Créer un appareil X.509 pour votre IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) dans l’article *Configurer la sécurité X.509 dans votre Azure IoT Hub* . Dans cette section, vous allez effectuer les étapes suivantes :
+3. Suivez les instructions de la section [Créer un appareil X.509 pour votre IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) dans l’article *Configurer la sécurité X.509 dans votre Azure IoT Hub*. Dans cette section, vous allez effectuer les étapes suivantes :
 
-   1. Ajoutez un nouvel appareil. Dans **ID d’appareil** , fournissez un nom en minuscules, puis choisissez le type d’authentification **Autorité de certification X.509 signée** .
+   1. Ajoutez un nouvel appareil. Dans **ID d’appareil**, fournissez un nom en minuscules, puis choisissez le type d’authentification **Autorité de certification X.509 signée**.
 
-   2. Définissez un appareil parent. Sélectionnez **Définir un appareil parent** , puis choisissez l’appareil de passerelle IoT Edge qui doit fournir la connexion à IoT Hub.
+   2. Définissez un appareil parent. Sélectionnez **Définir un appareil parent**, puis choisissez l’appareil de passerelle IoT Edge qui doit fournir la connexion à IoT Hub.
 
 4. Créez une chaîne de certificats pour votre appareil en aval. Utilisez le certificat d’autorité de certification racine que vous avez chargé dans IoT Hub pour créer cette chaîne. Utilisez l’ID d’appareil en minuscules que vous avez attribué à votre identité d’appareil dans le portail.
 

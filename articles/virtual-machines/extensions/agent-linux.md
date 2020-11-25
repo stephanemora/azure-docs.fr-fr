@@ -3,17 +3,18 @@ title: Vue d’ensemble de l’agent de machine virtuelle Linux Azure
 description: Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965809"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016486"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 

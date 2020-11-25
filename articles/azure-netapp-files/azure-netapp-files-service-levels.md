@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016040"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017064"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Niveaux de service pour Azure NetApp Files
 Les niveaux de service sont un attribut d’un pool de capacités. Les niveaux de service sont définis et différenciés par le débit maximum autorisé pour un volume dans le pool de capacités en fonction du quota attribué au volume.

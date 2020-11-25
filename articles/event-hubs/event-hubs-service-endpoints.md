@@ -4,11 +4,11 @@ description: Cet article fournit des informations sur l’ajout d’un point de 
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015574"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Autoriser l'accès à un espace de noms Azure Event Hubs à partir de réseaux virtuels spécifiques 
 

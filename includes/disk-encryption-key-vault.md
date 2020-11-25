@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755488"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015370"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Vous pouvez aussi créer un coffre de clés à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure** .
-2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter** . 
+1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure**.
+2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter**. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Définir des stratégies d’accès avancé au coffre de clés
@@ -117,10 +117,10 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès** , puis sélectionnez **Cliquez ici pour afficher les stratégies d’accès avancé** .
-2. Cochez la case **Activer l’accès à Azure Disk Encryption pour chiffrer des volumes** .
+1. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès**, puis sélectionnez **Cliquez ici pour afficher les stratégies d’accès avancé**.
+2. Cochez la case **Activer l’accès à Azure Disk Encryption pour chiffrer des volumes**.
 3. Sélectionnez **Activer l’accès aux machines virtuelles Azure pour le déploiement** et/ou **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** si nécessaire. 
-4. Cliquez sur **Enregistrer** .
+4. Cliquez sur **Enregistrer**.
 
     ![Stratégies d’accès avancé au coffre de clés Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la pro
 
 Vous pouvez générer une nouvelle clé de chiffrement principale (KEK, key encryption key) à l’aide de la commande Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create), de la cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) ou du [portail Azure](https://portal.azure.com/). Vous devez générer un type de clé RSA. Azure Disk Encryption ne prend pas encore en charge l’utilisation de clés à courbe elliptique.
 
-Vous pouvez au lieu de cela importer une clé KEK à partir de votre HSM de gestion des clés locales. Pour plus d’informations, consultez la [documentation concernant Key Vault](/azure/key-vault/key-vault-hsm-protected-keys).
+Vous pouvez au lieu de cela importer une clé KEK à partir de votre HSM de gestion des clés locales. Pour plus d’informations, consultez la [documentation concernant Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
 Les URL des clés KEK de votre coffre de clés doivent être versionnées. Azure met en vigueur cette restriction de gestion de version. Voici des exemples d’URL de clé secrète et de clé de chiffrement à clé valides :
 

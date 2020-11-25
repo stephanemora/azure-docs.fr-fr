@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978711"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016866"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utiliser le service StorSimple Device Manager pour gérer vos informations d’identification de compte de stockage
 
@@ -55,7 +55,7 @@ Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stoc
 Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorSimple.
 
 * **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour plus d'informations sur la création des comptes de stockage, consultez [Étape 1 : Créer un nouveau service](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) dans [Déployer votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md). 
+* **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/common/storage-account-create.md). 
 * **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
 
 ## <a name="add-a-storage-account"></a>Ajout d’un compte de stockage
@@ -110,7 +110,7 @@ Vous pouvez modifier un compte de stockage utilisé par un conteneur de volumes.
 
     ![Enregistrer les modifications apportées aux informations d’identification de compte de stockage](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. 
+4. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. 
 
     ![Confirmer les modifications](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -179,4 +179,3 @@ Un message vous informe que la clé est synchronisée.
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [sécurité StorSimple](storsimple-8000-security.md).
 * En savoir plus sur l’[utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
-

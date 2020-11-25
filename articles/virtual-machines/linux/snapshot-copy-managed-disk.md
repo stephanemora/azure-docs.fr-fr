@@ -10,11 +10,11 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89317993"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015959"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Créer une capture instantanée à l’aide du portail ou d’Azure CLI
 

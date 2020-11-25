@@ -10,11 +10,11 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745832"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016673"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -310,7 +310,7 @@ Pour mettre à jour les machines virtuelles existantes, vous devez effectuer une
 - Vous pouvez également utiliser les [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) propres à un langage.
 
 >[!NOTE]
-> Les clusters Service Fabric peuvent uniquement utiliser le mode *Automatique* , mais la mise à jour est gérée différemment. Pour plus d’informations, consultez [Mise à niveau des applications Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Les clusters Service Fabric peuvent uniquement utiliser le mode *Automatique*, mais la mise à jour est gérée différemment. Pour plus d’informations, consultez [Mise à niveau des applications Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Les modifications apportées au profil de système d’exploitation et de disque de données du groupe identique (par exemple au nom d’utilisateur ou au mot de passe de l’administrateur) peuvent être apportées uniquement dans la version d’API *2017-12-01* ou une version ultérieure. Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
 
@@ -364,7 +364,7 @@ Certaines modifications peuvent être appliquées uniquement à certaines machin
 ## <a name="scenarios"></a>Scénarios
 
 ### <a name="application-updates"></a>Mises à jour d’application
-Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag* , consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate). Notez que la balise *forceUpdateTag* peut être utilisée avec toutes les extensions et pas seulement avec celle de script personnalisé.
+Si une application est déployée dans un groupe identique via des extensions, la mise à jour de la configuration de l’extension va entraîner la mise à jour de l’application conformément à la stratégie de mise à niveau. Par exemple, si vous avez une nouvelle version d’un script qui doit s’exécuter dans une extension de script personnalisé, vous pouvez mettre à jour la propriété *fileUris* pour qu’elle pointe vers le nouveau script. Dans certains cas, toutefois, il est nécessaire de forcer une mise à jour, même si cela ne modifie pas la configuration de l’extension (par exemple, si vous avez mis à jour le script sans modifier son URI). Dans ce cas, vous pouvez modifier le *forceUpdateTag* pour qu’il force la mise à jour. La plateforme Azure n’interprète pas cette propriété. Toute modification de cette valeur n’a aucun effet sur l’exécution de l’extension. Sa modification ne fait que forcer la réexécution de l’extension. Pour plus d’informations sur *forceUpdateTag*, consultez la [documentation API REST sur les extensions](/rest/api/compute/virtualmachineextensions/createorupdate). Notez que la balise *forceUpdateTag* peut être utilisée avec toutes les extensions et pas seulement avec celle de script personnalisé.
 
 Il est également courant de déployer des applications à l’aide d’une image personnalisée. Ce scénario est décrit dans la section suivante.
 
@@ -379,7 +379,7 @@ Si vous utilisez des images personnalisées, vous pouvez les mettre à jour en m
 ## <a name="examples"></a>Exemples
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Mettre à jour l’image du système d’exploitation pour un groupe identique
-Supposons que vous possédez un groupe identique qui exécute une ancienne version d’Ubuntu LTS 16.04. Vous souhaitez mettre à jour cette version avec une version plus récente d’Ubuntu LTS 16.04 (par exemple, la version *16.04.201801090* . La propriété de version de la référence d’image ne fait pas partie d’une liste. Vous pouvez donc la modifier directement avec l’une des commandes suivantes :
+Supposons que vous possédez un groupe identique qui exécute une ancienne version d’Ubuntu LTS 16.04. Vous souhaitez mettre à jour cette version avec une version plus récente d’Ubuntu LTS 16.04 (par exemple, la version *16.04.201801090*. La propriété de version de la référence d’image ne fait pas partie d’une liste. Vous pouvez donc la modifier directement avec l’une des commandes suivantes :
 
 - Azure PowerShell avec [Update-AzVmss](/powershell/module/az.compute/update-azvmss) comme suit :
 
@@ -447,7 +447,7 @@ Supposons que vous utilisiez un groupe identique avec Azure Load Balancer, et qu
     ```
 
 >[!NOTE]
-> Ces commandes supposent qu’il n’existe qu’une seule configuration IP et qu’un seul équilibreur de charge dans le groupe identique. S’il en existe plusieurs, vous devrez peut-être utiliser un index de liste différent de *0* .
+> Ces commandes supposent qu’il n’existe qu’une seule configuration IP et qu’un seul équilibreur de charge dans le groupe identique. S’il en existe plusieurs, vous devrez peut-être utiliser un index de liste différent de *0*.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

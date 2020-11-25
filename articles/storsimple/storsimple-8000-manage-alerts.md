@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016843"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
@@ -73,7 +73,7 @@ Après avoir activé la notification par e-mail pour un appareil, les membres de
    > [!NOTE]
    > Si le message de notification de test ne peut pas être envoyé, le service StorSimple Device Manager affiche un message d’erreur approprié. Attendez quelques minutes, puis réessayez d’envoyer votre message de notification de test. 
 
-5. Une fois la configuration effectuée, cliquez sur **OK**. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
+5. Une fois la configuration effectuée, cliquez sur **OK**. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
      ![E-mail de notification de test des alertes envoyé 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 

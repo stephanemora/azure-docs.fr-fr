@@ -8,11 +8,11 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016214"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Rechercher et supprimer les disques managés et non managés Azure qui ne sont pas attachés à l’aide d’Azure CLI
 Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Cette fonctionnalité permet d’éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer tous les disques non attachés pour réduire les coûts inutiles. 
@@ -50,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Disques non managés : Rechercher et supprimer les disques non attachés 
 
-Les disques non managés sont des fichiers VHD qui sont stockés en tant [qu’objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) dans des [comptes de stockage Azure](../../storage/common/storage-account-overview.md). Le script suivant recherche les disques non managés non attachés (objets blob de pages) en examinant la valeur de la propriété **LeaseStatus**. Lorsqu’un disque non managé est attaché à une machine virtuelle, la valeur de la propriété **LeaseStatus** est définie sur **Locked**. Lorsqu’un disque non managé est non attaché, la valeur de la propriété **LeaseStatus** est définie sur **Unlocked**. Le script examine tous les disques non managés dans l’ensemble des comptes de stockage Azure d’un abonnement Azure. Lorsque le script localise un disque non managé dont une propriété **LeaseStatus** a la valeur **Unlocked** , il détermine que le disque n’est pas attaché.
+Les disques non managés sont des fichiers VHD qui sont stockés en tant [qu’objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) dans des [comptes de stockage Azure](../../storage/common/storage-account-overview.md). Le script suivant recherche les disques non managés non attachés (objets blob de pages) en examinant la valeur de la propriété **LeaseStatus**. Lorsqu’un disque non managé est attaché à une machine virtuelle, la valeur de la propriété **LeaseStatus** est définie sur **Locked**. Lorsqu’un disque non managé est non attaché, la valeur de la propriété **LeaseStatus** est définie sur **Unlocked**. Le script examine tous les disques non managés dans l’ensemble des comptes de stockage Azure d’un abonnement Azure. Lorsque le script localise un disque non managé dont une propriété **LeaseStatus** a la valeur **Unlocked**, il détermine que le disque n’est pas attaché.
 
 >[!IMPORTANT]
 >En premier lieu, exécutez le script en définissant la variable **deleteUnattachedVHDs** sur 0. Cette action vous permet de rechercher et d’afficher tous les disques durs virtuels non managés non attachés.

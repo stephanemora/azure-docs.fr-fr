@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015551"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
@@ -79,11 +79,11 @@ Pour savoir comment configurer une connexion de liaison privée sur votre coffre
 Voici comment configurer les pare-feux et les réseaux virtuels Key Vault avec le portail Azure :
 
 1. Accédez au coffre de clés que vous voulez sécuriser.
-2. Sélectionnez **Mise en réseau** , puis l’onglet **Pare-feu et réseaux virtuels**.
-3. Sous **Autoriser l’accès depuis** , cliquez sur **Réseaux sélectionnés**.
+2. Sélectionnez **Mise en réseau**, puis l’onglet **Pare-feu et réseaux virtuels**.
+3. Sous **Autoriser l’accès depuis**, cliquez sur **Réseaux sélectionnés**.
 4. Pour ajouter des réseaux virtuels existants à des règles de pare-feux et de réseau virtuel, sélectionnez **+ Ajouter des réseaux virtuels existants**.
 5. Dans le nouveau panneau qui s’ouvre, sélectionnez l’abonnement, les réseaux virtuels et les sous-réseaux que vous voulez autoriser à accéder à ce coffre de clés. Si les réseaux virtuels et les sous-réseaux que vous sélectionnez n’ont pas de points de terminaison de service est activés, confirmez que vous voulez activer les points de terminaison de service, puis sélectionnez **Activer**. Jusqu’à 15 minutes peuvent être nécessaires pour que l’activation soit effective.
-6. Sous **Réseaux IP** , ajoutez des plages d’adresses IPv4 en utilisant [la notation CIDR (Classless Inter-domain Routing)](https://tools.ietf.org/html/rfc4632) ou en entrant des adresses IP individuelles.
+6. Sous **Réseaux IP**, ajoutez des plages d’adresses IPv4 en utilisant [la notation CIDR (Classless Inter-domain Routing)](https://tools.ietf.org/html/rfc4632) ou en entrant des adresses IP individuelles.
 7. Si vous souhaitez autoriser les services Microsoft approuvés à contourner le pare-feu Key Vault, sélectionnez « Oui ». Pour obtenir la liste complète des services approuvés par Key Vault actuels, consultez le lien suivant. [Services approuvés par Azure Key Vault](./overview-vnet-service-endpoints.md#trusted-services)
 7. Sélectionnez **Enregistrer**.
 

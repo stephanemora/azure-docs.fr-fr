@@ -4,11 +4,11 @@ description: Découvrez comment configurer la reprise d’activité sur Azure de
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370523"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016900"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -25,12 +25,12 @@ Site Recovery contribue à votre stratégie de continuité d’activité et repr
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * **Étape 1 : Préparer des machines virtuelles Azure Stack pour la réplication** . Vérifier que les machines virtuelles sont conformes aux exigences de Site Recovery, et préparer l’installation du service Mobilité Azure Site Recovery. Ce service est installé sur chaque machine à répliquer.
-> * **Étape 2 : Configurer un coffre Recovery Services** . Configurer un coffre pour Site Recovery, et spécifier ce que vous souhaitez répliquer. Les actions et composants de Site Recovery sont configurés et gérés dans le coffre.
-> * **Étape 3 : Configurer l’environnement de réplication source** . Configurer un serveur de configuration Site Recovery. Le serveur de configuration est une machine virtuelle Azure Stack qui s’exécute tous les composants dont Site Recovery a besoin. Après avoir configuré le serveur de configuration, vous l’inscrivez dans le coffre.
-> * **Étape 4 : Configurer l’environnement de réplication cible** . Sélectionnez votre compte Azure, ainsi que le compte de stockage Azure et le réseau que vous souhaitez utiliser. Lors de la réplication, les données des machines virtuelles sont copiées dans Stockage Azure. Après le basculement, les machines virtuelles Azure sont jointes au réseau spécifié.
-> * **Étape 5 : Activer la réplication** . Configurer les paramètres de réplication et activer la réplication à partir des machines virtuelles. Le service Mobilité est installé sur une machine virtuelle lors de l’activation de la réplication. Site Recovery effectue une réplication initiale de la machine virtuelle, puis la réplication continue commence.
-> * **Étape 6 : Exécuter une simulation de reprise d’activité**  : Une fois la réplication opérationnelle, vous vérifiez que le basculement fonctionne comme prévu en exécutant une simulation. Pour lancer la simulation, exécutez un test de basculement dans Site Recovery. Le test de basculement n’affecte pas votre environnement de production.
+> * **Étape 1 : Préparer des machines virtuelles Azure Stack pour la réplication**. Vérifier que les machines virtuelles sont conformes aux exigences de Site Recovery, et préparer l’installation du service Mobilité Azure Site Recovery. Ce service est installé sur chaque machine à répliquer.
+> * **Étape 2 : Configurer un coffre Recovery Services**. Configurer un coffre pour Site Recovery, et spécifier ce que vous souhaitez répliquer. Les actions et composants de Site Recovery sont configurés et gérés dans le coffre.
+> * **Étape 3 : Configurer l’environnement de réplication source**. Configurer un serveur de configuration Site Recovery. Le serveur de configuration est une machine virtuelle Azure Stack qui s’exécute tous les composants dont Site Recovery a besoin. Après avoir configuré le serveur de configuration, vous l’inscrivez dans le coffre.
+> * **Étape 4 : Configurer l’environnement de réplication cible**. Sélectionnez votre compte Azure, ainsi que le compte de stockage Azure et le réseau que vous souhaitez utiliser. Lors de la réplication, les données des machines virtuelles sont copiées dans Stockage Azure. Après le basculement, les machines virtuelles Azure sont jointes au réseau spécifié.
+> * **Étape 5 : Activer la réplication**. Configurer les paramètres de réplication et activer la réplication à partir des machines virtuelles. Le service Mobilité est installé sur une machine virtuelle lors de l’activation de la réplication. Site Recovery effectue une réplication initiale de la machine virtuelle, puis la réplication continue commence.
+> * **Étape 6 : Exécuter une simulation de reprise d’activité** : Une fois la réplication opérationnelle, vous vérifiez que le basculement fonctionne comme prévu en exécutant une simulation. Pour lancer la simulation, exécutez un test de basculement dans Site Recovery. Le test de basculement n’affecte pas votre environnement de production.
 
 Une fois ces étapes terminées, vous pouvez exécuter un basculement complet vers Azure comme et quand vous le souhaitez.
 
@@ -99,9 +99,9 @@ Le service Mobilité doit être installé sur toutes les machines virtuelles à 
     - Si vous n’utilisez pas de compte de domaine, vous devez désactiver le contrôle d’accès des utilisateurs distants sur la machine virtuelle :
         - Dans le Registre, créez la valeur DWORD **LocalAccountTokenFilterPolicy** sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Définissez la valeur sur 1.
-        - Pour exécuter cette action à l’invite de commandes, tapez la commande suivante : **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1** .
+        - Pour exécuter cette action à l’invite de commandes, tapez la commande suivante : **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - Dans le Pare-feu Windows sur la machine virtuelle à répliquer, autorisez le partage de fichiers et d’imprimantes ainsi que WMI.
-    - Pour ce faire, exécutez **wf.msc** pour ouvrir la console du Pare-feu Windows. Cliquez avec le bouton droit sur **Règles de trafic entrant** > **Nouvelle règle** . Sélectionnez **Prédéfinie** , puis choisissez **Partage de fichiers et d’imprimantes** dans la liste. Suivez la procédure de l’Assistant, choisissez d’autoriser la connexion > **Terminer** .
+    - Pour ce faire, exécutez **wf.msc** pour ouvrir la console du Pare-feu Windows. Cliquez avec le bouton droit sur **Règles de trafic entrant** > **Nouvelle règle**. Sélectionnez **Prédéfinie**, puis choisissez **Partage de fichiers et d’imprimantes** dans la liste. Suivez la procédure de l’Assistant, choisissez d’autoriser la connexion > **Terminer**.
     - Pour les ordinateurs du domaine, vous pouvez utiliser un objet de stratégie de groupe (GPO) à cette fin.
 
 
@@ -116,7 +116,7 @@ Le service Mobilité doit être installé sur toutes les machines virtuelles à 
 - Vérifiez que le protocole Secure Shell (SSH) est activé et s’exécute sur le port 22.
 - Activez le sous-système SFTP et l'authentification par mot de passe dans le fichier sshd_config :
     1. Pour ce faire, connectez-vous en tant que racine.
-    2. Recherchez la ligne commençant par **PasswordAuthentication** , dans le fichier /etc/ssh/sshd_config. Supprimez les commentaires de la ligne et remplacez la valeur par **oui** .
+    2. Recherchez la ligne commençant par **PasswordAuthentication**, dans le fichier /etc/ssh/sshd_config. Supprimez les commentaires de la ligne et remplacez la valeur par **oui**.
     3. Recherchez la ligne commençant par **Subsystem** et supprimez la mise en commentaire de la ligne.
 
         ![Service Mobilité Linux](./media/azure-stack-site-recovery/linux-mobility.png)
@@ -129,7 +129,7 @@ Le service Mobilité doit être installé sur toutes les machines virtuelles à 
 Pour chaque machine à répliquer, recherchez son adresse IP :
 
 1. Dans le portail Azure Stack, cliquez sur la machine virtuelle.
-2. Dans le menu **Ressource** , cliquez sur **Interfaces réseau** .
+2. Dans le menu **Ressource**, cliquez sur **Interfaces réseau**.
 3. Notez l’adresse IP privée.
 
     ![Adresse IP privée](./media/azure-stack-site-recovery/private-ip.png)
@@ -138,22 +138,22 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Étape 2 : Créer un coffre et sélectionner un objectif de réplication
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery (Sauvegarde et Site Recovery)** .
-2. Dans **Name** , entrez un nom convivial pour identifier le coffre.
-3. Dans **Groupe de ressources** , créez ou sélectionnez un groupe de ressources. Nous utilisons **contosoRG** .
-4. Dans **Emplacement** , entrez la région Azure. Nous utilisons **Europe Ouest** .
-5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer** .
+2. Dans **Name**, entrez un nom convivial pour identifier le coffre.
+3. Dans **Groupe de ressources**, créez ou sélectionnez un groupe de ressources. Nous utilisons **contosoRG**.
+4. Dans **Emplacement**, entrez la région Azure. Nous utilisons **Europe Ouest**.
+5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
 
    ![Créer un coffre](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   Le nouveau coffre apparaît dans **Tableau de bord** > **Toutes les ressources** et dans la page principale **Coffres Recovery Services** .
+   Le nouveau coffre apparaît dans **Tableau de bord** > **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
 
 ### <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
-1. Dans **Coffres Recovery Services** , spécifiez un nom de coffre. Nous utilisons **ContosoVMVault** .
-2. Dans **Prise en main** , sélectionnez Site Recovery. Sélectionnez ensuite **Préparer l’infrastructure** .
-3. Dans **Objectif de protection** > **Où se trouvent vos machines** , sélectionnez **Local** .
-4. Dans **Où voulez-vous répliquer vos machines** , sélectionnez **Dans Azure** .
-5. Dans **Vos machines sont-elles virtualisées** , sélectionnez **Non virtualisé / autre** . Sélectionnez ensuite **OK** .
+1. Dans **Coffres Recovery Services**, spécifiez un nom de coffre. Nous utilisons **ContosoVMVault**.
+2. Dans **Prise en main**, sélectionnez Site Recovery. Sélectionnez ensuite **Préparer l’infrastructure**.
+3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
+4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
+5. Dans **Vos machines sont-elles virtualisées**, sélectionnez **Non virtualisé / autre**. Sélectionnez ensuite **OK**.
 
     ![Objectif de protection](./media/azure-stack-site-recovery/protection-goal.png)
 
@@ -161,12 +161,12 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
 
 Configurez la machine serveur de configuration, inscrivez-la dans le coffre, puis découvrez les machines que vous souhaitez répliquer.
 
-1. Cliquez sur **Préparer l’infrastructure** > **Source** .
-2. Dans **Préparer la source** , cliquez sur **+ Serveur de configuration** .
+1. Cliquez sur **Préparer l’infrastructure** > **Source**.
+2. Dans **Préparer la source**, cliquez sur **+ Serveur de configuration**.
 
     ![Capture d’écran de la boîte de dialogue +Serveur de configuration avec le message « Cliquez sur +Serveur de configuration dans la barre de commandes ci-dessus pour configurer un... ».](./media/azure-stack-site-recovery/plus-config-srv.png)
 
-3. Dans **Ajouter un serveur** , vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur** .
+3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
 5. Téléchargez le fichier d’installation unifiée de Site Recovery.
 6. Téléchargez la clé d’inscription du coffre. Vous avez besoin de la clé d’inscription lorsque vous exécutez le programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
@@ -186,13 +186,13 @@ Installez à présent le serveur de configuration :
 > [!NOTE]
 > Vous pouvez également installer le serveur de configuration à partir de la ligne de commande. [Plus d’informations](physical-manage-configuration-server.md#install-from-the-command-line)
 >
-> L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > **_nom du serveur_ *_ > _* Actualiser le serveur** .
+> L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > **_nom du serveur_ *_ > _* Actualiser le serveur**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Étape 4 : Configurer l’environnement cible
 
 Sélectionnez et vérifiez les ressources cibles.
 
-1. Dans **Préparer l’infrastructure** > **Cible** , sélectionnez l’abonnement Azure à utiliser.
+1. Dans **Préparer l’infrastructure** > **Cible**, sélectionnez l’abonnement Azure à utiliser.
 2. Spécifiez le modèle de déploiement cible.
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. S’il n’en trouve pas, vous devez créer au moins un compte de stockage et un réseau virtuel pour suivre la procédure de l’Assistant.
 
@@ -201,13 +201,13 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
-1. Cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** .
-2. Dans **Créer une stratégie de réplication** , indiquez le nom de la stratégie.
-3. Dans **Seuil d’objectif de point de récupération** , spécifiez la limite de l’objectif de point de récupération (RPO).
+1. Cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication**.
+2. Dans **Créer une stratégie de réplication**, indiquez le nom de la stratégie.
+3. Dans **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération (RPO).
     - Des points de récupération pour les données répliquées sont créés en fonction de l’heure définie.
     - Ce paramètre n’affecte pas la réplication qui est continue. Il sert simplement à émettre une alerte si le seuil limite est atteint sans que cela déclenche la création d’un point de récupération.
-4. Dans **Rétention des points de récupération** , spécifiez le temps de rétention de chaque point de récupération. Les machines virtuelles répliquées peuvent être restaurées à n’importe quel point de récupération dans la fenêtre de temps spécifiée.
-5. Dans **Fréquence des captures instantanées de cohérence d’application** , spécifiez la fréquence de création d’instantanés de cohérence de l’application.
+4. Dans **Rétention des points de récupération**, spécifiez le temps de rétention de chaque point de récupération. Les machines virtuelles répliquées peuvent être restaurées à n’importe quel point de récupération dans la fenêtre de temps spécifiée.
+5. Dans **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création d’instantanés de cohérence de l’application.
 
     - Un instantané de cohérence d’application est une capture instantanée à un point dans le temps des données d’application à l’intérieur de la machine virtuelle.
     - Le service VSS s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la capture instantanée.
@@ -216,7 +216,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ### <a name="confirm-deployment-planning"></a>Confirmer la planification d’un déploiement
 
-Vous pouvez ignorer cette étape pour l’instant. Dans la liste déroulante **Planification du déploiement** , cliquez sur **Oui, je l’ai fait** .
+Vous pouvez ignorer cette étape pour l’instant. Dans la liste déroulante **Planification du déploiement**, cliquez sur **Oui, je l’ai fait**.
 
 
 
@@ -224,30 +224,30 @@ Vous pouvez ignorer cette étape pour l’instant. Dans la liste déroulante **P
 
 Vérifiez que vous avez accompli toutes les tâches décrites dans [Étape 1 : Préparer la machine](#step-1-prepare-azure-stack-vms). Activez ensuite la réplication comme suit :
 
-1. Sélectionnez **Répliquer l’application** > **Source** .
-2. Dans **Source** , sélectionnez le serveur de configuration.
-3. Dans **Type de machine** , sélectionnez **Machines physiques** .
-4. Sélectionnez le serveur de processus (serveur de configuration). Cliquez ensuite sur **OK** .
-5. Dans **Cible** , sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles après le basculement. Choisissez le modèle de déploiement à utiliser dans Azure pour les machines virtuelles basculées.
+1. Sélectionnez **Répliquer l’application** > **Source**.
+2. Dans **Source**, sélectionnez le serveur de configuration.
+3. Dans **Type de machine**, sélectionnez **Machines physiques**.
+4. Sélectionnez le serveur de processus (serveur de configuration). Cliquez ensuite sur **OK**.
+5. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles après le basculement. Choisissez le modèle de déploiement à utiliser dans Azure pour les machines virtuelles basculées.
 6. Sélectionnez le compte de stockage Azure dans lequel vous souhaitez stocker les données répliquées.
 7. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** si vous souhaitez sélectionner le réseau Azure séparément pour chaque machine.
-9. Dans **Machines physiques** , cliquez sur **+Machines physiques** . Spécifiez le nom, l’adresse IP et le type de système d’exploitation de chaque machine à répliquer.
+9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom, l’adresse IP et le type de système d’exploitation de chaque machine à répliquer.
 
     - Utilisez l’adresse IP interne de la machine.
     - Si vous spécifiez l’adresse IP publique, il se peut que la réplication ne fonctionne pas comme prévu.
 
-10. Dans **Propriétés** > **Configurer les propriétés** , sélectionnez le compte que le serveur de processus doit utiliser pour installer automatiquement le service Mobilité sur la machine.
-11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication** , vérifiez que la stratégie de réplication sélectionnée est correcte.
-12. Cliquez sur **Activer la réplication** .
-13. Suivez la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery** . Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte que le serveur de processus doit utiliser pour installer automatiquement le service Mobilité sur la machine.
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication sélectionnée est correcte.
+12. Cliquez sur **Activer la réplication**.
+13. Suivez la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 > [!NOTE]
 > Site Recovery installe le service Mobilité quand la réplication est activée pour une machine virtuelle.
 >
 > Il peut être nécessaire d’attendre 15 minutes ou plus avant que les modifications prennent effet et qu’elles apparaissent dans le portail.
 >
-> Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à** . Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser** .
+> Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser**.
 
 
 ## <a name="step-6-run-a-disaster-recovery-drill"></a>Étape 6 : Exécuter une simulation de récupération d'urgence
@@ -258,13 +258,13 @@ Vous exécutez un test de basculement vers Azure pour vérifier que tout fonctio
 
 Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle, et assurez-vous qu’elles sont conformes à la [configuration requise pour Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements). Vous pouvez afficher et modifier les propriétés comme suit :
 
-1. Dans **Éléments protégés** , cliquez sur **Éléments répliqués** > Machine virtuelle.
-2. Dans le volet **Élément répliqué** , vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
-3. Dans **Calcul et réseau** , modifiez les paramètres selon vos besoins.
+1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine virtuelle.
+2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
+3. Dans **Calcul et réseau**, modifiez les paramètres selon vos besoins.
 
     - Vous pouvez modifier les paramètres de nom de machine virtuelle Azure, de groupe de ressources, de taille cible, de [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) et de disque managé.
     - Vous pouvez également afficher et modifier les paramètres réseau. Ceux-ci incluent le réseau/sous-réseau auquel la machine virtuelle Azure sera jointe après le basculement, ainsi que l’adresse IP qui sera affectée à la machine virtuelle.
-1. Dans **Disques** , vous pouvez voir les informations relatives au système d’exploitation aux disques de données de la machine virtuelle.
+1. Dans **Disques**, vous pouvez voir les informations relatives au système d’exploitation aux disques de données de la machine virtuelle.
 
 
 ### <a name="run-a-test-failover"></a>Exécuter un test de basculement
@@ -273,23 +273,23 @@ Quand vous effectuez un test de basculement, voici ce qui se produit :
 
 1. Une vérification des prérequis est effectuée pour garantir que toutes les conditions nécessaires pour le basculement sont en place.
 2. Le basculement traite les données en utilisant le point de récupération spécifié :
-    - **Dernier point traité**  : la machine bascule vers le dernier point de récupération traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible.
-    - **Dernier point de cohérence des applications**  : La machine virtuelle bascule vers le dernier point de récupération de cohérence des applications.
-    - **Personnalisé**  : Sélectionnez le point de récupération utilisé pour le basculement.
+    - **Dernier point traité** : la machine bascule vers le dernier point de récupération traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible.
+    - **Dernier point de cohérence des applications** : La machine virtuelle bascule vers le dernier point de récupération de cohérence des applications.
+    - **Personnalisé** : Sélectionnez le point de récupération utilisé pour le basculement.
 
 3. Une machine virtuelle Azure est créée à l’aide des données traitées.
 4. Un test de basculement peut nettoyer automatiquement les machines virtuelles Azure créées durant la simulation.
 
 Pour exécuter un test de basculement pour une machine virtuelle, procédez comme suit :
 
-1. Dans **Paramètres** > **Éléments répliqués** , cliquez sur Machine virtuelle > **+Test de basculement** .
-2. Pour cette procédure pas à pas, nous allons utiliser le point de récupération **Dernier point traité** .
-3. Dans **Test de basculement** , sélectionnez le réseau Azure cible.
+1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur Machine virtuelle > **+Test de basculement**.
+2. Pour cette procédure pas à pas, nous allons utiliser le point de récupération **Dernier point traité**.
+3. Dans **Test de basculement**, sélectionnez le réseau Azure cible.
 4. Cliquez sur **OK** pour commencer le basculement.
-5. Vous pouvez suivre la progression en cliquant sur la machine virtuelle pour ouvrir ses propriétés. Vous pouvez également cliquer sur le travail **Test de basculement** dans *nom du coffre* > **Paramètres** > **Travaux** >**Travaux Site Recovery** .
-6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles** . Vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
+5. Vous pouvez suivre la progression en cliquant sur la machine virtuelle pour ouvrir ses propriétés. Vous pouvez également cliquer sur le travail **Test de basculement** dans *nom du coffre* > **Paramètres** > **Travaux** >**Travaux Site Recovery**.
+6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
 7. Vous devriez à présent pouvoir vous connecter à la machine virtuelle répliquée dans Azure. [Plus d’informations](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
-8. Pour supprimer les machines virtuelles créées lors du test de basculement, cliquez sur **Nettoyer le test de basculement** sur la machine virtuelle. Dans **Notes** , enregistrez d’éventuelles observations sur le test de basculement.
+8. Pour supprimer les machines virtuelles créées lors du test de basculement, cliquez sur **Nettoyer le test de basculement** sur la machine virtuelle. Dans **Notes**, enregistrez d’éventuelles observations sur le test de basculement.
 
 ## <a name="fail-over-and-fail-back"></a>Basculement et restauration automatique
 
@@ -300,12 +300,12 @@ Avant d’exécuter un basculement, si vous souhaitez vous connecter à la machi
 Ensuite, exécutez un basculement comme suit :
 
 
-1. Dans **Paramètres** > **Éléments répliqués** , cliquez sur la machine > **Basculement** .
+1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Sélectionnez le point de récupération que vous souhaitez utiliser.
-3. Dans **Test de basculement** , sélectionnez le réseau Azure cible.
-4. Sélectionnez **Arrêter la machine avant de commencer le basculement** . Avec ce paramètre, Site Recovery tente d’arrêter la machine source avant de commencer le basculement. Le basculement se poursuit même en cas d’échec de l’arrêt.
-5. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement sur la page **Tâches** .
-6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles** . Si vous avez préparé la connexion après basculement, vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
+3. Dans **Test de basculement**, sélectionnez le réseau Azure cible.
+4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Avec ce paramètre, Site Recovery tente d’arrêter la machine source avant de commencer le basculement. Le basculement se poursuit même en cas d’échec de l’arrêt.
+5. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Si vous avez préparé la connexion après basculement, vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
 7. Après avoir vérifié la machine virtuelle, cliquez sur **Valider** pour achever le basculement. Cela a pour effet de supprimer tous les points de récupération disponibles.
 
 > [!WARNING]

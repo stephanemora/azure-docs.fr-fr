@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961593"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017370"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utiliser le service StorSimple Device Manager pour gérer votre catalogue de sauvegarde
 ## <a name="overview"></a>Vue d’ensemble
