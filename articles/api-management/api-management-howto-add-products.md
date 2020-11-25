@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630558"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993548"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutoriel : Créer et publier un produit  
 
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez apprendre à :
 1. Dans le volet de navigation gauche, sélectionnez **Produits** >  **+ Ajouter**.
 1.  Dans la fenêtre **Ajouter un produit**, entrez les valeurs décrites dans le tableau suivant pour créer votre produit.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Produits de Gestion des API dans le portail":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Ajouter un produit dans le portail":::
 
     | Nom                     | Description                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,7 +80,7 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 1. Sélectionnez **Ajouter**.
 1. Sélectionnez une ou plusieurs API, puis **Sélectionner**.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Produits de Gestion des API dans le portail":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Ajouter une API à un produit existant":::
 
 > [!TIP]
 > Vous pouvez créer ou mettre à jour l’abonnement de l’utilisateur à un produit avec des clés d’abonnement personnalisées via une [API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou une commande PowerShell.

@@ -6,11 +6,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125629"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993701"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Cet article traite des bonnes pratiques relatives aux fonctionnalités de planif
 
 ## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Fournir des nœuds dédiés à l’aide de teintes et de tolérances
 
-**Guide de bonne pratique**  : limitez l’accès des applications nécessitant de nombreuses ressources, comme les contrôleurs d’entrée, à des nœuds spécifiques. Conservez les ressources de nœud disponibles pour les charges de travail qui en ont besoin et n’autorisez pas la planification d’autres charges de travail sur les nœuds.
+**Guide de bonne pratique** : limitez l’accès des applications nécessitant de nombreuses ressources, comme les contrôleurs d’entrée, à des nœuds spécifiques. Conservez les ressources de nœud disponibles pour les charges de travail qui en ont besoin et n’autorisez pas la planification d’autres charges de travail sur les nœuds.
 
 Quand vous créez votre cluster AKS, vous pouvez déployer des nœuds avec prise en charge des unités centrales graphiques (GPU) ou un grand nombre de processeurs puissants. Ces nœuds sont souvent utilisés pour les charges de travail de traitement de données volumineuses, notamment celles liées au machine learning (ML) ou à l’intelligence artificielle (IA). Ce type de matériel étant généralement une ressource de nœud coûteuse à déployer, limitez les charges de travail qui peuvent être planifiées sur ces nœuds. Au lieu de cela, vous pouvez dédier certains nœuds du cluster à l’exécution de services d’entrée et empêcher les autres charges de travail.
 
@@ -36,7 +36,7 @@ Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour re
 * Quand une **teinte** est appliquée à un nœud, seuls des pods spécifiques peuvent être planifiés sur le nœud.
 * Une **tolérance** est ensuite appliquée à un pod pour lui permettre de *tolérer* la teinte d’un nœud.
 
-Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, vous avez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu* , puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule* , le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
+Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, vous avez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -80,20 +80,20 @@ Lorsque vous mettez à niveau un pool de nœuds dans AKS, les teintes et les tol
 - **Clusters par défaut qui utilisent des groupes de machines virtuelles identiques**
   - Vous pouvez [appliquer une teinte à un pool de nœuds][taint-node-pool] à partir de l’API AKS afin que les nœuds qui viennent d’être mis à l’échelle reçoivent des teintes de nœud spécifiés par l’API.
   - Partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Vous mettez à niveau le pool de nœuds.
-  - Deux nœuds supplémentaires sont créés, *node3* et *node4* , et les teintes y sont envoyées.
+  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et les teintes y sont envoyées.
   - Les *node1* et *node2* originaux sont supprimés.
 
 - **Clusters par défaut sans prise en charge de groupe de machine virtuelle identique**
-  - Encore une fois, partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Lorsque vous le mettez à niveau, un nœud supplémentaire ( *node3* ) est créé.
-  - Les teintes du *node1* sont appliquées au *node3* , avant que *node1* soit supprimé.
-  - Un nouveau nœud est créé (nommé *node1* , car le précédent *node1* a été supprimé), et les teintes du *node2* sont appliquées au nouveau *node1*. Ensuite, *node2* est supprimé.
+  - Encore une fois, partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Lorsque vous le mettez à niveau, un nœud supplémentaire (*node3*) est créé.
+  - Les teintes du *node1* sont appliquées au *node3*, avant que *node1* soit supprimé.
+  - Un nouveau nœud est créé (nommé *node1*, car le précédent *node1* a été supprimé), et les teintes du *node2* sont appliquées au nouveau *node1*. Ensuite, *node2* est supprimé.
   - Fondamentalement, *node1* devient *node3* et *node2* devient *node1*.
 
 Lorsque vous faites évoluer un pool de nœuds dans AKS, les teintes et les tolérances ne sont pas transmises par défaut.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Contrôler la planification des pods à l’aide de sélecteurs de nœud et de l’affinité de nœud
 
-**Guide de bonne pratique**  : contrôlez la planification des pods sur les nœuds à l’aide de sélecteurs de nœud, de l’affinité de nœud ou de l’affinité entre pods. Ces paramètres permettent au planificateur Kubernetes d’isoler logiquement les charges de travail, notamment par matériel dans le nœud.
+**Guide de bonne pratique** : contrôlez la planification des pods sur les nœuds à l’aide de sélecteurs de nœud, de l’affinité de nœud ou de l’affinité entre pods. Ces paramètres permettent au planificateur Kubernetes d’isoler logiquement les charges de travail, notamment par matériel dans le nœud.
 
 Les teintes et tolérances servent à isoler logiquement les ressources avec une coupure dure : si le pod ne tolère pas la teinte d’un nœud, il n’est pas planifié sur le nœud. Une autre approche consiste à utiliser des sélecteurs de nœud. Vous étiquetez les nœuds, par exemple pour indiquer un stockage SSD attaché localement ou une grande quantité de mémoire, puis définissez un sélecteur de nœud dans la spécification de pod. Kubernetes planifie ensuite ces pods sur un nœud correspondant. Contrairement aux tolérances, les pods sans sélecteur de nœud correspondant peuvent être planifiés sur des nœuds étiquetés. Ce comportement autorise la consommation des ressources inutilisées sur les nœuds, mais donne la priorité aux pods qui définissent le sélecteur de nœud correspondant.
 
@@ -131,9 +131,9 @@ Pour plus d’informations sur l’utilisation de sélecteurs de nœud, consulte
 
 ### <a name="node-affinity"></a>Affinité de nœud
 
-Un sélecteur de nœud est un moyen simple d’affecter des pods à un nœud donné. Pour plus de flexibilité, utilisez l’ *affinité de nœud*. Avec l’affinité de nœud, vous définissez ce qui se passe si le pod ne peut pas être mis en correspondance avec un nœud. Vous pouvez *exiger* que le planificateur Kubernetes mette en correspondance un pod avec un hôte étiqueté. Vous pouvez également *préférer* une correspondance, mais autoriser la planification du pod sur un autre hôte si aucune correspondance n’est disponible.
+Un sélecteur de nœud est un moyen simple d’affecter des pods à un nœud donné. Pour plus de flexibilité, utilisez l’*affinité de nœud*. Avec l’affinité de nœud, vous définissez ce qui se passe si le pod ne peut pas être mis en correspondance avec un nœud. Vous pouvez *exiger* que le planificateur Kubernetes mette en correspondance un pod avec un hôte étiqueté. Vous pouvez également *préférer* une correspondance, mais autoriser la planification du pod sur un autre hôte si aucune correspondance n’est disponible.
 
-L’exemple suivant définit l’affinité de nœud avec la valeur *requiredDuringSchedulingIgnoredDuringExecution*. Selon cette affinité, la planification Kubernetes doit utiliser un nœud avec une étiquette correspondante. Si aucun nœud n’est disponible, le pod doit attendre pour que planification puisse se poursuivre. Pour autoriser la planification du pod sur un autre nœud, vous pouvez définir la valeur *preferredDuringSchedulingIgnoreDuringExecution*  :
+L’exemple suivant définit l’affinité de nœud avec la valeur *requiredDuringSchedulingIgnoredDuringExecution*. Selon cette affinité, la planification Kubernetes doit utiliser un nœud avec une étiquette correspondante. Si aucun nœud n’est disponible, le pod doit attendre pour que planification puisse se poursuivre. Pour autoriser la planification du pod sur un autre nœud, vous pouvez définir la valeur *preferredDuringSchedulingIgnoreDuringExecution* :
 
 ```yaml
 kind: Pod

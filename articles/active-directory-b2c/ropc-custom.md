@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116224"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994352"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
@@ -247,7 +247,7 @@ Ensuite, mettez à jour le fichier de partie de confiance qui lance le parcours 
 
 Utilisez votre application de développement d’API favorite pour générer un appel d’API et examinez la réponse pour déboguer votre stratégie. Construisez un appel similaire à cet exemple, avec les informations suivantes en tant que corps de la requête POST :
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Remplacez `<tenant-name>` par le nom de votre locataire Azure AD B2C.
 - Remplacez `B2C_1A_ROPC_Auth` par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.
@@ -269,7 +269,7 @@ Utilisez votre application de développement d’API favorite pour générer un 
 La requête POST réelle ressemble à l’exemple suivant :
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Une réponse correcte avec accès hors connexion ressemble à l’exemple suivan
 
 Construire un appel POST comme celui illustré ici. Utilisez les informations du tableau suivant comme corps de la requête :
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Remplacez `<tenant-name>` par le nom de votre locataire Azure AD B2C.
 - Remplacez `B2C_1A_ROPC_Auth` par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.

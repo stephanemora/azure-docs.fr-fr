@@ -4,11 +4,11 @@ description: Dans cet article, découvrez comment résoudre les problèmes liés
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900383"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993837"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -41,7 +41,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Cause | Actions recommandées |
 | ---     | ---    |
-| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Il est possible que les fichiers d’informations de connexion au coffre soient corrompus, aient expiré ou aient une extension de fichier différente de *.vaultCredentials*. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| [Téléchargez les nouvelles informations d’identification](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) à partir du coffre Recovery Services sur le portail Azure. Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure. Sélectionnez ensuite **Inscription du serveur** dans le volet **Actions** pour effectuer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque**  : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
+| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Il est possible que les fichiers d’informations de connexion au coffre soient corrompus, aient expiré ou aient une extension de fichier différente de *.vaultCredentials*. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| [Téléchargez les nouvelles informations d’identification](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) à partir du coffre Recovery Services sur le portail Azure. Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure. Sélectionnez ensuite **Inscription du serveur** dans le volet **Actions** pour effectuer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
 | **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.<br></br> Si vous êtes connecté via Azure ExpressRoute, vérifiez que les paramètres sont configurés comme indiqué dans [Support Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -135,7 +135,7 @@ Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que
 
   1. Dans le Planificateur de tâches, développez **Microsoft** et sélectionnez **Sauvegarde en ligne**.
   1. Double-cliquez sur **Microsoft-OnlineBackup** et accédez à l’onglet **Déclencheurs**.
-  1. Assurez-vous que l’état est défini sur **Activé**. Si ce n’est pas le cas, sélectionnez **Modifier** , **Activé** , puis **OK**.
+  1. Assurez-vous que l’état est défini sur **Activé**. Si ce n’est pas le cas, sélectionnez **Modifier**, **Activé**, puis **OK**.
 
 - Vérifiez que le compte d’utilisateur sélectionné pour l’exécution de la tâche est **SYSTÈME** ou le **groupe Administrateurs locaux** du serveur. Pour vérifier le compte d’utilisateur, accédez à l’onglet **Général** et vérifiez les options **Sécurité**.
 
@@ -173,7 +173,7 @@ L'opération actuelle a échoué en raison d'une erreur de service interne « R
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Impossible de démarrer le travail car un autre travail est en cours
 
-Si vous voyez dans la **console MARS** > **historique des travaux** , le message d’avertissement « Impossible de démarrer le travail car un autre travail est en cours », cela peut être dû à une instance en double du travail déclenchée par le Planificateur de tâches.
+Si vous voyez dans la **console MARS** > **historique des travaux**, le message d’avertissement « Impossible de démarrer le travail car un autre travail est en cours », cela peut être dû à une instance en double du travail déclenchée par le Planificateur de tâches.
 
 ![Impossible de démarrer le travail car un autre travail est en cours](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 

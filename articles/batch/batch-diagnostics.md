@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108097"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994109"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -63,7 +63,7 @@ Pour configurer une alerte de métrique dans le Portail Azure :
 
 1. Sélectionnez **Tous les services** > **Comptes Batch**, puis le nom de votre compte Batch.
 2. Sous **Supervision**, sélectionnez **Alertes**, puis **Nouvelle règle d’alerte**.
-3. Cliquez sur **Sélectionner la condition**, puis choisissez une métrique. Confirmez les valeurs pour **Période du graphique**, **Type de seuil**, **Opérateur**et **Type d’agrégation**, puis entrez une **valeur de seuil**. Ensuite, sélectionnez **Terminé**.
+3. Cliquez sur **Sélectionner la condition**, puis choisissez une métrique. Confirmez les valeurs pour **Période du graphique**, **Type de seuil**, **Opérateur** et **Type d’agrégation**, puis entrez une **valeur de seuil**. Ensuite, sélectionnez **Terminé**.
 4. Ajoutez un groupe d’actions à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 5. Dans la section **Détails de la règle d’alerte**, entrez un **Nom de règle d’alerte** et une **Description** et sélectionnez le **Niveau de gravité**
 6. Sélectionnez **Créer une règle d’alerte**.

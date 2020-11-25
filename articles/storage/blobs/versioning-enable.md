@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a52b736efaabdca8b08427f293ebf0cda5f22e44
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695875"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993740"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Activer et gérer le contrôle de version des objets blob
 
@@ -77,7 +77,7 @@ L’exemple de code suivant montre comment déclencher la création d’une nouv
 
 L’exemple crée un objet blob de blocs, puis met à jour les métadonnées de cet objet. La mise à jour des métadonnées de l’objet blob déclenche la création d’une nouvelle version. L’exemple récupère la version initiale et la version actuelle, et indique que seule la version actuelle contient les métadonnées.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_TriggerNewBlobVersion":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
 
 ## <a name="list-blob-versions"></a>Répertorier les versions de blob
 
@@ -90,4 +90,4 @@ L’exemple de code suivant montre comment répertorier la version des blobs ave
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Contrôle de version des blobs](versioning-overview.md)
-- [Suppression réversible pour les objets blob de Stockage Azure](soft-delete-overview.md)
+- [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md)

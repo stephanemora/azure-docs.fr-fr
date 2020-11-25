@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235806"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993990"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -72,7 +72,7 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 
 6. Sélectionnez **Ajouter un filtre d’étendue**.
 
-7. Définissez une clause en sélectionnant un **nom d’attribut** source, un **opérateur**et une **valeur d’attribut** pour effectuer la comparaison. Les opérateurs suivants sont pris en charge :
+7. Définissez une clause en sélectionnant un **nom d’attribut** source, un **opérateur** et une **valeur d’attribut** pour effectuer la comparaison. Les opérateurs suivants sont pris en charge :
 
    a. **EQUALS**. La clause renvoie « true » si l’attribut évalué correspond exactement à la valeur de chaîne d’entrée (respecte la casse).
 

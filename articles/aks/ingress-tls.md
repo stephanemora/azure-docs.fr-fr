@@ -6,11 +6,11 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 5032880ddc5d23f824adec28aee85c652bad29d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129658"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993167"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -265,7 +265,7 @@ Les deux applications sont maintenant en cours d’exécution sur votre cluster 
 Dans l’exemple suivant, le trafic vers l’adresse *hello-world-ingress.MY_CUSTOM_DOMAIN* est routé vers le service *aks-helloworld*. Le trafic vers l’adresse *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* est routé vers le service *aks-helloworld-two*. Le trafic vers *hello-world-ingress.MY_CUSTOM_DOMAIN/static* est routé vers le service nommé *aks-helloworld* pour les ressources statiques.
 
 > [!NOTE]
-> Si vous avez configuré un nom de domaine complet pour l’adresse IP du contrôleur d’entrée au lieu d’un domaine personnalisé, utilisez le nom de domaine complet au lieu de *hello-world-ingress.MY_CUSTOM_DOMAIN*. Par exemple, si votre nom de domaine complet est *demo-aks-ingress.eastus.cloudapp.azure.com* , remplacez *hello-world-ingress.MY_CUSTOM_DOMAIN* par *demo-aks-ingress.eastus.cloudapp.azure.com* dans `hello-world-ingress.yaml`.
+> Si vous avez configuré un nom de domaine complet pour l’adresse IP du contrôleur d’entrée au lieu d’un domaine personnalisé, utilisez le nom de domaine complet au lieu de *hello-world-ingress.MY_CUSTOM_DOMAIN*. Par exemple, si votre nom de domaine complet est *demo-aks-ingress.eastus.cloudapp.azure.com*, remplacez *hello-world-ingress.MY_CUSTOM_DOMAIN* par *demo-aks-ingress.eastus.cloudapp.azure.com* dans `hello-world-ingress.yaml`.
 
 Créez un fichier nommé `hello-world-ingress.yaml` en utilisant l’exemple de code YAML ci-dessous. Mettez à jour les valeurs de *hosts* et de *host* avec le nom DNS que vous avez créé à l’étape précédente.
 
@@ -335,7 +335,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Il faut ensuite créer une ressource de certificat. Elle définit le certificat X.509 souhaité. Pour plus d’informations, consultez [Certificats cert-manager][cert-manager-certificates]. cert-manager a automatiquement créé un objet de certificat à l’aide d’ingress-shim ; le certificat est automatiquement déployé avec cert-manager depuis la version 0.2.2. Pour plus d’informations, consultez la [documentation d’ingress-shim][ingress-shim].
 
-Pour vérifier que le certificat a été créé avec succès, utilisez la commande `kubectl get certificate --namespace ingress-basic` et vérifiez que *READY* a la valeur *True* , ce qui peut prendre plusieurs minutes.
+Pour vérifier que le certificat a été créé avec succès, utilisez la commande `kubectl get certificate --namespace ingress-basic` et vérifiez que *READY* a la valeur *True*, ce qui peut prendre plusieurs minutes.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -368,7 +368,7 @@ Sinon, une approche plus précise consiste à supprimer les ressources individue
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx* et *cert-manager* , comme illustré dans l’exemple de sortie suivant :
+Listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx* et *cert-manager*, comme illustré dans l’exemple de sortie suivant :
 
 ```
 $ helm list --namespace ingress-basic
