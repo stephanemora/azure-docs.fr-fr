@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78189013"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95990879"
 ---
 ## <a name="sample-templates"></a>Exemples de modèles
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
