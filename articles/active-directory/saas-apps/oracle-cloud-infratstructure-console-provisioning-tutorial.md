@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 92aeedd25a4a60b49de54aaaa90ee4a31490c444
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004379"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutoriel : Configurer Oracle Cloud Infrastructure Console pour le provisionnement automatique d’utilisateurs
 
@@ -90,7 +90,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Oracle Cloud Infrastructure Console dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -106,19 +106,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez l’ **URL du locataire** au format `https://<IdP ID>.identity.oraclecloud.com/admin/v1`. Par exemple, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Oracle Cloud Infrastructure Console. Si la connexion échoue, vérifiez que votre compte Oracle Cloud Infrastructure Console dispose d’autorisations d’administrateur, puis réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez l’**URL du locataire** au format `https://<IdP ID>.identity.oraclecloud.com/admin/v1`. Par exemple, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Oracle Cloud Infrastructure Console. Si la connexion échoue, vérifiez que votre compte Oracle Cloud Infrastructure Console dispose d’autorisations d’administrateur, puis réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Sous la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Oracle Cloud Infrastructure Console**.
+8. Sous la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Oracle Cloud Infrastructure Console**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs des utilisateurs qui sont synchronisés entre Azure AD et Oracle Cloud Infrastructure Console. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les comptes d’utilisateur dans Oracle Cloud Infrastructure Console pour les opérations de mise à jour. Si vous choisissez de changer l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Oracle Cloud Infrastructure Console prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs des utilisateurs qui sont synchronisés entre Azure AD et Oracle Cloud Infrastructure Console. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les comptes d’utilisateur dans Oracle Cloud Infrastructure Console pour les opérations de mise à jour. Si vous choisissez de changer l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Oracle Cloud Infrastructure Console prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -145,9 +145,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
       |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
       |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
 
-10. Sous la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Oracle Cloud Infrastructure Console**.
+10. Sous la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Oracle Cloud Infrastructure Console**.
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs des groupes qui sont synchronisés entre Azure AD et Oracle Cloud Infrastructure Console. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les groupes dans Oracle Cloud Infrastructure Console pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs des groupes qui sont synchronisés entre Azure AD et Oracle Cloud Infrastructure Console. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les groupes dans Oracle Cloud Infrastructure Console pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -161,7 +161,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou les groupes que vous voulez provisionner sur Oracle Cloud Infrastructure Console en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
+14. Définissez les utilisateurs et/ou les groupes que vous voulez provisionner sur Oracle Cloud Infrastructure Console en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

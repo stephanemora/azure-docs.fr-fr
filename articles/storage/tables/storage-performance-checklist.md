@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004702"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check-list des performances et de la scalabilité pour le stockage Table
 
@@ -273,7 +273,7 @@ Les transactions par lots sont appelées transactions de groupe d’entités dan
 
 #### <a name="upsert"></a>Upsert
 
-Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert** . Il existe deux types d’opération **Upsert**  ; tous deux peuvent se révéler plus efficaces que les opérations **Insert** et **Update** classiques :  
+Lorsque cela s'avère possible, il est conseillé d'utiliser des opérations de table **Upsert** . Il existe deux types d’opération **Upsert** ; tous deux peuvent se révéler plus efficaces que les opérations **Insert** et **Update** classiques :  
 
 - **InsertOrMerge** : Utilisez cette opération lorsque vous souhaitez charger un sous-ensemble des propriétés de l’entité, mais ne savez pas si cette dernière existe déjà. Si elle existe, cet appel met à jour les propriétés incluses dans l’opération **Upsert** et laisse toutes les propriétés existantes en l’état. Si elle n’existe pas, cet appel insère la nouvelle entité. Cela revient à utiliser la projection dans une requête, en ce sens que vous devez simplement télécharger les propriétés qui sont modifiées.
 - **InsertOrReplace** : Utilisez cette opération lorsque vous souhaitez charger une toute nouvelle entité, mais ne savez pas si cette dernière existe déjà. Utilisez cette opération lorsque vous n’avez aucun doute quant à la qualité de la nouvelle entité chargée, car celle-ci écrase complètement l’ancienne entité. Vous souhaitez, par exemple, mettre à jour l’entité qui stocke l’emplacement actuel d’un utilisateur et ce, que l’application ait déjà stocké ou non des données d’emplacement pour cet utilisateur ; la nouvelle entité d’emplacement est complète et vous n’avez besoin d’aucune information d’une entité précédente.

@@ -7,11 +7,11 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984397"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004339"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
@@ -114,7 +114,7 @@ Pour permettre à Azure App Service de créer une livraison continue via Azure P
    
 1. Dans la page **Fournisseur de générations**, sélectionnez **Azure Pipelines (Préversion)** , puis **Continuer**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Capture d'écran de la page Centre de déploiement, sur laquelle Azure Pipelines (préversion) est sélectionné.":::
    
 1. Dans la page **Configurer**, dans la section **Code**, sélectionnez l’**organisation**, le **dépôt** et la **branche** que vous souhaitez déployer en continu, puis choisissez **Continuer**.
      
@@ -123,11 +123,11 @@ Pour permettre à Azure App Service de créer une livraison continue via Azure P
        
     Dans la section **Build**, spécifiez l’organisation Azure DevOps, le projet, le framework de langage que doit utiliser Azure Pipelines pour exécuter les tâches de build, puis sélectionnez **Continuer**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Capture d'écran de la section Build, avec un exemple de texte dans les champs.":::
 
 1. Une fois le fournisseur de builds configuré, vérifiez les paramètres sur la page **Résumé**, puis sélectionnez **Terminer**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Capture d'écran de la page Centre de déploiement présentant les validations et les déploiements et sur laquelle le bouton Actualiser est en surbrillance.":::
    
 1. Les nouvelles validations dans le dépôt et la branche sélectionnés sont maintenant déployées en continu dans votre service App Service. Vous pouvez suivre les validations et les déploiements sur la page **Centre de déploiement**.
    
@@ -141,11 +141,11 @@ Pour permettre à Azure App Service de créer une livraison continue via Azure P
 
 1. Sélectionnez **Azure Repos** comme fournisseur de contrôle de code source dans la page **Centre de déploiement**, puis choisissez **Continuer**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Capture d'écran de la page Centre de déploiement présentant les sélections de Déploiements continus (CI/CD).":::
 
 1. Dans la page **Fournisseur de générations**, sélectionnez **Azure Pipelines (Préversion)** , puis **Continuer**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Capture d'écran du Centre de déploiement présentant Azure Pipelines (préversion).":::
 
 1. Dans la page **Configurer**, dans la section **Code**, sélectionnez l’**organisation**, le **dépôt** et la **branche** que vous souhaitez déployer en continu, puis choisissez **Continuer**.
 
@@ -154,11 +154,11 @@ Pour permettre à Azure App Service de créer une livraison continue via Azure P
 
    Dans la section **Build**, spécifiez l’organisation Azure DevOps, le projet, le framework de langage que doit utiliser Azure Pipelines pour exécuter les tâches de build, puis sélectionnez **Continuer**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Capture d'écran de la section Build présentant les champs Organisation et Projet d'Azure DevOps avec des exemples.":::
 
 1. Une fois le fournisseur de builds configuré, vérifiez les paramètres sur la page **Résumé**, puis sélectionnez **Terminer**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Capture d'écran de la page Centre de déploiement App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Capture d'écran des paramètres sélectionnés sur la page Résumé.":::
 
 1. Les nouvelles validations dans le dépôt et la branche sélectionnés sont maintenant déployées en continu dans votre service App Service. Vous pouvez suivre les validations et les déploiements sur la page **Centre de déploiement**.
 

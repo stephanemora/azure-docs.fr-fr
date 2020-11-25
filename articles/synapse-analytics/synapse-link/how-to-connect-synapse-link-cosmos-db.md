@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668592"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004991"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Se connecter à Azure Synapse Link (préversion) pour Cosmos DB
 
@@ -50,16 +50,16 @@ La connexion d’une base de données Azure Cosmos DB s’effectue en tant que s
 1. Sélectionnez **Continuer**.
 1. Utilisez un nom convivial pour nommer le service lié. Le nom apparaît dans l’Explorateur d’objets de données et est utilisé par les runtimes Azure Synapse pour se connecter à la base de données et aux conteneurs.
 1. Sélectionnez le **nom du compte Azure Cosmos DB** et le **nom de la base de données**.
-1. (Facultatif) Si aucune région n’est spécifiée, les opérations du runtime Azure Synapse sont routées vers la région la plus proche où le magasin analytique est activé. Vous pouvez aussi définir manuellement la région que vos utilisateurs doivent utiliser pour accéder au magasin analytique Azure Cosmos DB. Sélectionnez **Propriétés de connexion supplémentaires** , **Nouveau**. Sous **Nom de la propriété** , entrez **PreferredRegions**. Définissez la **Valeur** sur la région de votre choix, par exemple **WestUS2**. (Il n’y a pas d’espace entre les mots et le chiffre.)
+1. (Facultatif) Si aucune région n’est spécifiée, les opérations du runtime Azure Synapse sont routées vers la région la plus proche où le magasin analytique est activé. Vous pouvez aussi définir manuellement la région que vos utilisateurs doivent utiliser pour accéder au magasin analytique Azure Cosmos DB. Sélectionnez **Propriétés de connexion supplémentaires**, **Nouveau**. Sous **Nom de la propriété**, entrez **PreferredRegions**. Définissez la **Valeur** sur la région de votre choix, par exemple **WestUS2**. (Il n’y a pas d’espace entre les mots et le chiffre.)
 1. Sélectionnez **Créer**.
 
 Les bases de données Azure Cosmos DB apparaissent sous l’onglet **Lié** dans la section **Azure Cosmos DB**. Avec Azure Cosmos DB, vous pouvez différencier un conteneur activé pour HTAP d’un conteneur limité à l’OLTP via les icônes suivantes :
 
-**Conteneur limité à l’OLTP**  :
+**Conteneur limité à l’OLTP** :
 
 ![Visualisation montrant l’icône de conteneur OLTP.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**Conteneur activé pour HTAP**  :
+**Conteneur activé pour HTAP** :
 
 ![Visualisation montrant l’icône de conteneur HTAP.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

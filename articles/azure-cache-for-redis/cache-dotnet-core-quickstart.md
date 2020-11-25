@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077079"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004294"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans .NET Core
 
@@ -76,7 +76,7 @@ Exécutez la commande suivante pour restaurer vos packages :
 dotnet restore
 ```
 
-Dans la fenêtre de commande, exécutez la commande suivante pour stocker un nouveau secret nommé *CacheConnection* , après avoir remplacé les espaces réservés (y compris les crochets pointus) pour le nom de cache et la clé d’accès principale :
+Dans la fenêtre de commande, exécutez la commande suivante pour stocker un nouveau secret nommé *CacheConnection*, après avoir remplacé les espaces réservés (y compris les crochets pointus) pour le nom de cache et la clé d’accès principale :
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
@@ -126,7 +126,7 @@ using StackExchange.Redis;
 
 La connexion au cache Azure pour Redis est gérée par la classe `ConnectionMultiplexer`. Cette classe doit être partagée et réutilisée dans votre application cliente. Ne créez pas une nouvelle connexion pour chaque opération. 
 
-Dans *Program.cs* , ajoutez les membres suivants à la classe `Program` de votre application console :
+Dans *Program.cs*, ajoutez les membres suivants à la classe `Program` de votre application console :
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -150,7 +150,7 @@ La valeur du secret *CacheConnection* est accessible à l’aide du fournisseur 
 
 ## <a name="executing-cache-commands"></a>Exécution des commandes de cache
 
-Dans *Program.cs* , ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour votre application console :
+Dans *Program.cs*, ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour votre application console :
 
 ```csharp
 static void Main(string[] args)
