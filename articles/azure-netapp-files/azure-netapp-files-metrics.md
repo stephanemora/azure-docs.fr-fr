@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d653916c9b50d552825fcb03a860a2a2008b204d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017520"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578516"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -88,7 +88,8 @@ Azure NetApp Files fournit des métriques sur le stockage alloué, l’utilisati
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métriques de réplication de volume
 
 > [!NOTE] 
-> La taille de transfert réseau (par exemple, les métriques *Transfert total de la réplication de volume*) peut différer des volumes source ou de destination d’une réplication entre régions. Ce comportement est dû à l’utilisation d’un moteur de réplication efficace pour réduire au maximum le coût du transfert réseau.
+> * La taille de transfert réseau (par exemple, les métriques *Transfert total de la réplication de volume*) peut différer des volumes source ou de destination d’une réplication entre régions. Ce comportement est dû à l’utilisation d’un moteur de réplication efficace pour réduire au maximum le coût du transfert réseau.
+> * Les métriques de réplication de volume sont actuellement renseignées pour les volumes de destination de réplication et non la source de la relation de réplication.
 
 - *L’état de la réplication de volume est-il sain*   
     Condition de la relation de réplication. Un état sain est indiqué par `1`. Un état non sain est indiqué par `0`.

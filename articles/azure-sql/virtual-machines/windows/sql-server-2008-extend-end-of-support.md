@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784862"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553523"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,14 +40,14 @@ Les clients qui sont sur SQL Server 2008 devront effectuer une installation aut
 Les images déployées via la Place de marché Azure sont fournies avec l’extension IaaS SQL préinstallée. L’extension IaaS SQL est obligatoire pour la gestion des licences flexibles et la mise à jour corrective automatisée. Les clients qui déploient des machines virtuelles installées automatiquement doivent installer manuellement l’extension IaaS SQL. L’extension IaaS SQL n’est pas prise en charge sur Windows Server 2008.
 
 > [!NOTE]
-> Bien que les panneaux **Créer** et **Gérer** de SQL Server fonctionnent avec l’image SQL Server 2008 R2 sur le portail Azure, les fonctionnalités suivantes ne sont _pas prises en charge_  : les sauvegardes automatiques, l’intégration d’Azure Key Vault, R Services et la configuration du stockage.
+> Bien que les panneaux **Créer** et **Gérer** de SQL Server fonctionnent avec l’image SQL Server 2008 R2 sur le portail Azure, les fonctionnalités suivantes ne sont _pas prises en charge_ : les sauvegardes automatiques, l’intégration d’Azure Key Vault, R Services et la configuration du stockage.
 
 ## <a name="licensing"></a>Licence
 Les déploiements de SQL Server 2008 R2 avec paiement à l’utilisation peuvent être convertis en [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Pour convertir une licence Software Assurance (SA) en paiement à l’utilisation, les clients doivent s’inscrire auprès du [fournisseur de ressources](sql-vm-resource-provider-register.md) de machine virtuelle SQL. À l’issue de cette inscription, le type de licence SQL est interchangeable entre Azure Hybrid Benefit et le paiement à l’utilisation.
+Pour convertir une licence Software Assurance (SA) en paiement à l’utilisation, les clients doivent s’inscrire dans l’[extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). À l’issue de cette inscription, le type de licence SQL est interchangeable entre Azure Hybrid Benefit et le paiement à l’utilisation.
 
-Les instances SQL Server 2008 ou SQL Server 2008 R2 installées automatiquement sur une machine virtuelle Azure peuvent être inscrites auprès du fournisseur de ressources de machine virtuelle SQL et leur type de licence converti en paiement à l’utilisation.
+Les instances SQL Server 2008 ou SQL Server 2008 R2 installées automatiquement sur une machine virtuelle Azure peuvent être inscrites avec l’extension SQL IaaS Agent et leur type de licence converti en paiement à l’utilisation.
 
 ## <a name="migration"></a>Migration
 Vous pouvez migrer des instances SQL Server en fin de support vers une machine virtuelle Azure avec des méthodes de sauvegarde/restauration manuelles. Il s’agit de la méthode la plus courante quand il s’agit de migrer d’un environnement local vers une machine virtuelle Azure.
@@ -66,12 +66,13 @@ Des captures instantanées Azure Site Recovery avec cohérence des applications 
 
 Les solutions de récupération d’urgence pour SQL Server en fin de support sur une machine virtuelle Azure sont les suivantes :
 
-- **Sauvegardes SQL Server**  : Utilisez Sauvegarde Azure pour protéger votre instance SQL Server 2008 et 2008 R2 en fin de support contre les ransomwares, une suppression accidentelle et une altération des données à l’aide d’un objectif de point de récupération de 15 minutes et de la récupération jusqu`à une date et heure. Pour plus d’informations, consultez [cet article](../../../backup/sql-support-matrix.md#scenario-support).
-- **Copie des journaux de transaction**  : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
+- **Sauvegardes SQL Server** : Utilisez Sauvegarde Azure pour protéger votre instance SQL Server 2008 et 2008 R2 en fin de support contre les ransomwares, une suppression accidentelle et une altération des données à l’aide d’un objectif de point de récupération de 15 minutes et de la récupération jusqu`à une date et heure. Pour plus d’informations, consultez [cet article](../../../backup/sql-support-matrix.md#scenario-support).
+- **Copie des journaux de transaction** : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
 - **Azure Site Recovery** : Vous pouvez répliquer votre machine virtuelle entre les zones et les régions par l’intermédiaire de la réplication d’Azure Site Recovery. Les captures instantanées avec cohérence des applications sont indispensables à SQL Server pour garantir une récupération en cas de sinistre. Azure Site Recovery offre un RPO d’une heure au minimum et un RTO de deux heures (plus le temps de récupération de SQL Server) pour la récupération d’urgence de SQL Server en fin de support.
 
 ## <a name="security-patching"></a>Correctifs de sécurité
-Les mises à jour de sécurité étendues pour les machines virtuelles SQL Server sont remises via les canaux Microsoft Update après que la machine virtuelle SQL Server a été inscrite auprès du [fournisseur de ressources](sql-vm-resource-provider-register.md) de machine virtuelle SQL. Les correctifs peuvent être téléchargés manuellement ou automatiquement.
+
+Les mises à jour de sécurité étendues pour les machines virtuelles SQL Server sont remises via les canaux Microsoft Update après que la machine virtuelle SQL Server a été inscrite dans l’[extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Les correctifs peuvent être téléchargés manuellement ou automatiquement.
 
 *Automated patching* est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Vous pouvez spécifier un jour de la semaine, une heure et une durée pour la fenêtre de maintenance si l’extension IaaS SQL Server est installée. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](automated-patching.md).
 

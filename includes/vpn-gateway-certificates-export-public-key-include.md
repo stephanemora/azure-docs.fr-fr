@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f71703dcb6afb5ce7610bf1c5374de1cc98816b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12e9bec0c560f1b068b07a1b6afe218a112e439f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606533"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553130"
 ---
 Après avoir créé un certificat racine autosigné, exportez le fichier .cer de clé publique du certificat racine (et non celui de la clé privée). Vous chargerez ce fichier plus tard sur Azure. Les étapes suivantes vous aideront à exporter le fichier .cer pour votre certificat racine auto-signé :
 
 1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Localisez le certificat racine auto-signé, généralement dans « Certificates - Curent User\Personal\Certificates » et cliquez avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**. Si vous ne trouvez pas le certificat sous Current User\Personal\Certificates, il est possible que vous ayez ouvert par erreur « Certificats – Ordinateur local » et non « Certificats – Utilisateur actuel ». Si vous voulez ouvrir le Gestionnaire de certificats dans le champ d’application utilisateur actuel en utilisant PowerShell, tapez *certmgr* dans la fenêtre de la console.
 
-   ![Capture d’écran montrant la fenêtre Certificats pour l’utilisateur actuel avec les Certificats sélectionnés et un menu contextuel avec Toutes les tâches puis Exporter la sélection.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![Capture d’écran montrant la fenêtre Certificats pour l’utilisateur actuel avec les Certificats sélectionnés et un menu contextuel avec Exporter la sélection de Toutes les tâches.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Dans l’assistant, cliquez sur **Suivant**.
 
    ![Exportation du certificat](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
@@ -34,7 +34,7 @@ Après avoir créé un certificat racine autosigné, exportez le fichier .cer de
    ![Capture d’écran montrant l’assistant Exportation de certificat avec une zone de texte de nom de fichier et une option Parcourir.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
-   ![Capture d’écran montrant la page finale de l’assistant Exportation de certificat avec les paramètres sélectionnés.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Capture d’écran montrant l’Assistant Exportation de certificat affichant les paramètres sélectionnés.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Votre certificat est correctement exporté.
 
    ![Capture d’écran montrant un message indiquant que l’exportation a réussi.](./media/vpn-gateway-certificates-export-public-key-include/success.png)

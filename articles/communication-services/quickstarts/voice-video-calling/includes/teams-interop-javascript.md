@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94573811"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915425"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Une [application d’appel Communication Services](../getting-started-with-calling.md) opérationnelle
-- Un [déploiement de Teams](https://docs.microsoft.com/deployoffice/teams-install)
+- Un [déploiement de Teams](/deployoffice/teams-install)
 
 ## <a name="enable-teams-interoperability"></a>Activer l’interopérabilité de Teams
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Obtenir le contexte de la réunion
 
-Le contexte Teams peut être récupéré à l’aide des API Graph. Cette procédure est détaillée dans la [documentation de Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+Le contexte Teams peut être récupéré à l’aide des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 Vous pouvez également récupérer les informations de réunion requises à partir de l’URL **Rejoindre la réunion** disponible dans l’invitation à la réunion.
 
@@ -115,4 +115,3 @@ Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments su
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
 Insérez le contexte Teams dans la zone de texte et appuyez sur *Join Teams Meeting* pour rejoindre la réunion Teams à partir de votre application Communication Services.
-

@@ -1,6 +1,6 @@
 ---
 title: Authentification par mot de passe avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’implémentation de l’authentification par mot de passe avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113898"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576930"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Authentification par mot de passe avec Azure Active Directory
 
@@ -35,13 +35,13 @@ Vous devez assurer la protection avec une authentification préalable et fournir
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : Accède à une application basée sur des formes à partir de My Apps ou en visitant directement le site. 
+* **Utilisateur** : Accède à une application basée sur des formes à partir de My Apps ou en visitant directement le site. 
 
 * **Navigateur Web** : Composant avec lequel l’utilisateur interagit pour accéder à l’URL externe de l’application. L’utilisateur accède à l’application basée sur des formulaires via l’extension MyApps. 
 
-* **extension MyApps** : Identifie l’application SSO basée sur un mot de passe configuré et fournit les informations d’identification au formulaire de connexion. L’extension MyApps est installée sur le navigateur Web. 
+* **extension MyApps**: Identifie l’application SSO basée sur un mot de passe configuré et fournit les informations d’identification au formulaire de connexion. L’extension MyApps est installée sur le navigateur Web. 
 
-* **Azure AD**  : Authentifie l’utilisateur.
+* **Azure AD** : Authentifie l’utilisateur.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implémenter l’authentification unique basée sur un mot de passe avec Azure AD
 

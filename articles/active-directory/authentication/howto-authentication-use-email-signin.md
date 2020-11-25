@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964534"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576017"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
+
+> [!NOTE]
+> La connexion à Azure AD avec une adresse e-mail en guise d’ID de connexion alternatif est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 De nombreuses organisations souhaitent permettre aux utilisateurs de se connecter à Azure Active Directory (Azure AD) en utilisant les informations d’identification de leur environnement d’annuaire local. En vertu de cette approche, dite d’authentification hybride, les utilisateurs ne doivent se souvenir que d’un seul ensemble d’informations d’identification.
 
@@ -32,7 +35,7 @@ Pour faciliter l’adoption de l’authentification hybride, vous pouvez désorm
 Cet article explique comment activer et utiliser une adresse e-mail comme ID de connexion de substitution. Cette fonctionnalité est disponible dans l’édition Azure AD Free et les versions ultérieures.
 
 > [!NOTE]
-> La connexion à Azure AD avec une adresse e-mail en guise d’ID de connexion alternatif est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette fonctionnalité est destinée uniquement aux utilisateurs Azure AD authentifiés dans le cloud.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Vue d’ensemble des approches de la connexion à Azure AD
 
@@ -169,6 +172,72 @@ Une fois la stratégie appliquée, il peut falloir jusqu’à une heure pour qu�
 
 Pour tester le fait que les utilisateurs peuvent se connecter avec une adresse e-mail, accédez à [https://myprofile.microsoft.com][my-profile] et connectez-vous à l’aide d’un compte d’utilisateur basé sur son adresse e-mail, par exemple `balas@fabrikam.com`, et non sur son UPN, par exemple `balas@contoso.com`. L’expérience de connexion doit ressembler à celle d’une connexion basée sur un UPN.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Activer le lancement intermédiaire pour tester la connexion de l’utilisateur avec une adresse e-mail  
+
+Le[lancement intermédiaire][staged-rollout] permet aux administrateurs du locataire d’activer des fonctionnalités pour des groupes spécifiques. Il est recommandé aux administrateurs du locataire d’utiliser le lancement intermédiaire pour tester la connexion de l’utilisateur avec une adresse e-mail. Lorsque les administrateurs sont prêts à déployer cette fonctionnalité sur la totalité de leur locataire, ils doivent utiliser une stratégie de découverte du domaine d’accueil.  
+
+
+Pour les suivre étapes suivantes, vous devez disposer d’autorisations d’*administrateur client* :
+
+1. Ouvrez une session PowerShell en tant qu’administrateur, puis installez le module *AzureADPreview* à l’aide de la cmdlet [Install-Module][Install-Module] :
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Si vous y êtes invité, sélectionnez **Y** pour installer NuGet ou pour installer à partir d’un dépôt non approuvé.
+
+2. Connectez-vous à votre locataire Azure AD en tant qu’*administrateur client* en utilisant la cmdlet [Connect-AzureAD][Connect-AzureAD] :
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    La commande retourne des informations sur votre compte, votre environnement et votre ID de locataire.
+
+3. Répertoriez toutes les stratégies de lancement intermédiaires existantes à l’aide de la cmdlet suivante :
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. S’il n’existe aucune stratégie de lancement intermédiaire pour cette fonctionnalité, créez une stratégie de lancement intermédiaire et prenez note de l’ID de stratégie :
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Recherchez l’ID directoryObject du groupe à ajouter à la stratégie de lancement intermédiaire. Notez la valeur retournée pour le paramètre *ID*, car elle sera utilisée à l’étape suivante.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Ajoutez le groupe à la stratégie de lancement intermédiaire, comme indiqué dans l’exemple suivant. Remplacez la valeur du paramètre *-Id* par la valeur retournée pour l’ID de stratégie à l’étape 4 et remplacez la valeur du paramètre *-RefObjectId* par l’*ID* noté à l’étape 5. Il peut falloir jusqu’à 1 heure avant que les utilisateurs du groupe puissent utiliser leurs adresses proxy pour se connecter.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+Pour les nouveaux membres ajoutés au groupe, il peut falloir jusqu’à 24 heures avant de pouvoir utiliser leurs adresses proxy pour se connecter.
+
+### <a name="removing-groups"></a>Suppression de groupes
+
+Pour supprimer un groupe d’une stratégie de lancement intermédiaire, exécutez la commande suivante :
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Suppression de stratégies
+
+Pour supprimer une stratégie de lancement intermédiaire, commencez par désactiver la stratégie, puis supprimez-la du système :
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Dépanner
 
 Si des utilisateurs éprouvent des difficultés à se connecter avec leur adresse e-mail, passez en revue les étapes de résolution des problèmes suivantes :
@@ -202,4 +271,5 @@ Pour plus d’informations sur les opérations d’identité hybrides, voyez com
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

@@ -3,14 +3,14 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293269"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565889"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 
 L'interface de ligne de commande Azure (Azure CLI) fournit une expérience de ligne de commande dédiée à la gestion des ressources Azure. Elle constitue un excellent outil pour générer une automatisation personnalisée afin d'utiliser des ressources Azure. Cet article explique comment sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI. Vous pouvez également effectuer ces étapes avec [Azure PowerShell](./backup-azure-afs-automation.md) ou dans le [portail Azure](backup-afs.md).
 
@@ -20,9 +20,9 @@ L'interface de ligne de commande Azure (Azure CLI) fournit une expérience de li
 * Activer la sauvegarde des partages de fichiers Azure
 * Déclencher une sauvegarde à la demande des partages de fichiers
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de l'interface CLI, `run az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+ - Cet tutoriel nécessite la version 2.0.18 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 

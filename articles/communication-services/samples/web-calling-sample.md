@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463196"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888961"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
 
@@ -23,7 +23,7 @@ ms.locfileid: "92463196"
 > [!IMPORTANT]
 > [Cet exemple est disponible sur Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-L’ **exemple d’appel web** Azure Communication Services illustre comment la bibliothèque de client d’appel Communication Services peut être utilisée pour créer une expérience d’appel avec JavaScript.
+L’**exemple d’appel web** Azure Communication Services illustre comment la bibliothèque de client d’appel Communication Services peut être utilisée pour créer une expérience d’appel avec JavaScript.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
@@ -58,7 +58,7 @@ Vous pouvez maintenant commencer à passer des appels à l’aide de votre resso
 
 ## <a name="placing-and-receiving-calls"></a>Passage et réception d’appels
 
-Le kit SDK d’appel web Communication Services autorise les appels **1:1** , **1:N** et de **groupe**.
+Le kit SDK d’appel web Communication Services autorise les appels **1:1**, **1:N** et de **groupe**.
 
 Pour les appels sortants 1:1 ou 1:N, vous pouvez spécifier plusieurs identités utilisateur Communication Services à appeler à l’aide de valeurs séparées par des virgules. Vous pouvez également spécifier des numéros de téléphone traditionnels (RTC) à appeler à l’aide de valeurs séparées par des virgules. 
 
@@ -95,7 +95,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 - Familiarisez-vous avec la [bibliothèque de client d’appel](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../concepts/voice-video-calling/about-call-types.md)
-- Lire la [documentation de référence sur les API](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Lire la [documentation de référence sur les API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 
@@ -103,4 +103,4 @@ Pour plus d’informations, consultez les articles suivants :
 - [Redux](https://redux.js.org/) - Gestion de l’état côté client
 - [FluentUI](https://aka.ms/fluent-ui) - Bibliothèque d’interface utilisateur, Technologie Microsoft
 - [React](https://reactjs.org/) - Bibliothèque pour la création d’interfaces utilisateur
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework pour la création d’applications web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework pour la création d’applications web

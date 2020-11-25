@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3591bfe046fa1c3e1e55aa49a0ae3ad698bc57b3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634910"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593669"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>Vérification de la cohérence des données dans l’activité de copie (préversion)
+#  <a name="data-consistency-verification-in-copy-activity"></a>Vérification de la cohérence des données dans l’activité de copie
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie d’Azure Data Factory vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. 
-
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement en cours d’évaluation avec les limitations suivantes sur lesquelles nous travaillons activement :
->- Lorsque vous activez le paramètre de journal de session dans l’activité de copie pour consigner les fichiers incohérents ignorés, l’exhaustivité du fichier journal ne peut être garantie à 100 % si l’activité de copie a échoué.
->- Le journal de session contient uniquement des fichiers incohérents, là où les fichiers copiés ne sont pas encore enregistrés.
+Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie d’Azure Data Factory vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Pour plus d’informations, reportez-vous au [journal de session dans l’activité de copie](copy-activity-log.md).
 
 ## <a name="supported-data-stores-and-scenarios"></a>Magasins de données et scénarios pris en charge
 
@@ -60,13 +55,20 @@ L’exemple suivant fournit une définition JSON pour activer la vérification 
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 
@@ -74,7 +76,7 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | Si vous définissez cette propriété sur true, lors de la copie de fichiers binaires, l’activité de copie vérifie la taille de fichier, la valeur lastModifiedDate et la somme de contrôle MD5 pour chaque fichier binaire copié du magasin source au magasin de destination pour garantir la cohérence des données entre les deux magasins de données. Lors de la copie de données tabulaires, l’activité de copie vérifie le nombre total de lignes une fois le travail terminé pour s’assurer que le nombre total de lignes lues depuis la source est égal au nombre de lignes copiées dans la destination plus le nombre de lignes incompatibles qui ont été ignorées. Soyez conscient que l’activation de cette option aura une incidence sur les performances de copie.  | True<br/>False (valeur par défaut) | Non
 dataInconsistency | L’une des paires clé-valeur dans le conteneur des propriétés skipErrorFile pour déterminer si vous souhaitez ignorer les fichiers incohérents. <br/> - True : vous souhaitez continuer la copie en ignorant les fichiers incohérents.<br/> - False : vous souhaitez abandonner l’activité de copie lorsque des fichiers incohérents sont détectés.<br/>Sachez que cette propriété n’est valide que lorsque vous copiez des fichiers binaires et définissez validateDataConsistency sur la valeur True.  | True<br/>False (valeur par défaut) | Non
-logStorageSettings | Groupe de propriétés qui peut être spécifié pour permettre au journal de session de consigner les fichiers ignorés. | | Non
+logSettings | Groupe de propriétés qui peut être spécifié pour permettre au journal de session de consigner les fichiers ignorés. | | Non
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker les fichiers journaux de session. | Noms de services liés de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous souhaitez utiliser pour stocker les fichiers journaux. | Non
 path | Chemin d’accès des fichiers journaux. | Spécifiez le chemin d’accès que vous souhaitez utiliser pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
@@ -95,7 +97,7 @@ Après l’exécution de l’activité de copie terminée, vous pouvez voir le r
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -106,15 +108,15 @@ Après l’exécution de l’activité de copie terminée, vous pouvez voir le r
 ```
 Vous pouvez voir les détails de la vérification de la cohérence des données dans la propriété « dataConsistencyVerification ».
 
-Valeur de **VerificationResult**  : 
--   **Verified**  :  la cohérence de vos données copiées a été vérifiée entre les magasins source et de destination. 
--   **NotVerified**  : la cohérence de vos données copiées n’a pas été vérifiée, car vous n’avez pas activé la propriété validateDataConsistency dans l’activité de copie. 
--   **Non pris en charge**  : la cohérence de vos données copiées n’a pas été vérifiée, car la vérification de la cohérence des données n’est pas prise en charge pour cette paire de copies particulière. 
+Valeur de **VerificationResult** : 
+-   **Verified** :  la cohérence de vos données copiées a été vérifiée entre les magasins source et de destination. 
+-   **NotVerified** : la cohérence de vos données copiées n’a pas été vérifiée, car vous n’avez pas activé la propriété validateDataConsistency dans l’activité de copie. 
+-   **Non pris en charge** : la cohérence de vos données copiées n’a pas été vérifiée, car la vérification de la cohérence des données n’est pas prise en charge pour cette paire de copies particulière. 
 
-Valeur d’ **InconsistentData**  : 
--   **Found**  : l’activité de copie ADF a détecté des données incohérentes. 
--   **Ignoré**  : l’activité de copie ADF a détecté des données incohérentes et les a ignorées. 
--   **Aucun**  : l’activité de copie ADF n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
+Valeur d’**InconsistentData** : 
+-   **Found** : l’activité de copie ADF a détecté des données incohérentes. 
+-   **Ignoré** : l’activité de copie ADF a détecté des données incohérentes et les a ignorées. 
+-   **Aucun** : l’activité de copie ADF n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
 
 ### <a name="session-log-from-copy-activity"></a>Journal de session de l’activité de copie
 

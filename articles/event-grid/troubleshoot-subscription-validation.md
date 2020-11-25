@@ -3,18 +3,30 @@ title: Azure Event Grid - Résoudre les problèmes de validation des abonnement
 description: Cet article explique comment résoudre les problèmes de validation des abonnements.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118985"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592938"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Résoudre des problèmes de validation d’abonnements Azure Event Grid
-Cet article fournit des informations sur la résolution des problèmes de validation d’abonnements à des événements. 
+Si, pendant la création d’un abonnement aux événements, vous voyez un message d’erreur tel que `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, cela est le signe d’un échec dans le processus de négociation de la validation. Pour résoudre cette erreur, vérifiez les points suivants :
+
+- Effectuez une requête HTTP POST sur l’URL de votre webhook avec un [exemple de SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) dans le corps de la requête en utilisant Postman, Curl ou un autre outil similaire.
+- Si votre webhook implémente un mécanisme d'établissement de liaison de validation synchrone, vérifiez que le code de validation est renvoyé dans le cadre de la réponse.
+- Si votre webhook implémente un mécanisme d’établissement de liaison de validation asynchrone, assurez-vous que la requête HTTP POST renvoie 200 OK.
+- Si votre webhook renvoie `403 (Forbidden)` dans la réponse, vérifiez qu’il se trouve derrière une instance Azure Application Gateway ou Web Application Firewall. Si tel est le cas, vous devez désactiver ces règles de pare-feu et effectuer une nouvelle requête HTTP POST :
+    - 920300 (En-tête Accept manquant dans la requête)
+    - 942430 (Détection restreinte des anomalies de caractères SQL [args] : nombre de caractères spéciaux dépassé [12])
+    - 920230 (Détection d’encodage de plusieurs URL)
+    - 942130 (Attaque par injection de code SQL : Tautologie SQL détectée.)
+    - 931130 (Attaque possible par inclusion de fichier distant = Référence/Lien hors domaine)
 
 > [!IMPORTANT]
 > Pour plus d’informations sur la validation des points de terminaison des webhooks, consultez [Remise d’événements webhook](webhook-event-delivery.md).
+
+Les sections suivantes vous montrent comment valider un abonnement à des événements à l’aide de Postman et de Curl.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Valider un abonnement à un événement Event Grid à l’aide de Postman
 Voici un exemple d’utilisation de Postman pour valider un abonnement webhook à un événement Event Grid : 
@@ -65,14 +77,7 @@ Voici un exemple d’utilisation de Postman pour valider un abonnement webhook �
 
 Utilisez la méthode **HTTP OPTIONS** pour la validation avec des événements cloud. Pour en savoir plus sur la validation d’événements cloud pour les webhooks, consultez [Validation de point de terminaison avec des événements cloud](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Code d’erreur : 403
-Si votre webhook renvoie 403 (interdit) dans la réponse, vérifiez qu'il se trouve derrière une instance d'Azure Application Gateway ou un pare-feu d'applications web. Si c’est le cas, vous devez désactiver les règles de pare-feu suivantes et exécuter une nouvelle requête HTTP POST :
-
-  - 920300 (En-tête Accept manquant dans la requête, nous pouvons y remédier)
-  - 942430 (Détection restreinte des anomalies de caractères SQL (args) : nombre de caractères spéciaux dépassé (12))
-  - 920230 (Détection d'encodage de plusieurs URL)
-  - 942130 (Attaque par injection de code SQL : Tautologie SQL détectée.)
-  - 931130 (Attaque possible par inclusion de fichier distant = Référence/Lien hors domaine)
+## <a name="troubleshoot-event-subscription-validation"></a>Résoudre les problèmes de validation des abonnements aux événements
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin d’une aide supplémentaire, publiez votre problème sur le forum [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou ouvrez un [ticket de support](https://azure.microsoft.com/support/options/). 

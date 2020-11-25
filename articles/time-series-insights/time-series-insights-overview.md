@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597821"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020059"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Qu’est-ce qu’Azure Time Series Insights Gen1 ?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights a quatre tâches principales :
 - Azure Time Series Insights offre une visualisation prête à l’emploi par le biais de l’Explorateur Azure Time Series Insights.
 - Azure Time Series Insights propose un service de requête, à la fois dans l’Explorateur Azure Time Series Insights et par le biais d’API faciles à intégrer, pour intégrer les données de série chronologique dans des applications personnalisées.
 
-Si vous générez une application en vue d’une consommation en interne ou pour des clients externes, vous pouvez utiliser Azure Time Series Insights comme back-end. Vous pouvez l’utiliser pour indexer, stocker et agréger des données de série chronologique. Pour créer une visualisation et une expérience utilisateur personnalisées, utilisez le [SDK client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights intègre également plusieurs [API de requête](how-to-shape-query-json.md) pour permettre ces scénarios personnalisés.
+Si vous générez une application en vue d’une consommation en interne ou pour des clients externes, vous pouvez utiliser Azure Time Series Insights comme back-end. Vous pouvez l’utiliser pour indexer, stocker et agréger des données de série chronologique. Pour créer une visualisation et une expérience utilisateur personnalisées, utilisez le [SDK client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights intègre également plusieurs [API de requête](./concepts-json-flattening-escaping-rules.md) pour permettre ces scénarios personnalisés.
 
 Les données de série chronologique représentent la façon dont un élément multimédia ou un processus changent au fil du temps. Les données de série chronologique sont indexées par horodatages, et l’heure représente l’axe le plus explicite le long duquel ces données sont organisées. Les données de série chronologique arrivant généralement dans un ordre séquentiel, elles sont considérées comme une instruction insert, plutôt qu’une mise à jour pour votre base de données.
 

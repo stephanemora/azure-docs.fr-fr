@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422873"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920200"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Connecter Azure Functions à Stockage Azure à l’aide des outils en ligne de commande
 
 Dans cet article, vous intégrez une file d’attente Stockage Azure à la fonction et au compte de stockage que vous avez créés dans le guide de démarrage rapide précédent. Vous effectuez cette intégration à l’aide d’une *liaison de sortie* qui écrit les données d’une requête HTTP dans un message en file d’attente. Le fait de suivre les instructions de cet article n’entraîne aucun coût supplémentaire au-delà des quelques cents USD du guide de démarrage rapide précédent. Pour en savoir plus sur les liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Configurer votre environnement local
-
-Avant de commencer, vous devez terminer l’article [Démarrage rapide : Créer un projet Azure Functions à partir de la ligne de commande][previous-quickstart]. Si vous avez déjà nettoyé les ressources à la fin de cet article, suivez à nouveau les étapes pour recréer l’application Functions et les ressources associées dans Azure.
 
 ::: zone pivot="programming-language-csharp"  
 Avant de commencer, vous devez terminer l’article [Démarrage rapide : Créer un projet Azure Functions à partir de la ligne de commande](create-first-function-cli-csharp.md). Si vous avez déjà nettoyé les ressources à la fin de cet article, suivez à nouveau les étapes pour recréer l’application Functions et les ressources associées dans Azure.  

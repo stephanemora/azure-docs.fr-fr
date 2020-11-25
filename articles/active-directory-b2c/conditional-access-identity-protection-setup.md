@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309783"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949766"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurer Identity Protection et l’accès conditionnel dans Azure AD B2C
 
@@ -26,7 +26,7 @@ Identity Protection assure la détection des risques en continu pour votre locat
 ## <a name="prerequisites"></a>Prérequis
 
 - Votre locataire Azure AD B2C doit être [lié à un abonnement Azure AD](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD B2C Premium P2 est requis pour l’utilisation de l’accès conditionnel basé sur les risques des utilisateurs et des connexions. Si nécessaire, [passez au niveau tarifaire Azure AD B2C Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 est requis pour l’utilisation de l’accès conditionnel basé sur les risques des utilisateurs et des connexions. Si nécessaire, [passez au niveau tarifaire Azure AD B2C Premium P2](./billing.md). 
 - Pour gérer Identity Protection et l’accès conditionnel dans votre locataire B2C, vous avez besoin d’un compte disposant du rôle Administrateur général ou Administrateur de la sécurité.
 - Pour utiliser ces fonctionnalités dans votre locataire, vous devez d’abord basculer vers le niveau tarifaire Azure AD B2C Premium P2.
 
@@ -54,13 +54,13 @@ Les détections des risques suivantes sont actuellement prises en charge pour Az
 
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C** .
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-1. Sous **Sécurité** , sélectionnez **Utilisateurs à risque (préversion)** .
+1. Sous **Sécurité**, sélectionnez **Utilisateurs à risque (préversion)** .
 
    ![Utilisateurs à risque](media/conditional-access-identity-protection-setup/risky-users.png)
 
-1. Sous **Sécurité** , sélectionnez **Détections de risque (préversion)** .
+1. Sous **Sécurité**, sélectionnez **Détections de risque (préversion)** .
 
    ![Détections de risques](media/conditional-access-identity-protection-setup/risk-detections.png)
 
@@ -74,9 +74,9 @@ Pour ajouter une stratégie d’accès conditionnel basée sur les détections d
 
 2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-3. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory** .
+3. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 
-4. Sélectionnez **Propriétés** , puis **Gérer les paramètres de sécurité par défaut** .
+4. Sélectionnez **Propriétés**, puis **Gérer les paramètres de sécurité par défaut**.
 
    ![Désactiver les paramètres de sécurité par défaut](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -90,29 +90,29 @@ Pour ajouter une stratégie d’accès conditionnel basée sur les détections d
 
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C** .
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-1. Sous **Sécurité** , sélectionnez **Accès conditionnel (préversion)** . La page **Stratégies d’accès conditionnel** s’ouvre. 
+1. Sous **Sécurité**, sélectionnez **Accès conditionnel (préversion)** . La page **Stratégies d’accès conditionnel** s’ouvre. 
 
 1. Sélectionnez **Nouvelle stratégie** et suivez la documentation sur l’accès conditionnel Azure AD pour créer une stratégie. Par exemple :
 
    - [Accès conditionnel basé sur les risques de connexion : Activer avec la stratégie d’accès conditionnel](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
 
    > [!IMPORTANT]
-   > Lorsque vous sélectionnez les utilisateurs auxquels vous souhaitez appliquer la stratégie, ne sélectionnez pas uniquement **Tous les utilisateurs** , car vous risqueriez de ne pas pouvoir vous connecter.
+   > Lorsque vous sélectionnez les utilisateurs auxquels vous souhaitez appliquer la stratégie, ne sélectionnez pas uniquement **Tous les utilisateurs**, car vous risqueriez de ne pas pouvoir vous connecter.
 
 ## <a name="test-the-conditional-access-policy"></a>Tester la stratégie d’accès conditionnel
 
 1. Créez une stratégie d’accès conditionnel comme indiqué ci-dessus, avec les paramètres suivants :
    
-   - Pour **Utilisateurs et groupes** , sélectionnez l’utilisateur de test. Ne sélectionnez pas **Tous les utilisateurs** , car vous ne pourriez plus vous connecter.
-   - Pour **Applications ou actions cloud** , choisissez **Sélectionner les applications** , puis choisissez votre application par partie de confiance.
-   - Pour Conditions, sélectionnez **Risque de connexion** et les niveaux de risque **Élevé** , **Moyen** et **Faible** .
-   - Pour **Accorder** , choisissez **Bloquer l’accès** .
+   - Pour **Utilisateurs et groupes**, sélectionnez l’utilisateur de test. Ne sélectionnez pas **Tous les utilisateurs**, car vous ne pourriez plus vous connecter.
+   - Pour **Applications ou actions cloud**, choisissez **Sélectionner les applications**, puis choisissez votre application par partie de confiance.
+   - Pour Conditions, sélectionnez **Risque de connexion** et les niveaux de risque **Élevé**, **Moyen** et **Faible**.
+   - Pour **Accorder**, choisissez **Bloquer l’accès**.
 
       ![Choisissez Bloquer l’accès](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. Activez votre stratégie d’accès conditionnel de test en sélectionnant **Créer** .
+1. Activez votre stratégie d’accès conditionnel de test en sélectionnant **Créer**.
 
 1. Simulez une connexion risquée à l’aide du [navigateur Tor](https://www.torproject.org/download/). 
 
@@ -128,18 +128,18 @@ Pour examiner le résultat d’un événement d’accès conditionnel
 
 2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C** .
+3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-4. Sous **Activités** , sélectionnez **Journaux d’audit** .
+4. Sous **Activités**, sélectionnez **Journaux d’audit**.
 
-5. Filtrez le journal d’audit en choisissant **B2C** comme **Catégorie** et **IdentityProtection** comme **Type de ressource d’activité** . Ensuite, sélectionnez **Appliquer** .
+5. Filtrez le journal d’audit en choisissant **B2C** comme **Catégorie** et **IdentityProtection** comme **Type de ressource d’activité**. Ensuite, sélectionnez **Appliquer**.
 
 6. Passez en revue l’activité d’audit des sept derniers jours. Les types d’activité suivants sont inclus :
 
-   - **Évaluer les stratégies d’accès conditionnel**  : cette entrée du journal d’audit indique qu’une évaluation de l’accès conditionnel a été effectuée pendant une authentification.
-   - **Atténuer l’utilisateur**  : cette entrée indique que l’accord ou les exigences d’une stratégie d’accès conditionnel ont été satisfaites par l’utilisateur final, et que cette activité a été signalée au moteur de risque afin de réduire (atténuer) le risque utilisateur.
+   - **Évaluer les stratégies d’accès conditionnel** : cette entrée du journal d’audit indique qu’une évaluation de l’accès conditionnel a été effectuée pendant une authentification.
+   - **Atténuer l’utilisateur** : cette entrée indique que l’accord ou les exigences d’une stratégie d’accès conditionnel ont été satisfaites par l’utilisateur final, et que cette activité a été signalée au moteur de risque afin de réduire (atténuer) le risque utilisateur.
 
-7. Sélectionnez une entrée de journal **Évaluer la stratégie d’accès conditionnel** dans la liste pour ouvrir la page **Détails de l’activité : Journal d’audit** , qui affiche les identificateurs du journal d’audit, ainsi que ces informations dans la section **Détails supplémentaires**  :
+7. Sélectionnez une entrée de journal **Évaluer la stratégie d’accès conditionnel** dans la liste pour ouvrir la page **Détails de l’activité : Journal d’audit**, qui affiche les identificateurs du journal d’audit, ainsi que ces informations dans la section **Détails supplémentaires** :
 
    - ConditionalAccessResult : accord requis par l’évaluation de la stratégie conditionnelle.
    - AppliedPolicies : liste de toutes les stratégies d’accès conditionnel où les conditions ont été satisfaites et les stratégies sont activées.

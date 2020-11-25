@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323069"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563815"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -102,7 +102,7 @@ Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos d
 
 ## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
 
-Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul** , puis sélectionnez **Instance de calcul** en haut.
+Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul**, puis sélectionnez **Instance de calcul** en haut.
 
 ![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -110,7 +110,7 @@ Vous pouvez effectuer les actions suivantes :
 
 * [Créer une instance de calcul](#create). 
 * Actualiser l’onglet des instances de calcul.
-* Démarrer, arrêter et redémarrer une instance de calcul.  Vous payez l’instance chaque fois qu’elle s’exécute. Quand vous n’utilisez pas l’instance de calcul, arrêtez-la pour réduire les coûts. L’arrêt d’une instance de calcul a pour effet de la libérer. Ensuite, redémarrez-la quand vous en avez besoin.
+* Démarrer, arrêter et redémarrer une instance de calcul.  Vous payez l’instance chaque fois qu’elle s’exécute. Quand vous n’utilisez pas l’instance de calcul, arrêtez-la pour réduire les coûts. L’arrêt d’une instance de calcul a pour effet de la libérer. Ensuite, redémarrez-la quand vous en avez besoin. Veuillez noter que l’arrêt de l’instance de calcul met fin à la facturation des heures de calcul, mais que le disque, l’adresse IP publique et l’équilibreur de charge standard vous seront toujours facturés.
 * Supprimer une instance de calcul.
 * Filtrer la liste des instances de calcul pour afficher uniquement celles que vous avez créées.
 

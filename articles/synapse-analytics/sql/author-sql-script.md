@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317558"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635287"
 ---
 # <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Utilisation de scripts SQL dans Azure Synapse Studio (préversion)
 
@@ -26,14 +26,14 @@ Il existe plusieurs façons de démarrer l’expérience de création dans un sc
 
 1. Dans le menu Développer, sélectionnez l’icône de **« + »** , puis choisissez **Script SQL**.
 
-2. Dans le menu **Actions** , choisissez **Nouveau script SQL**.
+2. Dans le menu **Actions**, choisissez **Nouveau script SQL**.
 
 3. Choisir **Importer** dans le menu **Actions** sous Développer des scripts SQL. Sélectionnez un script SQL existant dans votre stockage local.
 ![new sql script 3 actions](media/author-sql-script/new-sql-script-3-actions.png)
 
 ## <a name="create-your-sql-script"></a>Créer votre script SQL
 
-1. Choisissez un nom pour votre script SQL en sélectionnant le bouton **Propriété** , puis en remplaçant le nom par défaut attribué au script. 
+1. Choisissez un nom pour votre script SQL en sélectionnant le bouton **Propriété**, puis en remplaçant le nom par défaut attribué au script. 
 ![new sql script rename](media/author-sql-script/new-sql-script-rename.png)
 
 2. Choisissez le pool SQL dédié ou le pool SQL serverless spécifique dans le menu déroulant **Se connecter à** . Ou bien, si nécessaire, choisissez la base de données dans **Utiliser la base de données**. 
@@ -73,6 +73,18 @@ En sélectionnant le menu **Actions** sous les données, vous pouvez choisir plu
 Explorez les mouvements disponibles en cliquant avec le bouton droit sur les nœuds de base de données SQL.
  
 ![base de données du nouveau script sql](media/author-sql-script/new-script-database.png)
+
+## <a name="create-folders-and-move-sql-scripts-into-a-folder"></a>Créer des dossiers et déplacer des scripts SQL dans un dossier
+
+Dans le menu Actions, sous Développer des scripts SQL, choisissez « Nouveau dossier ». Saisissez ensuite le nom du nouveau dossier dans la fenêtre contextuelle. 
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+
+Pour déplacer un script SQL dans un dossier, vous pouvez sélectionner le script SQL et choisir « Déplacer vers » dans le menu Actions. Recherchez ensuite le dossier de destination dans la nouvelle fenêtre et déplacez le script SQL dans le dossier sélectionné. Vous pouvez également faire glisser rapidement le script SQL et le déposer dans un dossier.  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

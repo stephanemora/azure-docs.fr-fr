@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489299"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538595"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Se connecter à des services de stockage sur Azure
 
@@ -113,7 +113,7 @@ Vous trouverez des informations sur la clé de compte, le jeton SAS et le princi
 ### <a name="permissions"></a>Autorisations
 
 Pour le conteneur de blobs Azure et le stockage Azure Data Lake Gen2, assurez-vous que vos informations d’authentification vous donnent un accès **Lecteur des données blob du stockage**. En savoir plus sur le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Par défaut, le jeton SAS d'un compte ne dispose d'aucune autorisation. 
-* Pour l'**accès en lecture** aux données, vos informations d'authentification doivent au minimum disposer d'autorisations de liste et de lecture pour les conteneurs et les objets. 
+* Pour l’**accès en lecture** aux données, vos informations d’authentification doivent au minimum disposer d’autorisations de liste et de lecture pour les conteneurs et les objets. 
 
 * Pour l'**accès en écriture** aux données, des autorisations d'écriture et d'ajout sont également requises.
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Pour un magasin de données Azure Data Lake Storage Gen 2 (ADLS Gen 2), utilisez [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) pour inscrire un magasin de données d’informations d’identification connecté à un stockage Azure DataLake Gen 2 avec des [autorisations de principal du service](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Pour utiliser votre principal de service, vous devez [inscrire votre application](../active-directory/develop/app-objects-and-service-principals.md) et accorder au principal de service un accès **Lecteur des données Blob du stockage**. Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](../storage/blobs/data-lake-storage-access-control.md). 
+Pour utiliser votre principal de service, vous devez [inscrire votre application](../active-directory/develop/app-objects-and-service-principals.md) et accorder au principal de service l’accès aux données via un contrôle d’accès en fonction du rôle (Azure RBAC) ou des listes de contrôle d’accès (ACL, access control lists). Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Le code suivant crée le magasin de données `adlsgen2_datastore_name` et l’inscrit auprès de l’espace de travail `ws`. Ce magasin de données accède au système de fichiers `test` dans le compte de stockage `account_name` en utilisant les informations d’identification du principal de service fournies. Retrouvez les instructions relatives aux scénarios de réseau virtuel et les indications pour trouver les informations d’authentification requises dans la section [accès au stockage et autorisations](#storage-access-and-permissions). 
 

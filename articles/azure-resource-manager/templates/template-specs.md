@@ -2,15 +2,15 @@
 title: Présentation des specs de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728469"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747398"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
 
@@ -21,7 +21,7 @@ Une spec de modèle est un type de ressource permettant de stocker un modèle Re
 Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels que PowerShell, Azure CLI, Portail Azure, REST et d’autres Kits de développement logiciel (SDK) et clients pris en charge. Vous utilisez les mêmes commandes que pour le modèle.
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire sur la liste d’attente](https://aka.ms/templateSpecOnboarding).
+> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez installer la version la plus récente de PowerShell ou d’Azure CLI. Pour Azure PowerShell, utilisez la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Pourquoi utiliser des spécifications de modèle ?
 

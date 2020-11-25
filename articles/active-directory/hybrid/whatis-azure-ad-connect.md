@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874098"
 ---
 # <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
 
@@ -59,7 +59,7 @@ Avantages clés et bonnes pratiques :
 |-----|-----|
 |Sécurité améliorée|[Tendances de verrouillage extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport sur les échecs de connexions](how-to-connect-health-adfs-risky-ip.md)</br>[Conformité aux réglementations relatives à la confidentialité](reference-connect-health-user-privacy.md)|
 |Obtention d’alertes pour tous les [problèmes critiques liés au système ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuration et disponibilité de serveur</br>[Performances et connectivité](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Maintenance régulière|
-|Facilité de déploiement et de gestion|[Installation d’agent rapide](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Mise à niveau automatique d’agent vers la dernière version</br>Données disponibles dans le portail en quelques minutes|
+|Facilité de déploiement et de gestion|[Installation d’agent rapide](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Mise à niveau automatique d’agent vers la dernière version</br>Données disponibles dans le portail en quelques minutes|
 [Métriques d’utilisation](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) enrichies|Utilisation des principales applications</br>Emplacements réseau et connexion TCP</br>Demandes de jetons par serveur|
 |Meilleure expérience utilisateur|Présentation sous forme de tableaux de bord du Portail Azure</br>[Alertes par e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

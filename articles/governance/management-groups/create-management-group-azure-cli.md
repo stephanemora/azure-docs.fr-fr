@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous utilisez Azure CLI pour cr
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236990"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920659"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Démarrage rapide : Créer un groupe d’administration avec Azure CLI
 
@@ -29,7 +29,7 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
 
 ### <a name="create-in-the-azure-cli"></a>Créer dans Azure CLI
 
-Dans Azure CLI, utilisez la commande [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) pour créer un groupe d’administration. Dans cet exemple, la valeur **name** du groupe d’administration est _Contoso_.
+Dans Azure CLI, utilisez la commande [az account management-group create](/cli/azure/account/management-group#az_account_management_group_create) pour créer un groupe d’administration. Dans cet exemple, la valeur **name** du groupe d’administration est _Contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer le groupe d’administration créé ci-dessus, utilisez la commande [az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete) :
+Pour supprimer le groupe d’administration créé ci-dessus, utilisez la commande [az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete) :
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

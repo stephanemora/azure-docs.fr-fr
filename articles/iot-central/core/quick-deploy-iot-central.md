@@ -3,18 +3,17 @@ title: Démarrage rapide - Créer une application Azure IoT Central | Microsoft 
 description: Démarrage rapide - Créer une application Azure IoT Central. Créez l’application avec le plan tarifaire gratuit ou avec l’un des plans tarifaires standard.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/30/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987381"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992809"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Démarrage rapide - Créer une application Azure IoT Central
 
@@ -43,11 +42,11 @@ Pour créer une application Azure IoT Central à partir du modèle **Application
     ![Informations de facturation Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Si vous avez choisi **Application personnalisée** dans la page précédente, vous voyez une liste déroulante **Modèle d’application**. La liste déroulante peut montrer d’autres modèles qui ont été mis à votre disposition par votre organisation. 
+    > Si vous avez choisi **Application personnalisée** dans la page précédente, vous voyez une liste déroulante **Modèle d’application**. La liste déroulante peut montrer d’autres modèles qui ont été mis à votre disposition par votre organisation.
 
     >[!IMPORTANT]
-    >Le modèle **Application personnalisée (héritée)** (V2) a été mis hors service, car toutes les fonctionnalités précédemment disponibles dans le modèle d’application héritée sont désormais disponibles dans le dernier modèle **Application personnalisée** (V3). 
-    
+    >Le modèle **Application personnalisée (héritée)** (V2) a été mis hors service, car toutes les fonctionnalités précédemment disponibles dans le modèle d’application héritée sont désormais disponibles dans le dernier modèle **Application personnalisée** (V3).
+
 1. Choisissez de créez cette application avec le plan tarifaire gratuit de 7 jours ou avec l’un des plans tarifaires standard :
 
     - Les applications que vous créez à partir du plan *gratuit* sont gratuites pendant sept jours et prennent en charge jusqu’à cinq appareils. Vous pouvez les convertir de sorte qu’elles utilisent un plan tarifaire standard à tout moment avant leur expiration.

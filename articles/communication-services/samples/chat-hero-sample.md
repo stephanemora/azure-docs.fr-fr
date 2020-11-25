@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677417"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888570"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Bien démarrer avec l’exemple de bannière de conversation de groupe
 
@@ -29,14 +29,14 @@ ms.locfileid: "92677417"
 > [Cet exemple est disponible sur GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-L’ **exemple de bannière de conversation de groupe** Azure Communication Services illustre comment la bibliothèque de client web Conversation Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
+L’**exemple de bannière de conversation de groupe** Azure Communication Services illustre comment la bibliothèque de client web Conversation Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’ **application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
 
 Voici à quoi ressemble l’exemple :
 
@@ -52,9 +52,9 @@ Une fois que vous avez configuré votre nom d’affichage et l’emoji, vous pou
 
 Composants de l’écran principal de conversation :
 
-- **Zone de conversation principale**  : il s’agit de l’expérience de conversation de base où les utilisateurs peuvent envoyer et recevoir des messages. Pour envoyer des messages, vous pouvez utiliser la zone d’entrée et appuyer sur Entrée (ou utiliser le bouton d’envoi). Les messages de conversation reçus sont catégorisés par l’expéditeur avec le nom et l’emoji corrects. Deux types de notifications s’affichent dans la zone de conversation : 1) notifications de frappe lorsqu’un utilisateur frappe au clavier et 2) notifications d’envoi et de lecture pour les messages.
-- **En-tête** : c’est ici que l’utilisateur verra le titre du fil de conversation et les commandes permettant de choisir entre les barres latérales des participants et des paramètres. Y figure également un bouton permettant de quitter la session de conversation.
-- **Barre latérale**  : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation. 
+- **Zone de conversation principale** : il s’agit de l’expérience de conversation de base où les utilisateurs peuvent envoyer et recevoir des messages. Pour envoyer des messages, vous pouvez utiliser la zone d’entrée et appuyer sur Entrée (ou utiliser le bouton d’envoi). Les messages de conversation reçus sont catégorisés par l’expéditeur avec le nom et l’emoji corrects. Deux types de notifications s’affichent dans la zone de conversation : 1) notifications de frappe lorsqu’un utilisateur frappe au clavier et 2) notifications d’envoi et de lecture pour les messages.
+- **En-tête**: c’est ici que l’utilisateur verra le titre du fil de conversation et les commandes permettant de choisir entre les barres latérales des participants et des paramètres. Y figure également un bouton permettant de quitter la session de conversation.
+- **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation. 
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -118,4 +118,4 @@ Pour plus d’informations, consultez les articles suivants :
 - [Redux](https://redux.js.org/) - Gestion de l’état côté client
 - [FluentUI](https://aka.ms/fluent-ui) - Bibliothèque d’interface utilisateur, Technologie Microsoft
 - [React](https://reactjs.org/) - Bibliothèque pour la création d’interfaces utilisateur
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework pour la création d’applications web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework pour la création d’applications web

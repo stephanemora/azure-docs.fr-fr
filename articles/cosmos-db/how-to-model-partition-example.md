@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342145"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616244"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342145"
 Cet article s’appuie sur plusieurs concepts Azure Cosmos DB tels que la [modélisation des données](modeling-data.md), le [partitionnement](partitioning-overview.md) et le [débit provisionné](request-units.md) pour illustrer comment aborder un exercice concret de conception de données.
 
 Si vous travaillez habituellement avec des bases de données relationnelles, vous avez probablement développé des habitudes et des intuitions sur la façon de concevoir un modèle de données. En raison des contraintes spécifiques, mais également des atouts uniques d’Azure Cosmos DB, la plupart de ces bonnes pratiques ne se traduisent pas correctement et peuvent vous faire dériver vers des solutions non optimales. L’objectif de cet article est de vous guider tout au long du processus de modélisation d’un cas d’utilisation concret sur Azure Cosmos DB, de la modélisation des éléments à la colocalisation d’entités et au partitionnement de conteneur.
+
+[Téléchargez ou affichez un code source généré par la communauté](https://github.com/jwidmer/AzureCosmosDbBlogExample) qui illustre les concepts de cet article. Cet exemple de code a été fourni par un contributeur de la communauté et l’équipe Azure Cosmos DB ne prend pas en charge sa maintenance.
 
 ## <a name="the-scenario"></a>Scénario
 

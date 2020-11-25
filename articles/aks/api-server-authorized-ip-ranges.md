@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682500"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Cet article vous montre comment utiliser des plages d’adresses IP autorisées 
 
 Cet article vous montre comment créer un cluster AKS à l’aide d’Azure CLI.
 
-La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ### <a name="limitations"></a>Limites
 
@@ -31,9 +31,9 @@ La fonctionnalité des plages d’adresses IP autorisées par le serveur d’AP
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Vue d’ensemble des plages d’adresses IP pour le serveur d’API
 
-Le serveur d’API Kubernetes détermine la façon dont les API Kubernetes sous-jacentes sont exposées. Ce composant fournit l’interaction des outils de gestion, tels que `kubectl` ou le tableau de bord Kubernetes. AKS fournit un plan de contrôle de cluster monolocataire doté d’un serveur d’API dédié. Par défaut, le serveur d’API reçoit une adresse IP publique et vous devez contrôler l’accès à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+Le serveur d’API Kubernetes détermine la façon dont les API Kubernetes sous-jacentes sont exposées. Ce composant fournit l’interaction des outils de gestion, tels que `kubectl` ou le tableau de bord Kubernetes. AKS fournit un plan de contrôle de cluster monolocataire doté d’un serveur d’API dédié. Par défaut, le serveur d’API reçoit une IP publique et vous devez contrôler l’accès à l’aide du contrôle d’accès en fonction du rôle Kubernetes (Kubernetes RBAC) ou d’Azure RBAC.
 
-Pour sécuriser l’accès au plan de contrôle AKS/serveur d’API, normalement accessible, vous pouvez activer et utiliser des plages d’adresses IP autorisées. Ces plages d’adresses IP autorisées autorisent uniquement les plages d’adresses IP définies à communiquer avec le serveur d’API. Une requête adressée au serveur API depuis une adresse IP qui ne fait pas partie de ces plages d’adresses IP autorisées est bloquée. Continuez à utiliser RBAC pour autoriser des utilisateurs et les actions qu’ils demandent.
+Pour sécuriser l’accès au plan de contrôle AKS/serveur d’API, normalement accessible, vous pouvez activer et utiliser des plages d’adresses IP autorisées. Ces plages d’adresses IP autorisées autorisent uniquement les plages d’adresses IP définies à communiquer avec le serveur d’API. Une requête adressée au serveur API depuis une adresse IP qui ne fait pas partie de ces plages d’adresses IP autorisées est bloquée. Continuez à utiliser Kubernetes RBAC ou Azure RBAC pour autoriser des utilisateurs et les actions qu’ils demandent.
 
 Pour plus d’informations sur le serveur d’API et les autres composants de cluster, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 

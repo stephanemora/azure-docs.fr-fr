@@ -3,12 +3,12 @@ title: Restaurer des partages de fichiers Azure avec l'interface de ligne de com
 description: Découvrir comment utiliser l'interface de ligne de commande Azure pour restaurer des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: be744fdb79f442eaf0ef632952d9c0b9e709d908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325009"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562319"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurer des partages de fichiers Azure avec l'interface de ligne de commande Azure
 
@@ -23,20 +23,20 @@ L’interface de ligne de commande Azure permet de gérer les ressources Azure. 
 >[!NOTE]
 > Sauvegarde Azure prend désormais en charge la restauration de plusieurs fichiers ou dossiers vers l’emplacement d’origine ou un autre emplacement à l’aide d’Azure CLI. Pour en savoir plus, reportez-vous à la section [Restaurer plusieurs fichiers ou dossiers à l’emplacement d’origine ou à un autre emplacement](#restore-multiple-files-or-folders-to-original-or-alternate-location) de ce document.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà d’un partage de fichiers Azure sauvegardé par Sauvegarde Azure. Si ce n'est pas le cas, consultez [Sauvegarder des partages de fichiers Azure avec l’interface de ligne de commande](backup-afs-cli.md) afin de configurer la sauvegarde pour vos partages de fichiers. Pour cet article, vous allez utiliser les ressources suivantes :
 
-| Partage de fichiers  | Compte de stockage | Région | Détails                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *azurefiles*  | *afsaccount*      | USAEst | Source d’origine sauvegardée à l’aide de Sauvegarde Azure                 |
-| *azurefiles1* | *afaccount1*      | USAEst | Source de destination utilisée pour la récupération à un autre emplacement |
+| Partage de fichiers | Compte de stockage | Région | Détails |
+|---|---|---|---|
+| *azurefiles* | *afsaccount* | USAEst | Source d’origine sauvegardée à l’aide de Sauvegarde Azure |
+| *azurefiles1* | *afaccount1* | USAEst | Source de destination utilisée pour la récupération à un autre emplacement |
 
 Vous pouvez utiliser une structure similaire pour vos partages de fichiers afin de tester les différents types de restauration expliqués dans cet article.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+ - Ce tutoriel nécessite Azure CLI version 2.0.18 ou ultérieure. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Extraire des points de récupération pour le partage de fichiers Azure
 

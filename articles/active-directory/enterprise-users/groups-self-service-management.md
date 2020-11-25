@@ -4,7 +4,7 @@ description: Créer et gérer des groupes de sécurité ou Microsoft 365 dans A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6425809cfa6dde20b8ef2b1f6d4cfaf04cbef6e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647084"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurer la gestion de groupes en libre-service dans Azure Active Directory 
 
@@ -44,15 +44,15 @@ Groupes créés dans | Comportement par défaut des groupes de sécurité | Comp
 ## <a name="make-a-group-available-for-user-self-service"></a>Mettre un groupe à disposition en libre-service pour un utilisateur
 
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-1. Sélectionnez **Groupes** , puis les paramètres **Généraux** .
-1. Définissez **Les propriétaires peuvent gérer les demandes d'appartenance au groupe dans le panneau d'accès** sur **Oui** .
-1. Définissez **Restreindre l'accès aux groupes dans le panneau d'accès** sur **Non** .
+1. Sélectionnez **Groupes**, puis les paramètres **Généraux**.
+1. Définissez **Les propriétaires peuvent gérer les demandes d'appartenance au groupe dans le panneau d'accès** sur **Oui**.
+1. Définissez **Restreindre l'accès aux groupes dans le panneau d'accès** sur **Non**.
 1. Si vous définissez **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure** ou **Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure** sur
 
-    - **Oui**  : Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes
-    - **Non**  : Les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes.
+    - **Oui** : Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes
+    - **Non** : Les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes.
 
-Vous pouvez également utiliser **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans les portails Azure** et **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans les portails Azure** pour un contrôle d’accès plus granulaire en termes de gestion de groupes en libre-service pour vos utilisateurs.
+Vous pouvez également utiliser **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans le portail Azure** pour un contrôle d’accès plus granulaire en termes de gestion de groupes en libre-service pour vos utilisateurs.
 
 Lorsque tous les utilisateurs peuvent créer des groupes, tous les utilisateurs de votre organisation sont autorisés à créer des groupes, puis à ajouter, comme le propriétaire par défaut, des membres à ces groupes. Vous ne pouvez pas spécifier les personnes qui peuvent créer leurs propres groupes. Vous ne pouvez spécifier une personne du groupe que si vous la promouvez propriétaire celui-ci.
 

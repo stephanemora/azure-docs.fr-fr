@@ -3,12 +3,12 @@ title: Déployer Traffic Manager pour équilibrer les charges de travail de la s
 description: Découvrez comment intégrer Traffic Manager avec la solution VMware Azure (AVS) pour équilibrer les charges de travail d’application sur plusieurs points de terminaison dans différentes régions.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579152"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593116"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Déployer Traffic Manager pour équilibrer les charges de travail de la solution VMware Azure (AVS)
 
@@ -30,7 +30,7 @@ Comme le montre l’illustration suivante, Azure Traffic Manager fournit un équ
 
 La connexion sur le réseau virtuel entre les deux régions de cloud privé AVS, USA Ouest et Europe Ouest, et un serveur local dans la région USA Est, utilise une passerelle ExpressRoute.   
 
-![Intégration de Traffic Manager avec AVS](media/traffic-manager/traffic-manager-topology.png)
+![Diagramme de l’architecture de l’intégration de Traffic Manager à Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
  
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,15 +55,15 @@ Les étapes suivantes vérifient la configuration correcte de vos passerelles d�
     - AVS-GW-EUS (locale)
     - AVS-GW-UEO
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Liste de passerelles d’application." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Capture d’écran de la page de la passerelle applicative montrant la liste des passerelles applicatives configurées." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Sélectionnez l’une des passerelles d’application précédemment déployées. Une fenêtre s’ouvre, qui affiche diverses informations sur la passerelle applicative. Sélectionnez **Pools principaux** pour vérifier la configuration de l’un des pools principaux.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Liste de passerelles d’application." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Capture d’écran de la page de passerelle applicative montrant les détails de la passerelle applicative sélectionnée." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. Dans ce cas, nous voyons un membre du pool principal de machines virtuelles configuré en tant que serveur web avec l’adresse IP 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Liste de passerelles d’application.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Capture d’écran de la page Modifier le pool principal avec l’adresse IP cible mise en surbrillance.":::
 
     Vous pouvez également vérifier la configuration des autres passerelles d’application et des membres du pool principal. 
 
@@ -75,15 +75,15 @@ Dans notre scénario, un segment NSX-T est configuré dans l’environnement AVS
 
 1. Sélectionnez **Segments** pour afficher vos segments configurés. Dans ce cas, nous voyons que le segment Contoso-segment1 est connecté à la passerelle Contoso-T01, un routeur flexible de niveau 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Liste de passerelles d’application.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Capture d’écran montrant des profils de segment dans NSX-T Manager.":::    
 
 2. Sélectionnez **Passerelles de niveau 1** pour afficher la liste de vos passerelles de niveau 1 avec le nombre de segments liés. Sélectionnez le segment lié à Contoso-T01. Une fenêtre s’ouvre, qui affiche l’interface logique configurée sur le routeur de niveau 01. Celui-ci sert de passerelle vers la machine virtuelle du membre du pool principal connecté au segment.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Liste de passerelles d’application.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Capture d’écran montrant l’adresse de la passerelle du segment sélectionné.":::    
 
 3. Dans le client vSphere de machine virtuelle, sélectionnez la machine virtuelle pour afficher ses détails. Notez que son adresse IP correspond à ce que nous avons vu à l’étape 3 de la section précédente : 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Liste de passerelles d’application.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Capture d’écran montrant les détails de la machine virtuelle dans le client VSphere.":::    
 
 4. Sélectionnez la machine virtuelle, puis cliquez sur **ACTIONS > Modifier les paramètres** pour vérifier la connexion au segment NSX-T.
 
@@ -99,29 +99,23 @@ Dans notre scénario, un segment NSX-T est configuré dans l’environnement AVS
 
 1. Sélectionnez le profil Traffic Manager dans le volet des résultats de la recherche, sélectionnez **Points de terminaison** puis **+ Ajouter**.
 
-2. Entrez les informations requises : Type, nom, nom de domaine complet (FQDN) ou IP, et poids (dans ce scénario, nous affectons un poids de 1 à chaque point de terminaison). Sélectionnez **Ajouter**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Liste de passerelles d’application.":::  
- 
-   Cela crée le point de terminaison externe. L’état d’analyse doit être **En ligne**. 
-
-   Répétez les mêmes étapes pour créer deux autres points de terminaison externes, l’un dans une autre région et l’autre local. Une fois créés, les trois point de terminaison s’affichent dans le profil Traffic Manager, et leur état doit être **En ligne**.
+2. Entrez les informations requises : Type, nom, nom de domaine complet (FQDN) ou IP, et poids (dans ce scénario, nous affectons un poids de 1 à chaque point de terminaison). Sélectionnez **Ajouter**. Cela crée le point de terminaison externe. L’état d’analyse doit être **En ligne**. Répétez les mêmes étapes pour créer deux autres points de terminaison externes, l’un dans une autre région et l’autre local. Une fois créés, les trois point de terminaison s’affichent dans le profil Traffic Manager, et leur état doit être **En ligne**.
 
 3. Sélectionnez **Vue d’ensemble**. Copiez l’URL sous **Nom du DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Liste de passerelles d’application."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Capture d’écran montrant une vue d’ensemble de point de terminaison Traffic Manager avec le nom DNS mis en surbrillance."::: 
 
 4. Collez l’URL du nom DNS dans un navigateur. La capture d’écran suivante montre le trafic dirigé vers la région Europe Ouest.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Liste de passerelles d’application."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Capture d’écran de la fenêtre du navigateur montrant le trafic acheminé vers la région Europe Ouest."::: 
 
 5. Actualisez votre navigateur. La capture d’écran suivante présente le trafic désormais dirigé vers un autre ensemble de membres du pool principal dans la région USA Ouest.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Liste de passerelles d’application."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Capture d’écran de la fenêtre du navigateur montrant le trafic acheminé vers la région USA Ouest."::: 
 
 6. Réactualisez votre navigateur. La capture d’écran suivante présente le trafic désormais dirigé vers l’ensemble final de membres du pool principal local.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Liste de passerelles d’application.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Capture d’écran de la fenêtre du navigateur montrant le trafic acheminé vers une région locale.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233931"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887533"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Bien démarrer avec l’exemple de bannière d’appel de groupe
 
@@ -28,13 +28,13 @@ ms.locfileid: "93233931"
 > [!IMPORTANT]
 > [Cet exemple est disponible sur GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
-L’ **exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
+L’**exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’ **application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
 
 Voici à quoi ressemble l’exemple :
 
@@ -50,9 +50,9 @@ Une fois que vous avez configuré votre nom d’affichage et vos appareils, vous
 
 Composants de l’écran principal d’appel :
 
-1. **Galerie multimédia**  : scène principale montrant les participants. Si une caméra est activée pour un participant, son flux vidéo est affiché ici. Chaque participant a une vignette individuelle qui comporte son nom d’affichage et son flux vidéo (le cas échéant).
-2. **En-tête** : il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
-3. **Barre latérale**  : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
+1. **Galerie multimédia** : scène principale montrant les participants. Si une caméra est activée pour un participant, son flux vidéo est affiché ici. Chaque participant a une vignette individuelle qui comporte son nom d’affichage et son flux vidéo (le cas échéant).
+2. **En-tête**: il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
+3. **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -116,4 +116,4 @@ Pour plus d’informations, consultez les articles suivants :
 - [Redux](https://redux.js.org/) - Gestion de l’état côté client
 - [FluentUI](https://aka.ms/fluent-ui) - Bibliothèque d’interface utilisateur, Technologie Microsoft
 - [React](https://reactjs.org/) - Bibliothèque pour la création d’interfaces utilisateur
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework pour la création d’applications web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework pour la création d’applications web

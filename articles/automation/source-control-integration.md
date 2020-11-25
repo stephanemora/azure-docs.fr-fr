@@ -3,20 +3,20 @@ title: Utiliser une intégration du contrôle de code source dans Azure Automati
 description: Cet article explique comment synchroniser le contrôle de code source d’Azure Automation avec d’autres référentiels.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229616"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579451"
 ---
 # <a name="use-source-control-integration"></a>Utiliser l’intégration du contrôle de code source
 
  L’intégration du contrôle de code source à Azure Automation vous permet d’effectuer des synchronisations unidirectionnelles à partir de votre dépôt de contrôle de code source. Avec le contrôle de code source, vous avez la garantie que les runbooks de votre compte Automation sont à jour par rapport aux scripts de votre dépôt de contrôle de code source GitHub ou Azure Repos. Cette fonctionnalité simplifie la promotion du code qui a été testé dans votre environnement de développement dans votre compte Automation de production.
- 
- L’intégration du contrôle de code source vous permet de facilement collaborer avec votre équipe, suivre les modifications et restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches dans le contrôle de code source avec vos comptes Automation de développement, de test et de production. 
+
+ L’intégration du contrôle de code source vous permet de facilement collaborer avec votre équipe, suivre les modifications et restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches dans le contrôle de code source avec vos comptes Automation de développement, de test et de production.
 
 ## <a name="source-control-types"></a>Types de contrôle de code source
 
@@ -47,11 +47,11 @@ Utilisez cette procédure pour configurer le contrôle de code source à l’aid
 
     ![Sélection du contrôle de code source](./media/source-control-integration/select-source-control.png)
 
-2. Choisissez **Type de contrôle de code source**, puis cliquez sur **Authentifier**. 
+2. Choisissez **Type de contrôle de code source**, puis cliquez sur **Authentifier**.
 
 3. Une fenêtre de navigateur s’ouvre et vous invite à vous connecter. Suivez les invites pour effectuer l’authentification.
 
-4. Dans la page Récapitulatif du contrôle de code source, utilisez les champs pour renseigner les propriétés du contrôle de code source définies ci-dessous. Lorsque vous avez terminé, cliquez sur **Enregistrer**. 
+4. Dans la page Récapitulatif du contrôle de code source, utilisez les champs pour renseigner les propriétés du contrôle de code source définies ci-dessous. Lorsque vous avez terminé, cliquez sur **Enregistrer**.
 
     |Propriété  |Description  |
     |---------|---------|
@@ -73,9 +73,9 @@ Utilisez cette procédure pour configurer le contrôle de code source à l’aid
 
 ### <a name="configure-source-control-in-powershell"></a>Configurer le contrôle de code source dans PowerShell
 
-Vous pouvez également utiliser PowerShell pour configurer le contrôle de code source dans Azure Automation. Pour utiliser des applets de commande PowerShell pour cette opération, vous avez besoin d’un jeton d’accès personnel (PAT). Pour créer la connexion de contrôle de code source, utilisez l’applet de commande [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0). Cette applet de commande exige une chaîne sécurisée pour le PAT. Pour savoir comment créer une chaîne sécurisée, consultez [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Vous pouvez également utiliser PowerShell pour configurer le contrôle de code source dans Azure Automation. Pour utiliser des applets de commande PowerShell pour cette opération, vous avez besoin d’un jeton d’accès personnel (PAT). Pour créer la connexion de contrôle de code source, utilisez l’applet de commande [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol). Cette applet de commande exige une chaîne sécurisée pour le PAT. Pour savoir comment créer une chaîne sécurisée, consultez [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-Les sous-sections suivantes illustrent la création par PowerShell de la connexion de contrôle de code source pour GitHub, Azure Repos (Git) et Azure Repos (TFVC). 
+Les sous-sections suivantes illustrent la création par PowerShell de la connexion de contrôle de code source pour GitHub, Azure Repos (Git) et Azure Repos (TFVC).
 
 #### <a name="create-source-control-connection-for-github"></a>Créer une connexion de contrôle de code source pour GitHub
 
@@ -116,13 +116,15 @@ Le tableau suivant définit les autorisations PAT minimales nécessaires pour Gi
 |`repo:status`     | État de la validation d’accès         |
 |`repo_deployment`      | État du déploiement d’accès         |
 |`public_repo`     | Référentiels publics d’accès         |
+|`repo:invite` | Invitations au référentiel d’accès |
+|`security_events` | Lire et écrire des événements de sécurité |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Écrire des hooks de référentiel         |
 |`read:repo_hook`|Lire des hooks de référentiel|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Autorisations PAT minimales pour Azure Repos
 
-La liste suivante définit les autorisations PAT minimales nécessaires pour Azure Repos. Pour plus d’informations sur la création d’un PAT dans Azure Repos, consultez [Authentifier l’accès à l’aide de jetons d’accès personnels](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+La liste suivante définit les autorisations PAT minimales nécessaires pour Azure Repos. Pour plus d’informations sur la création d’un PAT dans Azure Repos, consultez [Authentifier l’accès à l’aide de jetons d’accès personnels](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 | Étendue  |  Type d’accès  |
 |---------| ----------|
@@ -137,13 +139,13 @@ La liste suivante définit les autorisations PAT minimales nécessaires pour Azu
 
 ## <a name="synchronize-with-source-control"></a>Synchroniser avec le contrôle de code source
 
-Suivez ces étapes pour effectuer une synchronisation avec le contrôle de code source. 
+Suivez ces étapes pour effectuer une synchronisation avec le contrôle de code source.
 
-1. Sélectionnez la source dans le tableau de la page Contrôle de code source. 
+1. Sélectionnez la source dans le tableau de la page Contrôle de code source.
 
-2. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation. 
+2. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation.
 
-3. Visualisez l’état du travail de synchronisation actuel ou des travaux précédents en cliquant sur l’onglet **Travaux de synchronisation**. 
+3. Visualisez l’état du travail de synchronisation actuel ou des travaux précédents en cliquant sur l’onglet **Travaux de synchronisation**.
 
 4. Dans le menu déroulant **Contrôle de code source**, sélectionnez un mécanisme de contrôle de code source.
 
@@ -189,13 +191,13 @@ Pour vous déconnecter d’un dépôt de contrôle de code source :
 
 1. Ouvrez **Contrôle de code source** sous **Paramètres du compte** dans votre compte Automation.
 
-2. Sélectionnez le mécanisme de contrôle de code source à supprimer. 
+2. Sélectionnez le mécanisme de contrôle de code source à supprimer.
 
 3. Dans la page Récapitulatif du contrôle de code source, cliquez sur **Supprimer**.
 
 ## <a name="handle-encoding-issues"></a>Gérer les problèmes d’encodage
 
-Si plusieurs personnes modifient des runbooks dans votre dépôt de contrôle de code source à l’aide de différents éditeurs, des problèmes d’encodage peuvent se produire. Pour plus d’informations sur cette situation, consultez [Causes courantes des problèmes d’encodage](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Si plusieurs personnes modifient des runbooks dans votre dépôt de contrôle de code source à l’aide de différents éditeurs, des problèmes d’encodage peuvent se produire. Pour plus d’informations sur cette situation, consultez [Causes courantes des problèmes d’encodage](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Mettre à jour le jeton d’accès personnel (PAT, Personal Access Token)
 

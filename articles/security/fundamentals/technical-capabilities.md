@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409873"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696096"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -156,9 +156,9 @@ Les entreprises orientées sécurité doivent s’efforcer de donner aux employ�
 
 ![Accès des ressources sécurisées](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions. Par exemple, vous pouvez utiliser le RBAC pour permettre à un employé donné de gérer les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement.
+Avec Azure RBAC, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions. Par exemple, vous pouvez utiliser Azure RBAC pour permettre à un employé donné de gérer les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement.
 
-![Accès aux ressources sécurisées dans Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Accès aux ressources sécurisées à l’aide d’Azure RBAC](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Chiffrement et sécurité des données
 
@@ -394,7 +394,7 @@ Il analyse les éléments suivants :
 
 - **Consultations de pages et performances de chargement** : indiquées par le navigateur de vos utilisateurs.
 
-- **Appels AJAX à partir de pages web**  : taux, temps de réponse et taux d’échec.
+- **Appels AJAX à partir de pages web** : taux, temps de réponse et taux d’échec.
 
 - **Nombre de sessions et d’utilisateurs**.
 
@@ -404,7 +404,7 @@ Il analyse les éléments suivants :
 
 - **Journaux d’activité de suivi des diagnostics** de votre application : pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
 
-- **Mesures et événements personnalisés** , vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
+- **Mesures et événements personnalisés**, vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
 
 L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe.
 
@@ -422,7 +422,7 @@ Resource Manager offre plusieurs avantages :
 
 - Vous pouvez définir les dépendances entre les ressources, de façon à les déployer dans le bon ordre.
 
-- Vous pouvez appliquer le contrôle d’accès à tous les services dans votre groupe de ressources, car le contrôle d’accès en fonction du rôle (RBAC) est intégré en mode natif à la plateforme de gestion.
+- Vous pouvez appliquer le contrôle d’accès à tous les services dans votre groupe de ressources, car le contrôle d’accès en fonction du rôle Azure (Azure RBAC) est intégré en mode natif à la plateforme de gestion.
 
 - Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources de votre abonnement.
 

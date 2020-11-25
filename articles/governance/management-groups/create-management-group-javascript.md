@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec JavaScript'
 description: Dans ce démarrage rapide, vous allez utiliser JavaScript pour créer un groupe d’administration afin de hiérarchiser vos ressources.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676219"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886598"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Démarrage rapide : Créer un groupe d’administration avec JavaScript
 
@@ -71,7 +71,7 @@ Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnem
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName
@@ -90,7 +90,7 @@ Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnem
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Veillez à remplacer l’espace réservé `<>` de chaque jeton respectivement par votre _ID de groupe d’administration_ et votre _nom convivial de groupe d’administration_ .
+   Veillez à remplacer l’espace réservé `<>` de chaque jeton respectivement par votre _ID de groupe d’administration_ et votre _nom convivial de groupe d’administration_.
 
    Quand le script tente de s’authentifier, un message similaire au message suivant s’affiche dans le terminal :
 

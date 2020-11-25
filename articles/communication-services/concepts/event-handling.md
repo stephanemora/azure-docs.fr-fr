@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072116"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888723"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Gestion des événements dans Azure Communication Services
 
@@ -22,13 +22,13 @@ ms.locfileid: "92072116"
 
 Azure Communication Services s’intègre à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) pour fournir des notifications d’événements en temps réel de manière fiable, scalable et sécurisée. L’objectif de cet article est de vous aider à configurer vos applications pour être à l’écoute des événements Communication Services. Par exemple, vous pouvez mettre à jour une base de données, créer un élément de travail et envoyer une notification Push chaque fois qu’un SMS est reçu par un numéro de téléphone associé à votre ressource Communication Services.
 
-Azure Event Grid est un service de routage d’événement complètement managé qui utilise le modèle publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) et [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Il peut envoyer des alertes d’événement à des services non-Azure à l’aide de webhooks. Pour obtenir une liste complète des gestionnaires d’événements qui prennent en charge Event Grid, consultez [Présentation d’Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid est un service de routage d’événement complètement managé qui utilise le modèle publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](../../azure-functions/functions-overview.md) et [Azure Logic Apps](../../azure-functions/functions-overview.md). Il peut envoyer des alertes d’événement à des services non-Azure à l’aide de webhooks. Pour obtenir une liste complète des gestionnaires d’événements qui prennent en charge Event Grid, consultez [Présentation d’Azure Event Grid](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Schéma montrant le modèle d’événement d’Azure Event Grid.":::
 
 ## <a name="events-types"></a>Types d’événements
 
-Event Grid utilise les [abonnements aux événements](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. 
+Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.md#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. 
 
 Azure Communication Services émet les types d’événements suivants :
 
@@ -50,7 +50,7 @@ Vous pouvez utiliser le portail Azure ou Azure CLI pour vous abonner aux événe
 
 ## <a name="event-subjects"></a>Objets des événements
 
-Le champ `subject` de tous les événements Communication Services identifie l’utilisateur, le numéro de téléphone ou l’entité que l’événement cible. Les préfixes courants sont utilisés pour autoriser un [filtrage Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering) simple.
+Le champ `subject` de tous les événements Communication Services identifie l’utilisateur, le numéro de téléphone ou l’entité que l’événement cible. Les préfixes courants sont utilisés pour autoriser un [filtrage Event Grid](../../event-grid/event-filtering.md) simple.
 
 | Préfixe de l’objet                              | Entité du service de communication |
 | ------------------------------------------- | ---------------------------- |
@@ -351,6 +351,6 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
-* Pour obtenir une présentation des concepts d’Azure Event Grid, consultez [Concepts utilisés dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
-* Pour obtenir une présentation des rubriques système d’Azure Event Grid, consultez [Rubriques système dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/system-topics).
+* Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](../../event-grid/overview.md).
+* Pour obtenir une présentation des concepts d’Azure Event Grid, consultez [Concepts utilisés dans Azure Event Grid](../../event-grid/concepts.md).
+* Pour obtenir une présentation des rubriques système d’Azure Event Grid, consultez [Rubriques système dans Azure Event Grid](../../event-grid/system-topics.md).
