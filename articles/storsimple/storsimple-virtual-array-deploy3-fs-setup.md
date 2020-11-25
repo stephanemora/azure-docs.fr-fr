@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005926"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
 ![Diagramme montrant les étapes nécessaires au déploiement d’un tableau virtuel. La première partie de la troisième étape est intitulée « Configurer en tant que serveur de fichiers » et est mise en évidence.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977576"
 
 Cet article décrit comment effectuer la configuration initiale, inscrire votre serveur de fichiers StorSimple, finaliser la configuration de l’appareil, créer des partages SMB et s’y connecter. Il s’agit du dernier article de la série de didacticiels sur le déploiement nécessaires pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI.
 
-Le processus d’installation et de configuration peut prendre jusqu’à 10 minutes. Les informations fournies dans cet article s’appliquent uniquement au déploiement de la solution StorSimple Virtual Array. Pour le déploiement d'appareils StorSimple 8000, accédez à : [Déployer un appareil StorSimple 8000 exécutant Update 2](storsimple-deployment-walkthrough-u2.md).
+Le processus d’installation et de configuration peut prendre jusqu’à 10 minutes. Les informations fournies dans cet article s’appliquent uniquement au déploiement de la solution StorSimple Virtual Array. Pour le déploiement d'appareils StorSimple 8000, accédez à : [Déployer un appareil StorSimple 8000 exécutant Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Configuration requise
 Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
@@ -138,7 +138,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
    3. Une clé AES de 256 bits est utilisée avec la clé définie par l’utilisateur pour le chiffrement. Spécifiez une clé de 32 caractères, puis entrez de nouveau la clé pour la confirmer. Enregistrez la clé dans une application de gestion de clés à des fins de référence ultérieure.
     
-   4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Cliquez sur **Configurer les paramètres requis** pour spécifier les informations d’identification du compte de stockage à utiliser avec votre appareil. Si aucune information d’identification du compte de stockage n’est configurée, cliquez sur **Ajouter nouveau**. **Vérifiez que le compte de stockage que vous utilisez prend en charge les objets blob de blocs. Les objets blob de pages ne sont pas pris en charge.** En savoir plus sur [les objets blob de blocs et de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurer un serveur de fichiers 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Dans le panneau **Ajouter les informations d’identification d’un compte de stockage**, procédez comme suit : 
@@ -213,4 +213,3 @@ Vous devez à présent vous connecter aux partages que vous avez créés à l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

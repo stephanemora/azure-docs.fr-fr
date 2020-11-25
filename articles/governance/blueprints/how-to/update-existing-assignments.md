@@ -4,11 +4,11 @@ description: Découvrez le mécanisme de mise à jour d’une attribution de blu
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651374"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007186"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -32,11 +32,11 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 
 1. Dans la page de détails de l’affectation mise à jour, examinez le nouvel état. Dans cet exemple, nous avons ajouté **Verrouillage** à l’affectation.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Capture d’écran d’une affectation de blueprint mise à jour montrant le mode de verrouillage modifié." border="false":::
 
 1. Explorez les détails des autres **Opérations d’affectation** dans la liste déroulante. Le tableau **Ressources gérées** s’actualise en fonction de l’opération d’affectation sélectionnée.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Capture d’écran d’une affectation de blueprint mise à jour montrant les opérations d’affectation et leur état." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Règles de mise à jour des affectations
 

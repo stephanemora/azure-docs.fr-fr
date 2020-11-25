@@ -8,11 +8,11 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006504"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
@@ -32,7 +32,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | 8 | État du référencement (options de référencement) | <ul><li>Doit comporter l’un des types d’étiquette suivants : <ul><li>*Me contacter*</li><li>*Essai*/*Obtenir la version d’évaluation*/*Démarrer l’évaluation*/*Version d’évaluation*</li><li>*Acheter maintenant*/*Obtenir maintenant*</li></ul></ul> | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> | 
 | 9 | Tarification de la solution | Doit comporter un onglet/des informations détaillées sur la tarification de la solution, dans la devise locale de l’offre de solution du partenaire. | Des options de facturation multiples doivent être proposées au client avec une tarification par niveaux. |
 | 10 | En savoir plus | Les liens situés en bas (sous la description, différents des liens de la Place de marché Azure à gauche) pointent vers des informations supplémentaires sur la solution, sont disponibles publiquement et s’affichent correctement. |    Liens vers des éléments spécifiques (par exemple, pages de spécifications sur le site du partenaire) et pas seulement vers la page d’accueil du partenaire. | 
-| 11 | Support et aide de la solution | Dirigez le client vers au moins une des sources d’information suivantes : <ul><li>Numéros de téléphone</li><li>Support technique par e-mail</li><li>Agents de conversation</li><li>Forums de la communauté |<ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Une assistance payante est offerte gratuitement pendant la période d’ *essai* ou d’utilisation de la *version d’évaluation*. |
+| 11 | Support et aide de la solution | Dirigez le client vers au moins une des sources d’information suivantes : <ul><li>Numéros de téléphone</li><li>Support technique par e-mail</li><li>Agents de conversation</li><li>Forums de la communauté |<ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Une assistance payante est offerte gratuitement pendant la période d’*essai* ou d’utilisation de la *version d’évaluation*. |
 | 12 | Informations juridiques | Politiques ou conditions générales disponibles via une URL publique. |  |
 |||
 
@@ -40,7 +40,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 
 | Non. | Élément de liste | Condition requise de base | Condition requise optimale | 
 |:--- |:--- |:--- |:--- |
-|  | État du référencement (option de référencement) | Le lien doit donner accès à l’expérience d’ *essai gratuit* menée par le client. | D’autres options de référencement (par exemple, *Acheter maintenant* ) sont également disponibles. | 
+|  | État du référencement (option de référencement) | Le lien doit donner accès à l’expérience d’*essai gratuit* menée par le client. | D’autres options de référencement (par exemple, *Acheter maintenant*) sont également disponibles. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Configuration requise pour l'application SaaS
@@ -48,7 +48,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | Non. | Élément de liste | Condition requise de base | Condition requise optimale | 
 |:--- |:--- |:--- |:--- |
 | 1 | Titre de l’offre |<ul><li>Doit contenir uniquement des lettres minuscules, des caractères alphanumériques, des tirets ou des traits de soulignement. Le titre n’est plus modifiable après publication.</li><li>Décrit l’offre de la solution.</li><li>Correspond à la promotion en ligne de la solution sur le site web du partenaire. | Contient des mots de recherche clés. |
-| 2 | Informations techniques : Configuration |<ul><li>Pour une application SaaS (software as a service), indiquez si vous voulez simplement lister votre application ou si vous voulez permettre aux clients de l’acheter via Azure.</li><li>Sélectionnez le texte à afficher sur le bouton d’acquisition de votre offre : *Gratuit* , *Essai gratuit* ou *Me contacter*.</li><li>Dans la fenêtre contextuelle, sélectionnez seulement un produit éligible si votre application utilise la technologie : Cortana Intelligence, modèles de solution Power BI ou Power Apps. |  |
+| 2 | Informations techniques : Configuration |<ul><li>Pour une application SaaS (software as a service), indiquez si vous voulez simplement lister votre application ou si vous voulez permettre aux clients de l’acheter via Azure.</li><li>Sélectionnez le texte à afficher sur le bouton d’acquisition de votre offre : *Gratuit*, *Essai gratuit* ou *Me contacter*.</li><li>Dans la fenêtre contextuelle, sélectionnez seulement un produit éligible si votre application utilise la technologie : Cortana Intelligence, modèles de solution Power BI ou Power Apps. |  |
 | 3 | Test drive | Sélectionnez *Oui* ou *Non* | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> |
 | 4 | Détails du magasin en ligne : Résumé de l’offre | Apparaît dans la page de recherche de votre application et comporte un maximum de 100 caractères. | |
 | 5 | Détails du magasin en ligne : Secteurs d’activité | Secteurs d’activité (au plus 2) : sélectionnez les secteurs d’activité les mieux appropriés à votre application. | |
@@ -56,7 +56,7 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | 7 | Artefacts marketing | Les logos s’affichent correctement. | <ul><li>Logos : Petite taille (48 x 48 px, facultatif), taille moyenne (90 x 90 px, facultatif) et grande taille (de 216 x 216 à 350 x 350 px, obligatoire).</li><li>Capture d’écran (au plus 5) : Nécessite une image .PNG avec une résolution de 1280 x 720 pixels. |
 | 8 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Sélectionnez au moins un élément dans la fenêtre contextuelle.</li><li>Ne sélectionnez pas de catégories auxquelles la solution n’est pas adaptée.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | Bande passante 3 catégories sélectionnées, le cas échéant. |
 | 9 | Gestion des prospects | Sélectionnez le système dans lequel vos prospects seront stockés. Consultez [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) pour connecter votre système CRM. |  |
-| 10 | Contacts : Support et aide de la solution | <ul><li>Nom du contact d’ingénierie : nom du contact d’ingénierie pour votre application. Cette personne recevra des informations techniques de Microsoft.</li><li>Adresse e-mail du contact d’ingénierie : adresse de messagerie du contact d’ingénierie pour votre application.</li><li>Téléphone du contact d’ingénierie : numéro de téléphone du contact d’ingénierie. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>Nom du contact d’assistance : nom du contact d’assistance pour votre application. Cette personne recevra des informations de support de Microsoft.</li><li>Adresse e-mail du contact d’assistance : adresse de messagerie du contact d’assistance pour votre application.</li><li>Téléphone du contact d’assistance : numéro de téléphone du contact d’assistance. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>URL d’assistance : URL de votre page d’assistance. | <ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Assistance payante offerte gratuitement pendant la période d’ *essai* ou d’utilisation de la *version d’évaluation*. |
+| 10 | Contacts : Support et aide de la solution | <ul><li>Nom du contact d’ingénierie : nom du contact d’ingénierie pour votre application. Cette personne recevra des informations techniques de Microsoft.</li><li>Adresse e-mail du contact d’ingénierie : adresse de messagerie du contact d’ingénierie pour votre application.</li><li>Téléphone du contact d’ingénierie : numéro de téléphone du contact d’ingénierie. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>Nom du contact d’assistance : nom du contact d’assistance pour votre application. Cette personne recevra des informations de support de Microsoft.</li><li>Adresse e-mail du contact d’assistance : adresse de messagerie du contact d’assistance pour votre application.</li><li>Téléphone du contact d’assistance : numéro de téléphone du contact d’assistance. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>URL d’assistance : URL de votre page d’assistance. | <ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Assistance payante offerte gratuitement pendant la période d’*essai* ou d’utilisation de la *version d’évaluation*. |
 | 11 | Informations juridiques |<ul><li>URL de la politique de confidentialité : URL de la politique de confidentialité de votre application dans le champ correspondant du portail CPP.</li><li>Conditions d’utilisation : conditions d’utilisation de votre application. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. |    Politiques ou conditions générales disponibles via un site public. |
 |||
 

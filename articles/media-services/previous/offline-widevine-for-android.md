@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269588"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006357"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 
@@ -131,7 +131,7 @@ Les développeurs doivent référencer le [Guide du développeur ExoPlayer](http
 
 ### <a name="working-with-older-android-devices"></a>Utilisation des anciens appareils Android
 
-En ce qui concerne certains anciens appareils Android, vous devez définir des valeurs pour les propriétés **policy_overrides** suivantes (définies dans le [modèle de licence Widevine ](media-services-widevine-license-template-overview.md) : **rental_duration_seconds**, **playback_duration_seconds** et **license_duration_seconds**. Ou bien, vous pouvez les définir à zéro, ce qui signifie une durée illimitée/infinie.  
+En ce qui concerne certains anciens appareils Android, vous devez définir des valeurs pour les propriétés **policy_overrides** suivantes (définies dans le [modèle de licence Widevine](media-services-widevine-license-template-overview.md) : **rental_duration_seconds**, **playback_duration_seconds** et **license_duration_seconds**. Ou bien, vous pouvez les définir à zéro, ce qui signifie une durée illimitée/infinie.  
 
 Les valeurs doivent être définies pour éviter un bogue de dépassement de capacité d’entier. Pour en savoir plus sur le problème, consultez https://github.com/google/ExoPlayer/issues/3150 et https://github.com/google/ExoPlayer/issues/3112. <br/>Si vous ne définissez pas explicitement les valeurs, des valeurs très élevées pour **PlaybackDurationRemaining** et **LicenseDurationRemaining** seront affectées, (par exemple, 9223372036854775807, qui est la valeur positive maximale pour un entier de 64 bits). Par conséquent, la licence Widevine s’affiche comme expirée, le déchiffrement n’a donc pas lieu. 
 

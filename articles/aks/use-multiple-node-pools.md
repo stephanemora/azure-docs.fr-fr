@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900091"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006931"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est en cours de *mise à niveau* (état Upgrading) vers *KUBERNETES_VERSION*  :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est en cours de *mise à niveau* (état Upgrading) vers *KUBERNETES_VERSION* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Mettre à niveau un plan de contrôle de cluster avec plusieurs pools de nœuds
 
 > [!NOTE]
-> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z* , où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6* , 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et le pool de nœuds initial sont définis lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle.
+> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et le pool de nœuds initial sont définis lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle.
 
 Un cluster AKS possède deux objets de ressource de cluster avec des versions Kubernetes associées.
 
@@ -249,7 +249,7 @@ Lorsque vos exigences de charge de travail d’application changent, vous pouvez
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Pour mettre à l’échelle le nombre de nœuds dans un pool de nœuds, utilisez la commande [az aks node pool scale][az-aks-nodepool-scale]. L’exemple suivant met à l’échelle le nombre de nœuds dans *mynodepool* sur *5*  :
+Pour mettre à l’échelle le nombre de nœuds dans un pool de nœuds, utilisez la commande [az aks node pool scale][az-aks-nodepool-scale]. L’exemple suivant met à l’échelle le nombre de nœuds dans *mynodepool* sur *5* :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -260,7 +260,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* avec une nouvelle valeur de *5*  nœuds :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* avec une nouvelle valeur de *5* nœuds :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -355,7 +355,7 @@ Dans les exemples précédents de création d’un pool de nœuds, une taille de
 
 Dans l’exemple suivant, créez un pool de nœuds basé sur GPU qui utilise la taille de machine virtuelle *Standard_NC6*. Ces machines virtuelles sont alimentées par la carte NVIDIA Tesla K80. Pour obtenir des informations sur les tailles de machine virtuelle disponibles, consultez [Tailles des machines virtuelles Linux dans Azure][vm-sizes].
 
-Créez un pool de nœuds de nouveau à l’aide de la commande [az aks node pool add][az-aks-nodepool-add]. Cette fois, spécifiez le nom *gpunodepool* et utilisez le paramètre `--node-vm-size` pour spécifier la taille *Standard_NC6*  :
+Créez un pool de nœuds de nouveau à l’aide de la commande [az aks node pool add][az-aks-nodepool-add]. Cette fois, spécifiez le nom *gpunodepool* et utilisez le paramètre `--node-vm-size` pour spécifier la taille *Standard_NC6* :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *gpunodepool* crée ( *Creating* ) des nœuds avec la taille *VmSize* spécifiée :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *gpunodepool* crée (*Creating*) des nœuds avec la taille *VmSize* spécifiée :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -425,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Une teinte ne peut être définie pour un pool de nœuds que pendant la création de celui-ci.
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée ( *Creating* ) des nœuds avec les teintes ( *nodeTaints* ) spécifiées :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée (*Creating*) des nœuds avec les teintes (*nodeTaints*) spécifiées :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -489,7 +489,7 @@ Planifiez le pod à l’aide de la commande `kubectl apply -f nginx-toleration.y
 kubectl apply -f nginx-toleration.yaml
 ```
 
-Il faut quelques secondes pour planifier le pod et extraire l’image NGINX. Utilisez la commande [kubectl describe pod][kubectl-describe] pour voir l’état du pod. L’exemple de sortie condensée suivant montre que la tolérance *sku=gpu:NoSchedule* est appliquée. Dans la section des événements, le planificateur a affecté le pod au nœud *aks-taintnp-28993262-vmss000000*  :
+Il faut quelques secondes pour planifier le pod et extraire l’image NGINX. Utilisez la commande [kubectl describe pod][kubectl-describe] pour voir l’état du pod. L’exemple de sortie condensée suivant montre que la tolérance *sku=gpu:NoSchedule* est appliquée. Dans la section des événements, le planificateur a affecté le pod au nœud *aks-taintnp-28993262-vmss000000* :
 
 ```console
 kubectl describe pod mypod
@@ -531,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > L’intitulé d’un pool de nœuds ne peut être défini que pendant la création de celui-ci. Les intitulés doivent également constituer une paire clé/valeur et avoir une [syntaxe valide][kubernetes-label-syntax].
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *labelnp* crée ( *Creating* ) des nœuds avec les intitulés ( *nodeLabels* ) spécifiés :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *labelnp* crée (*Creating*) des nœuds avec les intitulés (*nodeLabels*) spécifiés :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -564,7 +564,7 @@ Les balises Azure ont des clés qui ne sont respectent pas la casse pour des op�
 
 Dans AKS, si plusieurs balises sont définies avec des clés identiques, mais une casse différente, la balise utilisée est la première dans l’ordre alphabétique. Par exemple, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` entraîne la définition de `Key1` et de `val1`.
 
-Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool* , et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
+Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -577,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Vous pouvez également utiliser le paramètre `--tags` lors de l'utilisation de la commande [az aks nodepool update][az-aks-nodepool-update] ainsi que lors de la création du cluster. Lors de la création du cluster, le paramètre `--tags` applique la balise au pool de nœuds initial créé avec le cluster. Tous les noms de balise doivent respecter les limites présentées dans l'article [Utiliser des balises pour organiser vos ressources Azure][tag-limitation]. La mise à jour d'un pool de nœuds à l'aide du paramètre `--tags` entraîne la mise à jour de toutes les valeurs de balise existantes et l'ajout de toutes les nouvelles balises. Par exemple, si vous remplacez les valeurs de balise *dept=IT* et *costcenter=9999* d'un pool de nœuds par *team=dev* et *costcenter=111* , les valeurs de balise du pool de nœuds seront les suivantes : *dept=IT* , *costcenter=111* et *team=dev*.
+> Vous pouvez également utiliser le paramètre `--tags` lors de l'utilisation de la commande [az aks nodepool update][az-aks-nodepool-update] ainsi que lors de la création du cluster. Lors de la création du cluster, le paramètre `--tags` applique la balise au pool de nœuds initial créé avec le cluster. Tous les noms de balise doivent respecter les limites présentées dans l'article [Utiliser des balises pour organiser vos ressources Azure][tag-limitation]. La mise à jour d'un pool de nœuds à l'aide du paramètre `--tags` entraîne la mise à jour de toutes les valeurs de balise existantes et l'ajout de toutes les nouvelles balises. Par exemple, si vous remplacez les valeurs de balise *dept=IT* et *costcenter=9999* d'un pool de nœuds par *team=dev* et *costcenter=111*, les valeurs de balise du pool de nœuds seront les suivantes : *dept=IT*, *costcenter=111* et *team=dev*.
 
-L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée ( *Creating* ) des nœuds avec la balise ( *tag* ) spécifiée :
+L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée (*Creating*) des nœuds avec la balise (*tag*) spécifiée :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -613,7 +613,7 @@ Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer de
 Créez un modèle tel que `aks-agentpools.json` et collez l’exemple de manifeste suivant. Cet exemple de modèle configure les paramètres suivants :
 
 * Met à jour le pool de nœuds *Linux* nommé *myagentpool* pour exécuter trois nœuds.
-* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version  *1.15.7*.
+* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version *1.15.7*.
 * Définit la taille de nœud en tant que *Standard_DS2_v2*.
 
 Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou supprimer des pools de nœuds :

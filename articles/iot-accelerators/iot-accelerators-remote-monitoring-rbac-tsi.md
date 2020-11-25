@@ -1,5 +1,5 @@
 ---
-title: Contrôle d’accès aux données pour la surveillance à distance - Azure | Microsoft Docs
+title: Contrôle d’accès aux données pour la surveillance à distance - Azure | Microsoft Docs
 description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès pour l’explorateur de données de télémétrie Time Series Insights dans l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: timlt
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65827198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005960"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurer des contrôles d’accès pour l’explorateur de données de télémétrie Time Series Insights
 

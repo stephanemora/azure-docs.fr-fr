@@ -3,12 +3,12 @@ title: Event Hub en tant que gestionnaire d’événements pour les événements
 description: Décrit comment utiliser des concentrateurs d’événements en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446fef6df65f59206519e282c74d59c2ed1bfa9d
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629622"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96005625"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Event Hubs** est l’un d’eux. 
@@ -23,17 +23,8 @@ Regardez les exemples suivants :
 | [Démarrage rapide : Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI](custom-event-to-eventhub.md) | Envoie un événement personnalisé à un hub d’événements afin qu’il soit traité par une application. |
 | [Modèle Resource Manager : Créer une rubrique personnalisée Event Grid et envoyer des événements à un concentrateur d’événements](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Modèle Resource Manager qui crée un abonnement pour une rubrique personnalisée. Il envoie les événements vers Azure Event Hubs. |
 
-## <a name="message-properties"></a>Propriétés de message
-Si vous utilisez un **Event Hub** en tant que gestionnaire d’événements pour des événements issus d’Event Grid, voici les propriétés que vous recevez dans les en-têtes des messages : 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nom de la propriété | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Nom de l’abonnement aux événements. |
-| aeg-delivery-count | <p>Nombre de tentatives effectuées pour l’événement.</p> <p>Exemple : "1"</p> |
-| aeg-event-type | <p>Type de l’événement.</p><p> Exemple : « Microsoft.Storage.blobCreated »</p> | 
-| aeg-metadata-version | <p>Version de métadonnées de l’événement.</p> <p>Exemple : "1".</p><p> Pour un **schéma d’événement Event Grid**, cette propriété représente la version des métadonnées et, pour un **schéma d’événements cloud**, elle représente la **version des spécifications**. </p>|
-| aeg-data-version | <p>Version de données de l’événement.</p><p>Exemple : "1".</p><p>Pour un **schéma d’événement Event Grid**, cette propriété représente la version des données et, pour un **schéma d’événements cloud**, elle ne s’applique pas.</p> |
-| aeg-output-event-id | ID de l’événement Event Grid. |
 
 ## <a name="rest-examples-for-put"></a>Exemples REST (pour PUT)
 

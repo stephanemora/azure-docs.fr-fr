@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358811"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006436"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutoriel : Configurer l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors
 L’objectif de ce tutoriel est d’illustrer les étapes de l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors Employee Central. 
@@ -109,7 +109,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Accorder le rôle d’autorisation au groupe d’autorisations
 
-1. Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Roles* , puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
+1. Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Roles*, puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
 1. Dans la liste **Permission Role List** (Liste des rôles d’autorisations), sélectionnez le rôle que vous avez créé pour les autorisations d’utilisation des API.
 1. Sous **Grant this role to...** (Attribuer ce rôle à), cliquez sur le bouton **Add...** (Ajouter).
 1. Sélectionnez **Permission Group...** (Groupe d’autorisations) dans le menu déroulant, puis cliquez sur **Select...** (Sélectionner) pour ouvrir la fenêtre Groups afin de rechercher et sélectionner le groupe créé ci-dessus. 
@@ -139,22 +139,22 @@ Dans SAP SuccessFactors, une *liste déroulante* est un ensemble configurable d�
    > [!div class="mx-imgBorder"]
    > ![Manage business configuration](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. Sous **Éléments HRIS** , sélectionnez **emailInfo** , puis cliquez sur *Détails* pour le champ **email-type**.
+1. Sous **Éléments HRIS**, sélectionnez **emailInfo**, puis cliquez sur *Détails* pour le champ **email-type**.
 
    > [!div class="mx-imgBorder"]
    > ![Get email info](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. Dans la page de détails d’ **email-type** , notez le nom de la liste déroulante associée à ce champ. Par défaut, il s’agit de **ecEmailType**. Toutefois, il peut être différent dans votre locataire. 
+1. Dans la page de détails d’**email-type**, notez le nom de la liste déroulante associée à ce champ. Par défaut, il s’agit de **ecEmailType**. Toutefois, il peut être différent dans votre locataire. 
 
    > [!div class="mx-imgBorder"]
    > ![Identify email picklist](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
 
-1. Sous **Éléments HRIS** , sélectionnez **phoneInfo** , puis cliquez sur *Détails* pour le champ **phone-type**.
+1. Sous **Éléments HRIS**, sélectionnez **phoneInfo**, puis cliquez sur *Détails* pour le champ **phone-type**.
 
    > [!div class="mx-imgBorder"]
    > ![Get phone info](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
 
-1. Dans la page de détails de **phone-type** , notez le nom de la liste déroulante associée à ce champ. Par défaut, il s’agit de **ecPhoneType**. Toutefois, il peut être différent dans votre locataire. 
+1. Dans la page de détails de **phone-type**, notez le nom de la liste déroulante associée à ce champ. Par défaut, il s’agit de **ecPhoneType**. Toutefois, il peut être différent dans votre locataire. 
 
    > [!div class="mx-imgBorder"]
    > ![Identify phone picklist](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
@@ -177,13 +177,13 @@ Dans SAP SuccessFactors, une *liste déroulante* est un ensemble configurable d�
    > [!div class="mx-imgBorder"]
    > ![Select business email type](./media/sap-successfactors-inbound-provisioning/select-business-email-type.png)
 
-1. Notez l’ **ID d’option** associé à l’e-mail *professionnel*. Il s’agit du code que nous allons utiliser avec *emailType* dans la table de mappage des attributs.
+1. Notez l’**ID d’option** associé à l’e-mail *professionnel*. Il s’agit du code que nous allons utiliser avec *emailType* dans la table de mappage des attributs.
 
    > [!div class="mx-imgBorder"]
    > ![Get email type code](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Le cas échéant, supprimez la virgule (ici, symbole de groupement de chiffres) lorsque vous copiez la valeur. Par exemple, si la valeur **ID d’option** est *8,448* , définissez *emailType* dans Azure AD sur le nombre constant *8448* (sans virgule). 
+   > Le cas échéant, supprimez la virgule (ici, symbole de groupement de chiffres) lorsque vous copiez la valeur. Par exemple, si la valeur **ID d’option** est *8,448*, définissez *emailType* dans Azure AD sur le nombre constant *8448* (sans virgule). 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Récupérer la valeur constante pour phoneType
 
@@ -203,18 +203,18 @@ Dans SAP SuccessFactors, une *liste déroulante* est un ensemble configurable d�
    > [!div class="mx-imgBorder"]
    > ![Review phone types](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
 
-1. Notez l’ **ID d’option** associé au numéro de téléphone *professionnel*. Il s’agit du code que nous allons utiliser avec *businessPhoneType* dans la table de mappage des attributs.
+1. Notez l’**ID d’option** associé au numéro de téléphone *professionnel*. Il s’agit du code que nous allons utiliser avec *businessPhoneType* dans la table de mappage des attributs.
 
    > [!div class="mx-imgBorder"]
    > ![Get business phone code](./media/sap-successfactors-inbound-provisioning/get-business-phone-code.png)
 
-1. Notez l’ **ID d’option** associé au numéro de téléphone *portable*. Il s’agit du code que nous allons utiliser avec *cellPhoneType* dans la table de mappage des attributs.
+1. Notez l’**ID d’option** associé au numéro de téléphone *portable*. Il s’agit du code que nous allons utiliser avec *cellPhoneType* dans la table de mappage des attributs.
 
    > [!div class="mx-imgBorder"]
    > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Le cas échéant, supprimez la virgule (ici, symbole de groupement de chiffres) lorsque vous copiez la valeur. Par exemple, si la valeur **ID d’option** est *10,606* , définissez *cellPhoneType* dans Azure AD sur le nombre constant *10606* (sans virgule). 
+   > Le cas échéant, supprimez la virgule (ici, symbole de groupement de chiffres) lorsque vous copiez la valeur. Par exemple, si la valeur **ID d’option** est *10,606*, définissez *cellPhoneType* dans Azure AD sur le nombre constant *10606* (sans virgule). 
 
 
 ## <a name="configuring-successfactors-writeback-app"></a>Configuration de l’application SuccessFactors Writeback
@@ -233,9 +233,9 @@ Cette section décrit les étapes à suivre pour
 
 2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
 
-3. Cliquez sur **Applications d’entreprise** , puis sur **Toutes les applications**.
+3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
 
-4. Sélectionnez **Ajouter une application** , puis sélectionnez la catégorie **Tous**.
+4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
 
 5. Recherchez **SuccessFactors Writeback** et ajoutez cette application à partir de la galerie.
 
@@ -243,19 +243,19 @@ Cette section décrit les étapes à suivre pour
 
 7. Définissez **Mode** **d'approvisionnement** sur **Automatique**
 
-8. Fermez la section **Informations d’identification de l’administrateur** , comme suit :
+8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
-   * **Nom de l’utilisateur administrateur**  : entrez le nom d’utilisateur du compte d’utilisateur de l’API SuccessFactors, accompagné de l’ID d’entreprise. Son format est le suivant : **nom_utilisateur\@ID_société**
+   * **Nom de l’utilisateur administrateur** : entrez le nom d’utilisateur du compte d’utilisateur de l’API SuccessFactors, accompagné de l’ID d’entreprise. Son format est le suivant : **nom_utilisateur\@ID_société**
 
-   * **Mot de passe d’administrateur**  : entrez le mot de passe du compte d’utilisateur de l’API SuccessFactors. 
+   * **Mot de passe d’administrateur** : entrez le mot de passe du compte d’utilisateur de l’API SuccessFactors. 
 
-   * **URL du locataire**  : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : `api4.successfactors.com`.
+   * **URL du locataire** : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : `api4.successfactors.com`.
 
    * **E-mail de notification :** entrez votre adresse e-mail et activez la case à cocher « Envoyer un e-mail en cas de défaillance ».
     > [!NOTE]
     > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).
 
-   * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer** , en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification et l’URL SuccessFactors sont valides.
+   * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification et l’URL SuccessFactors sont valides.
     >[!div class="mx-imgBorder"]
     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
@@ -265,15 +265,15 @@ Cette section décrit les étapes à suivre pour
 
 Dans cette section, vous allez configurer le flux des données utilisateur de SuccessFactors vers Active Directory.
 
-1. Dans l’onglet Approvisionnement, sous **Mappages** , cliquez sur **Approvisionner les utilisateurs d’Azure Active Directory**.
+1. Dans l’onglet Approvisionnement, sous **Mappages**, cliquez sur **Approvisionner les utilisateurs d’Azure Active Directory**.
 
-1. Dans le champ **Portée de l’objet source** , vous pouvez sélectionner les ensembles d’utilisateurs Azure AD qui doivent être pris en compte pour l’écriture différée, en définissant des filtres d’attributs. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
+1. Dans le champ **Portée de l’objet source**, vous pouvez sélectionner les ensembles d’utilisateurs Azure AD qui doivent être pris en compte pour l’écriture différée, en définissant des filtres d’attributs. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
    > [!TIP]
    > Lors de la configuration initiale de l'application d'approvisionnement, vous devez tester et vérifier vos mappages d'attributs et expressions pour être sûr d'obtenir le résultat souhaité. Microsoft vous recommande d’utiliser les filtres d’étendue disponibles sous **Portée de l’objet source** pour tester vos mappages avec quelques utilisateurs test d’Azure AD. Après avoir vérifié que les mappages fonctionnent, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
 1. Le champ **Actions d’objet cible** prend uniquement en charge l’opération **Mise à jour**.
 
-1. Dans la table mappage, sous la section **Mappages d’attributs** , vous pouvez mapper les attributs Azure Active Directory suivants à SuccessFactors. Le tableau ci-dessous fournit des conseils sur la façon de mapper les attributs d’écriture différée. 
+1. Dans la table mappage, sous la section **Mappages d’attributs**, vous pouvez mapper les attributs Azure Active Directory suivants à SuccessFactors. Le tableau ci-dessous fournit des conseils sur la façon de mapper les attributs d’écriture différée. 
 
    | \# | Attribut Azure AD | Attribut SuccessFactors | Notes |
    |--|--|--|--|
@@ -281,8 +281,8 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
    | 2 | mail | email | Mappez la source de l’attribut « email ». À des fins de test, vous pouvez mapper userPrincipalName à email. |
    | 3 | 8448 | emailType | Cette valeur constante est la valeur d’ID SuccessFactors associée à la messagerie professionnelle. Mettez à jour cette valeur pour qu’elle corresponde à votre environnement SuccessFactors. Consultez la section [Récupérer la valeur constante pour emailType](#retrieve-constant-value-for-emailtype) afin de connaître les étapes permettant de définir cette valeur. |
    | 4 | true | emailIsPrimary | Utilisez cet attribut pour définir la messagerie professionnelle comme messagerie principale dans SuccessFactors. Si la messagerie professionnelle n’est pas la messagerie principale, définissez cet indicateur sur « false ». |
-   | 5 | userPrincipalName | [custom01 – custom15] | En utilisant **Ajouter un nouveau mappage** , vous pouvez éventuellement écrire userPrincipalName ou tout autre attribut Azure AD dans un attribut personnalisé disponible dans l’objet Utilisateur SuccessFactors.  |
-   | 6 | on-prem-samAccountName | username | En utilisant **Ajouter un nouveau mappage** , vous pouvez éventuellement mapper l’attribut samAccountName local à l’attribut username de SuccessFactors. |
+   | 5 | userPrincipalName | [custom01 – custom15] | En utilisant **Ajouter un nouveau mappage**, vous pouvez éventuellement écrire userPrincipalName ou tout autre attribut Azure AD dans un attribut personnalisé disponible dans l’objet Utilisateur SuccessFactors.  |
+   | 6 | on-prem-samAccountName | username | En utilisant **Ajouter un nouveau mappage**, vous pouvez éventuellement mapper l’attribut samAccountName local à l’attribut username de SuccessFactors. |
    | 7 | SSO | loginMethod | Si le locataire SuccessFactors est configuré pour une [SSO partielle](https://apps.support.sap.com/sap/support/knowledge/en/2320766), en utilisant Ajouter un nouveau mappage, vous pouvez éventuellement définir loginMethod sur une valeur constante « SSO » ou « PWD ». |
    | 8 | telephoneNumber | businessPhoneNumber | Utilisez ce mappage pour transmettre l’attribut *telephoneNumber* d’Azure AD au numéro de téléphone professionnel SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Cette valeur constante est la valeur d’ID SuccessFactors associée au téléphone professionnel. Mettez à jour cette valeur pour qu’elle corresponde à votre environnement SuccessFactors. Consultez la section [Récupérer la valeur constante pour phoneType](#retrieve-constant-value-for-phonetype) afin de connaître les étapes permettant de définir cette valeur. |
@@ -308,7 +308,7 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
    > Si l’option **Modifier la liste des attributs de SuccessFactors** ne s’affiche pas dans le portail Azure, utilisez l’URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* pour accéder à la page. 
 
 1. La colonne **Expression d’API** de cette vue affiche les expressions de chemin JSON utilisées par le connecteur. 
-1. Mettez à jour les expressions de chemin JSON pour le téléphone professionnel et le téléphone portable afin d’utiliser la valeur d’ID ( *businessPhoneType* et *cellPhoneType* ) correspondant à votre environnement. 
+1. Mettez à jour les expressions de chemin JSON pour le téléphone professionnel et le téléphone portable afin d’utiliser la valeur d’ID (*businessPhoneType* et *cellPhoneType*) correspondant à votre environnement. 
 
     >[!div class="mx-imgBorder"]
     >![Phone JSON Path change](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -322,7 +322,7 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 > [!TIP]
 > Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d’erreur de mappage ou de problème lié aux données, le travail d’approvisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l'objet source** et de tester vos mappages d'attributs sur quelques utilisateurs test avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
-1. Dans l’onglet **Approvisionnement** , définissez **État d’approvisionnement** sur **Activé**.
+1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
 1. Sélectionnez **Étendue**. Vous pouvez sélectionner l’une des options suivantes : 
    * **Synchroniser l’ensemble des utilisateurs et groupes** : Sélectionnez cette option si vous envisagez de réécrire des attributs mappés de tous les utilisateurs d’Azure AD dans SuccessFactors, selon les règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**. 
@@ -340,7 +340,7 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 
 1. À tout moment, consultez l’onglet **Journaux d’approvisionnement** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’approvisionnement répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement. 
 
-1. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement** , comme illustré ci-dessous.
+1. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
 
    > [!div class="mx-imgBorder"]
    > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

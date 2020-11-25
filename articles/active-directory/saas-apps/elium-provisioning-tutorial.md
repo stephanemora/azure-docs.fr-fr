@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005501"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutoriel : Configurer Elium pour le provisionnement automatique d’utilisateurs
 
@@ -55,7 +55,7 @@ Avant de configurer Elium pour le provisionnement d’utilisateurs automatique a
 
     ![Élément de menu Paramètres dans Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. Dans le coin inférieur gauche, sous **AVANCÉ** , sélectionnez **Sécurité**.
+1. Dans le coin inférieur gauche, sous **AVANCÉ**, sélectionnez **Sécurité**.
 
     ![Lien Sécurité dans Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -71,7 +71,7 @@ Pour configurer Elium pour le provisionnement d’utilisateurs automatique avec 
 
     ![Élément de menu Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
      ![Panneau Applications d’entreprise Azure AD](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Pour configurer Elium pour le provisionnement d’utilisateurs automatique avec 
 
     ![Lien Nouvelle application](common/add-new-app.png)
 
-1. Dans la zone de recherche, tapez **Elium** , sélectionnez **Elium** dans la liste de résultats, puis **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Elium**, sélectionnez **Elium** dans la liste de résultats, puis **Ajouter** pour ajouter l’application.
 
     ![Zone de recherche Ajouter à partir de la galerie](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 Pour configurer le provisionnement d’utilisateurs automatique pour Elium dans Azure AD, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise Azure AD](common/enterprise-applications.png)
 
@@ -108,21 +108,21 @@ Pour configurer le provisionnement d’utilisateurs automatique pour Elium dans 
 
     ![Paramètre Automatique pour le mode de provisionnement](common/provisioning-automatic.png)
 
-1. Dans la section **Informations d’identification d’administrateur** , saisissez **\<tenantURL\>/scim/v2** dans le champ **URL de locataire**. (La valeur **tenantURL** est la valeur récupérée précédemment à partir de la console d’administration Elium.) Tapez également la valeur Elium **Jeton secret** dans le champ **Jeton secret**. Enfin, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Elium. Si la connexion échoue, vérifiez que votre compte Elium dispose d’autorisations d’administration, puis réessayez.
+1. Dans la section **Informations d’identification d’administrateur**, saisissez **\<tenantURL\>/scim/v2** dans le champ **URL de locataire**. (La valeur **tenantURL** est la valeur récupérée précédemment à partir de la console d’administration Elium.) Tapez également la valeur Elium **Jeton secret** dans le champ **Jeton secret**. Enfin, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Elium. Si la connexion échoue, vérifiez que votre compte Elium dispose d’autorisations d’administration, puis réessayez.
 
     ![Champs URL de locataire et Jeton secret dans Informations d’identification d’administrateur](common/provisioning-testconnection-tenanturltoken.png)
 
-1. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement. Cochez ensuite la case **Envoyer une notification par e-mail en cas de défaillance**.
+1. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement. Cochez ensuite la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 1. Cliquez sur **Enregistrer**.
 
-1. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Elium**.
+1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Elium**.
 
     ![Lien Synchroniser pour le mappage des utilisateurs Azure AD à Elium](media/Elium-provisioning-tutorial/usermapping.png)
 
-1. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Elium. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin d’établir une correspondance avec les comptes d’utilisateurs dans Elium pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
+1. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Elium. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin d’établir une correspondance avec les comptes d’utilisateurs dans Elium pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
     ![Mappages d’attributs entre Azure AD et Elium](media/Elium-provisioning-tutorial/userattribute.png)
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006215"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler One pour l'approvisionnement automatique d’utilisateurs
 
@@ -47,7 +47,7 @@ Pour ajouter Zscaler One à partir de la Place de marché, procédez comme suit.
 
     ![Icône Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -55,7 +55,7 @@ Pour ajouter Zscaler One à partir de la Place de marché, procédez comme suit.
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Zscaler One** , puis, dans le panneau des résultats, sélectionnez **Zscaler One**. Pour ajouter l’application, sélectionnez **Ajouter**.
+4. Dans la zone de recherche, entrez **Zscaler One**, puis, dans le panneau des résultats, sélectionnez **Zscaler One**. Pour ajouter l’application, sélectionnez **Ajouter**.
 
     ![Zscaler One dans la liste des résultats](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
     ![Mode d'approvisionnement de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
-5. Dans la section **Informations d’identification d’administrateur** , complétez les zones **URL de locataire** et **Jeton secret** avec les paramètres de votre compte Zscaler One, comme à l’étape 6.
+5. Dans la section **Informations d’identification d’administrateur**, complétez les zones **URL de locataire** et **Jeton secret** avec les paramètres de votre compte Zscaler One, comme à l’étape 6.
 
 6. Pour obtenir l'URL de locataire et le jeton secret, accédez à **Administration** > **Paramètres d'authentification** dans l'interface utilisateur du portail Zscaler One. Sous **Authentication Type** (Type d’authentification), sélectionnez **SAML**.
 
@@ -112,25 +112,25 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
     ![Tester la connexion Zscaler One](./media/zscaler-one-provisioning-tutorial/test-connection.png)
 
-8. Dans la zone **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe devant recevoir les notifications d’erreur d’approvisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans la zone **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe devant recevoir les notifications d’erreur d’approvisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification Zscaler One](./media/zscaler-one-provisioning-tutorial/notification.png)
 
 9. Sélectionnez **Enregistrer**.
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zscaler One**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zscaler One**.
 
     ![Synchronisation des utilisateurs Zscaler One](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Zscaler One. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler One dans le cadre des opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **Enregistrer**.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Zscaler One. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler One dans le cadre des opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **Enregistrer**.
 
     ![Zscaler One : mise en correspondance des attributs utilisateur](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
-12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Zscaler One**.
+12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Zscaler One**.
 
     ![Synchronisation des groupes Zscaler One](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
-13. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler One. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler One dans le cadre des opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **Enregistrer**.
+13. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler One. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler One dans le cadre des opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **Enregistrer**.
 
     ![Zscaler One : mise en correspondance des attributs de groupes](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
@@ -140,7 +140,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
     ![État de l'approvisionnement de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
-16. Définissez les utilisateurs ou groupes que vous souhaitez approvisionner dans Zscaler One. Dans la section **Paramètres** , sélectionnez les valeurs souhaitées sous **Étendue**.
+16. Définissez les utilisateurs ou groupes que vous souhaitez approvisionner dans Zscaler One. Dans la section **Paramètres**, sélectionnez les valeurs souhaitées sous **Étendue**.
 
     ![Étendue Zscaler One](./media/zscaler-one-provisioning-tutorial/scoping.png)
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005773"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour créer une demande de support pour le StorSimple Virtual Array
 
@@ -33,25 +33,25 @@ Selon votre [plan de support](https://azure.microsoft.com/support/plans/), vous 
 
 #### <a name="to-log-a-new-request"></a>Pour créer une demande de support
 
-1. Accédez à votre service StorSimple Device Manager. Dans les paramètres du panneau de synthèse du service, accédez à la section **SUPPORT + DÉPANNAGE** , puis cliquez sur **Nouvelle demande de support**.
+1. Accédez à votre service StorSimple Device Manager. Dans les paramètres du panneau de synthèse du service, accédez à la section **SUPPORT + DÉPANNAGE**, puis cliquez sur **Nouvelle demande de support**.
    
     ![La capture d’écran montre le volet Informations de base pour une nouvelle demande de support.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
-2. Dans le panneau **De base** , procédez comme suit :
+2. Dans le panneau **De base**, procédez comme suit :
 
-    1. Dans la liste déroulante **Type de problème** , sélectionnez **Technique**. 
+    1. Dans la liste déroulante **Type de problème**, sélectionnez **Technique**. 
     
-    2. L’ **abonnement** , le type de **service** et la **ressource** (service StorSimple Device Manager) actuels sont automatiquement sélectionnés. 
+    2. L’**abonnement**, le type de **service** et la **ressource** (service StorSimple Device Manager) actuels sont automatiquement sélectionnés. 
 
     3. Indiquez le nom des appareils inscrits auprès de votre service qui rencontrent des problèmes.
 
     4. Choisissez un **plan de support** si plusieurs plans sont associés à votre abonnement. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
 
-3. À l’ **étape 2** , choisissez la **gravité** et indiquez si le problème est lié à l’appareil ou au service StorSimple Device Manager. Choisissez également une **catégorie** pour le problème et fournissez des **détails** supplémentaires sur ce dernier.
+3. À l’**étape 2**, choisissez la **gravité** et indiquez si le problème est lié à l’appareil ou au service StorSimple Device Manager. Choisissez également une **catégorie** pour le problème et fournissez des **détails** supplémentaires sur ce dernier.
    
     ![La capture d’écran montre le volet Problème dans lequel vous pouvez entrer le type, la catégorie et les détails du problème pour votre demande de support.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. À l’ **étape 3** , fournissez vos informations de contact. Le Support Microsoft vous contactera à l’aide de ces informations pour approfondir le diagnostic et vous aider à résoudre le problème.
+4. À l’**étape 3**, fournissez vos informations de contact. Le Support Microsoft vous contactera à l’aide de ces informations pour approfondir le diagnostic et vous aider à résoudre le problème.
    
     ![La capture d’écran montre le volet Informations de contact.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 

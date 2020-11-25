@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005654"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Double chiffrement Azure HDInsight pour les données au repos
 
@@ -71,25 +71,25 @@ Pour les étapes spécifiques, voir [Créer une identité managée attribuée pa
 
 ### <a name="create-azure-key-vault"></a>Créer un Azure Key Vault
 
-Création d’un coffre de clés Pour les étapes spécifiques, voir [Créer un Azure Key Vault](../key-vault/secrets/quick-create-portal.md).
+Création d’un coffre de clés Pour les étapes spécifiques, voir [Créer un Azure Key Vault](../key-vault/general/quick-create-portal.md).
 
 HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre propre coffre de clés, vous pouvez importer vos clés dans Azure Key Vault. N’oubliez pas que la fonctionnalité **Suppression réversible** doit être activée pour le coffre de clés. Pour plus d’informations sur l’importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Créer une clé
 
-1. À partir de votre nouveau coffre de clés, accédez à **Paramètres** > **Clés** >  **+ Générer/importer** .
+1. À partir de votre nouveau coffre de clés, accédez à **Paramètres** > **Clés** >  **+ Générer/importer**.
 
     ![Générer une nouvelle clé dans Azure Key Vault](./media/disk-encryption/create-new-key.png "Générer une nouvelle clé dans Azure Key Vault")
 
-1. Fournissez un nom, puis sélectionnez **Créer** . Conservez le **Type de clé** par défaut **RSA** .
+1. Fournissez un nom, puis sélectionnez **Créer**. Conservez le **Type de clé** par défaut **RSA**.
 
     ![génère un nom de clé](./media/disk-encryption/create-key.png "Générer le nom de la clé")
 
-1. Lorsque vous revenez à la page **Clés** , sélectionnez la clé que vous avez créée.
+1. Lorsque vous revenez à la page **Clés**, sélectionnez la clé que vous avez créée.
 
     ![liste de clés de coffre de clés](./media/disk-encryption/key-vault-key-list.png)
 
-1. Sélectionnez la version pour ouvrir la page **Version de la clé** . Quand vous utilisez votre propre clé pour le chiffrement du cluster HDInsight, vous devez spécifier l’URI de la clé. Copiez l’ **identificateur de clé** et enregistrez-le quelque part jusqu’à la création du cluster.
+1. Sélectionnez la version pour ouvrir la page **Version de la clé**. Quand vous utilisez votre propre clé pour le chiffrement du cluster HDInsight, vous devez spécifier l’URI de la clé. Copiez l’**identificateur de clé** et enregistrez-le quelque part jusqu’à la création du cluster.
 
     ![obtenir l’identificateur de clé](./media/disk-encryption/get-key-identifier.png)
 
@@ -99,19 +99,19 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
     ![Créer une stratégie d’accès Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
-1. Dans la page **Ajouter une stratégie d’accès** , fournissez les informations suivantes :
+1. Dans la page **Ajouter une stratégie d’accès**, fournissez les informations suivantes :
 
     |Propriété |Description|
     |---|---|
-    |Autorisations de clé|Sélectionnez **Obtenir** , **Ne pas inclure la clé** et **Inclure la clé** .|
-    |Autorisations de secret|Sélectionnez **Obtenir** , **Définir** , puis **Supprimer** .|
+    |Autorisations de clé|Sélectionnez **Obtenir**, **Ne pas inclure la clé** et **Inclure la clé**.|
+    |Autorisations de secret|Sélectionnez **Obtenir**, **Définir**, puis **Supprimer**.|
     |Sélectionner le principal|Choisissez l’identité managée affectée par l’utilisateur que vous avez créée précédemment.|
 
     ![Définir Sélectionner le principal pour la stratégie d’accès Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Sélectionnez **Ajouter** .
+1. Sélectionnez **Ajouter**.
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
     ![Enregistrer une stratégie d’accès Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Vous êtes maintenant prêt à créer un cluster HDInsight. Les clés gérées p
 
 #### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Pendant la création du cluster, fournissez l’ **identificateur de clé** complet, incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
+Pendant la création du cluster, fournissez l’**identificateur de clé** complet, incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
 
 ![Créer un cluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -359,7 +359,7 @@ Dans certains scénarios, vous pouvez être amené à changer les clés de chiff
 
 #### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Pour assurer la rotation de la clé, vous avez besoin de l’URI de base du coffre de clés. Une fois que vous avez effectué cette opération, accédez à la section Propriétés du cluster HDInsight dans le portail, puis cliquez sur **Changer de clé** sous **URL de la clé de chiffrement de disque** . Entrez la nouvelle URL de clé et envoyez-la pour effectuer la rotation.
+Pour assurer la rotation de la clé, vous avez besoin de l’URI de base du coffre de clés. Une fois que vous avez effectué cette opération, accédez à la section Propriétés du cluster HDInsight dans le portail, puis cliquez sur **Changer de clé** sous **URL de la clé de chiffrement de disque**. Entrez la nouvelle URL de clé et envoyez-la pour effectuer la rotation.
 
 ![permutation de la clé de chiffrement de disque](./media/disk-encryption/change-key.png)
 

@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006727"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
@@ -34,7 +34,7 @@ Si vous avez créé une machine virtuelle Azure en suivant les instructions de l
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
-Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data** , vous devez :
+Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data**, vous devez :
 
 * **télécharger** les 24 fichiers [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 fichiers Trip et 12 fichiers Fare),
 * **décompresser** tous les fichiers en fichiers .csv, puis
@@ -147,7 +147,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Voici les descriptions des champs que vous devez renseigner et d’autres opérations de configuration :
 
-* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête «  *create database...*  » peut être omise.
+* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête « *create database...*  » peut être omise.
 * **\<table name\>**  : nom de la table que vous souhaitez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *\<table name\>* sans \<database name\>.
 * **\<field separator\>**  : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
 * **\<line separator\>**  : séparateur qui délimite les lignes dans le fichier de données.
