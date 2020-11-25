@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310305"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661016"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link (préversion)
 
@@ -25,7 +25,7 @@ Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELE
 Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues de pool SQL serverless sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. 
 
 > [!IMPORTANT]
-> Ce tutoriel utilise un conteneur avec un [schéma bien défini Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). L’expérience de requête qu’offre un pool SQL serverless pour un [schéma de fidélité optimale Azure Cosmos DB](#full-fidelity-schema) est un comportement temporaire qui sera modifié en fonction des commentaires sur la préversion. Ne vous fiez pas au schéma du jeu de résultats de la fonction `OPENROWSET` sans la clause `WITH` qui lit les données d’un conteneur avec un schéma de fidélité optimale, car l’expérience de requête pourrait être modifiée et alignée avec un schéma bien défini. Publiez vos commentaires sur le [Forum des commentaires Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), ou contactez l’[équipe produit Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) pour leur en faire part.
+> Ce tutoriel utilise un conteneur avec un [schéma bien défini Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). L’expérience de requête qu’offre le pool SQL serverless pour un [schéma de fidélité optimale Azure Cosmos DB](#full-fidelity-schema) est un comportement temporaire qui variera en fonction des commentaires sur la préversion. Ne vous fiez pas au schéma du jeu de résultats de la fonction `OPENROWSET` sans la clause `WITH` qui lit les données d’un conteneur avec un schéma de fidélité optimale, car l’expérience de requête pourrait être alignée et modifiée en fonction du schéma bien défini. Publiez vos commentaires sur le [Forum des commentaires Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), ou contactez l’[équipe produit Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) pour leur en faire part.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -42,7 +42,9 @@ OPENROWSET(
 La chaîne de connexion Azure Cosmos DB spécifie le nom du compte Azure Cosmos DB, le nom de la base de données, la clé principale du compte de base de données et un nom de région facultatif pour la fonction `OPENROWSET`. 
 
 > [!IMPORTANT]
-> Veillez à utiliser l’alias après `OPENROWSET`. Il existe un [problème connu](#known-issues) qui provoque un problème de connexion à un point de terminaison Synapse serverless SQL si vous ne spécifiez pas l’alias après la fonction `OPENROWSET`.
+> Assurez-vous que vous utilisez un classement de base de données UTF-8 (par exemple `Latin1_General_100_CI_AS_SC_UTF8`), car les valeurs de chaîne dans le magasin analytique Cosmos DB sont encodées sous forme de texte UTF-8.
+> Une incompatibilité entre l’encodage de texte dans le fichier et le classement peut entraîner des erreurs de conversion de texte inattendues.
+> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Le format de la chaîne de connexion est le suivant :
 ```sql
@@ -338,8 +340,8 @@ Dans cet exemple, le nombre de cas est stocké sous la forme de valeurs `int32`,
 
 ## <a name="known-issues"></a>Problèmes connus
 
-- L’alias **DOIT** être spécifié après la fonction `OPENROWSET` (par exemple, `OPENROWSET (...) AS function_alias`). L’omission de l’alias peut entraîner un problème de connexion, et le point de terminaison Synapse serverless SQL risque d’être temporairement indisponible. Ce problème sera résolu en novembre 2020.
 - L’expérience de requête qu’offre un pool SQL serverless pour un [schéma de fidélité optimale Azure Cosmos DB](#full-fidelity-schema) est un comportement temporaire qui sera modifié en fonction des commentaires sur la préversion. Ne vous fiez pas au schéma que la fonction `OPENROWSET` sans clause `WITH` fournit pendant la période de préversion publique, car l’expérience de requête pourrait être alignée avec un schéma bien défini en fonction des commentaires des clients. Contactez l’[équipe produit Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) pour lui faire part de vos commentaires.
+- Un pool SQL serverless ne retourne pas d’erreur de compilation si le classement de la colonne `OPENROSET` n’a pas d’encodage UTF-8. Vous pouvez facilement modifier le classement par défaut pour toutes les fonctions `OPENROWSET` en cours d’exécution dans la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Les erreurs possibles et les actions de résolution des problèmes sont répertoriées dans le tableau suivant :
 

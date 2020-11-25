@@ -13,16 +13,18 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d50a953c9593c9ae78889be336697686e59d965f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896512"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592734"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment écrire une application .NET Core qui obtient un jeton d’accès à l’aide de l’identité de l’application, puis qui appelle l’API Microsoft Graph pour afficher une [liste des utilisateurs](/graph/api/user-list) dans l’annuaire. Ce scénario est utile dans les situations où un travail sans périphérique de contrôle et sans assistance ou un service Windows doit s’exécuter avec une identité d’application au lieu d’une identité d’utilisateur. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application console .NET Core peut obtenir un jeton d’accès pour appeler l’API Microsoft Graph et afficher une [liste des utilisateurs](/graph/api/user-list) dans l’annuaire. L’exemple de code montre également comment un travail ou un service Windows peut s’exécuter avec l’identité d’une application, au lieu de l’identité d’un utilisateur. 
+
+Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +40,7 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
 > 1. Accédez au nouveau volet [Portail Azure - Inscriptions des applications](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
-> 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire** .
+> 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option n°2 : Inscrire et configurer manuellement vos application et exemple de code
@@ -50,14 +52,14 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 > 1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs en recherchant **Inscriptions d’applications** dans la barre de recherche du portail Azure.
-> 1. Sélectionnez **Nouvelle inscription** .
+> 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application.
-> 1. Dans la section **Nom** , entrez un nom d’application pertinent qui sera visible par les utilisateurs de l’application, par exemple `Daemon-console`, puis sélectionnez **Inscrire** pour créer l’application.
-> 1. Après l’inscription, sélectionnez le menu **Certificats et secrets** .
-> 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client** . Donnez-lui un nom et sélectionnez **Ajouter** . Copiez le secret dans un emplacement sûr. Vous devrez l’utiliser dans votre code, et il ne sera plus réaffiché dans le portail.
-> 1. À présent, sélectionnez le menu **Autorisations de l’API** , sélectionnez le bouton **+ Ajouter une autorisation** et sélectionnez **Microsoft Graph** .
-> 1. Sélectionnez **Autorisations de l’application** .
-> 1. Sous le nœud **Utilisateur** , sélectionnez **User.Read.All** , puis sélectionnez **Ajouter des autorisations**
+> 1. Dans la section **Nom**, entrez un nom d’application pertinent qui sera visible par les utilisateurs de l’application, par exemple `Daemon-console`, puis sélectionnez **Inscrire** pour créer l’application.
+> 1. Après l’inscription, sélectionnez le menu **Certificats et secrets**.
+> 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client**. Donnez-lui un nom et sélectionnez **Ajouter**. Copiez le secret dans un emplacement sûr. Vous devrez l’utiliser dans votre code, et il ne sera plus réaffiché dans le portail.
+> 1. À présent, sélectionnez le menu **Autorisations de l’API**, sélectionnez le bouton **+ Ajouter une autorisation** et sélectionnez **Microsoft Graph**.
+> 1. Sélectionnez **Autorisations de l’application**.
+> 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Télécharger et configurer votre application de démarrage rapide
@@ -90,7 +92,7 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 >
-> 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples** .
+> 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
 > 1. Ouvrez la solution dans Visual Studio - **1-Call-MSGraph\daemon-console.sln** (facultatif).
 > 1. Modifiez **appsettings.json** et remplacez les valeurs des champs `ClientId`, `Tenant` et `ClientSecret` par :
 >
@@ -100,13 +102,13 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
 >   Où :
->   - `Enter_the_Application_Id_Here` : est l’ **ID d’application (client)** pour l’application que vous avez inscrite.
->   - `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’ **ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+>   - `Enter_the_Application_Id_Here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
+>   - `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
 >   - `Enter_the_Client_Secret_Here` : remplacez cette valeur par le secret client créé à l’étape 1.
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Pour connaître les valeurs de l’ **ID d’application (client)** et de l’ **ID de l’annuaire (locataire)** , consultez la page **Vue d’ensemble** de l’application dans le Portail Azure. Pour générer une nouvelle clé, accédez à la page **Certificats et secrets** .
+> > Pour connaître les valeurs de l’**ID d’application (client)** et de l’**ID de l’annuaire (locataire)** , consultez la page **Vue d’ensemble** de l’application dans le Portail Azure. Pour générer une nouvelle clé, accédez à la page **Certificats et secrets**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Étape 3 : Consentement de l’administrateur
@@ -114,12 +116,12 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Étape 4 : Consentement de l’administrateur
 
-Si vous essayez d’exécuter l’application à ce stade, vous recevez l’erreur *HTTP 403 - Interdit*  : `Insufficient privileges to complete the operation`. Cette erreur se produit parce que le consentement de l’administrateur est obligatoire pour toute *autorisation d’application uniquement* . Autrement dit, un administrateur général de votre annuaire doit donner son consentement à votre application. Sélectionnez l’une des options ci-dessous en fonction de votre rôle :
+Si vous essayez d’exécuter l’application à ce stade, vous recevez l’erreur *HTTP 403 - Interdit* : `Insufficient privileges to complete the operation`. Cette erreur se produit parce que le consentement de l’administrateur est obligatoire pour toute *autorisation d’application uniquement*. Autrement dit, un administrateur général de votre annuaire doit donner son consentement à votre application. Sélectionnez l’une des options ci-dessous en fonction de votre rôle :
 
 ##### <a name="global-tenant-administrator"></a>Administrateur de locataires général
 
 > [!div renderon="docs"]
-> Si vous êtes administrateur de locataires général, dans le portail Azure, accédez à **Applications d’entreprise** , cliquez sur votre inscription d’application, puis choisissez **« Autorisations »** dans la section Sécurité du volet de navigation gauche. Cliquez sur le grand bouton intitulé **Accorder un consentement d’administrateur pour {nom du locataire}** (où {nom du locataire} est le nom de votre annuaire).
+> Si vous êtes administrateur de locataires général, dans le portail Azure, accédez à **Applications d’entreprise**, cliquez sur votre inscription d’application, puis choisissez **« Autorisations »** dans la section Sécurité du volet de navigation gauche. Cliquez sur le grand bouton intitulé **Accorder un consentement d’administrateur pour {nom du locataire}** (où {nom du locataire} est le nom de votre annuaire).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Si vous êtes administrateur général, accédez à la page **Autorisations de l’API** et sélectionnez **Accorder le consentement de l’administrateur pour Entrer_le_nom_du_locataire_ici**
@@ -136,8 +138,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Où :
->> * `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’ **ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` : est l’ **ID d’application (client)** pour l’application que vous avez inscrite.
+>> * `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
 
 > [!NOTE]
 > Vous pouvez recevoir l’erreur *« AADSTS50011 : aucune adresse de réponse n’est inscrite pour l’application »* après avoir accordé le consentement pour l’application à l’aide de l’URL précédente. La raison est que cette application et l’URL n’ont pas d’URI de redirection. Vous pouvez ignorer l’erreur.
@@ -199,7 +201,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | Où : | Description |
 > |---------|---------|
 > | `config.ClientSecret` | Est le secret client créé pour l’application dans le portail Azure. |
-> | `config.ClientId` | Est l’ **ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
+> | `config.ClientId` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
 > | `config.Authority`    | (Facultatif) Point de terminaison STS pour l’utilisateur à authentifier. Généralement `https://login.microsoftonline.com/{tenant}` pour un cloud public, où {tenant} est le nom ou l’ID de votre locataire.|
 
 Pour plus d’informations, consultez la [documentation de référence sur `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)

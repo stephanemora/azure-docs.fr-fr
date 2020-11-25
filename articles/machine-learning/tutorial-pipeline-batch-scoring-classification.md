@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Pipelines ML pour le scoring par lots'
 titleSuffix: Azure Machine Learning
-description: Dans ce tutoriel, vous créez un pipeline Machine Learning pour effectuer un scoring par lots sur un modèle de classification d’images. Azure Machine Learning vous permet de vous concentrer sur le Machine Learning, plutôt que sur l’infrastructure et l’automatisation.
+description: Dans ce tutoriel, vous créez un pipeline Machine Learning pour effectuer un scoring par lots. Concentrez-vous sur le machine learning plutôt que sur l’infrastructure et l’automatisation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309464"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629629"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots
 
@@ -84,9 +84,9 @@ Durant la création de pipelines, les objets `Dataset` sont utilisés pour lire 
 > [!Important]
 > L’exemple de scoring par lots de ce tutoriel utilise une seule étape de pipeline. Dans les cas d’usage qui comportent plusieurs étapes, le flux classique inclut les étapes suivantes :
 >
-> 1. Utilisez des objets `Dataset` en tant qu’ *entrées* pour extraire les données brutes, exécutez certaines transformations, puis effectuez la *sortie* d’un objet `PipelineData`.
+> 1. Utilisez des objets `Dataset` en tant qu’*entrées* pour extraire les données brutes, exécutez certaines transformations, puis effectuez la *sortie* d’un objet `PipelineData`.
 >
-> 2. Utilisez l’ *objet de sortie* `PipelineData` de l’étape précédente en tant qu’ *objet d’entrée*. Répétez cette opération pour les étapes suivantes.
+> 2. Utilisez l’*objet de sortie* `PipelineData` de l’étape précédente en tant qu’*objet d’entrée*. Répétez cette opération pour les étapes suivantes.
 
 Dans ce scénario, vous créez des objets `Dataset` qui correspondent aux répertoires de magasin de données pour les images d’entrée et les étiquettes de classification (valeurs de test y). Vous créez également un objet `PipelineData` pour les données de sortie du scoring par lots.
 
@@ -307,7 +307,7 @@ Une étape de pipeline est un objet qui encapsule tout ce dont vous avez besoin 
 
 Plusieurs classes héritent de la classe parente [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). Vous pouvez choisir des classes pour utiliser des frameworks ou des piles spécifiques afin de créer une étape. Dans cet exemple, vous utilisez la classe `ParallelRunStep` pour définir la logique de votre étape en utilisant un script Python personnalisé. Si un argument de votre script est une entrée ou une sortie de l’étape, il doit être défini *à la fois* dans le tableau `arguments`*ainsi que* dans le paramètre `input` ou `output`, respectivement. 
 
-Dans les scénarios qui comportent plusieurs étapes, une référence d’objet dans le tableau `outputs` devient disponible en tant qu’ *entrée* pour une étape de pipeline suivante.
+Dans les scénarios qui comportent plusieurs étapes, une référence d’objet dans le tableau `outputs` devient disponible en tant qu’*entrée* pour une étape de pipeline suivante.
 
 ```python
 from azureml.pipeline.steps import ParallelRunStep

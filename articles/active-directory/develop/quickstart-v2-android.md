@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: e8f60a3f39e770c1b09668a6d76e025b07ebbd6d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: e0f3cd034838d5a9ccb1a5ccdc2567933b2e1dd6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893507"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562200"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
-Ce guide de démarrage rapide utilise un exemple de code pour montrer comment une application Android peut utiliser la plateforme d’identité Microsoft pour établir une connexion à des comptes personnels, professionnels ou scolaires, puis obtenir un jeton d’accès et appeler l’API Microsoft Graph. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application Android peut connecter des utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph. 
+
+Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 Les applications doivent être représentées par un objet d’application dans Azure Active Directory afin que la plateforme d’identités Microsoft puisse fournir des jetons à votre application.
 

@@ -11,11 +11,11 @@ ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contentperfq2
 ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678127"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006147"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutoriel : Vérifier votre facture d’abonnement Azure
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un compte de facturation *Programme Microsoft Online Services* . Le compte est créé quand vous vous inscrivez à Azure par le biais du site web Azure. C’est par exemple le cas si vous disposez d’un compte avec des tarifs de paiement à l’utilisation ou si vous êtes un abonné Visual Studio.
+Vous devez disposer d’un compte de facturation *Programme Microsoft Online Services*. Le compte est créé quand vous vous inscrivez à Azure par le biais du site web Azure. C’est par exemple le cas si vous disposez d’un compte avec des tarifs de paiement à l’utilisation ou si vous êtes un abonné Visual Studio.
 
 Les factures pour les comptes gratuits Azure sont créées uniquement quand le montant du crédit mensuel est dépassé.
 
@@ -49,23 +49,23 @@ Vous devez être inscrit à Azure depuis plus de 30 jours. Azure vous facture �
 
 La première étape pour comparer l’utilisation et les coûts consiste à télécharger votre facture et vos fichiers d’utilisation. Le fichier CSV sur l’utilisation détaillée indique vos frais par période de facturation et l’utilisation quotidienne. Il n’inclut aucune information sur les taxes. Pour télécharger les fichiers, vous devez être administrateur de compte ou détenir le rôle de propriétaire.
 
-Dans le portail Azure, tapez *abonnements* dans la zone de recherche, puis cliquez sur **Abonnements** .
+Dans le portail Azure, tapez *abonnements* dans la zone de recherche, puis cliquez sur **Abonnements**.
 
 [![Accéder aux abonnements](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Dans la liste des abonnements, cliquez sur l’abonnement concerné.
 
-Sous **Facturation** , cliquez sur **Factures** .
+Sous **Facturation**, cliquez sur **Factures**.
 
 Dans la liste des factures, recherchez celle que vous souhaitez télécharger, puis cliquez sur le symbole de téléchargement. Vous devrez peut-être changer l’intervalle de temps pour voir les factures les plus anciennes. La génération du fichier de détails d’utilisation et de la facture peut prendre quelques minutes.
 
 ![Capture d’écran qui montre les périodes de facturation, l’option de téléchargement et le total des frais pour chaque période de facturation](./media/review-individual-bill/download-invoice.png)
 
-Dans la fenêtre Télécharger l’utilisation + les frais, cliquez sur **Télécharger le fichier csv** et **Télécharger la facture** .
+Dans la fenêtre Télécharger l’utilisation + les frais, cliquez sur **Télécharger le fichier csv** et **Télécharger la facture**.
 
 ![Capture d’écran qui montre la page Télécharger les données sur l’utilisation et la facturation](./media/review-individual-bill/usageandinvoice.png)
 
-Si la page indique **Non disponible** , il peut y avoir plusieurs raisons pour lesquelles vous ne voyez pas les détails d’utilisation ou une facture :
+Si la page indique **Non disponible**, il peut y avoir plusieurs raisons pour lesquelles vous ne voyez pas les détails d’utilisation ou une facture :
 
 - Cela fait moins de 30 jours que vous êtes inscrit à Azure.
 - Il n’y a pas d’utilisation pour la période de facturation.
@@ -77,7 +77,7 @@ Ensuite, passez en revue les frais. Votre facture affiche des valeurs pour les t
 
 ![Exemple de facture Azure](./media/review-individual-bill/invoice-usage-charge.png)
 
-Ouvrez le fichier d’utilisation CSV que vous avez téléchargé. À la fin du fichier, additionnez les valeurs de tous les éléments de la colonne *Cost* .
+Ouvrez le fichier d’utilisation CSV que vous avez téléchargé. À la fin du fichier, additionnez les valeurs de tous les éléments de la colonne *Cost*.
 
 ![Exemple de fichier d’utilisation avec coût total](./media/review-individual-bill/usage-file-usage-charges.png)
 
@@ -98,7 +98,7 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
 |Tarif | EffectivePrice|
 | Valeur | Coût |
 
-La section **Frais d’utilisation** de votre facture affiche la valeur totale (coût) de chaque compteur consommé pendant la période de facturation. Par exemple, l’image suivante montre des frais d’utilisation pour le service Stockage Azure pour la ressource *P10 Disks* .
+La section **Frais d’utilisation** de votre facture affiche la valeur totale (coût) de chaque compteur consommé pendant la période de facturation. Par exemple, l’image suivante montre des frais d’utilisation pour le service Stockage Azure pour la ressource *P10 Disks*.
 
 ![Frais d’utilisation indiqués sur la facture](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -110,7 +110,7 @@ La valeur additionnée de *Cost* doit correspondre précisément au coût de *fr
 
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparer les frais et l’utilisation facturés dans l’analyse des coûts
 
-L’analyse des coûts dans le portail Azure peut également vous aider à vérifier vos frais. Pour obtenir un aperçu rapide de l’utilisation et des frais facturés, sélectionnez votre abonnement dans la page Abonnements du portail Azure. Ensuite, cliquez sur **Analyse des coûts** puis, dans la liste des vues, cliquez sur **Détails de la facture** .
+L’analyse des coûts dans le portail Azure peut également vous aider à vérifier vos frais. Pour obtenir un aperçu rapide de l’utilisation et des frais facturés, sélectionnez votre abonnement dans la page Abonnements du portail Azure. Ensuite, cliquez sur **Analyse des coûts** puis, dans la liste des vues, cliquez sur **Détails de la facture**.
 
 ![Exemple montrant la sélection des détails de la facture](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -157,7 +157,7 @@ Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre factu
 
 <a name="payment"></a>
 
-Si vous avez configuré une carte de crédit comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure** .
+Si vous avez configuré une carte de crédit comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure**.
 
 Pour changer la carte de crédit utilisée, consultez [Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure](../manage/change-credit-card.md).
 

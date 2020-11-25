@@ -4,14 +4,14 @@ description: Alerte à l’échelle à l’aide d’une règle d’alerte unique
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704478"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566501"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Surveiller plusieurs séries chronologiques dans une seule règle d’alerte de métrique
 
@@ -163,6 +163,7 @@ Pour cette règle d’alerte, six séries chronologiques de métriques sont surv
 1.  **Sélection de toutes les dimensions actuelles et futures** : vous pouvez choisir de surveiller toutes les valeurs possibles d’une dimension, y compris les valeurs futures. Une telle règle d’alerte est automatiquement mise à l’échelle pour analyser toutes les valeurs de la dimension sans que vous ayez besoin de modifier la règle d’alerte chaque fois qu’une valeur de dimension est ajoutée ou supprimée.
 2.  **Exclusion de dimensions** : la sélection de l’opérateur « ≠ » (exclure) pour une valeur de dimension équivaut à sélectionner toutes les autres valeurs de cette dimension, y compris les valeurs futures.
 3.  **Dimensions nouvelles et personnalisées** : les valeurs de dimension affichées dans le portail Azure sont basées sur les données de mesure collectées au cours des trois derniers jours. Si la valeur de dimension que vous recherchez n’est pas encore émise, vous pouvez ajouter une valeur de dimension personnalisée.
+4. **Correspondance des dimensions avec un préfixe** : vous pouvez choisir de surveiller toutes les valeurs de dimension qui commencent par un modèle spécifique, en sélectionnant l’opérateur « Commence par » et en entrant un préfixe personnalisé.
 
 ![Fonctionnalités avancées pour plusieurs dimensions](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

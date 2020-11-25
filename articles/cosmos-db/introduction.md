@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012df825f38d292d0b0549701ad90334e3e30bb0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088682"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637011"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -55,7 +55,7 @@ Garantissez la continuité de l’activité, la disponibilité à 99,999 % et l
 - Azure Cosmos DB offre une suite complète de [contrats SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) avec notamment une haute disponibilité inégalée dans le monde entier.
 - Distribuez facilement les données dans n’importe quelle région Azure avec la réplication automatique des données. Profitez de l’absence de temps d’arrêt avec les écritures multirégions ou un objectif de point de récupération (RPO) égal à 0 quand vous utilisez une cohérence forte.
 - Profitez d’un chiffrement au repos de qualité professionnelle avec des clés autogérées.
-- Le contrôle d’accès en fonction du rôle assure la sécurité de vos données et offre un contrôle précis.
+- Le contrôle d’accès en fonction du rôle Azure assure la sécurité de vos données et offre un contrôle précis.
 
 ### <a name="fully-managed-and-cost-effective"></a>Complètement managé et économique
 

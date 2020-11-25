@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88057836"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680961"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites du niveau de partage de fichiers premium supplémentaires
 
@@ -26,8 +26,12 @@ ms.locfileid: "88057836"
 |Domaine  |Fichier standard  |Fichier Premium  |
 |---------|---------|---------|
 |Size     |1 Tio         |4 Tio         |
-|Nb max. d’IOPS par fichier      |1 000         |5 000         |
+|Nb max. d’IOPS par fichier      |1 000         |Jusqu’à 8 000*         |
 |Descripteurs simultanés     |2 000         |2 000         |
-|Sortie     |Consultez les valeurs de débit de fichier standard         |300 Mio/s         |
-|Entrée     |Consultez les valeurs de débit de fichier standard         |200 Mio/s         |
+|Sortie     |Consultez les valeurs de débit de fichier standard         |300 Mio/s (jusqu’à 1 Gio/s avec la version préliminaire de SMB Multichannel)**         |
+|Entrée     |Consultez les valeurs de débit de fichier standard         |200 Mio/s (jusqu’à 1 Gio/s avec la version préliminaire de SMB Multichannel)**        |
 |Débit     |Jusqu’à 60 Mio/s         |Voir les valeurs d’entrée et de sortie des fichiers Premium         |
+
+\* <sup> S’applique aux opérations d’E/S en lecture et écriture (généralement des tailles d’E/S plus petites < = 64 ko). Les opérations sur les métadonnées, autres que les lectures et les écritures, peuvent être inférieures. </sup>
+
+\*\* <sup> En fonction des limites du réseau des machines, de la bande passante disponible, des tailles des opérations d’E/S, de la profondeur de la file d’attente et d’autres facteurs. Pour plus d’informations, consultez [Performances de SMB Multichannel](../articles/storage/files/storage-files-smb-multichannel-performance.md). </sup>

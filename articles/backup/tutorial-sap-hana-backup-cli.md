@@ -1,15 +1,15 @@
 ---
-title: Tutoriel - Sauvegarde de base de données SAP HANA sur Azure à l’aide de l’interface CLI
+title: Tutoriel - Sauvegarde de base de données SAP HANA sur Azure à l’aide de l’interface de ligne de commande Azure
 description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure à l’aide de l’interface CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41869ac4dfc0d3964fb48463e5f142b8391e2d94
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324958"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579250"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -26,9 +26,9 @@ Ce document part du principe que vous disposez déjà d’une base de données S
 
 Consultez les [scénarios actuellement pris en charge](./sap-hana-backup-support-matrix.md#scenario-support) pour SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Pour installer et utiliser l’interface CLI localement, vous devez exécuter Azure CLI version xx.xxx.x ou ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+ - Ce tutoriel nécessite Azure CLI version 2.0.30 ou ultérieure. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 

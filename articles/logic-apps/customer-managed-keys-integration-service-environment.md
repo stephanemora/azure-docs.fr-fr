@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318444"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682772"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -39,7 +39,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 * Un coffre de clés Azure pour lequel les propriétés **Suppression réversible** et **Ne pas vider** sont activées
 
-  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si vous ne connaissez pas Azure Key Vault, découvrez [comment créer un coffre de clés](../key-vault/secrets/quick-create-portal.md#create-a-vault) à l’aide du portail Azure ou à l’aide de la commande Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si vous découvrez [Azure Key Vault](../key-vault/general/overview.md), apprenez à créer un coffre de clés à l’aide du [portail Azure](../key-vault/general/quick-create-portal.md), d’[Azure CLI](../key-vault/general/quick-create-cli.md) ou d’[Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * Dans votre coffre de clés, une clé créée avec les valeurs de propriétés suivantes :
 

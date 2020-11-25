@@ -1,6 +1,6 @@
 ---
 title: Notes de publication d’Azure Stack Edge Pro (préversion) | Microsoft Docs
-description: Décrit les problèmes majeurs existants et les résolutions pour Azure Stack Edge Pro exécutant la version en disponibilité générale.
+description: Décrit les problèmes majeurs existants et les résolutions pour Azure Stack Edge Pro exécutant la version préliminaire disponible.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: d166b0a4c4b69f03d7dba9d997d7d07fbd81ef41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfb20b3bf9db9e02ed9820232f1f252379660dca
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893979"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579270"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Notes de publication d’Azure Stack Edge Pro avec GPU (préversion)
 

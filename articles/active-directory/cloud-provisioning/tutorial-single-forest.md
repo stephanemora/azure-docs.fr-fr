@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f82a3197366081c66c4b7a1fe9c4ebe7762c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5658fb79a893e0aca9d78faf090a886a2ee591
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628692"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651462"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -43,6 +43,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
      | --- | --- |
      | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat TLS/SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
+     | **8082** | Nécessaire pour l’installation|
      | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
@@ -55,25 +56,25 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 2. Connectez-vous au portail Azure avec des informations d’identification d’administrateur général cloud uniquement.
 3. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .
 
-   ![Portail Azure](media/how-to-install/install6.png)
+   ![Portail Azure](media/how-to-install/install-6.png)
 
 4. Cliquez sur **Télécharger l’agent**.
 5. Exécutez l’agent de provisionnement Azure AD Connect.
 6. Dans l’écran de démarrage, **acceptez** les termes du contrat de licence et cliquez sur **Installer**.
 
-   ![Capture de l’écran de démarrage « Package de l’agent de provisionnement Microsoft Azure AD Connect ».](media/how-to-install/install1.png)
+   ![Capture de l’écran de démarrage « Package de l’agent de provisionnement Microsoft Azure AD Connect ».](media/how-to-install/install-1.png)
 
 7. Une fois cette opération terminée, l’Assistant de configuration démarre.  Connectez-vous avec votre compte d’administrateur général Azure AD.  Notez que si la sécurité renforcée d’Internet Explorer est activée, elle bloque la connexion.  Si c’est le cas, fermez l’installation, désactivez la sécurité renforcée d’Internet Explorer dans le Gestionnaire de serveur, puis cliquez sur l’**Assistant Agent de provisionnement AAD Connect** pour redémarrer l’installation.
 8. Dans l’écran **Connexion à Active Directory**, cliquez sur **Ajout d’un annuaire**, puis connectez-vous avec votre compte d’administrateur de domaine Active Directory.  REMARQUE :  Le compte d’administrateur de domaine ne doit pas vous demander de changer de mot de passe. En cas d’expiration ou de changement du mot de passe, vous devez reconfigurer l’agent avec les nouvelles informations d’identification. Cette opération ajoute votre annuaire local.  Cliquez sur **Suivant**.
 
-   ![Capture de l’écran « Connexion à Active Directory ».](media/how-to-install/install3.png)
+   ![Capture de l’écran « Connexion à Active Directory ».](media/how-to-install/install-3.png)
 
 9. Dans l’écran **Configuration terminée**, cliquez sur **Confirmer**.  Cette opération inscrit et redémarre l’agent.
 
-   ![Capture de l’écran « Configuration terminée ».](media/how-to-install/install4.png)
+   ![Capture de l’écran « Configuration terminée ».](media/how-to-install/install-4a.png)
 
 10. Une fois cette opération terminée, vous devriez voir une notification : **La configuration de votre agent a été vérifiée avec succès.**  Vous pouvez cliquer sur **Quitter**.</br>
-![Écran d’accueil](media/how-to-install/install5.png)</br>
+![Écran d’accueil](media/how-to-install/install-5.png)</br>
 11. Si vous voyez encore l’écran de démarrage initial, cliquez sur **Fermer**.
 
 
@@ -85,13 +86,13 @@ Pour vérifier que l’agent est visible par Azure, procédez comme suit :
 
 1. Connectez-vous au portail Azure.
 2. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .</br>
-![Azure portal](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install-6.png)</br>
 
 3.  Dans l’écran **Provisionnement Azure AD (préversion)** , cliquez sur **Passer en revue tous les agents**.
-![Provisionnement Azure AD](media/how-to-install/install7.png)</br>
+![Provisionnement Azure AD](media/how-to-install/install-7.png)</br>
  
 4. Dans l’écran **Agents de provisionnement locaux**, vous voyez les agents que vous avez installés.  Vérifiez que l’agent en question est présent et qu’il est marqué comme étant **actif**.
-![Agents de provisionnement](media/how-to-install/verify1.png)</br>
+![Agents de provisionnement](media/how-to-install/verify-1.png)</br>
 
 ### <a name="on-the-local-server"></a>Sur le serveur local
 Pour vérifier que l’agent est en cours d’exécution, effectuez les étapes suivantes :
@@ -99,7 +100,7 @@ Pour vérifier que l’agent est en cours d’exécution, effectuez les étapes 
 1.  Connectez-vous au serveur avec un compte administrateur.
 2.  Ouvrez **Services** en y accédant ou en accédant à Démarrer/Exécuter/Services.msc.
 3.  Sous **Services**, assurez-vous que le **Programme de mise à jour de l’agent Microsoft Azure AD Connect** et l’**Agent de provisionnement Microsoft Azure AD Connect** sont présents, et que leur état est **En cours d’exécution**.
-![Services](media/how-to-troubleshoot/troubleshoot1.png)
+![Services](media/how-to-install/troubleshoot-1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Configurer le provisionnement cloud Azure AD Connect
  Pour configurer le provisionnement, suivez les étapes décrites ici.
@@ -124,13 +125,12 @@ Vous allez maintenant vérifier que les utilisateurs de l’annuaire local ont �
 2. À gauche, sélectionnez **Azure Active Directory**
 3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 4. Vérifiez que les nouveaux utilisateurs apparaissent dans le client.</br>
-![Synchronisation](media/tutorial-single-forest/synchronize1.png)</br>
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
 
 1. Accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.</br>
-   ![Vérifier](media/tutorial-single-forest/verify1.png)</br>
+   ![Vérifier](media/tutorial-single-forest/verify-1.png)</br>
 
 Vous avez maintenant configuré un environnement d’identité hybride que vous pouvez utiliser à des fins de test et pour vous familiariser avec les fonctionnalités d’Azure.
 

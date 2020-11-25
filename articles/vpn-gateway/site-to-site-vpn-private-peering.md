@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776559"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657888"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Configurer une connexion VPN site à site via un peering privé ExpressRoute (préversion)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurer une connexion VPN site à site via un peering privé ExpressRoute
 
 Vous pouvez configurer un VPN site à site vers une passerelle de réseau virtuel via un peering privé ExpressRoute à l’aide d’une adresse IP de la RFC 1918. Cette configuration offre les avantages suivants :
 
@@ -76,14 +76,14 @@ Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion V
 
    Les références SKU redondantes interzones comportent « AZ » à la fin de la référence SKU. Par exemple, **VpnGw1AZ**. Les passerelles redondantes interzone sont uniquement disponibles dans les régions où le service de zones de disponibilité est proposé. Pour plus d'informations sur les régions dans lesquelles nous prenons en charge les zones de disponibilité, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md).
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Figure 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Adresses IP privées de passerelle":::
 1. Activez les adresses IP privées sur la passerelle. Sélectionnez **Configuration**, puis définissez **Adresses IP privées de passerelle** sur **Activé**. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 1. Dans la page **Vue d’ensemble**, sélectionnez **Afficher plus** pour afficher l’adresse IP privée. Notez ces informations pour une utilisation ultérieure dans les étapes de configuration.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Figure 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Page de présentation" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Pour activer **Utiliser l’adresse IP privée Azure** sur la connexion, sélectionnez **Configuration**. Définissez **Utiliser l’adresse IP privée Azure** sur **Activé**, puis sélectionnez **Enregistrer**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Figure 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Adresses IP privées de passerelle - Activé":::
 1. À partir de votre pare-feu, exécutez une commande ping sur l’adresse IP privée que vous avez notée à l’étape 3. L’adresse IP privée doit être accessible via le peering privé ExpressRoute.
 1. Utilisez cette adresse IP privée comme adresse IP distante sur votre pare-feu local pour établir le tunnel site à site via le peering privé ExpressRoute.
 

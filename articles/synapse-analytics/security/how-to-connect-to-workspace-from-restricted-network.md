@@ -1,6 +1,6 @@
 ---
-title: Se connecter à la ressource de l’espace de travail Synapse Studio à partir d’un réseau restreint
-description: Cet article vous apprendra à vous connecter aux ressources de votre espace de travail Azure Synapse Studio à partir d'un réseau restreint
+title: Se connecter aux ressources de l’espace de travail Azure Synapse Analytics Studio à partir d’un réseau restreint
+description: Cet article vous apprendra à vous connecter aux ressources de votre espace de travail à partir d'un réseau restreint
 author: xujxu
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -8,112 +8,119 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392508"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637130"
 ---
-# <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>Se connecter aux ressources de l’espace de travail Synapse Studio à partir d’un réseau restreint
+# <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Se connecter aux ressources de l’espace de travail à partir d’un réseau restreint
 
-Cet article s’adresse à l’administrateur informatique de l’entreprise qui gère le réseau restreint de l’entreprise. L’administrateur informatique va activer la connexion réseau entre Azure Synapse Studio et la station de travail au sein de ce réseau restreint.
-
-Dans cet article, vous allez apprendre à vous connecter à votre espace de travail Azure Synapse à partir d’un environnement réseau restreint. 
+Supposons que vous êtes un administrateur informatique qui gère le réseau restreint de votre organisation. Vous devez activer la connexion réseau entre Azure Synapse Analytics Studio et une station de travail au sein de ce réseau restreint. Cet article vous montre comment procéder.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Espace de travail Azure Synapse** : Si vous ne disposez pas de Synapse Studio, créez un espace de travail Synapse à partir d’Azure Synapse Analytics. Le nom de l’espace de travail sera requis à l’étape 4 suivante.
-* **Réseau restreint** : Le réseau restreint est géré par l’administrateur informatique de la société. L’administrateur informatique a l’autorisation de configurer la stratégie réseau. Le nom du réseau virtuel et son sous-réseau seront nécessaires à l’étape 3 ci-dessous.
+* **Espace de travail Azure Synapse Analytics** : Vous pouvez en créer un à partir d’Azure Synapse Analytics. Vous avez besoin du nom de l’espace de travail à l’étape 4.
+* **Réseau restreint** : L’administrateur informatique gère le réseau restreint pour l’organisation, et il est autorisé à configurer la stratégie réseau. Vous avez besoin du nom du réseau virtuel et de son sous-réseau à l’étape 3.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Étape 1 : Ajouter des règles de sécurité réseau sortantes au réseau restreint
 
-Vous devez ajouter quatre règles de sécurité de trafic sortant du réseau avec quatre balises de service. En savoir plus dans la [Vue d’ensemble des étiquettes de service](/azure/virtual-network/service-tags-overview.md) 
+Vous devez ajouter quatre règles de sécurité de trafic sortant du réseau avec quatre balises de service. 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory
-* AzureMonitor (Facultatif. Ajoutez ce type de règle uniquement lorsque vous souhaitez partager les données avec Microsoft.)
+* AzureMonitor (ce type de règle est facultatif, ajoutez-le uniquement lorsque vous souhaitez partager les données avec Microsoft.)
 
-Détails sur les règles de trafic sortant **Azure Resource Manager** comme indiqué ci-dessous. Lorsque vous créez les trois autres règles, remplacez la valeur de « **Destination service tag** » par le nom de la balise de service « **AzureFrontDoor.Frontend** », « **AzureActiveDirectory** », « **AzureMonitor** » dans la liste de sélection déroulante.
+La capture d’écran suivante montre les détails de la règle de trafic sortant Azure Resource Manager.
 
-![AzureResourceManager](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
+![Capture d’écran des détails de l’étiquette de service Azure Resource Manager.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
+Lorsque vous créez les trois autres règles, remplacez la valeur de **Destination service tag** par **AzureFrontDoor.Frontend**, **AzureActiveDirectory** ou **AzureMonitor** dans la liste.
 
-## <a name="step-2-create-azure-synapse-analytics-private-link-hubs"></a>Étape 2 : Créer une analyse Azure Synapse Analytics (hubs de liaison privée)
+Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de service Azure](/azure/virtual-network/service-tags-overview.md).
 
-Vous devez créer une analyse Azure Synapse Analytics (hubs de liaison privée) à partir du Portail Azure. Recherchez « **Azure Synapse Analytics (hubs de liaison privée)**  » via le Portail Azure, puis remplissez le champ nécessaire et créez l’analyse. 
+## <a name="step-2-create-private-link-hubs"></a>Étape 2 : Créer des hubs de liaison privée
 
-> [!Note]
-> La région doit être la même que celle où se trouve votre espace de travail Synapse.
-
-![Création de hubs de liaison privée Synapse Analytics](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
-
-## <a name="step-3-create-private-endpoint-for-synapse-studio-gateway"></a>Étape 3 : Créer un point de terminaison privé pour la passerelle Synapse Studio
-
-Pour accéder à la passerelle Synapse Studio, vous devez créer un point de terminaison privé à partir du portail Azure. Recherchez « **Private Link** » dans le Portail Azure. Sélectionnez « **Create private endpoint** » (Créer un point de terminaison privé) dans le « **Centre Private Link** », puis remplissez le champ nécessaire et créez-le. 
+Créez ensuite des hubs de liaison privée à partir du portail Azure. Pour trouver ces éléments dans le portail, recherchez *Azure Synapse Analytics (hubs de liaison privée)* , puis fournissez les informations requises pour les créer. 
 
 > [!Note]
-> La région doit être la même que celle où se trouve votre espace de travail Synapse.
+> Assurez-vous que la valeur **Région** est identique à celle de votre espace de travail Azure Synapse Analytics.
 
-![Création d’un point de terminaison privé pour Synapse Studio 1](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-1.png)
+![Capture d’écran de la création d’un hub de liaison privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-Dans l’onglet suivant de « **Resource** » (« Ressource »), choisissez le hub de liaison privée, créé à l’étape 2 ci-dessus.
+## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Étape 3 : Créer un point de terminaison privé pour votre passerelle
 
-![Création d’un point de terminaison privé pour Synapse Studio 2](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-2.png)
+Pour accéder à la passerelle Azure Synapse Analytics Studio, vous devez créer un point de terminaison privé à partir du portail Azure. Pour trouver ce point dans le portail, recherchez *Liaison privée*. Dans le **Centre de liaisons privées**, sélectionnez **Créer un point de terminaison privé**, puis fournissez les informations requises pour le créer. 
 
-Dans l’onglet suivant de « **Configuration** », 
-* Choisissez le nom de réseau virtuel restreint défini pour « **Virtual network** » (« Réseau virtuel »).
-* Choisissez le sous-réseau du réseau virtuel restreint pour l’option « **Subnet** » (« Sous-réseau »). 
-* Sélectionnez « **Oui** » pour « **Intégrer à une zone DNS privée** ».
+> [!Note]
+> Assurez-vous que la valeur **Région** est identique à celle de votre espace de travail Azure Synapse Analytics.
 
-![Création d’un point de terminaison privé pour Synapse Studio 3](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
+![Capture d’écran montrant l’onglet des informations de la base de la page Créer un point de terminaison privé.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-1.png)
 
-Une fois le point d'extrémité du lien privé créé, vous pouvez accéder à la page de connexion de l'outil web Synapse Studio. Cependant, vous ne pouvez pas accéder aux ressources de votre espace de travail Synapse tant que vous n’avez pas terminé l’étape suivante.
+Dans l’onglet **Ressource**, choisissez le hub de liaison privée que vous avez créé à l’étape 2.
 
-## <a name="step-4-create-private-endpoints-for-synapse-studio-workspace-resource"></a>Étape 4 : Créer des points de terminaison privé pour la ressource de l’espace de travail Synapse Studio
+![Capture d’écran montrant l’onglet Ressource de la page Créer un point de terminaison privé.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-2.png)
 
-Pour accéder aux ressources de votre espace de travail Synapse Studio, vous devez créer au moins un point d’extrémité de liaison privée de type « **Dev** » ou « **Target sub-resource** » et deux autres points d’extrémité de liaison privée facultatifs de type « **Sql** » ou « **SqlOnDemand** » selon les ressources de l’espace de travail Synapse Studio auxquelles vous souhaitez accéder. Cette création de point de terminaison de lien privé pour l’espace de travail Synapse Studio est similaire à la création de point de terminaison ci-dessus.  
+Dans l’onglet **Configuration** : 
+* Pour **Réseau virtuel**, choisissez le nom de réseau virtuel restreint.
+* Pour **Sous-réseau**, choisissez le sous-réseau du réseau virtuel restreint. 
+* Pour **Intégrer à une zone DNS privée**, sélectionnez **Oui**.
 
-Prêtez attention aux zones ci-dessous sous l’onglet « **Ressource**» :
-* sélectionnez « **Microsoft. Synapse/Workspaces** » sur « **Type de ressource** ».
-* Sélectionnez « **YourWorkSpaceName** » sur « **Ressource** » que vous avez créé précédemment.
-* Sélectionnez le type de point de terminaison dans « **Target sub-resource** » :
-  * **Sql** : est destiné à l’exécution de la requête SQL dans le pool SQL.
-  * **SqlOnDemand**:  est destiné à l’exécution de requêtes SQL intégrées.
-  * **Dev** : est destiné à l’accès aux autres ressources dans les espaces de travail de Synapse Studio. Vous devez créer au moins le point de terminaison de la liaison privée de ce type.
+![Capture d’écran de l’onglet Configuration de la fenêtre Créer un point de terminaison privé.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
 
-![Création d’un point de terminaison privé pour l’espace de travail Synapse Studio](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
+Une fois le point d'extrémité du lien privé créé, vous pouvez accéder à la page de connexion de l'outil web Azure Synapse Analytics Studio. Toutefois, vous ne pouvez pas encore accéder aux ressources dans votre espace de travail. Pour cela, vous devez effectuer l’étape suivante.
+
+## <a name="step-4-create-private-endpoints-for-your-workspace-resource"></a>Étape 4 : Créer des points de terminaison privé pour votre ressource d’espace de travail
+
+Pour accéder aux ressources dans votre ressource d’espace de travail Azure Synapse Analytics Studio, vous devez créer les éléments suivants :
+
+- Au moins un point de terminaison de liaison privée avec un type **Dev** défini sur **Target sub-resource**.
+- Deux autres points de terminaison de liaison privée facultatifs avec des types **Sql** ou **SqlOnDemand**, en fonction des ressources de l’espace de travail auxquelles vous souhaitez accéder.
+
+Leur création est similaire à la celle du point de terminaison à l’étape précédente.  
+
+Dans l’onglet **Ressource** :
+
+* pour **Type de ressource**, sélectionnez **Microsoft.Synapse/workspaces**.
+* Pour **Ressource**, sélectionnez le nom de l’espace de travail que vous avez créé précédemment.
+* Pour **Sous-ressource cible**, sélectionnez le type de point de terminaison :
+  * **Sql** est destiné à l’exécution de la requête SQL dans le pool SQL.
+  * **SqlOnDemand** est destiné à l’exécution de requêtes SQL intégrées.
+  * **Dev** est destiné à l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio. Vous devez créer au moins un point de terminaison de la liaison privée de ce type.
+
+![Capture d’écran de l’espace de travail montrant l’onglet Ressource de la page Créer un point de terminaison privé.](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
 
-## <a name="step-5-create-private-endpoints-for-synapse-studio-workspace-linked-storage"></a>Étape 5 : Créer des points de terminaison privé pour le stockage lié de l’espace de travail Synapse Studio
+## <a name="step-5-create-private-endpoints-for-workspace-linked-storage"></a>Étape 5 : Créer des points de terminaison privé pour le stockage lié de l’espace de travail
 
-Pour accéder au stockage lié à l’explorateur de stockage dans l’espace de travail Synapse Studio, vous devez créer un point de terminaison privé en suivant les étapes similaires à l’étape 3 ci-dessus. 
+Pour accéder au stockage lié à l’explorateur de stockage dans l’espace de travail Azure Synapse Analytics Studio, vous devez créer un point de terminaison privé. Les étapes de ce processus sont similaires à celles de l’étape 3. 
 
-Prêtez attention aux zones ci-dessous sous l’onglet « **Ressource**» :
-* Sélectionnez « **Microsoft.Synapse/storageAccounts** » pour « **Type de ressource** ».
-* Sélectionnez « **YourWorkSpaceName** » sur « **Ressource** » que vous avez créé précédemment.
-* Sélectionnez le type de point de terminaison dans « **Target sub-resource** » :
-  * **blob** : pour Stockage Blob Azure.
-  * **dfs** : pour Azure Data Lake Storage Gen2.
+Dans l’onglet **Ressource** :
+* Pour **Type de ressource**, sélectionnez **Microsoft.Synapse/storageAccounts**.
+* Pour **Ressource**, sélectionnez le nom du compte de stockage que vous avez créé précédemment.
+* Pour **Sous-ressource cible**, sélectionnez le type de point de terminaison :
+  * **blob** est destiné à Stockage Blob Azure.
+  * **dfs** pour Azure Data Lake Storage Gen2.
 
-![Création d’un point de terminaison privé pour le stockage lié de l’espace de travail Synapse Studio](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+![Capture d’écran montrant le stockage dans l’onglet Ressource de la page Créer un point de terminaison privé.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
 
-Vous pouvez maintenant accéder à la ressource de stockage lié à partir de l’explorateur de stockage dans votre espace de travail Synapse Studio au sein du réseau virtuel.
+Vous pouvez maintenant accéder à la ressource de stockage liée. Au sein de votre réseau virtuel, dans votre espace de travail Azure Synapse Analytics Studio, vous pouvez utiliser l’explorateur de stockage pour accéder à la ressource de stockage liée.
 
-Si votre espace de travail contient « **Activer le réseau virtuel géré** » lors de la création de votre espace de travail comme ci-dessous,
+Vous pouvez activer un réseau virtuel managé pour votre espace de travail, comme illustré dans cette capture d’écran :
 
-![Création d’un point de terminaison privé pour le stockage lié de l’espace de travail Synapse Studio 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+![Capture d’écran de la création d’un espace de travail Synapse, avec l’option Activer le réseau virtuel managé en surbrillance.](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
 
-et que vous souhaitez que votre notebook accède aux ressources de stockage lié sous un compte de stockage donné, vous devez ajouter des **points de terminaison privés managés** sous votre Synapse Studio. Le « **nom du compte de stockage** » doit être celui auquel votre notebook doit accéder. Découvrez les étapes détaillées dans [Créer un point de terminaison privé managé pour votre source de données](./how-to-create-managed-private-endpoints.md).
+Si vous souhaitez que votre notebook accède aux ressources de stockage liées sous un compte de stockage, ajoutez des points de terminaison privés managés sous Azure Synapse Analytics Studio. Le nom du compte de stockage doit être celui auquel votre notebook doit accéder. Pour plus d’informations, consultez [Créer un point de terminaison privé managé pour votre source de données](./how-to-create-managed-private-endpoints.md).
 
-Une fois ce point de terminaison créé, l’**état d’approbation** est « **En attente** ». Vous devez demander au propriétaire de ce compte de stockage de l’approuver dans l’onglet « **Connexions de point de terminaison privé** » de ce compte de stockage dans Portail Azure. Une fois approuvé, votre notebook peut accéder aux ressources de stockage lié sous ce compte de stockage.
+Une fois ce point de terminaison créé, l’état d’approbation affiche l’état **En attente**. Demandez l’approbation du propriétaire de ce compte de stockage, dans l’onglet **Connexions des points de terminaison privés** de ce compte de stockage dans le portail Azure. Une fois approuvé, votre notebook peut accéder aux ressources de stockage liées sous ce compte de stockage.
 
-Tout est défini à présent. Vous pouvez accéder à votre ressource de l’espace de travail Synapse Studio.
+Tout est défini à présent. Vous pouvez accéder à votre ressource de l’espace de travail Azure Synapse Analytics Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [Réseau virtuel d’espace de travail managé](./synapse-workspace-managed-vnet.md)
+En savoir plus sur le [Réseau virtuel d’espace de travail managé](./synapse-workspace-managed-vnet.md).
 
-En savoir plus sur les [Points de terminaison privés managés](./synapse-workspace-managed-private-endpoints.md)
+En savoir plus sur les [Points de terminaison privés managés](./synapse-workspace-managed-private-endpoints.md).

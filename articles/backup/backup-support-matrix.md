@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555434"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -25,7 +25,7 @@ Autres matrices de prise en charge disponibles :
 
 ## <a name="vault-support"></a>Prise en charge des coffres
 
-Sauvegarde Azure utilise les coffres Recovery Services pour orchestrer et gérer les sauvegardes. Elle utilise également ces coffres pour stocker les données sauvegardées.
+Sauvegarde Azure utilise des coffres Recovery Services pour orchestrer et gérer les sauvegardes des types de charges de travail suivants : machines virtuelles Azure, SQL sur des machines virtuelles Azure, SAP HANA sur des machines virtuelles Azure, partages de fichiers Azure et charges de travail locales à l’aide de l’agent Sauvegarde Azure, du serveur de sauvegarde Azure et de System Center DPM. Il utilise également des coffres Recovery Services pour stocker les données de sauvegarde de ces charges de travail.
 
 Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 

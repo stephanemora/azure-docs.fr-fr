@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a41eb5b38b741f8bdde59f8a4f1e8de2b4767903
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286535"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832770"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -44,7 +44,7 @@ Vous pouvez ensuite soit créer un coffre de clés, soit établir une connexion 
 
 ### <a name="create-a-new-key-vault-and-establish-a-private-link-connection"></a>Créer un coffre de clés et établir une connexion de liaison privée
 
-Vous pouvez créer un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../secrets/quick-create-portal.md).
+Vous pouvez créer un coffre de clés Azure à l’aide du [portail Azure](../general/quick-create-portal.md), d’[Azure CLI](../general/quick-create-cli.md) ou d’[Azure PowerShell](../general/quick-create-powershell.md).
 
 Après avoir configuré les éléments de base du coffre de clés, sélectionnez l’onglet Mise en réseau et suivez ces étapes :
 
@@ -270,13 +270,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > Le nombre de coffres de clés avec des points de terminaison privés activés par abonnement est une limite modifiable. La limite indiquée ci-dessous est la limite par défaut. Si vous souhaitez demander une augmentation de la limite pour votre service, veuillez envoyer un e-mail à akv-privatelink@microsoft.com. Nous approuverons ces demandes au cas par cas.
 
-**Prix**  : Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Prix** : Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**  :  Le point de terminaison privé pour Azure Key Vault est disponible uniquement dans les régions publiques Azure.
+**Limitations** :  Le point de terminaison privé pour Azure Key Vault est disponible uniquement dans les régions publiques Azure.
 
-**Nombre maximal de points de terminaison privés par coffre de clés**  : 64.
+**Nombre maximal de points de terminaison privés par coffre de clés** : 64.
 
-**Nombre par défaut de coffres de clés avec points de terminaison privés par abonnement**  : 400.
+**Nombre par défaut de coffres de clés avec points de terminaison privés par abonnement** : 400.
 
 Pour plus d’informations, consultez [Service Azure Private Link : Limitations](../../private-link/private-link-service-overview.md#limitations)
 

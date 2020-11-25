@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 465544f1d861fc09d4b843270c6f3527036ee6a8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442801"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628002"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Une API web qui appelle des API web : Acquérir un jeton pour l’application
 
@@ -25,7 +25,7 @@ Après avoir généré un objet d’application cliente, utilisez-le pour acqué
 
 ## <a name="code-in-the-controller"></a>Code dans le contrôleur
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 *Microsoft.Identity.Web* ajoute des méthodes d’extension qui fournissent des services pratiques pour appeler Microsoft Graph ou une API web en aval. Ces méthodes sont expliquées en détail dans [Une API web qui appelle des API web : Appeler une API](scenario-web-api-call-api-call-api.md). Avec ces méthodes d’assistance, vous n’avez pas besoin d’acquérir manuellement un jeton.
 
@@ -63,7 +63,8 @@ public class MyApiController : Controller
 
 Pour plus d’informations sur la méthode `callTodoListService`, consultez [Une API web qui appelle des API web : Appeler une API](scenario-web-api-call-api-call-api.md).
 
-# <a name="java"></a>[Java](#tab/java)
+### <a name="java"></a>[Java](#tab/java)
+
 Voici un exemple de code appelé dans les actions des contrôleurs d’API. Il appelle l'API situé en aval, Microsoft Graph.
 
 ```java
@@ -84,9 +85,13 @@ public class ApiController {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Une API web Python doit utiliser un middleware pour valider le jeton du porteur reçu du client. L’API web peut alors obtenir le jeton d’accès de l’API située en aval à l’aide de la bibliothèque MSAL Python en appelant la méthode [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
+
+## <a name="advanced-accessing-the-signed-in-users-token-cache-from-background-apps-apis-and-services"></a>(Avancé) Accès au cache de jeton de l’utilisateur connecté à partir d’applications en arrière-plan, d’API et de services
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ---
 

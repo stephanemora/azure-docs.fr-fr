@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/28/2020
-ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/16/2020
+ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675291"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653740"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -97,14 +97,17 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Stratégie de basculement automatique**
 
-  Par défaut, un groupe de basculement est configuré avec une stratégie de basculement automatique. Azure déclenche le basculement dès que la défaillance est détectée et que la période de grâce est arrivée à expiration. Le système doit vérifier que la panne ne peut pas être atténuée par [l’infrastructure de haute disponibilité](high-availability-sla.md) intégrée en raison de l’échelle de l’impact. Si vous souhaitez contrôler le flux de travail de basculement à partir de l’application, vous pouvez désactiver le basculement automatique.
+  Par défaut, un groupe de basculement est configuré avec une stratégie de basculement automatique. Azure déclenche le basculement dès que la défaillance est détectée et que la période de grâce est arrivée à expiration. Le système doit vérifier que la panne ne peut pas être atténuée par [l’infrastructure de haute disponibilité](high-availability-sla.md) intégrée en raison de l’échelle de l’impact. Si vous souhaitez contrôler le workflow de basculement à partir de l’application ou manuellement, vous pouvez désactiver le basculement automatique.
   
   > [!NOTE]
   > Compte tenu du fait que la vérification de l’étendue de la panne et que la rapidité avec laquelle elle peut être atténuée impliquent des actions humaines de la part de l’équipe des opérations, la période de grâce ne peut pas être fixée en dessous d’une heure. Cette limitation s’applique à toutes les bases de données du groupe de basculement, quel que soit l’état de la synchronisation de leurs données.
 
 - **Stratégie de basculement en lecture seule**
 
-  Par défaut, le basculement de l’écouteur en lecture seule est désactivé. Il garantit que les performances du serveur principal ne sont pas affectées lorsque le serveur secondaire est hors connexion. Toutefois, cela signifie également que les sessions en lecture seule ne seront pas en mesure de se connecter tant que le serveur secondaire n’aura pas été récupérée. Si vous ne pouvez pas tolérer des temps d’arrêt pour les sessions en lecture seule et si vous acceptez d’utiliser temporairement le serveur principal pour le trafic en lecture seule et en lecture-écriture au prix d’une dégradation potentielle des performances du serveur principal, vous pouvez activer le basculement pour l’écouteur en lecture seule en configurant la propriété `AllowReadOnlyFailoverToPrimary`. Dans ce cas, le trafic en lecture seule est automatiquement redirigé vers le serveur principal si le serveur secondaire est indisponible.
+  Par défaut, le basculement de l’écouteur en lecture seule est désactivé. Il garantit que les performances du serveur principal ne sont pas affectées lorsque le serveur secondaire est hors connexion. Toutefois, cela signifie également que les sessions en lecture seule ne seront pas en mesure de se connecter tant que le serveur secondaire n’aura pas été récupérée. Si vous ne pouvez pas tolérer des temps d’arrêt pour les sessions en lecture seule et que vous pouvez utiliser le serveur principal pour le trafic en lecture seule et en lecture-écriture au prix d’une dégradation potentielle des performances du serveur principal, vous pouvez activer le basculement pour l’écouteur en lecture seule en configurant la propriété `AllowReadOnlyFailoverToPrimary`. Dans ce cas, le trafic en lecture seule est automatiquement redirigé vers le serveur principal si le serveur secondaire est indisponible.
+
+  > [!NOTE]
+  > La propriété `AllowReadOnlyFailoverToPrimary` n’a d’effet que si la stratégie de basculement automatique est activée et qu’un basculement automatique a été déclenché par Azure. Dans ce cas, si la propriété est définie sur True, le nouveau serveur principal servira les sessions en lecture-écriture et en lecture seule.
 
 - **Basculement planifié**
 
@@ -120,7 +123,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Basculement manuel**
 
-  Vous pouvez lancer manuellement le basculement à tout moment, quelle que soit la configuration du basculement automatique. Si la stratégie de basculement automatique n’est pas configurée, un basculement manuel est nécessaire pour récupérer les bases de données dans le groupe de basculement vers le serveur secondaire. Vous pouvez lancer un basculement forcé ou convivial (avec synchronisation complète des données). Ce dernier peut être utilisé pour déplacer le serveur primaire dans la région secondaire. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au nouveau serveur primaire
+  Vous pouvez lancer manuellement le basculement à tout moment, quelle que soit la configuration du basculement automatique. Si la stratégie de basculement automatique n’est pas configurée, un basculement manuel est nécessaire pour récupérer les bases de données dans le groupe de basculement vers le serveur secondaire. Vous pouvez lancer un basculement forcé ou convivial (avec synchronisation complète des données). Ce dernier peut être utilisé pour déplacer le serveur primaire dans la région secondaire. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au nouveau serveur principal.
 
 - **Période de grâce avec perte de données**
 
@@ -128,7 +131,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Plusieurs groupes de basculement**
 
-  Vous pouvez configurer plusieurs groupes de basculement pour la même paire de serveurs afin de contrôler l’échelle des basculements. Chaque groupe bascule indépendamment. Si votre application mutualisée fait appel à des pools élastiques, vous pouvez utiliser cette fonctionnalité pour combiner des bases de données primaires et secondaires dans chaque pool. De cette manière, vous pouvez réduire l’impact d’une panne à la moitié seulement des locataires.
+  Vous pouvez configurer plusieurs groupes de basculement pour la même paire de serveurs afin de contrôler l’étendue des basculements. Chaque groupe bascule indépendamment. Si votre application mutualisée fait appel à des pools élastiques, vous pouvez utiliser cette fonctionnalité pour combiner des bases de données primaires et secondaires dans chaque pool. De cette manière, vous pouvez réduire l’impact d’une panne à la moitié seulement des locataires.
 
   > [!NOTE]
   > SQL Managed Instance ne prend pas en charge plusieurs groupes de basculement.
@@ -173,7 +176,7 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.database.windows
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Utilisation d’un écouteur en lecture seule pour une charge de travail en lecture seule
 
-Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de `ApplicationIntent=ReadOnly`. Si vous souhaitez vous assurer que la charge de travail en lecture seule peut se reconnecter après le basculement ou si le serveur secondaire est mis hors connexion, veillez à configurer la propriété `AllowReadOnlyFailoverToPrimary` de la stratégie de basculement.
+Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de `ApplicationIntent=ReadOnly`.
 
 ### <a name="preparing-for-performance-degradation"></a>Préparation à une détérioration des performances
 
@@ -264,20 +267,20 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database
 Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour vous connecter directement à l’instance géorépliquée secondaire, utilisez `<fog-name>.secondary.<zone_id>.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers l’instance géorépliquée secondaire.
 
 > [!NOTE]
-> Dans certains niveaux de service, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour équilibrer les charges de travail de requêtes en lecture seule, en utilisant la capacité d’un réplica en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
+> Dans les niveaux de service Premium, Critique pour l’entreprise et Hyperscale, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour exécuter des charges de travail de requête en lecture seule, en utilisant la capacité d’un ou de plusieurs réplicas en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
 >
-> - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `<fog-name>.<zone_id>.database.windows.net`.
-> - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `<fog-name>.secondary.<zone_id>.database.windows.net`.
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.<zone_id>.database.windows.net`.
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Préparation à une détérioration des performances
 
-Une application Azure classique fait appel à plusieurs services Azure et inclut plusieurs composants. Le basculement automatique du groupe de basculement est déclenché en fonction de l’état des seuls composants Azure SQL. Il peut arriver que les autres services Azure de la région primaire ne soient pas affectés par la panne et que leurs composants soient toujours disponibles dans cette région. Une fois que les bases de données primaires ont basculé vers la région de récupération d’urgence, la latence entre les composants dépendants peut augmenter. Pour éviter les conséquences négatives d’une latence plus élevée sur les performances de l’application, vérifiez que tous les composants de l’application sont redondants dans la région de récupération d’urgence et suivez ces [consignes de sécurité réseau](#failover-groups-and-network-security).
+Une application Azure classique fait appel à plusieurs services Azure et inclut plusieurs composants. Le basculement automatique du groupe de basculement est déclenché en fonction de l’état des seuls composants Azure SQL. Il peut arriver que les autres services Azure de la région primaire ne soient pas affectés par la panne et que leurs composants soient toujours disponibles dans cette région. Une fois que les bases de données primaires ont basculé vers la région secondaire, la latence entre les composants dépendants peut augmenter. Pour éviter les conséquences négatives d’une latence plus élevée sur les performances de l’application, vérifiez que tous les composants de l’application sont redondants dans la région secondaire et basculez les composants de l’application en même temps que la base de données. Au moment de la configuration, suivez les [instructions de sécurité réseau](#failover-groups-and-network-security) pour garantir la connectivité à la base de données dans la région secondaire.
 
 ### <a name="preparing-for-data-loss"></a>Préparation à une perte de données
 
-Si une panne est détectée, un basculement en lecture-écriture est déclenché dans le cas où il n’y a à notre connaissance pas de perte de données. Sinon, le logiciel patiente pendant le temps que vous avez défini. Sinon, SQL patiente pendant le temps que vous avez défini via `GracePeriodWithDataLossHours`. Si vous avez spécifié `GracePeriodWithDataLossHours`, attendez-vous à une perte de données. En général, en cas de panne, Azure favorise la disponibilité. Si vous ne pouvez pas vous permettre de perdre des données, veillez à définir dans la commande GracePeriodWithDataLossHours un nombre suffisamment grand, par exemple, 24 heures.
+Si une panne est détectée, un basculement en lecture-écriture est déclenché dans le cas où il n’y a à notre connaissance pas de perte de données. Dans le cas contraire, le basculement est différé pendant la période que vous spécifiez à l’aide du paramètre `GracePeriodWithDataLossHours`. Si vous avez spécifié `GracePeriodWithDataLossHours`, attendez-vous à une perte de données. En général, en cas de panne, Azure favorise la disponibilité. Si vous ne pouvez pas vous permettre de perdre des données, veillez à définir dans le paramètre GracePeriodWithDataLossHours un nombre suffisamment grand (par exemple, 24 heures), ou désactivez le basculement automatique.
 
-La mise à jour DNS de l’écouteur en lecture-écriture se produit immédiatement après que le basculement est initié. Cette opération n’entraîne aucune perte de données. Toutefois, le processus de basculement des rôles des bases de données peut prendre jusqu’à 5 minutes dans des conditions normales. En attendant, certaines bases de données de la nouvelle instance principale resteront en lecture seule. Si le basculement est initié à l’aide de PowerShell, l’intégralité de l’opération est effectuée de manière synchrone. S’il est initié à l’aide du portail Azure, l’interface utilisateur indiquera la progression. S’il est démarré à l’aide de l’API REST, utilisez le mécanisme d’interrogation standard d’Azure Resource Manager pour en surveiller la progression.
+La mise à jour DNS de l’écouteur en lecture-écriture se produit immédiatement après que le basculement est initié. Cette opération n’entraîne aucune perte de données. Toutefois, le processus de basculement des rôles des bases de données peut prendre jusqu’à 5 minutes dans des conditions normales. En attendant, certaines bases de données de la nouvelle instance principale resteront en lecture seule. Si un basculement est initié à l’aide de PowerShell, l’opération permettant de basculer le rôle de réplica principal est synchrone. S’il est initié à l’aide du portail Azure, l’interface utilisateur indiquera la progression. S’il est démarré à l’aide de l’API REST, utilisez le mécanisme d’interrogation standard d’Azure Resource Manager pour en surveiller la progression.
 
 > [!IMPORTANT]
 > Utilisez le basculement de groupe manuel pour redéplacer les bases de données primaires à leur emplacement d’origine. Lorsque la panne ayant provoqué le basculement est résolue, vous pouvez déplacer vos bases de données primaires vers leur emplacement d’origine. Pour ce faire, vous devez effectuer le basculement manuel du groupe.

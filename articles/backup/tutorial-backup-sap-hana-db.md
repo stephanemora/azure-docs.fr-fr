@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173772"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695212"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -67,7 +67,7 @@ Les points de terminaison privés vous permettent de vous connecter en toute sé
 
 Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
-1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+1. Dans **Tous les services**, accédez à **Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 
 1. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 
@@ -107,9 +107,10 @@ Le script de préinscription assure les fonctions suivantes :
 * Il effectue les vérifications de connectivité réseau sortante avec les serveurs de Sauvegarde Azure et les services dépendants comme Azure Active Directory et Stockage Azure.
 * Il se connecte à votre système HANA à l’aide de la clé utilisateur figurant dans les [prérequis](#prerequisites). La clé utilisateur permet de créer un utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) dans le système HANA et **peut être supprimée dès lors que le script de préinscription a été correctement exécuté**.
 * AZUREWLBACKUPHANAUSER reçoit les rôles et autorisations nécessaires suivants :
-  * DATABASE ADMIN (dans le cas de MDC) et BACKUP ADMIN (dans le cas de SDC) : pour créer des bases de données lors de la restauration.
+  * Pour MDC : DATABASE ADMIN et BACKUP ADMIN (depuis HANA 2.0 SPS05 et versions ultérieures) : pour créer des bases de données lors de la restauration.
+  * Pour SDC : BACKUP ADMIN : pour créer des bases de données lors de la restauration.
   * CATALOG READ : permet de lire le catalogue de sauvegarde.
-  * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées.
+  * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées. Obligatoire uniquement pour les versions SDC et MDC antérieures à HANA 2.0 SPS04 rév. 46. Cela n’est pas obligatoire pour HANA 2.0 SPS04 rév. 46 et versions ultérieures, car nous obtenons maintenant les informations requises des tables publiques avec le correctif de l’équipe HANA.
 * Le script ajoute une clé à **hdbuserstore** pour AZUREWLBACKUPHANAUSER afin que le plug-in de sauvegarde HANA gère toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde).
 
 >[!NOTE]
@@ -226,11 +227,16 @@ Spécifiez les paramètres de stratégie comme suit :
    ![Stratégie de sauvegarde différentielle](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
+   >Les sauvegardes incrémentielles sont désormais disponibles en préversion publique. Vous pouvez choisir une sauvegarde différentielle ou incrémentielle comme sauvegarde quotidienne, mais pas les deux.
    >
+7. Dans **Stratégie de sauvegarde incrémentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de conservation.
+    * Vous pouvez déclencher au plus une sauvegarde incrémentielle par jour.
+    * Les sauvegardes incrémentielles peuvent être conservées jusqu’à 180 jours. Si vous avez besoin d’une durée de rétention supérieure, vous devez utiliser des sauvegardes complètes.
 
-7. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
-8. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
+    ![Stratégie de sauvegarde incrémentielle](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
+9. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
    * L’option **Sauvegarde de fichier journal** est définie par défaut sur **Activer**. Cette option ne peut pas être désactivée, car SAP HANA gère toutes les sauvegardes de fichiers journaux.
    * Nous avons défini **2 heures** comme planification de sauvegarde et **15 jours** de période de rétention.
 
@@ -240,8 +246,8 @@ Spécifiez les paramètres de stratégie comme suit :
    > Les sauvegardes de fichiers journaux ne commencent à se produire qu’en cas de réussite d’une sauvegarde complète.
    >
 
-9. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
-10. Après avoir défini la stratégie de sauvegarde, sélectionnez **OK**.
+10. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
+11. Après avoir défini la stratégie de sauvegarde, sélectionnez **OK**.
 
 Vous avez maintenant configuré les sauvegardes de vos bases de données SAP HANA.
 

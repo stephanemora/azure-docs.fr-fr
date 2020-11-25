@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316968"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556284"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gérer des machines virtuelles SQL Server dans Azure à partir du portail Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Dans le [portail Azure](https://portal.azure.com), la ressource [**Machines virt
 ## <a name="remarks"></a>Notes
 
 - Nous vous recommandons d’utiliser la ressource [**Machines virtuelles SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) pour voir et gérer vos machines virtuelles SQL Server dans Azure. Mais pour l’heure, la ressource **Machines virtuelles SQL** ne prend pas en charge la gestion des machines virtuelles SQL Server [en fin de support](sql-server-2008-extend-end-of-support.md). Pour gérer les paramètres de vos machines virtuelles SQL Server en fin de support, utilisez plutôt l’[onglet Configuration de SQL Server](#access-the-sql-server-configuration-tab) déprécié. 
-- La ressource **Machines virtuelles SQL** est disponible uniquement pour les machines virtuelles SQL Server qui ont été [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md). 
+- La ressource **Machines virtuelles SQL** est disponible uniquement pour les machines virtuelles SQL Server qui ont été [inscrites auprès de l’extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Accéder à la ressource Machines virtuelles SQL
@@ -57,7 +57,7 @@ Pour accéder à la ressource **Machines virtuelles SQL**, procédez comme suit�
 > La ressource **Machines virtuelles SQL** est destinée aux paramètres SQL Server dédiés. Sélectionnez le nom de la machine virtuelle dans la zone **Machine virtuelle** pour ouvrir les paramètres qui sont propres à la machine virtuelle, mais pas exclusifs à SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Accéder à l’onglet Configuration de SQL Server
-L’onglet **Configuration de SQL Server** est désormais déconseillé. Pour l’heure, il s’agit de la seule méthode permettant de gérer les machines virtuelles SQL Server [en fin de support](sql-server-2008-extend-end-of-support.md) et celles qui n’ont pas été [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md).
+L’onglet **Configuration de SQL Server** est désormais déconseillé. Pour l’heure, il s’agit de la seule méthode permettant de gérer les machines virtuelles SQL Server [en fin de support](sql-server-2008-extend-end-of-support.md) et celles qui n’ont pas été [inscrites auprès de l’extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
 Pour accéder à l’onglet déconseillé **Configuration de SQL Server**, accédez à la ressource **Machines virtuelles**. Utiliser les étapes suivantes :
 

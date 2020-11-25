@@ -3,13 +3,13 @@ title: Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment mettre à niveau un cluster Azure Kubernetes service (AKS) pour obtenir les fonctionnalités et mises à jour de sécurité les plus récentes.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461445"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683231"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -33,9 +33,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x* .
+> Lors de la mise à niveau d’un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
 >
-> Pour opérer une mise à niveau *1.12.x* -> *1.14.x* , commencez par une mise à niveau *1.12.x* -> *1.13.x* , puis effectuez la mise à niveau *1.13.x* -> *1.14.x* .
+> Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 >
 > L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge --> une version *1.15.x* prise en charge peut être effectuée.
 
@@ -51,7 +51,7 @@ Si aucune mise à niveau n’est disponible, vous obtenez :
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Personnaliser l’augmentation du nombre de nœuds pendant une mise à niveau (préversion)
+## <a name="customize-node-surge-upgrade"></a>Personnaliser l’augmentation du nombre de nœuds pendant une mise à niveau
 
 > [!Important]
 > Une augmentation du nombre de nœuds nécessite un quota d’abonnement pour l’augmentation maximale (max-surge) demandée pour chaque opération de mise à niveau. Par exemple, un cluster comprenant 5 pools de 4 nœuds a 20 nœuds en tout. Si chaque pool de nœuds a une valeur max-surge de 50 %, un quota de calcul et d’adresse IP supplémentaire de 10 nœuds (2 nœuds * 5 pools) est nécessaire pour effectuer la mise à niveau.
@@ -66,21 +66,7 @@ AKS accepte à la fois des valeurs entières et des valeurs en pourcentage pour 
 
 Pendant une mise à niveau, la valeur max-surge peut être égale au minimum à 1 et au maximum au nombre de nœuds dans votre pool de nœuds. Vous pouvez définir des valeurs plus élevées, mais le nombre maximal de nœuds utilisés pour max-surge ne sera pas supérieur au nombre de nœuds dans le pool au moment de la mise à niveau.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configurer la fonctionnalité en préversion pour personnaliser l’augmentation du nombre de nœuds pendant une mise à niveau
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-L’inscription prend plusieurs minutes. Utilisez la commande ci-dessous pour vérifier que la fonctionnalité est inscrite :
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Durant la préversion, vous avez besoin de l’extension CLI *aks-preview* pour utiliser max-surge. Utilisez la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Jusqu’à la version 2.16.0 ou ultérieure de la CLI, vous avez besoin de l’extension CLI *aks-preview* pour utiliser max-surge. Utilisez la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
-Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud de tampon (ou autant de nœuds que ceux configurés dans [max-surge](#customize-node-surge-upgrade-preview)) au cluster qui exécute la version de Kubernetes spécifiée. Ensuite, il effectue l’[isolation et le drainage][kubernetes-drain] d’un des anciens nœuds pour minimiser l’interruption des applications en cours d’exécution (si vous utilisez max-surge, l’[isolation et le drainage][kubernetes-drain] seront effectués sur autant de nœuds que le nombre de nœuds de mémoire tampon spécifiés). Lorsque l’ancien nœud est entièrement drainé, il est réinitialisé pour recevoir la nouvelle version et devient le nœud de mémoire tampon pour le nœud suivant à mettre à niveau. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau. À la fin du processus, le dernier nœud drainé est supprimé, ce qui a pour effet de maintenir le nombre de nœuds d’agent existants.
+Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud de tampon (ou autant de nœuds que ceux configurés dans [max-surge](#customize-node-surge-upgrade)) au cluster qui exécute la version de Kubernetes spécifiée. Ensuite, il effectue l’[isolation et le drainage][kubernetes-drain] d’un des anciens nœuds pour minimiser l’interruption des applications en cours d’exécution (si vous utilisez max-surge, l’[isolation et le drainage][kubernetes-drain] seront effectués sur autant de nœuds que le nombre de nœuds de mémoire tampon spécifiés). Lorsque l’ancien nœud est entièrement drainé, il est réinitialisé pour recevoir la nouvelle version et devient le nœud de mémoire tampon pour le nœud suivant à mettre à niveau. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau. À la fin du processus, le dernier nœud drainé est supprimé, ce qui a pour effet de maintenir le nombre de nœuds d’agent existants.
 
 ```azurecli-interactive
 az aks upgrade \

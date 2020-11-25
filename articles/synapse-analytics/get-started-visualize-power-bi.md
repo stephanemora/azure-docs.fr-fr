@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c5c41b98d52a4b8182fb162c3bfa9a08c0df5e15
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b72d083216b7cd0ae7a588bfd721d8981829bfc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171855"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844365"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 
@@ -37,13 +37,9 @@ Vous pouvez lier un espace de travail Power BI à votre espace de travail Azure 
 ### <a name="link-your-azure-synapse-workspace-to-your-new-power-bi-workspace"></a>Lier votre espace de travail Azure Synapse à votre nouvel espace de travail Power BI
 
 1. Dans Synapse Studio, accédez à **Gérer** > **Services liés**.
-1. Sélectionnez **Nouveau** > **Se connecter à Power BI**, puis définissez les champs suivants :
-
-    |Paramètre | Valeur suggérée | 
-    |---|---|
-    |**Nom**|**NYCTaxiWorkspace1**|
-    |**Nom de l’espace de travail**|**NYCTaxiWorkspace1**|
-
+1. Sélectionnez **Nouveau** > **Se connecter à Power BI**
+1. Définissez **Nom** sur **NYCTaxiWorkspace1**
+1. Définissez **Nom de l’espace de travail** sur **NYCTaxiWorkspace1**
 1. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Créer un jeu de données Power BI qui utilise des données dans votre espace de travail Azure Synapse
@@ -86,11 +82,7 @@ Vous pouvez lier un espace de travail Power BI à votre espace de travail Azure 
     * Sous **NYCTaxiWorkspace1** > **Rapports Power BI**, un nouveau rapport appelé **PassengerAnalysis**.
 1. Sélectionnez le rapport **PassengerAnalysis**. Le rapport s’ouvre. Vous pouvez le modifier directement dans Synapse Studio.
 
-## <a name="monitor-activities"></a>Activités d'analyse
 
-1. Dans Synapse Studio, accédez au hub **Superviser**.
-1. À cet emplacement, vous pouvez voir un historique de toutes les activités qui se produisent dans l’espace de travail et celles qui sont actuellement actives.
-1. Explorez les activités **Exécutions du pipeline**, **Applications Apache Spark** et **Requêtes SQL** pour voir tout ce que vous avez déjà fait dans l’espace de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

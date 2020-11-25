@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075424"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659435"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Déployer et configurer un pare-feu Azure à l’aide d’Azure CLI
 
@@ -25,7 +25,7 @@ Vous pouvez contrôler l’accès réseau sortant à partir d’un sous-réseau 
 
 Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous routez votre trafic réseau vers le pare-feu en tant que sous-réseau de passerelle par défaut.
 
-Dans le cadre de cet article, vous créez un seul réseau virtuel simplifié avec trois sous-réseaux pour un déploiement facile. Pour les déploiements de production, l’utilisation d’un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandée. Le pare-feu se trouve dans son propre réseau virtuel. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
+Dans le cadre de cet article, vous créez un seul réseau virtuel simplifié avec trois sous-réseaux pour un déploiement facile. Pour les déploiements de production, l’utilisation d’un [modèle Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandée. Le pare-feu se trouve dans son propre réseau virtuel. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
 
 * **AzureFirewallSubnet** : le pare-feu est dans ce sous-réseau.
 * **Workload-SN** : le serveur de la charge de travail est dans ce sous-réseau. Le trafic réseau de ce sous-réseau traverse le pare-feu.
@@ -44,22 +44,11 @@ Dans cet article, vous apprendrez comment :
 
 Si vous préférez, vous pouvez effectuer cette procédure en utilisant le [portail Azure](tutorial-firewall-deploy-portal.md) ou [Azure PowerShell](deploy-ps.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Prérequis
-
-### <a name="azure-cli"></a>Azure CLI
-
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, exécutez Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version, exécutez **az --version**. Pour plus d’informations sur l’installation ou la mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
-
-Installation de l’extension du pare-feu Azure :
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Cet article nécessite la version 2.0.4 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="set-up-the-network"></a>Configurer le réseau
 
@@ -301,4 +290,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+* [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

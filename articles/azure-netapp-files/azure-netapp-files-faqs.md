@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089313"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659146"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -150,7 +150,7 @@ Oui, vous devez créer une connexion Active Directory avant de déployer un volu
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Combien de connexions Active Directory sont prises en charge ?
 
-Azure NetApp Files ne prend pas en charge plusieurs connexions Active Directory (AD) dans une même et seule *région* , même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même *abonnement* , à condition que les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts. 
+Azure NetApp Files ne prend pas en charge plusieurs connexions Active Directory (AD) dans une même et seule *région*, même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même *abonnement*, à condition que les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts. 
 
 Une connexion AD est configurée par compte NetApp ; la connexion AD est visible seulement via le compte NetApp dans lequel elle est créée.
 
@@ -168,21 +168,15 @@ Azure NetApp Files prend en charge les versions Windows Server 2008r2SP1-2019 d
 
 La taille du volume signalée dans le client SMB est la taille maximale que peut atteindre le volume Azure NetApp Files. La taille du volume Azure NetApp Files comme affichée sur le client SMB ne représente pas le quota ou la taille du volume. Vous pouvez obtenir la taille du volume Azure NetApp Files ou son quota par le biais du portail Azure ou de l’API.
 
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Je n’arrive pas à me connecter à mon partage SMB. Que dois-je faire ?
+
+Il est recommandé de définir la tolérance maximale de synchronisation de l’horloge de l’ordinateur sur cinq minutes. Pour plus d’informations, consultez [Tolérance maximale de synchronisation de l’horloge de l’ordinateur](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>FAQ sur le double protocole
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>J’ai essayé d’utiliser la « racine » et des utilisateurs locaux pour accéder à un volume à double protocole avec le style de sécurité NTFS sur un système UNIX. Pourquoi ai-je rencontré une erreur « Autorisation refusée » ?   
-
-Voir [Résoudre les problèmes des volumes à deux protocoles](troubleshoot-dual-protocol-volumes.md) pour les résolutions.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Lorsque j’essaie de créer un volume à deux protocoles, pourquoi le processus de création échoue-t-il en raison de l’erreur « Impossible de valider la configuration LDAP, réessayez après avoir corrigé la configuration LDAP » ?  
-
-Voir [Résoudre les problèmes des volumes à deux protocoles](troubleshoot-dual-protocol-volumes.md) pour les résolutions.
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

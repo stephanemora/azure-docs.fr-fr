@@ -1,21 +1,21 @@
 ---
 title: 'Tutoriel : Déployer des modèles Machine Learning avec le concepteur'
 titleSuffix: Azure Machine Learning
-description: Ce tutoriel montre comment créer une solution d’analytique prédictive dans le concepteur Azure Machine Learning. Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
+description: Créez une solution d’analytique prédictive dans le concepteur Azure Machine Learning. Entraînez, évaluez et déployez un modèle Machine Learning à l’aide de modules de type glisser-déplacer.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311514"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592547"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
@@ -48,43 +48,43 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
    ![Capture d’écran montrant la configuration attendue du pipeline après sa préparation pour le déploiement](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    Quand vous sélectionnez **Créer un pipeline d’inférence** , plusieurs choses se produisent :
+    Quand vous sélectionnez **Créer un pipeline d’inférence**, plusieurs choses se produisent :
     
-    * Le modèle entraîné est stocké sous la forme d’un module **Jeux de données** dans la palette de modules. Vous pouvez le trouver sous **Mes modèles** .
+    * Le modèle entraîné est stocké sous la forme d’un module **Jeux de données** dans la palette de modules. Vous pouvez le trouver sous **Mes modèles**.
     * Des modules d’entraînement, comme **Train Model** (Entraîner le modèle) et **Split Data** (Fractionner les données) sont supprimés.
     * Le modèle entraîné enregistré est rajouté au pipeline.
     * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés. Ces modules montrent l’emplacement où les données utilisateur sont entrées dans le pipeline ainsi que l’emplacement où ces données sont retournées.
 
     > [!NOTE]
-    > Par défaut, l’ **entrée de service web** attend le même schéma de données que les données d’entraînement utilisées pour créer le pipeline prédictif. Dans ce scénario, le prix est inclus dans le schéma. Toutefois, le prix n’est pas utilisé comme facteur lors de la prédiction.
+    > Par défaut, l’**entrée de service web** attend le même schéma de données que les données d’entraînement utilisées pour créer le pipeline prédictif. Dans ce scénario, le prix est inclus dans le schéma. Toutefois, le prix n’est pas utilisé comme facteur lors de la prédiction.
     >
 
-1. Sélectionnez **Envoyer** , puis utilisez la même cible de calcul et la même expérience que durant la première partie.
+1. Sélectionnez **Envoyer**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
 
     Si c’est la première fois, l’exécution de votre pipeline peut prendre jusqu’à 20 minutes. Les paramètres de calcul par défaut ont une taille de nœud minimale de 0, ce qui signifie que le concepteur doit allouer des ressources après une période d’inactivité. Les exécutions de pipeline répétées prennent moins de temps dans la mesure où les ressources de calcul sont déjà allouées. Par ailleurs, le concepteur utilise les résultats mis en cache pour chaque module afin d’améliorer l’efficacité.
 
-1. Sélectionnez **Déployer** .
+1. Sélectionnez **Déployer**.
 
 ## <a name="create-an-inferencing-cluster"></a>Créer un cluster d’inférence
 
 Dans la boîte de dialogue qui s’affiche, vous pouvez sélectionner n’importe quel cluster AKS (Azure Kubernetes Service) existant sur lequel déployer votre modèle. Si vous n’avez pas de cluster AKS, utilisez les étapes suivantes pour en créer un.
 
-1. Dans la boîte de dialogue qui s’affiche, sélectionnez **Calculer** pour accéder à la page **Calculer** .
+1. Dans la boîte de dialogue qui s’affiche, sélectionnez **Calculer** pour accéder à la page **Calculer**.
 
-1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau** .
+1. Dans le ruban de navigation, sélectionnez **Clusters d’inférence** >  **+ Nouveau**.
 
     ![Capture d’écran montrant comment accéder au volet Nouveau cluster d’inférence](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
    
 1. Dans le volet Cluster d’inférence, configurez un nouveau service Kubernetes.
 
-1. Entrez *aks-compute* pour **Nom du calcul** .
+1. Entrez *aks-compute* pour **Nom du calcul**.
     
-1. Sélectionnez une région proche disponible pour **Région** .
+1. Sélectionnez une région proche disponible pour **Région**.
 
 1. Sélectionnez **Create** (Créer).
 
     > [!NOTE]
-    > La création d’un service AKS prend environ 15 minutes. Vous pouvez vérifier l’état de provisionnement dans la page **Clusters d’inférence** .
+    > La création d’un service AKS prend environ 15 minutes. Vous pouvez vérifier l’état de provisionnement dans la page **Clusters d’inférence**.
     >
 
 ## <a name="deploy-the-real-time-endpoint"></a>Déployer le point de terminaison en temps réel
@@ -93,25 +93,27 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 1. Sélectionnez **Déployer** au-dessus du canevas.
 
-1. Sélectionnez **Déployer un nouveau point de terminaison en temps réel** . 
+1. Sélectionnez **Déployer un nouveau point de terminaison en temps réel**. 
 
 1. Sélectionnez le cluster AKS que vous avez créé.
 
-1. Sélectionnez **Déployer** .
+1. Sélectionnez **Déployer**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Capture d’écran montrant l’emplacement du bouton pour créer un pipeline":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel":::
 
     Une notification de réussite s’affiche au-dessus du canevas, une fois le déploiement effectué. Cela peut prendre quelques minutes.
 
 ## <a name="view-the-real-time-endpoint"></a>Afficher le point de terminaison en temps réel
 
-Une fois le déploiement effectué, vous pouvez afficher votre point de terminaison en temps réel en accédant à la page **Points de terminaison** .
+Une fois le déploiement effectué, vous pouvez afficher votre point de terminaison en temps réel en accédant à la page **Points de terminaison**.
 
-1. Dans la page **Points de terminaison** , sélectionnez le point de terminaison que vous avez déployé.
+1. Dans la page **Points de terminaison**, sélectionnez le point de terminaison que vous avez déployé.
 
-1. Sous l’onglet **Détails** , vous pouvez obtenir plus d’informations, telles que l’URI REST, l’état et les étiquettes.
+1. Sous l’onglet **Détails**, vous pouvez obtenir plus d’informations, telles que l’URI REST, l’état et les étiquettes.
 
-1. Sous l’onglet **Consommer** , vous pouvez rechercher des clés de sécurité et définir des méthodes d’authentification.
+1. Sous l’onglet **Consommer**, vous pouvez rechercher des clés de sécurité et définir des méthodes d’authentification.
+
+1. Sous l’onglet **Journaux de déploiement**, vous trouverez les journaux de déploiement détaillés de votre point de terminaison en temps réel. 
 
 Pour plus d’informations sur l’utilisation de votre service web, consultez [Consommer un modèle déployé en tant que service web](how-to-consume-web-service.md).
 

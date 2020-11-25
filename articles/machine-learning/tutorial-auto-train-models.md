@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358607"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886326"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
@@ -39,7 +39,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 * Effectuez le [tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas encore d’espace de travail Azure Machine Learning ou de machine virtuelle de notebook.
 * Une fois le tutoriel d’installation terminé, ouvrez le notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* en utilisant le même serveur de notebooks.
 
-Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’exécuter dans votre propre [environnement local](how-to-configure-environment.md#local). Exécutez `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` pour vous procurer les packages requis.
+Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’exécuter dans votre propre [environnement local](how-to-configure-environment.md#local). Pour vous procurer les packages requis : 
+* [Installez le client `automl` complet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Exécutez `pip install azureml-opendatasets azureml-widgets` pour vous procurer les packages requis.
 
 ## <a name="download-and-prepare-data"></a>Télécharger et préparer les données
 

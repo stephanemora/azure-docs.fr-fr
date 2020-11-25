@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783179"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835745"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -39,9 +39,9 @@ Dans son [billet de blog d'octobre 2018](https://techcommunity.microsoft.com/t5/
 >
 > L'an dernier, lors de la conférence Ignite, j'ai évoqué les trois principales attaques auxquelles nos systèmes d'identité sont confrontés. Voici le volume récent de ces attaques
 >   
->   - **Attaque par rejeu**  : 4,6 milliards d'attaques détectées en mai 2018
->   - **Pulvérisation de mots de passe**  : 350 000 en avril 2018
->   - **Hameçonnage**  : ces attaques sont difficiles à quantifier, mais nous avons observé 23 millions d'événements à risque en mars 2018, dont beaucoup étaient liés au hameçonnage
+>   - **Attaque par rejeu** : 4,6 milliards d'attaques détectées en mai 2018
+>   - **Pulvérisation de mots de passe** : 350 000 en avril 2018
+>   - **Hameçonnage** : ces attaques sont difficiles à quantifier, mais nous avons observé 23 millions d'événements à risque en mars 2018, dont beaucoup étaient liés au hameçonnage
 
 ## <a name="risk-detection-and-remediation"></a>Détection d'événements à risque et solutions pour y remédier
 
@@ -59,7 +59,7 @@ Identity Protection identifie les risques selon les classifications suivantes :
 
 Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
 
-Les signaux de risque peuvent déclencher des mesures correctives (par exemple en obligeant les utilisateurs à utiliser Azure Multi-Factor Authentication ou à réinitialiser leur mot de passe à l'aide de la réinitialisation de mot de passe en libre-service) ou bloquer les utilisateurs jusqu'à ce qu'un administrateur intervienne.
+Les signaux de risque peuvent déclencher des mesures correctives (par exemple en obligeant les utilisateurs à utiliser Azure AD Multi-Factor Authentication ou à réinitialiser leur mot de passe à l’aide de la réinitialisation de mot de passe en libre-service) ou bloquer les utilisateurs jusqu’à ce qu’un administrateur intervienne.
 
 ## <a name="risk-investigation"></a>Examen des risques
 

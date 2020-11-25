@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216655"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533189"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification
 
-Dans ce guide de démarrage rapide, vous allez exécuter un exemple de code montrant comment une application monopage JavaScript (SPA) peut connecter les utilisateurs de comptes personnels, professionnels et scolaires à l’aide du flux de code d’autorisation. L’exemple de code indique également comment obtenir un jeton d’accès pour appeler une API web, en l’occurrence l’API Microsoft Graph. Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation. L’exemple de code indique comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web. 
+
+Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’autorisation. Pour accéder à un guide de démarrage rapide similaire qui utilise MSAL.js 1.0 avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
 
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 Pour un guide pas à pas plus détaillé sur la création de l’application utilisée dans ce guide de démarrage rapide, consultez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel pour se connecter et appeler MS Graph >](./tutorial-v2-javascript-auth-code.md)
+> [Tutoriel pour se connecter et appeler MS Graph](./tutorial-v2-javascript-auth-code.md)

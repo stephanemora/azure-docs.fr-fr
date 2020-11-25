@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Prédire les prix des voitures avec le concepteur'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment entraîner, scorer et déployer un modèle Machine Learning via une interface de type glisser-déposer. Ce tutoriel constitue la première partie d’une série en deux volets sur la prédiction des prix des véhicules automobiles à l’aide d’une régression linéaire.
+description: Entraînez un modèle Machine Learning pour prévoir l’évolution des prix dans le secteur automobile avec une régression linéaire. Ce tutoriel est le premier d’une série de deux.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404916"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555258"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
 
@@ -221,7 +221,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
     > [!IMPORTANT]
     > Vérifiez que le port de sortie de gauche de **Split Data** est connecté à **Train Model**. Le port de gauche contient le jeu d’entraînement. Le port de droite contient le jeu de test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Capture d’écran montrant la configuration correcte du module Entraîner le modèle. Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.":::
 
 1. Sélectionnez le module **Entraîner le modèle**.
 
@@ -236,7 +236,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     Votre pipeline doit se présenter comme suit :
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline après l’ajout du module Entraîner le modèle.":::
 
 ### <a name="add-the-score-model-module"></a>Ajoutez le module Score Model (Noter le modèle)
 
@@ -256,7 +256,7 @@ Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le sco
 
     Le pipeline final doit maintenant se présenter comme ceci :
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Capture d’écran montrant la configuration correcte du pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
@@ -285,7 +285,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Capture d’écran de la visualisation de la sortie mettant en évidence la colonne d’étiquettes notées":::
 
 ### <a name="evaluate-models"></a>Évaluer les modèles
 

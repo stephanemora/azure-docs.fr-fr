@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317432"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638867"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless (préversion) dans Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ Les types de données que vous utilisez dans votre requête affectent les perfor
 - Utilisez la plus petite taille de données pouvant prendre en charge la plus grande valeur possible.
   - Si la longueur maximale est de 30 caractères, utilisez un type de données d’une longueur de 30 caractères.
   - Si toutes les valeurs de colonne de caractères ont une taille fixe, utilisez le type **char** ou **nchar**. Sinon, utilisez le type **varchar** ou **nvarchar**.
-  - Si la valeur maximale de la colonne d’entiers est 500, utilisez le type **smallint** , car il s’agit du plus petit type de données pouvant prendre en charge cette valeur. Vous trouverez les plages de types d’entiers dans [cet article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - Si la valeur maximale de la colonne d’entiers est 500, utilisez le type **smallint**, car il s’agit du plus petit type de données pouvant prendre en charge cette valeur. Vous trouverez les plages de types d’entiers dans [cet article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - Autant que possible, utilisez les types **varchar** et **char** plutôt que les types **nvarchar** et **nchar**.
 - Utilisez des types de données de type Integer si possible. Les opérations de tri (SORT), de jointure (JOIN) et de regroupement (GROUP BY) sont effectuées plus rapidement sur des entiers que sur des données caractères.
 - Si vous utilisez une inférence de schéma, [vérifiez les types de données déduits](#check-inferred-data-types).
@@ -127,13 +127,17 @@ Si vos données stockées ne sont pas partitionnées, envisagez de les partition
 
 Vous pouvez utiliser l’analyseur à performances optimisées lors de l’interrogation de fichiers CSV. Pour plus d’informations, consultez [PARSER_VERSION](develop-openrowset.md).
 
+## <a name="manually-create-statistics-for-csv-files"></a>Créer manuellement des statistiques pour les fichiers CSV
+
+Le pool SQL serverless s’appuie sur des statistiques pour générer des plans optimaux d’exécution des requêtes. Les statistiques sont automatiquement créées pour les colonnes de fichiers Parquet si nécessaire. À ce stade, les statistiques ne sont pas automatiquement créées pour les colonnes de fichiers CSV, et vous devez créer des statistiques manuellement pour les colonnes que vous utilisez dans les requêtes, en particulier celles utilisées dans DISTINCT, JOIN, WHERE, ORDER BY et GROUP BY. Consultez [Statistiques dans un pool SQL serverless](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) pour plus d’informations.
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 
 [CETAS](develop-tables-cetas.md) est l’une des fonctionnalités les plus importantes disponibles dans le pool SQL serverless. CETAS est une opération parallèle qui crée des métadonnées de table externe et exporte le résultat de la requête SELECT vers un ensemble de fichiers dans votre compte de stockage.
 
 Vous pouvez utiliser CETAS pour stocker dans un nouveau jeu de fichiers des parties de requêtes souvent utilisées, telles des tables de référence jointes. Vous pouvez ensuite établir une jointure avec cette table externe au lieu de répéter des jointures communes dans plusieurs requêtes.
 
-Comme CETAS génère des fichiers Parquet, les statistiques sont automatiquement créées lorsque la première requête cible cette table externe, ce qui améliore les performances.
+Comme CETAS génère des fichiers Parquet, les statistiques sont automatiquement créées lorsque la première requête cible cette table externe, ce qui améliore les performances pour les requêtes suivantes ciblant un tableau généré avec CETAS.
 
 ## <a name="azure-ad-pass-through-performance"></a>Performances d’authentification directes Azure AD
 

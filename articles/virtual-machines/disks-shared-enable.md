@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747777"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683589"
 ---
 # <a name="enable-shared-disk"></a>Activer la fonctionnalité Disques partagés
 
 Cet article explique comment activer la fonctionnalité Disques partagés pour les disques managés Azure. La fonctionnalité Disques partagés Azure est une nouvelle fonctionnalité pour disques managés Azure qui vous permet de connecter simultanément un disque managé à plusieurs machines virtuelles. La connexion d'un disque managé à plusieurs machines virtuelles vous permet de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure. 
 
-Si vous recherchez des informations conceptuelles relatives aux disques managés sur lesquels la fonctionnalité Disques partagés est activée, reportez-vous à :
-
-* Pour Linux : [Disques partagés Azure](linux/disks-shared.md)
-
-* Pour Windows : [Disques partagés Azure](windows/disks-shared.md)
+Si vous recherchez des informations conceptuelles relatives aux disques managés sur lesquels la fonctionnalité Disques partagés est activée, consultez [Disques partagés Azure](disks-shared.md).
 
 ## <a name="limitations"></a>Limites
 

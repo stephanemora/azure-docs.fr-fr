@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220456"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579145"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -52,11 +52,11 @@ Cela peut être dû aux raisons suivantes :
 
 « Nous n’avons pas pu ajouter d’autorisations d’écriture pour le compte Azure Data Share à une ou plusieurs de vos ressources sélectionnées »
 
-Si vous rencontrez l’une des erreurs ci-dessus lors de la création d’un nouveau partage de fichiers ou du mappage de jeux de données, cela peut être dû à des autorisations insuffisantes pour le magasin de données Azure. Consultez [Rôles et conditions requises](concepts-roles-permissions.md) pour obtenir les autorisations requises. 
+Si vous rencontrez l’une des erreurs ci-dessus lors de la création d’un nouveau partage de fichiers, de l’ajout de jeux de données, ou du mappage de jeux de données, cela peut être dû à des autorisations insuffisantes pour le magasin de données Azure. Consultez [Rôles et conditions requises](concepts-roles-permissions.md) pour obtenir les autorisations requises. 
 
-Vous avez besoin d’une autorisation d’écriture pour partager ou recevoir des données à partir d’un magasin de données Azure, qui existe généralement dans le rôle Contributeur. 
+Vous avez besoin d’une autorisation d’écriture pour partager ou recevoir des données à partir d’un magasin de données Azure, qui existe généralement dans le rôle **Contributeur**. 
 
-S’il s’agit de la première fois que vous partagez ou recevez des données à partir du magasin de données Azure, vous devez également obtenir l’autorisation *Microsoft.Authorization/role assignments/write* , qui existe généralement dans le rôle Propriétaire. Même si vous avez créé la ressource de magasin de données Azure, cela ne fait PAS automatiquement de vous le propriétaire de la ressource. Avec l’autorisation appropriée, le service Azure Data Share accorde automatiquement à l’identité managée de la ressource de partage de données l’accès au magasin de données. La prise d’effet de ce processus peut prendre quelques minutes. Si vous rencontrez un problème en raison de ce délai, réessayez après quelques minutes.
+S’il s’agit de la première fois que vous partagez ou recevez des données à partir du magasin de données Azure, vous devez également obtenir l’autorisation *Microsoft.Authorization/role assignments/write*, qui existe généralement dans le rôle **Propriétaire**. Même si vous avez créé la ressource de magasin de données Azure, cela ne fait PAS automatiquement de vous le propriétaire de la ressource. Avec l’autorisation appropriée, le service Azure Data Share accorde automatiquement à l’identité managée de la ressource de partage de données l’accès au magasin de données. La prise d’effet de ce processus peut prendre quelques minutes. Si vous rencontrez un problème en raison de ce délai, réessayez après quelques minutes.
 
 Le partage basé sur SQL nécessite des autorisations supplémentaires. Consultez la liste détaillée des prérequis dans l’article [Partager à partir de sources SQL](how-to-share-from-sql.md).
 
@@ -69,7 +69,7 @@ La capture instantanée peut échouer pour différentes raisons. Vous trouverez 
 
 Pour les sources SQL, les autres causes des échecs d’instantanés sont les suivantes. 
 
-* Le script SQL source ou cible pour accorder l’autorisation de partage de données n’est pas exécuté ou est exécuté à l’aide de l’authentification SQL au lieu de l’authentification Azure Active Directory.  
+* Le script SQL source ou cible pour accorder l’autorisation de partage de données n’est pas exécuté. Ou, pour Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), il est exécuté à l’aide de l’authentification SQL au lieu de l’authentification Azure Active Directory.  
 * Le magasin de données SQL source ou cible est interrompu.
 * Les types de données SQL ne sont pas pris en charge par le processus d’instantané ou le magasin de données cible. Pour plus d’informations, consultez [Partager à partir de sources SQL](how-to-share-from-sql.md#supported-data-types).
 * Le magasin de données SQL source ou cible est verrouillé par d’autres processus. Azure Data Share n’applique pas de verrous aux magasins de données SQL source et cible. Toutefois, les verrous existants sur les magasins de données SQL source et cible entraînent un échec de l’instantané.

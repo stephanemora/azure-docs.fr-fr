@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684916"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -515,14 +515,13 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 - Certains services, tels que App Service Environment, Logic Apps et SQL Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances SQL Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
 ### <a name="failover-groups"></a>Groupes de basculement
-Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système ne peuvent pas être appliqués sur l’instance secondaire, à moins que ces objets ne soient créés manuellement sur cette dernière.
-
-### <a name="failover-groups"></a>Groupes de basculement
 Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système sont impossibles sur l’instance secondaire, à moins que les objets ne soient créés manuellement.
 
 ### <a name="tempdb"></a>TEMPDB
-
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage de SQL Managed Instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur le niveau Usage général. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
+- La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage de SQL Managed Instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur le niveau Usage général. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
+- `Tempdb` est toujours divisée en 12 fichiers de données : 1 fichier de données principal, également appelé Master, et 11 fichiers de données non principaux. La structure de fichier ne peut pas être modifiée et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. 
+- Les [métadonnées `tempdb` à mémoire optimisée](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), une nouvelle fonctionnalité de base de données en mémoire SQL Server 2019, ne sont pas prises en charge.
+- Les objets créés dans la base de données model ne peuvent pas être créés automatiquement dans `tempdb` après un redémarrage ou un basculement, car `tempdb` n’obtient pas sa liste initiale d’objets de la base de données model. Vous devez créer des objets dans `tempdb` manuellement après chaque redémarrage ou après un basculement.
 
 ### <a name="msdb"></a>MSDB
 

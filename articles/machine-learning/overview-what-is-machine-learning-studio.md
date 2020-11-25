@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que le studio Azure Machine Learning ?
-description: Le studio Azure Machine Learning est un portail web pour les espaces de travail Azure Machine Learning. Le studio combine des expériences sans code et Code First pour créer une plateforme de science des données inclusive.
+description: Le studio est un portail web pour les espaces de travail Azure Machine Learning. Le studio combine des expériences sans code et Code First pour offrir une plateforme de science des données inclusive.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310164"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565906"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -103,3 +103,4 @@ Visitez le [studio](https://ml.azure.com), ou explorez les différentes options 
   + [Utiliser des notebooks Jupyter sur une instance de calcul pour entraîner et déployer des modèles](tutorial-1st-experiment-sdk-setup.md)
   + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles](tutorial-first-experiment-automated-ml.md)  
   + [Utiliser le concepteur pour entraîner et déployer des modèles](tutorial-designer-automobile-price-train-score.md)
+  + [Utiliser le studio dans un réseau virtuel sécurisé](how-to-enable-studio-virtual-network.md)

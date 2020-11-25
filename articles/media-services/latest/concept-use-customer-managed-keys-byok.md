@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325919"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681820"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -37,9 +37,11 @@ Vous pouvez spécifier un nom et une version de clé, ou simplement un nom de cl
 > [!WARNING]
 > Media Services surveille l’accès à la clé de client. Si la clé de client devient inaccessible (par exemple, si elle-même, le Key Vault ou l’autorisation d’accès est supprimé), Media Services définit l’état de la clé de client du compte sur Inaccessible (ce qui a pour effet de désactiver le compte). Le compte peut toutefois être supprimé même dans cet état. Les seules opérations prises en charge sont les opérations d’extraction (GET), de liste (LIST) et de suppression (DELETE) de compte. Toutes les autres requêtes (encodage, diffusion en continu, etc.) échouent tant que l’accès à la clé du compte n’est pas restauré.
 
-## <a name="tutorial"></a>Didacticiel
-Essayez le tutoriel [Utiliser des clésCMK ou des clés BYOK avec Media Services](tutorial-byok.md) pour en savoir plus sur la configuration et l’utilisation de clés gérées par le client avec Postman et l’API REST Azure.
+## <a name="tutorials"></a>Tutoriels
+
+- [Utiliser le portail Azure pour utiliser des clés managées par le client ou BYOK avec la plateforme Media Services](tutorial-byok-portal.md)
+- [Utiliser des clés managées par le client ou BYOK avec l’API REST Media Services](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Utiliser des clés CMK ou des clés BYOK avec Media Services](tutorial-byok.md)
+[Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](content-protection-overview.md)

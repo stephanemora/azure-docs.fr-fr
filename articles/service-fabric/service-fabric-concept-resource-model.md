@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la gestion d’une appl
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258736"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681684"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
@@ -55,7 +55,7 @@ Après avoir créé le compte de stockage, vous créez un conteneur d’objets b
 Les ressources de votre cluster peuvent être sécurisées en définissant le niveau d’accès public sur **privé**. Vous pouvez octroyer l’accès de plusieurs façons :
 
 * Autorisez l’accès aux objets blob et aux files d’attente en utilisant [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Octroyez l’accès aux données d’objet blob et de file d’attente Azure en utilisant le [contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Octroyez l’accès aux données d’objet blob et de file d’attente Azure en utilisant le [contrôle d’accès en fonction du rôle (RBAC) Azure dans le portail Azure](../storage/common/storage-auth-aad-rbac-portal.md).
 * Déléguez l’accès en utilisant une [signature d’accès partagé](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 L’exemple illustré dans la capture d’écran suivante utilise un accès en lecture anonyme pour les objets blob.

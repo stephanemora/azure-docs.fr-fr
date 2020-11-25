@@ -3,12 +3,12 @@ title: Déployer et mettre à niveau avec Azure Resource Manager
 description: Découvrez comment déployer des applications et services sur un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256507"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681667"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -18,7 +18,7 @@ Nous vous recommandons cette méthode pour déployer toutes les applications de 
 
 Le cas échéant, gérez vos applications en tant que ressources Resource Manager pour améliorer les scénarios suivants :
 * Piste d’audit : Resource Manager audite chaque opération et conserve un *journal d’activité* détaillé qui peut vous aider à suivre les modifications apportées à ces applications et à votre cluster.
-* Contrôle d’accès en fonction du rôle (RBAC) : la gestion de l’accès aux clusters, ainsi qu’aux applications déployées sur le cluster, peut être effectuée par le biais du même modèle Resource Manager.
+* Contrôle d’accès en fonction du rôle Azure (Azure RBAC) : la gestion de l’accès aux clusters, ainsi qu’aux applications déployées sur le cluster, peut être effectuée par le biais du même modèle Resource Manager.
 * Azure Resource Manager (par le biais du portail Azure) devient un guichet unique pour la gestion de votre cluster et des déploiements d’applications critiques.
 
 L’extrait de code suivant montre les différents types de ressources qui peuvent être gérés au moyen d’un modèle :

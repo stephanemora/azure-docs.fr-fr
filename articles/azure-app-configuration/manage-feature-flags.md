@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554697"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutoriel : Gérer les indicateurs de fonctionnalités dans Azure App Configuration
 
@@ -56,6 +56,7 @@ Pour ajouter un nouvel indicateur de fonctionnalité :
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+    | Microsoft.Targeting | { "Audience": objet blob JSON définissant les utilisateurs, les groupes et les pourcentages de lancement. Consultez un exemple sous l’élément `EnabledFor` de [ce fichier de paramètres](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtre d’indicateur de fonctionnalité](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Pour changer la valeur d’état d’un indicateur de fonctionnalité :
 
 1. Sélectionnez **Gestionnaire de fonctionnalités**.
 
-1. À droite d’un indicateur de fonctionnalité que vous souhaitez modifier, sélectionnez les points de suspension ( **...** ), puis sélectionnez **Modifier**.
+1. À droite d’un indicateur de fonctionnalité que vous souhaitez modifier, sélectionnez les points de suspension (**...**), puis sélectionnez **Modifier**.
 
 1. Définissez le nouvel état de l’indicateur de fonctionnalité.
 

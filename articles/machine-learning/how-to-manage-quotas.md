@@ -1,7 +1,7 @@
 ---
 title: Gérer les ressources et les quotas
 titleSuffix: Azure Machine Learning
-description: Obtenez plus d’informations relatives aux quotas sur les ressources pour Azure Machine Learning et sur la manière de demander des augmentations de quota.
+description: Obtenez plus d’informations relatives aux quotas et aux limites sur les ressources pour Azure Machine Learning et sur la manière de demander des augmentations de quota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309079"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542114"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -131,7 +131,7 @@ Vous ne pouvez pas définir une valeur négative ou une valeur supérieure au qu
 
 Pour afficher votre quota pour différentes ressources Azure telles que les machines virtuelles, le stockage ou le réseau, utilisez le portail Azure :
 
-1. Dans le volet gauche, sélectionnez **Tous les services** , puis **Abonnements** sous la catégorie **Général**.
+1. Dans le volet gauche, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie **Général**.
 
 2. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
 
@@ -141,7 +141,7 @@ Vous gérez le quota de capacité de calcul Azure Machine Learning sur votre abo
 
 1. Dans le portail Azure, accédez à votre espace de travail **Azure Machine Learning**.
 
-2. Dans le volet de gauche, sous la section **Prise en charge + détection des problèmes** , sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
+2. Dans le volet de gauche, sous la section **Prise en charge + détection des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
 
 3. Sélectionnez un abonnement pour afficher les limites de quota. Filtrez sur la région qui vous intéresse.
 
@@ -172,7 +172,7 @@ Azure Machine Learning crée des ressources dans votre abonnement (client), mais
 
 Pour demander une allocation pour ces scénarios, procédez comme suit :
 
-1. [Créez une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) et sélectionnez les options suivantes dans la section __Concepts de base__  :
+1. [Créez une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) et sélectionnez les options suivantes dans la section __Concepts de base__ :
 
     | Champ | Sélection |
     | ----- | ----- |
@@ -181,7 +181,7 @@ Pour demander une allocation pour ces scénarios, procédez comme suit :
     | Type de problème | **Configuration et sécurité de l’espace de travail** |
     | Sous-type de problème | **Demande d’allocation pour la zone DNS privée et le point de terminaison privé** |
 
-2. Dans la section __Détails__ , utilisez le champ __Description__ pour indiquer la région Azure et le scénario que vous prévoyez d’utiliser. Si vous devez demander des augmentations de quota pour plusieurs abonnements, indiquez les ID des abonnements dans ce champ.
+2. Dans la section __Détails__, utilisez le champ __Description__ pour indiquer la région Azure et le scénario que vous prévoyez d’utiliser. Si vous devez demander des augmentations de quota pour plusieurs abonnements, indiquez les ID des abonnements dans ce champ.
 
 3. Sélectionnez __Créer__ pour créer la demande.
 

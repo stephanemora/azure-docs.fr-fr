@@ -1,6 +1,6 @@
 ---
 title: Impact de la mise à jour de janvier 2021 d’Azure Stack Edge | Microsoft Docs
-description: Décrit l’impact de la gestion des rôles IoT Edge sur les appareils Azure Stack Edge après l’installation de la mise à jour de janvier 2021.
+description: Cet exemple décrit l’impact de la gestion des rôles IoT Edge sur les appareils Azure Stack Edge après l’installation de la mise à jour de janvier 2021.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,38 +8,41 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 4b54f75b7d90e4b3a0a11d2ecdc676bb48eeee99
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f16f33e9aadcc01427602a1bd81f81cb0710e4dd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335680"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578737"
 ---
-# <a name="iot-edge-role-management-changes-for-your-azure-stack-edge"></a>Modifications de gestion des rôles IoT Edge pour votre Azure Stack Edge
+# <a name="iot-edge-role-management-changes-for-your-azure-stack-edge-device"></a>Modifications de la gestion des rôles IoT Edge pour votre appareil Azure Stack Edge
 
-Pour la gestion des rôles IoT Edge pour votre appareil Azure Stack Edge, utilisez la dernière version de l’API, du kit SDK et d’Azure PowerShell dont la publication est prévue en janvier 2021. Cet article décrit en détail les modifications requises lorsque vous utilisez la dernière version de l’API, du kit SDK et des applets de commande PowerShell pour la gestion des rôles IoT Edge sur votre Azure Stack Edge.
+Pour gérer les rôles Azure IoT Edge sur votre appareil Azure Stack Edge, utilisez la version mise à jour de l’API, du SDK et d’Azure PowerShell, qui est prévue pour janvier 2021. 
 
-La mise à jour de janvier 2021 est disponible uniquement pour les appareils Azure Stack Edge Pro - GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R, et les informations contenues dans cet article s’appliquent uniquement à ces appareils. 
+Cet article décrit en détail les modifications que vous devez apporter lorsque vous utilisez la version la plus récente.
 
-## <a name="iot-edge-role-management-changes"></a>Modifications de gestion des rôles IoT Edge
+La mise à jour de janvier 2021 sera uniquement disponible pour les appareils Azure Stack Edge Pro - GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R. Les informations contenues dans cet article concernent uniquement ces appareils.
 
-Après avoir installé la version facultative du logiciel de l’appareil de janvier 2021 sur votre appareil Azure Stack Edge, vous devez utiliser la dernière version de l’API, du kit SDK et des applets de commande PowerShell pour la gestion des rôles IoT Edge.
+> [!NOTE]
+> Vous n’êtes pas obligé d’effectuer la mise à niveau vers la version de janvier 2021. Si vous continuez à utiliser votre version actuelle, cela n’aura aucun impact sur la gestion des rôles IoT Edge. Toutefois, pour bénéficier des nouvelles fonctionnalités et contribuer à réduire les risques de sécurité, nous vous recommandons d’installer la version plus récente. 
 
-- Si vous utilisez l’API de gestion des rôles avec la version 2019-08-01, effectuez une mise à niveau vers la version d’API publiée en janvier 2021. 
-- Si vous utilisez la gestion des rôles par le biais du kit SDK version 1.0.0, effectuez une mise à niveau vers la version publiée en janvier 2021.
-- Si vous utilisez la gestion des rôles avec des applets de commande Azure PowerShell (préversion) telles que `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`ou `Remove-AzStackEdgeRole`, vous devrez attendre les nouvelles applets de commande qui seront publiées en février 2021.
+## <a name="iot-edge-role-management-changes"></a>Modifications de la gestion des rôles IoT Edge
 
-Les modifications ci-dessus sont requises uniquement si vous appliquez la mise à jour de janvier 2021. Si vous conservez la version actuelle du logiciel de l’appareil, il n’y a aucun impact sur la gestion des rôles IoT Edge. Toutefois, nous vous recommandons de mettre à jour votre appareil pour les nouvelles fonctionnalités et les améliorations de sécurité. 
+Après avoir installé la mise à jour facultative de janvier 2021 sur votre appareil Azure Stack Edge, vous devez utiliser la dernière version de l’API, du SDK et des applets de commande PowerShell pour gérer les rôles IoT Edge.
 
+Les modifications suivantes sont nécessaires uniquement si vous appliquez la mise à jour de janvier 2021 :
+
+- Si vous utilisez actuellement la version&nbsp;2019-08-01 de l’API de gestion des rôles, mettez-la à niveau vers la version de l’API qui sera publiée en janvier 2021. 
+- Si vous utilisez la gestion des rôles via le SDK version&nbsp;1.0.0, effectuez une mise à niveau vers la version qui sera publiée en janvier 2021.
+- Si vous utilisez la gestion des rôles avec des applets de commande Azure PowerShell (préversion) telles que `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`ou `Remove-AzStackEdgeRole`, attendez que les nouvelles applets de commande soient publiées en février 2021.
 
 ## <a name="api-usage"></a>Utilisation de l’API
 
-Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous devez utiliser la nouvelle version de l’API (2020-12-01) qui sera publiée ultérieurement. Si vous utilisez l’API Rôle actuelle et que vous avez installé la version du logiciel de l’appareil à venir, vous devez passer au rôle PUT, GET, DELETE Kubernetes, suivi de l’API du module complémentaire IoT PUT.
+Si vous gérez les rôles IoT Edge par le biais de l’API, vous devez utiliser la nouvelle version de l’API (2020-12-01) qui sera publiée ultérieurement. Si vous utilisez l’API Rôle actuelle, une fois que vous aurez installé la version du logiciel de l’appareil à venir, vous devrez passer au rôle Kubernetes PUT, GET ou DELETE, puis à l’API du module complémentaire IoT PUT.
 
+### <a name="for-the-put-method"></a>Pour la méthode PUT
 
-### <a name="for-put-method"></a>Pour la méthode PUT
-
-#### <a name="current-http-request"></a>Requête HTTP actuelle 
+#### <a name="the-current-http-request"></a>La requête HTTP actuelle 
 
 - Les appels d’API sont effectués à cet URI : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01  »
 
@@ -84,11 +87,13 @@ Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous 
     }
     ```
 
-#### <a name="upcoming-http-request"></a>Requête HTTP à venir 
+#### <a name="the-upcoming-http-request"></a>La requête HTTP à venir 
 
-- Les appels d’API pour le rôle Kubernetes sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01  »
+- Les appels d’API pour le rôle Kubernetes sont effectués à l’URI suivant : 
 
-    Le corps de la requête se présente comme suit :
+  'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01'
+
+    Le corps de la requête doit ressembler à ceci :
 
     ```json
     {
@@ -110,10 +115,11 @@ Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous 
     }
     ```
 
-- Les appels d’API pour le module complémentaire IoT Edge sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01  »
+- Les appels d’API pour le module complémentaire IoT Edge sont effectués à l’URI suivant : 
 
+   'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01'
 
-    Le corps de la requête se présente comme suit :
+    Le corps de la requête doit ressembler à ceci :
 
     ```json
     {
@@ -152,12 +158,13 @@ Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous 
     ```
 
 
-### <a name="for-get-method"></a>Pour la méthode GET
+### <a name="for-the-get-method"></a>Pour la méthode GET
 
-#### <a name="current-http-response"></a>Réponse HTTP actuelle
+#### <a name="the-current-http-response"></a>La réponse HTTP actuelle
 
-- Les appels d’API sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01  »
+- Les appels d’API sont effectués à l’URI suivant : 
 
+   'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01'
 
 - Le corps de la réponse se présente comme suit :
 
@@ -190,9 +197,12 @@ Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous 
     }    
     ```
 
-#### <a name="upcoming-http-response"></a>Réponse HTTP à venir
+#### <a name="the-upcoming-http-response"></a>La réponse HTTP à venir
 
-- Les appels d’API sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01  »
+- Les appels d’API sont effectués à l’URI suivant :  
+
+   'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01'
+
 - Le corps de la réponse se présente comme suit : 
 
     ```json
@@ -224,22 +234,25 @@ Si vous effectuiez la gestion des rôles IoT Edge par le biais de l’API, vous 
     }
     ```
 
-### <a name="for-delete-method"></a>Pour la méthode DELETE
+### <a name="for-the-delete-method"></a>Pour la méthode DELETE
 
-### <a name="current"></a>Actuel
+### <a name="the-current-api-calls"></a>Les appels d’API actuels
 
-Les appels d’API sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01  »
+Les appels d’API sont effectués à l’URI suivant :  
 
-### <a name="upcoming"></a>À venir
+'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01'
 
-Les appels d’API sont effectués à l’URI suivant : « https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01  »
+### <a name="the-upcoming-api-calls"></a>Les appels d’API à venir
 
+Les appels d’API sont effectués à l’URI suivant :  
+
+'https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01'
 
 ## <a name="sdk-usage"></a>Utilisation du Kit de développement logiciel (SDK)
 
-Si vous utilisez le kit SDK et que vous avez installé la mise à jour de l’appareil de janvier 2021, vous devez changer la façon dont vous configurez le rôle IoT Edge comme indiqué dans le tableau suivant. Vous devez ensuite télécharger et installer le package NuGet à venir pour passer au nouveau kit SDK, comme illustré dans l’exemple suivant.
+Si vous utilisez le SDK, une fois que vous aurez installé la mise à jour de janvier 2021, vous devrez modifier la façon dont vous configurez le rôle IoT Edge, comme illustré dans l’exemple suivant. Vous devrez ensuite télécharger et installer le package NuGet à venir pour passer au nouveau SDK, comme illustré dans l’exemple suivant.
 
-### <a name="current-sdk-sample"></a>Exemple de SDK actuel
+### <a name="the-current-sdk-sample"></a>L’exemple de SDK actuel
 
 ```csharp
 var iotRoleStatus = "Enabled";
@@ -267,7 +280,7 @@ DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotRoleName, role, 
 ```
 
 
-### <a name="new-sdk-sample"></a>Nouvel exemple de SDK
+### <a name="the-new-sdk-sample"></a>Le nouvel exemple de SDK
 
 ```csharp
 var k8sRoleStatus = "Enabled";
@@ -304,24 +317,24 @@ DataBoxEdgeManagementClient.AddOns.CreateOrUpdate(deviceName, k8sRoleName, addon
 
 ## <a name="cmdlet-usage"></a>Utilisation des applets de commande
 
-Si vous utilisez les applets de commande `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole` ou `Remove-AzStackEdgeRole`, vous devez attendre la nouvelle version prévue en février 2021.
+Si vous utilisez actuellement l’applet de commande `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole` ou `Remove-AzStackEdgeRole`, vous devrez attendre la nouvelle version prévue pour février 2021.
 
-## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
-#### <a name="i-am-using-azure-stack-edge-pro--fpga-does-the-january-2021-update-affect-the-fpga-model"></a>J’utilise Azure Stack Edge Pro – FPGA. La mise à jour de janvier 2021 a-t-elle un impact sur le modèle FPGA ?
+**J’utilise Azure Stack Edge Pro – FPGA. La mise à jour de janvier 2021 a-t-elle un impact sur le modèle FPGA ?**
 
-Non. La mise à jour de janvier 2021 s’applique uniquement aux appareils Azure Stack Edge - GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R. Azure Stack Edge Pro – FPGA n’est pas affecté par cette mise à jour, et aucune modification de la gestion des rôles IoT Edge n’est nécessaire.
+Non. La mise à jour de janvier 2021 s’applique uniquement aux appareils Azure Stack Edge - FPGA, Azure Stack Edge Pro R et Azure Stack Edge Mini R. Azure Stack Edge Pro - FPGA n’est pas affecté par cette mise à jour, et aucune modification de la gestion des rôles IoT Edge n’est nécessaire.
 
-#### <a name="after-i-update-my-azure-stack-edge-pro---gpu-to-the-new-device-software-in-january-2021-are-any-of-the-existing-services-affected"></a>Après la mise à jour de mon Azure Stack Edge Pro - GPU vers le nouveau logiciel de l’appareil en janvier 2021, les services existants seront-ils affectés ?
+**Une fois que j’aurai mis à jour Azure Stack Edge Pro - GPU vers le nouveau logiciel d’appareil en janvier 2021, les services existants seront-ils affectés ?**
 
-Non. Les services configurés ne seront pas affectés après l’installation de la mise à jour de l’appareil de janvier 2021. <!--check w/ Anoob, what existing services you are talking about in this question-->
+Non. Vos services configurés ne seront pas affectés par l’installation de la mise à jour d’appareil de janvier 2021.
 
-#### <a name="what-are-the-high-level-changes-to-iot-edge-management-api-sdk-or-cmdlet"></a>Quelles sont les principales modifications apportées à l’API de gestion IoT Edge, au kit SDK ou à l’applet de commande ?
+**Quelles sont les principales modifications apportées à l’API, au SDK ou à l’applet de commande de gestion IoT Edge ?**
 
-IoT Edge est un module complémentaire sous le rôle Kubernetes. Cela implique que vous devez vous assurer que Kubernetes est configuré en premier, puis effectuer la configuration d’IoT Edge.
+IoT Edge est un module complémentaire disponible avec le rôle Kubernetes. Vous devez donc d’abord vérifier que Kubernetes est configuré, puis effectuer la configuration d’IoT Edge.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [Appliquer des mises à jour](azure-stack-edge-gpu-install-update.md).
+- [Découvrez comment appliquer des mises à jour](azure-stack-edge-gpu-install-update.md)
 

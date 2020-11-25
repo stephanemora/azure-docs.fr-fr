@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 10f78167b9c3f557fa16061cfac8aad080519415
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7a7a3669c5462adba3828bb1fd6c2fc9c4b3213c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566161"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutoriel : Activer le complément Application Gateway Ingress Controller pour un cluster AKS existant avec une passerelle Application Gateway existante à l’aide d’Azure CLI (préversion)
 
@@ -29,38 +29,25 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Déployer un exemple d’application à l’aide du complément AGIC pour l’entrée sur le cluster AKS
 > * Vérifier que l’application est accessible par le biais de la passerelle Application Gateway
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - Ce tutoriel nécessite l’interface Azure CLI version 2.0.4 ou ultérieure. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite l’exécution d’Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+ - Inscrivez l’indicateur de fonctionnalité *AKS-IngressApplicationGatewayAddon* à l’aide de la commande [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) comme indiqué dans l’exemple suivant. Vous ne devrez effectuer cette opération qu’une seule fois par abonnement, du fait que le complément est encore en préversion :
+     ```azurecli-interactive
+     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
+     ```
+    Quelques minutes peuvent être nécessaires avant que l’état affiche Registered (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+     ```azurecli-interactive
+     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+     ```
 
-Inscrivez l’indicateur de fonctionnalité *AKS-IngressApplicationGatewayAddon* à l’aide de la commande [az feature register](/cli/azure/feature#az-feature-register) comme indiqué dans l’exemple suivant. Vous ne devrez effectuer cette opération qu’une seule fois par abonnement, du fait que le complément est encore en préversion :
-```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-```
-
-Quelques minutes peuvent être nécessaires avant que l’état affiche Registered (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list](/cli/azure/feature#az-feature-register) :
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
-
-Quand vous êtes prêt, actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService à l’aide de la commande [az provider register](/cli/azure/provider#az-provider-register) :
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-Installez ou mettez à jour l’extension aks-preview pour ce tutoriel avec les commandes Azure CLI suivantes :
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
+ - Quand vous êtes prêt, actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService à l’aide de la commande [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) :
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -84,7 +71,7 @@ Pour configurer des paramètres supplémentaires dans la commande `az aks create
 
 ## <a name="deploy-a-new-application-gateway"></a>Déployer une nouvelle passerelle Application Gateway 
 
-Vous allez maintenant déployer une nouvelle passerelle Application Gateway afin de simuler la présence d’une passerelle Application Gateway existante que vous comptez ensuite utiliser pour équilibrer la charge du trafic vers votre cluster AKS, *myCluster*. La passerelle Application Gateway s’appellera *myApplicationGateway* , mais vous devez d’abord créer une ressource IP publique, nommée *myPublicIp* ainsi qu’un autre réseau virtuel appelé *myVnet* avec l’espace d’adressage 11.0.0.0/8 et un sous-réseau avec l’espace d’adressage 11.1.0.0/16 appelé *mySubnet*. Vous devez aussi déployer votre passerelle Application Gateway dans *mySubnet* avec *myPublicIp*. 
+Vous allez maintenant déployer une nouvelle passerelle Application Gateway afin de simuler la présence d’une passerelle Application Gateway existante que vous comptez ensuite utiliser pour équilibrer la charge du trafic vers votre cluster AKS, *myCluster*. La passerelle Application Gateway s’appellera *myApplicationGateway*, mais vous devez d’abord créer une ressource IP publique, nommée *myPublicIp* ainsi qu’un autre réseau virtuel appelé *myVnet* avec l’espace d’adressage 11.0.0.0/8 et un sous-réseau avec l’espace d’adressage 11.1.0.0/16 appelé *mySubnet*. Vous devez aussi déployer votre passerelle Application Gateway dans *mySubnet* avec *myPublicIp*. 
 
 Quand vous utilisez un cluster AKS et une passerelle Application Gateway dans des réseaux virtuels distincts, les espaces d’adressage de ces deux réseaux ne doivent pas se chevaucher. L’espace d’adressage par défaut dans lequel un cluster AKS est déployé est 10.0.0.0/8. Nous définissons donc le préfixe d’adresse du réseau virtuel Application Gateway sur 11.0.0.0/8. 
 
@@ -99,7 +86,7 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 
 ## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Activer le complément AGIC dans le cluster AKS existant avec la passerelle Application Gateway existante 
 
-Maintenant, vous allez activer le complément AGIC dans le cluster AKS que vous avez créé, *myCluster* , et définir le complément AGIC pour qu’il utilise la passerelle Application Gateway existante que vous avez créée, *myApplicationGateway*. Assurez-vous d’avoir ajouté ou mis à jour l’extension aks-preview au début de ce tutoriel. 
+Maintenant, vous allez activer le complément AGIC dans le cluster AKS que vous avez créé, *myCluster*, et définir le complément AGIC pour qu’il utilise la passerelle Application Gateway existante que vous avez créée, *myApplicationGateway*. Assurez-vous d’avoir ajouté ou mis à jour l’extension aks-preview au début de ce tutoriel. 
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 

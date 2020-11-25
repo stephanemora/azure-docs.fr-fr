@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074445"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554821"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Avec la modification précédente, le [fournisseur de configuration d'App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) a été inscrit auprès de l'API de configuration .NET Core.
+    Avec la modification précédente, le [fournisseur de configuration d'App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) a été inscrit auprès de l'API de configuration .NET Core.
 
 1. Dans *Startup.cs*, ajoutez une référence au gestionnaire de fonctionnalités .NET Core :
 
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Le code précédent permet d'utiliser l'assistance de balises `<feature>` dans les fichiers *.cshtml* du projet.
 
-1. Dans *Views/Shared/_Layout.cshtml*, remplacez le code barres `<nav>`situé sous `<body>` > `<header>` par le balisage suivant :
+1. Ouvrez *_Layout.cshtml* dans le répertoire *Vues*\\*Partagé*. Localisez le code barres `<nav>` sous `<body>``<header>` > . Insérez une étiquette `<feature>` entre les éléments *Accueil* et *Confidentialité* de la barre de navigation, comme indiqué dans les lignes signalées ci-dessous.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Dans le balisage précédent, notez l'assistance de balises `<feature>` entourant l'élément de liste *Beta*.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Créez un répertoire *Views/Beta* et un fichier *Index.cshtml* contenant le balisage suivant :
 
@@ -246,13 +219,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
-1. Sélectionnez **Gestionnaire de fonctionnalités**, puis remplacez l'état de la clé *Beta* par **Activé**.
+1. Sélectionnez **Gestionnaire de fonctionnalités**. 
+
+1. Activez l’indicateur *Bêta* en cochant la case située sous **Activé**.
 
 1. Revenez à l'interface de commande. Annulez le processus `dotnet` en cours en appuyant sur <kbd>Ctrl+C</kbd>. Redémarrez votre application à l'aide de `dotnet run`.
 
 1. Actualisez la page de navigateur pour afficher les nouveaux paramètres de configuration.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Application de démarrage rapide locale avant modification" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Application de démarrage rapide locale après modification" border="true":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web ASP.NET Core via les [bibliothèques de gestion des fonctionnalités](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+Dans ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé pour gérer les fonctionnalités dans une application web ASP.NET Core via les [bibliothèques de gestion des fonctionnalités](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 * Découvrez plus d’informations sur la [gestion des fonctionnalités](./concept-feature-management.md).
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md).

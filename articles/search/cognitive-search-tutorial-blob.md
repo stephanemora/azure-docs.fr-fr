@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788058"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738048"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser REST et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
-Si vous avez du texte non structuré ou des images dans Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu utile pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. Bien qu’un pipeline puisse traiter des images, ce tutoriel REST se concentre sur du texte, en appliquant la détection de la langue et le traitement en langage naturel pour créer des champs exploitables dans des requêtes, des facettes et des filtres.
+Si vous avez du texte non structuré ou des images dans le stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu à partir des blobs utiles pour les scénarios de recherche en texte intégral ou d’exploration des connaissances. Bien qu’un pipeline puisse traiter des images, ce tutoriel REST se concentre sur du texte, en appliquant la détection de la langue et le traitement en langage naturel pour créer des champs exploitables dans des requêtes, des facettes et des filtres.
 
 Ce tutoriel utilise Postman et les [API REST de Recherche](/rest/api/searchservice/) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Commencez avec des documents entiers (texte non structuré), comme des documents PDF, HTML, DOCX et PPTX, dans Stockage Blob Azure.
-> * Définissez un pipeline qui extrait du texte, détecte la langue, reconnaît les entités et détecte les expressions clés.
-> * Définissez un index pour stocker la sortie (contenu brut et paires nom-valeur générées par le pipeline).
-> * Exécutez le pipeline pour démarrer des transformations et une analyse, ainsi que pour créer et charger l’index.
+> * Configurez des services et une collection Postman.
+> * Créez un pipeline d’enrichissement qui extrait du texte, détecte la langue, reconnaît les entités et détecte les expressions clés.
+> * Créez un index pour stocker la sortie (contenu brut et paires nom/valeur générées par le pipeline).
+> * Exécutez le pipeline pour effectuer des transformations et une analyse ainsi que pour charger l’index.
 > * Explorez les résultats à l’aide de la recherche en texte intégral et d’une syntaxe de requête enrichie.
 
 Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+## <a name="overview"></a>Vue d’ensemble
+
+Ce tutoriel utilise C# et les API REST Recherche cognitive Azure pour créer une source de données, un index, un indexeur et des compétences. Vous allez commencer par des documents entiers (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le stockage Blob Azure, puis les exécuter via des compétences pour extraire des entités, des expressions clés et d’autres textes dans les fichiers de contenu.
+
+Cet ensemble de compétences utilise des compétences intégrées basées sur les API Cognitive Services. Les étapes du pipeline incluent la détection de la langue d’un texte, l’extraction des expressions clés et la reconnaissance d’entités (organisations). Les nouvelles informations sont stockées dans de nouveaux champs que vous pouvez exploiter dans les requêtes, les facettes et les filtres.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +49,9 @@ Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://az
 
 1. Ouvrez ce [dossier OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) et en haut à gauche, cliquez sur **Télécharger** pour copier les fichiers sur votre ordinateur. 
 
-1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire** . Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire**. Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+
+Si vous le souhaitez, vous pouvez également télécharger le code source, un fichier de collection Postman, pour ce tutoriel. Le code source est disponible sur [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial).
 
 ## <a name="1---create-services"></a>1 - Créer les services
 
@@ -53,7 +61,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 ### <a name="start-with-azure-storage"></a>Démarrer avec le stockage Azure
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource** .
+1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource**.
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
@@ -61,23 +69,23 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
-   + **Groupe de ressources** . Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
+   + **Groupe de ressources**. Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
 
-   + **Nom du compte de stockage** . Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus* . 
+   + **Nom du compte de stockage**. Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus*. 
 
-   + **Emplacement** . Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
+   + **Emplacement**. Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
 
-   + **Type de compte** . Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
+   + **Type de compte**. Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
 
 1. Cliquez sur **Vérifier + créer** pour créer le service.
 
 1. Une fois qu’il est créé, cliquez sur **Accéder à la ressource** pour ouvrir la page Vue d’ensemble.
 
-1. Cliquez sur le service **Objets blob** .
+1. Cliquez sur le service **Objets blob**.
 
-1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo* .
+1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo*.
 
-1. Sélectionnez *cog-search-demo* , puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
+1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
 
    ![Charger les exemples de fichiers](media/cognitive-search-tutorial-blob/sample-files.png "Charger les exemples de fichiers")
 
@@ -107,11 +115,11 @@ Le troisième composant est Recherche cognitive Azure, que vous pouvez [créer d
 
 Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenir une clé API d’administration et une URL pour Recherche cognitive Azure
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copier une clé API d’administration et une URL pour Recherche cognitive Azure
 
 1. [Connectez-vous au Portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez le nom de votre service de recherche. Vous pouvez confirmer le nom de votre service en passant en revue l’URL du point de terminaison. Si votre URL de point de terminaison est `https://mydemo.search.windows.net`, le nom du service doit être `mydemo`.
 
-2. Dans **Paramètres** > **Clés** , obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
@@ -121,17 +129,17 @@ Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à vo
 
 ## <a name="2---set-up-postman"></a>2 - Configurer Postman
 
-Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de Recherche cognitive Azure avec Postman](search-get-started-postman.md).
+Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de la Recherche cognitive Azure](search-get-started-rest.md).
 
-Les méthodes de requête utilisées dans ce tutoriel sont **POST** , **PUT** et **GET** . Vous allez utiliser les méthodes permettant d’effectuer quatre appels d’API vers votre service de recherche afin de créer une source de données, un ensemble de compétences, un index et un indexeur.
+Les méthodes de requête utilisées dans ce tutoriel sont **POST**, **PUT** et **GET**. Vous allez utiliser les méthodes permettant d’effectuer quatre appels d’API vers votre service de recherche afin de créer une source de données, un ensemble de compétences, un index et un indexeur.
 
 Dans les en-têtes, définissez « Content-type » sur `application/json` et `api-key` sur la clé API d’administration de votre service Recherche cognitive Azure. Une fois que vous avez défini les en-têtes, vous pouvez les utiliser pour chaque demande de cet exercice.
 
-  ![URL et en-tête de requête Postman](media/search-get-started-postman/postman-url.png "URL et en-tête de requête Postman")
+  ![URL et en-tête de requête Postman](media/search-get-started-rest/postman-url.png "URL et en-tête de requête Postman")
 
 ## <a name="3---create-the-pipeline"></a>3 - Créer le pipeline
 
-Dans Recherche cognitive Azure, le traitement de l’IA se produit pendant l’indexation (ou l’ingestion de données). Cette partie de la procédure pas à pas crée quatre objets : source de données, définition d’index, ensemble de compétences, indexeur. 
+Dans la Recherche cognitive Azure, l’enrichissement se produit pendant l’indexation (ou l’ingestion de données). Cette partie de la procédure pas à pas crée quatre objets : source de données, définition d’index, ensemble de compétences, indexeur. 
 
 ### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 
@@ -179,7 +187,7 @@ Un [objet Ensemble de compétences](/rest/api/searchservice/create-skillset) est
    |-----------------------|----------------|
    | [Reconnaissance d’entités](cognitive-search-skill-entity-recognition.md) | Extrait les noms des personnes, des organisations et des emplacements à partir du contenu figurant dans le conteneur d’objets blob. |
    | [Détection de la langue](cognitive-search-skill-language-detection.md) | Détecte la langue du contenu. |
-   | [Division du texte](cognitive-search-skill-textsplit.md)  | Divise un long contenu en plus petits morceaux avant d’appeler la compétence d’extraction de phrases clés. L’extraction de phrases clés accepte des entrées de 50 000 caractères au maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite. |
+   | [Fractionnement de texte](cognitive-search-skill-textsplit.md)  | Divise un long contenu en plus petits morceaux avant d’appeler la compétence d’extraction de phrases clés. L’extraction de phrases clés accepte des entrées de 50 000 caractères au maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite. |
    | [Extraction d’expressions clés](cognitive-search-skill-keyphrases.md) | Extrait les principales expressions clés. |
 
    Chaque compétence s’exécute sur le contenu du document. Au cours du traitement, Recherche cognitive Azure ouvre chaque document pour lire le contenu de différents formats de fichiers. Le texte trouvé originaire du fichier source est placé dans un champ ```content``` généré, un pour chaque document. Par conséquent, l’entrée devient ```"/document/content"```.
@@ -350,7 +358,7 @@ Un [indexeur](/rest/api/searchservice/create-indexer) pilote le pipeline. Les tr
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

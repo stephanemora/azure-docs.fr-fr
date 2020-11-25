@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289744"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844486"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutoriel : Configuration de la rotation automatique d’un certificat dans Key Vault
 
@@ -41,7 +41,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
-Créez un coffre de clés ou sélectionnez votre coffre existant pour effectuer des opérations (voir [Étapes de création d’un coffre de clés](../secrets/quick-create-portal.md)). Dans l’exemple, le nom du coffre de clés est **Example-Vault**.
+Créez un coffre de clés Azure à l’aide du [portail Azure](../general/quick-create-portal.md), d’[Azure CLI](../general/quick-create-cli.md) ou d’[Azure PowerShell](../general/quick-create-powershell.md). Dans l’exemple, le nom du coffre de clés est **Example-Vault**.
 
 ![Sortie après la création du coffre de clés](../media/certificates/tutorial-import-cert/vault-properties.png)
 

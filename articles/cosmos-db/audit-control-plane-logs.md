@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092804"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636841"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Guide pratique pour auditer les opérations de plan de contrôle Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ Voici quelques exemples de scénarios dans lesquels l’audit des opérations du
 
 ## <a name="disable-key-based-metadata-write-access"></a>Désactiver l’accès en écriture aux métadonnées basé sur les clés
 
-Avant d’auditer les opérations de plan de contrôle dans Azure Cosmos DB, désactivez l’accès en écriture aux métadonnées basé sur les clés sur votre compte. Quand l’accès en écriture aux métadonnées basé sur les clés est désactivé, les clients qui se connectent au compte Azure Cosmos par le biais de clés de compte ne peuvent pas accéder au compte. Vous pouvez désactiver l’accès en écriture en affectant à la propriété `disableKeyBasedMetadataWriteAccess` la valeur true. Une fois cette propriété définie, les modifications apportées à une ressource peuvent être effectuées par un utilisateur qui a le rôle de contrôle d’accès en fonction du rôle (RBAC) et les informations d’identification appropriés. Pour en savoir plus sur la définition de cette propriété, consultez l’article [Prévention des modifications à partir des SDK](role-based-access-control.md#prevent-sdk-changes). 
+Avant d’auditer les opérations de plan de contrôle dans Azure Cosmos DB, désactivez l’accès en écriture aux métadonnées basé sur les clés sur votre compte. Quand l’accès en écriture aux métadonnées basé sur les clés est désactivé, les clients qui se connectent au compte Azure Cosmos par le biais de clés de compte ne peuvent pas accéder au compte. Vous pouvez désactiver l’accès en écriture en affectant à la propriété `disableKeyBasedMetadataWriteAccess` la valeur true. Une fois cette propriété définie, les modifications apportées à une ressource peuvent être effectuées par un utilisateur qui a le rôle Azure et les informations d’identification appropriés. Pour en savoir plus sur la définition de cette propriété, consultez l’article [Prévention des modifications à partir des SDK](role-based-access-control.md#prevent-sdk-changes). 
 
 Une fois le `disableKeyBasedMetadataWriteAccess` activé, si les clients basés sur le kit de développement logiciel (SDK) exécutent des opérations de création ou de mise à jour, une erreur *« l’opération « POST » sur la ressource « ContainerNameorDatabaseName » n’est pas autorisée via le point de terminaison Azure Cosmos DB* est retournée. Vous devez activer l’accès à ces opérations pour votre compte ou effectuer les opérations de création/mise à jour via Azure Resource Manager, Azure CLI ou Azure PowerShell. Pour revenir en arrière, définissez la valeur de disableKeyBasedMetadataWriteAccess sur **false** à l’aide de Azure CLI comme décrit dans l’article [Éviter les modifications dans le kit de développement logiciel (SDK) Cosmos](role-based-access-control.md#prevent-sdk-changes). Veillez à remplacer la valeur de `disableKeyBasedMetadataWriteAccess` par false au lieu de true.
 
@@ -46,7 +46,7 @@ Effectuez les étapes suivantes pour activer la journalisation sur les opératio
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte Azure Cosmos.
 
-1. Ouvrez le volet **Paramètres de diagnostic** , puis fournissez un **Nom** pour les journaux à créer.
+1. Ouvrez le volet **Paramètres de diagnostic**, puis fournissez un **Nom** pour les journaux à créer.
 
 1. Sélectionnez **ControlPlaneRequests** comme type de journal et sélectionnez l’option **Envoyer à Log Analytics**.
 

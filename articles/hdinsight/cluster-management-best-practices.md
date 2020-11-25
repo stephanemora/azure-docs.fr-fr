@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542316"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659486"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Bonnes pratiques pour la gestion des clusters HDInsight
 
@@ -49,7 +49,7 @@ Découvrez les bonnes pratiques à suivre pour gérer des clusters HDInsight.
 
 | Error | Informations complémentaires |
 |---|---|
-| Aucun quota | Il y a des quotas limitant le nombre de quotas que vous pouvez créer sur votre abonnement dans chaque région. Pour plus d’informations, consultez [Planification de la capacité : quotas](./hdinsight-capacity-planning.md). |
+| Aucun quota | Il y a des quotas limitant le nombre de cœurs que vous pouvez créer sur votre abonnement dans chaque région. Pour plus d’informations, consultez [Planification de la capacité : quotas](./hdinsight-capacity-planning.md). |
 | Pas d’autres adresses IP disponibles | Chaque réseau virtuel peut avoir un nombre limité d’adresses IP. Quand vous créez un cluster HDInsight, chaque nœud (y compris les nœuds Zookeeper et de passerelle) utilise certaines de ces adresses IP allouées. Cette erreur se produit lorsque toutes les adresses IP sont déjà utilisées.  |
 | Les règles de groupe de sécurité réseau (NSG) n’autorisent pas la communication avec les fournisseurs de ressources HDInsight | Si vous utilisez des groupes de sécurité réseau ou des routes définies par l’utilisateur (UDR) pour contrôler le trafic entrant vers votre cluster HDInsight, assurez-vous que le cluster peut communiquer avec les services principaux de gestion et d’intégrité Azure. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](./hdinsight-service-tags.md) |
 | Réutilisation d’un nom de cluster | Si vous réutilisez un nom de cluster existant, vous devez attendre X minutes avant de recréer le cluster. Sinon, vous verrez un message indiquant que la ressource existe déjà. |

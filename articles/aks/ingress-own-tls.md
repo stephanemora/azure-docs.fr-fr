@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a70a1549e5c585694217b32c69ddae915c25ff71
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131035"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681480"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS et utiliser vos propres certificats TLS sur Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-in
 Le contrôleur d’entrée doit également être planifié sur un nœud Linux. Les nœuds Windows Server ne doivent pas exécuter le contrôleur d’entrée. Un sélecteur de nœud est spécifié en utilisant le paramètre `--set nodeSelector` pour que le planificateur Kubernetes exécute le contrôleur d’entrée NGINX sur un nœud Linux.
 
 > [!TIP]
-> L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée *ingress-basic*. Spécifiez un espace de noms de votre propre environnement, si besoin. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes Helm.
+> L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée *ingress-basic*. Spécifiez un espace de noms de votre propre environnement, si besoin. Si le contrôle d’accès en fonction du rôle (RBAC Kubernetes) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes Helm.
 
 > [!TIP]
 > Si vous souhaitez activer la [préservation de l’adresse IP source du client][client-source-ip] pour les requêtes aux conteneurs de votre cluster, ajoutez `--set controller.service.externalTrafficPolicy=Local` à la commande d’installation Helm. L’IP source du client est stockée dans l’en-tête de la requête sous *X-Forwarded-For*. Lors de l’utilisation d’un contrôleur d’entrée pour lequel la conservation de l’adresse IP source du client est activée, un transfert direct TLS ne fonctionne pas.
@@ -258,7 +258,7 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-configuration"></a>Tester la configuration d’entrée
 
-Pour tester les certificats avec notre faux hôte *demo.azure.com* , utilisez `curl` et spécifiez le paramètre *--resolve*. Ce paramètre vous permet de mapper le nom *demo.azure.com* à l’adresse IP publique de votre contrôleur d’entrée. Spécifiez l’adresse IP publique de votre propre contrôleur d’entrée, telle qu’indiquée dans l’exemple suivant :
+Pour tester les certificats avec notre faux hôte *demo.azure.com*, utilisez `curl` et spécifiez le paramètre *--resolve*. Ce paramètre vous permet de mapper le nom *demo.azure.com* à l’adresse IP publique de votre contrôleur d’entrée. Spécifiez l’adresse IP publique de votre propre contrôleur d’entrée, telle qu’indiquée dans l’exemple suivant :
 
 ```
 curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
@@ -325,7 +325,7 @@ Sinon, une approche plus précise consiste à supprimer les ressources individue
 helm list --namespace ingress-basic
 ```
 
-Recherchez le graphique nommé *nginx-ingress* , comme illustré dans l’exemple de sortie suivant :
+Recherchez le graphique nommé *nginx-ingress*, comme illustré dans l’exemple de sortie suivant :
 
 ```
 $ helm list --namespace ingress-basic

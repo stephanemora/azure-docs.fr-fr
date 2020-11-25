@@ -1,7 +1,7 @@
 ---
 title: Emplacement d’enregistrement et d’écriture des fichiers d’expérimentation
 titleSuffix: Azure Machine Learning
-description: Découvrez où enregistrer les fichiers d’entrée de vos expériences et où écrire les fichiers de sortie pour empêcher les erreurs de limites de stockage et la latence des expériences.
+description: Découvrez où enregistrer vos fichiers d’entrée et de sortie pour empêcher les erreurs de limites de stockage et la latence des expériences.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 0dab99c902269f7d598eedb8c2fa23bbed3948c4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325366"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630326"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 
@@ -69,7 +69,7 @@ Lors de l’écriture de changements, nous vous recommandons d’écrire les fic
 Si vous n’avez pas besoin d’un magasin de données, écrivez les fichiers dans le dossier `./outputs` et/ou `./logs`.
 
 >[!Important]
-> Deux dossiers, *outputs* et *logs* , reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers `./outputs` and`./logs`, les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
+> Deux dossiers, *outputs* et *logs*, reçoivent un traitement spécial de la part d’Azure Machine Learning. Pendant l’entraînement, quand vous écrivez des fichiers dans les dossiers `./outputs` and`./logs`, les fichiers sont automatiquement chargés dans votre historique des exécutions. Vous pouvez ainsi y accéder une fois l’exécution terminée.
 
 * **Pour la sortie, comme des messages d’état ou des résultats de notation,** écrivez les fichiers dans le dossier `./outputs` afin qu’ils soient conservés en tant qu’artefacts dans l’historique des exécutions. Soyez attentif au nombre de fichiers écrits dans ce dossier ainsi qu’à leur taille, car il peut se produire une latence quand le contenu est chargé dans l’historique des exécutions. Si la latence pose problème, il est recommandé d’écrire les fichiers dans un magasin de données.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 78a8ae7724c9ede06b24649d3b19ea90b791ae08
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: db77df29d1b9b0adf07c7da377c028dee5312617
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541315"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579196"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutoriel : Créer une hiérarchie d’appareils IoT Edge (préversion)
 
@@ -585,25 +585,35 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
-You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+## View generated data
 
-## Clean up resources
+The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
 
-You can delete the local configurations and the Azure resources that you created in this article to avoid charges.
+You can watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-To delete the resources:
+You can also view these messages through the [Azure Cloud Shell](https://shell.azure.com/):
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
+   ```azurecli-interactive
+   az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
+   ```
 
-2. Select the name of the resource group that contains your IoT Edge test resources. 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-3. Review the list of resources contained in your resource group. If you want to delete all of them, you can select **Delete resource group**. If you want to delete only some of them, you can click into each resource to delete them individually. 
+Vous pouvez supprimer les ressources Azure et les configurations locales que vous avez créées dans cet article pour éviter des frais.
 
-## Next steps
+Pour supprimer les ressources :
 
-In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway. You can also try out this scenario by following the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample), which deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
+2. Sélectionnez le nom du groupe de ressources contenant vos ressources de test de IoT Edge. 
+
+3. Passez en revue la liste des ressources contenues dans votre groupe de ressources. Si vous souhaitez toutes les supprimer, vous pouvez sélectionner **Supprimer le groupe de ressources**. Si vous souhaitez en supprimer seulement quelques-unes, vous pouvez cliquer sur chaque ressource pour les supprimer individuellement. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce tutoriel, vous avez configuré deux appareils IoT Edge en tant que passerelles et défini l’un des deux comme appareil parent de l’autre. Ensuite, vous avez démontré l’extraction d’une image conteneur sur l’appareil enfant par le biais d’une passerelle. Vous pouvez également tester ce scénario en suivant l’[exemple Azure IoT Edge for Industrial IoT](https://aka.ms/iotedge-nested-sample), qui déploie des machines virtuelles Azure en tant qu’appareils préconfigurés pour simuler un environnement d’usine.
+
+Vous pouvez passer à d’autres didacticiels pour savoir comment Azure IoT Edge peut trouver d’autres solutions pour votre entreprise.
 
 > [!div class="nextstepaction"]
-> [Deploy an Azure Machine Learning model as a module](tutorial-deploy-machine-learning.md)
+> [Déployer un modèle Azure Machine Learning en tant que module](tutorial-deploy-machine-learning.md)

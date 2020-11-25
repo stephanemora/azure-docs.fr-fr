@@ -11,16 +11,20 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 52cec861ba81a804081c4b879ab73333a3281e61
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360290"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659690"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Démarrage rapide : Envoi d’un SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> Les messages SMS peuvent être envoyés et reçus sur des numéros de téléphone situés aux États-Unis. Les numéros de téléphone appartenant à d’autres zones géographiques ne sont pas pris en charge pour les SMS Communication Services.
+> Pour plus d’informations, consultez **[Planifier votre solution de téléphonie et SMS](../../concepts/telephony-sms/plan-solution.md)** .
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -44,7 +48,7 @@ Pour résoudre les problèmes liés à la remise de SMS, vous pouvez [activer la
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

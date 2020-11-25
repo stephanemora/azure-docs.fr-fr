@@ -1,23 +1,25 @@
 ---
 title: Tutoriel - Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 titleSuffix: Microsoft identity platform
-description: Dans ce tutoriel, connectez des utilisateurs et appelez une API protégée à l’aide de la plateforme d’identités Microsoft dans une application Blazor WebAssembly.
+description: Dans ce tutoriel, connectez des utilisateurs et appelez une API protégée à l’aide de la plateforme d’identités Microsoft dans une application Blazor WebAssembly (WASM).
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221510"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628065"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
-[Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly) est un framework d’application monopage permettant la création d’applications web interactives côté client avec .NET. Dans ce tutoriel, vous allez créer une application qui connecte les utilisateurs et récupère les données depuis une API protégée, à partir d’une application Blazor WebAssembly (Blazor WASM) avec la [plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+Blazor WebAssembly (WASM) est un framework d’application monopage permettant la création d’applications web interactives côté client avec .NET. Ce tutoriel vous explique comment implémenter l’authentification et récupérer des données, à partir de Microsoft Graph dans une application Blazor WASM, en utilisant la plateforme d’identités Microsoft et en inscrivant votre application dans Azure Active Directory (Azure AD).
+
+Nous disposons également d’un [tutoriel pour Blazor Server](tutorial-blazor-server.md). 
 
 Ce didacticiel présente les procédures suivantes :
 
@@ -35,10 +37,10 @@ Ce didacticiel présente les procédures suivantes :
 
 Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authentification doit être inscrite avec Azure AD. Suivez les instructions de la page [Inscrire une application](quickstart-register-app.md) avec les précisions suivantes :
 
-- Pour les **Types de comptes pris en charge** , sélectionnez **Comptes dans cet annuaire organisationnel** .
+- Pour les **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel**.
 - Laissez le champ déroulant **URI de redirection** défini sur **Web** et entrez `https://localhost:5001/authentication/login-callback`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
 
-Une fois inscrite, dans **Authentification** > **Octroi implicite** , cochez les cases pour **Jetons d’accès** et **Jetons d’ID** , puis sélectionnez le bouton **Enregistrer** .
+Une fois inscrite, dans **Authentification** > **Octroi implicite**, cochez les cases pour **Jetons d’accès** et **Jetons d’ID**, puis sélectionnez le bouton **Enregistrer**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Créer l’application à l’aide de l’interface CLI .NET Core
 
@@ -82,11 +84,11 @@ Avant de commencer, déconnectez-vous de votre application, car vous allez appor
 
 Tout d’abord, ajoutez l’autorisation de l’API `Mail.Read` à l’inscription de l’application pour qu’Azure AD soit informé de la demande d’accès de l’application à la messagerie de ses utilisateurs.
 
-1. Dans le portail Azure, sélectionnez votre application dans les **Inscriptions d’applications** .
-1. Sous **Gérer** , sélectionnez **Autorisations de l’API** .
-1. Sélectionnez **Ajouter une autorisation** > **Microsoft Graph** .
-1. Sélectionnez **Autorisations déléguées** , puis recherchez et sélectionnez l’autorisation **mail.Read** .
-1. Sélectionnez **Ajouter des autorisations** .
+1. Dans le portail Azure, sélectionnez votre application dans les **Inscriptions d’applications**.
+1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
+1. Sélectionnez **Ajouter une autorisation** > **Microsoft Graph**.
+1. Sélectionnez **Autorisations déléguées**, puis recherchez et sélectionnez l’autorisation **mail.Read**.
+1. Sélectionnez **Ajouter des autorisations**.
 
 Ensuite, ajoutez ce qui suit au fichier *.csproj* de votre projet, dans **ItemGroup** de netstandard2.1. Cela vous permettra de créer l’objet HttpClient personnalisé à l’étape suivante.
 
@@ -239,5 +241,5 @@ Après avoir donné votre accord, accédez à la page « Extraire les données�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft](./identity-platform-integration-checklist.md)
-- [Présentation d’ASP.NET Core Blazor](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft](./identity-platform-integration-checklist.md)

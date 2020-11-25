@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311556"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616091"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
-Lorsque vous utilisez Azure Machine Learning avec un réseau virtuel, il existe [plusieurs manières de gérer la résolution de noms DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Toutefois, __lorsque vous utilisez votre propre serveur DNS personnalisé__ , vous devez créer manuellement des entrées DNS pour l’espace de travail.
+Lorsque vous utilisez Azure Machine Learning avec un réseau virtuel, il existe [plusieurs manières de gérer la résolution de noms DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Si vous utilisez plutôt _votre propre serveur DNS personnalisé_ _, vous devez créer manuellement des entrées DNS pour l’espace de travail.
 
 > [!IMPORTANT]
 > Cet article ne traite que de la recherche du nom de domaine complet (FQDN) et des adresses IP pour ces entrées. il ne fournit pas d’informations sur la configuration des enregistrements DNS pour ces éléments. Pour savoir comment ajouter des enregistrements, consultez la documentation de votre logiciel DNS.
@@ -40,13 +40,14 @@ Lorsque vous utilisez Azure Machine Learning avec un réseau virtuel, il existe
 La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail et le point de terminaison privé :
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Si vous créez une instance de calcul, vous devez également ajouter une entrée pour `<instance-name>.<region>.instances.azureml.ms` avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Notez que l’instance de calcul est accessible uniquement à partir du réseau virtuel.
+* Si vous créez une instance de calcul, vous devez également ajouter une entrée pour `<instance-name>.<region>.instances.azureml.ms` avec l’adresse IP privée du point de terminaison privé de l’espace de travail.
+
+    > [!NOTE]
+    > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
 
 Pour rechercher les adresses IP internes des noms de domaine complets dans le réseau virtuel, utilisez l’une des méthodes suivantes :
 
@@ -69,7 +70,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 # <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre __espace de travail__ Azure Machine Learning.
-1. Dans la section __Paramètres__ , sélectionnez __Connexions des points de terminaison privés__.
+1. Dans la section __Paramètres__, sélectionnez __Connexions des points de terminaison privés__.
 1. Sélectionnez le lien dans la colonne __Point de terminaison privé__ qui s’affiche.
 1. La liste des noms de domaine complets (FQDN) et les adresses IP du point de terminaison privé de l’espace de travail se trouvent au bas de la page.
 
@@ -82,8 +83,6 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 | FQDN | Adresse IP |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

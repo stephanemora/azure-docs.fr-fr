@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634775"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593641"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -27,7 +27,7 @@ ms.locfileid: "92634775"
 
 Lorsque vous copiez des données de la source vers le magasin de destination, l’activité de copie d’Azure Data Factory fournit un certain niveau de tolérance de panne pour éviter des interruptions dues à des défaillances survenant au beau milieu d’un déplacement de données. Par exemple, vous procédez à la copie de millions de lignes de la source vers le magasin de destination alors qu’une clé primaire a été créée dans la base de données de destination et qu’aucune clé primaire n’a été définie pour la base de données source. Lorsque vous copierez des lignes dupliquées de la source vers la destination, vous serez confronté à l’échec dû à la violation de la clé primaire sur la base de données de destination. À ce stade, l’activité de copie vous propose deux moyens de gérer ces erreurs : 
 - Vous pouvez abandonner l’activité de copie dès qu’un échec est rencontré. 
-- Vous pouvez continuer l’opération de copie en activant la tolérance de panne pour ignorer les données incompatibles. Par exemple, ignorer la ligne dupliquée dans ce cas. De plus, vous pouvez consigner les données ignorées en activant le journal de session dans l’activité de copie. 
+- Vous pouvez continuer l’opération de copie en activant la tolérance de panne pour ignorer les données incompatibles. Par exemple, ignorer la ligne dupliquée dans ce cas. De plus, vous pouvez consigner les données ignorées en activant le journal de session dans l’activité de copie. Pour plus d’informations, reportez-vous au [journal de session dans l’activité de copie](copy-activity-log.md) .
 
 ## <a name="copying-binary-files"></a>Copie de fichiers binaires 
 
@@ -61,13 +61,20 @@ Lorsque vous copiez des fichiers binaires entre des magasins de stockage, vous p
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 Propriété | Description | Valeurs autorisées | Obligatoire
@@ -76,7 +83,7 @@ skipErrorFile | Groupe de propriétés permettant de spécifier les types de dé
 fileMissing | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les fichiers qui sont en cours de suppression par d’autres applications lorsque Azure Data Factory procède dans l’intervalle à la copie. <br/> \- True : vous souhaitez copier les fichiers en ignorant ceux qui sont supprimés par d’autres applications. <br/> - False : vous voulez abandonner l’activité de copie lorsque des fichiers sont supprimés du magasin source au cours d’un déplacement de données. <br/>Sachez que cette propriété est définie sur True par défaut. | True(default) <br/>False | Non
 fileForbidden | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer des fichiers particuliers lorsque les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation plus élevé que celui de la connexion configurée dans Azure Data Factory. <br/> \- True : vous souhaitez effectuer la copie en ignorant ces fichiers. <br/> - False : vous voulez abandonner l’activité de copie lorsque vous êtes confronté au problème d’autorisation sur des dossiers ou des fichiers. | True <br/>False(default) | Non
 dataInconsistency | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les données incohérentes entre les magasins source et de destination. <br/> - True : vous souhaitez effectuer la copie en ignorant les données incohérentes. <br/> - False : vous souhaitez abandonner l’activité de copie lorsque des données incohérentes ont été trouvées. <br/>Sachez que cette propriété n’est valide que lorsque vous définissez validateDataConsistency sur la valeur True. | True <br/>False(default) | Non
-logStorageSettings  | Groupe de propriétés pouvant être spécifié lorsque vous souhaitez journaliser les noms des objets ignorés. | &nbsp; | Non
+logSettings  | Groupe de propriétés pouvant être spécifié lorsque vous souhaitez journaliser les noms des objets ignorés. | &nbsp; | Non
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker les fichiers journaux de session. | Noms d’un service lié de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous utilisez pour stocker le fichier journal. | Non
 path | Chemin des fichiers journaux. | Spécifiez le chemin que vous utilisez pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
@@ -108,7 +115,7 @@ Vous pouvez obtenir le nombre de fichiers lus, écrits et ignorés par le biais 
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -154,7 +161,7 @@ L’activité de copie offre trois possibilités de détecter, d’ignorer et de
 
     Par exemple : Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus de six colonnes sont considérées comme incompatibles et ignorées.
 
-- **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB** .
+- **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
     Par exemple : Copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
@@ -175,12 +182,19 @@ L’exemple suivant fournit une définition JSON pour configurer l’omission de
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +202,7 @@ L’exemple suivant fournit une définition JSON pour configurer l’omission de
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Indique s’il faut ignorer ou non les lignes incompatibles durant la copie. | True<br/>False (valeur par défaut) | Non
-logStorageSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non
+logSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker le journal contenant les lignes ignorées. | Noms d’un service lié de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous utilisez pour stocker le fichier journal. | Non
 path | Chemin des fichiers journaux contenant les lignes ignorées. | Spécifiez le chemin que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
@@ -203,7 +217,7 @@ Une fois l’activité de copie exécutée, vous pouvez voir le nombre de lignes
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 

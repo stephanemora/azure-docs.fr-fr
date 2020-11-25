@@ -1,7 +1,7 @@
 ---
 title: Créer et entraîner des modèles
 titleSuffix: Azure Machine Learning
-description: Apprenez à former des modèles avec Azure Machine Learning, y compris en utilisant des infrastructures populaires telles que Scikit-Learn, TensorFlow et PyTorch. Les pipelines de Machine Learning permettent de planifier facilement des exécutions sans assistance, d’utiliser des environnements Compute hétérogènes et de réutiliser des parties de votre workflow. Par ailleurs, les configurations d’exécution permettent de contrôler de manière précise les cibles de calcul sur lesquelles s’exécute le processus d’entraînement.
+description: Découvrez comment effectuer l’apprentissage de modèles avec Azure Machine Learning. Explorez les différentes méthodes de formation et choisissez celle qui convient à votre projet.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324821"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555887"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -26,12 +26,12 @@ Azure Machine Learning vous permet d’effectuer l’apprentissage de vos modèl
     | Méthode d’entraînement | Description |
     | ----- | ----- |
     | [Configuration d’exécution](#run-configuration) | Une **façon classique d’effectuer l’apprentissage de modèles** consiste à utiliser un script d’apprentissage et une configuration de série de tests. La configuration d’exécution fournit les informations nécessaires à la configuration de l’environnement d’entraînement utilisé pour entraîner votre modèle. Vous pouvez spécifier votre script d’apprentissage, votre cible de calcul et votre environnement Azure ML dans votre configuration de série de tests, et exécuter un travail d’apprentissage. |
-    | [Machine learning automatisé](#automated-machine-learning) | Le machine learning automatisée permet d’ **entraîner des modèles sans avoir nécessairement de connaissances approfondies en science des données ou en programmation**. Pour les personnes spécialisées dans la science des données et la programmation, il permet de gagner du temps et d’économiser des ressources grâce à l’automatisation de la sélection d’algorithme et de l’ajustement des hyperparamètres. Avec le machine learning automatisé, nul besoin de se soucier de la définition d’une configuration d’exécution. |
-    | [Pipeline de machine learning](#machine-learning-pipeline) | Les pipelines ne constituent pas une méthode d’entraînement différente. Il s’agit d’une **façon de définir un workflow en suivant des étapes modulaires réutilisables** , qui peuvent inclure l’entraînement. Les pipelines de machine learning prennent en charge l’utilisation du Machine Learning automatisé et la configuration de série de tests pour effectuer l’apprentissage des modèles. Les pipelines n’étant pas spécifiquement axés sur l’entraînement, les raisons d’utiliser un pipeline sont plus variées que les autres méthodes d’entraînement. En règle générale, vous pouvez utiliser un pipeline dans les cas suivants :<br>* Vous souhaitez **planifier des processus sans assistance** comme des tâches d’entraînement durables ou une préparation de données.<br>* Utilisation de **plusieurs étapes** coordonnées sur des ressources de calcul et des emplacements de stockage hétérogènes.<br>* Utilisation du pipeline comme **modèle réutilisable** pour des scénarios spécifiques, comme le réentraînement ou le scoring par lots.<br>* **Suivi et versioning des sources de données, entrées et sorties** pour votre workflow.<br>* Votre workflow est **implémenté par différentes équipes qui travaillent de façon indépendante sur des étapes spécifiques**. Les étapes peuvent ensuite être regroupées dans un pipeline pour implémenter le workflow. |
+    | [Machine learning automatisé](#automated-machine-learning) | Le machine learning automatisée permet d’**entraîner des modèles sans avoir nécessairement de connaissances approfondies en science des données ou en programmation**. Pour les personnes spécialisées dans la science des données et la programmation, il permet de gagner du temps et d’économiser des ressources grâce à l’automatisation de la sélection d’algorithme et de l’ajustement des hyperparamètres. Avec le machine learning automatisé, nul besoin de se soucier de la définition d’une configuration d’exécution. |
+    | [Pipeline de machine learning](#machine-learning-pipeline) | Les pipelines ne constituent pas une méthode d’entraînement différente. Il s’agit d’une **façon de définir un workflow en suivant des étapes modulaires réutilisables**, qui peuvent inclure l’entraînement. Les pipelines de machine learning prennent en charge l’utilisation du Machine Learning automatisé et la configuration de série de tests pour effectuer l’apprentissage des modèles. Les pipelines n’étant pas spécifiquement axés sur l’entraînement, les raisons d’utiliser un pipeline sont plus variées que les autres méthodes d’entraînement. En règle générale, vous pouvez utiliser un pipeline dans les cas suivants :<br>* Vous souhaitez **planifier des processus sans assistance** comme des tâches d’entraînement durables ou une préparation de données.<br>* Utilisation de **plusieurs étapes** coordonnées sur des ressources de calcul et des emplacements de stockage hétérogènes.<br>* Utilisation du pipeline comme **modèle réutilisable** pour des scénarios spécifiques, comme le réentraînement ou le scoring par lots.<br>* **Suivi et versioning des sources de données, entrées et sorties** pour votre workflow.<br>* Votre workflow est **implémenté par différentes équipes qui travaillent de façon indépendante sur des étapes spécifiques**. Les étapes peuvent ensuite être regroupées dans un pipeline pour implémenter le workflow. |
 
 + [Kit de développement logiciel (SDK) Azure Machine Learning pour R (préversion)](#r-sdk-preview) le SDK pour R utilise le package reticulate pour établir une liaison avec le SDK Python d’Azure Machine Learning. Cela vous permet d’accéder aux objets et méthodes principaux implémentés dans le SDK Python à partir de tout environnement R.
 
-+ **Concepteur**  : Le concepts Azure Machine Learning offre une introduction simple à l’apprentissage automatique pour la génération d’une preuve de concepts, ou pour les utilisateurs peu expérimentés en matière de codage. Elle permet d’entraîner des modèles par glisser-déposer via une interface utilisateur web. Vous pouvez utiliser du code Python en phase de conception ou entraîner des modèles sans écrire de code.
++ **Concepteur** : Le concepts Azure Machine Learning offre une introduction simple à l’apprentissage automatique pour la génération d’une preuve de concepts, ou pour les utilisateurs peu expérimentés en matière de codage. Elle permet d’entraîner des modèles par glisser-déposer via une interface utilisateur web. Vous pouvez utiliser du code Python en phase de conception ou entraîner des modèles sans écrire de code.
 
 + **CLI** : l’interface de ligne de commande (CLI) de machine learning propose des commandes pour les tâches courantes d’Azure Machine Learning et est souvent employée pour **écrire des scripts et automatiser les tâches**. Par exemple, après avoir créé un script d’entraînement ou un pipeline, vous pouvez utiliser l’interface CLI pour lancer un entraînement selon une planification ou quand les fichiers de données utilisés pour l’entraînement sont mis à jour. Pour les modèles d’entraînement, elle propose des commandes qui soumettent les tâches d’entraînement. Elle peut soumettre des tâches utilisant des configurations d’exécution ou des pipelines.
 

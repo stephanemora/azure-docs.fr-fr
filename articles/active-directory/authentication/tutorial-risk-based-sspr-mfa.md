@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0fcd57a71baec54fbed2dd41a936895ad9a462
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a120e015bd8ca38e32bd8cbef1fd48f4caef8e44
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966574"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837802"
 ---
-# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutoriel : Utiliser les détections de risques pour les connexions utilisateur pour déclencher l’authentification multifacteur Azure et le changement du mot de passe
+# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-ad-multi-factor-authentication-or-password-changes"></a>Tutoriel : Utiliser les détections de risques pour les connexions utilisateur afin de déclencher Azure AD Multi-Factor Authentication ou le changement du mot de passe
 
-Pour protéger vos utilisateurs, vous pouvez configurer des stratégies reposant sur des risques dans Azure Active Directory (Azure AD) qui répondent automatiquement aux comportements à risque. Les stratégies d’Azure AD Identity Protection peuvent bloquer automatiquement une tentative de connexion ou nécessiter une action supplémentaire, par exemple exiger une modification de mot de passe ou demander l’authentification multifacteur Azure. Ces stratégies fonctionnent avec les stratégies d’accès conditionnel Azure AD existantes en tant que couche supplémentaire de protection pour votre organisation. Les utilisateurs ne déclencheront peut-être jamais un comportement risqué dans l’une de ces stratégies, mais votre organisation est protégée si une tentative de compromission de sécurité se produit.
+Pour protéger vos utilisateurs, vous pouvez configurer des stratégies reposant sur des risques dans Azure Active Directory (Azure AD) qui répondent automatiquement aux comportements à risque. Les stratégies d’Azure AD Identity Protection peuvent bloquer automatiquement une tentative de connexion ou nécessiter une action supplémentaire, par exemple exiger une modification de mot de passe ou demander Azure AD Multi-Factor Authentication. Ces stratégies fonctionnent avec les stratégies d’accès conditionnel Azure AD existantes en tant que couche supplémentaire de protection pour votre organisation. Les utilisateurs ne déclencheront peut-être jamais un comportement risqué dans l’une de ces stratégies, mais votre organisation est protégée si une tentative de compromission de sécurité se produit.
 
 > [!IMPORTANT]
-> Ce tutoriel montre aux administrateurs comment activer Microsoft Azure Multi-Factor Authentication basée sur les risques.
+> Ce tutoriel montre aux administrateurs comment activer Azure AD Multi-Factor Authentication en fonction des risques.
 >
-> Si votre équipe informatique n’a pas activé la capacité à utiliser Azure Multi-Factor Authentication, ou si vous rencontrez des problèmes lors de la connexion, contactez votre support technique pour obtenir de l’aide.
+> Si votre équipe informatique n’a pas activé la possibilité d’utiliser Azure AD Multi-Factor Authentication, ou si vous rencontrez des problèmes lors de la connexion, contactez votre support technique pour obtenir de l’aide.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Comprendre les stratégies disponibles pour Azure AD Identity Protection
-> * Activer une inscription d’authentification multifacteur
+> * Activer une inscription Azure AD Multi-Factor Authentication
 > * Activer les modifications de mot de passe en fonction des risques
 > * Activer l’authentification multifacteur en fonction des risques
 > * Tester les stratégies basées sur les risques pour les tentatives de connexion de l’utilisateur
@@ -42,9 +42,9 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P2 ou une licence d’évaluation activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*Administrateur général*.
-* Azure AD configuré pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure
+* Azure AD configuré pour la réinitialisation de mot de passe en libre-service et Azure AD Multi-Factor Authentication
     * Si nécessaire, [suivez le tutoriel pour activer la réinitialisation de mot de passe en libre-service Azure AD](tutorial-enable-sspr.md).
-    * Si nécessaire, [suivez le tutoriel pour activer l’authentification multifacteur Azure](tutorial-enable-azure-mfa.md).
+    * Si nécessaire, [suivez le tutoriel pour activer Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 ## <a name="overview-of-azure-ad-identity-protection"></a>Vue d’ensemble d’Azure AD Identity Protection
 
@@ -64,9 +64,9 @@ Les trois stratégies suivantes sont disponibles dans Azure AD Identity Protecti
 * Stratégie de risque d’utilisateur
     * Identifie les comptes d’utilisateur qui peuvent avoir des informations d’identification compromises et y répond. Peut inviter l’utilisateur à créer un nouveau mot de passe.
 * Stratégie en matière de risque à la connexion
-    * Identifie et répond aux tentatives de connexion suspectes. Peut inviter l’utilisateur à fournir des formes supplémentaires de vérification à l’aide de l’authentification multifacteur Azure.
+    * Identifie et répond aux tentatives de connexion suspectes. Peut inviter l’utilisateur à fournir des formes supplémentaires de vérification à l’aide d’Azure AD Multi-Factor Authentication.
 * Stratégie d'inscription MFA
-    * Vérifiez que les utilisateurs se sont inscrits à Azure Multi-Factor Authentication. Si une stratégie de connexion à risque vous invite à utiliser l’authentification multifacteur, l’utilisateur doit déjà être inscrit pour l’authentification multifacteur Azure.
+    * Vérifiez que les utilisateurs se sont inscrits à Azure AD Multi-Factor Authentication. Si une stratégie de connexion à risque vous invite à utiliser l’authentification multifacteur, l’utilisateur doit déjà être inscrit pour Azure AD Multi-Factor Authentication.
 
 Lorsque vous activez un utilisateur de stratégie ou une stratégie de risque de connexion, vous pouvez également choisir le seuil pour le niveau de risque : *Bas et supérieur*, *Moyen et supérieur* ou *Élevé*. Cette flexibilité vous permet de décider de la rigueur que vous souhaitez appliquer aux contrôles pour les événements de connexion suspects.
 
@@ -74,7 +74,7 @@ Vous trouverez plus d’informations sur Azure AD Identity Protection dans [Wha
 
 ## <a name="enable-mfa-registration-policy"></a>Activer la stratégie d’inscription MFA
 
-Azure AD Identity Protection comprend une stratégie par défaut qui peut aider les utilisateurs à s’inscrire à l’authentification multifacteur Azure. Si vous utilisez des stratégies supplémentaires pour protéger les événements de connexion, les utilisateurs doivent déjà avoir été inscrits pour l’authentification multifacteur. Lorsque vous activez cette stratégie, les utilisateurs n’ont pas besoin d’effectuer une authentification MFA à chaque événement de connexion. La stratégie vérifie uniquement l’état d’inscription d’un utilisateur et lui demande de se préinscrire si nécessaire.
+Azure AD Identity Protection comprend une stratégie par défaut qui peut aider les utilisateurs à s’inscrire auprès d’Azure AD Multi-Factor Authentication. Si vous utilisez des stratégies supplémentaires pour protéger les événements de connexion, les utilisateurs doivent déjà avoir été inscrits pour l’authentification multifacteur. Lorsque vous activez cette stratégie, les utilisateurs n’ont pas besoin d’effectuer une authentification MFA à chaque événement de connexion. La stratégie vérifie uniquement l’état d’inscription d’un utilisateur et lui demande de se préinscrire si nécessaire.
 
 Il est recommandé d’activer la stratégie d’inscription de l’authentification multifacteur pour les utilisateurs qui doivent être activés pour des stratégies Azure AD Identity Protection supplémentaires. Pour activer cette stratégie, procédez comme suit :
 
@@ -82,7 +82,7 @@ Il est recommandé d’activer la stratégie d’inscription de l’authentifica
 1. Recherchez et sélectionnez **Azure Active Directory**, sélectionnez **Sécurité**, puis, sous l’en-tête de menu *Protéger*, choisissez **Identity Protection**.
 1. Sélectionnez la **Stratégie d’inscription MFA** dans le menu de gauche.
 1. Par défaut, la stratégie s’applique à *Tous les utilisateurs*. Si vous le souhaitez, sélectionnez **Affectations**, puis choisissez les utilisateurs ou les groupes auxquels appliquer la stratégie.
-1. Sous *Contrôles*, sélectionnez **Accès**. Assurez-vous que l’option *Exiger l’inscription Azure MFA* est cochée, puis choisissez **Sélectionner**.
+1. Sous *Contrôles*, sélectionnez **Accès**. Assurez-vous que l’option *Exiger l’inscription Azure AD MFA* est cochée, puis choisissez **Sélectionner**.
 1. Définissez **Appliquer la stratégie** sur *Activé*, puis sélectionnez **Enregistrer**.
 
     ![Capture d’écran montrant comment obliger les utilisateurs à s’inscrire à l’authentification multifacteur dans le portail Azure](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
@@ -133,7 +133,7 @@ Dans ce didacticiel, vous avez activé des stratégies utilisateur basées sur l
 
 > [!div class="checklist"]
 > * Comprendre les stratégies disponibles pour Azure AD Identity Protection
-> * Activer une inscription d’authentification multifacteur
+> * Activer une inscription Azure AD Multi-Factor Authentication
 > * Activer les modifications de mot de passe en fonction des risques
 > * Activer l’authentification multifacteur en fonction des risques
 > * Tester les stratégies basées sur les risques pour les tentatives de connexion de l’utilisateur

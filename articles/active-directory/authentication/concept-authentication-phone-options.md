@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377749"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628116"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
@@ -23,16 +23,16 @@ Pour une authentification directe à l’aide d’un message texte, vous pouvez 
 
 Les utilisateurs peuvent également s’authentifier à l’aide d’un téléphone mobile ou d’un téléphone de bureau comme forme secondaire d’authentification utilisée lors de l’authentification multifacteur Azure ou de la réinitialisation de mot de passe en libre-service (SSPR).
 
-Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone* , par exemple : *+1 4251234567*.
+Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : *+1 4251234567*.
 
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
-> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345* , les extensions sont supprimées avant l’appel.
+> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345*, les extensions sont supprimées avant l’appel.
 
 ## <a name="mobile-phone-verification"></a>Vérification du téléphone mobile
 
-Pour Azure MFA ou SSPR, les utilisateurs peuvent choisir de recevoir un SMS contenant un code de vérification à entrer dans l’interface de connexion ou de recevoir un appel téléphonique ainsi qu’une invite permettant d’entrer le code confidentiel défini.
+Pour Azure MFA ou SSPR, les utilisateurs peuvent choisir de recevoir un SMS contenant un code de vérification à entrer dans l’interface de connexion ou de recevoir un appel téléphonique.
 
 Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, tout en ayant la possibilité de l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas renseigner le numéro de téléphone dans le répertoire. Au lieu de cela, les utilisateurs doivent renseigner leur attribut de **téléphone d’authentification** via l’inscription d’informations de sécurité combinée sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs.
 
@@ -46,22 +46,24 @@ Avec la vérification des SMS dans le cadre de Microsoft Azure Multi-Factor Auth
 
 ### <a name="phone-call-verification"></a>Vérification de l’appel téléphonique
 
-Avec la vérification de l’appel téléphonique dans le cadre de Microsoft Azure Multi-Factor Authentication et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à entrer son numéro de PIN suivi de # à l’aide du clavier.
+Avec la vérification de l’appel téléphonique dans le cadre de Microsoft Azure Multi-Factor Authentication et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
 
 ## <a name="office-phone-verification"></a>Vérification du téléphone de bureau
 
-Avec la vérification de l’appel téléphonique dans le cadre d’Azure MFA et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à entrer son numéro de PIN suivi de # à l’aide du clavier.
+Avec la vérification de l’appel téléphonique dans le cadre d’Azure MFA et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
 
 ## <a name="troubleshooting-phone-options"></a>Résolution des problèmes liés aux options du téléphone
 
 Si vous rencontrez des problèmes avec l’authentification par téléphone pour Azure AD, passez en revue les étapes de dépannage suivantes :
 
+* Message d'erreur « Vous avez atteint notre limite pour les appels de vérification » ou « Vous avez atteint notre limite pour les codes de vérification par SMS » lors de la connexion
+   * Utilisez l’application d’authentification Microsoft ou le code de vérification pour terminer l’authentification, ou réessayez plus tard.
 * ID de l’appelant bloqué sur un seul appareil.
    * Examinez les numéros bloqués configurés sur l’appareil.
 * Numéro de téléphone erroné ou code de pays/région incorrect, ou confusion entre le numéro de téléphone personnel et le numéro de téléphone professionnel.
    * Résolvez les problèmes liés à l’objet utilisateur et aux méthodes d’authentification. Assurez-vous que les numéros de téléphone appropriés sont enregistrés.
 * Code PIN entré incorrect.
-   * Assurez-vous que l’utilisateur a utilisé le code PIN approprié comme enregistré pour son compte.
+   * Assurez-vous que l’utilisateur a utilisé le code PIN approprié comme enregistré pour son compte (utilisateurs de MFA Server uniquement).
 * Appel transféré vers la messagerie vocale.
    * Vérifiez que le téléphone de l'utilisateur est allumé et que le service est disponible dans sa zone ou utilisez une autre méthode.
 * L’utilisateur est bloqué

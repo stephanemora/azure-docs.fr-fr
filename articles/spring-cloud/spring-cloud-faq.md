@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491934"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655049"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -93,6 +93,21 @@ Trois services sont actuellement pris en charge :
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Puis-je voir, ajouter ou déplacer des volumes persistants depuis mes applications ?
 
 Oui.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Combien d’adresses IP publiques sortantes une instance Azure Spring Cloud a-t-elle ?
+
+Le nombre d’adresses IP publiques sortantes peut varier en fonction des niveaux et d’autres facteurs. 
+
+| Type d’instance Azure Spring Cloud | Nombre par défaut d’adresses IP publiques sortantes |
+| -------------------------------- | ---------------------------------------------- |
+| Instances de niveau de base             | 1                                              |
+| Instances de niveau standard          | 2                                              |
+| Instances d’injection de réseau virtuel         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>Puis-je augmenter le nombre d’adresses IP publiques sortantes ?
+
+Oui, vous pouvez ouvrir un [ticket de support](https://azure.microsoft.com/support/faq/) pour demander davantage d’adresses IP publiques sortantes.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Lorsque je supprime/déplace une instance de service Azure Spring Cloud, ses ressources d’extension seront-elles également supprimées/déplacées ?
 

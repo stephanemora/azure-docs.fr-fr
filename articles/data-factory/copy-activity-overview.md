@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995341"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592054"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -262,6 +262,13 @@ Cette fonctionnalité est prise en charge lors de la copie de données à partir
 ## <a name="fault-tolerance"></a>Tolérance de panne
 
 Par défaut, l’activité de copie arrête la copie des données et retourne un échec lorsque les lignes de données sources sont incompatibles avec les lignes de données du récepteur. Pour que la copie aboutisse, vous pouvez configurer l’activité de copie afin d’ignorer et de journaliser les lignes incompatibles et de copier uniquement les données compatibles. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md).
+
+## <a name="data-consistency-verification"></a>Vérification de la cohérence des données
+
+Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie d’Azure Data Factory vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Consultez [Vérification de la cohérence des données dans l’activité de copie](copy-activity-data-consistency.md) pour plus d’informations.
+
+## <a name="session-log"></a>Journal de session
+Vous pouvez journaliser les noms de fichiers copiés, ce qui peut vous aider à mieux vous assurer que les données sont non seulement bien copiées du magasin source vers le magasin de destination, mais qu’elles sont également cohérentes entre les deux magasins en examinant les journaux de session de l’activité de copie. Consultez [Journal de session dans l’activité de copie](copy-activity-log.md) pour plus de détails.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les procédures de démarrage rapide, didacticiels et exemples suivants :

@@ -1,23 +1,23 @@
 ---
 title: Détails de la Conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark
 description: Détails de l’initiative intégrée Conformité réglementaire de CIS Microsoft Azure Foundations Benchmark. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320590"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696929"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée Conformité réglementaire de CIS Microsoft Azure Foundations Benchmark
 
 L’article suivant explique en détail comment la définition de l’initiative intégrée Conformité réglementaire Azure Policy est mappée à des **domaines de conformité** et des **contrôles** dans CIS Microsoft Azure Foundations Benchmark.
-Pour plus d’informations sur cette norme de conformité, consultez [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Pour comprendre la _propriété_ , consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
+Pour plus d’informations sur cette norme de conformité, consultez [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Les correspondances suivantes sont relatives aux contrôles **CIS Microsoft Azure Foundations Benchmark** . Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions** .
-Ensuite, recherchez et sélectionnez la définition de l’initiative intégrée Conformité réglementaire **CIS Microsoft Azure Foundations Benchmark 1.1.0** .
+Les correspondances suivantes sont relatives aux contrôles **CIS Microsoft Azure Foundations Benchmark**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
+Ensuite, recherchez et sélectionnez la définition de l’initiative intégrée Conformité réglementaire **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
 
 Cette initiative intégrée est déployée dans le cadre de l’[exemple de blueprint CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -29,7 +29,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Vérifier que l’authentification multifacteur est activée pour tous les utilisateurs privilégiés
 
-**ID**  : **Propriété** CIS Azure 1.1 : Customer
+**ID** : **Propriété** CIS Azure 1.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>Vérifier que l’authentification multifacteur est activée pour tous les utilisateurs non privilégiés
 
-**ID**  : **Propriété** CIS Azure 1.2 : Customer
+**ID** : **Propriété** CIS Azure 1.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Vérifier qu’il n’y a aucun utilisateur invité
 
-**ID**  : **Propriété** CIS Azure 1.3 : Customer
+**ID** : **Propriété** CIS Azure 1.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Vérifier qu’aucun rôle de propriétaire d’abonnement personnalisé n’est créé
 
-**ID**  : **Propriété** CIS Azure 1.23 : Customer
+**ID** : **Propriété** CIS Azure 1.23 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Vérifier que l’option « Provisionnement automatique de l’agent de supervision » est définie sur « On »
 
-**ID**  : **Propriété** CIS Azure 2.2 : Customer
+**ID** : **Propriété** CIS Azure 2.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller les mises à jour système » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.3 : Customer
+**ID** : **Propriété** CIS Azure 2.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller les vulnérabilités de système d’exploitation » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.4 : Customer
+**ID** : **Propriété** CIS Azure 2.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller Endpoint Protection » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.5 : Customer
+**ID** : **Propriété** CIS Azure 2.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller le chiffrement des disques » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.6 : Customer
+**ID** : **Propriété** CIS Azure 2.6 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut ASC « Superviser les groupes de sécurité réseau » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.7 : Customer
+**ID** : **Propriété** CIS Azure 2.7 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -114,7 +114,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut ASC « Activer la supervision du pare-feu de nouvelle génération » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.9 : Customer
+**ID** : **Propriété** CIS Azure 2.9 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Superviser l’évaluation des vulnérabilités » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.10 : Customer
+**ID** : **Propriété** CIS Azure 2.10 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller l’accès réseau JIT » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.12 : Customer
+**ID** : **Propriété** CIS Azure 2.12 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut ASC « Superviser la mise en liste verte des contrôles d’application adaptatifs » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.13 : Customer
+**ID** : **Propriété** CIS Azure 2.13 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut ASC « Superviser l’audit SQL » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.14 : Customer
+**ID** : **Propriété** CIS Azure 2.14 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller le chiffrement SQL » n’est pas défini sur « Disabled »
 
-**ID**  : **Propriété** CIS Azure 2.15 : Customer
+**ID** : **Propriété** CIS Azure 2.15 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Vérifier que l’option « E-mails de contact de sécurité » est définie
 
-**ID**  : **Propriété** CIS Azure 2.16 : Customer
+**ID** : **Propriété** CIS Azure 2.16 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Vérifier que l’option « Numéro de téléphone » de contact de sécurité est définie
 
-**ID**  : **Propriété** CIS Azure 2.17 : Customer
+**ID** : **Propriété** CIS Azure 2.17 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Vérifier que l’option « Envoyer une notification par e-mail pour les alertes à gravité élevée » est définie sur « On »
 
-**ID**  : **Propriété** CIS Azure 2.18 : Customer
+**ID** : **Propriété** CIS Azure 2.18 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Vérifier que l’option « Envoyer également un e-mail aux propriétaires de l’abonnement » est définie sur « On »
 
-**ID**  : **Propriété** CIS Azure 2.19 : Customer
+**ID** : **Propriété** CIS Azure 2.19 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Vérifier que l’option « Transfert sécurisé requis » est définie sur « Enabled »
 
-**ID**  : **Propriété** CIS Azure 3.1 : Customer
+**ID** : **Propriété** CIS Azure 3.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Vérifier que la règle d’accès réseau par défaut pour les comptes de stockage est définie sur Refuser
 
-**ID**  : **Propriété** CIS Azure 3.7 : Customer
+**ID** : **Propriété** CIS Azure 3.7 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Vérifier que l’option « Services Microsoft approuvés » est activée pour l’accès au compte de stockage
 
-**ID**  : **Propriété** CIS Azure 3.8 : Customer
+**ID** : **Propriété** CIS Azure 3.8 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Vérifier que l’option « Audit » est définie sur « On »
 
-**ID**  : **Propriété** CIS Azure 4.1 : Customer
+**ID** : **Propriété** CIS Azure 4.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Vérifier que « AuditActionGroups » dans la stratégie « Audit » pour un serveur SQL est correctement défini
 
-**ID**  : **Propriété** CIS Azure 4.2 : Customer
+**ID** : **Propriété** CIS Azure 4.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Vérifier que la période de rétention d’audit est supérieure à 90 jours
 
-**ID**  : **Propriété** CIS Azure 4.3 : Customer
+**ID** : **Propriété** CIS Azure 4.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Vérifier que l’option « Advanced Data Security » sur un serveur SQL Server est définie sur « On »
 
-**ID**  : **Propriété** CIS Azure 4.4 : Customer
+**ID** : **Propriété** CIS Azure 4.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Vérifier que l’administrateur Azure Active Directory est configuré
 
-**ID**  : **Propriété** CIS Azure 4.8 : Customer
+**ID** : **Propriété** CIS Azure 4.8 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Vérifiez que l’option « Chiffrement des données » est définie sur « On » sur une base de données SQL
 
-**ID**  : **Propriété** CIS Azure 4.9 : Customer
+**ID** : **Propriété** CIS Azure 4.9 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Vérifier que le protecteur TDE du serveur SQL est chiffré avec BYOK (Bring Your Own Key)
 
-**ID**  : **Propriété** CIS Azure 4.10 : Customer
+**ID** : **Propriété** CIS Azure 4.10 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ENABLED » pour le serveur de base de données MySQL
 
-**ID**  : **Propriété** CIS Azure 4.11 : Customer
+**ID** : **Propriété** CIS Azure 4.11 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Vérifier que le paramètre de serveur « log_checkpoints » est défini sur « ON » pour le serveur de base de données PostgreSQL
 
-**ID**  : **Propriété** CIS Azure 4.12 : Customer
+**ID** : **Propriété** CIS Azure 4.12 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ENABLED » pour le serveur de base de données PostgreSQL
 
-**ID**  : **Propriété** CIS Azure 4.13 : Customer
+**ID** : **Propriété** CIS Azure 4.13 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Vérifier que le paramètre de serveur « log_connections » est défini sur « ON » pour le serveur de base de données PostgreSQL
 
-**ID**  : **Propriété** CIS Azure 4.14 : Customer
+**ID** : **Propriété** CIS Azure 4.14 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Vérifier que le paramètre de serveur « log_disconnections » est défini sur « ON » pour le serveur de base de données PostgreSQL
 
-**ID**  : **Propriété** CIS Azure 4.15 : Customer
+**ID** : **Propriété** CIS Azure 4.15 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Vérifier que le paramètre de serveur « connection_throttling » est défini sur « ON » pour le serveur de base de données PostgreSQL
 
-**ID**  : **Propriété** CIS Azure 4.17 : Customer
+**ID** : **Propriété** CIS Azure 4.17 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Vérifier l’existence d’un profil de journal
 
-**ID**  : **Propriété** CIS Azure 5.1.1 : Customer
+**ID** : **Propriété** CIS Azure 5.1.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Vérifier que la conservation du journal d’activité est définie sur 365 jours ou plus
 
-**ID**  : **Propriété** CIS Azure 5.1.2 : Customer
+**ID** : **Propriété** CIS Azure 5.1.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>Vérifier que le profil d’audit capture toutes les activités
 
-**ID**  : **Propriété** CIS Azure 5.1.3 : Customer
+**ID** : **Propriété** CIS Azure 5.1.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Vérifier que le profil de journal capture les journaux d’activité pour toutes les régions, notamment la région globale
 
-**ID**  : **Propriété** CIS Azure 5.1.4 : Customer
+**ID** : **Propriété** CIS Azure 5.1.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Vérifier que le compte de stockage comprenant le conteneur des journaux d’activité est chiffré avec BYOK (Bring Your Own Key)
 
-**ID**  : **Propriété** CIS Azure 5.1.6 : Customer
+**ID** : **Propriété** CIS Azure 5.1.6 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Vérifier que la journalisation d’Azure KeyVault est définie sur « Enabled »
 
-**ID**  : **Propriété** CIS Azure 5.1.7 : Customer
+**ID** : **Propriété** CIS Azure 5.1.7 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,15 +379,15 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Vérifier l’existence de l’alerte de journal d’activité pour la création d’attribution de stratégie
 
-**ID**  : **Propriété** CIS Azure 5.2.1 : Customer
+**ID** : **Propriété** CIS Azure 5.2.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Une alerte de journal d’activité doit exister pour des opérations de stratégie spécifiques](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Cette stratégie audite toute opération de stratégie spécifique sans aucune alerte de journal d’activité configurée. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Une alerte de journal d’activité doit exister pour des opérations de stratégie spécifiques](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Cette stratégie audite toute opération de stratégie spécifique sans aucune alerte de journal d’activité configurée. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’un groupe de sécurité réseau
 
-**ID**  : **Propriété** CIS Azure 5.1.2 : Customer
+**ID** : **Propriété** CIS Azure 5.1.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Vérifier l’existence d’une alerte de journal d’activité pour la suppression de groupe de sécurité réseau
 
-**ID**  : **Propriété** CIS Azure 5.2.3 : Customer
+**ID** : **Propriété** CIS Azure 5.2.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’une règle de groupe de sécurité réseau
 
-**ID**  : **Propriété** CIS Azure 5.2.4 : Customer
+**ID** : **Propriété** CIS Azure 5.2.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Vérifier l’existence d’une alerte de journal d’activité pour la suppression d’une règle de groupe de sécurité réseau
 
-**ID**  : **Propriété** CIS Azure 5.2.5 : Customer
+**ID** : **Propriété** CIS Azure 5.2.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’une solution de sécurité
 
-**ID**  : **Propriété** CIS Azure 5.2.6 : Customer
+**ID** : **Propriété** CIS Azure 5.2.6 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Vérifier l’existence d’une alerte de journal d’activité pour la suppression d’une solution de sécurité
 
-**ID**  : **Propriété** CIS Azure 5.2.7 : Customer
+**ID** : **Propriété** CIS Azure 5.2.7 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Vérifier l’existence d’une alerte de journal d’activité pour la création, la mise à jour ou la suppression d’une règle de pare-feu SQL Server
 
-**ID**  : **Propriété** CIS Azure 5.2.8 : Customer
+**ID** : **Propriété** CIS Azure 5.2.8 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Vérifier l’existence d’une alerte de journal d’activité pour la mise à jour d’une stratégie de sécurité
 
-**ID**  : **Propriété** CIS Azure 5.2.9 : Customer
+**ID** : **Propriété** CIS Azure 5.2.9 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Vérifier que l’accès RDP à partir d’Internet est limité
 
-**ID**  : **Propriété** CIS Azure 6.1 : Customer
+**ID** : **Propriété** CIS Azure 6.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Vérifier que l’accès SSH à partir d’Internet est limité
 
-**ID**  : **Propriété** CIS Azure 6.2 : Customer
+**ID** : **Propriété** CIS Azure 6.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Vérifier que Network Watcher est défini sur « Enabled »
 
-**ID**  : **Propriété** CIS Azure 6.5 : Customer
+**ID** : **Propriété** CIS Azure 6.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Vérifier que les disques du système d’exploitation sont chiffrés
 
-**ID**  : **Propriété** CIS Azure 7.1 : Customer
+**ID** : **Propriété** CIS Azure 7.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Vérifier que les disques de données sont chiffrés
 
-**ID**  : **Propriété** CIS Azure 7.2 : Customer
+**ID** : **Propriété** CIS Azure 7.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Vérifier que les disques non attachés sont chiffrés
 
-**ID**  : **Propriété** CIS Azure 7.3 : Customer
+**ID** : **Propriété** CIS Azure 7.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Vérifier que seules les extensions approuvées sont installées
 
-**ID**  : **Propriété** CIS Azure 7.4 : Customer
+**ID** : **Propriété** CIS Azure 7.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Vérifier que les derniers correctifs de système d’exploitation sont appliqués pour toutes les machines virtuelles
 
-**ID**  : **Propriété** CIS Azure 7.5 : Customer
+**ID** : **Propriété** CIS Azure 7.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Vérifier que la protection de point de terminaison est installée pour toutes les machines virtuelles
 
-**ID**  : **Propriété** CIS Azure 7.6 : Customer
+**ID** : **Propriété** CIS Azure 7.6 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,15 +529,15 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Vérifier que le coffre de clés est récupérable
 
-**ID**  : **Propriété** CIS Azure 8.4 : Customer
+**ID** : **Propriété** CIS Azure 8.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les objets Key Vault doivent être récupérables](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Cette stratégie vérifie si les objets de coffre de clés ne sont pas récupérables. La fonctionnalité de suppression réversible permet de conserver les ressources pendant une période de conservation donnée (90 jours), même après une opération de SUPPRESSION, tout en donnant l’impression que l’objet est supprimé. Quand « Protection de purge » est activée, un coffre ou un objet à l’état supprimé ne peut pas être vidé avant la fin de la période de conservation de 90 jours. Ces coffres et objets peuvent être récupérés, ce qui garantit aux clients le suivi de la stratégie de rétention. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[La protection contre la suppression définitive doit être activée sur le coffre de clés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |La suppression malveillante d’un coffre de clés peut entraîner une perte définitive des données. Un membre malveillant de votre organisation peut être en mesure d’accéder aux coffres de clés pour les supprimer et les vider. La protection contre la suppression définitive vous protège des attaques internes en appliquant une période de conservation obligatoire pour les coffres de clés supprimés de manière réversible. Personne au sein de votre organisation ni chez Microsoft ne pourra supprimer définitivement vos coffres de clés pendant la période de conservation de la suppression réversible. |Audit, Refuser, Désactivé |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Activer le contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Services
 
-**ID**  : **Propriété** CIS Azure 8.5 : Customer
+**ID** : **Propriété** CIS Azure 8.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>Vérifier qu’App Service Authentication est défini sur Azure App Service
 
-**ID**  : **Propriété** CIS Azure 9.1 : Customer
+**ID** : **Propriété** CIS Azure 9.1 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Vérifier que l’application web redirige tout le trafic HTTP vers HTTPS dans Azure App Service
 
-**ID**  : **Propriété** CIS Azure 9.2 : Customer
+**ID** : **Propriété** CIS Azure 9.2 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>Vérifier que l’application web utilise la dernière version du chiffrement TLS
 
-**ID**  : **Propriété** CIS Azure 9.3 : Customer
+**ID** : **Propriété** CIS Azure 9.3 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>Vérifier que « Certificats clients (certificats clients entrants) » est activé pour l’application web
 
-**ID**  : **Propriété** CIS Azure 9.4 : Customer
+**ID** : **Propriété** CIS Azure 9.4 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>Vérifier que l’inscription auprès d’Azure Active Directory est activée pour App Service
 
-**ID**  : **Propriété** CIS Azure 9.5 : Customer
+**ID** : **Propriété** CIS Azure 9.5 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,7 +595,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Vérifier que la version de PHP est la plus récente si elle est utilisée pour exécuter l’application web
 
-**ID**  : **Propriété** CIS Azure 9.7 : Customer
+**ID** : **Propriété** CIS Azure 9.7 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -604,7 +604,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Vérifier que la version de Python est la plus récente si elle est utilisée pour exécuter l’application web
 
-**ID**  : **Propriété** CIS Azure 9.8 : Customer
+**ID** : **Propriété** CIS Azure 9.8 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -614,7 +614,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Vérifier que la version de Java est la plus récente si elle est utilisée pour exécuter l’application web
 
-**ID**  : **Propriété** CIS Azure 9.9 : Customer
+**ID** : **Propriété** CIS Azure 9.9 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -624,7 +624,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>Vérifier que la version de HTTP est la plus récente si elle est utilisée pour exécuter l’application web
 
-**ID**  : **Propriété** CIS Azure 9.10 : Customer
+**ID** : **Propriété** CIS Azure 9.10 : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

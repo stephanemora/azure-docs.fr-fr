@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 786f566b121d5f0d5d64e7b8b269c7cdfab9e4a6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825064"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560908"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft
 
-Dans ce guide de démarrage rapide, vous allez exposer une API web et la protéger afin que seuls les utilisateurs authentifiés puissent y accéder. Cet article montre comment exposer une API web ASP.NET pour qu’elle accepte des jetons émis par des comptes personnels, comme outlook.com ou live.com, et des comptes professionnels ou scolaires de toute société ou organisation qui a été intégrée à la plateforme d’identités Microsoft.
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment protéger une API web ASP.NET en limitant l’accès à ses ressources aux comptes autorisés uniquement. L’exemple prend en charge l’autorisation des comptes Microsoft personnels et comptes de n’importe quelle organisation Azure Active Directory (Azure AD).
 
 L’article utilise également une application Windows Presentation Foundation (WPF) pour montrer comment vous pouvez demander un jeton d’accès afin d’accéder à une API web.
 

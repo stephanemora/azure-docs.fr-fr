@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
-ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924263"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889051"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Créer une base de connaissances à l’aide de REST et Postman
 
@@ -84,7 +84,7 @@ Pour obtenir la valeur de `admin-key`, accédez au service Recherche cognitive A
 | `index-name` | Laisser **hotel-reviews-ix**. | 
 | `search-service-name` | Nom du service Recherche cognitive Azure. L’URL est `https://{{search-service-name}}.search.windows.net`. | 
 | `skillset-name` | Laisser **hotel-reviews-ss**. | 
-| `storage-account-name` | nom du compte de stockage. | 
+| `storage-account-name` | Nom du compte de stockage Azure. | 
 | `storage-connection-string` | Dans le compte de stockage, sous l’onglet **Clés d’accès**, sélectionnez **key1** > **Chaîne de connexion**. | 
 | `storage-container-name` | Laisser **hotel-reviews**. | 
 

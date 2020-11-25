@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: 9451b6636f2f87806e3d1e39fec4e9e4d4390485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6be3a7fd19b43bd1b18af05d0dbfaf5053fb181
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706832"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682959"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Résidence des données pour Azure Network Watcher
 Azure Network Watcher ne stocke pas les données client à l’exception du service Moniteur de connexion (préversion).
@@ -27,9 +27,8 @@ Azure Network Watcher ne stocke pas les données client à l’exception du serv
 ## <a name="connection-monitor-preview-data-residency"></a>Résidence des données de Moniteur de connexion (préversion)
 Le service Moniteur de connexion (en préversion) stocke les données client. Ces données sont stockées automatiquement par Network Watcher dans une seule région. Ainsi Moniteur de connexion (préversion) répond automatiquement aux exigences en matière de résidence des données dans la région, y compris celles spécifiées dans le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
 
-## <a name="singapore-data-residency"></a>Résidence des données à Singapour
-
-Dans Azure, la fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique. Pour toutes les autres régions, les données client sont stockées dans Zone géographique. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
+## <a name="data-residency"></a>Résidence des données
+Dans Azure, la fonctionnalité qui permet le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique et la région Brésil Sud (État de Sao Paulo) de la zone géographique Brésil. Pour toutes les autres régions, les données client sont stockées dans Zone géographique. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

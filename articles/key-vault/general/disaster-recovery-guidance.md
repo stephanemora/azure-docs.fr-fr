@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea5f0428fe55c0dae3734e196008cbc26a974b9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597878"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576216"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos
 > [!NOTE]
 > Ce guide s’applique aux coffres. Les pools HSM managés utilisent un autre modèle de haute disponibilité et de reprise d’activité. Pour plus d’informations, consultez [Guide de reprise d’activité pour un HSM managé](../managed-hsm/disaster-recovery-guide.md).
 
-Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Consultez le document [Régions jumelées d’Azure](../../best-practices-availability-paired-regions.md) pour plus d’informations sur les paires de régions spécifiques.
+Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Pour plus d’informations sur les paires de régions spécifiques, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). L’exception au modèle de régions jumelées est Brésil Sud, qui offre uniquement la possibilité de conserver les données résidant dans cette région. Brésil Sud utilise le stockage localement redondant (LRS) pour répliquer vos données trois fois dans la seule et même localisation/région.   
 
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Vous n’avez besoin d’effectuer aucune action pour démarrer ce processus. Il se produit automatiquement sans que vous le perceviez.
 
@@ -40,7 +40,7 @@ Il convient toutefois de prendre quelques précautions :
   * Obtenir les certificats
   * Afficher la liste des secrets
   * Get secrets (Obtenir les secrets)
-  * Afficher la liste des clés
+  * List keys (Afficher la liste des clés)
   * Obtenir les (propriétés des) clés
   * Encrypt (Chiffrer)
   * Déchiffrer

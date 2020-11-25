@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100067"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579309"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 
@@ -70,11 +70,11 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage. 
 
-1. Sous **Service Blob** , sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
+1. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
 
 1. Sélectionnez l’onglet **Mode Liste**.
 
-1. Sélectionnez **Ajouter une règle** et nommez votre règle dans le formulaire **Détails**. Vous pouvez également définir les l’ **Étendue de la règle** , le **Type d’objet blob** et le **Sous-type d’objet blob**. L’exemple suivant définit l’étendue pour filtrer les objets blob. Cela entraîne l’ajout de l’onglet **Jeu de filtres**.
+1. Sélectionnez **Ajouter une règle** et nommez votre règle dans le formulaire **Détails**. Vous pouvez également définir les l’**Étendue de la règle**, le **Type d’objet blob** et le **Sous-type d’objet blob**. L’exemple suivant définit l’étendue pour filtrer les objets blob. Cela entraîne l’ajout de l’onglet **Jeu de filtres**.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
 
@@ -91,9 +91,9 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
    > [!IMPORTANT]
    > La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
    
-   Pour utiliser l’option **Dernier accès** , sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure. Pour plus d’informations sur l’option **Dernier accès** , consultez [Déplacer des données en fonction de la date du dernier accès (préversion)](#move-data-based-on-last-accessed-date-preview).
+   Pour utiliser l’option **Dernier accès**, sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure. Pour plus d’informations sur l’option **Dernier accès**, consultez [Déplacer des données en fonction de la date du dernier accès (préversion)](#move-data-based-on-last-accessed-date-preview).
 
-1. Si vous avez sélectionné **Limiter les objets blob avec des filtres** dans la page **Détails** , sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. L’exemple suivant filtre sur les objets blob dans le conteneur *mylifecyclecontainer* qui commencent par « log ».
+1. Si vous avez sélectionné **Limiter les objets blob avec des filtres** dans la page **Détails**, sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. L’exemple suivant filtre sur les objets blob dans le conteneur *mylifecyclecontainer* qui commencent par « log ».
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Page Lifecycle management action set (Jeu de filtres de gestion du cycle de vie) du Portail Microsoft Azure":::
 
@@ -104,7 +104,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage.
 
-1. Sous **Service Blob** , sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
+1. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
 1. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code**.
 
@@ -322,7 +322,7 @@ Les filtres sont les suivants :
 | blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 
 > [!NOTE]
-> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre** , **Canada Est** , **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Actions de règle
 
@@ -393,7 +393,7 @@ L’option **Dernier accès** est disponible en préversion dans les régions su
 > [!IMPORTANT]
 > La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
 
-Pour utiliser l’option **Dernier accès** , sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure.
+Pour utiliser l’option **Dernier accès**, sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure.
 
 #### <a name="how-last-access-time-tracking-works"></a>Fonctionnement du suivi de l’heure du dernier accès
 
@@ -439,7 +439,7 @@ Le suivi de l’heure du dernier accès est disponible pour les types de comptes
 
 Si votre compte de stockage est un compte v1 à usage général, utilisez le Portail Azure pour effectuer une mise à niveau vers un compte v2 à usage général.
 
-Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont pas encore pris en charge.
+Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 sont désormais pris en charge.
 
 #### <a name="pricing-and-billing"></a>Tarification et facturation
 

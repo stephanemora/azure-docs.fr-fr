@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073101"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636960"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -86,17 +86,24 @@ L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 | writetime | Oui |
 | Caster | Non |
 
-L’API Cassandra \* prend en charge le jeton en tant que projection/sélecteur et autorise uniquement token(pk) du côté gauche d’une clause Where. Par exemple, `WHERE token(pk) > 1024` est pris en charge, mais `WHERE token(pk) > token(100)` ne l’est pas.
+> [!NOTE]
+> L’API Cassandra \* prend en charge le jeton en tant que projection/sélecteur et autorise uniquement token(pk) du côté gauche d’une clause Where. Par exemple, `WHERE token(pk) > 1024` est pris en charge, **contrairement à `WHERE token(pk) > token(100)`** .
+
 
 
 Fonctions d’agrégation :
 
 |Commande  |Pris en charge. |
 |---------|---------|
-| min | Oui |
-| max | Oui |
 | avg | Oui |
 | count | Oui |
+| min | Oui |
+| max | Oui |
+| Sum | Oui |
+
+> [!NOTE]
+> Les fonctions d’agrégation fonctionnent sur les colonnes habituelles. Toutefois, les agrégats de colonnes de clustering **ne sont pas** pris en charge.
+
 
 Fonctions de conversion blob :
  
@@ -260,7 +267,7 @@ L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérati
 
 ## <a name="permission-and-role-management"></a>Gestion des rôles et des autorisations
 
-Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RBAC) pour l’approvisionnement, la rotation de clés, l’affichage des métriques et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [portail Azure](https://portal.azure.com). Azure Cosmos DB ne prend pas en charge les rôles pour les activités CRUD.
+Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour le provisionnement, la rotation de clés, l’affichage des métriques et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [portail Azure](https://portal.azure.com). Azure Cosmos DB ne prend pas en charge les rôles pour les activités CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Options d’espace de clé et de table
 

@@ -1,19 +1,19 @@
 ---
-title: Créer un compte Place de marché commerciale dans l’Espace partenaires
+title: Créer un compte Place de marché commerciale dans l’Espace partenaires pour Place de marché Azure
 description: Découvrez comment créer un compte Place de marché commerciale Microsoft dans l’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130457"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628779"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -65,9 +65,9 @@ Votre profil d’éditeur inclut le nom de votre entreprise et l’identifiant M
     > [!IMPORTANT]
     > Pour accepter ces conditions, vous devez être autorisé à agir au nom de votre entreprise.
 
-    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche. 
-    
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
+    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
+
+1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** (icône d’engrenage) dans le coin supérieur droit > **Paramètres de développeur** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Continuez vers [Ajouter de nouveaux éditeurs au programme de marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -88,22 +88,22 @@ Pour les deux types d’inscription, vous vous connectez à Espace partenaires �
 Lorsque vous utilisez votre compte Microsoft Partner Network, il lie le domaine du compte de messagerie professionnelle de votre entreprise à votre nouveau compte Espace partenaires. Une fois que vous avez associé ces deux comptes, les employés de votre société peuvent se connecter à l’Espace partenaires avec les noms d’utilisateur et mots de passe de leur compte professionnel. 
 
 >[!NOTE]
-> Pour vous connecter à Microsoft Partner Network, vous devez avoir un rôle d’ **administrateur de compte** ou d’ **administrateur général**.
+> Pour vous connecter à Microsoft Partner Network, vous devez avoir un rôle d’**administrateur de compte** ou d’**administrateur général**.
 
 1. Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/) avec votre compte Microsoft Partner Network.
-1. Sélectionnez **Paramètres** > **Paramètres Partenaire** > **Programmes** > **Prise en main**.
+1. Sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main**.
 
    Microsoft Partner Network détecte votre abonnement et affiche le volet **Profil de l’éditeur**.
-   
+
 1. Entrez le nom de votre société et votre ID MPN.
 1. Lisez les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
     > [!IMPORTANT]
     > Pour accepter ces conditions, vous devez être autorisé à agir au nom de votre entreprise.
 
-    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche. 
-    
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
+    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
+
+1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Continuez vers [Ajouter de nouveaux éditeurs au programme de marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -112,23 +112,23 @@ Vous venez de créer un compte de la place de marché commerciale dans l’Espac
 >[!NOTE]
 >Pour vous inscrire à la place de marché commerciale en utilisant le compte avec lequel vous êtes connecté, vous devez vous être inscrit à l’Espace partenaires à l’aide d’un compte d’entreprise. Si vous vous êtes inscrit avec un compte individuel, votre inscription à la place de marché commerciale s’affiche sous un nouveau compte.
 >
->Les comptes individuels sont destinés aux développeurs indépendants. Les comptes d’entreprise sont destinés aux organisations et aux entreprises. Les comptes d’entreprise permettent de soumettre des applications avec des fonctionnalités supplémentaires. 
+>Les comptes individuels sont destinés aux développeurs indépendants. Les comptes d’entreprise sont destinés aux organisations et aux entreprises. Les comptes d’entreprise permettent de soumettre des applications avec des fonctionnalités supplémentaires.
 >
-> Pour vous assurer que vous êtes autorisé à configurer le compte de votre société, nous avons besoin d’une vérification supplémentaire des comptes d’entreprise après l’inscription. Cette vérification peut prendre de quelques jours à quelques semaines, et comprend souvent un appel téléphonique à votre entreprise. Les deux types de comptes vous permettent de soumettre des applications, des compléments et des services. Pour plus d’informations, voir  [Types de compte, emplacements et frais](/windows/uwp/publish/account-types-locations-and-fees).
+> Pour vous assurer que vous êtes autorisé à configurer le compte de votre société, nous avons besoin d’une vérification supplémentaire des comptes d’entreprise après l’inscription. Cette vérification peut prendre de quelques jours à quelques semaines, et comprend souvent un appel téléphonique à votre entreprise. Les deux types de comptes vous permettent de soumettre des applications, des compléments et des services. Pour plus d’informations, voir  [Types de compte, emplacements et frais](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 Lorsque vous vous inscrivez au programme de marketplace commercial avec le même compte que votre programme de développement, vous pouvez voir toutes vos inscriptions à un programme dans le volet gauche d’Espace partenaires.
 
 1. Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/) avec votre compte existant.
-1. Sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main** , puis entrez votre adresse e-mail professionnelle.
+1. Sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main**, puis entrez votre adresse e-mail professionnelle.
 1. Renseignez les détails sur la page de votre **profil d’éditeur**.
 2. Lisez les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
     >[!Important]
     > Pour accepter ces conditions, vous devez être autorisé à agir au nom de votre entreprise.
 
-    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche. 
-    
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres du partenaire** > **Programmes**.
+    Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
+
+1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour obtenir de l’aide sur l’ajout d’éditeurs, continuez vers [Ajouter de nouveaux éditeurs au marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ Le contrat d’éditeur et les informations sur le profil de l’entreprise ont 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Ajouter de nouveaux éditeurs au programme place de marché commerciale
 
-Une organisation peut avoir plusieurs éditeurs associés à un compte de la place de marché commerciale. Un utilisateur existant peut ajouter d’autres éditeurs après s’être connecté à l’Espace partenaires, en sélectionnant **Paramètres du compte** > **Éditeurs** > **Ajouter un éditeur**.
+Une organisation peut avoir plusieurs éditeurs associés à un compte de la place de marché commerciale. Un utilisateur existant peut ajouter d’autres éditeurs après s’être connecté à l’Espace partenaires, en sélectionnant **Paramètres** > **Paramètres de développeur** > **Éditeur** > **Ajouter un éditeur**.
 
 >[!NOTE]
 >Avant d’ajouter un nouvel éditeur, affichez la liste des éditeurs existants en vous connectant à l’Espace partenaires et en sélectionnant **Paramètres du compte** > **Éditeurs**.
@@ -155,9 +155,9 @@ Des utilisateurs supplémentaires du même locataire Azure Active Directory peuv
 4. Choisissez l’ID MPN que vous voulez associer à l’éditeur.
 5. Mettez à jour les **détails de l’éditeur** dans le formulaire.
 
-   * **Nom de l’éditeur**  : nom qui est affiché sur la place de marché commerciale avec l’offre.  
-   * **PublisherID**  : identificateur utilisé par l’Espace partenaires pour identifier de manière unique l’éditeur. La valeur par défaut de ce champ correspond à un ID d’éditeur existant et unique dans le système. Étant donné que l’ID de l’éditeur ne peut pas être réutilisé, ce champ doit être mis à jour.  
-   * **Informations de contact**  : mettez à jour les informations de contact si nécessaire.
+   * **Nom de l’éditeur** : nom qui est affiché sur la place de marché commerciale avec l’offre.  
+   * **PublisherID** : identificateur utilisé par l’Espace partenaires pour identifier de manière unique l’éditeur. La valeur par défaut de ce champ correspond à un ID d’éditeur existant et unique dans le système. Étant donné que l’ID de l’éditeur ne peut pas être réutilisé, ce champ doit être mis à jour.  
+   * **Informations de contact** : mettez à jour les informations de contact si nécessaire.
 
 Une fois ce processus terminé, accédez au compte de marketplace commercial répertorié dans le volet gauche pour gérer l’éditeur nouvellement créé. Si le compte de la place de marché commerciale n’est pas visible, actualisez la page. Le nouvel éditeur apparaît dans la liste **Éditeurs**.
 

@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741191"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652516"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -34,7 +34,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Vérifiez l’état de la fonctionnalité et des agents d’authentification
 
-Assurez-vous que la fonctionnalité d’authentification directe est toujours **activée** sur votre locataire et l’état de l’agent d’authentification indique **actif**et non **inactif**. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+Assurez-vous que la fonctionnalité d’authentification directe est toujours **activée** sur votre locataire et l’état de l’agent d’authentification indique **actif** et non **inactif**. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centre d’administration Azure Active Directory - panneau Azure AD Connect](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
@@ -156,6 +156,8 @@ Pour vérifier les erreurs liées à l’installation, consultez les journaux d�
 Pour les erreurs relatives à l’agent d’authentification, ouvrez l’application Observateur d’événements sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Pour une analyse détaillée, activez le journal « Session » (pour accéder à cette option, cliquez avec le bouton droit de la souris sur l'application Observateur d'événements). N’exécutez pas l’agent d’authentification lorsque ce journal est activé pendant le fonctionnement normal. Utilisez-le uniquement pour la résolution des problèmes. Le contenu du journal n’est visible qu’une fois celui-ci désactivé.
+
+Le manifeste d’événements de l’agent PTA est disponible [ici](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
 
 ### <a name="detailed-trace-logs"></a>Journaux d’activité de suivi détaillés
 

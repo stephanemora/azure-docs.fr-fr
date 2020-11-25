@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392648"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649260"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
 
@@ -34,13 +34,12 @@ Cet article fournit des instructions pour créer et configurer une stratégie IP
 
 > [!IMPORTANT]
 > 1. Notez que la stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
->    * ***VpnGw1, VpnGw2, VpnGw3*** (basée sur le routage)
->    * ***Standard*** et ***HighPerformance*** (basée sur le routage)
-> 2. Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (basé sur un itinéraire) _ ***Standard** _ et _*_HighPerformance_*_ (basé sur un itinéraire)
+> 2. Vous ne pouvez spécifier qu’_*_une_*_ seule combinaison de stratégies pour une connexion donnée.
 > 3. Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 > 4. Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a><a name ="workflow"></a>Partie 1 : flux de travail de la création et de la définition d’une stratégie IPsec/IKE
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a><a name ="workflow"></a>Partie 1 - Workflow de création et de définition d’une stratégie IPsec/IKE
 Cette section décrit le flux de travail de la création et de la mise à jour d’une stratégie IPsec/IKE sur une connexion VPN S2S ou de réseau virtuel à réseau virtuel :
 1. créer un réseau virtuel et une passerelle VPN ;
 2. créer une passerelle de réseau local pour une connexion entre sites locaux, ou un autre réseau virtuel et une passerelle pour une connexion de réseau virtuel à réseau virtuel ;
@@ -56,7 +55,7 @@ Les instructions fournies dans cet article expliquent comment établir et config
 
 Le tableau suivant répertorie les algorithmes de chiffrement et les forces de clé pris en charge et configurables par les clients :
 
-| **IPsec/IKEv2**  | **Options**    |
+| _ *IPsec/IKEv2**  | **Options**    |
 | ---  | --- 
 | Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -69,7 +68,7 @@ Le tableau suivant répertorie les algorithmes de chiffrement et les forces de c
 |  |  |
 
 > [!IMPORTANT]
-> 1. **La configuration de votre périphérique VPN local doit correspondre aux algorithmes et paramètres suivants spécifiés dans la stratégie IPsec/IKE Azure, ou les contenir :**
+> 1. **La configuration de votre périphérique VPN local doit correspondre aux algorithmes et paramètres suivants, spécifiés dans la stratégie IPsec/IKE Azure ou les contenir :**
 >    * Algorithme de chiffrement IKE (Mode principal / Phase 1)
 >    * Algorithme d’intégrité IKE (Mode principal / Phase 1)
 >    * Groupe DH (Mode principal / Phase 1)
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Se connecter à votre abonnement et créer un groupe de ressources
 
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
@@ -277,7 +276,7 @@ Comme pour la connexion VPN S2S, créez une stratégie IPsec/IKE, puis appliquez
 
 L’exemple de script ci-dessous crée une stratégie IPsec/IKE différente avec les algorithmes et paramètres suivants :
 * IKEv2 : AES128, SHA1, DHGroup14
-* IPsec : GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* IPsec : GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000

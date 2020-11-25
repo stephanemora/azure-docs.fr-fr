@@ -1,23 +1,23 @@
 ---
 title: Informations sur la conformité réglementaire pour Azure Security Benchmark
 description: Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f5a81f430b536155626dfff1b74167146fdbbe5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311461"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699423"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark
 
 L’article suivant explique en détail comment la définition de l’initiative intégrée Conformité réglementaire Azure Policy est mappée à des **domaines de conformité** et des **contrôles** dans Azure Security Benchmark.
-Pour plus d’informations sur cette norme de conformité, consultez [Azure Security Benchmark](../../../security/benchmarks/overview.md). Pour comprendre la _propriété_ , consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
+Pour plus d’informations sur cette norme de conformité, consultez [Azure Security Benchmark](../../../security/benchmarks/overview.md). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Les mappages suivants concernent les contrôles des **tests d’évaluation de sécurité Azure** . Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions** .
-Ensuite, recherchez et sélectionnez la définition d’initiative intégrée Conformité réglementaire **Azure Security Benchmark** .
+Les mappages suivants concernent les contrôles des **tests d’évaluation de sécurité Azure**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
+Ensuite, recherchez et sélectionnez la définition d’initiative intégrée Conformité réglementaire **Azure Security Benchmark**.
 
 Cette initiative intégrée est déployée dans le cadre de l’[exemple de blueprint Azure Security Benchmark](../../blueprints/samples/azure-security-benchmark.md).
 
@@ -29,7 +29,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
-**ID**  : Azure Security Benchmark 1.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -58,7 +58,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Surveiller et consigner la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**ID**  : Azure Security Benchmark 1.2 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.2 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="protect-critical-web-applications"></a>Protéger les applications web critiques
 
-**ID**  : Azure Security Benchmark 1.3 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.3 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**ID**  : Azure Security Benchmark 1.4 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.4 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="record-network-packets-and-flow-logs"></a>Consigner les paquets réseau et les journaux de flux
 
-**ID**  : Azure Security Benchmark 1.5 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.5 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
-**ID**  : Azure Security Benchmark 1.11 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 1.11 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="configure-central-security-log-management"></a>Configurer la gestion des journaux de sécurité centrale
 
-**ID**  : Azure Security Benchmark 2.2 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.2 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Activer la journalisation d’audit pour les ressources Azure
 
-**ID**  : Azure Security Benchmark 2.3 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.3 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="collect-security-logs-from-operating-systems"></a>Collecter les journaux de sécurité des systèmes d’exploitation
 
-**ID**  : Azure Security Benchmark 2.4 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.4 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="configure-security-log-storage-retention"></a>Configurer la conservation du stockage des journaux de sécurité
 
-**ID**  : Azure Security Benchmark 2.5 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.5 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>Activer des alertes en cas d’activité anormale
 
-**ID**  : Azure Security Benchmark 2.7 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.7 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="centralize-anti-malware-logging"></a>Centraliser la journalisation anti-programme malveillant
 
-**ID**  : Azure Security Benchmark 2.8 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 2.8 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Tenir un inventaire des comptes d’administration
 
-**ID**  : Azure Security Benchmark 3.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 3.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-dedicated-administrative-accounts"></a>Utiliser des comptes d’administration dédiés
 
-**ID**  : Azure Security Benchmark 3.3 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 3.3 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**ID**  : Azure Security Benchmark 3.5 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 3.5 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-azure-active-directory"></a>Utiliser Azure Active Directory
 
-**ID**  : Azure Security Benchmark 3.9 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 3.9 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>Examiner et rapprocher régulièrement l’accès utilisateur
 
-**ID**  : Azure Security Benchmark 3.10 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 3.10 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>Conserver un inventaire des informations sensibles
 
-**ID**  : Azure Security Benchmark 4.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 4.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Chiffrer toutes les informations sensibles en transit
 
-**ID**  : Azure Security Benchmark 4.4 **Propriété**  : Partagé
+**ID** : Azure Security Benchmark 4.4 **Propriété** : Partagé
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>Utiliser un outil de découverte actif pour identifier les données sensibles
 
-**ID**  : Azure Security Benchmark 4.5 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 4.5 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**ID**  : Azure Security Benchmark 4.6 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 4.6 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>Chiffrer des informations sensibles au repos
 
-**ID**  : Azure Security Benchmark 4.8 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 4.8 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**ID**  : Azure Security Benchmark 4.9 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 4.9 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**ID**  : Azure Security Benchmark 5.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 5.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**ID**  : Azure Security Benchmark 5.2 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 5.2 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,7 +336,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>Déployer une solution de gestion de correctif logiciel tiers automatisée
 
-**ID**  : Azure Security Benchmark 5.3 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 5.3 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -352,21 +352,21 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**ID**  : Azure Security Benchmark 5.5 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 5.5 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Les vulnérabilités dans les configurations de la sécurité des conteneurs doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Auditer les vulnérabilités dans la configuration de sécurité sur les machines où Docker est installé et afficher en tant que recommandations dans Azure Security Center. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Les vulnérabilités dans la configuration de la sécurité sur vos machines doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Les serveurs qui ne respectent pas la base de référence configurée seront supervisés par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Les vulnérabilités dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Auditez les vulnérabilités de système d’exploitation dans vos groupes de machines virtuelles identiques pour les protéger des attaques. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Les vulnérabilités sur vos bases de données SQL doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervisez les résultats de l'analyse des vulnérabilités et les recommandations sur la correction des vulnérabilités liées aux bases de données. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Les vulnérabilités sur vos bases de données SQL doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervisez les résultats de l'analyse des vulnérabilités et les recommandations sur la correction des vulnérabilités liées aux bases de données. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Surveille les vulnérabilités détectées par la solution d’évaluation des vulnérabilités et les machines virtuelles sans solution d’évaluation des vulnérabilités dans Azure Security Center en tant que recommandation. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
 ### <a name="use-only-approved-applications"></a>Utiliser des applications approuvées uniquement
 
-**ID**  : Azure Security Benchmark 6.8 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 6.8 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-only-approved-azure-services"></a>Utiliser des services Azure approuvés uniquement
 
-**ID**  : Azure Security Benchmark 6.9 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 6.9 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="implement-approved-application-list"></a>Implémenter une liste d’applications approuvées
 
-**ID**  : Azure Security Benchmark 6.10 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 6.10 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-secure-operating-system-configurations"></a>Préserver la sécurité des configurations du système d'exploitation
 
-**ID**  : Azure Security Benchmark 7.4 **Propriété**  : Partagé
+**ID** : Azure Security Benchmark 7.4 **Propriété** : Partagé
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**ID**  : Azure Security Benchmark 7.10 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 7.10 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,15 +413,15 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="manage-azure-secrets-securely"></a>Gérer les secrets Azure en toute sécurité
 
-**ID**  : Azure Security Benchmark 7.11 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 7.11 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les objets Key Vault doivent être récupérables](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Cette stratégie vérifie si les objets de coffre de clés ne sont pas récupérables. La fonctionnalité de suppression réversible permet de conserver les ressources pendant une période de conservation donnée (90 jours), même après une opération de SUPPRESSION, tout en donnant l’impression que l’objet est supprimé. Quand « Protection de purge » est activée, un coffre ou un objet à l’état supprimé ne peut pas être vidé avant la fin de la période de conservation de 90 jours. Ces coffres et objets peuvent être récupérés, ce qui garantit aux clients le suivi de la stratégie de rétention. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[La protection contre la suppression définitive doit être activée sur le coffre de clés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |La suppression malveillante d’un coffre de clés peut entraîner une perte définitive des données. Un membre malveillant de votre organisation peut être en mesure d’accéder aux coffres de clés pour les supprimer et les vider. La protection contre la suppression définitive vous protège des attaques internes en appliquant une période de conservation obligatoire pour les coffres de clés supprimés de manière réversible. Personne au sein de votre organisation ni chez Microsoft ne pourra supprimer définitivement vos coffres de clés pendant la période de conservation de la suppression réversible. |Audit, Refuser, Désactivé |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="manage-identities-securely-and-automatically"></a>Gérer les identités de façon sécurisée et automatique 
 
-**ID**  : Azure Security Benchmark 7.12 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 7.12 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
-**ID**  : Azure Security Benchmark 8.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 8.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**ID**  : Azure Security Benchmark 8.3 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 8.3 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-regular-automated-back-ups"></a>garantir des sauvegardes automatisées régulières
 
-**ID**  : Azure Security Benchmark 9.1 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 9.1 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**ID**  : Azure Security Benchmark 9.2 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 9.2 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,17 +476,17 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>garantir la protection des sauvegardes et des clés gérées par le client
 
-**ID**  : Azure Security Benchmark 9.4 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 9.4 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les objets Key Vault doivent être récupérables](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Cette stratégie vérifie si les objets de coffre de clés ne sont pas récupérables. La fonctionnalité de suppression réversible permet de conserver les ressources pendant une période de conservation donnée (90 jours), même après une opération de SUPPRESSION, tout en donnant l’impression que l’objet est supprimé. Quand « Protection de purge » est activée, un coffre ou un objet à l’état supprimé ne peut pas être vidé avant la fin de la période de conservation de 90 jours. Ces coffres et objets peuvent être récupérés, ce qui garantit aux clients le suivi de la stratégie de rétention. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[La protection contre la suppression définitive doit être activée sur le coffre de clés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |La suppression malveillante d’un coffre de clés peut entraîner une perte définitive des données. Un membre malveillant de votre organisation peut être en mesure d’accéder aux coffres de clés pour les supprimer et les vider. La protection contre la suppression définitive vous protège des attaques internes en appliquant une période de conservation obligatoire pour les coffres de clés supprimés de manière réversible. Personne au sein de votre organisation ni chez Microsoft ne pourra supprimer définitivement vos coffres de clés pendant la période de conservation de la suppression réversible. |Audit, Refuser, Désactivé |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**ID**  : Azure Security Benchmark 10.4 **Propriété**  : Customer
+**ID** : Azure Security Benchmark 10.4 **Propriété** : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle une table à l’aide du portail Azure
-description: Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
+description: Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 6dba148f0cde81905bc66f7750ff5e04edc948aa
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320912"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566388"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
+Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -153,13 +153,13 @@ END
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** :
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialOnPremDF** comme **nom**.
 
-   Le nom de la fabrique de données Azure doit être un nom **global unique**. Si vous voyez un point d’exclamation rouge avec l’erreur suivante, changez le nom de la fabrique de données (par exemple, votrenomADFIncCopyTutorialDF), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+   Le nom de la fabrique de données Azure Data Factory doit être **globalement unique**. Si vous voyez un point d’exclamation rouge avec l’erreur suivante, changez le nom de la fabrique de données (par exemple, votrenomADFIncCopyTutorialDF), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
     *Le nom de fabrique de données « ADFIncCopyTutorialDF » n’est pas disponible*
 4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
@@ -211,7 +211,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Jeu de données de filigrane - paramètres de connexion](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 10. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **WatermarkDataset** est sélectionné dans le champ **Jeu de données source**.
 
-11. Dans la boîte à outils **Activités**, développez **Général**et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination.
+11. Dans la boîte à outils **Activités**, développez **Général** et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination.
 
 12. Dans la fenêtre Propriétés pour la deuxième activité de **recherche**, basculez vers l’onglet **Paramètres**, puis cliquez sur **Nouveau**. Vous créez un jeu de données pour pointer vers la table source qui contient la nouvelle valeur du filigrane (valeur maximale de LastModifyTime).
 
@@ -234,7 +234,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Connexion des activités de recherche à l’activité de copie](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Sélectionnez l’**activité de copie** et vérifiez que vous vouez les propriétés de l’activité dans la fenêtre **Propriétés**.
 
-22. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
+22. Basculez vers l’onglet **Source** dans la fenêtre **Propriétés**, et procédez comme suit :
 
     1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
     2. Sélectionnez **Requête** pour le champ **Utiliser la requête**.

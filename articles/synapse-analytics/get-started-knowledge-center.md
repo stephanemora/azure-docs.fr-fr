@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685424"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, découvrez comment utiliser le centre des connaissances Synaps
 
 Il existe deux façons d’accéder au centre des connaissances dans Synapse Studio :
 
-  1. Dans le hub Accueil, sous Liens utiles, cliquez sur le premier lien appelé **Centre des connaissances**.
+  1. Dans le hub Accueil, près du coin supérieur droit de la page, cliquez sur **Découvrir**.
   2. Dans la barre de menu située en haut, cliquez sur **?** , puis sur **Centre des connaissances**.
 
 Choisissez l’une des méthodes et ouvrez le **centre des connaissances**.
@@ -39,7 +39,7 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploration du stockage Blob avec un pool SQL serverless
 
-1. Accédez au **Centre des connaissances**, puis cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)** .
+1. Accédez au **centre des connaissances**, puis cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)**
 1. Sélectionnez **Query data with SQL (Interroger des données avec SQL)** . 
 1. Cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)** .
 1. Un script SQL est alors créé.

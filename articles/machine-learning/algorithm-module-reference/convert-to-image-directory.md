@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324896"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555581"
 ---
 # <a name="convert-to-image-directory"></a>Convertir en répertoire d’images
 
-Cet article explique comment utiliser le module Convertir en répertoire d’images pour faciliter la conversion d’un jeu de données d’images en type de données *Répertoire d’images* , qui est un format de données standardisé dans les tâches associées aux images, telles que la classification d’images dans le concepteur Azure Machine Learning.
+Cet article explique comment utiliser le module Convertir en répertoire d’images pour faciliter la conversion d’un jeu de données d’images en type de données *Répertoire d’images*, qui est un format de données standardisé dans les tâches associées aux images, telles que la classification d’images dans le concepteur Azure Machine Learning.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Utilisation du module Convertir en répertoire d’images  
 
@@ -47,7 +47,8 @@ Cet article explique comment utiliser le module Convertir en répertoire d’ima
     
     ![Exemple de jeu de données d’images](./media/module/image-sample-dataset.png)
 
-    Pour le scoring, le dossier du jeu de données d’images doit contenir uniquement des images non classifiées.
+    > [!NOTE]
+    > Pour l’inférence, le dossier du jeu de données d’images doit contenir uniquement des images non classifiées.
 
 1. [Enregistrez le jeu de données d’images en tant que jeu de données de fichiers](../how-to-create-register-datasets.md) dans votre espace de travail, car l’entrée du module Convertir en répertoire d’images doit être un **jeu de données de fichiers**.
 

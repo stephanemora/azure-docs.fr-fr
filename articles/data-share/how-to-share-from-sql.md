@@ -5,24 +5,24 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318507"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593737"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
 [!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
 
-Azure Data Share prend en charge le partage basé sur des captures instantanées d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Cet article explique comment partager et recevoir des données de ces sources.
+Azure Data Share prend en charge le partage basé sur des captures instantanées d’Azure SQL Database et d’Azure Synapse Analytics. Cet article explique comment partager et recevoir des données de ces sources.
 
-Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Les consommateurs de données peuvent choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure en tant que fichier csv ou parquet, ainsi que dans Azure SQL Database et Azure Synapse Analytics en tant que tables.
+Azure Data Share prend en charge le partage des tables et des vues d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW) et le partage des tables du pool SQL dédié Azure Synapse Analytics (espace de travail). Le partage à partir d’un pool SQL serverless Azure Synapse Analytics (espace de travail) n’est pas pris en charge actuellement. Les consommateurs de données peuvent choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure en tant que fichier csv ou parquet, ainsi que dans Azure SQL Database et Azure Synapse Analytics en tant que tables.
 
 Lors de l’acceptation de données dans Azure Data Lake Store Gen 2 ou Stockage Blob Azure, des captures instantanées complètes remplacent le contenu du fichier cible s’il existe déjà.
-Lors de la réception de données dans une table, si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe une table cible du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge.
+Lorsque les données sont reçues dans une table SQL, et si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe une table cible du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge.
 
 ## <a name="share-data"></a>Partager des données
 
@@ -33,12 +33,15 @@ Lors de la réception de données dans une table, si la table cible n’existe p
 * Si le magasin de données Azure source se trouve dans un autre abonnement Azure que celui que vous utiliserez pour créer une ressource de partage de données, inscrivez le [fournisseur de ressources Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) dans l’abonnement où se trouve le magasin de données Azure. 
 
 ### <a name="prerequisites-for-sql-source"></a>Conditions préalables pour une source SQL
-Vous trouverez ci-dessous la liste des prérequis pour le partage de données à partir d’une source SQL. Vous pouvez également suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) pour configurer les prérequis.
+Vous trouverez ci-dessous la liste des prérequis pour le partage de données à partir d’une source SQL. 
 
-* Instance Azure SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse) avec les tables et les vues que vous voulez partager.
-* Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur.
-* Autorisation pour l’accès du partage de données à l’entrepôt de données. Pour ce faire, procédez comme suit : 
-    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle d’administrateur Azure Active Directory.
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour le partage depuis Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
+Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) pour configurer les prérequis.
+
+* Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW) avec des tables et des vues que vous voulez partager.
+* Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder à la base de données. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle **Administrateur Azure Active Directory**.
     1. Connectez-vous à Azure SQL Database ou à Data Warehouse à l’aide de l’[éditeur de requête](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory), ou à SQL Server Management Studio avec l’authentification Azure Active Directory. 
     1. Exécutez le script suivant pour ajouter l’identité managée de la ressource Data Share en tant que db_datareader. Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
     
@@ -48,11 +51,32 @@ Vous trouverez ci-dessous la liste des prérequis pour le partage de données à
         ```                   
        Notez que *<share_acc_name>* est le nom de votre ressource Data Share. Si vous n’avez pas encore créé de ressource Data Share, vous pourrez le faire plus tard.  
 
-* Un utilisateur Azure SQL Database avec un accès « db_datareader » pour parcourir et sélectionner les tables et/ou les vues que vous voulez partager. 
+* Un utilisateur Azure SQL Database avec un accès **« db_datareader »** pour parcourir et sélectionner les tables et/ou les vues que vous voulez partager. 
 
 * Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
-    1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
+    1. Dans le portail Azure, accédez à SQL Server. Sélectionnez *Pare-feu et réseaux virtuels* dans le volet de navigation gauche.
     1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
+    1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
+    1. Cliquez sur **Enregistrer**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Prérequis pour le partage depuis un pool SQL Azure Synapse Analytics (espace de travail)
+
+* Pool SQL dédié Azure Synapse Analytics (espace de travail) avec les tables que vous souhaitez partager. Le partage de vue n’est actuellement pas pris en charge. Le partage depuis un pool SQL serverless n’est actuellement pas pris en charge.
+* Autorisation d’écrire dans le pool SQL de l’espace de travail Synapse, qui est présent dans *Microsoft.Synapse/workspaces/sqlPools/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder au pool SQL de l’espace de travail Synapse. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à l’espace de travail Synapse. Sélectionnez Administrateur SQL Active Directory dans le volet de navigation gauche et attribuez-vous le rôle **Administrateur Azure Active Directory**.
+    1. Ouvrez Synapse Studio et sélectionnez *Gérer* dans le volet de navigation gauche. Sélectionnez *Contrôle d’accès* sous Sécurité. Attribuez-vous le rôle **Administrateur SQL** ou **Administrateur d’espace de travail**.
+    1. Dans Synapse Studio, sélectionnez *Développer* dans le volet de navigation gauche. Exécutez le script suivant dans le pool SQL pour ajouter l’identité managée de la ressource Data Share en tant que db_datareader. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Notez que *<share_acc_name>* est le nom de votre ressource Data Share. Si vous n’avez pas encore créé de ressource Data Share, vous pourrez le faire plus tard.  
+
+* Accès au pare-feu de l’espace de travail Synapse. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à l’espace de travail Synapse. Sélectionnez *Pare-feu* dans le volet de navigation gauche.
+    1. Cliquez sur **ON** pour *Autoriser les services et ressources Azure à accéder à cet espace de travail*.
     1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
     1. Cliquez sur **Enregistrer**. 
 
@@ -108,11 +132,11 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
     ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 
-1. Sélectionnez votre serveur SQL Server, fournissez les informations d’identification et sélectionnez **Suivant** pour accéder à l’objet que vous souhaitez partager, puis sélectionnez « Ajouter des jeux de données ». 
+1. Sélectionnez votre serveur SQL Server ou votre espace de travail Synapse, fournissez les informations d’identification si vous y êtes invité et sélectionnez **Suivant** pour accéder à l’objet que vous souhaitez partager, puis sélectionnez « Ajouter des jeux de données ». Vous pouvez sélectionner des tables et des vues d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW) ou des tables du pool SQL dédié Azure Synapse Analytics (espace de travail). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Sélectionner des jeux de données")    
 
-1. Sous l’onglet Destinataires, entrez les adresses e-mail de votre consommateur de données en sélectionnant + Add Recipient (Ajouter un destinataire). 
+1. Sous l’onglet Destinataires, entrez les adresses e-mail de votre consommateur de données en sélectionnant + Add Recipient (Ajouter un destinataire). L’adresse e-mail doit être l’e-mail de connexion Azure du destinataire.
 
     ![AddRecipients](./media/add-recipient.png "Ajouter des destinataires") 
 
@@ -145,15 +169,19 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 Si vous choisissez de recevoir des données dans le service Stockage Azure, vous trouverez ci-dessous la liste des conditions préalables.
 
 * Compte Stockage Azure : Si vous n’en avez pas déjà, vous pouvez créer un [compte Stockage Azure](../storage/common/storage-account-create.md). 
-* Autorisation d’écrire dans le compte de stockage, qui est présent dans *Microsoft.Storage/storageAccounts/write*. Cette autorisation existe dans le rôle Contributeur. 
-* Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle Propriétaire.  
+* Autorisation d’écrire dans le compte de stockage, qui est présent dans *Microsoft.Storage/storageAccounts/write*. Cette autorisation existe dans le rôle **Contributeur**. 
+* Autorisation d’ajouter l’attribution de rôle de l’identité managée de la ressource Data Share au compte de stockage, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle **Propriétaire**.  
 
 ### <a name="prerequisites-for-sql-target"></a>Conditions préalables pour une cible SQL
-Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synapse Analytics, vous trouverez ci-dessous la liste des conditions préalables. Vous pouvez également suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) pour configurer les prérequis.
+Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synapse Analytics, vous trouverez ci-dessous la liste des conditions préalables. 
 
-* Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur. 
-* Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à Azure SQL Database ou à Azure Synapse Analytics. Pour ce faire, procédez comme suit : 
-    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle d’administrateur Azure Active Directory.
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour la réception de données dans Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
+Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) pour configurer les prérequis.
+
+* Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW).
+* Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**. 
+* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder à Azure SQL Database ou à Azure Synapse Analytics. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle **Administrateur Azure Active Directory**.
     1. Connectez-vous à Azure SQL Database ou à Data Warehouse à l’aide de l’[éditeur de requête](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory), ou à SQL Server Management Studio avec l’authentification Azure Active Directory. 
     1. Exécutez le script suivant pour ajouter l’identité managée Data Share en tant que « db_datareader, db_datawriter, db_ddladmin ». Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
 
@@ -168,6 +196,29 @@ Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synap
 * Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
     1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
     1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
+    1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
+    1. Cliquez sur **Enregistrer**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Prérequis pour la réception de données dans un pool SQL Azure Synapse Analytics (espace de travail)
+
+* Pool SQL dédié Azure Synapse Analytics (espace de travail). La réception de données dans un pool SQL serverless n’est actuellement pas prise en charge.
+* Autorisation d’écrire dans le pool SQL de l’espace de travail Synapse, qui est présent dans *Microsoft.Synapse/workspaces/sqlPools/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder au pool SQL de l’espace de travail Synapse. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à l’espace de travail Synapse. Sélectionnez Administrateur SQL Active Directory dans le volet de navigation gauche et attribuez-vous le rôle **Administrateur Azure Active Directory**.
+    1. Ouvrez Synapse Studio et sélectionnez *Gérer* dans le volet de navigation gauche. Sélectionnez *Contrôle d’accès* sous Sécurité. Attribuez-vous le rôle **Administrateur SQL** ou **Administrateur d’espace de travail**.
+    1. Dans Synapse Studio, sélectionnez *Développer* dans le volet de navigation gauche. Exécutez le script suivant dans le pool SQL pour ajouter l’identité managée de la ressource Data Share en tant que « db_datareader, db_datawriter, db_ddladmin ». 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Notez que *<share_acc_name>* est le nom de votre ressource Data Share. Si vous n’avez pas encore créé de ressource Data Share, vous pourrez le faire plus tard.  
+
+* Accès au pare-feu de l’espace de travail Synapse. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à l’espace de travail Synapse. Sélectionnez *Pare-feu* dans le volet de navigation gauche.
+    1. Cliquez sur **ON** pour *Autoriser les services et ressources Azure à accéder à cet espace de travail*.
     1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
     1. Cliquez sur **Enregistrer**. 
 
@@ -196,7 +247,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    Pour le champ **Data Share Account** (Compte Data Share), sélectionnez **Create new** (Créer) si vous n’avez pas de compte Data Share existant. Sinon, sélectionnez un compte Data Share existant dans lequel vous souhaitez accepter votre partage de données. 
 
-   Pour le champ **Nom de partage reçu** , vous pouvez conserver la valeur par défaut spécifiée par le fournisseur de données ou spécifier le nouveau nom du partage reçu. 
+   Pour le champ **Nom de partage reçu**, vous pouvez conserver la valeur par défaut spécifiée par le fournisseur de données ou spécifier le nouveau nom du partage reçu. 
 
    Une fois que vous avez accepté les conditions d’utilisation et spécifié un compte Data Share pour gérer votre partage reçu, sélectionnez **Accepter et configurer**. Un abonnement de partage est créé. 
 
@@ -228,7 +279,7 @@ Ces étapes s’appliquent seulement au partage basé sur des instantanés.
 
    ![Déclencher un instantané](./media/trigger-snapshot.png "Déclencher un instantané") 
 
-1. Une fois que le dernier état d’exécution est *Réussi* , accédez au magasin de données cible pour voir les données reçues. Sélectionnez **Jeux de données** , puis cliquez sur le lien dans le chemin cible. 
+1. Une fois que le dernier état d’exécution est *Réussi*, accédez au magasin de données cible pour voir les données reçues. Sélectionnez **Jeux de données**, puis cliquez sur le lien dans le chemin cible. 
 
    ![Jeux de données consommateur](./media/consumer-datasets.png "Mappage de jeu de données consommateur") 
 
@@ -290,7 +341,7 @@ Les performances des instantanés SQL sont affectées par un certain nombre de f
 * Emplacement des magasins de données sources et cibles. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Résoudre les échecs d’instantanés SQL
-La cause la plus courante de l’échec d’un instantané est que le partage de données n’a pas d’autorisation sur le magasin de données source ou cible. Afin d’accorder l’autorisation de partage de données au magasin de données SQL source ou cible, vous devez exécuter le script SQL fourni lors de la connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Pour résoudre les autres échecs d’instantanés SQL, reportez-vous à [Résoudre les problèmes d’instantanés](data-share-troubleshoot.md#snapshot-failed).
+La cause la plus courante de l’échec d’un instantané est que le partage de données n’a pas d’autorisation sur le magasin de données source ou cible. Afin d’accorder l’autorisation de partage de données à la source ou à la cible Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), vous devez exécuter le script SQL fourni lors de la connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Pour résoudre les autres échecs d’instantanés SQL, reportez-vous à [Résoudre les problèmes d’instantanés](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez appris à partager et recevoir des données à partir de sources SQL à l’aide du service Azure Data Share. Pour en savoir plus sur le partage à partir d’autres sources de données, passez à [Magasins de données pris en charge](supported-data-stores.md).

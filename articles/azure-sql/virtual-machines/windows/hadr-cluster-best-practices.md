@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786426"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564563"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ Cet article présente les meilleures pratiques en matière de configuration de c
 ## <a name="networking"></a>Mise en réseau
 
 Utilisez une seule carte réseau (NIC) par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle Azure. Le rapport de validation du cluster vous avertit que les nœuds sont accessibles uniquement sur un seul réseau. Vous pouvez ignorer cet avertissement sur les clusters de basculement invités de machines virtuelles Azure.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Réglage des seuils réseau de cluster de basculement
+
+Quand vous exécutez des nœuds de cluster de basculement Windows dans des machines virtuelles Azure avec SQL Server AlwaysOn, il est recommandé de remplacer le paramètre de cluster par un état d’analyse plus souple.  Cela rend le cluster bien plus stable et fiable.  Pour plus de détails, consultez [IaaS avec SQL AlwaysOn – Réglage des seuils réseau de cluster de basculement](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 ## <a name="quorum"></a>Quorum
 
@@ -56,7 +60,7 @@ Configurer un disque partagé Azure comme témoin de disque.
 Pour commencer, consultez [Configurer un témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Systèmes d’exploitation pris en charge**  : Tous   
+**Systèmes d’exploitation pris en charge** : Tous   
 
 
 ### <a name="cloud-witness"></a>Témoin de cloud
@@ -66,7 +70,7 @@ Un témoin de cloud est un type de témoin de quorum de cluster de basculement q
 Pour commencer, consultez [Configurer un témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Systèmes d’exploitation pris en charge**  : Windows Server 2016 et versions ultérieures   
+**Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
 
 
 ### <a name="file-share-witness"></a>Témoin de partage de fichiers
@@ -78,7 +82,7 @@ Si vous envisagez d’utiliser un partage de fichiers Azure, vous pouvez le mont
 Pour commencer, consultez [Configurer un témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Systèmes d’exploitation pris en charge**  : Windows Server 2012 et ultérieur   
+**Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
 
 ## <a name="connectivity"></a>Connectivité
 
@@ -104,9 +108,9 @@ Il y a un léger délai de basculement lorsque vous utilisez l’équilibreur de
 
 Pour commencer, découvrez comment configurer Azure Load Balancer pour une [instance de cluster de basculement](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou un [groupe de disponibilité](availability-group-vnn-azure-load-balancer-configure.md).
 
-**Systèmes d’exploitation pris en charge**  : Tous   
-**Version de SQL pris en charge**  : Tous   
-**Solution HADR prise en charge**  : Instance de cluster de basculement et groupes de disponibilité   
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous   
+**Solution HADR prise en charge** : Instance de cluster de basculement et groupes de disponibilité   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nom de réseau distribué (DNN)
@@ -124,9 +128,9 @@ La plupart des fonctionnalités SQL Server fonctionnent de manière transparente
 
 Pour commencer, apprenez à configurer une ressource de nom de réseau distribué pour une [instance de cluster de basculement](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [groupe de disponibilité](availability-group-distributed-network-name-dnn-listener-configure.md).
 
-**Systèmes d’exploitation pris en charge**  : Windows Server 2016 et versions ultérieures   
-**Version de SQL pris en charge**  : SQL Server 2019 CU2 (FCI) et SQL Server 2019 CU8 (AG)   
-**Solution HADR prise en charge**  : Instance de cluster de basculement et groupes de disponibilité   
+**Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
+**Version de SQL pris en charge** : SQL Server 2019 CU2 (FCI) et SQL Server 2019 CU8 (AG)   
+**Solution HADR prise en charge** : Instance de cluster de basculement et groupes de disponibilité   
 
 
 ## <a name="limitations"></a>Limites

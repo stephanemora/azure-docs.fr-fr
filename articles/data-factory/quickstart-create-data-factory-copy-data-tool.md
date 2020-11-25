@@ -1,6 +1,6 @@
 ---
 title: Copier des données avec l’outil d’Azure Copier des données
-description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier des données depuis un emplacement dans un stockage d’objets Blob Azure vers un autre emplacement.
+description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier les données d’un emplacement situé dans le Stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020
-ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84735187"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564716"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Démarrage rapide : Utiliser l’outil Copier des données pour copier des données
 
@@ -37,7 +37,7 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
-1. Dans le menu du portail Azure, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** :
+1. Dans le menu du portail Azure, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
     ![Création d’une fabrique de données](./media/doc-common-process/new-azure-data-factory-menu.png)
 

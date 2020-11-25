@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285282"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556401"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,11 +69,11 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 1. [Ajoutez le clustering de basculement à chaque machine virtuelle](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Pour installer le clustering de basculement à partir de l’interface utilisateur, exécutez les étapes suivantes sur les deux machines virtuelles :
-   1. Dans le **Gestionnaire de serveur** , sélectionnez **Gérer** , puis **Ajouter des rôles et fonctionnalités**.
-   1. Dans l’assistant **Ajouter des rôles et des fonctionnalités** , sélectionnez **Suivant** jusqu’à ce que vous atteigniez la page **Sélectionner les fonctionnalités**.
-   1. Dans **Sélectionner les fonctionnalités** , sélectionnez **Clustering de basculement**. Incluez toutes les fonctionnalités et les outils de gestion requis. 
+   1. Dans le **Gestionnaire de serveur**, sélectionnez **Gérer**, puis **Ajouter des rôles et fonctionnalités**.
+   1. Dans l’assistant **Ajouter des rôles et des fonctionnalités**, sélectionnez **Suivant** jusqu’à ce que vous atteigniez la page **Sélectionner les fonctionnalités**.
+   1. Dans **Sélectionner les fonctionnalités**, sélectionnez **Clustering de basculement**. Incluez toutes les fonctionnalités et les outils de gestion requis. 
    1. Sélectionnez **Ajouter des fonctionnalités**.
-   1. Sélectionnez **Suivant** , puis **Terminer** pour installer les fonctionnalités.
+   1. Sélectionnez **Suivant**, puis **Terminer** pour installer les fonctionnalités.
 
    Pour installer le clustering de basculement avec PowerShell, exécutez le script suivant à partir d’une session PowerShell d’administrateur sur l’une des machines virtuelles :
 
@@ -88,18 +88,18 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
 Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
-1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement**.
-1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration**.
+1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
+1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
 1. Sélectionnez **Suivant**.
-1. Sous **Sélectionner des serveurs ou un cluster** , entrez le nom des deux machines virtuelles.
-1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
+1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
+1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
 1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests** , sélectionnez tous les tests à l’exception de **Stockage** et **Espaces de stockage direct** , comme illustré ici :
+1. Sous **Sélection des tests**, sélectionnez tous les tests à l’exception de **Stockage** et **Espaces de stockage direct**, comme illustré ici :
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Sélectionner les tests de validation du cluster":::
 
 1. Sélectionnez **Suivant**.
-1. Sous **Confirmation** , sélectionnez **Suivant**.
+1. Sous **Confirmation**, sélectionnez **Suivant**.
 
 L’assistant **Valider une configuration** exécute les tests de validation.
 
@@ -149,7 +149,7 @@ Configurez la solution de quorum qui répond le mieux aux besoins de votre entre
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
 
-Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement** , cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
+Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testez le basculement du cluster en déplaçant la ressource principale sur les autres nœuds":::
 
@@ -160,15 +160,15 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 1. Connectez-vous à la première machine virtuelle avec RDP.
 
-1. Dans le **Gestionnaire du cluster de basculement** , vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
+1. Dans le **Gestionnaire du cluster de basculement**, vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
 
 1. Recherchez le support d’installation. Si la machine virtuelle utilise l’une des images Azure Marketplace, le support se situe sous `C:\SQLServer_<version number>_Full`. 
 
 1. Sélectionnez **Configuration**.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
 
-1. Sélectionnez **Installation du nouveau cluster de basculement SQL Server** , puis suivez les instructions dans l’assistant pour installer l’ICF SQL Server.
+1. Sélectionnez **Installation du nouveau cluster de basculement SQL Server**, puis suivez les instructions dans l’assistant pour installer l’ICF SQL Server.
 
    Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur le partage de fichiers Premium. Entrez le chemin d’accès complet du partage, sous la forme suivante : `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Un avertissement s’affiche, vous informant que vous avez spécifié un serveur de fichiers comme répertoire de données. Cet avertissement est attendu. Vérifiez que le compte d’utilisateur avec lequel vous avez accédé par RPD à la machine virtuelle lorsque vous avez conservé le partage de fichiers est celui que le service SQL Server utilise pour éviter d’éventuelles défaillances.
 
@@ -178,7 +178,7 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 1. Une fois que le programme d’installation a installé l’instance de cluster de basculement sur le premier nœud, connectez-vous au second nœud avec RDP.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
 
 1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
 
@@ -189,7 +189,7 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 ## <a name="register-with-the-sql-vm-rp"></a>S’inscrire auprès de SQL VM RP
 
-Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès du fournisseur de ressources de machine virtuelle SQL (RP) dans [mode d’administration léger](sql-vm-resource-provider-register.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
+Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
 
 Inscrire la machine virtuelle SQL Server en mode léger avec PowerShell (le type de licence peut être `PAYG` ou `AHUB`) :
 
@@ -210,7 +210,7 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 - Le MSDTC (Microsoft Distributed Transaction Coordinator) n’est pas pris en charge sur Windows Server 2016 et antérieur. 
 - Filestream n’est pas pris en charge pour un cluster de basculement avec un partage de fichiers Premium. Pour utiliser le flux de fichier, déployez votre cluster en utilisant des [Espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou les [Disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) à la place.
-- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d'administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge. 
+- Seule l’inscription auprès de l’extension SQL IaaS Agent en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

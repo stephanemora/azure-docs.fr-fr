@@ -4,12 +4,12 @@ description: Découvrez comment restaurer un disque et créer une machine virtue
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 45e171e064cbd8be5418e20784e6034830d27fe9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746746"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566671"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurer une machine virtuelle avec Azure CLI
 
@@ -23,13 +23,11 @@ Azure Backup crée des points de récupération stockés dans des coffres de ré
 
 Pour plus d’informations sur l’utilisation de PowerShell pour restaurer un disque et créer une machine virtuelle récupérée, consultez [Restauration d’une machine virtuelle Azure](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite que vous exécutiez Azure CLI version 2.0.18 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
+ - Ce tutoriel nécessite la version 2.0.18 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
-## <a name="prerequisites"></a>Prérequis
-
-Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de machine virtuelle et le processus de récupération, vous créez une machine virtuelle à partir d’un disque à un point de récupération. Si vous avez besoin d’une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
+ - Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de machine virtuelle et le processus de récupération, vous créez une machine virtuelle à partir d’un disque à un point de récupération. Si vous avez besoin d’une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
 
@@ -88,7 +86,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
     ```
 
     > [!WARNING]
-    > Si _ *target-resource-group* * n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk** , comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
+    > Si _ *target-resource-group** n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk**, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -164,7 +162,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quand l’ *État* du travail de restauration indique *Terminé* , les informations nécessaires (configuration de la machine virtuelle et modèle de déploiement) ont été restaurées dans le compte de stockage.
+Quand l’*État* du travail de restauration indique *Terminé*, les informations nécessaires (configuration de la machine virtuelle et modèle de déploiement) ont été restaurées dans le compte de stockage.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Créer une machine virtuelle à partir du disque restauré
 

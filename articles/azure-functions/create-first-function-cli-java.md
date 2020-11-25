@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424801"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635549"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -163,11 +163,23 @@ Une application de fonction et les ressources associées sont créées dans Azur
 > [!TIP]
 > Pour créer une application de fonction s’exécutant sur Linux au lieu de Windows, changez l’élément `runtime.os` dans le fichier pom.xml en remplaçant `windows` par `linux`. L’exécution de Linux dans un plan de consommation est prise en charge dans [ces régions](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Des applications s’exécutant sur Linux et des applications s’exécutant sur Windows ne peuvent pas se côtoyer dans le même groupe de ressources.
 
-1. Avant de procéder au déploiement, utilisez la commande Azure CLI [az login](/cli/azure/authenticate-azure-cli) pour vous connecter à votre abonnement Azure. 
+1. Avant d’effectuer le déploiement, connectez-vous à votre abonnement Azure en utilisant Azure CLI ou Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    La commande [az login](/cli/azure/reference-index#az-login) vous connecte à votre compte Azure.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    L’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) vous connecte à votre compte Azure.
+
+    ---
 
 1. Utilisez la commande suivante pour déployer votre projet vers une nouvelle application de fonction.
 

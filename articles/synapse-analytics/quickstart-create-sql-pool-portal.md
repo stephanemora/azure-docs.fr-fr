@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505068"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541009"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Démarrage rapide : Créer un pool SQL dédié (préversion) à l’aide du portail Azure
 
@@ -73,7 +73,6 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 8. Quand vous revenez à l’espace de travail au terme du provisionnement, une entrée apparaît pour le pool SQL dédié créé.
  ![Flux de création d’un pool SQL - Provisionnement des ressources.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 Une fois le pool SQL dédié créé, vous pouvez l’utiliser dans l’espace de travail pour charger des données, traiter des flux, lire dans le lac, etc.

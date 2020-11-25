@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335245"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594230"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application web Node à l’aide du flux de code d’authentification
 
-Dans ce guide de démarrage rapide, vous allez exécuter un exemple de code qui illustre comment une application web Node.js peut connecter les utilisateurs de comptes personnels, professionnels et scolaires à l’aide du flux de code d’autorisation. L’exemple de code indique également comment obtenir un jeton d’accès pour appeler une API web, en l’occurrence l’API Microsoft Graph. Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application web Node.js peut connecter des utilisateurs en utilisant le flux du code d’autorisation. L’exemple de code indique également comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph. 
+
+Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 Ce guide de démarrage rapide utilise la bibliothèque d’authentification Microsoft pour Node.js (MSAL Node) avec le flux de code d’autorisation.
 
@@ -44,11 +46,11 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > 1. Sélectionnez [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
-> 1. Sous **Types de comptes pris en charge** , sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+> 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Choisissez `http://localhost:3000/redirect` comme valeur pour **URI de redirection**.
 > 1. Sélectionnez **Inscription**. 
-> 1. Dans la page **Vue d’ensemble** , notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
-> 1. Sous **Certificats et secrets** , sélectionnez **Nouveau secret client**.  Laissez la description vide et conservez l’expiration par défaut, puis cliquez sur **Ajouter**.
+> 1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
+> 1. Sous **Certificats et secrets**, sélectionnez **Nouveau secret client**.  Laissez la description vide et conservez l’expiration par défaut, puis cliquez sur **Ajouter**.
 > 1. Notez la **Valeur** de la **clé secrète client** pour une utilisation ultérieure.
 
 #### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
@@ -65,8 +67,8 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-node-app"></a>Étape 3 : Configurer votre application Node
 >
-> Extrayez le projet, ouvrez le dossier *ms-identity-node-main* , puis ouvrez le fichier *index.js*.
-> Affectez l’ **ID d’application (client)** comme valeur de `clientID`.
+> Extrayez le projet, ouvrez le dossier *ms-identity-node-main*, puis ouvrez le fichier *index.js*.
+> Affectez l’**ID d’application (client)** comme valeur de `clientID`.
 > Affectez la **Valeur** de la **Clé secrète client** comme valeur de `clientSecret`.
 >
 >```javascript
@@ -102,7 +104,7 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > ```
 >
 > > [!TIP]
-> > Pour connaître les valeurs de l’ **ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure. Accédez à **Certificats et secrets** pour récupérer ou générer une nouvelle **Clé secrète client**.
+> > Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure. Accédez à **Certificats et secrets** pour récupérer ou générer une nouvelle **Clé secrète client**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée

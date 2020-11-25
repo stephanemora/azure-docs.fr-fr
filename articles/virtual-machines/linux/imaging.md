@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966319"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842615"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Intégration et création d’images Linux dans Azure
 
@@ -83,7 +83,7 @@ Les galeries [Shared Image Gallery](shared-image-galleries.md) sont recommandée
 - Réplication globale des images.
 - la gestion de versions et le regroupement d’images pour faciliter la gestion ;
 - Images hautement disponibles avec stockage redondant dans une zone (ZRS) dans les régions qui prennent en charge les zones de disponibilité. Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
-- le partage entre différents abonnements, voire entre locataires Active Directory, à l’aide du contrôle d’accès en fonction du rôle (RBAC) ;
+- Le partage entre différents abonnements, voire entre locataires Active Directory (AD), à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
 - la mise à l’échelle de vos déploiements avec des réplicas d’image dans chaque région.
 
 Globalement, vous créez une galerie Shared Image Gallery, qui est constituée des éléments suivants :

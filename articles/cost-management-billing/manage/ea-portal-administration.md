@@ -3,18 +3,18 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411037"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683643"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -135,28 +135,20 @@ Pour confirmer la propriété du compte :
    L’état doit passer de **Pending** (En attente) à **Start/End date** (Date de début/fin). La date de début/fin correspond à la date à laquelle l’utilisateur s’est connecté pour la première fois et à la date de fin du contrat.
 1. Lorsque le message **Avertissement** s’affiche, le propriétaire du compte doit sélectionner **Continuer** pour activer le compte la première fois qu’il se connecte au portail Azure Enterprise.
 
-## <a name="change-account-owner"></a>Changer le propriétaire du compte
+## <a name="change-azure-subscription-or-account-ownership"></a>Changer l’abonnement Azure ou la propriété du compte
 
-Les administrateurs d’entreprise peuvent utiliser le portail Azure Enterprise pour transférer la propriété du compte des abonnements dans une inscription. L’action déplace tous les abonnements d’un compte d’utilisateur source vers un compte d’utilisateur de destination.
+Les administrateurs d’entreprise peuvent utiliser le portail Azure Enterprise pour transférer la propriété du compte des abonnements sélectionnés ou de tous les abonnements dans une inscription.
 
-Tenez compte de ces informations importantes lors du transfert de comptes :
+Quand vous effectuez un transfert d’abonnement ou de propriété de compte, Microsoft met à jour le propriétaire du compte.
 
-- Vous pouvez effectuer les transferts suivants :
-  - D’un compte professionnel ou scolaire vers un autre compte professionnel ou scolaire.
-  - D’un compte Microsoft vers un compte professionnel ou scolaire.
-  - D’un compte Microsoft vers un autre compte Microsoft.
+Avant d’effectuer le transfert de propriété, comprenez les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
-    Le compte cible doit être un compte Azure Commerce valide pour être autorisé comme cible des transferts. Pour les nouveaux comptes, vous êtes invité à créer un compte Azure Commerce quand vous vous connectez au portail Azure Enterprise. Pour les comptes existants, vous devez d’abord créer un abonnement Azure pour que le compte soit éligible.
-
-- Vous pouvez effectuer un transfert d’un compte professionnel ou scolaire vers un compte Microsoft.
-
-- Quand vous effectuez un transfert d’abonnement, Microsoft met à jour le propriétaire du compte.
-
-Découvrez les stratégies suivantes de contrôle d’accès en fonction du rôle (RBAC) :
-
-- Lorsque vous effectuez des transferts d’abonnement entre deux ID d’organisation dans le même locataire, les stratégies RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
-- Les autres transferts d’abonnements entraînent la perte de vos stratégies RBAC et de vos attributions de rôles.
+- Lorsque vous effectuez des transferts d’abonnement ou de propriété de compte entre deux ID d’organisation dans le même locataire, les stratégies Azure RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
+- Les transferts d’abonnement ou de propriété de compte inter-locataires entraînent la perte de vos stratégies Azure RBAC et de vos attributions de rôles.
 - Les stratégies et les rôles d’administrateur ne sont pas transférés entre les annuaires. Les administrateurs de service sont mis à jour pour refléter le propriétaire du compte de destination.
+- Pour éviter la perte des stratégies RBAC et des attributions de rôles lors du transfert de l’abonnement entre les locataires, assurez-vous que la case à cocher **Déplacer les abonnements vers le locataire Azure AD du destinataire** reste **désactivée**. Cela permet de conserver les services, les rôles RBAC et les stratégies sur le locataire Azure AD actuel et de transférer uniquement la propriété de facturation pour le compte.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image représentant la case non cochée permettant de déplacer les abonnements vers le locataire Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Avant de changer le propriétaire d’un compte :
 
@@ -168,26 +160,25 @@ Pour transférer la propriété du compte pour tous les abonnements :
 1. Connectez-vous au portail Azure Enterprise.
 1. Dans la zone de navigation de gauche, sélectionnez **Gérer**.
 1. Sélectionnez l’onglet **Compte**, puis pointez sur un compte.
-1. Sélectionnez l’icône de changement du propriétaire du compte à droite. L’icône représente une personne.
-1. Choisissez un compte éligible, puis cliquez sur **Suivant**.
+1. Sélectionnez l’icône de changement du propriétaire du compte à droite. L’icône représente une personne.  
+    ![Image représentant le symbole de changement du propriétaire du compte](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Choisissez le compte de destination vers lequel vous souhaitez effectuer le transfert, puis sélectionnez **Suivant**.
+1. Si vous souhaitez transférer la propriété du compte entre des locataires Azure AD, cochez la case **Déplacer les abonnements vers le locataire Azure AD du destinataire**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image représentant la case cochée permettant de déplacer les abonnements vers le locataire Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirmez le transfert et sélectionnez **Envoyer**.
-
-![Image représentant le symbole de changement du propriétaire du compte](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Pour transférer la propriété du compte pour un seul abonnement :
 
 1. Connectez-vous au portail Azure Enterprise.
 1. Dans la zone de navigation de gauche, sélectionnez **Gérer**.
 1. Sélectionnez l’onglet **Compte**, puis pointez sur un compte.
-1. Sélectionnez l’icône de transfert des abonnements à droite. L’icône représente une page.
-1. Choisissez un abonnement éligible, puis sélectionnez **Suivant**.
+1. Sélectionnez l’icône de transfert des abonnements à droite. L’icône représente une page.  
+    ![Image représentant le symbole de transfert des abonnements](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Choisissez le compte de destination vers lequel vous souhaitez transférer l’abonnement, puis sélectionnez **Suivant**.
+1. Si vous souhaitez transférer la propriété de l’abonnement entre des locataires Azure AD, cochez la case **Déplacer les abonnements vers le locataire Azure AD du destinataire**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image représentant la case cochée permettant de déplacer les abonnements vers le locataire Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirmez le transfert, puis sélectionnez **Envoyer**.
 
-![Image représentant le symbole de transfert des abonnements](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Regardez cette vidéo pour voir gestion des utilisateurs du portail Azure Enterprise :
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Associer un compte à un service
 

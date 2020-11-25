@@ -1,22 +1,22 @@
 ---
-title: Contrôle d’accès en fonction du rôle (RBAC) dans Azure Cosmos DB
-description: Découvrez comment Azure Cosmos DB assure la protection des bases de données grâce à l’intégration d’Active directory (RBAC).
+title: Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB
+description: Découvrez comment Azure Cosmos DB assure la protection des bases de données grâce à l’intégration d’Active directory (Azure RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085460"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636637"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle (RBAC) dans Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB fournit un contrôle d’accès en fonction du rôle (RBAC) intégré pour les scénarios de gestion courants dans Azure Cosmos DB. Une personne disposant d’un profil dans Azure Active Directory peut assigner ces rôles Azure à des utilisateurs, des groupes, des principaux de service ou des identités managées pour accorder ou refuser l’accès aux ressources et aux opérations sur les ressources Azure Cosmos DB. L’attribution des rôles est limitée au seul accès au plan de contrôle, ce qui inclut l’accès aux comptes, bases de données, conteneurs et offres (débit) d’Azure Cosmos.
+Azure Cosmos DB fournit un contrôle d’accès en fonction du rôle Azure (Azure RBAC) intégré pour les scénarios de gestion courants dans Azure Cosmos DB. Une personne disposant d’un profil dans Azure Active Directory peut assigner ces rôles Azure à des utilisateurs, des groupes, des principaux de service ou des identités managées pour accorder ou refuser l’accès aux ressources et aux opérations sur les ressources Azure Cosmos DB. L’attribution des rôles est limitée au seul accès au plan de contrôle, ce qui inclut l’accès aux comptes, bases de données, conteneurs et offres (débit) d’Azure Cosmos.
 
 ## <a name="built-in-roles"></a>Rôles intégrés
 
@@ -30,11 +30,11 @@ Voici les rôles intégrés pris en charge par Azure Cosmos DB :
 |[Opérateur Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Peut provisionner des comptes, des bases de données et des conteneurs Azure Cosmos. Ne peut pas accéder aux données ni utiliser Data Explorer.|
 
 > [!IMPORTANT]
-> La prise en charge du RBAC dans Azure Cosmos DB s’applique uniquement aux opérations de plan de contrôle. Les opérations du plan de données sont sécurisées à l’aide de clés primaires ou de jetons de ressources. Pour en savoir plus, veuillez consulter [Sécuriser l’accès aux données dans Azure Cosmos DB](secure-access-to-data.md)
+> La prise en charge d’Azure RBAC dans Azure Cosmos DB s’applique uniquement aux opérations de plan de contrôle. Les opérations du plan de données sont sécurisées à l’aide de clés primaires ou de jetons de ressources. Pour en savoir plus, veuillez consulter [Sécuriser l’accès aux données dans Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Gestion des identités et des accès
 
-Le volet **Contrôle d’accès (IAM)** du Portail Microsoft Azure permet de configurer le contrôle d’accès en fonction du rôle sur les ressources Azure Cosmos. Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory. Vous pouvez utiliser des rôles intégrés ou des rôles personnalisés pour les individus et les groupes. La capture d’écran suivante montre l’intégration Active Directory (RBAC) à l’aide du contrôle d’accès (IAM) dans le Portail Microsoft Azure :
+Le volet **Contrôle d’accès (IAM)** du portail Azure permet de configurer le contrôle d’accès en fonction du rôle sur les ressources Azure Cosmos. Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory. Vous pouvez utiliser des rôles intégrés ou des rôles personnalisés pour les individus et les groupes. La capture d’écran suivante montre l’intégration Active Directory (Azure RBAC) à l’aide du contrôle d’accès (IAM) dans le Portail Microsoft Azure :
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure – Démonstration de la sécurité de la base de données":::
 

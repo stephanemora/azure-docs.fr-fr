@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613097"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654505"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
@@ -40,7 +40,7 @@ Pour supprimer une cible de stockage, ouvrez la page **Cibles de stockage**. Sé
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Utilisez [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) pour supprimer une cible de stockage du cache.
 
@@ -79,7 +79,7 @@ Après avoir apporté les modifications souhaitées, cliquez sur **OK** pour met
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Pour modifier l’espace de noms d’une cible de stockage blob avec Azure CLI, utilisez la commande [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Seule la valeur `--virtual-namespace-path` peut être modifiée.
 
@@ -117,7 +117,7 @@ Utilisez la page **Espace de noms** de votre cache Azure HPC Cache pour mettre �
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Utilisez l’option ``--junction`` de la commande [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) pour modifier le chemin d’accès de l’espace de noms, l’exportation NFS ou le sous-répertoire d’exportation.
 
@@ -159,7 +159,7 @@ Utilisez le sélecteur de liste déroulante pour choisir un nouveau modèle d’
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
 Utilisez la commande [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update).
 

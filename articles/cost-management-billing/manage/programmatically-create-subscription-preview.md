@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043303"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844333"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Créer des abonnements Azure programmatiquement avec des API en préversion
 
-Cet article explique comment créer des abonnements Azure programmatiquement à l’aide de la préversion de l’API. Nous avons publié une [nouvelle version de l’API](programmatically-create-subscription.md). Si vous ne souhaitez pas utiliser la nouvelle version, suivez les instructions de cet article. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
+Cet article explique comment créer des abonnements Azure programmatiquement à l’aide de la préversion de l’API. Dans cet article, vous apprenez à créer des abonnements par programmation en utilisant Azure Resource Manager.
+
+Nous disposons de nouveaux articles pour la dernière version de l’API à utiliser avec différents types d’abonnements de contrat Azure :
+
+- [Créer des abonnements EA programmatiquement avec la dernière API](programmatically-create-subscription-enterprise-agreement.md)
+- [Créer des abonnements MCA programmatiquement avec la dernière API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Créer des abonnements MPA programmatiquement avec la dernière API](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+Toutefois, si vous ne souhaitez pas utiliser la dernière version d’API, vous pouvez quand même utiliser les informations de cet article.
 
 Les clients Azure disposant d’un compte de facturation pour les types de contrat suivants peuvent créer des abonnements programmatiquement :
 
-- [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Contrat client Microsoft (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Contrat Partenaire Microsoft (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Contrat Entreprise
+- Contrat client Microsoft (MCA)
+- Contrat Partenaire Microsoft (MPA)
 
 Quand vous créez un abonnement Azure programmatiquement, cet abonnement est régi par le contrat applicable à votre achat de services Azure auprès de Microsoft ou d’un revendeur agréé. Pour plus d’informations, consultez [Informations légales relatives à Microsoft Azure](https://azure.microsoft.com/support/legal/).
 

@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121933"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565770"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Tirer parti du type de contenu pour stocker des valeurs de clés JSON dans App Configuration
 
@@ -63,13 +63,11 @@ Dans ce tutoriel, vous apprendrez à :
 > * Utiliser des valeurs de clé JSON dans vos applications.
 
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
-- La dernière version d’Azure CLI (2.10.0 ou version ultérieure). Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous utilisez Azure CLI, vous devez d’abord vous connecter à l’aide de `az login`. Vous pouvez également utiliser Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Cet tutoriel nécessite la version 2.10.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 

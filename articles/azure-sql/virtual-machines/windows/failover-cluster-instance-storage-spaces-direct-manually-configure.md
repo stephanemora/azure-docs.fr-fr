@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289952"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556316"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Créer une FCI avec Espaces de stockage direct (SQL Server sur machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,11 +68,11 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 
    Pour installer le clustering de basculement à partir de l’interface utilisateur, exécutez les étapes suivantes sur les deux machines virtuelles :
 
-   1. Dans le **Gestionnaire de serveur** , sélectionnez **Gérer** , puis **Ajouter des rôles et fonctionnalités**.
-   1. Dans l’assistant **Ajouter des rôles et des fonctionnalités** , sélectionnez **Suivant** jusqu’à ce que vous atteigniez la page **Sélectionner les fonctionnalités**.
-   1. Dans **Sélectionner les fonctionnalités** , sélectionnez **Clustering de basculement**. Incluez toutes les fonctionnalités et les outils de gestion requis. 
+   1. Dans le **Gestionnaire de serveur**, sélectionnez **Gérer**, puis **Ajouter des rôles et fonctionnalités**.
+   1. Dans l’assistant **Ajouter des rôles et des fonctionnalités**, sélectionnez **Suivant** jusqu’à ce que vous atteigniez la page **Sélectionner les fonctionnalités**.
+   1. Dans **Sélectionner les fonctionnalités**, sélectionnez **Clustering de basculement**. Incluez toutes les fonctionnalités et les outils de gestion requis. 
    1. Sélectionnez **Ajouter des fonctionnalités**.
-   1. Sélectionnez **Suivant** , puis **Terminer** pour installer les fonctionnalités.
+   1. Sélectionnez **Suivant**, puis **Terminer** pour installer les fonctionnalités.
 
    Pour installer le clustering de basculement avec PowerShell, exécutez le script suivant à partir d’une session PowerShell d’administrateur sur l’une des machines virtuelles :
 
@@ -90,18 +90,18 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
 Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
-1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement**.
-1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration**.
+1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
+1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
 1. Sélectionnez **Suivant**.
-1. Sous **Sélectionner des serveurs ou un cluster** , entrez le nom des deux machines virtuelles.
-1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
+1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
+1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
 1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests** , sélectionnez tous les tests à l’exception de **Stockage** , comme illustré ici :
+1. Sous **Sélection des tests**, sélectionnez tous les tests à l’exception de **Stockage**, comme illustré ici :
 
    ![Sélectionner les tests de validation du cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Sélectionnez **Suivant**.
-1. Sous **Confirmation** , sélectionnez **Suivant**.
+1. Sous **Confirmation**, sélectionnez **Suivant**.
 
     L’assistant **Valider une configuration** exécute les tests de validation.
 
@@ -160,7 +160,7 @@ Les disques Espaces de stockage direct doivent être vides. Ils ne peuvent pas c
    Enable-ClusterS2D
    ```
 
-   Dans le **Gestionnaire du cluster de basculement** , vous pouvez maintenant voir le pool de stockage.
+   Dans le **Gestionnaire du cluster de basculement**, vous pouvez maintenant voir le pool de stockage.
 
 1. [Créez un volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
@@ -180,7 +180,7 @@ Les disques Espaces de stockage direct doivent être vides. Ils ne peuvent pas c
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
 
-Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement** , cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
+Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testez le basculement du cluster en déplaçant la ressource principale sur les autres nœuds":::
 
@@ -190,11 +190,11 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 1. Connectez-vous à la première machine virtuelle avec RDP.
 
-1. Dans **Gestionnaire du cluster de basculement** , vérifiez que toutes les ressource de cluster principales se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
+1. Dans **Gestionnaire du cluster de basculement**, vérifiez que toutes les ressource de cluster principales se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
 
 1. Recherchez le support d’installation. Si la machine virtuelle utilise l’une des images Azure Marketplace, le support se situe sous `C:\SQLServer_<version number>_Full`. Sélectionnez **Configuration**.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
 
 1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
@@ -217,7 +217,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 ## <a name="register-with-the-sql-vm-rp"></a>S’inscrire auprès de SQL VM RP
 
-Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès du fournisseur de ressources de machine virtuelle SQL (RP) dans [mode d’administration léger](sql-vm-resource-provider-register.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
+Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
 
 
 Inscrire une machine virtuelle SQL Server en mode léger avec PowerShell :  
@@ -239,7 +239,7 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 - Les machines virtuelles Azure prennent en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019 avec un stockage sur des CSV et un [équilibreur de charge standard](../../../load-balancer/load-balancer-overview.md).
 - Les disques qui ont été joints en tant que disques au format NTFS peuvent être utilisés avec Espaces de stockage direct uniquement si l’option d’éligibilité du disque est décochée ou désactivée lorsque le stockage est ajouté au cluster. 
-- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge.
+- Seule l’inscription auprès de l’extension SQL IaaS Agent en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

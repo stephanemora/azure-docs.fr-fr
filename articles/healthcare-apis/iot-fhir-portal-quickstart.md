@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394507"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630564"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Démarrage rapide : Déployer le connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure
 
-Le connecteur Azure IoT pour FHIR* est une fonctionnalité facultative de l’API Azure pour FHIR qui permet d’ingérer des données à partir d’appareils de l’Internet des objets médicaux (IoMT, Internet of Medical Things). Pendant la phase de préversion, la fonctionnalité Connecteur Azure IoT pour FHIR est disponible gratuitement. Dans ce guide de démarrage rapide, vous apprenez à :
+Le Connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#174;)* est une fonctionnalité facultative de l’API Azure pour FHIR qui offre la possibilité d’ingérer des données à partir d’appareils de l’Internet des objets médicaux (IoMT, Internet of Medical Things). Pendant la phase de préversion, la fonctionnalité Connecteur Azure IoT pour FHIR est disponible gratuitement. Dans ce guide de démarrage rapide, vous apprenez à :
 - déployer et configurer la fonctionnalité Connecteur Azure IoT pour FHIR à l’aide du portail Azure ;
 - utiliser un appareil simulé pour envoyer des données à la fonctionnalité Connecteur Azure IoT pour FHIR ;
 - afficher les ressources créées par la fonctionnalité Connecteur Azure IoT pour FHIR pour l’API Azure pour FHIR.
@@ -71,11 +71,11 @@ Pour charger des modèles de mappage, cliquez sur la fonctionnalité Connecteur 
 
 #### <a name="device-mapping"></a>Mappage d’appareil
 
-Le modèle de mappage d’appareil transforme les données de l’appareil en schéma normalisé. Dans la page **Connecteur IoT** , cliquez sur le bouton **Configurer le mappage d’appareil** pour accéder à la page **Mappage d’appareil**. 
+Le modèle de mappage d’appareil transforme les données de l’appareil en schéma normalisé. Dans la page **Connecteur IoT**, cliquez sur le bouton **Configurer le mappage d’appareil** pour accéder à la page **Mappage d’appareil**. 
 
 [![Connecteur IoT - Cliquer sur Configurer le mappage d’appareil](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg#lightbox)
 
-Dans la page **Mappage des appareils** , ajoutez le script suivant à l’éditeur JSON, puis cliquez sur **Enregistrer**.
+Dans la page **Mappage des appareils**, ajoutez le script suivant à l’éditeur JSON, puis cliquez sur **Enregistrer**.
 
 ```json
 {
@@ -104,11 +104,11 @@ Dans la page **Mappage des appareils** , ajoutez le script suivant à l’édite
 
 #### <a name="fhir-mapping"></a>Mappage FHIR
 
-Le modèle de mappage FHIR transforme un message normalisé en ressource d’observation basée sur FHIR. Dans la page **Connecteur IoT** , cliquez sur le bouton **Configurer le mappage FHIR** pour accéder à la page **Mappage FHIR**.  
+Le modèle de mappage FHIR transforme un message normalisé en ressource d’observation basée sur FHIR. Dans la page **Connecteur IoT**, cliquez sur le bouton **Configurer le mappage FHIR** pour accéder à la page **Mappage FHIR**.  
 
 [![Connecteur IoT - Cliquer sur Configurer le mappage FHIR ](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
 
-Dans la page **Mappage FHIR** , ajoutez le script suivant à l’éditeur JSON, puis cliquez sur **Enregistrer**.
+Dans la page **Mappage FHIR**, ajoutez le script suivant à l’éditeur JSON, puis cliquez sur **Enregistrer**.
 
 ```json
 {
@@ -145,7 +145,7 @@ L’appareil IoMT a besoin d’une chaîne de connexion pour se connecter et env
 
 [![Connecteur IoT - Cliquer sur Gérer les connexions clientes](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
-Une fois dans la page **Connexions** , cliquez sur le bouton **Ajouter** pour créer une connexion. 
+Une fois dans la page **Connexions**, cliquez sur le bouton **Ajouter** pour créer une connexion. 
 
 [![Connecteur IoT - Connexions](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg#lightbox)
 
@@ -153,7 +153,7 @@ Fournissez un nom convivial pour cette connexion dans la fenêtre superposée et
 
 [![Connecteur IoT - Nouvelle connexion](media/quickstart-iot-fhir-portal/portal-iot-new-connection.jpg)](media/quickstart-iot-fhir-portal/portal-iot-new-connection.jpg#lightbox)
 
-Sélectionnez la connexion créée dans la page **Connexions** , puis copiez la valeur du champ **Chaîne de connexion principale** à partir de la fenêtre superposée à droite.
+Sélectionnez la connexion créée dans la page **Connexions**, puis copiez la valeur du champ **Chaîne de connexion principale** à partir de la fenêtre superposée à droite.
 
 [![Connecteur IoT - Chaîne de connexion](media/quickstart-iot-fhir-portal/portal-iot-connection-string.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connection-string.jpg#lightbox)
 
@@ -189,7 +189,7 @@ Vous pouvez voir les ressources Observation basées sur FHIR créées par la fon
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer une instance de la fonctionnalité Connecteur Azure IoT pour FHIR en supprimant le groupe de ressources associé, le service API Azure pour FHIR associé ou l’instance FHIR elle-même. 
 
-Pour supprimer directement une instance de la fonctionnalité Connecteur Azure IoT pour FHIR, sélectionnez-la dans la page **Connecteurs IoT** pour accéder à la page **Connecteur IoT** , puis cliquez sur le bouton **Supprimer**. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**. 
+Pour supprimer directement une instance de la fonctionnalité Connecteur Azure IoT pour FHIR, sélectionnez-la dans la page **Connecteurs IoT** pour accéder à la page **Connecteur IoT**, puis cliquez sur le bouton **Supprimer**. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**. 
 
 [![Supprimer une instance du connecteur IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 
@@ -207,6 +207,4 @@ Découvrez comment configurer le connecteur IoT à l’aide de modèles de mappa
 >[!div class="nextstepaction"]
 >[Modèles de mappage du Connecteur Azure IoT pour FHIR](iot-mapping-templates.md)
 
-*Dans le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
-
-FHIR est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
+*Sur le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.

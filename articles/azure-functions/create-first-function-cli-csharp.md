@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424802"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637147"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction C# dans Azure à partir de la ligne de commande
 
@@ -29,11 +29,13 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
++ [Kit SDK .NET Core 3.1](https://www.microsoft.com/net/download)
+
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 + Un des outils suivants pour créer des ressources Azure :
 
-    + [Azure CLI version 2.4 ou ultérieure](/cli/azure/install-azure-cli).
+    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
     + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 ou ultérieure.
 
@@ -43,19 +45,23 @@ Vérifiez vos prérequis, selon que vous utilisez Azure CLI ou Azure PowerShell 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
++ Dans une fenêtre de terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
 + Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.4 ou ultérieure.
 
 + Exécutez `az login` pour vous connecter à Azure et vérifier que l’abonnement est actif.
 
++ Exécutez `dotnet --list-sdks` pour vérifier que le SDK .NET Core version 3.1.x est installé.
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
++ Dans une fenêtre de terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
 + Exécutez `(Get-Module -ListAvailable Az).Version` et vérifiez la version 5.0 ou ultérieure. 
 
 + Exécutez `Connect-AzAccount` pour vous connecter à Azure et vérifier que l’abonnement est actif.
+
++ Exécutez `dotnet --list-sdks` pour vérifier que le SDK .NET Core version 3.1.x est installé.
 
 ---
 

@@ -3,17 +3,17 @@ title: 'Azure Defender pour SQL : avantages et fonctionnalités'
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372545"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693458"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Présentation d’Azure Defender pour SQL
 
@@ -25,7 +25,7 @@ Azure Defender pour SQL comprend deux plans Azure Defender qui étendent le [pac
 |----|:----|
 |État de sortie :|**Azure Defender pour les serveurs de base de données Azure SQL** – Disponibilité générale (GA)<br>**Azure Defender pour les serveurs SQL Server sur les machines** – Préversion<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Les deux plans qui forment **Azure Defender pour SQL** sont facturés conformément aux indications de la [page des tarifs](security-center-pricing.md).|
-|Versions de SQL protégées :|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (anciennement SQL DW)<br>SQL Server (toutes les versions prises en charge)|
+|Versions de SQL protégées :|Azure SQL Database <br>Azure SQL Managed Instance<br>Pool SQL dédié dans Azure Synapse (anciennement SQL DW)<br>SQL Server (toutes les versions prises en charge)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||
 
@@ -36,7 +36,7 @@ Azure Defender pour SQL comprend deux plans Azure Defender qui étendent le [pac
 - **Azure Defender pour les serveurs de base de données Azure SQL** protège :
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Pool SQL dédié dans Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **Azure Defender pour les serveurs SQL Server sur les machines (préversion)** étend les protections de vos serveurs SQL Azure natifs pour prendre en charge les environnements hybrides et protéger les serveurs SQL (toutes les versions prises en charge) hébergés dans Azure, d’autres environnements cloud et même les machines locales.
 
@@ -54,9 +54,9 @@ Ces deux plans comprennent des fonctionnalités qui permettent d’identifier et
 
 Les alertes de sécurité sont déclenchées dans les cas suivants :
 
-- **Attaques potentielles par injection de code SQL** , y compris les vulnérabilités détectées lorsque les applications génèrent une instruction SQL défectueuse dans la base de données
-- **Modèles de requête et d’accès à la base de données anormaux** , par exemple, un nombre anormalement élevé d’échecs de tentatives de connexion avec des informations d’identification différentes (tentative d’attaque par force brute)
-- **Activité suspecte sur la base de données** , par exemple, une modification apportée à la destination de stockage de l’exportation pour une opération d’importation et d’exportation SQL.
+- **Attaques potentielles par injection de code SQL**, y compris les vulnérabilités détectées lorsque les applications génèrent une instruction SQL défectueuse dans la base de données
+- **Modèles de requête et d’accès à la base de données anormaux**, par exemple, un nombre anormalement élevé d’échecs de tentatives de connexion avec des informations d’identification différentes (tentative d’attaque par force brute)
+- **Activité suspecte sur la base de données**, par exemple, une modification apportée à la destination de stockage de l’exportation pour une opération d’importation et d’exportation SQL.
 
 Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces.
 

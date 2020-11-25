@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185109"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886904"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutoriel : Exécuter des scripts Python par le biais d’Azure Data Factory avec Azure Batch
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 * Une distribution [Python](https://www.python.org/downloads/) installée pour le test local.
-* Le package [Azure](https://pypi.org/project/azure/) `pip`.
+* Package `pip` [azure-storage-blob](https://pypi.org/project/azure-storage-blob/).
 * Le [jeu de données iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv).
 * Un compte Azure Batch et un compte Stockage Azure lié. Consultez [Créer un compte Batch](quick-create-portal.md#create-a-batch-account) pour plus d’informations sur la façon de créer des comptes Batch et de les lier à des comptes de stockage.
 * Un compte Azure Data Factory. Pour plus d’informations sur la création d’une fabrique de données par le biais du portail Azure, consultez [Créer une fabrique de données](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
@@ -57,7 +57,7 @@ Dans cette section, vous allez utiliser Batch Explorer pour créer le pool Batch
     1. Définissez le type de mise à l’échelle sur **Taille fixe** et définissez le nombre de nœuds dédiés sur 2.
     1. Sous **Science des données**, sélectionnez **Windows DSVM** comme système d’exploitation.
     1. Choisissez `Standard_f2s_v2` comme taille de machine virtuelle.
-    1. Activez la tâche de démarrage et ajoutez la commande `cmd /c "pip install pandas"`. L’**utilisateur de pool** par défaut peut être conservé comme identité d’utilisateur.
+    1. Activez la tâche de démarrage et ajoutez la commande `cmd /c "pip install azure-storage-blob pandas"`. L’**utilisateur de pool** par défaut peut être conservé comme identité d’utilisateur.
     1. Sélectionnez **OK**.
 
 ## <a name="create-blob-containers"></a>Créer des conteneurs d’objets blob
@@ -75,17 +75,17 @@ Le script Python suivant charge le jeu de données `iris.csv` à partir de votre
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Enregistrez le script sous `main.py` et chargez-le vers le conteneur **Stockage Azure**. Veillez à tester et vérifier son fonctionnement localement avant de le charger dans votre conteneur d’objets blob :
+Enregistrez le script sous `main.py` et chargez-le vers le conteneur **Stockage Azure** `input`. Veillez à tester et vérifier son fonctionnement localement avant de le charger dans votre conteneur d’objets blob :
 
 ``` bash
 python main.py

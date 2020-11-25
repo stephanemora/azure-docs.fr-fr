@@ -1,6 +1,6 @@
 ---
 title: Personnalisation de la langue dans les flux utilisateurs Azure AD
-description: Apprenez-en davantage sur la personnalisation de l’expérience linguistique dans vos flux utilisateur.
+description: Apprenez à personnaliser l’expérience linguistique de vos flux utilisateur dans Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441434"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576510"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personnalisation de la langue dans Azure Active Directory (préversion)
 
@@ -37,13 +37,13 @@ Par défaut, la personnalisation de la langue est activée pour les utilisateurs
 La personnalisation de la langue vous permet de personnaliser les chaînes de votre flux utilisateur.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Sous **Services Azure** , sélectionnez **Azure Active Directory** .
-3. Dans le menu de gauche, sélectionnez **Identités externes** .
+2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
+3. Dans le menu de gauche, sélectionnez **Identités externes**.
 4. Sélectionnez **Flux utilisateur (préversion)** .
 3. Sélectionnez le flux utilisateur pour lequel vous souhaitez activer les traductions.
-4. Sélectionnez **Langues** .
+4. Sélectionnez **Langues**.
 5. Dans la page **Langues** du flux utilisateur, sélectionnez une langue que vous souhaitez personnaliser.
-6. Développez la **Page de collection d’attributs** .
+6. Développez la **Page de collection d’attributs**.
 7. Sélectionnez **Télécharger les valeurs par défaut** (ou **Télécharger les valeurs de remplacements** si vous avez déjà modifié cette langue).
 
 À la suite de ces opérations, vous obtenez un fichier JSON que vous pouvez utiliser pour commencer à modifier vos chaînes.
@@ -115,9 +115,9 @@ Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous
 
 1. Une fois que vous avez terminé de modifier votre fichier JSON, revenez à votre locataire.
 1. Sélectionnez **Flux d’utilisateurs** et cliquez sur celui pour lequel vous souhaitez activer la traduction.
-1. Sélectionnez **Langues** .
+1. Sélectionnez **Langues**.
 1. Sélectionnez la langue dans laquelle vous voulez traduire.
-1. Sélectionnez la **Page de collection d’attributs** .
+1. Sélectionnez la **Page de collection d’attributs**.
 1. Sélectionnez l’icône de dossier et sélectionnez le fichier JSON à charger.
 
 Ces changements sont automatiquement enregistrés dans votre flux utilisateur.

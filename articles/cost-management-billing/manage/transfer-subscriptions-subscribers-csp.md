@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460680"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744236"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -25,7 +25,7 @@ Si vous avez des réservations existantes, celles-ci cessent de s’appliquer ap
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transférer des abonnements EA à un partenaire CSP
 
-Les partenaires CSP de facturation directe certifiés [Fournisseur de services managés Azure Expert (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) peuvent demander le transfert d’abonnements Azure pour leurs clients ayant contracté un contrat Entreprise direct (EA). Les transferts d’abonnements sont autorisés uniquement pour les clients qui ont accepté un contrat client Microsoft (MCA) et acheté un plan Azure.
+Les partenaires CSP de facturation directe certifiés [Fournisseur de services managés Azure Expert (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) peuvent demander le transfert d’abonnements Azure pour leurs clients ayant contracté un contrat Entreprise direct (EA). Les transferts d’abonnements sont autorisés uniquement pour les clients qui ont accepté un Contrat client Microsoft (MCA) et acheté un plan Azure avec le programme CSP.
 
 Lorsque la demande est approuvée, le CSP peut alors fournir une facture combinée à ses clients. Pour en savoir plus sur le transfert d’abonnements par les CSP, consultez [Obtenir la propriété de facturation des abonnements Azure pour votre compte MPA](mpa-request-ownership.md).
 

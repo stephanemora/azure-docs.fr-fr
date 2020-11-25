@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069321"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658585"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous r
 
 Pour ce tutoriel, vous devez créer un seul réseau virtuel simplifié avec deux sous-réseaux pour un déploiement facile.
 
-Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), dans lequel le pare-feu est dans son propre réseau virtuel, est recommandé. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
+Pour les déploiements de production, un [modèle Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), dans lequel le pare-feu est dans son propre réseau virtuel, est recommandé. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
 
 * **AzureFirewallSubnet** : le pare-feu est dans ce sous-réseau.
 * **Workload-SN** : le serveur de la charge de travail est dans ce sous-réseau. Le trafic réseau de ce sous-réseau traverse le pare-feu.
@@ -226,8 +226,8 @@ Cette règle vous permet de connecter un Bureau à distance à la machine virtue
 5. Sous **Règles**, pour **Nom**, entrez **rdp-nat**.
 6. Pour **Protocole**, sélectionnez **TCP**.
 7. Pour **Type de source**, sélectionnez **Adresse IP**.
-8. Pour **Source**, tapez **\*** .
-9. Pour **Adresse de destination**, tapez l’adresse IP publique du pare-feu.
+8. Pour **Source**, tapez * *\** _.
+9. Pour _*Adresse de destination**, tapez l’adresse IP publique du pare-feu.
 10. Pour **Ports de destination**, tapez **3389**.
 11. Pou **Adresse traduite**, saisissez l’adresse IP privée de **Srv-work**.
 12. Dans le champ **Port traduit**, tapez **3389**.
@@ -240,7 +240,7 @@ Cette règle vous permet de connecter un Bureau à distance à la machine virtue
 
 1. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez le groupe de ressources **Test-FW-RG**.
 2. Sélectionnez l’interface réseau de la machine virtuelle **Srv-Work**.
-3. Sous**Paramètres**, sélectionnez **Serveurs DNS**.
+3. Sous **Paramètres**, sélectionnez **Serveurs DNS**.
 4. Sous **Serveurs DNS**, sélectionnez **Personnalisé**.
 5. Entrez **209.244.0.3** dans la zone de texte **Ajouter un serveur DNS**, et **209.244.0.4** dans la zone de texte suivante.
 6. Sélectionnez **Enregistrer**.
@@ -272,4 +272,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

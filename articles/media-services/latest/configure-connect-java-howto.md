@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 8f5044a5fb43956e857bc7b93b92e15d40225326
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013234"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748177"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API Media Services v3 - Java
 
@@ -62,25 +62,9 @@ Lorsque vous exécutez la commande, les fichiers `pom.xml` et `App.java` et les 
 
 1. Dans Visual Studio Code, ouvrez le dossier où se trouve votre projet
 1. Recherchez et ouvrez le fichier `pom.xml`
-1. Ajoutez les dépendances nécessaires
+1. Ajoutez les dépendances nécessaires.
 
-    ```xml
-   <dependency>
-     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-     <artifactId>azure-mgmt-media</artifactId>
-     <version>1.0.0-beta-3</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.rest</groupId>
-     <artifactId>client-runtime</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>azure-client-authentication</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-    ```
+   Consultez `pom.xml` dans l’exemple d’[encodage vidéo](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESCustomPreset/pom.xml).
 
 ## <a name="connect-to-the-java-client"></a>Connectez-vous au client Java
 

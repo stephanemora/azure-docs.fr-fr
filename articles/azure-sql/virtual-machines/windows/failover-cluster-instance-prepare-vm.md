@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164242"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564461"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Sélectionnez avec soin l’option de disponibilité de la machine virtuelle qui
 
 Une fois que vous avez configuré la disponibilité de votre machine virtuelle, vous êtes prêt à créer vos machines virtuelles. Vous pouvez choisir d’utiliser une image de la place de marché Azure sur laquelle SQL Server est déjà installé ou non. Toutefois, si vous choisissez une image pour SQL Server sur des machines virtuelles Azure, vous devez désinstaller SQL Server à partir de la machine virtuelle avant de configurer l’instance de cluster de basculement. 
 
+### <a name="considerations"></a>Considérations
+Sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous recommandons une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure.
 
 Placez les deux machines virtuelles :
 
@@ -71,15 +73,15 @@ Vous pouvez créer une machine virtuelle Azure à l’aide d’une image [avec](
 
 ## <a name="uninstall-sql-server"></a>Désinstaller SQL Server
 
-Dans le cadre du processus de création de l’instance FCI, vous allez installer SQL Server en tant qu’instance en cluster dans le cluster de basculement. *Si vous avez déployé une machine virtuelle avec une image de la place de marché Azure sans SQL Server, vous pouvez sauter cette étape.* Si vous avez déployé une image avec SQL Server préinstallé, vous devez annuler l’inscription de la machine virtuelle SQL Server à partir du fournisseur de ressources de machine virtuelle SQL, puis désinstaller SQL Server. 
+Dans le cadre du processus de création de l’instance FCI, vous allez installer SQL Server en tant qu’instance en cluster dans le cluster de basculement. *Si vous avez déployé une machine virtuelle avec une image de la place de marché Azure sans SQL Server, vous pouvez sauter cette étape.* Si vous avez déployé une image avec SQL Server préinstallé, vous devez désinscrire la machine virtuelle SQL Server de l’extension SQL IaaS Agent, puis désinstaller SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Se désinscrire du fournisseur de ressources de machine virtuelle SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Désinscrire de l’extension SQL IaaS Agent
 
-Les images de machine virtuelle SQL Server qui proviennent de la place de marché Azure sont automatiquement inscrites auprès du fournisseur de ressources de machine virtuelle SQL. Avant de désinstaller l’instance SQL Server préinstallée, vous devez d’abord [annuler l’inscription de chaque machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+Les images de machine virtuelle SQL Server qui proviennent de Place de marché Azure sont automatiquement inscrites auprès de l’extension SQL IaaS Agent. Avant de désinstaller l’instance SQL préinstallée, vous devez d’abord [désinscrire chaque machine virtuelle SQL Server de l’extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Désinstaller SQL Server
 
-Une fois que vous avez annulé l’inscription auprès du fournisseur de ressources, vous pouvez désinstaller SQL Server. Procédez comme suit sur chaque machine virtuelle : 
+Une fois que vous avez désinscrit SQL Server de l’extension, vous pouvez le désinstaller. Procédez comme suit sur chaque machine virtuelle : 
 
 1. Connectez-vous à la machine virtuelle à l’aide du protocole RDP (Remote Desktop Protocol).
 

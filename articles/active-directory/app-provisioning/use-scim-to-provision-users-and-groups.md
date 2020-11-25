@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424582"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695263"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD
 
@@ -88,7 +88,8 @@ Le schéma défini ci-dessus est représenté à l’aide de la charge utile JSO
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tableau 2 : Mappage d’attributs utilisateur par défaut
 Vous pouvez ensuite utiliser le tableau ci-dessous pour comprendre comment les attributs requis par votre application peuvent être mappés à un attribut dans Azure AD et la RFC SCIM. Il est possible de [personnaliser](customize-application-attributes.md) la manière dont les attributs sont mappés entre Azure AD et votre point de terminaison SCIM. Notez que vous n'êtes pas tenu de prendre en charge les utilisateurs et groupes, ou tous les attributs affichés ci-dessous. Ils sont fournis à des fins de référence sur la façon dont les attributs d'Azure AD sont souvent mappés à des propriétés dans le protocole SCIM. 
@@ -126,7 +127,7 @@ Vous pouvez ensuite utiliser le tableau ci-dessous pour comprendre comment les a
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-Plusieurs points de terminaison sont définis dans la RFC SCIM. Vous pouvez commencer avec le point de terminaison /User et développer les autres points de terminaison à partir de celui-ci. Le point de terminaison /Schemas est utile si vous utilisez des attributs personnalisés ou si votre schéma change fréquemment. Il permet à un client de récupérer automatiquement le schéma le plus récent. Le point de terminaison /Bulk est particulièrement utile pour la prise en charge des groupes. Le tableau suivant décrit les différents points de terminaison définis dans la norme SCIM. Le point de terminaison /Schemas est utile si vous utilisez des attributs personnalisés ou si votre schéma change fréquemment. Il permet à un client de récupérer automatiquement le schéma le plus récent. Le point de terminaison /Bulk est particulièrement utile pour la prise en charge des groupes. Le tableau suivant décrit les différents points de terminaison définis dans la norme SCIM. 
+Plusieurs points de terminaison sont définis dans la RFC SCIM. Vous pouvez commencer avec le point de terminaison /User et développer les autres points de terminaison à partir de celui-ci. Le point de terminaison /Schemas est utile si vous utilisez des attributs personnalisés ou si votre schéma change fréquemment. Il permet à un client de récupérer automatiquement le schéma le plus récent. Le point de terminaison /Bulk est particulièrement utile pour la prise en charge des groupes. Le tableau suivant décrit les différents points de terminaison définis dans la norme SCIM.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tableau 4 : Déterminer les points de terminaison à développer
 |ENDPOINT|Description|
@@ -153,6 +154,7 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 * Prise en charge de l'exécution de requêtes d'utilisateurs ou de groupes, conformément à la [section 3.4.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalId`, et les groupes sont interrogés via `displayName`.  
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
 * Prise en charge de l'exécution de requêtes de groupes par ID et par membre, conformément à la section 3.4.2 du protocole SCIM.  
+* Prend en charge le filtre [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) lors de l’interrogation de la ressource de groupe, conformément à la section 3.4.2.5 du protocole SCIM.
 * Acceptation d’un jeton du porteur unique pour l’authentification et l’autorisation d’Azure AD dans votre application.
 * Prise en charge de la suppression réversible d’un utilisateur `active=false` et de la restauration de l’utilisateur `active=true` (l’objet utilisateur doit être retourné dans une demande, que l’utilisateur soit actif ou non). La seule fois où l’utilisateur ne doit pas être retourné est lorsqu’il est supprimé définitivement de l’application. 
 
@@ -761,7 +763,7 @@ Le [code de référence](https://aka.ms/SCIMReferenceCode) .NET Core open source
 
 La solution est composée de deux projets, _Microsoft.SCIM_ et _Microsoft.SCIM.WebHostSample_.
 
-Le projet _Microsoft.SCIM_ est la bibliothèque qui définit les composants du service web conforme à la spécification SCIM. Elle déclare l’interface _Microsoft.SCIM.IProvider_ , les requêtes sont traduites en appels envoyés aux méthodes du fournisseur, lesquelles seraient programmées pour fonctionner sur un magasin d’identités.
+Le projet _Microsoft.SCIM_ est la bibliothèque qui définit les composants du service web conforme à la spécification SCIM. Elle déclare l’interface _Microsoft.SCIM.IProvider_, les requêtes sont traduites en appels envoyés aux méthodes du fournisseur, lesquelles seraient programmées pour fonctionner sur un magasin d’identités.
 
 ![Décomposition : Une requête est traduite en appels vers les méthodes du fournisseur](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
@@ -808,7 +810,7 @@ Pour plus d’informations sur le protocole HTTPS dans ASP.NET Core, utilisez l
 
 Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0. Tout service recevant la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le locataire Azure Active Directory attendu.
 
-Dans le jeton, l’émetteur est identifié par une revendication iss, comme `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. Dans cet exemple, l’adresse de base de la valeur de revendication, `https://sts.windows.net`, identifie Azure Active Directory comme l’émetteur, tandis que le segment d’adresse relative, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis.
+Dans le jeton, l’émetteur est identifié par une revendication iss, comme `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. Dans cet exemple, l’adresse de base de la valeur de revendication, `https://sts.windows.net`, identifie Azure Active Directory comme l’émetteur, tandis que le segment d’adresse relative, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis.
 
 L’audience du jeton sera l’ID de modèle d’application de l’application de la galerie. Chacune des applications inscrites dans un locataire unique peut recevoir la même revendication `iss` avec les requêtes SCIM. L’ID du modèle d’application pour toutes les applications personnalisées est _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Le jeton généré par le service de provisionnement d’Azure AD doit être utilisé uniquement pour le test. Ne l’utilisez pas dans les environnements de production.
 
@@ -1139,16 +1141,16 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
    *Galerie d’applications Azure AD*
 
 5. Dans l’écran de gestion d’application, sélectionnez **Approvisionnement** dans le volet gauche.
-6. Dans le menu **Mode d’approvisionnement** , sélectionnez **Automatique**.
+6. Dans le menu **Mode d’approvisionnement**, sélectionnez **Automatique**.
 
    ![Exemple : Page de provisionnement d’une application dans le Portail Microsoft Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuration du provisionnement dans le portail Azure*
 
-7. Dans le champ **URL du locataire** , entrez l’URL du point de terminaison SCIM de l’application. Exemple : `https://api.contoso.com/scim/`
+7. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : `https://api.contoso.com/scim/`
 8. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d'identité peuvent valider ce jeton émis par Azure AD. 
    > [!NOTE]
-   > Il est * *_déconseillé_* _ de laisser ce champ vide et d’utiliser un jeton généré par Azure AD. Cette option est principalement destinée à des fins de test.
-9. Sélectionnez _ *Tester la connexion* * pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si la tentative échoue, des informations d’erreur s’affichent.  
+   > Il est **_déconseillé_* _ de laisser ce champ vide et d’utiliser un jeton généré par Azure AD. Cette option est principalement destinée à des fins de test.
+9. Sélectionnez _ *Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si la tentative échoue, des informations d’erreur s’affichent.  
 
     > [!NOTE]
     > **Tester la connexion** interroge le point de terminaison SCIM pour un utilisateur qui n’existe pas, en utilisant un GUID aléatoire en tant que propriété correspondante sélectionnée dans la configuration Azure AD. La réponse correcte attendue est HTTP 200 OK avec un message SCIM ListResponse vide.
@@ -1159,8 +1161,8 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
     > [!NOTE]
     > Vous pouvez éventuellement désactiver la synchronisation des objets de groupe en désactivant le mappage « Groupes ».
 
-12. Sous **Paramètres** , le champ **Étendue** définit les utilisateurs et les groupes qui sont synchronisés. Sélectionnez **Sync only assigned users and groups (recommended)** (Synchroniser uniquement les utilisateurs et les groupes attribués (recommandé)) pour que seuls les utilisateurs et les groupes attribués soient synchronisés dans l’onglet **Utilisateurs et groupes**.
-13. Une fois votre configuration terminée, définissez l’ **état d’approvisionnement** sur **Activé**.
+12. Sous **Paramètres**, le champ **Étendue** définit les utilisateurs et les groupes qui sont synchronisés. Sélectionnez **Sync only assigned users and groups (recommended)** (Synchroniser uniquement les utilisateurs et les groupes attribués (recommandé)) pour que seuls les utilisateurs et les groupes attribués soient synchronisés dans l’onglet **Utilisateurs et groupes**.
+13. Une fois votre configuration terminée, définissez l’**état d’approvisionnement** sur **Activé**.
 14. Sélectionnez **Enregistrer** pour démarrer le service d’approvisionnement Azure AD.
 15. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs ou groupes que vous souhaitez synchroniser.
 
@@ -1200,7 +1202,7 @@ La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fin
 > [!NOTE]
 > Il est déconseillé de laisser le champ du jeton vide dans l’interface utilisateur de l’application personnalisée de configuration du provisionnement Azure AD. Le jeton généré est principalement destiné à des fins de test.
 
-**Flux d’octroi du code d’autorisation OAuth :** Le service d’approvisionnement prend en charge l' [octroi du code d’autorisation](https://tools.ietf.org/html/rfc6749#page-24). Une fois la demande de publication de votre application dans la galerie envoyée, notre équipe vous aidera à collecter les informations suivantes :
+**Flux d’octroi du code d’autorisation OAuth :** Le service d’approvisionnement prend en charge l'[octroi du code d’autorisation](https://tools.ietf.org/html/rfc6749#page-24). Une fois la demande de publication de votre application dans la galerie envoyée, notre équipe vous aidera à collecter les informations suivantes :
 *  URL d’autorisation : URL client pour obtenir l’autorisation du propriétaire de la ressource via la redirection de l’agent utilisateur. L’utilisateur est redirigé vers cette URL pour autoriser l’accès. Notez que cette URL n’est pas configurable actuellement par le locataire.
 *  URL d’échange de jeton : URL client pour échanger un octroi d’autorisation pour un jeton d’accès, généralement avec authentification du client. Notez que cette URL n’est pas configurable actuellement par le locataire.
 *  ID client : Le serveur d’autorisation fournit au client inscrit un identifiant client, qui est une chaîne unique représentant les informations d’inscription fournies par le client.  L’identifiant client n’est pas secret ; il est exposé au propriétaire de la ressource et **ne doit pas** être utilisé seul à des fins d'authentification du client.  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285370"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556384"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Déployez un disque SSD Premium managé avec la fonctionnalité de disque partag
 Ajoutez un disque partagé Azure en procédant comme suit : 
 
 
-1. Enregistrez le script suivant en tant que *SharedDiskConfig.json*  : 
+1. Enregistrez le script suivant en tant que *SharedDiskConfig.json* : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
 Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
-1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement**.
-1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration**.
+1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
+1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
 1. Sélectionnez **Suivant**.
-1. Sous **Sélectionner des serveurs ou un cluster** , entrez le nom des deux machines virtuelles.
-1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
+1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
+1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
 1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests** , sélectionnez tous les tests *à l’exception* **Stockage**
+1. Sous **Sélection des tests**, sélectionnez tous les tests *à l’exception* **Stockage**
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
 
-Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement** , cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
+Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testez le basculement du cluster en déplaçant la ressource principale sur les autres nœuds":::
 
@@ -171,13 +171,13 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 1. Se connecte au premier ordinateur virtuel à l’aide du protocole RDP (Remote Desktop Protocol).
 
-1. Dans le **Gestionnaire du cluster de basculement** , vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
+1. Dans le **Gestionnaire du cluster de basculement**, vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
 
 1. Recherchez le support d’installation. Si la machine virtuelle utilise l’une des images Azure Marketplace, le support se situe sous `C:\SQLServer_<version number>_Full`. 
 
 1. Sélectionnez **Configuration**.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
 
 1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
@@ -187,7 +187,7 @@ Les répertoires de données de l’instance de cluster de basculement doivent s
 
 1. Une fois que le programme d’installation a installé l’instance de cluster de basculement sur le premier nœud, connectez-vous au second nœud avec RDP.
 
-1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
 
 1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
 
@@ -197,7 +197,7 @@ Les répertoires de données de l’instance de cluster de basculement doivent s
 
 ## <a name="register-with-the-sql-vm-rp"></a>S’inscrire auprès de SQL VM RP
 
-Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès du fournisseur de ressources de machine virtuelle SQL (RP) dans [mode d’administration léger](sql-vm-resource-provider-register.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
+Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
 
 
 Inscrire une machine virtuelle SQL Server en mode léger avec PowerShell :  
@@ -217,7 +217,7 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 ## <a name="limitations"></a>Limites
 
-- Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge.
+- Seule l’inscription auprès de l’extension SQL IaaS Agent en [mode d’administration léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) est prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

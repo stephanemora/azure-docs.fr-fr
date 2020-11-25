@@ -1,6 +1,6 @@
 ---
 title: Créer un point de restauration défini par l’utilisateur pour un pool SQL dédié
-description: Guide pratique pour créer un point de restauration pour un pool SQL dédié.
+description: Découvrez comment utiliser le portail Azure pour créer un point de restauration défini par l’utilisateur pour un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: joannapea
 manager: igorstan
@@ -11,12 +11,12 @@ ms.date: 10/29/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c0835fb48d00fe5277732f34fd6b0de1448f6a78
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 21fd20100095040fda9f72b00e17147ff560fbca
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331994"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579536"
 ---
 # <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
 

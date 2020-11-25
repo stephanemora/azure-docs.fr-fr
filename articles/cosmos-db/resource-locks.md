@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341958"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636688"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Empêcher la suppression ou la modification des ressources Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un compte, 
 
 Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources de cette étendue héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
 
-Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour plus d’informations sur les rôles RBAC pour Azure Cosmos DB, consultez [Contrôle d’accès en fonction du rôle dans Azure Cosmos DB](role-based-access-control.md).
+Contrairement au contrôle d'accès basé sur les rôles Azure, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour plus d’informations sur les rôles Azure RBAC pour Azure Cosmos DB, consultez [Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB](role-based-access-control.md).
 
 Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à https://management.azure.com. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly appliqué à un conteneur Azure Cosmos vous empêchera de supprimer ou de modifier le conteneur. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans le conteneur. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à https://management.azure.com.
 

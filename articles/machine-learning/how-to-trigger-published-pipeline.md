@@ -1,7 +1,7 @@
 ---
 title: Déclencher un pipeline ML pour de nouvelles données
 titleSuffix: Azure Machine Learning
-description: Découvrez comment déclencher l’exécution d’un pipeline ML à l’aide d’Azure Logic Apps.
+description: Découvrez comment déclencher l’exécution d’un pipeline Azure Machine Learning en utilisant Azure Logic Apps pour répondre aux nouvelles données.
 services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443498"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629391"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Déclencher une exécution d’un pipeline Machine Learning à partir d’une application logique
 
@@ -55,12 +55,12 @@ Une fois que votre application logique a été provisionnée, effectuez les éta
 
 1. Renseignez les informations de connexion pour le compte de stockage Blob que vous voulez superviser pour les ajouts ou modifications d’objets blob. Sélectionnez le conteneur à superviser. 
  
-    Choisissez l’ **Intervalle** et la **Fréquence** pour interroger les mises à jour qui vous conviennent.  
+    Choisissez l’**Intervalle** et la **Fréquence** pour interroger les mises à jour qui vous conviennent.  
 
     > [!NOTE]
     > Ce déclencheur supervisera le conteneur sélectionné, mais pas les sous-dossiers.
 
-1. Ajoutez une action HTTP qui s’exécutera quand un objet blob nouveau ou modifié est détecté. Sélectionnez **+ Nouvelle étape** , puis recherchez et sélectionnez l’action HTTP.
+1. Ajoutez une action HTTP qui s’exécutera quand un objet blob nouveau ou modifié est détecté. Sélectionnez **+ Nouvelle étape**, puis recherchez et sélectionnez l’action HTTP.
 
   > [!div class="mx-imgBorder"]
   > ![Rechercher une action HTTP](media/how-to-trigger-published-pipeline/search-http.png)

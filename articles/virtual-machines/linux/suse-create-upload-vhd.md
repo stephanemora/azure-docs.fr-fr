@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f35adcc797e903bb44852e9ba52e1a023f51a0d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292115"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659520"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 
@@ -32,7 +32,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 Comme alternative à la création de votre propre disque dur virtuel, SUSE publie également des images BYOS (« Bring Your Own Subscription ») pour SLES sur [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Préparation de SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Préparation de SUSE Linux Enterprise Server pour Azure
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 3. Enregistrez votre système SUSE Linux Enterprise pour lui permettre de télécharger les mises à jour et d’installer des packages.
@@ -41,57 +41,53 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
     ```console
     # sudo zypper update
     ```
-
-1. Installez l’agent Linux Azure à partir du référentiel SLES (SLE11-Public-Cloud-Module) :
+    
+5. Installer l’agent Linux Azure et cloud-init
 
     ```console
+    # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     # sudo zypper install python-azure-agent
+    # sudo zypper install cloud-init
     ```
 
-1. Vérifiez que waagent est réglé sur « on » dans chkconfig et, dans le cas contraire, configurez son démarrage automatique :
+6. Activer le lancement de waagent et cloud-init au démarrage
 
     ```console
     # sudo chkconfig waagent on
+    # systemctl enable cloud-init-local.service
+    # systemctl enable cloud-init.service
+    # systemctl enable cloud-config.service
+    # systemctl enable cloud-final.service
+    # systemctl daemon-reload
+    # cloud-init clean
     ```
 
-7. Vérifiez que le service waagent est en cours d’exécution et, dans le cas contraire, démarrez-le : 
+7. Mise à jour de waagent et configuration de cloud-init
 
     ```console
-    # sudo service waagent start
+    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+8. Modifiez le fichier /etc/default/grub pour vous assurer que les journaux de la console sont envoyés au port série, puis mettez à jour le fichier de configuration principal avec grub2-mkconfig -o /boot/grub2/grub.cfg
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
-
     Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure.
-9. Vérifiez que /boot/grub/menu.lst et /etc/fstab référencent le disque à l’aide de son UUID (by-uuid) au lieu de son ID (by-id). 
-   
-    Obtention de l’UUID du disque
-
-    ```console
-    # ls /dev/disk/by-uuid/
-    ```
-
-    Si /dev/disk/by-id est utilisé, mettez à jour /boot/grub/menu.lst et /etc/fstab avec la valeur appropriée de by-uuid.
-   
-    Avant la modification
-   
-    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
-   
-    Après la modification
-   
-    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
+    
+9. Vérifier que le fichier/etc/fstab référence le disque à l’aide de son UUID (by-uuid)
+         
 10. Modifiez les règles udev pour éviter la génération de règles statiques pour les interfaces Ethernet. Ces règles peuvent causer des problèmes lors du clonage d’une machine virtuelle dans Microsoft Azure ou Hyper-V :
 
     ```console
     # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+   
 11. Il est recommandé de modifier le fichier « /etc/sysconfig/network/dhcp » et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
 
     ```config
@@ -105,7 +101,8 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-13. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
+13. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+
 14. Ne créez pas d'espace swap sur le disque du système d'exploitation.
     
     L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :

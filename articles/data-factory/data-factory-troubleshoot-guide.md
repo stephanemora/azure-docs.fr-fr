@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654590"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -1008,7 +1008,16 @@ Pour plus d’informations, consultez [Bien démarrer avec Fiddler](https://docs
 ## <a name="general"></a>Général
 
 ### <a name="activity-stuck-issue"></a>Problème d’activité bloquée
+
 Si vous remarquez que l’exécution de l’activité dure beaucoup plus longtemps que vos exécutions normales et qu’elle ne progresse pratiquement pas, elle peut être bloquée. Vous pouvez essayer de l’annuler et de faire une nouvelle tentative pour voir si cela est utile. S’il s’agit d’une activité de copie, vous pouvez en savoir plus sur l’analyse des performances et la résolution des problèmes en consultant la section [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md) ; s’il s’agit d’un flux de données, consultez la section [Performances des flux de données de mappage](concepts-data-flow-performance.md) et le guide de réglage.
+
+### <a name="payload-is-too-large"></a>La charge utile est trop grande
+
+**Message d’erreur :** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, le ou les jeux de données associés et les configurations du ou des services liés le cas échéant, et une petite partie des propriétés système générées par type d’activité. La limite de cette taille de charge utile est de 896 ko, comme indiqué dans [Limites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+
+**Recommandation :** Vous atteignez cette limite probablement parce que vous transmettez une ou plusieurs grandes valeurs de paramètres à partir de la sortie d’une activité en amont ou d’un élément externe, surtout si vous transmettez des données réelles entre les activités dans le flux de contrôle. Vérifiez si vous pouvez réduire la taille des valeurs de paramètres élevées, ou paramétrez votre logique de pipeline pour éviter de transmettre de telles valeurs entre les activités et pour les gérer plutôt à l’intérieur de l’activité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

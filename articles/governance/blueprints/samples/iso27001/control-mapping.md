@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint ISO 27001
 description: Mappage des contrôles de l’exemple de blueprint ISO 27001. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420228"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842496"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mappage des contrôles de l’exemple blueprint ISO 27001
 
@@ -84,7 +84,7 @@ Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../../../ro
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Sécuriser les procédures de connexion
 
-Ce blueprint attribue trois définitions Azure Policy afin d’auditer les comptes pour lesquels l’authentification multifacteur n’est pas activée. L’authentification multifacteur Azure fournit une sécurité supplémentaire en exigeant une deuxième forme d’authentification, et procure une authentification renforcée. En supervisant les comptes pour lesquels l’authentification multifacteur n’est pas activée, vous pouvez identifier ceux qui sont plus susceptibles d’être compromis.
+Ce blueprint attribue trois définitions Azure Policy afin d’auditer les comptes pour lesquels l’authentification multifacteur n’est pas activée. L’authentification multifacteur Azure AD fournit une sécurité supplémentaire en exigeant une deuxième forme d’authentification, et procure une authentification renforcée. En supervisant les comptes pour lesquels l’authentification multifacteur n’est pas activée, vous pouvez identifier ceux qui sont plus susceptibles d’être compromis.
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement

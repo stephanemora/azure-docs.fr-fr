@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789809"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556435"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Comment utiliser Azure PowerShell pour approvisionner SQL Server sur des machines virtuelles Azure
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="configure-your-subscription"></a>Configurer votre abonnement
 
-1. Ouvrez PowerShell et accédez à votre compte Azure en exécutant la commande **Connect-AzAccount** .
+1. Ouvrez PowerShell et accédez à votre compte Azure en exécutant la commande **Connect-AzAccount**.
 
    ```powershell
    Connect-AzAccount
@@ -135,7 +135,7 @@ Utilisez les variables suivantes pour définir l’image SQL Server à utiliser 
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. Dans ce didacticiel, utilisez l’édition Developer de SQL Server 2017 ( **SQLDEV** ). La Developer Edition est librement concédée sous licence pour le développement et le test, et vous ne payez que pour le coût d’exécution de la machine virtuelle.
+1. Dans ce didacticiel, utilisez l’édition Developer de SQL Server 2017 (**SQLDEV**). La Developer Edition est librement concédée sous licence pour le développement et le test, et vous ne payez que pour le coût d’exécution de la machine virtuelle.
 
    ```powershell
    $Sku = "SQLDEV"
@@ -367,12 +367,17 @@ La machine virtuelle est créée.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installer l’agent IaaS SQL
 
-Les machines virtuelles SQL Server prennent en charge les fonctionnalités de gestion automatisées avec l’[Extension de l’Agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Pour installer l’agent sur la nouvelle machine virtuelle et l’inscrire auprès du fournisseur de ressources, exécutez la commande [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) une fois que la machine virtuelle a été créée. Spécifiez le type de licence pour votre machine virtuelle SQL Server, en choisissant entre le paiement à l’utilisation ou BYOL par le biais d’[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Pour plus d’informations sur les licences, consultez [Modèle de licence](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Les machines virtuelles SQL Server prennent en charge les fonctionnalités de gestion automatisées avec l’[Extension de l’Agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Pour inscrire votre instance SQL auprès de l’extension, exécutez la commande [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) après la création de la machine virtuelle. Spécifiez le type de licence pour votre machine virtuelle SQL Server, en choisissant entre le paiement à l’utilisation ou BYOL par le biais d’[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Pour plus d’informations sur les licences, consultez [Modèle de licence](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Il existe trois façons de s’inscrire auprès de l’extension : 
+- [Automatiquement pour toutes les machines virtuelles actuelles et futures dans un abonnement](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manuellement pour une seule machine virtuelle](sql-agent-extension-manually-register-single-vm.md)
+- [Manuellement pour plusieurs machines virtuelles en bloc](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Arrêter ou supprimer une machine virtuelle
@@ -383,11 +388,11 @@ Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, v
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzResourceGroup** . Dans la mesure où cette commande supprime la machine virtuelle de façon définitive, utilisez-la avec précaution.
+Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzResourceGroup**. Dans la mesure où cette commande supprime la machine virtuelle de façon définitive, utilisez-la avec précaution.
 
 ## <a name="example-script"></a>Exemple de script
 
-Le script suivant contient le script PowerShell complet pour ce didacticiel. Nous supposons que vous avez déjà configuré l’abonnement Azure à utiliser avec les commandes **Connect-AzAccount** et **Select-AzSubscription** .
+Le script suivant contient le script PowerShell complet pour ce didacticiel. Nous supposons que vous avez déjà configuré l’abonnement Azure à utiliser avec les commandes **Connect-AzAccount** et **Select-AzSubscription**.
 
 ```powershell
 # Variables

@@ -1,6 +1,6 @@
 ---
 title: Types d’application pour la plateforme d’identité Microsoft | Azure
-description: Types d’applications et de scénarios pris en charge par le point de terminaison de la plateforme d’identité Microsoft (version 2.0).
+description: Types d’applications et de scénarios pris en charge par le point de terminaison de la plateforme d’identité Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103150"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628082"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
-Le point de terminaison de la plateforme d’identité Microsoft v2.0 prend en charge l’authentification pour plusieurs architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide de la plateforme d’identité Microsoft, quelle que soit votre plateforme ou votre langage préférés. Ces informations sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de [commencer à manipuler le code](v2-overview.md#getting-started).
+Le point de terminaison de la plateforme d’identité Microsoft prend en charge l’authentification pour plusieurs architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide de la plateforme d’identité Microsoft, quelle que soit votre plateforme ou votre langage préférés. Ces informations sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de commencer à manipuler le code dans les [scénarios d’application](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Concepts de base
 
@@ -81,10 +81,9 @@ Dans les applications de serveur web, le flux d’authentification de connexion 
 
 Vous pouvez vérifier l’identité de l’utilisateur en validant le jeton d’ID avec une clé de signature publique reçue du point de terminaison de la plateforme d’identité Microsoft. Un cookie de session qui peut être utilisé pour identifier l’utilisateur sur les requêtes de page suivantes est défini.
 
-Pour voir ce scénario en action, exécutez l’un des exemples de code de connexion d’application web dans la section relative à la [prise en main de la plateforme d’identité Microsoft](v2-overview.md#getting-started).
+Pour voir ce scénario en action, essayez les exemples de code du [scénario d'application web qui connecte des utilisateurs](scenario-web-app-sign-user-overview.md).
 
 En plus de la connexion simple, une application de serveur web peut également nécessiter l’accès à un autre service Web, comme une API REST. Dans ce cas, l’application de serveur web s’engager dans un flux OpenID Connect et OAuth 2.0 à l’aide du [flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md). Pour en savoir plus sur ce scénario, découvrez comment [la bien démarrer avec les applications web et des API web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## <a name="web-apis"></a>API Web
 
@@ -106,7 +105,7 @@ Une API web peut recevoir des jetons d’accès de tous types d’applications, 
 
 ![Affiche le flux d’authentification d’API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API web de la section [Prise en main de la plateforme d’identités Microsoft](v2-overview.md#getting-started).
+Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API web du [scénario d’API web protégée](scenario-protected-web-api-overview.md).
 
 Dans de nombreux cas, les API web doivent également envoyer des demandes à d’autres API web en aval, sécurisées par la plateforme d’identité Microsoft. Pour ce faire, elles peuvent utiliser le flux **Au nom de** d’Azure AD, qui permet à l’API web d’échanger un jeton d’accès entrant contre un autre jeton d’accès, à utiliser pour les requêtes sortantes. Pour en savoir plus, voir [Plateforme d’identité Microsoft et flux On-Behalf-Of OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 

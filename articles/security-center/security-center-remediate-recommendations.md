@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569133"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637084"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -38,7 +38,14 @@ Après avoir lu toutes les recommandations, vous devez décider laquelle appliqu
 
 ## <a name="quick-fix-remediation"></a>Application d’un correctif rapide<a name="one-click"></a>
 
-Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. Ceci est disponible uniquement pour des recommandations spécifiques. Le correctif rapide simplifie le processus de correction et vous permet d’accroître rapidement votre niveau de sécurité, ce qui entraîne ainsi une amélioration de la sécurité de votre environnement.
+Le correctif rapide simplifie le processus de correction et vous permet d’accroître rapidement votre niveau de sécurité, ce qui entraîne ainsi une amélioration de la sécurité de votre environnement.
+
+Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. 
+
+> [!TIP]
+> Le correctif rapide est disponible uniquement pour des recommandations spécifiques. Pour trouver les recommandations incluant l’option de correctif rapide, utilisez le filtre dédié en haut de la liste des recommandations :
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres au-dessus de la liste des recommandations pour rechercher des recommandations incluant l’option correctif rapide":::
 
 Pour mettre en œuvre une application rapide des correctifs :
 

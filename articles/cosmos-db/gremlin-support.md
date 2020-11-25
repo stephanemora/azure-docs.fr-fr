@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082995"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683622"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Prise en charge des graphes Azure Cosmos DB Gremlin et compatibilité avec les fonctionnalités TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,6 +32,7 @@ Le tableau suivant présente des pilotes Gremlin courants que vous pouvez utilis
 | [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Créer un graphe avec Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Créer un graphe avec Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP sur GitHub](https://github.com/PommeVerte/gremlin-php) | [Créer un graphe avec PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | Cette bibliothèque a été créée par des contributeurs externes. L’équipe Azure Cosmos DB ne fournit donc aucun support ni maintenance pour celle-ci. |
 | [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documents TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Créer un graphe à l’aide de la console Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>Objets graphiques pris en charge
@@ -168,7 +169,7 @@ Le moteur optimisé pour l’écriture fourni par Azure Cosmos DB prend en charg
 
 ## <a name="behavior-differences"></a>Différences de comportement
 
-* Le moteur de graphe Azure Cosmos DB fonctionne en * **largeur d’abord** _ sur la traversée tandis que TinkerPop Gremlin fonctionne en profondeur d’abord. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB.
+* Le moteur de graphe Azure Cosmos DB fonctionne en ***largeur d’abord** _ sur la traversée tandis que TinkerPop Gremlin fonctionne en profondeur d’abord. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB.
 
 ## <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 
@@ -176,15 +177,15 @@ _ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gre
 
 _ La cardinalité des ensembles * **`property(set, 'xyz', 1)`** _ n’est actuellement pas prise en charge. Utilisez `property(list, 'xyz', 1)` à la place. Pour plus d’informations, consultez [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties) (Propriétés de vertex avec TinkerPop).
 
-_ L’* **étape `match()`** _ n’est actuellement pas disponible. Cette étape fournit des fonctions d’interrogation déclarative.
+_ L’***étape `match()`** _ n’est actuellement pas disponible. Cette étape fournit des fonctions d’interrogation déclarative.
 
-_ Les * **objets en tant que propriétés** _ sur les sommets ou arêtes ne sont pas pris en charge. Les propriétés peuvent uniquement être des types primitifs ou des tableaux.
+_ Les ***objets en tant que propriétés** _ sur les sommets ou arêtes ne sont pas pris en charge. Les propriétés peuvent uniquement être des types primitifs ou des tableaux.
 
-_ Le * **tri par propriétés de tableau** _ `order().by(<array property>)` n’est pas pris en charge. Seul est pris en charge le tri par types primitifs.
+_ Le ***tri par propriétés de tableau** _ `order().by(<array property>)` n’est pas pris en charge. Seul est pris en charge le tri par types primitifs.
 
-_ Les * **types JSON non primitifs** _ ne sont pas pris en charge. Utilisez les types `string`, `number` ou `true`/`false`. Les valeurs `null` ne sont pas prises en charge. 
+_ Les ***types JSON non primitifs** _ ne sont pas pris en charge. Utilisez les types `string`, `number` ou `true`/`false`. Les valeurs `null` ne sont pas prises en charge. 
 
-_ Le sérialiseur * **GraphSONv3** n’est actuellement pas pris en charge. Utilisez les classes de sérialiseur, de lecteur et d’enregistreur `GraphSONv2` dans la configuration de la connexion. Les résultats renvoyés par l'API Azure Cosmos DB Gremlin ne sont pas au format GraphSON. 
+_ Le sérialiseur ***GraphSONv3** n’est actuellement pas pris en charge. Utilisez les classes de sérialiseur, de lecteur et d’enregistreur `GraphSONv2` dans la configuration de la connexion. Les résultats renvoyés par l'API Azure Cosmos DB Gremlin ne sont pas au format GraphSON. 
 
 _ Les **fonctions et expressions lambda** ne sont actuellement pas prises en charge. Cela comprend les fonctions `.map{<expression>}`, `.by{<expression>}` et `.filter{<expression>}`. Pour plus d’informations et pour découvrir comment les réécrire à l’aide d’étapes Gremlin, consultez [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) (Remarque sur les lambdas).
 
@@ -192,7 +193,7 @@ _ Les **fonctions et expressions lambda** ne sont actuellement pas prises en cha
 
 ## <a name="known-limitations"></a>Limitations connues
 
-_ **Étapes de l’utilisation de l’index pour les requêtes Gremlin avec `.V()` à mi-parcours**  : Actuellement, seul le premier appel `.V()` d’une traversée utilisera l’index pour résoudre les filtres ou prédicats qui lui sont associés. Les appels suivants ne consultent pas l’index, ce qui peut augmenter la latence et le coût de la requête.
+_ **Étapes de l’utilisation de l’index pour les requêtes Gremlin avec `.V()` à mi-parcours** : Actuellement, seul le premier appel `.V()` d’une traversée utilisera l’index pour résoudre les filtres ou prédicats qui lui sont associés. Les appels suivants ne consultent pas l’index, ce qui peut augmenter la latence et le coût de la requête.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685934"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Dans les environnements en cluster locaux traditionnels, un cluster de basculeme
 
 SQL Server sur les machines virtuelles Azure offre différentes options en tant que solution de stockage partagé pour un déploiement d’instances SQL Server de cluster de basculement : 
 
-||[Disques partagés Azure](../../../virtual-machines/windows/disks-shared.md)|[Partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Disques partagés Azure](../../../virtual-machines/disks-shared.md)|[Partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Version de système d’exploitation minimale**| Tous |Windows Server 2012|Windows Server 2016|
 |**Version minimale de SQL Server**|Tous|SQL Server 2012|SQL Server 2016|
@@ -58,12 +58,12 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 
 ### <a name="azure-shared-disks"></a>Disques partagés Azure
 
-[Les disques partagés Azure](../../../virtual-machines/windows/disks-shared.md) sont une fonctionnalité des [disques managés Azure](../../../virtual-machines/managed-disks-overview.md). Le clustering de basculement Windows Server prend en charge l’utilisation de disques partagés Azure avec une instance de cluster de basculement. 
+[Les disques partagés Azure](../../../virtual-machines/disks-shared.md) sont une fonctionnalité des [disques managés Azure](../../../virtual-machines/managed-disks-overview.md). Le clustering de basculement Windows Server prend en charge l’utilisation de disques partagés Azure avec une instance de cluster de basculement. 
 
-**Systèmes d’exploitation pris en charge**  : Tous   
-**Version de SQL pris en charge**  : Tous     
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous     
 
-**Avantages**  : 
+**Avantages** : 
 - Utile pour les applications qui cherchent à migrer vers Azure tout en conservant leur architecture de haute disponibilité et de récupération d’urgence (HADR) telle quelle. 
 - Peut migrer des applications en cluster vers Azure en raison de la prise en charge des réservations persistantes SCSI (SCSI PR). 
 - Prend en charge le stockage SSD Premium Azure partagées et Disque Ultra Azure.
@@ -71,7 +71,7 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 - Prend en charge Filestream.
 
 
-**Limitations**  : 
+**Limitations** : 
 - Les machines virtuelles doivent être placées dans le même groupe à haute disponibilité et le même groupe de placement de proximité.
 - Les zones de disponibilité ne sont pas prises en charge.
 - La mise en cache des disques SSD Premium n’est pas prise en charge.
@@ -82,8 +82,8 @@ Pour commencer, consultez [Instance de cluster de basculement SQL Server avec di
 
 [Espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) est une fonctionnalité Windows Server prise en charge avec le clustering de basculement sur les machines virtuelles Azure. Il fournit un réseau SAN virtuel basé sur logiciel.
 
-**Systèmes d’exploitation pris en charge**  : Windows Server 2016 et versions ultérieures   
-**Version de SQL pris en charge**  : SQL Server 2016 et versions ultérieures   
+**Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
+**Version de SQL pris en charge** : SQL Server 2016 et versions ultérieures   
 
 
 **Avantages :** 
@@ -104,8 +104,8 @@ Pour commencer, consultez [Instance de cluster de basculement SQL Server avec es
 
 [Les partages de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) sont une fonctionnalité d’[Azure Files](../../../storage/files/index.yml). Les partages de fichiers Premium sont des disques SSD sauvegardés et ont une faible latence. Ils sont entièrement pris en charge pour une utilisation avec les instances de cluster de basculement pour SQL Server 2012 ou version ultérieure sur Windows Server 2012 ou version ultérieure. Les partages de fichiers Premium vous offrent une plus grande flexibilité, car vous pouvez redimensionner et mettre à l’échelle un partage de fichiers sans temps d’arrêt.
 
-**Systèmes d’exploitation pris en charge**  : Windows Server 2012 et ultérieur   
-**Version de SQL pris en charge**  : SQL Server 2012 et versions ultérieures   
+**Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
+**Version de SQL pris en charge** : SQL Server 2012 et versions ultérieures   
 
 **Avantages :** 
 - Seule une solution de stockage partagé pour les machines virtuelles est répartie sur plusieurs zones de disponibilité. 
@@ -122,8 +122,8 @@ Pour commencer, consultez [Instance de cluster de basculement SQL Server avec pa
 
 Il existe des solutions de clustering de partenaires avec stockage pris en charge. 
 
-**Systèmes d’exploitation pris en charge**  : Tous   
-**Version de SQL pris en charge**  : Tous   
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous   
 
 Un exemple utilise le stockage DataKeeper SIOS. Pour plus d’informations, consultez l’entrée de blog [Cluster de basculement et DataKeeper SIOS](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ Un exemple utilise le stockage DataKeeper SIOS. Pour plus d’informations, cons
 
 Vous pouvez également exposer un stockage de bloc partagé cible iSCSI via Azure ExpressRoute. 
 
-**Systèmes d’exploitation pris en charge**  : Tous   
-**Version de SQL pris en charge**  : Tous   
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous   
 
 Par exemple, NPS (NetApp Private Storage) expose une cible iSCSI via ExpressRoute avec Equinix dans les machines virtuelles Azure.
 
@@ -148,10 +148,11 @@ Pour plus d’informations sur les options de connectivité des clusters, consul
 
 Tenez compte des limitations suivantes pour les instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure. 
 
-### <a name="lightweight-resource-provider"></a>Fournisseur de ressources légères   
-Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le mode de gestion [léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) de l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, décochez la case en regard de la machine virtuelle concernée. 
+### <a name="lightweight-extension-support"></a>Prise en charge d’extension légère   
 
-L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL Server une fois l’agent réinstallé en mode de gestion léger.
+Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](sql-server-iaas-agent-extension-automate-management.md#management-modes) de l’extension SQL Server IaaS Agent. Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès de l’extension SQL IaaS Agent en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, décochez la case à côté de la machine virtuelle appropriée pour éviter de supprimer la machine virtuelle. 
+
+L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne marchent pas pour les machines virtuelles SQL Server inscrites en mode de gestion léger.
 
 ### <a name="msdtc"></a>MSDTC 
 

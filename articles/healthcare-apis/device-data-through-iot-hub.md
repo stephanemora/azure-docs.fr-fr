@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: ee286540d4fd740c5e7c1f8bd693fddd625eeae2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6c364cf84bada2a951ef3f224ea836885f0e3c1e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398145"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636314"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutoriel : Recevoir des données d’appareil via Azure IoT Hub
 
-Le Connecteur Azure IoT pour FHIR vous offre la possibilité d’ingérer des données à partir d’appareils de l’Internet des objets médicaux (IoMT, Internet of Medical Things) dans l’API Azure pour FHIR. Le guide de démarrage rapide [Déployer le Connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure](iot-fhir-portal-quickstart.md) montre un exemple d’appareil managé par Azure IoT Central [envoyant des données de télémétrie](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) au Connecteur Azure IoT pour FHIR . Le Connecteur IoT pour FHIR peut également fonctionner avec des appareils approvisionnés et managés par Azure IoT Hub. Ce tutoriel présente la procédure à suivre pour connecter et router des données d’appareil depuis Azure IoT Hub vers le Connecteur Azure IoT pour FHIR.
+Le Connecteur Azure IoT pour Fast Healthcare Interoperability Resources (FHIR&#174;)* vous offre la possibilité d’ingérer des données à partir d’appareils de l’Internet des objets médicaux (IoMT, Internet of Medical Things) dans l’API Azure pour FHIR. Le guide de démarrage rapide [Déployer le Connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure](iot-fhir-portal-quickstart.md) montre un exemple d’appareil managé par Azure IoT Central [envoyant des données de télémétrie](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) au Connecteur Azure IoT pour FHIR . Le Connecteur IoT pour FHIR peut également fonctionner avec des appareils approvisionnés et managés par Azure IoT Hub. Ce tutoriel présente la procédure à suivre pour connecter et router des données d’appareil depuis Azure IoT Hub vers le Connecteur Azure IoT pour FHIR.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -113,6 +113,4 @@ Découvrez comment configurer le connecteur IoT à l’aide de modèles de mappa
 >[!div class="nextstepaction"]
 >[Modèles de mappage du Connecteur Azure IoT pour FHIR](iot-mapping-templates.md)
 
-*Dans le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
-
-FHIR est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
+*Sur le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.

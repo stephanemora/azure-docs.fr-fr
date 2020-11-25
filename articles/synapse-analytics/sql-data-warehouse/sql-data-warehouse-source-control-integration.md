@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313291"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700995"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Intégration du contrôle de code source pour le pool SQL dédié dans Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
    ![Gérer les connexions](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gérer les connexions")
 
-3. Connectez-vous à votre projet en sélectionnant **Gérer les connexions** , puis **Se connecter à un projet**.
+3. Connectez-vous à votre projet en sélectionnant **Gérer les connexions**, puis **Se connecter à un projet**.
  ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Se connecter")
 
 
@@ -85,7 +85,7 @@ Pour plus d’informations sur la connexion de projets en utilisant Visual Studi
 
    ![Vérifier](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Vérifier les changements")
 
-4. ( **Facultatif** ) Utilisez Comparer les schémas et mettez à jour les changements apportés à votre entrepôt de données cible à l’aide de SSDT pour être certain que les définitions d’objets dans votre dépôt Azure et le dépôt local reflètent votre entrepôt de données.
+4. (**Facultatif**) Utilisez Comparer les schémas et mettez à jour les changements apportés à votre entrepôt de données cible à l’aide de SSDT pour être certain que les définitions d’objets dans votre dépôt Azure et le dépôt local reflètent votre entrepôt de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

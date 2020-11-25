@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071368"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638901"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -156,7 +156,7 @@ La stratégie `forward-request` transfère la demande entrante au service princi
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Exemples
@@ -255,6 +255,7 @@ Cette stratégie au niveau de l’opération ne transmet pas de demandes au serv
 | timeout="integer"                             | Durée, en secondes, de l’attente du retour des en-têtes de réponse HTTP par le service back-end avant de déclencher une erreur de délai d’expiration. La valeur minimale est 0 seconde. Il est possible que les valeurs supérieures à 240 secondes ne soient pas prises en compte, car l’infrastructure réseau sous-jacente peut supprimer des connexions inactives après ce délai. | Non       | None    |
 | follow-redirects="false &#124; true"          | Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.                                                                                                                                                                                                    | Non       | false   |
 | buffer-request-body="false &#124; true"       | Quand la valeur est « true », la demande est mise en mémoire tampon et sera réutilisée lors d’une [nouvelle tentative](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Non       | false   |
+| buffer-response="false &#124; true" | Affecte le traitement des réponses mémorisées en bloc. Quand la valeur est « false », chaque bloc reçu du back-end est immédiatement retourné à l’appelant. Quand la valeur est définie sur « true », les blocs sont mis en mémoire tampon (8 ko, sauf si la fin du flux est détectée) puis retournés à l’appelant. | Non | true |
 | fail-on-error-status-code="false &#124; true" | Quand la valeur est true, la section [on-error](api-management-error-handling-policies.md) est déclenchée pour les codes de réponse dans la plage comprise entre 400 et 599.                                                                                                                                                                      | Non       | false   |
 
 ### <a name="usage"></a>Usage

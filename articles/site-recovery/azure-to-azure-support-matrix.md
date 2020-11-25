@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b73a6b8c024cfa5ed7188bbf3fed2bbb7142a2a0
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186635"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646370"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -54,7 +54,7 @@ Régions restreintes réservées pour la reprise d’activité après sinistre d
 
 >[!NOTE]
 >
-> - Pour **Brésil Sud** , vous pouvez répliquer et basculer vers ces régions : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
+> - Pour **Brésil Sud**, vous pouvez répliquer et basculer vers ces régions : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
 > - Brésil Sud fait uniquement office de région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de Site Recovery. Elle ne peut pas faire office de région cible et ce, en raison de problèmes de latence dus aux distances géographiques. Notez que si vous basculez du Brésil Sud en tant que région source vers une cible, la restauration automatique vers le Brésil Sud à partir de la région cible est prise en charge.
 > - Vous pouvez travailler dans des régions pour lesquelles vous disposez d'un accès approprié.
 > - Si la région où vous souhaitez créer un coffre ne s'affiche pas, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région.
@@ -100,10 +100,10 @@ Windows 7 (x64) avec SP1 et versions ultérieures | À partir de la version [9.
 --- | ---
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/)
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10 </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), [version pré-GA 7.9](https://support.microsoft.com/help/4578241/), la version GA 7.9 est prise en charge à partir du correctif logiciel à chaud** 9.37 </br> 8.0, 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609)
-Serveur LTS Ubuntu 14.04 | Prend en charge toutes les versions 14.04. *x*  ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) ; 
-Serveur LTS Ubuntu 16.04 | Prend en charge toutes les versions 16.04. *x*  ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Sur les serveurs Ubuntu utilisant l’authentification et la connexion basées sur un mot de passe, et le package cloud-init pour configurer des machines virtuelles cloud, la connexion basée sur un mot de passe peut être désactivée lors du basculement (en fonction de la configuration de cloudinit). La connexion basée sur un mot de passe peut être réactivée sur la machine virtuelle en réinitialisant le mot de passe dans le menu Support > Résolution des problèmes > Paramètres (de la machine virtuelle basculée sur le portail Azure).
-Serveur Ubuntu 18.04 LTS | Prend en charge toutes les versions 18.04. *x*  ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
-Serveur Ubuntu 20.04 LTS | Prend en charge toutes les versions 20.04. *x*  ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+Serveur LTS Ubuntu 14.04 | Prend en charge toutes les versions 14.04.*x* ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) ; 
+Serveur LTS Ubuntu 16.04 | Prend en charge toutes les versions 16.04.*x* ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Sur les serveurs Ubuntu utilisant l’authentification et la connexion basées sur un mot de passe, et le package cloud-init pour configurer des machines virtuelles cloud, la connexion basée sur un mot de passe peut être désactivée lors du basculement (en fonction de la configuration de cloudinit). La connexion basée sur un mot de passe peut être réactivée sur la machine virtuelle en réinitialisant le mot de passe dans le menu Support > Résolution des problèmes > Paramètres (de la machine virtuelle basculée sur le portail Azure).
+Serveur Ubuntu 18.04 LTS | Prend en charge toutes les versions 18.04.*x* ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Serveur Ubuntu 20.04 LTS | Prend en charge toutes les versions 20.04.*x* ; [Versions de noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Inclut la prise en charge pour toutes les versions 7. *x* [Versions du noyau prises en charge](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Inclut la prise en charge pour toutes les versions 8. *x* [Versions du noyau prises en charge](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 9 | Inclut la prise en charge pour les versions 9.1 à 9.13. Debian 9.0 n’est pas pris en charge. [Versions du noyau prises en charge](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -131,7 +131,7 @@ LTS 16.04 | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://s
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic à 4.15.0-112-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-58-generic </br> 5.3.0-19-generic à 5.3.0-65-generic </br> 5.4.0-37-generic à 5.4.0-42-generic</br> 4.15.0-1009-azure à 4.15.0-1092-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1032-azure </br> 5.4.0-1020-azure à 5.4.0-1022-azure </br> 5.0.0-60-generic et 5.3.0-1035-azure via le correctif logiciel à chaud 9.36**|
 18.04 LTS | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generic à 4.15.0-108-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-52-generic </br> 5.3.0-19-generic à 5.3.0-61-generic </br> 4.15.0-1009-azure à 4.15.0-1089-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1031-azure </br> 4.15.0-109-generic, 5.0.0-53-generic, 5.3.0-62-generic, 4.15.0-1091-azure & 5.3.0-1032-azure à 9.35 (correctif logiciel à chaud)**|
 |||
-20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic à 5.4.0-48 </br> -generic 5.4.0-1010-azure à 5.4.0-1026-azure </br> 5.4.0-51-generic, 5.4.0-52-generic, 5.8.0-23-generic, 5.4.0-1031-azure à 9.38 (correctif logiciel à chaud)**
+20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic à 5.4.0-48 </br> -generic 5.4.0-1010-azure à 5.4.0-1026-azure </br> 5.4.0-51-generic, 5.4.0-52-generic, 5.8.0-23-generic, 5.8.0-25-generic, 5.4.0-1031-azure via le correctif logiciel à chaud 9.38**
 20.04 LTS |[9.37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-generic à 5.4.0-45 </br> -generic 5.4.0-1010-azure à 5.4.0-1023-azure </br> 5.4.0-47-generic, 5.4.0-48-generic, 5.4.0-1025-azure, 5.4.0-1026-azure via le correctif logiciel à chaud** 9.37
 20.04 LTS |[9.36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-generic à 5.4.0-42 </br> -generic 5.4.0-1010-azure à 5.4.0-1022-azure
 
@@ -146,7 +146,7 @@ Debian 7 |  [9.34](https://support.microsoft.com/help/4570609), [9.35](https://
 Debian 8 | [9.35](https://support.microsoft.com/help/4573888/, ), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/) | 3.16.0-4-amd64 à 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.11-amd64 |
 Debian 8 | [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 à 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 à 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 à 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 à 4.19.0-0.bpo.11-cloud-amd64 </br> 
+Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 à 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 à 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 à 4.19.0-0.bpo.11-cloud-amd64 </br> 4.9.0-14-amd64, 4.19.0-0.bpo.12-amd64, 4.19.0-0.bpo.12-cloud-amd64 via le correctif logiciel à chaud 9.38**
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 to 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64 à 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64 à 4.19.0-0.bpo.10-cloud-amd64
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versions du noyau SUSE Linux Enterprise Server 12 prises en charge pour les machines virtuelles Azure

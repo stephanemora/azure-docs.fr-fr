@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816233"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683503"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -186,13 +186,13 @@ Pour plus d’informations, consultez la documentation OpenShift sur la désacti
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quels droits UNIX (dans IaaS) sont disponibles pour les nœuds principaux/d’infrastructure/d’application ?
 
-Pour les clusters 4.x, l’accès aux nœuds est disponible via le rôle Administrateur de cluster. Pour plus d’informations, consultez [Vue d’ensemble du RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Pour les clusters 4.x, l’accès aux nœuds est disponible via le rôle Administrateur de cluster. Pour plus d’informations, consultez [Vue d’ensemble de RBAC Kubernetes](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Pour les clusters 3.11, l’accès aux nœuds est interdit.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>De quels droits OCP disposons-nous ? Administrateur de cluster ? Administrateur de projet ?
 
-Pour les clusters 4.x, le rôle Administrateur de cluster est disponible. Pour plus d’informations, consultez [Vue d’ensemble du RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Pour les clusters 4.x, le rôle Administrateur de cluster est disponible. Pour plus d’informations, consultez [Vue d’ensemble de RBAC Kubernetes](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Pour plus d’informations sur les clusters 3.11, consultez la [vue d’ensemble de l’administration des clusters](https://docs.openshift.com/aro/admin_guide/index.html).
 

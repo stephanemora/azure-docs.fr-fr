@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dc725839d018c281dc784f5f83b256e62d70884d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411556"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635413"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -98,9 +98,9 @@ Il n’y a aucun temps d’arrêt lors du transfert d’un compte ou d’une ins
 
 Pour transformer un abonnement Enterprise en abonnement individuel avec des tarifs de paiement à l’utilisation, vous devez créer une demande de support dans le portail Azure Enterprise. Pour créer une demande de support, sélectionnez **+ Nouvelle demande de support** dans la zone **Aide et support**.
 
-## <a name="change-account-owner"></a>Changer le propriétaire du compte
+## <a name="change-azure-subscription-or-account-ownership"></a>Modifier l’abonnement Azure ou la propriété du compte
 
-Le portail Azure EA peut transférer des abonnements d’un propriétaire de compte à un autre. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-administration.md#change-account-owner).
+Le portail Azure EA peut transférer des abonnements d’un propriétaire de compte à un autre. Pour plus d’informations, consultez [Modifier l’abonnement Azure ou la propriété du compte](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## <a name="subscription-transfer-effects"></a>Effets d’un transfert d'abonnement
 

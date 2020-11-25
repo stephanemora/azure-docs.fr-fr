@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88520768"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660336"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI
 
@@ -27,19 +27,9 @@ L’interface de ligne de commande Azure (Azure CLI) est l’expérience de lign
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>Installer l’interface Azure CLI localement
-
-Si vous choisissez d’installer et d’utiliser l’interface Azure CLI localement, vous devez exécuter Azure CLI version 2.0.46 ou ultérieure pour ce démarrage rapide. Exécutez `az --version` pour déterminer votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
-
-Si vous exécutez Azure CLI localement, vous devez vous connecter et vous authentifier. Cette étape n’est pas nécessaire si vous utilisez Azure Cloud Shell. Pour vous connecter à Azure CLI, exécutez `az login` et authentifiez-vous dans la fenêtre du navigateur :
-
-```azurecli
-az login
-```
-
-Pour plus d’informations sur l’authentification avec Azure CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
+- Cet article nécessite la version 2.0.46 ou ultérieure de l’interface Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="authorize-access-to-blob-storage"></a>Autoriser l’accès au stockage Blob
 

@@ -9,24 +9,24 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f9a5197b982958fe0a0ff21c4b442142beb38882
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422465"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701080"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Qu’est-ce que la Recherche cognitive Azure ?
 
 La Recherche cognitive Azure ([anciennement la « Recherche Azure »](whats-new.md#new-service-name)) est un service de recherche cloud qui offre aux développeurs des API et des outils permettant d’élaborer une expérience de recherche riche, sur du contenu privé et hétérogène, dans les applications web, mobiles et d’entreprise.
 
-Lorsque vous créez un service Recherche cognitive, vous bénéficiez d’un moteur de recherche effectuant l’indexation et l’exécution des requêtes, d’un stockage persistant des index que vous créez et gérez, ainsi que d’un langage de requête permettant de composer des requêtes simples ou complexes. Le cas échéant, un service de recherche s’intègre à d’autres services Azure. Il le fait sous la forme d’ *indexeurs* qui automatisent l’ingestion/la récupération des données à partir des sources de données Azure, et sous la forme d’ *ensembles de compétences* qui incorporent l’intelligence artificielle consommable à partir de Cognitive Services (par exemple, l’analyse des images et du texte) ou l’intelligence artificielle personnalisée que vous créez dans Azure Machine Learning ou wrappez dans Azure Functions.
+Lorsque vous créez un service Recherche cognitive, vous bénéficiez d’un moteur de recherche effectuant l’indexation et l’exécution des requêtes, d’un stockage persistant des index que vous créez et gérez, ainsi que d’un langage de requête permettant de composer des requêtes simples ou complexes. Le cas échéant, un service de recherche s’intègre à d’autres services Azure. Il le fait sous la forme d’*indexeurs* qui automatisent l’ingestion/la récupération des données à partir des sources de données Azure, et sous la forme d’*ensembles de compétences* qui incorporent l’intelligence artificielle consommable à partir de Cognitive Services (par exemple, l’analyse des images et du texte) ou l’intelligence artificielle personnalisée que vous créez dans Azure Machine Learning ou wrappez dans Azure Functions.
 
 ![Architecture de la Recherche cognitive Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architecture de Recherche cognitive Azure")
 
 D’un point de vue architectural, un service de recherche se trouve entre les magasins de données externes qui contiennent vos données non indexées, et une application cliente qui envoie des demandes de requête à un index de recherche et gère la réponse.  Un schéma d’index détermine la structure d’un contenu recherchable. 
 
-Les deux charges de travail principales d’un service de recherche sont l’ *indexation* et l’ *interrogation*.
+Les deux charges de travail principales d’un service de recherche sont l’*indexation* et l’*interrogation*.
 
 + L’indexation apporte du texte à votre service de recherche et le rend recherchable. En interne, le texte entrant est traité sous forme de jetons et stocké dans des index inversés qui permettent des recherches rapides. Pendant l’indexation, vous avez la possibilité d’ajouter des *compétences cognitives* prédéfinies par Microsoft ou des compétences personnalisées que vous créez. L’analyse et les transformations ultérieures peuvent déboucher sur de nouvelles informations et structures qui n’existaient pas avant, fournissant ainsi un utilitaire de valeur supérieure pour de nombreux scénarios de recherche et d’exploration de connaissances.
 
@@ -74,13 +74,13 @@ Une fois que vous avez défini un index, vous êtes prêt à charger du contenu.
 
 Le modèle d’envoi (push) « pousse » les documents JSON dans un index au moyen d’API à partir d’un [kit SDK](search-howto-dotnet-sdk.md) ou de [REST](/rest/api/searchservice/addupdate-or-delete-documents). Le jeu de données externe peut être pratiquement n’importe quelle source de données, à condition que les documents soient au format JSON.
 
-Le modèle de tirage (pull) « tire » les données à partir de sources sur Azure, et les envoie à un index de recherche. Le modèle de tirage est implémenté par l’intermédiaire d’ [*indexeurs*](/rest/api/searchservice/Indexer-operations) qui simplifient et automatisent certains aspects de l’ingestion de données, comme la connexion aux données, leur lecture et leur sérialisation. Les sources de données prises en charge comprennent Azure Cosmos DB, Azure SQL et Stockage Azure.
+Le modèle de tirage (pull) « tire » les données à partir de sources sur Azure, et les envoie à un index de recherche. Le modèle de tirage est implémenté par l’intermédiaire d’[*indexeurs*](/rest/api/searchservice/Indexer-operations) qui simplifient et automatisent certains aspects de l’ingestion de données, comme la connexion aux données, leur lecture et leur sérialisation. Les sources de données prises en charge comprennent Azure Cosmos DB, Azure SQL et Stockage Azure.
 
 ### <a name="step-4-send-queries-and-handle-responses"></a>Étape 4 : Envoyer des requêtes et gérer les réponses
 
 Après avoir rempli une index, vous pouvez [émettre des requêtes de recherche](search-query-overview.md) à destination du point de terminaison du service en utilisant des requêtes HTTP simples avec l’[API REST](/rest/api/searchservice/Search-Documents) ou le [SDK .NET](/dotnet/api/azure.search.documents.searchclient.search).
 
-Parcourez la page [Créer votre première application de recherche](tutorial-csharp-create-first-app.md) pour générer et étendre une page web qui collecte les entrées d’utilisateur et gère les résultats. Vous pouvez également utiliser [Postman pour les appels REST interactifs](search-get-started-postman.md) ou l’[Explorateur de recherche](search-explorer.md) intégré dans le portail Azure pour interroger un index existant.
+Parcourez la page [Créer votre première application de recherche](tutorial-csharp-create-first-app.md) pour générer et étendre une page web qui collecte les entrées d’utilisateur et gère les résultats. Vous pouvez également utiliser [Postman ou Visual Studio Code](search-get-started-rest.md) pour les appels REST interactifs ou l’[Explorateur de recherche](search-explorer.md) intégré dans le portail Azure pour interroger un index existant.
 
 ## <a name="how-it-compares"></a>Comparaison
 

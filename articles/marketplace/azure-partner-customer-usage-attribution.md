@@ -3,17 +3,17 @@ title: Place de marché commerciale - Attribution de partenaires et de l’utili
 description: Obtenir une vue d’ensemble du suivi de l’utilisation de client pour les solutions de la place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337897"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628388"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -74,9 +74,9 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
    * Les partenaires peuvent inscrire plusieurs GUID.
    * Les partenaires peuvent également enregistrer des GUID pour des modèles et des offres de solutions extérieures à la place de marché.
 
-1. Dans l’angle supérieur droit, sélectionnez l’icône des paramètres (engrenage), puis sélectionnez **Paramètres de développeur**.
+1. Cliquez sur l’icône d’engrenage **Settings** (Paramètres) dans le coin supérieur droit > **Account settings** (Paramètres du compte).
 
-1. Sur la page **Paramètres du compte**, sélectionnez **Ajouter un GUID de suivi**.
+1. Dans **Organization profile** (Profil d’organisation) > **Identifiers** (Identificateurs), sélectionnez **Add Tracking GUID** (Ajouter un GUID de suivi).
 
 1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe `pid-`. Dans la zone **Description**, entrez le nom ou la description de l’offre.
 
@@ -183,9 +183,10 @@ Si vous déployez des ressources par le biais d’Azure PowerShell, ajoutez votr
 
 Lorsque vous utilisez Azure CLI pour ajouter votre GUID, définissez la variable d’environnement **AZURE_HTTP_USER_AGENT**. Vous pouvez définir cette variable dans la portée d’un script. Vous pouvez également définir la variable de manière globale dans la portée de l’interpréteur de commandes :
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utiliser Terraform
@@ -206,7 +207,6 @@ Les partenaires qui souhaitent que leur déploiement via Terraform soit suivi en
 
 * Créez un GUID (le GUID doit être ajouté pour chaque offre ou référence SKU)
 * Mettez à jour le fournisseur Azure pour définir la valeur de *partner_id* sur le GUID (n’ajoutez PAS le préfixe « pid- » au GUID, affectez uniquement le GUID tel qu’il est)
-
 
 ## <a name="verify-the-guid-deployment"></a>Vérifier le déploiement du GUID
 
@@ -263,11 +263,11 @@ Les partenaires doivent informer leurs clients des déploiements utilisant l’a
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notification des déploiements de modèle Resource Manager
 
-Quand vous déployez ce modèle, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
+Quand vous déployez ce modèle, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notification de déploiement des kits SDK ou d’API
 
-Quand vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
+Quand vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
@@ -282,6 +282,7 @@ Découvrez les options de support disponibles via la place de marché commercial
     * Renseignez/vérifiez les informations de contact.
     * Les informations de consultation peuvent être préremplies. Sinon sélectionnez-les dans les listes déroulantes.
     * Entrez un titre et la description du problème (fournissez autant de détails que possible).
+
 1. Cliquez sur Envoyer.
 
 Consultez des instructions pas à pas avec captures d’écran dans [Utilisation des services techniques de prévente et de déploiement](https://aka.ms/TechConsultInstructions).

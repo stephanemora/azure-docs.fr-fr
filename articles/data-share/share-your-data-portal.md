@@ -5,22 +5,29 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489933"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577496"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Démarrage rapide : Partager des données avec Azure Data Share dans le portail Azure
 
-Dans ce guide de démarrage rapide, vous allez voir comment configurer une nouvelle instance d’Azure Data Share à l’aide du portail Azure.
+Dans ce guide de démarrage rapide, vous allez voir comment configurer une nouvelle instance d’Azure Data Share à l’aide du portail Azure afin de partager les données d’un compte de stockage.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
+* Si le magasin de données Azure source se trouve dans un autre abonnement Azure que celui que vous utiliserez pour créer une ressource de partage de données, inscrivez le [fournisseur de ressources Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) dans l’abonnement où se trouve le magasin de données Azure. 
 
+### <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
+
+* Compte Stockage Azure : Si vous n’en avez pas déjà, vous pouvez créer un [compte Stockage Azure](../storage/common/storage-account-create.md)
+* Autorisation d’écrire dans le compte de stockage, qui est présent dans *Microsoft.Storage/storageAccounts/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle **Propriétaire**. 
 
 ## <a name="create-a-data-share-account"></a>Créer un compte Data Share
 
@@ -67,7 +74,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
    ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
-1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure Synapse Analytics, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
+1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. 
 
    ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 

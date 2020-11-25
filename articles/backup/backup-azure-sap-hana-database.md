@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172980"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682845"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -59,7 +59,7 @@ Les points de terminaison privés vous permettent de vous connecter en toute sé
 
 Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*).  Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
-1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+1. Dans **Tous les services**, accédez à **Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 
 1. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 
@@ -144,7 +144,7 @@ Spécifiez les paramètres de stratégie comme suit :
 1. Dans **Nom de la stratégie**, entrez le nom de la nouvelle stratégie.
 
    ![Saisir un nom de stratégie](./media/backup-azure-sap-hana-database/policy-name.png)
-2. Dans **Stratégie de sauvegarde complète**, comme **Fréquence de sauvegarde**, sélectionnez **Tous les jours** ou **Toutes les semaines**.
+1. Dans **Stratégie de sauvegarde complète**, comme **Fréquence de sauvegarde**, sélectionnez **Tous les jours** ou **Toutes les semaines**.
    * **Daily (Quotidienne)** : sélectionnez l’heure et le fuseau horaire de début du travail de sauvegarde.
        * Vous devez exécuter une sauvegarde complète. Vous ne pouvez pas désactiver cette option.
        * Sélectionnez **Sauvegarde complète** pour afficher la stratégie.
@@ -153,34 +153,39 @@ Spécifiez les paramètres de stratégie comme suit :
 
    ![Sélectionner la fréquence de sauvegarde](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. Dans **Durée de rétention**, configurez les paramètres de rétention pour la sauvegarde complète.
+1. Dans **Durée de rétention**, configurez les paramètres de rétention pour la sauvegarde complète.
     * Par défaut, toutes les options sont sélectionnées. Désactivez les limites de durée de rétention que vous ne souhaitez pas utiliser et définissez celles qui vous intéressent.
     * La période de rétention minimale est de sept jours pour tous les types de sauvegardes (complète/différentielle/fichier journal).
     * Des points de récupération sont marqués pour la rétention et varient selon la durée de rétention. Par exemple, si vous sélectionnez une sauvegarde complète quotidienne, seule une sauvegarde complète est déclenchée chaque jour.
     * La sauvegarde d’un jour spécifique est marquée et conservée conformément à la durée de rétention hebdomadaire et aux paramètres.
     * Les durées de rétention mensuelle et annuelle ont le même comportement.
 
-4. Dans le menu de **stratégie Sauvegarde complète**, cliquez sur **OK** pour accepter les paramètres.
-5. Sélectionnez **Sauvegarde différentielle** pour ajouter une stratégie différentielle.
-6. Dans la stratégie **Sauvegarde différentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de rétention.
+1. Dans le menu de **stratégie Sauvegarde complète**, cliquez sur **OK** pour accepter les paramètres.
+1. Sélectionnez **Sauvegarde différentielle** pour ajouter une stratégie différentielle.
+1. Dans la stratégie **Sauvegarde différentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de rétention.
     * Vous pouvez déclencher au plus une sauvegarde différentielle par jour.
     * Les sauvegardes différentielles peuvent être conservées jusqu’à 180 jours. Si vous avez besoin d’une durée de rétention supérieure, vous devez utiliser des sauvegardes complètes.
 
     ![Stratégie de sauvegarde différentielle](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
+    > Les sauvegardes incrémentielles sont désormais prises en charge dans une version préliminaire publique. Vous pouvez choisir une sauvegarde différentielle ou incrémentielle comme sauvegarde quotidienne, mais pas les deux.
+1. Dans la stratégie **Sauvegarde incrémentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de rétention.
+    * Vous pouvez déclencher au plus une sauvegarde incrémentielle par jour.
+    * Les sauvegardes incrémentielles peuvent être conservées jusqu’à 180 jours. Si vous avez besoin d’une durée de rétention supérieure, vous devez utiliser des sauvegardes complètes.
 
-7. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
-8. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
+    ![Stratégie de sauvegarde incrémentielle](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+1. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
+1. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
     * Dans **Sauvegarde de fichier journal**, sélectionnez **Activer**.  Cette option ne peut pas être désactivée, car SAP HANA gère toutes les sauvegardes de fichiers journaux.
     * Définissez les contrôles de fréquence et de rétention.
 
     > [!NOTE]
     > Les sauvegardes de fichiers journaux ne commencent à s’effectuer qu’en cas de réussite d’une sauvegarde complète.
 
-9. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
-10. Après avoir défini la stratégie de sauvegarde, sélectionnez **OK**.
+1. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
+1. Après avoir défini la stratégie de sauvegarde, sélectionnez **OK**.
 
 > [!NOTE]
 > Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour, et que les journaux enregistrent deux heures d’activité. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, une sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de conservation, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.

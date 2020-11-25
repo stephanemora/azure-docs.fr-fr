@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506292"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747687"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurer l’espace de travail Log Analytics pour Azure Monitor pour machines virtuelles
 Azure Monitor pour machines virtuelles collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour Azure Monitor pour machines virtuelles.
@@ -78,7 +78,7 @@ Pour pouvoir utiliser un espace de travail Log Analytics avec Azure Monitor pour
 > Lorsque vous ajoutez la solution *VMInsights* à l’espace de travail, toutes les machines virtuelles existantes connectées à l’espace de travail commencent à envoyer des données à InsightsMetrics. Les données des autres types de données ne seront pas collectées tant que vous n'aurez pas ajouté Dependency Agent aux machines virtuelles existantes connectées à l'espace de travail.
 
 ### <a name="azure-portal"></a>Portail Azure
-Il existe trois options pour configurer un espace de travail existant à partir du portail Azure.
+Il existe trois options pour configurer un espace de travail existant à l’aide du portail Azure. Chacune est décrite ci-dessous.
 
 Pour configurer un espace de travail unique, sélectionnez **Autres options d’intégration** puis **Configurer un espace de travail**. Sélectionnez un abonnement et un espace de travail, puis cliquez sur **Configurer**.
 

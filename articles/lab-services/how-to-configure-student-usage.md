@@ -2,13 +2,13 @@
 title: Configurer des paramètres d’utilisation dans les labos de classe Azure Lab Services
 description: Découvrez comment configurer le nombre d’étudiants d’un labo, les inscrire au labo, contrôler le nombre d’heures pendant lesquelles ils peuvent utiliser la machine virtuelle, et bien plus encore.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399667"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555717"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 
@@ -41,7 +41,9 @@ Dans cette section, vous allez ajouter des étudiants à un labo manuellement ou
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Ajouter des utilisateurs en chargeant un fichier CSV
 
-Vous pouvez également ajouter des utilisateurs en chargeant un fichier CSV qui contient leurs adresses e-mail.
+Vous pouvez également ajouter des utilisateurs en chargeant un fichier CSV qui contient leurs adresses e-mail. 
+
+Un fichier texte CSV est utilisé pour stocker des données tabulaires séparées par des virgules (CSV) [nombres et texte]. Au lieu de stocker des informations dans des champs de colonnes (par exemple, dans des feuilles de calcul), un fichier CSV stocke des informations séparées par des virgules. Chaque ligne d’un fichier CSV a le même nombre de « champs » séparés par des virgules. Vous pouvez utiliser Excel pour créer et modifier facilement des fichiers CSV.
 
 1. Dans Microsoft Excel, créez un fichier CSV qui répertorie les adresses e-mail des étudiants dans une colonne.
 
@@ -172,6 +174,7 @@ Pour ajouter des étudiants à un labo de classe, vous utilisez leurs comptes de
 - Un compte GitHub. Ce compte doit être lié à un compte Microsoft.
 
 ### <a name="use-a-non-microsoft-email-account"></a>Utiliser un compte de messagerie non Microsoft
+
 Les étudiants peuvent utiliser des comptes de messagerie non Microsoft pour s’inscrire et se connecter à un labo de classe.  Toutefois, pour s’inscrire, ils doivent d’abord créer un compte Microsoft lié à leur adresse e-mail non Microsoft.
 
 De nombreux étudiants ont peut-être déjà un compte Microsoft lié à leur adresse e-mail non Microsoft. Par exemple, les étudiants ont déjà un compte Microsoft s’ils ont utilisé leur adresse e-mail avec d’autres produits ou services Microsoft, tels que Office, Skype, OneDrive ou Windows.  
@@ -186,6 +189,7 @@ Voici un lien permettant aux étudiants de [s’inscrire à un compte Microsoft]
 > Quand les étudiants se connectent à un labo de salle de classe, ils n’ont pas la possibilité de créer un compte Microsoft. Pour cette raison, nous vous recommandons d’inclure ce lien d’inscription, http://signup.live.com, dans l’e-mail d’inscription au labo de salle de classe que vous envoyez aux étudiants qui utilisent des comptes non Microsoft.
 
 ### <a name="use-a-github-account"></a>Utiliser un compte GitHub
+
 Les étudiants peuvent également utiliser un compte GitHub existant pour s’inscrire et se connecter à un labo de classe. S’ils ont déjà un compte Microsoft lié à leur compte GitHub, les étudiants peuvent se connecter et fournir leur mot de passe, comme indiqué dans la section précédente. 
 
 S’ils n’ont pas encore lié leur compte GitHub à un compte Microsoft, ils peuvent procéder comme suit :
@@ -209,6 +213,7 @@ S’ils n’ont pas encore lié leur compte GitHub à un compte Microsoft, ils p
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Voir les articles suivants :
 
 - Pour les administrateurs : [Créer et gérer des comptes de labo](how-to-manage-lab-accounts.md)

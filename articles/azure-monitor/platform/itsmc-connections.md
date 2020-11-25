@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089013"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682416"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](./itsmc-overview.md).
@@ -74,7 +74,7 @@ Utilisez la procédure suivante pour connecter votre instance System Center Serv
 | **Clé secrète client**   | Tapez la clé secrète client, générée pour cet ID.   |
 | **Synchroniser les données**   | Sélectionnez les éléments de travail de Service Manager que vous souhaitez synchroniser via le connecteur ITSM.  Ces éléments de travail sont importés dans Log Analytics. **Options :**  Incidents, demandes de modification.|
 | **Étendue de la synchronisation des données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
-| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, Log Analytics crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut**  : désactivée. |
+| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, Log Analytics crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 ![Connexion Service Manager](media/itsmc-connections/service-manager-connection.png)
 
@@ -93,7 +93,7 @@ Pour connecter l’instance Service Manager locale au connecteur ITSM dans Azure
 
 Pour configurer l’application Web ITSM pour votre instance Service Manager, procédez comme suit :
 
-- **Déployez l’application web**  : déployez l’application web, définissez les propriétés et authentifiez-vous auprès d’Azure AD. Vous pouvez déployer l’application web à l’aide du [script automatisé](./itsmc-service-manager-script.md) que Microsoft vous a fourni.
+- **Déployez l’application web** : déployez l’application web, définissez les propriétés et authentifiez-vous auprès d’Azure AD. Vous pouvez déployer l’application web à l’aide du [script automatisé](./itsmc-service-manager-script.md) que Microsoft vous a fourni.
 - **Configurez la connexion hybride** - [Configurez cette connexion](#configure-the-hybrid-connection) manuellement.
 
 #### <a name="deploy-the-web-app"></a>Déployer l’application web
@@ -108,7 +108,7 @@ Exécutez le script en fournissant les informations obligatoires suivantes :
 - Préfixe de nom de site pour votre application Web
 - Espace de noms ServiceBus.
 
-Le script crée l’application web en utilisant le nom que vous avez spécifié (avec quelques chaînes supplémentaires pour le rendre unique). Il génère **l’URL de l’application web** , **l’ID client** et la **clé secrète client**.
+Le script crée l’application web en utilisant le nom que vous avez spécifié (avec quelques chaînes supplémentaires pour le rendre unique). Il génère **l’URL de l’application web**, **l’ID client** et la **clé secrète client**.
 
 Enregistrez les valeurs. Vous les utiliserez lorsque vous créerez une connexion avec le connecteur ITSM.
 
@@ -124,28 +124,28 @@ Utilisez la procédure suivante pour configurer la connexion hybride qui connect
 
 1. Recherchez l’application web Service Manager, sous **Ressources Azure**.
 2. Cliquez sur **Paramètres** > **Mise en réseau**.
-3. Sous **Connexions hybrides** , cliquez sur **Configurer vos points de terminaison de connexion hybride**.
+3. Sous **Connexions hybrides**, cliquez sur **Configurer vos points de terminaison de connexion hybride**.
 
     ![Mise en réseau de connexions hybrides](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
-4. Dans le panneau **Connexions hybrides** , cliquez sur **Ajouter une connexion hybride**.
+4. Dans le panneau **Connexions hybrides**, cliquez sur **Ajouter une connexion hybride**.
 
     ![Ajout d’une connexion hybride](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
-5. Dans le panneau **Ajouter des connexions hybrides** , cliquez sur **Créer une connexion hybride**.
+5. Dans le panneau **Ajouter des connexions hybrides**, cliquez sur **Créer une connexion hybride**.
 
     ![Nouvelle connexion hybride](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Tapez les valeurs suivantes :
 
-   - **Nom du point de terminaison**  : Spécifiez un nom pour la nouvelle connexion hybride.
+   - **Nom du point de terminaison** : Spécifiez un nom pour la nouvelle connexion hybride.
    - **Hôte du point de terminaison** : Nom de domaine complet du serveur d’administration de Service Manager.
-   - **Port du point de terminaison**  : Tapez 5724
-   - **Espace de noms Service Bus**  : Utilisez un espace de noms Servicebus existant ou créez-en un.
-   - **Emplacement**  : sélectionnez l’emplacement.
-   - **Name**  : Spécifiez un nom pour le Servicebus si vous le créez.
+   - **Port du point de terminaison** : Tapez 5724
+   - **Espace de noms Service Bus** : Utilisez un espace de noms Servicebus existant ou créez-en un.
+   - **Emplacement** : sélectionnez l’emplacement.
+   - **Name** : Spécifiez un nom pour le Servicebus si vous le créez.
 
      ![Valeurs de connexion hybride](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
-6. Cliquez sur **OK** pour fermer le panneau **Créer une connexion hybride** , et créez la connexion hybride.
+6. Cliquez sur **OK** pour fermer le panneau **Créer une connexion hybride**, et créez la connexion hybride.
 
     Une fois la connexion hybride créée, elle s’affiche sous le panneau.
 
@@ -157,7 +157,7 @@ Utilisez la procédure suivante pour configurer la connexion hybride qui connect
 
 Utilisez la procédure suivante pour configurer l’écouteur pour la connexion hybride.
 
-1. Dans le panneau **Connexions hybrides** , cliquez sur **Télécharger le gestionnaire de connexions** et installez-le sur l’ordinateur sur lequel l’instance System Center Service Manager s’exécute.
+1. Dans le panneau **Connexions hybrides**, cliquez sur **Télécharger le gestionnaire de connexions** et installez-le sur l’ordinateur sur lequel l’instance System Center Service Manager s’exécute.
 
     Une fois l’installation terminée, l’option **Interface utilisateur du gestionnaire de connexions hybrides** est disponible dans le menu **Démarrer**.
 
@@ -186,6 +186,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - Versions prises en charge par ServiceNow : Orlando, New York, Madrid, Londres, Kingston, Jakarta, Istanbul, Helsinki, Genève.
+- Actuellement, les alertes envoyées depuis Azure Monitor peuvent créer dans ServiceNow l’un des éléments suivants : Événements, incidents ou alertes.
 > [!NOTE]
 > Le connecteur ITSM prend en charge uniquement l’offre SaaS officielle de Service Now. Les déploiements privés de Service Now ne sont pas pris en charge. 
 
@@ -240,13 +241,13 @@ Exécutez la procédure suivante pour créer une connexion ServiceNow :
 | **Nom de connexion**   | Tapez le nom de l’instance ServiceNow que vous souhaitez connecter au connecteur ITSM.  Vous utiliserez ce nom ultérieurement dans Log Analytics lors de la configuration des éléments de travail dans cette instance ITSM ou de l’affichage d’une analytique des journaux d’activité détaillée. |
 | **Type de partenaire**   | Sélectionnez **ServiceNow**. |
 | **Nom d’utilisateur**   | Tapez le nom d’utilisateur de l’intégration que vous avez créé dans l’application ServiceNow pour prendre en charge la connexion au connecteur ITSM. Plus d’informations : [Create ServiceNow app user role (Créer un rôle utilisateur pour l’application ServiceNow)](#create-integration-user-role-in-servicenow-app).|
-| **Mot de passe**   | Tapez le mot de passe associé à ce nom d’utilisateur. **Remarque**  : Le nom d’utilisateur et le mot de passe sont utilisés uniquement pour générer des jetons d’authentification. Ils ne sont pas stockés dans le service ITSMC.  |
+| **Mot de passe**   | Tapez le mot de passe associé à ce nom d’utilisateur. **Remarque** : Le nom d’utilisateur et le mot de passe sont utilisés uniquement pour générer des jetons d’authentification. Ils ne sont pas stockés dans le service ITSMC.  |
 | **URL du serveur**   | Tapez l’URL de l’instance ServiceNow que vous souhaitez connecter au connecteur ITSM. L’URL doit pointer vers une version SaaS prise en charge avec le suffixe « .servicenow.com ».|
 | **ID client**   | Tapez l’ID client généré précédemment que vous souhaitez utiliser pour l’authentification OAuth2.  Plus d’informations sur la génération de l’ID client et de la clé secrète :   [Paramètres OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Clé secrète client**   | Tapez la clé secrète client, générée pour cet ID.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de ServiceNow que vous souhaitez synchroniser avec Azure Log Analytics via le connecteur ITSMC.  Les valeurs sélectionnées sont importées dans Log Analytics.   **Options :**  Incidents et demandes de modification.|
 | **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
-| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut**  : désactivée. |
+| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 ![Connexion ServiceNow](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
@@ -348,7 +349,7 @@ Exécutez la procédure suivante pour créer une connexion Provance :
 | **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Provance pour authentifier cette connexion.  Pour plus d’informations sur l’ID client, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../../app-service/configure-authentication-provider-aad.md). |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Provance que vous souhaitez synchroniser avec Azure Log Analytics via le connecteur ITSM.  Ces éléments de travail sont importés dans Log Analytics.   **Options :**   Incidents, demandes de modification.|
 | **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
-| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut**  : désactivée.|
+| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée.|
 
 ![Capture d’écran mettant en évidence les listes Nom de connexion et Type de partenaire.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
@@ -404,7 +405,7 @@ Exécutez la procédure suivante pour créer une connexion Cherwell :
 | **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Cherwell pour authentifier cette connexion.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Cherwell que vous souhaitez synchroniser via le connecteur ITSM.  Ces éléments de travail sont importés dans Log Analytics.   **Options :**  Incidents, demandes de modification. |
 | **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
-| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut**  : désactivée. |
+| **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, ITSMC crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée. |
 
 
 ![Connexion Provance](media/itsmc-connections/itsm-connections-cherwell-latest.png)

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257437"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659418"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux É
     - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
     - Au lieu de planifier l’enlèvement, vous pouvez également déposer le disque Data Box Disk à l’emplacement de dépôt le plus proche.
 
-### <a name="europe"></a>[Europe](#tab/in-europe)
 
-Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Europe.
+### <a name="europe-or-uk"></a>[Europe ou Royaume-Uni](#tab/in-europe-or-uk)
+
+Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Europe ou au Royaume-Uni.
 
 1. Utilisez l’étiquette d’expédition de retour figurant dans la pochette en plastique transparente apposée sur la boîte. Si l’étiquette est endommagée ou perdue :
     - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** et téléchargez une étiquette d’expédition de retour.
     - Collez l’étiquette sur l’appareil.
 
 2. Scellez la boîte d’envoi et assurez-vous que l’étiquette de retour est visible.
-3. Si vous renvoyez l’appareil en Europe via DHL, faites une demande d’enlèvement auprès de DHL en vous rendant sur leur site web et en spécifiant le numéro de fiche de transport aérien.
-4. Accédez au site web DHL Express du pays ou de la région et choisissez **Book a Courier Collection (Réserver un enlèvement) > eReturn Shipment (Expédition eReturn)** .
-5. Spécifiez le numéro de la fiche de transport et cliquez sur **Planifier l’enlèvement** pour choisir une date.
+3. Accédez au site web DHL Express du pays ou de la région, puis sélectionnez **Planifier un enlèvement**. Sous **Avez-vous besoin de créer une étiquette d’expédition**, sélectionnez **Non** > **J’ai un numéro d’expédition DHL**.
+4. Spécifiez le numéro d’expédition et cliquez sur **Planifier un enlèvement** pour choisir une date.
 
 ### <a name="australia"></a>[Australie](#tab/in-australia)
 

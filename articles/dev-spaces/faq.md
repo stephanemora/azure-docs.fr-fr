@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Obtenez des réponses aux questions les plus fréquemment posées sur Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a25ebd88d022ff278b3e3d9cc9cbf4d8b9b670cd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970297"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636093"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Forum aux questions sur Azure Dev Spaces
 
@@ -42,7 +42,7 @@ Lorsque vous utilisez votre propre fichier Dockerfile ou graphique Helm, les lim
 
 ## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Puis-je modifier les fichiers générés par Azure Dev Spaces ?
 
-Oui, vous pouvez modifier le fichier *azds.yaml*, le fichier Dockerfile et le graphique Helm[ générés par Azure Dev Spaces lors de la préparation de votre projet][dev-spaces-prep]. La modification de ces fichiers modifie la façon dont le projet est généré et exécuté.
+Oui, vous pouvez modifier le fichier *azds.yaml*, le fichier Dockerfile et le graphique Helm [ générés par Azure Dev Spaces lors de la préparation de votre projet][dev-spaces-prep]. La modification de ces fichiers modifie la façon dont le projet est généré et exécuté.
 
 ## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Puis-je utiliser Azure Dev Spaces sans adresse IP publique ?
 
@@ -72,9 +72,9 @@ Oui. Vous pouvez utiliser Azure Dev Spaces sur des clusters AKS avec les [plages
 
 Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS avec le [trafic de sortie restreint pour les nœuds de cluster][aks-restrict-egress-traffic] activé une fois que les noms de domaine complets appropriés ont été autorisés. Pour plus d’informations sur l’utilisation de clusters AKS avec un trafic de sortie restreint pour les nœuds de cluster activé avec Azure Dev Spaces sont disponibles [ici](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Puis-je utiliser Azure Dev Spaces sur des clusters AKS compatibles avec RBAC ?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>Puis-je utiliser Azure Dev Spaces sur des clusters AKS compatibles avec RBAC Kubernetes ?
 
-Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS compatibles ou non avec RBAC.
+Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS avec ou sans le contrôle d’accès en fonction du rôle Kubernetes (RBAC Kubernetes) activé.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Que se passe-t-il lorsque j’active l’entrée pour le projet dans Visual Studio ?
 

@@ -11,17 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: e939e3e6eb686894094c77f62ed815d0ebb5a24f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358437"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638884"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
+
+> [!IMPORTANT]
+> Le cache intégré est volatile et partagé par toutes les unités de la même région dans le même service de gestion des API.
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Stratégies de mise en cache
 
@@ -114,8 +117,8 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 | caching-type               | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non       | `prefer-external` |
 | downstream-caching-type        | Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.                                                                                                          | Non       | Aucun              |
 | must-revalidate                | Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.                                                                                                                                                                                                                      | Non       | true              |
-| vary-by-developer              | Définissez la valeur `true` pour mettre en cache les réponses par compte de développeur possédant une [clé d’abonnement](./api-management-subscriptions.md) incluse dans la demande.                                                                                                                                                                                                                                                                                                  | Oui      |         Faux          |
-| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Oui      |       Faux            |
+| vary-by-developer              | Définissez la valeur `true` pour mettre en cache les réponses par compte de développeur possédant une [clé d’abonnement](./api-management-subscriptions.md) incluse dans la demande.                                                                                                                                                                                                                                                                                                  | Oui      |         False          |
+| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Oui      |       False            |
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.

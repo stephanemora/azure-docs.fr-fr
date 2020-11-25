@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle des données avec Change Tracking sur le portail Azure
-description: Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de suivi des modifications dans la base de données source dans Azure SQL Database vers un stockage Blob Azure.
+description: Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta basées sur des informations de suivi des modifications dans la base de données source dans Azure SQL Database vers un stockage Blob Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542017"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561129"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données source dans Azure SQL Database vers un stockage Blob Azure.  
+Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta basées sur des informations de **suivi des modifications** dans la base de données source dans Azure SQL Database vers un stockage Blob Azure.  
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -164,7 +164,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 
      ![Page Nouvelle fabrique de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+   Le nom de la fabrique de données Azure doit être **globalement unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
    *Le nom de fabrique de données « ADFTutorialDataFactory » n’est pas disponible*
 3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
@@ -375,7 +375,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 5. Glissez-déposez l’activité **Recherche** de la boîte à outils **Activités** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupCurrentChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications en cours.
 
     ![Capture d’écran montrant un pipeline avec deux activités de recherche.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
-6. Basculez vers les **Paramètres** dans la fenêtre**Propriétés**, et procédez comme suit :
+6. Basculez vers les **Paramètres** dans la fenêtre **Propriétés**, et procédez comme suit :
 
    1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
    2. Sélectionnez **Requête** pour **Utiliser la requête**.
@@ -389,7 +389,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 7. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **IncrementalCopyActivity**. Cette activité permet de copier les données entre la dernière version de suivi des modifications et la version de suivi des modifications en cours dans le magasin de données de destination.
 
     ![Activité de copie - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
-8. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
+8. Basculez vers l’onglet **Source** dans la fenêtre **Propriétés**, et procédez comme suit :
 
    1. Sélectionnez **SourceDataset** pour **Jeu de données source**.
    2. Sélectionnez **Requête** pour **Utiliser la requête**.

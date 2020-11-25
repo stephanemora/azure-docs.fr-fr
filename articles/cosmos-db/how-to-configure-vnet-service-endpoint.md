@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101695"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637181"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configurer l’accès à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -38,7 +38,7 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 
 ### <a name="configure-a-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurer un point de terminaison de service pour un réseau virtuel et un sous-réseau Azure existants
 
-1. À partir du panneau **Toutes les ressources** , recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.
+1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.
 
 1. Sélectionnez **Pare-feu et réseaux virtuels** dans le menu Paramètres et choisissez d’autoriser l’accès à partir de **Réseaux sélectionnés**.
 
@@ -62,7 +62,7 @@ Voici les instructions pour inscrire un abonnement avec le fournisseur de ressou
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurer un point de terminaison de service pour un nouveau réseau virtuel et un nouveau sous-réseau Azure
 
-1. À partir du panneau **Toutes les ressources** , recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.  
+1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.  
 
 1. Sélectionnez **Pare-feu et réseaux virtuels Azure** dans le menu Paramètres et choisissez d’autoriser l’accès à partir de **Réseaux sélectionnés**.  
 
@@ -78,7 +78,7 @@ Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du por
 
 ## <a name="remove-a-virtual-network-or-subnet"></a><a id="remove-vnet-or-subnet"></a>Supprimer un réseau virtuel ou un sous-réseau
 
-1. À partir du panneau **Toutes les ressources** , recherchez le compte Azure Cosmos DB pour lequel vous avez affecté des points de terminaison de service.  
+1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB pour lequel vous avez affecté des points de terminaison de service.  
 
 1. Sélectionnez **Pare-feu et réseaux virtuels** dans le menu Paramètres.  
 
@@ -336,7 +336,7 @@ Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajout�
 
 Une fois que le point de terminaison de service pour Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint le compte bascule de l’adresse IP publique vers le réseau virtuel et le sous-réseau. Si votre compte Azure Cosmos est uniquement protégé par un pare-feu basé sur IP, le trafic provenant du sous-réseau avec service ne respecte plus les règles du pare-feu IP et, par conséquent, il sera rejeté. Passez en revue les étapes pour migrer en toute transparence d’un pare-feu basé sur IP à un contrôle d’accès basé sur un réseau virtuel.
 
-### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Des privilèges RBAC supplémentaires sont-ils nécessaires pour les comptes Azure Cosmos dotés de points de terminaison de service de réseau virtuel ?
+### <a name="are-additional-azure-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Des privilèges Azure RBAC supplémentaires sont-ils nécessaires pour les comptes Azure Cosmos dotés de points de terminaison de service de réseau virtuel ?
 
 Si vous souhaitez apporter des modifications aux paramètres de compte après avoir ajouté les points de terminaison de service de réseau virtuel à un compte Azure Cosmos, vous devez accéder à l’action `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` pour tous les réseaux virtuels configurés sur votre compte Azure Cosmos. Ce privilège est requis, car le processus d’autorisation valide l’accès aux ressources (telles que les ressources de base de données et de réseau virtuel) avant d’évaluer des propriétés.
  

@@ -3,18 +3,18 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827577"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657310"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -126,7 +126,7 @@ Quelle que soit la stratégie, les administrateurs généraux et les agents d’
 
 Pour afficher et mettre à jour la stratégie, vous devez être membre du groupe **agent d’administration**. Utilisez les informations suivantes pour activer la stratégie permettant aux clients d’afficher les frais d’utilisation d’Azure.
 
-Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez l’étendue de facturation appropriée dans la zone Étendue de facturation, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation.
+Dans le portail Azure, connectez-vous au *locataire partenaire* et sélectionnez **Gestion des coûts + facturation**. Sélectionnez l’étendue de facturation appropriée dans la zone Étendue de facturation, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation. *Si vous vous connectez par erreur au locataire du client, vous ne verrez pas la liste **Clients**.*
 
 Dans la liste des clients, sélectionnez le client auquel vous souhaitez donner l’autorisation de voir les coûts.
 
@@ -188,7 +188,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | costCenter | Centre de coûts associé à l’abonnement. | N/A |
 | billingPeriodStartDate | Date de début de la période de facturation, comme indiqué sur la facture. | N/A |
 | billingPeriodEndDate | Date de fin de la période de facturation, comme indiqué sur la facture. | N/A |
-| servicePeriodStartDate | Date de début de la période d’évaluation pendant laquelle l’utilisation du service a été évaluée, dans le but de déterminer les frais. Les tarifs associés aux services Azure sont déterminés pour la période d’évaluation. | ChargeStartDate dans l’Espace partenaires. Date de début du cycle de facturation, sauf en cas de dates de données d’utilisation latente non facturées précédemment, lors d’un cycle de facturation précédent. L’heure est toujours définie sur le début de la journée, 0:00. |
+| servicePeriodStartDate | Date de début de la période d’évaluation pendant laquelle l’utilisation du service a été évaluée, dans le but de déterminer les frais. Les tarifs associés aux services Azure sont déterminés pour la période d’évaluation. | ChargeStartDate dans l’Espace partenaires.  Date de début du cycle de facturation, sauf en cas de dates de données d’utilisation latente non facturées précédemment, lors d’un cycle de facturation précédent. L’heure est toujours définie sur le début de la journée, 0:00. |
 | servicePeriodEndDate | Date de fin de la période pendant laquelle l’utilisation du service a été évaluée, dans le but de déterminer les frais. Les tarifs associés aux services Azure sont déterminés en fonction de la période d’évaluation. | N/A |
 | Date | Pour les données de consommation Azure, ce champ affiche la date d’utilisation évaluée. Pour une instance réservée, il affiche la date d’achat. Dans le cas des frais récurrents et ponctuels, tels que la Place de marché et le support, il affiche la date d’achat. | N/A |
 | productID | Identificateur du produit qui a accumulé des frais par consommation ou achat. Il s’agit de la clé concaténée de productID et SKuID, comme indiqué dans l’Espace partenaires. | ID du produit. |

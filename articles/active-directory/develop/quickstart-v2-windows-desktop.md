@@ -11,16 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 25c5e6445bb5d673db1cfb755f320302a9e9c5b5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613269"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561860"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
-Dans ce démarrage rapide, vous allez apprendre comment concevoir une application de bureau Windows .NET (WPF) capable de connecter des comptes personnels, professionnels et scolaires, d’obtenir un jeton d’accès et d’appeler l’API Microsoft Graph. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application .NET du bureau Windows (WPF) peut connecter des utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph. 
+
+Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prérequis
@@ -70,7 +72,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Téléchargez l’exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip).
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: dc0cdca2355403bc8f5409d9a6ca7f4ae89caf25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944451"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562013"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Démarrage rapide : Protéger une API web ASP.NET Core avec la plateforme d’identités Microsoft
 
-Dans ce guide de démarrage rapide, vous allez utiliser un exemple de code pour voir comment protéger une API web ASP.NET Core, afin qu’elle ne soit accessible qu’aux comptes autorisés. Il peut s’agir de comptes personnels (hotmail.com, outlook.com, etc.) ou de comptes professionnels ou scolaires provenant de n’importe quelle instance Azure Active Directory (Azure AD).
+Dans ce guide de démarrage rapide, vous téléchargez un exemple de code d’API web ASP.NET Core et examinez son code qui limite l’accès aux ressources aux comptes autorisés uniquement. L’exemple prend en charge l’autorisation des comptes Microsoft personnels et comptes de n’importe quelle organisation Azure Active Directory (Azure AD).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prérequis

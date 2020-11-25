@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127316"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874047"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Architecture de référence d’une solution de suivi de la qualité de l’eau 
 
@@ -41,10 +41,10 @@ Les appareils utilisés dans les systèmes d’eau intelligents sont généralem
 Azure IoT Central est une plateforme d’application IoT qui vous permet de commencer rapidement votre solution IoT. Vous pouvez personnaliser et intégrer votre solution à des services tiers.
 Une fois que vous avez connecté vos systèmes d’eau intelligents à IoT Central, vous pouvez contrôler les appareils, effectuer le suivi et déclencher des alertes, accéder à l’interface utilisateur à laquelle est intégré RBAC, accéder aux tableaux de bord d’insights configurables et accéder aux options d’extensibilité. 
 
-## <a name="extensibility-and-integrations"></a>Extensibilité et intégrations 
+## <a name="extensibility-and-integrations"></a>Extensibilité et intégrations
 Vous pouvez étendre votre application IoT dans IoT Central et si vous le souhaitez :
 * Transformer et intégrer vos données IoT en vue d’une analytique avancée, par exemple en entraînant des modèles Machine Learning via l’exportation continue de données à partir d’une application IoT Central
-* Automatiser des workflows dans d’autres systèmes en déclenchant des actions via Microsoft Flow ou des webhooks à partir d’une application IoT Central
+* Automatiser des workflows dans d’autres systèmes en déclenchant des actions via Power Automate ou des webhooks à partir d’une application IoT Central
 * Accéder programmatiquement à votre application IoT dans IoT Central via des API IoT Central
 
 ## <a name="business-applications"></a>Applications métier 
