@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 573937638ac0ba1c9db6f1410b9a09f4d79e0056
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a99436a65a97ae1536bd0e950a29145ccb5c669b
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542794"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746249"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et JavaScript dans Vision par ordinateur
 
@@ -211,4 +211,4 @@ Une réponse correcte est retournée au format JSON. L’exemple de page web ana
 Explorez une application JavaScript qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Tutoriel sur l’API Vision par ordinateur JavaScript](../Tutorials/javascript-tutorial.md)
+> [Tutoriel sur l’API Vision par ordinateur JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)

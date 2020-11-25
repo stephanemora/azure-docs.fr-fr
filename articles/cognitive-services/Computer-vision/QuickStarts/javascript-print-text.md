@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e98db4ce9884918e63bc87b68f9ab6c0fdf99b93
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542760"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746130"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST Vision par ordinateur et de JavaScript
 
 > [!NOTE]
-> Si vous extrayez du texte en langue anglaise, envisagez d’utiliser la nouvelle [opération de lecture](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Un [Démarrage rapide de JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) est disponible.
+> Si vous extrayez du texte en langue anglaise, envisagez d’utiliser la nouvelle [opération de lecture](../concept-recognizing-text.md). Un [Démarrage rapide de JavaScript](./javascript-hand-text.md) est disponible.
 
 Dans ce guide de démarrage rapide, vous allez extraire le texte imprimé d’une image avec la reconnaissance optique de caractères (OCR) en utilisant l’API REST de Vision par ordinateur. Avec la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
 
@@ -248,6 +248,6 @@ Une réponse correcte est retournée au format JSON. L’exemple de page web ana
 À présent, explorez une application JavaScript qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créez des miniatures avec un rognage intelligent et enfin détectez, classez, étiquetez et décrivez les caractéristiques visuelles des images. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel sur l’API Vision par ordinateur JavaScript](../Tutorials/javascript-tutorial.md)
+> [Tutoriel sur l’API Vision par ordinateur JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8755a600a1e6afaae4ebe7451e16f6632073587f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534515"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746589"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Démarrage rapide : Extraire le texte à l’aide de l’opération OCR API REST Vision par ordinateur 2.0 et C#
 
 > [!IMPORTANT]
-> Si vous extrayez du texte en anglais, néerlandais, français, allemand, italien, portugais, espagnol ou chinois simplifié (préversion), nous vous recommandons d’utiliser l’[opération de lecture](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) la plus récente. Un [Démarrage rapide de C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) est disponible. 
+> Si vous extrayez du texte en anglais, néerlandais, français, allemand, italien, portugais, espagnol ou chinois simplifié (préversion), nous vous recommandons d’utiliser l’[opération de lecture](../concept-recognizing-text.md) la plus récente. Un [Démarrage rapide de C#](./csharp-hand-text.md) est disponible. 
 
 Dans ce guide de démarrage rapide, vous allez extraire le texte imprimé d’une image à l’aide de la fonctionnalité [Opération OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) de l’API REST Vision par ordinateur. Avec cette opération, vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
 
@@ -32,7 +32,7 @@ Dans ce guide de démarrage rapide, vous allez extraire le texte imprimé d’un
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* [Créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
+* [Créez des variables d’environnement](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Créer et exécuter l’exemple d’application
 
