@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130399"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007356"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Résoudre les problèmes de réplication dans le cadre de la reprise d’activité d’une machine virtuelle Azure
 
@@ -35,7 +35,7 @@ Vous devez normalement voir l’événement **Taux de changement des données au
 
 Si vous sélectionnez l’événement, vous pouvez consulter les informations relatives au disque :
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Page Azure Site Recovery qui affiche un taux de changement de données trop élevé.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Page qui affiche les détails de l’événement Taux de changement des données.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limites Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 
 Les limites des taux de modification des données d’Azure Site Recovery dépendent du type de disque. Pour voir si ce problème est récurrent ou momentané, trouvez le taux de modification des données de la machine virtuelle concernée. Accédez à la machine virtuelle source, recherchez les mesures sous **Surveillance** et ajoutez les mesures comme illustré sur cette capture d'écran :
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Page Azure Site Recovery qui affiche un taux de changement de données trop élevé.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Page qui montre le processus en trois étapes permettant de déterminer le taux de changement des données.":::
 
 1. Sélectionnez **Ajouter une mesure**, puis ajoutez **Octets écrits/s sur disque de système d’exploitation** et **Octets écrits/s sur disque de données**.
 1. Surveiller le pic comme indiqué dans la capture d’écran.

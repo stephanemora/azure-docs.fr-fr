@@ -7,15 +7,15 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890273"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008174"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
-*Durable Functions* est une extension d’ [Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+*Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
 ::: zone pivot="code-editor-vscode"
 
@@ -86,9 +86,9 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
     | Sélectionner un groupe de ressources | *nom unique* | Nom du groupe de ressources à créer |
     | Sélectionner un emplacement | *region* | Sélectionner une région proche de vous |
 
-Une classe contenant les nouvelles fonctions est ajoutée au projet. VS Code ajoute également la chaîne de connexion du compte de stockage à *local.settings.json* , et une référence au package NuGet [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans le fichier de projet *.csproj*.
+Une classe contenant les nouvelles fonctions est ajoutée au projet. VS Code ajoute également la chaîne de connexion du compte de stockage à *local.settings.json*, et une référence au package NuGet [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans le fichier de projet *.csproj*.
 
-Ouvrez le nouveau fichier  *HelloOrchestration.cs* pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
+Ouvrez le nouveau fichier *HelloOrchestration.cs* pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
 
 | Méthode | FunctionName | Description |
 | -----  | ------------ | ----------- |
@@ -107,7 +107,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
     > [!NOTE]
     > Pour plus d’informations sur le débogage, consultez [Diagnostics Durable Functions](durable-functions-diagnostics.md#debugging).
 
-1. Dans le panneau **Terminal** , copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
+1. Dans le panneau **Terminal**, copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
 
     ![Sortie Azure locale](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
@@ -183,13 +183,13 @@ Le modèle Azure Functions crée un projet qui peut être publié dans une appli
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu **Fichier**.
 
-1. Dans la boîte de dialogue **Créer un projet** , recherchez `functions`, choisissez le modèle **Azure Functions** , puis sélectionnez **Suivant**. 
+1. Dans la boîte de dialogue **Créer un projet**, recherchez `functions`, choisissez le modèle **Azure Functions**, puis sélectionnez **Suivant**. 
 
     ![Boîte de dialogue Nouveau projet pour créer une fonction dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. Entrez un **Nom du projet** , puis sélectionnez **OK**. Le nom de projet devant être valide en tant qu’espace de noms C#, n’utilisez ni traits d’union, ni traits de soulignement, ni aucun autre caractère non alphanumérique.
+1. Entrez un **Nom du projet**, puis sélectionnez **OK**. Le nom de projet devant être valide en tant qu’espace de noms C#, n’utilisez ni traits d’union, ni traits de soulignement, ni aucun autre caractère non alphanumérique.
 
-1. Dans **Créer une application Azure Functions** , utilisez les paramètres spécifiés dans le tableau sous l’image.
+1. Dans **Créer une application Azure Functions**, utilisez les paramètres spécifiés dans le tableau sous l’image.
 
     ![Boîte de dialogue Créer une application Azure Functions dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
@@ -209,9 +209,9 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
 
     ![Ajouter une nouvelle fonction](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. Vérifiez qu’ **Azure Function** est sélectionné dans le menu Ajouter, tapez un nom pour votre fichier C#, puis sélectionnez **Ajouter**.
+1. Vérifiez qu’**Azure Function** est sélectionné dans le menu Ajouter, tapez un nom pour votre fichier C#, puis sélectionnez **Ajouter**.
 
-1. Sélectionnez le modèle **Orchestration Durable Functions** , puis sélectionnez **OK**.
+1. Sélectionnez le modèle **Orchestration Durable Functions**, puis sélectionnez **OK**.
 
     ![Sélectionner un modèle durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 

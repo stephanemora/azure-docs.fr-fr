@@ -4,11 +4,11 @@ description: Découvrez la prise en charge de la migration VMware dans Azure Mig
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 7a7713021683c394e609a302a1aa6fcb282484e5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008291"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -19,8 +19,8 @@ Cet article résume les paramètres et les limites de la migration de machines v
 
 Vous pouvez migrer des machines virtuelles VMware de deux manières différentes :
 
-- **À l’aide de la migration sans agent**  : Migrez des machines virtuelles sans avoir à installer quoi que ce soit. Vous déployez l’[appliance Azure Migrate](migrate-appliance.md) pour la migration sans agent.
-- **À l’aide de la migration avec agent**  : Installez un agent sur la machine virtuelle pour la réplication. Vous déployez une [appliance de réplication](migrate-replication-appliance.md).
+- **À l’aide de la migration sans agent** : Migrez des machines virtuelles sans avoir à installer quoi que ce soit. Vous déployez l’[appliance Azure Migrate](migrate-appliance.md) pour la migration sans agent.
+- **À l’aide de la migration avec agent** : Installez un agent sur la machine virtuelle pour la réplication. Vous déployez une [appliance de réplication](migrate-replication-appliance.md).
 
 Consultez [cet article](server-migrate-overview.md) pour déterminer la méthode que vous souhaitez utiliser.
 
@@ -41,7 +41,7 @@ Le tableau récapitule les exigences de l’hyperviseur VMware.
 --- | ---
 **VMware vCenter Server** | Versions 5.5, 6.0, 6.5, 6.7, 7.0.
 **Hôte ESXI VMware vSphere** | Versions 5.5, 6.0, 6.5, 6.7, 7.0.
-**Autorisations vCenter Server** | La migration sans agent utilise l’[appliance Migrate](migrate-appliance.md). L’appliance a besoin des autorisations suivantes dans vCenter Server :<br/><br/> - **Datastore.Browse** : Autoriser l’exploration des fichiers journaux des machines virtuelles pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **Datastore.FileManagement**  : Autoriser les opérations de lecture/écriture/suppression/renommage dans l’explorateur de magasin de données pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **VirtualMachine.Config.ChangeTracking**  : Autoriser l’activation ou la désactivation du suivi des modifications des disques de machine virtuelle pour extraire les blocs de données modifiés entre les instantanés.<br/><br/> - **VirtualMachine.Config.DiskLease**  : Autoriser les opérations de bail de disque pour une machine virtuelle, à lire le disque en utilisant VDDK (vSphere Virtual Disk Development Kit) VMware vSphere.<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**  : (plus spécifiquement pour vSphere 6.0 et versions ultérieures) Autoriser l’ouverture d’un disque sur une machine virtuelle pour un accès en lecture aléatoire sur le disque à l’aide du kit VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**  : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**  : Autorise les opérations de lecture sur les fichiers associés à une machine virtuelle, à télécharger les journaux et à résoudre les problèmes en cas d’échec.<br/><br/> - **VirtualMachine.State.\* *_ : Autoriser la création et la gestion des instantanés de machines virtuelles pour la réplication.<br/><br/> - _* VirtualMachine.Interact.PowerOff**  : Autoriser la mise hors tension de la machine virtuelle pendant la migration vers Azure.
+**Autorisations vCenter Server** | La migration sans agent utilise l’[appliance Migrate](migrate-appliance.md). L’appliance a besoin des autorisations suivantes dans vCenter Server :<br/><br/> - **Datastore.Browse** : Autoriser l’exploration des fichiers journaux des machines virtuelles pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **Datastore.FileManagement** : Autoriser les opérations de lecture/écriture/suppression/renommage dans l’explorateur de magasin de données pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **VirtualMachine.Config.ChangeTracking** : Autoriser l’activation ou la désactivation du suivi des modifications des disques de machine virtuelle pour extraire les blocs de données modifiés entre les instantanés.<br/><br/> - **VirtualMachine.Config.DiskLease** : Autoriser les opérations de bail de disque pour une machine virtuelle, à lire le disque en utilisant VDDK (vSphere Virtual Disk Development Kit) VMware vSphere.<br/><br/> - **VirtualMachine.Provisioning.DiskAccess** : (plus spécifiquement pour vSphere 6.0 et versions ultérieures) Autoriser l’ouverture d’un disque sur une machine virtuelle pour un accès en lecture aléatoire sur le disque à l’aide du kit VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** : Autorise les opérations de lecture sur les fichiers associés à une machine virtuelle, à télécharger les journaux et à résoudre les problèmes en cas d’échec.<br/><br/> - **VirtualMachine.State.\* *_ : Autoriser la création et la gestion des instantanés de machines virtuelles pour la réplication.<br/><br/> - _* VirtualMachine.Interact.PowerOff** : Autoriser la mise hors tension de la machine virtuelle pendant la migration vers Azure.
 
 
 
@@ -169,7 +169,7 @@ Disque dur virtuel partagé | Non pris en charge.
 Disque FC | Non pris en charge. 
 BitLocker | Non pris en charge.<br/><br/> BitLocker doit être désactivé avant la migration de la machine.
 nom de la machine virtuelle | De 1 et 63 caractères.<br/><br/> Uniquement des lettres, des chiffres et des traits d’union.<br/><br/> Le nom de la machine doit commencer et se terminer par une lettre ou un chiffre. 
-Se connecter après la migration - Windows | Pour vous connecter à des machines virtuelles Azure exécutant Windows après la migration :<br/><br/> - Avant la migration, activez le protocole RDP sur la machine virtuelle locale.<br/><br/> Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.<br/><br/> Pour l’accès VPN site à site, activez RDP et autorisez RDP dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé** .<br/><br/> Vérifiez aussi que la stratégie SAN du système d’exploitation est définie sur **OnlineAll** . [Plus d’informations](prepare-for-migration.md)
+Se connecter après la migration - Windows | Pour vous connecter à des machines virtuelles Azure exécutant Windows après la migration :<br/><br/> - Avant la migration, activez le protocole RDP sur la machine virtuelle locale.<br/><br/> Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.<br/><br/> Pour l’accès VPN site à site, activez RDP et autorisez RDP dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**.<br/><br/> Vérifiez aussi que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](prepare-for-migration.md)
 Se connecter après la migration - Linux | Pour vous connecter à des machines virtuelles Azure après la migration avec SSH :<br/><br/> Avant la migration, sur la machine locale, vérifiez que le service Secure Shell est défini sur Démarrer et que les règles de pare-feu autorisent une connexion SSH.<br/><br/> Après le basculement, sur la machine virtuelle Azure, autorisez les connexions entrantes au port SSH pour les règles du groupe de sécurité réseau sur la machine virtuelle basculée, et pour le sous-réseau Azure auquel elle est connectée.<br/><br/> Ajoutez aussi une adresse IP publique pour la machine virtuelle.  
 
 
