@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002032"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à niveau Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Avant de mettre à niveau un cluster, utilisez la commande [az aks get-upgrades]
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Dans l’exemple suivant, la version actuelle est *1.15.11* , et les versions disponibles s’affichent sous *Mises à niveau* .
+Dans l’exemple suivant, la version actuelle est *1.15.11*, et les versions disponibles s’affichent sous *Mises à niveau*.
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> Vous ne pouvez mettre à niveau qu’une version mineure à la fois. Par exemple, vous pouvez effectuer une mise à niveau de la version  *1.14.x* vers la version  *1.15.x* , mais pas de la version  *1.14.x* directement vers la version  *1.16.x* . Pour effectuer une mise à niveau de *1.14.x* vers *1.16.x* , commencez par mettre à niveau la version *1.14.x* vers la version *1.15.x* , puis mettez à niveau la version *1.15.x* vers la version *1.16.x* .
+> Vous ne pouvez mettre à niveau qu’une version mineure à la fois. Par exemple, vous pouvez effectuer une mise à niveau de la version *1.14.x* vers la version *1.15.x*, mais pas de la version *1.14.x* directement vers la version *1.16.x*. Pour effectuer une mise à niveau de *1.14.x* vers *1.16.x*, commencez par mettre à niveau la version *1.14.x* vers la version *1.15.x*, puis mettez à niveau la version *1.15.x* vers la version *1.16.x*.
 
-L’exemple de sortie condensée suivant montre le résultat de la mise à niveau vers *1.16.8* . Remarquez *kubernetesVersion* indique à présent *1.16.8*  :
+L’exemple de sortie condensée suivant montre le résultat de la mise à niveau vers *1.16.8*. Remarquez *kubernetesVersion* indique à présent *1.16.8* :
 
 ```json
 {
@@ -115,7 +115,7 @@ Assurez-vous que la mise à niveau a réussi en utilisant la commande [az aks sh
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L’exemple de sortie suivant indique que le cluster AKS exécute *KubernetesVersion 1.16.8*  :
+L’exemple de sortie suivant indique que le cluster AKS exécute *KubernetesVersion 1.16.8* :
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

@@ -7,11 +7,11 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012651"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001862"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
 Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Pour ce qui est du débogage et des investigations, les informations sur l’intégrité peuvent faire gagner du temps et économiser des efforts. L’utilité est particulièrement flagrante une fois que le service est en cours d’exécution, à l’échelle dans le cloud (privé ou Azure).
@@ -207,7 +207,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Envoyez les rapports d’intégrité avec **Send-ServiceFabric*EntityType*HealthReport**.
+Envoyez les rapports d’intégrité avec **Send-ServiceFabric *EntityType* HealthReport**.
 
 L’exemple suivant montre la création de rapports réguliers sur les valeurs du processeur sur un nœud. Les rapports doivent être envoyés toutes les 30 secondes, et ont une durée de vie de deux minutes. S’ils expirent, cela signifie que le rapporteur rencontre des problèmes, et le nœud est évalué au moment de l’erreur. Quand l’utilisation du processeur dépasse un seuil, le rapport a un état d’avertissement. Quand l’utilisation du processeur reste supérieure à un seuil plus longtemps que le délai configuré, une erreur est rapportée. Autrement, le rapporteur envoie un état d’intégrité OK.
 

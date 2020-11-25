@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002452"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework
 
@@ -49,7 +49,7 @@ Remplacez `<access-key>` par la clé primaire de votre cache.
 
 Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
 
-Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Tapez un **Nom de projet** , puis cliquez sur **Créer** pour créer une application console.
+Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Tapez un **Nom de projet**, puis cliquez sur **Créer** pour créer une application console.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -57,7 +57,7 @@ Sélectionnez **Application console (.NET Framework)** et **Suivant** pour confi
 
 Dans cette section, vous allez configurer l’application console pour utiliser le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) pour .NET.
 
-Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package** , et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
+Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**, et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -94,7 +94,7 @@ La connexion au cache Azure pour Redis est gérée par la classe `ConnectionMult
 
 Ne stockez jamais d’informations d’identification dans du code source. Pour garder cet exemple simple, j’utilise uniquement un fichier de configuration externe des secrets. Une meilleure approche serait d’utiliser [Azure Key Vault avec des certificats](/rest/api/keyvault/certificate-scenarios).
 
-Dans *Program.cs* , ajoutez les membres suivants à la classe `Program` de votre application console :
+Dans *Program.cs*, ajoutez les membres suivants à la classe `Program` de votre application console :
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -186,7 +186,7 @@ Le cache Azure pour Redis peut mettre en cache des objets .NET et des types de 
 
 Une méthode simple pour sérialiser des objets consiste à utiliser les méthodes de sérialisation `JsonConvert` dans [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) et à sérialiser vers et à partir de JSON. Dans cette section, vous allez ajouter un objet .NET dans le cache.
 
-Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package** , et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
+Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**, et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
 
 ```powershell
 Install-Package Newtonsoft.Json

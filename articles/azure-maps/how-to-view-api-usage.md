@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003512"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Afficher les métriques d’utilisation de l’API Azure Maps
 
@@ -21,7 +21,7 @@ Cet article vous montre comment afficher les mesures d’utilisation de l’API 
 
 ## <a name="view-metric-snapshot"></a>Afficher l’instantané d’une métrique
 
-Vous pouvez voir certaines métriques courantes sur la page **Vue d’ensemble** de votre compte Azure Maps. Elle affiche actuellement le *nombre total de demandes* , le *nombre total d’erreurs* et la *disponibilité* sur une période de temps sélectionnable.
+Vous pouvez voir certaines métriques courantes sur la page **Vue d’ensemble** de votre compte Azure Maps. Elle affiche actuellement le *nombre total de demandes*, le *nombre total d’erreurs* et la *disponibilité* sur une période de temps sélectionnable.
 
 ![Vue d’ensemble des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
@@ -31,18 +31,18 @@ Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez �
 
 1. Connectez-vous à votre abonnement Azure sur le [portail](https://portal.azure.com).
 
-2. Cliquez sur l’option de menu **Toutes les ressources** à gauche, puis accédez à votre *Compte Azure Maps* .
+2. Cliquez sur l’option de menu **Toutes les ressources** à gauche, puis accédez à votre *Compte Azure Maps*.
 
 3. Une fois votre compte Azure Maps ouvert, cliquez sur le menu **Métriques** à gauche.
 
-4. Dans le volet **Métriques** , choisissez l’une des options suivantes :
+4. Dans le volet **Métriques**, choisissez l’une des options suivantes :
 
-   1. **Disponibilité** , qui affiche la *Moyenne* de disponibilité de l’API sur une période de temps.
-   2. **Utilisation** , qui affiche le *nombre* d’utilisations de votre compte.
+   1. **Disponibilité**, qui affiche la *Moyenne* de disponibilité de l’API sur une période de temps.
+   2. **Utilisation**, qui affiche le *nombre* d’utilisations de votre compte.
 
       ![Volet des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Ensuite, vous pouvez sélectionner l’ *Intervalle de temps* en cliquant sur **Dernières 24 heures (automatique)** . Par défaut, l’intervalle de temps est défini sur 24 heures. Après avoir cliqué, vous voyez tous les intervalles de temps sélectionnables. Vous pouvez sélectionner la *Granularité temporelle* , ainsi que choisir d’afficher l’heure *locale* ou *GMT* dans la même liste déroulante. Cliquez sur **Appliquer** .
+5. Ensuite, vous pouvez sélectionner l’*Intervalle de temps* en cliquant sur **Dernières 24 heures (automatique)**. Par défaut, l’intervalle de temps est défini sur 24 heures. Après avoir cliqué, vous voyez tous les intervalles de temps sélectionnables. Vous pouvez sélectionner la *Granularité temporelle*, ainsi que choisir d’afficher l’heure *locale* ou *GMT* dans la même liste déroulante. Cliquez sur **Appliquer**.
 
     ![Intervalle de temps des métriques d’Azure Maps](media/how-to-view-api-usage/time-range.png)
 

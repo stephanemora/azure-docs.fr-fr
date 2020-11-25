@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001828"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Azure Time Series Insights Gen1 à l’aide du portail Azure
 
@@ -121,4 +121,4 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
 - [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
 
-- Pour obtenir des informations de référence d’API complètes, lisez le document [API de données de référence](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+- Pour obtenir des informations de référence d’API complètes, lisez le document [API de données de référence](/rest/api/time-series-insights/gen1-reference-data-api).

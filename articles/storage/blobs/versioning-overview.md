@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444501"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001879"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
@@ -128,7 +128,7 @@ Le diagramme suivant montre comment la modification d’un objet blob après la 
 
 ## <a name="blob-versioning-and-soft-delete"></a>Contrôle de version des objets blob et suppression réversible
 
-Le contrôle de version des objets blob et la suppression réversible des objets blob vous assurent une protection optimale des données. Lorsque vous activez la suppression réversible, vous spécifiez la durée pendant laquelle le stockage Azure doit conserver un objet blob supprimé de façon réversible. Toute version d’objet blob supprimée de manière réversible reste dans le système et peut être rétablie dans la période de rétention de la suppression réversible. Pour plus d’informations sur la suppression réversible d’objets blob, consultez [Suppression réversible pour les objets blob de Stockage Azure](storage-blob-soft-delete.md).
+Le contrôle de version des objets blob et la suppression réversible des objets blob vous assurent une protection optimale des données. Lorsque vous activez la suppression réversible, vous spécifiez la durée pendant laquelle le stockage Azure doit conserver un objet blob supprimé de façon réversible. Toute version d’objet blob supprimée de manière réversible reste dans le système et peut être rétablie dans la période de rétention de la suppression réversible. Pour plus d’informations sur la suppression réversible d’objets blob, consultez [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Suppression d’un objet blob ou d’une version
 
@@ -297,4 +297,4 @@ Le tableau suivant décrit le comportement de facturation d’un objet blob supp
 
 - [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)
 - [Création d’un instantané d’objet blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Suppression réversible pour Azure Storage Blob](storage-blob-soft-delete.md)
+- [Suppression réversible pour Azure Storage Blob](./soft-delete-blob-overview.md)

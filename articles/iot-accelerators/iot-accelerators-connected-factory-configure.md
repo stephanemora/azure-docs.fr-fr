@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002236"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -88,7 +88,7 @@ L’extrait de code suivant montre un plan du fichier de configuration `ContosoT
 }
 ```
 
-Les propriétés communes de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` et `<station_configuration>` sont :
+Les propriétés communes de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, et `<station_configuration>` sont :
 
 * **Name** (de type chaîne)
 

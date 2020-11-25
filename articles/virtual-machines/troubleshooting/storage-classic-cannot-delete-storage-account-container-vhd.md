@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361855"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002593"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -103,7 +103,7 @@ Dans le portail, vous avez deux expériences possibles selon la liste d’objets
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShell, l’erreur suivante se produit. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.</span>
 

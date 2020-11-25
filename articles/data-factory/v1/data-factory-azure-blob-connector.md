@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438515"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001727"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -188,7 +188,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Intelligence + analyse**, puis sur **Data Factory**.
 3. Dans le volet **Nouvelle fabrique de données** :  
     1. Entrez **ADFBlobConnectorDF** comme **nom**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur `*Data factory name “ADFBlobConnectorDF” is not available` s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
-    2. Sélectionnez votre **abonnement**Azure.
+    2. Sélectionnez votre **abonnement** Azure.
     3. Pour le groupe de ressources, sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant (ou) sélectionnez **Créer un nouveau** pour entrer le nom d’un groupe de ressources.
     4. Sélectionnez un **emplacement** pour la fabrique de données.
     5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.
@@ -247,7 +247,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 9. Dans la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage Blob Azure) :  
     1. Entrez **AzureStorageLinkedService** dans le champ **Nom de la connexion**.
     2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Account selection method** (Méthode de sélection du compte).
-    3. Sélectionnez votre **abonnement**Azure.
+    3. Sélectionnez votre **abonnement** Azure.
     4. Sélectionnez votre compte de stockage Azure.
     5. Cliquez sur **Suivant**.
 10. Dans la page **Choose the output file or folder** (Choisir le fichier ou le dossier de sortie) :  

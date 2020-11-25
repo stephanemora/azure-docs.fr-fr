@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543081"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001964"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -41,7 +41,7 @@ Une fois que vous disposez de tous les éléments prérequis, vous pouvez instal
 
 3. Dans la zone de recherche, entrez **Spark & Hive**.
 
-4. Sélectionnez **Outils Spark et Hive** dans les résultats de la recherche, puis sélectionnez **Installer**  :
+4. Sélectionnez **Outils Spark et Hive** dans les résultats de la recherche, puis sélectionnez **Installer** :
 
    ![Installation de Python avec Spark et Hive pour Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
@@ -51,9 +51,9 @@ Une fois que vous disposez de tous les éléments prérequis, vous pouvez instal
 
 Pour ouvrir un dossier de travail et créer un fichier dans Visual Studio Code, procédez comme suit :
 
-1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier...**  > **C:\HD\HDexample** , puis sélectionnez le bouton **Sélectionner le dossier**. Le dossier s’affiche dans l’affichage **Explorateur** sur la gauche.
+1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier...**  > **C:\HD\HDexample**, puis sélectionnez le bouton **Sélectionner le dossier**. Le dossier s’affiche dans l’affichage **Explorateur** sur la gauche.
 
-2. Dans la vue **Explorateur** , sélectionnez le dossier **HDexample** , puis l’icône **Nouveau fichier** à côté du dossier de travail :
+2. Dans la vue **Explorateur**, sélectionnez le dossier **HDexample**, puis l’icône **Nouveau fichier** à côté du dossier de travail :
 
    ![icône nouveau fichier visual studio code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
@@ -73,7 +73,7 @@ Pour un utilisateur de cloud national, suivez ces étapes pour configurer l’en
 
 Pour que vous puissiez envoyer des scripts à vos clusters à partir de Visual Studio Code, l’utilisateur a la possibilité de se connecter à un abonnement Azure ou de [lier un cluster HDInsight](#link-a-cluster). Utilisez le nom d’utilisateur/mot de passe Ambari ou les informations d’identification jointes au domaine de votre cluster ESP pour vous connecter à votre cluster HDInsight. Suivez ces étapes pour vous connecter à Azure :
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Azure : Sign In**  :
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Azure : Sign In** :
 
    ![Outils Spark et Hive pour la connexion à Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -93,7 +93,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 3. Entrez l’URL du cluster HDInsight.
 
-4. Entrez votre nom d’utilisateur Ambari ( **admin** par défaut).
+4. Entrez votre nom d’utilisateur Ambari (**admin** par défaut).
 
 5. Entrez votre mot de passe Ambari.
 
@@ -114,9 +114,9 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 3. Entrez le point de terminaison Livy générique. Par exemple, http\://10.172.41.42:18080.
 
-4. Sélectionnez le type d’autorisation **De base** ou **Aucune**.  Si vous sélectionnez **De base**  :  
+4. Sélectionnez le type d’autorisation **De base** ou **Aucune**.  Si vous sélectionnez **De base** :  
    
-   1. Entrez votre nom d’utilisateur Ambari ( **admin** par défaut).  
+   1. Entrez votre nom d’utilisateur Ambari (**admin** par défaut).  
 
    2. Entrez votre mot de passe Ambari.
 
@@ -142,7 +142,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 4. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
 
-5. Sélectionnez un cluster comme cluster par défaut pour le fichier de script actuel. Les outils mettent automatiquement à jour le fichier de configuration **.VSCode\settings.json**  :
+5. Sélectionnez un cluster comme cluster par défaut pour le fichier de script actuel. Les outils mettent automatiquement à jour le fichier de configuration **.VSCode\settings.json** :
 
    ![Définir une configuration de cluster par défaut](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -168,9 +168,9 @@ Avec les outils Spark et Hive pour Visual Studio Code, vous pouvez envoyer des r
 
    ![Résultat de requête interactive Apache Hive](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-   - Volet **RÉSULTATS**  : Vous pouvez enregistrer le résultat complet dans un fichier CSV, JSON ou Excel dans un chemin local ou enregistrer seulement certaines lignes du résultat.
+   - Volet **RÉSULTATS** : Vous pouvez enregistrer le résultat complet dans un fichier CSV, JSON ou Excel dans un chemin local ou enregistrer seulement certaines lignes du résultat.
 
-   - Volet **MESSAGES**  : Cliquez sur un numéro de **ligne** pour accéder à la première ligne du script en cours d’exécution.
+   - Volet **MESSAGES** : Cliquez sur un numéro de **ligne** pour accéder à la première ligne du script en cours d’exécution.
 
 ## <a name="submit-interactive-pyspark-queries"></a>Envoyer des requêtes PySpark interactives
 
@@ -203,7 +203,7 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
    ![Capture d’écran montrant une option permettant d’ignorer l’installation de PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Si vous avez besoin de l’installer ultérieurement, vous pouvez accéder à **Fichier** > **Préférence** > **Paramètres** , puis décocher **HDInsight : Activer Ignorer l’installation de PySpark** dans les paramètres. 
+5. Si vous avez besoin de l’installer ultérieurement, vous pouvez accéder à **Fichier** > **Préférence** > **Paramètres**, puis décocher **HDInsight : Activer Ignorer l’installation de PySpark** dans les paramètres. 
     
     ![Capture d’écran montrant l’option permettant d’activer l’installation de Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -211,7 +211,7 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
    ![PySpark a été installé](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P** , puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
+7. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
 
    ![sélectionner Interpréteur pour démarrer le serveur Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
@@ -219,7 +219,7 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
    ![choisit l’option ci-dessous](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P** , puis entrez **Développeur : Recharger la fenêtre**.
+9. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Développeur : Recharger la fenêtre**.
 
    ![recharger la fenêtre](./media/hdinsight-for-vscode/reload-window.png)
 
@@ -233,11 +233,11 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
     ![Fenêtre Python interactive dans PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. Entrez **%%info** , puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
+13. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
 
     ![informations travail d’affichage interactif pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-L’outil prend également en charge la requête **Spark SQL**  :
+L’outil prend également en charge la requête **Spark SQL** :
 
   ![Affichage des résultats interactifs PySpark](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
@@ -256,11 +256,11 @@ L’outil prend également en charge la requête **Spark SQL**  :
 
 1. Vous pouvez créer un notebook Jupyter par commande à partir de la palette de commandes ou en créant un fichier .ipynb dans votre espace de travail. Pour plus d’informations, consultez [Utilisation de Jupyter Notebook dans Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-2. Cliquez sur le bouton **Exécuter la cellule** , suivez les invites pour **Définir le pool Spark par défaut** (il est vivement conseillé de définir un cluster/pool par défaut à chaque ouverture d’un notebook), puis **Rechargez** la fenêtre.
+2. Cliquez sur le bouton **Exécuter la cellule**, suivez les invites pour **Définir le pool Spark par défaut** (il est vivement conseillé de définir un cluster/pool par défaut à chaque ouverture d’un notebook), puis **Rechargez** la fenêtre.
 
    ![définir le pool Spark par défaut et recharger](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
 
-3. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse PySpark** , puis cliquez sur **Exécuter la cellule**. Au bout d’un certain temps, le résultat s’affiche.
+3. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse PySpark**, puis cliquez sur **Exécuter la cellule**. Au bout d’un certain temps, le résultat s’affiche.
 
    ![Résultats Exécuter IPYNB](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
@@ -305,7 +305,7 @@ L’outil prend également en charge la requête **Spark SQL**  :
 
    ![Résultat de l’envoi du travail Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Une fois que vous avez envoyé un travail Python, les journaux d'envoi s'affichent dans la fenêtre _ *OUTPUT* * (SORTIE) de Visual Studio Code. Les URL des interfaces utilisateur Spark et Yarn s’affichent également. Si vous soumettez le programme de traitement par lots à un pool Apache Spark, l’URL de l’interface utilisateur de l’historique Spark et l’URL de l’interface utilisateur de l’application de travail Spark sont également affichées. Vous pouvez ouvrir l’URL dans un navigateur web pour suivre l’état du travail.
+Une fois que vous avez envoyé un travail Python, les journaux d'envoi s'affichent dans la fenêtre _ *OUTPUT** (SORTIE) de Visual Studio Code. Les URL des interfaces utilisateur Spark et Yarn s’affichent également. Si vous soumettez le programme de traitement par lots à un pool Apache Spark, l’URL de l’interface utilisateur de l’historique Spark et l’URL de l’interface utilisateur de l’application de travail Spark sont également affichées. Vous pouvez ouvrir l’URL dans un navigateur web pour suivre l’état du travail.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Effectuer l’intégration au broker d’ID HDInsight
 
@@ -330,7 +330,7 @@ La configuration [Apache Livy](https://livy.incubator.apache.org/) est prise en 
 ### <a name="method-1"></a>Méthode 1  
 
 1. Dans la barre de menus, accédez à **Fichier** > **Préférences** > **Paramètres**.
-2. Dans la zone **Paramètres de recherche** , entrez **Envoi de travail HDInsight : Livy Conf** (Envoi de travail HDInsight : configuration de Livy).  
+2. Dans la zone **Paramètres de recherche**, entrez **Envoi de travail HDInsight : Livy Conf** (Envoi de travail HDInsight : configuration de Livy).  
 3. Sélectionnez **Modifier dans settings.json** pour le résultat de recherche approprié.
 
 ### <a name="method-2"></a>Méthode 2
@@ -342,7 +342,7 @@ Envoyez un fichier. Vous constatez que le dossier `.vscode` est ajouté automati
   ![Configuration d’Apache Livy HDInsight](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
   >[!NOTE]
-  >Pour les paramètres **driverMemory** et **executorMemory** , définissez la valeur et l’unité. Par exemple : 1 g ou 1 024 m.
+  >Pour les paramètres **driverMemory** et **executorMemory**, définissez la valeur et l’unité. Par exemple : 1 g ou 1 024 m.
 
 - Configurations Livy prises en charge :
 
@@ -369,7 +369,7 @@ Envoyez un fichier. Vous constatez que le dossier `.vscode` est ajouté automati
   | name | Nom de cette session | String |
   | conf | Propriétés de configuration de Spark | Mappage clé=valeur |
 
-  **Corps de la réponse**  : l’objet Batch créé
+  **Corps de la réponse** : l’objet Batch créé
 
   | name | description | type |
   | --- | ---| --- |
@@ -384,7 +384,7 @@ Envoyez un fichier. Vous constatez que le dossier `.vscode` est ajouté automati
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>Intégrer avec Azure HDInsight à partir de l’Explorateur
 
-Vous pouvez voir un aperçu de la table Hive directement dans vos clusters à l’aide de l’explorateur **Azure HDInsight**  :
+Vous pouvez voir un aperçu de la table Hive directement dans vos clusters à l’aide de l’explorateur **Azure HDInsight** :
 
 1. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure, si ce n’est déjà fait.
 
@@ -476,7 +476,7 @@ Envoyez un travail à un cluster HDInsight à l’aide de Data Lake Storage Gen2
 
 ## <a name="unlink-cluster"></a>Dissocier le cluster
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Spark / Hive: Unlink a Cluster** (Dissocier un cluster).  
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Spark / Hive: Unlink a Cluster** (Dissocier un cluster).  
 
 2. Sélectionnez le cluster pour lequel supprimer le lien.  
 
@@ -484,7 +484,7 @@ Envoyez un travail à un cluster HDInsight à l’aide de Data Lake Storage Gen2
 
 ## <a name="sign-out"></a>Se déconnecter  
 
-À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Azure: Se déconnecter**.
+À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se déconnecter**.
 
 ## <a name="known-issues"></a>Problèmes connus
 

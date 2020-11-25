@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001675"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 
@@ -74,7 +74,7 @@ Supposons que vos dossiers d’entrée présentent le format suivant :
 ...
 ```
 
-Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier** , accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir `2016/03/01/02` dans la zone de texte. À présent, remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
+Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir `2016/03/01/02` dans la zone de texte. À présent, remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 
 ![Utilisation de variables système](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -99,8 +99,8 @@ Cette section présente des méthodes couramment employées pour résoudre les p
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Code d’erreur : Impossible de valider dans l’Assistant de copie
 
 - **Symptômes** : Dans la première étape de l’Assistant de copie, vous rencontrez le message d’avertissement « Impossible de valider ».
-- **Causes**  : Cela peut se produire lorsque tous les cookies tiers sont désactivés.
-- **Résolution**  : 
+- **Causes** : Cela peut se produire lorsque tous les cookies tiers sont désactivés.
+- **Résolution** : 
     - Utilisez le navigateur Internet Explorer ou Microsoft Edge.
     - Si vous utilisez le navigateur Chrome, suivez les instructions ci-dessous pour ajouter l’exception des cookies pour *microsoftonline.com* et *windows.net*.
         1.  Ouvrez le navigateur Chrome.
@@ -109,14 +109,14 @@ Cette section présente des méthodes couramment employées pour résoudre les p
         4.  Recherchez **Cookies** ou accédez à **Confidentialité** sous Paramètres avancés.
         5.  Sélectionnez **Paramètres de contenu**.    
         6.  Les cookies doivent être définis sur **Autoriser la définition des données locales (recommandé)** .
-        7.  Cliquez sur **Gérer les exceptions**. Sous **Modèle de nom d’hôte** , entrez ce qui suit et assurez-vous que le comportement est défini sur **Autoriser**.
+        7.  Cliquez sur **Gérer les exceptions**. Sous **Modèle de nom d’hôte**, entrez ce qui suit et assurez-vous que le comportement est défini sur **Autoriser**.
             - login.microsoftonline.com
             - login.windows.net
         8.  Fermez le navigateur et relancez-le.
     - Si vous utilisez le navigateur Firefox, suivez les instructions ci-dessous pour ajouter l’exception des cookies.
         1. Dans le menu Firefox, accédez à **Outils** > **Options**.
-        2. Sous **Confidentialité** > **Historique** , vous pouvez voir que le paramètre actuel est **Utiliser les paramètres personnalisés pour l’historique**.
-        3. Dans **Accepter les cookies tiers** , votre paramètre actuel est peut-être **Jamais**. Vous devez cliquer sur **Exceptions** sur la droite pour ajouter les sites suivants.
+        2. Sous **Confidentialité** > **Historique**, vous pouvez voir que le paramètre actuel est **Utiliser les paramètres personnalisés pour l’historique**.
+        3. Dans **Accepter les cookies tiers**, votre paramètre actuel est peut-être **Jamais**. Vous devez cliquer sur **Exceptions** sur la droite pour ajouter les sites suivants.
             - https://login.microsoftonline.com
             - https://login.windows.net
         4.  Fermez le navigateur et relancez-le. 
@@ -125,8 +125,8 @@ Cette section présente des méthodes couramment employées pour résoudre les p
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Code d’erreur : Impossible d’ouvrir la page de connexion et d’entrer le mot de passe
 
 - **Symptômes** : L’Assistant de copie vous redirige vers la page de connexion, mais la page de connexion ne s’affiche pas correctement.
-- **Causes**  : Ce problème peut se produire si vous avez modifié l’environnement réseau, du réseau d’entreprise en réseau domestique. Les navigateurs contiennent certains caches. 
-- **Résolution**  : 
+- **Causes** : Ce problème peut se produire si vous avez modifié l’environnement réseau, du réseau d’entreprise en réseau domestique. Les navigateurs contiennent certains caches. 
+- **Résolution** : 
     1.  Fermez le navigateur, puis réessayez. Passez à l’étape suivante si le problème persiste.   
     2.  Si vous utilisez le navigateur Internet Explorer, essayez de l’ouvrir en mode privé (appuyez sur Ctrl+Maj+P). Si vous utilisez le navigateur Chrome, essayez de l’ouvrir en mode Incognito (appuyez sur Ctrl+Maj+N). Passez à l’étape suivante si le problème persiste. 
     3.  Essayez d’utiliser un autre navigateur. 

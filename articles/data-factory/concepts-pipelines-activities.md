@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003058"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 
@@ -221,10 +221,10 @@ Les différentes conditions de dépendance sont : Réussite, Échec, Ignoré, T
 
 Par exemple, si un pipeline contient Activité A -> Activité B, les différents scénarios qui peuvent se produire sont les suivants :
 
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Réussite**  : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Réussite.
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Échec**  : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Échec.
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Terminé**  : L’Activité B s’exécute si l’Activité A présente l’état final Réussite ou Échec.
-- L'Activité B a une condition de dépendance envers l'Activité A avec **Ignoré**  : L’Activité B s’exécute si l’Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l'Activité X échoue, l'Activité Y prend l'état « Ignoré » car elle ne s'exécute jamais. De même, l'Activité Z présente également l'état « Ignoré ».
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Réussite** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Réussite.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Échec** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Échec.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Terminé** : L’Activité B s’exécute si l’Activité A présente l’état final Réussite ou Échec.
+- L'Activité B a une condition de dépendance envers l'Activité A avec **Ignoré** : L’Activité B s’exécute si l’Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l'Activité X échoue, l'Activité Y prend l'état « Ignoré » car elle ne s'exécute jamais. De même, l'Activité Z présente également l'état « Ignoré ».
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemple : L’Activité 2 dépend de la réussite de l’Activité 1
 
@@ -310,9 +310,9 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 ```
 Notez les points suivants :
 
-- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy** .
-- L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset** . Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
-- Dans la section **typeProperties** , **BlobSource** est spécifié en tant que type de source et **SqlSink** , en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
+- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
+- L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
+- Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
 
 Pour obtenir une description complète de la création de ce pipeline, consultez l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md).
 
@@ -357,8 +357,8 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 ```
 Notez les points suivants :
 
-- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive** .
-- Le fichier de script Hive, **partitionweblogs.hql** , est stocké sur le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé AzureStorageLinkedService) et dans le dossier de scripts du conteneur `adfgetstarted`.
+- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
+- Le fichier de script Hive, **partitionweblogs.hql**, est stocké sur le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé AzureStorageLinkedService) et dans le dossier de scripts du conteneur `adfgetstarted`.
 - La section `defines` est utilisée pour spécifier les paramètres d’exécution transmis au script Hive comme valeurs de configuration Hive (p. ex. $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La section **typeProperties** est différente pour chaque activité de transformation. Pour en savoir plus sur les propriétés de type prises en charge pour une activité de transformation, cliquez sur l’activité de transformation dans la table [Activités de transformation des données](#data-transformation-activities).

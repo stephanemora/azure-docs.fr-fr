@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674323"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001590"
 ---
 # <a name="sensor-partner-integration"></a>Intégration de partenaire de capteur
 
-Cet article fournit des informations sur le composant Azure FarmBeats **Translator** , qui permet l'intégration de partenaire de capteur.
+Cet article fournit des informations sur le composant Azure FarmBeats **Translator**, qui permet l'intégration de partenaire de capteur.
 
 À l’aide de ce composant, les partenaires peuvent s’intégrer à FarmBeats en utilisant les API FarmBeats Datahub et envoyer les données de télémétrie et les données d’appareils des clients à FarmBeats Datahub. Une fois que les données sont disponibles dans FarmBeats, il est possible de les visualiser avec l’accélérateur FarmBeats et de s’en servir pour fusionner des données et générer des modèles de Machine Learning et d’intelligence artificielle.
 
@@ -126,10 +126,10 @@ JSON est un format de données courant, indépendant du langage, qui fournit une
 
 FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’appareil de créer et de gérer des métadonnées d’appareil ou de capteur.
 
-- /**DeviceModel**  : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
-- /**Device**  : Device correspond à un appareil physique présent dans l’exploitation agricole.
-- /**SensorModel**  : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
-- /**Sensor**  : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
+- /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
+- /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
+- /**SensorModel** : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
+- /**Sensor** : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
 
   DeviceModel | Description |
   --- | ---

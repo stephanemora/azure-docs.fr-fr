@@ -9,11 +9,11 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80628413"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002514"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "80628413"
 1. Sélectionnez le groupe de ressources que vous souhaitez utiliser, puis entrez un nom.
 1. Sélectionnez **Incrémentiel**, puis **Vérifier + créer**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Capture d’écran. Le panneau de votre disque, avec **+Créer un instantané** mis en surbrillance, car c’est ce que vous devez sélectionner.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Capture d’écran. Créez un panneau d’instantané, indiquez le nom, sélectionnez Incrémentiel, puis créez votre instantané.":::
 
 1. Sélectionnez **Créer**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Capture d’écran. Le panneau de votre disque, avec **+Créer un instantané** mis en surbrillance, car c’est ce que vous devez sélectionner.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Capture d’écran. Page de validation de votre instantané, confirmez vos sélections, puis créez l’instantané.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
