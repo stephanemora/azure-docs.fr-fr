@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295224"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996625"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.

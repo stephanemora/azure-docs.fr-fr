@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313414"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996523"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect : Effectuer une mise à niveau à partir de DirSync
 Azure AD Connect est le successeur de DirSync. Cette rubrique explique les différentes façons de procéder à une mise à niveau à partir de DirSync. Ces étapes ne fonctionnent pas pour la mise à niveau à partir d’une autre version d’Azure AD Connect ou d’Azure AD Sync.

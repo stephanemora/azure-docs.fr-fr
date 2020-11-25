@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230226"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995299"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Activer et gérer la suppression réversible pour les blobs
 
@@ -194,5 +194,5 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Suppression réversible pour le stockage de blobs](soft-delete-overview.md)
+- [Suppression réversible pour le stockage de blobs](./soft-delete-blob-overview.md)
 - [Contrôle de version des blobs](versioning-overview.md)

@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099655"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994546"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Python en utilisant l’API d’Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -114,7 +114,7 @@ Si vous souhaitez tester le code par rapport à un compte Azure Cosmos DB actif,
 
 Pour tester le code par rapport au compte de Azure Cosmos DB actif, récupérez vos informations de chaîne de connexion. Ensuite, copiez-les dans l’application.
 
-1. Dans le portail Azure, dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, sélectionnez **Chaîne de connexion** , puis **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier le nom d’utilisateur, la chaîne de connexion et le mot de passe. 
+1. Dans le portail Azure, dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, sélectionnez **Chaîne de connexion**, puis **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier le nom d’utilisateur, la chaîne de connexion et le mot de passe. 
 
 2. Ouvrez le fichier *app.py* dans le répertoire racine.
 

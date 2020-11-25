@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667807"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995231"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Modifications à venir des règles JSON de mise à plat et d’échappement pour les nouveaux environnements
 
@@ -44,17 +44,17 @@ Les tableaux d’objets sont toujours aplatis, ce qui génère plusieurs événe
 
 Tous les nouveaux déploiements doivent obéir aux nouvelles règles d’ingestion. Par exemple, si votre TS ID est `telemetry_tagId`, vous devez mettre à jour tous les modèles Azure Resource Manager ou scripts de déploiement automatisés pour configurer `telemetry.tagId` comme le TS ID d’environnement. Cette modification est également nécessaire pour les timestamps de la source d’événement dans le format JSON imbriqué.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si votre charge utile contient des caractères spéciaux ou un JSON imbriqué et que vous automatisez la création des expressions de variable du[modèle de série chronologique](.\time-series-insights-update-tsm.md) :
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si votre charge utile contient des caractères spéciaux ou un JSON imbriqué et que vous automatisez la création des expressions de variable du[modèle de série chronologique](./concepts-model-overview.md) :
 
-Mettez à jour votre code client en exécutant [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) pour qu’il respecte les nouvelles règles d’ingestion. Par exemple, une ancienne [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` doit être mise à jour vers l’une des options suivantes :
+Mettez à jour votre code client en exécutant [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) pour qu’il respecte les nouvelles règles d’ingestion. Par exemple, une ancienne [expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` doit être mise à jour vers l’une des options suivantes :
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Stockage et entrée Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
+* Consultez [Stockage et entrée Azure Time Series Insights Gen2](./concepts-ingestion-overview.md).
 
 * Découvrez comment interroger vos données à l’aide d’[API de requête de série chronologique](./concepts-query-overview.md).
 
-* En savoir plus sur la [nouvelle syntaxe des expressions de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* En savoir plus sur la [nouvelle syntaxe des expressions de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax).

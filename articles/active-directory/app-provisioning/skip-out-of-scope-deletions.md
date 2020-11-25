@@ -12,24 +12,24 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041170"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995367"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 
 Par défaut, le moteur de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Cependant, dans certains scénarios, comme le provisionnement entrant d’utilisateurs de Workday vers AD, ce comportement par défaut peut ne pas convenir et vous pouvez souhaiter le remplacer.  
 
-Cet article explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur * **SkipOutOfScopeDeletions** _ qui contrôle le traitement des comptes qui sortent de l’étendue. _ Si * **SkipOutOfScopeDeletions** _ est défini sur 0 (false), les comptes en dehors de l’étendue seront désactivés dans la cible.
-_ Si * **SkipOutOfScopeDeletions** _ est défini sur 1 (true), les comptes en dehors de l’étendue ne seront pas désactivés dans la cible. Cet indicateur est défini au niveau de l’_application d’approvisionnement* et peut être configuré à l’aide de l’API Graph. 
+Cet article explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur ***SkipOutOfScopeDeletions** _ qui contrôle le traitement des comptes qui sortent de l’étendue. _ Si ***SkipOutOfScopeDeletions** _ est défini sur 0 (false), les comptes en dehors de l’étendue seront désactivés dans la cible.
+_ Si ***SkipOutOfScopeDeletions** _ est défini sur 1 (true), les comptes en dehors de l’étendue ne seront pas désactivés dans la cible. Cet indicateur est défini au niveau de l’_application d’approvisionnement* et peut être configuré à l’aide de l’API Graph. 
 
-Du fait que cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory* , les étapes suivantes incluent des captures d’écran de l’application Workday. Cependant, la configuration peut aussi être utilisée avec *toutes les autres applications* , comme ServiceNow, Salesforce et Dropbox.
+Du fait que cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes suivantes incluent des captures d’écran de l’application Workday. Cependant, la configuration peut aussi être utilisée avec *toutes les autres applications*, comme ServiceNow, Salesforce et Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 
-1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’ *application de provisionnement de Workday vers AD* , accédez à la section Propriétés de cette application. 
+1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’*application de provisionnement de Workday vers AD*, accédez à la section Propriétés de cette application. 
 1. Dans la section Propriétés de votre application d'approvisionnement, copiez la valeur GUID associée au champ *ID de l'objet*. Cette valeur, également appelée **ServicePrincipalId** de votre application, sera utilisée dans les opérations de l'Afficheur Graph.
 
    ![ID du principal de service de l'application Workday](./media/skip-out-of-scope-deletions/wd_export_01.png)
@@ -45,7 +45,7 @@ Du fait que cette configuration est largement utilisée avec l’application de 
 
 ## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Étape 3 : Obtenir les informations d’identification et les détails de connectivité de l’application existante
 
-Dans l'Afficheur Microsoft Graph, exécutez la requête GET suivante en remplaçant [servicePrincipalId] par la valeur **ServicePrincipalId** extraite à l' [étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
+Dans l'Afficheur Microsoft Graph, exécutez la requête GET suivante en remplaçant [servicePrincipalId] par la valeur **ServicePrincipalId** extraite à l'[étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -68,9 +68,9 @@ Voici le bloc JSON à ajouter au mappage.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Étape 4 : Mettre à jour le point de terminaison secrets avec l’indicateur SkipOutOfScopeDeletions
 
-Dans l’Afficheur Graph, exécutez la commande ci-dessous pour mettre à jour le point de terminaison secrets avec l’indicateur * *_SkipOutOfScopeDeletions_* _. 
+Dans l’Afficheur Graph, exécutez la commande ci-dessous pour mettre à jour le point de terminaison secrets avec l’indicateur **_SkipOutOfScopeDeletions_* _. 
 
-Dans l’URL ci-dessous, remplacez [servicePrincipalId] par la valeur _ *ServicePrincipalId* * extraite à l’[étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+Dans l’URL ci-dessous, remplacez [servicePrincipalId] par la valeur _ *ServicePrincipalId** extraite à l’[étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995423"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -28,7 +28,7 @@ Après avoir lu cet article, vous pourrez :
 * Obtenez de l’aide dans Windows PowerShell for StorSimple.
 
 > [!NOTE]
-> * Les applets de commande de Windows PowerShell pour StorSimple vous permettent de gérer votre appareil StorSimple depuis une console série ou à distance via l’accès distant Windows PowerShell. Pour plus d’informations sur chacune des applets de commande individuelles qui peuvent être utilisés dans cette interface, consultez les [informations de référence sur les applets de commande pour Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+> * Les applets de commande de Windows PowerShell pour StorSimple vous permettent de gérer votre appareil StorSimple depuis une console série ou à distance via l’accès distant Windows PowerShell. Pour plus d’informations sur chacune des applets de commande individuelles qui peuvent être utilisés dans cette interface, consultez les [informations de référence sur les applets de commande pour Windows PowerShell pour StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 > * Les applets de commande d’Azure PowerShell StorSimple sont une autre collection d’applets de commande qui vous permettent d’automatiser des tâches de niveau service et de migration StorSimple à partir de la ligne de commande. Pour plus d’informations sur les applets de commande d’Azure PowerShell pour StorSimple, consultez [Informations de référence sur les applets de commande d’Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
@@ -178,4 +178,3 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-

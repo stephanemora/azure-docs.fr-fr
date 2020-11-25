@@ -4,11 +4,11 @@ description: Cet article explique comment créer des abonnements Event Grid pour
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308501"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995061"
 ---
 # <a name="subscribe-to-events-through-portal"></a>S’abonner à des événements via le portail
 

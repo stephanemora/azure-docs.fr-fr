@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995928"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utiliser le site azureiotsolutions.com pour déployer votre accélérateur de solution
 
@@ -26,9 +26,9 @@ Vous pouvez déployer des accélérateurs de solution Azure IoT sur votre abonne
 
 Vous pouvez déployer les accélérateurs de solution dans les configurations suivantes :
 
-* **Standard**  : un déploiement étendu de l’infrastructure pour le développement d’un environnement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
-* **De base**  : une version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
-* **Local**  : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
+* **Standard** : un déploiement étendu de l’infrastructure pour le développement d’un environnement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
+* **De base** : une version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
+* **Local** : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
 
 Chacun des accélérateurs de solution utilise une combinaison différente des services Azure comme IoT Hub, Azure Stream Analytics et Cosmos DB. Pour plus d’informations, visitez [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) et sélectionnez un accélérateur de solution.
 
@@ -38,14 +38,14 @@ Pour pouvoir déployer un accélérateur de solution, vous devez vous connecter 
 
 Vos autorisations pour déployer des accélérateurs de solutions, gérer les utilisateurs et gérer les services Azure dépendent de votre rôle dans l’annuaire sélectionné. Les rôles Azure AD courants associés aux accélérateurs de solutions sont les suivants :
 
-* **Administrateur général**  : il peut y avoir de nombreux [administrateurs généraux](../active-directory/roles/permissions-reference.md) pour chaque locataire Azure AD :
+* **Administrateur général** : il peut y avoir de nombreux [administrateurs généraux](../active-directory/roles/permissions-reference.md) pour chaque locataire Azure AD :
 
   * Quand vous créez un locataire Azure AD, vous en êtes l’administrateur général par défaut.
   * L’administrateur général peut déployer des accélérateurs de solution de base et standard.
 
-* **Utilisateur de domaine**  : il peut y avoir de nombreux utilisateurs de domaine pour chaque locataire Azure AD. Un utilisateur de domaine peut déployer un accélérateur de solution de base.
+* **Utilisateur de domaine** : il peut y avoir de nombreux utilisateurs de domaine pour chaque locataire Azure AD. Un utilisateur de domaine peut déployer un accélérateur de solution de base.
 
-* **Utilisateur invité**  : il peut y avoir de nombreux utilisateurs invités pour chaque locataire Azure AD. Les utilisateurs invités ne peuvent pas déployer un accélérateur de solution dans le locataire Azure AD.
+* **Utilisateur invité** : il peut y avoir de nombreux utilisateurs invités pour chaque locataire Azure AD. Les utilisateurs invités ne peuvent pas déployer un accélérateur de solution dans le locataire Azure AD.
 
 Pour plus d’informations sur les utilisateurs et les rôles dans Azure AD, consultez les ressources suivantes :
 

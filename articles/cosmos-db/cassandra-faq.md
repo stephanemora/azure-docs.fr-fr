@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995815"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Forum aux questions sur l’API Cassandra dans Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ Cet article décrit les différences de fonctionnalités entre Apache Cassandra 
 - La définition d’un facteur de réplication de 1 est possible avec Apache Cassandra. Toutefois, cela aboutit à une faible disponibilité si le seul nœud avec les données tombe en panne. Ce n’est pas un problème avec l’API Cassandra pour Azure Cosmos DB parce qu’il existe toujours un facteur de réplication de 4 (quorum de 3).
 - L’ajout ou la suppression de nœuds dans Apache Cassandra nécessite une intervention manuelle, ainsi qu’une utilisation élevée du processeur sur le nouveau nœud lorsque les nœuds existants déplacent certaines de leurs plages de jetons vers le nouveau nœud. Cette situation est la même lorsque vous désaffectez un nœud existant. Quoi qu’il en soit, l’API Cassandra effectue un scale-out sans occasionner le moindre problème dans le service ou l’application.
 - Il n’est pas nécessaire de définir **num_tokens** sur chaque nœud du cluster comme dans Apache Cassandra. Azure Cosmos DB gère entièrement les nœuds et les plages de jetons.
-- L’API Cassandra est entièrement gérée. Vous n’avez pas besoin des commandes **nodetool** , telles que la réparation et la désaffectation, qui sont utilisées dans Apache Cassandra.
+- L’API Cassandra est entièrement gérée. Vous n’avez pas besoin des commandes **nodetool**, telles que la réparation et la désaffectation, qui sont utilisées dans Apache Cassandra.
 
 ## <a name="other-frequently-asked-questions"></a>Autres questions fréquentes
 

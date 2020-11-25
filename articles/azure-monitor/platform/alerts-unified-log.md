@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995078"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 

@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995214"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 

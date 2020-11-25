@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995003"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
 
@@ -36,7 +36,7 @@ Les tâches courantes associées à un service StorSimple Device Manager sont le
 * Obtenir la clé d’inscription du service
 * Régénérer la clé d’inscription du service
 
-Ce didacticiel explique comment exécuter chacune des tâches ci-dessus. Les informations contenues dans cet article s’appliquent uniquement aux tableaux virtuels StorSimple. Pour plus d’informations sur la gamme StorSimple 8000, consultez la page [déployer un service StorSimple Manager](storsimple-manage-service.md).
+Ce didacticiel explique comment exécuter chacune des tâches ci-dessus. Les informations contenues dans cet article s’appliquent uniquement aux tableaux virtuels StorSimple. Pour plus d’informations sur la gamme StorSimple 8000, consultez la page [déployer un service StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Créer un service
 
@@ -89,7 +89,7 @@ La liste des services est actualisée.
  ![Liste des services mise à jour](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Obtenir la clé d’inscription du service
-Une fois que vous avez créé un service, vous devez inscrire votre appareil StorSimple auprès du service. Pour inscrire votre premier appareil StorSimple, vous avez besoin de la clé d’inscription du service. Pour inscrire des appareils supplémentaires avec un service StorSimple existant, vous avez besoin de la clé d’inscription et de la clé de chiffrement des données du service (générée sur le premier appareil lors de l’inscription). Pour plus d’informations sur la clé de chiffrement des données du service, consultez la rubrique [Sécurité StorSimple](storsimple-security.md). Vous pouvez obtenir la clé d’inscription en accédant au panneau **Clés** relatif à votre service.
+Une fois que vous avez créé un service, vous devez inscrire votre appareil StorSimple auprès du service. Pour inscrire votre premier appareil StorSimple, vous avez besoin de la clé d’inscription du service. Pour inscrire des appareils supplémentaires avec un service StorSimple existant, vous avez besoin de la clé d’inscription et de la clé de chiffrement des données du service (générée sur le premier appareil lors de l’inscription). Pour plus d’informations sur la clé de chiffrement des données du service, consultez la rubrique [Sécurité StorSimple](./storsimple-8000-security.md). Vous pouvez obtenir la clé d’inscription en accédant au panneau **Clés** relatif à votre service.
 
 Procédez comme suit pour obtenir la clé d’inscription du service.
 
@@ -125,4 +125,3 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [prendre en main](storsimple-virtual-array-deploy1-portal-prep.md) une solution StorSimple Virtual Array.
 * Découvrez comment [gérer votre appareil StorSimple](storsimple-ova-web-ui-admin.md).
-

@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996557"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifier le mot de passe du compte de service ADSync
 Si vous modifiez le mot de passe du service ADSync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service ADSync. 

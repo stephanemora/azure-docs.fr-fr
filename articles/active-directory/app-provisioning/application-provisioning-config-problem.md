@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782124"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994789"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 

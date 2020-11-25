@@ -12,11 +12,11 @@ ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994840"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -80,10 +80,10 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **inputClaim1**  : someone@contoso.com
-  - **inputClaim2**  : someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - Paramètres d’entrée :
-  - **stringComparison**  : ordinalIgnoreCase
+  - **stringComparison** : ordinalIgnoreCase
 - Résultat : Erreur levée
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **email**  : SomeOne@contoso.com
+  - **email** : SomeOne@contoso.com
 - Paramètres d’entrée :
-    - **toCase**  : LOWER
+    - **toCase** : LOWER
 - Revendications de sortie :
-  - **email**  : someone@contoso.com
+  - **email** : someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
 ### <a name="example"></a>Exemple
 
 - Paramètre d’entrée :
-    - **value**  : Contoso terms of service...
+    - **value** : Contoso terms of service...
 - Revendications de sortie :
-    - **createdClaim**  : le ClaimType TOS contient la valeur « Contoso terms of service... ».
+    - **createdClaim** : le ClaimType TOS contient la valeur « Contoso terms of service... ».
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **inputClaim1**  : someone@contoso.com
-  - **inputClaim2**  : someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - Paramètres d’entrée :
-    - **operator**  :  NON ÉGAL À
-    - **ignoreCase**  : true
+    - **operator** :  NON ÉGAL À
+    - **ignoreCase** : true
 - Revendications de sortie :
-    - **outputClaim**  : true
+    - **outputClaim** : true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 
 ### <a name="example"></a>Exemple
 - Revendications d’entrée :
-    - **inputClaim1**  : v1
+    - **inputClaim1** : v1
 - Paramètres d’entrée :
-    - **compareTo**  : V1
-    - **operator**  : EQUAL
-    - **ignoreCase**  : true
+    - **compareTo** : V1
+    - **operator** : EQUAL
+    - **ignoreCase** : true
 - Revendications de sortie :
-    - **outputClaim**  : true
+    - **outputClaim** : true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
 ### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
-    - **randomGeneratorType**  : GUID
+    - **randomGeneratorType** : GUID
 - Revendications de sortie :
-    - **outputClaim**  : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 1000. La valeur est mise en forme au format OTP_ {valeur aléatoire}.
 
@@ -282,12 +282,12 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
 ### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
-    - **randomGeneratorType**  : INTEGER
-    - **maximumNumber**  : 1 000
-    - **stringFormat**  : OTP_{0}
-    - **base64**  : false
+    - **randomGeneratorType** : INTEGER
+    - **maximumNumber** : 1 000
+    - **stringFormat** : OTP_{0}
+    - **base64** : false
 - Revendications de sortie :
-    - **outputClaim**  : OTP_853
+    - **outputClaim** : OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,11 +319,11 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim**  : 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
 - Paramètres d’entrée :
-    - **stringFormat**  :  cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat** :  cpim_{0}@{RelyingPartyTenantId}
 - Revendications de sortie :
-  - **outputClaim**  : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -356,12 +356,12 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim1**  : Joe
-    - **inputClaim2**  : Fernando
+    - **inputClaim1** : Joe
+    - **inputClaim2** : Fernando
 - Paramètres d’entrée :
-    - **stringFormat**  : {0} {1}
+    - **stringFormat** : {0} {1}
 - Revendications de sortie :
-    - **outputClaim**  : Joe Fernando
+    - **outputClaim** : Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -428,9 +428,9 @@ La transformation de revendications définit la valeur du type de revendication 
 
 - Revendications de sortie :
   - **subject** : Code de vérification de l’e-mail du compte Contoso
-  - **message**  : Merci, votre compte a été vérifié.
-  - **codeIntro**  : Votre code est
-  - **signature**  : Cordialement,
+  - **message** : Merci, votre compte a été vérifié.
+  - **codeIntro** : Votre code est
+  - **signature** : Cordialement,
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -472,9 +472,9 @@ La transformation de revendication recherche le texte de l’élément et retour
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **mapFromClaim**  : B2C_V1_90001
+    - **mapFromClaim** : B2C_V1_90001
 - Revendications de sortie :
-    - **restrictionValueClaim**  : Vous ne pouvez pas vous connecter parce que vous en êtes mineur.
+    - **restrictionValueClaim** : Vous ne pouvez pas vous connecter parce que vous en êtes mineur.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputParameterId**  : test.com
+    - **inputParameterId** : test.com
 - Paramètres d’entrée :
-    - **contoso.com**  : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**  : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**  : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**  : false
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup** : false
 - Revendications de sortie :
-    - **outputClaim** :    c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Lorsque le paramètre d’entrée `errorOnFailedLookup` est défini sur `true`, la transformation de revendications **LookupValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `LookupNotFound` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur.
 
@@ -544,12 +544,12 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputParameterId**  : live.com
+    - **inputParameterId** : live.com
 - Paramètres d’entrée :
-    - **contoso.com**  : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**  : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**  : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**  : true
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup** : true
 - Erreur :
     - Aucune correspondance trouvée pour la valeur de revendication d’entrée dans la liste d’ID de paramètre d’entrée et errorOnFailedLookup a la valeur true.
 
@@ -573,9 +573,9 @@ Utilisez cette transformation de revendication pour supprimer les données inuti
 ```
 
 - Revendications d’entrée :
-    - **outputClaim**  : Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+    - **outputClaim** : Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
 - Revendications de sortie :
-    - **outputClaim**  : NULL
+    - **outputClaim** : NULL
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **emailAddress**  : joe@outlook.com
+  - **emailAddress** : joe@outlook.com
 - Revendications de sortie :
-    - **domain**  : outlook.com
+    - **domain** : outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Vérifie si le numéro de téléphone fourni est valide, selon le modèle d’ex
 ```
 
 - Revendications d’entrée :
-    - **claimToMatch**  : "64854114520"
+    - **claimToMatch** : "64854114520"
 - Paramètres d’entrée :
-    - **matchTo**  : "^[0-9]{4,16}$"
-    - **outputClaimIfMatched**  : "isPhone"
+    - **matchTo** : "^[0-9]{4,16}$"
+    - **outputClaimIfMatched** : "isPhone"
 - Revendications de sortie :
-    - **outputClaim**  : "isPhone"
-    - **regexCompareResultClaim**  : true
+    - **outputClaim** : "isPhone"
+    - **regexCompareResultClaim** : true
 
 ### <a name="example-2"></a>Exemple 2
 
@@ -672,15 +672,15 @@ Vérifie si l’adresse e-mail fournie est valide, puis retourne l’alias de me
 ```
 
 - Revendications d’entrée :
-    - **claimToMatch**  : « emily@contoso.com »
+    - **claimToMatch** : « emily@contoso.com »
 - Paramètres d’entrée :
-    - **matchTo**  : `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched**  : « isEmail »
-    - **extractGroups**  : true
+    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched** : « isEmail »
+    - **extractGroups** : true
 - Revendications de sortie :
-    - **outputClaim**  : « isEmail »
-    - **regexCompareResultClaim**  : true
-    - **mailAlias**  : emily
+    - **outputClaim** : « isEmail »
+    - **regexCompareResultClaim** : true
+    - **mailAlias** : emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim**  : v1
+    - **inputClaim** : v1
 - Paramètres d’entrée :
-    - **matchTo**  : V1
-    - **stringComparison**  : ordinalIgnoreCase
-    - **stringMatchMsg**  :  B2C_V1_90005
-    - **stringMatchMsgCode**  :  The TOS is upgraded to v2
+    - **matchTo** : V1
+    - **stringComparison** : ordinalIgnoreCase
+    - **stringMatchMsg** :  B2C_V1_90005
+    - **stringMatchMsgCode** :  The TOS is upgraded to v2
 - Revendications de sortie :
-    - **outputClaim1**  : B2C_V1_90005
-    - **outputClaim2**  : The TOS is upgraded to v2
-    - **stringCompareResultClaim**  : true
+    - **outputClaim1** : B2C_V1_90005
+    - **outputClaim2** : The TOS is upgraded to v2
+    - **stringCompareResultClaim** : true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **claimToMatch**  : Secondaire
+    - **claimToMatch** : Secondaire
 - Paramètres d’entrée :
-    - **matchTo**  : Secondaire
-    - **stringComparison**  : ordinalIgnoreCase
-    - **outputClaimIfMatched**  :  B2C_V1_90001
+    - **matchTo** : Secondaire
+    - **stringComparison** : ordinalIgnoreCase
+    - **outputClaimIfMatched** :  B2C_V1_90001
 - Revendications de sortie :
-    - **isMinorResponseCode**  : B2C_V1_90001
-    - **isMinor**  : true
+    - **isMinorResponseCode** : B2C_V1_90001
+    - **isMinor** : true
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -807,12 +807,12 @@ Utilisez cette transformation de revendication pour vérifier si un type de reve
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim**  : "Admin, Approver, Editor"
+    - **inputClaim** : "Admin, Approver, Editor"
 - Paramètres d’entrée :
-    - **contains**  : "admin,"
-    - **ignoreCase**  : true
+    - **contains** : "admin,"
+    - **ignoreCase** : true
 - Revendications de sortie :
-    - **outputClaim**  : true
+    - **outputClaim** : true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Par exemple, obtenir le préfixe international du numéro de téléphone.
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim**  : "+1644114520"
+    - **inputClaim** : "+1644114520"
 - Paramètres d’entrée :
-    - **startIndex**  : 0
-    - **length**  :  2
+    - **startIndex** : 0
+    - **length** :  2
 - Revendications de sortie :
-    - **outputClaim**  : "+1"
+    - **outputClaim** : "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ Par exemple, normalisez un numéro de téléphone en supprimant les caractères 
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-    - **inputClaim**  : "+164-411-452-054"
+    - **inputClaim** : "+164-411-452-054"
 - Paramètres d’entrée :
-    - **oldValue**  : "-"
+    - **oldValue** : "-"
     - **newValue** : ""
 - Revendications de sortie :
-    - **outputClaim**  : "+164411452054"
+    - **outputClaim** : "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ L’exemple suivant prend une collection de chaînes de rôles d’utilisateur e
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **inputClaim**  : [ "Admin", "Author", "Reader" ]
+  - **inputClaim** : [ "Admin", "Author", "Reader" ]
 - Paramètres d’entrée :
-  - **delimiter**  : ","
+  - **delimiter** : ","
 - Revendications de sortie :
-  - **outputClaim**  : "Admin,Author,Reader"
+  - **outputClaim** : "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par 
 ### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
-  - **inputClaim**  : "Admin,Author,Reader"
+  - **inputClaim** : "Admin,Author,Reader"
 - Paramètres d’entrée :
-  - **delimiter**  : ","
+  - **delimiter** : ","
 - Revendications de sortie :
-  - **outputClaim**  : [ "Admin", "Author", "Reader" ]
+  - **outputClaim** : [ "Admin", "Author", "Reader" ]
 
 ## <a name="string-claim-transformations-expressions"></a>Expressions de transformations de revendications de chaînes
 Les expressions de transformations de revendications dans les stratégies personnalisées Azure AD B2C fournissent des informations contextuelles sur l’ID du locataire et l’ID du profil technique.

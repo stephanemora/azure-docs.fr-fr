@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995401"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -46,12 +46,12 @@ Les sections suivantes peuvent vous aider à résoudre les problèmes que vous r
 ## <a name="first-time-setup-wizard-process"></a>Processus de l’Assistant Première installation
 Les étapes suivantes résument le processus de l’Assistant Installation. Pour obtenir des informations de configuration détaillées, consultez [Déploiement de votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Exécutez l’applet de commande [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) pour démarrer l’Assistant Installation qui vous guidera tout au long des étapes restantes. 
+1. Exécutez l’applet de commande [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) pour démarrer l’Assistant Installation qui vous guidera tout au long des étapes restantes. 
 2. Configurez le réseau : l’Assistant Installation vous permet de configurer les paramètres réseau de l’interface réseau DATA 0 sur votre appareil StorSimple. Les paramètres suivants sont inclus :
-   * Adresse IP virtuelle, masque de sous-réseau et passerelle : l’applet de commande [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) est exécutée en arrière-plan. Elle configure l’adresse IP, le masque de sous-réseau et la passerelle pour l’interface réseau DATA 0 sur votre appareil StorSimple.
-   * Serveur DNS principal : l’applet de commande [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) est exécutée en arrière-plan. Elle configure les paramètres DNS pour votre solution StorSimple.
-   * Serveur NTP : l’applet de commande [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) est exécutée en arrière-plan. Elle configure les paramètres NTP pour votre solution StorSimple.
-   * Proxy web facultatif : l’applet de commande [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) est exécutée en arrière-plan. Elle définit et permet la configuration du proxy web pour votre solution StorSimple.
+   * Adresse IP virtuelle, masque de sous-réseau et passerelle : l’applet de commande [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) est exécutée en arrière-plan. Elle configure l’adresse IP, le masque de sous-réseau et la passerelle pour l’interface réseau DATA 0 sur votre appareil StorSimple.
+   * Serveur DNS principal : l’applet de commande [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) est exécutée en arrière-plan. Elle configure les paramètres DNS pour votre solution StorSimple.
+   * Serveur NTP : l’applet de commande [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) est exécutée en arrière-plan. Elle configure les paramètres NTP pour votre solution StorSimple.
+   * Proxy web facultatif : l’applet de commande [Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) est exécutée en arrière-plan. Elle définit et permet la configuration du proxy web pour votre solution StorSimple.
 3. Définir le mot de passe : l’étape suivante consiste à définir le mot de passe Administrateur de l’appareil.
    Le mot de passe Administrateur est utilisé pour ouvrir une session sur votre appareil. Le mot de passe par défaut de l’appareil est **Password1**.
         
@@ -157,7 +157,7 @@ Un package de prise en charge contient tous les journaux d’activité pertinent
    2. Dans le volet **Actions**, cliquez sur **Ouvrir le journal enregistré** et pointez sur les fichiers journaux au format etvx/etw (le package de prise en charge). Vous pouvez maintenant consulter le fichier. Après avoir ouvert le fichier, vous pouvez cliquer dessus avec le bouton droit et l’enregistrer au format texte.
       
       > [!IMPORTANT]
-      > Vous pouvez également utiliser l’applet de commande **Get-WinEvent** pour ouvrir ces fichiers dans Windows PowerShell. Pour plus d’informations, consultez la page [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) dans la documentation de référence des applets de commande Windows PowerShell.
+      > Vous pouvez également utiliser l’applet de commande **Get-WinEvent** pour ouvrir ces fichiers dans Windows PowerShell. Pour plus d’informations, consultez la page [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) dans la documentation de référence des applets de commande Windows PowerShell.
      
 5. Une fois les journaux d’activité ouverts dans l’Observateur d’événements, recherchez les journaux d’activité ci-dessous ; ceux-ci contiennent les problèmes liés à la configuration de l’appareil :
    
@@ -189,7 +189,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
    * Si l’interface est intègre mais pas activée, l’état d’**ifIndex** indique **Absent**.
    * Si l’interface n’existe pas, il n’apparaît pas dans cette liste. L’interface utilisateur du service StorSimple Device Manager continue d’afficher cette interface avec l’état Échec.
 
-Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) dans le document de référence des applets de commande Windows PowerShell.
+Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) dans le document de référence des applets de commande Windows PowerShell.
 
 Les sections suivantes présentent des exemples de sortie de l’applet de commande `Get-NetAdapter` .
 
@@ -284,7 +284,7 @@ Utilisez l’applet de commande `Test-HcsmConnection` pour un appareil qui est d
    * ErrorCode.CiSDeviceDecommissioned : indique que l’appareil est désactivé.
    * ErrorCode.DeviceNotReady : indique que l’appareil est en mode maintenance.
    * ErrorCode.DeviceNotReady : indique que l’appareil n’est pas en ligne.
-3. Vérifiez que le service StorSimple Device Manager est en cours d’exécution (utilisez l’applet de commande [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) ). Si le service n’est pas en cours d’exécution, les erreurs suivantes peuvent s’afficher :
+3. Vérifiez que le service StorSimple Device Manager est en cours d’exécution (utilisez l’applet de commande [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Si le service n’est pas en cours d’exécution, les erreurs suivantes peuvent s’afficher :
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError : indique qu’une exception est survenue lors de l’exécution de Get-ClusterResource.
@@ -308,7 +308,7 @@ Utilisez l’applet de commande `Test-HcsmConnection` pour un appareil qui est d
 
 Les fichiers journaux CiSCommandletLog0Curr.errlog et CiSAgentsvc0Curr.errlog comporteront plus d’informations, notamment les détails de l’exception.
 
-Pour plus d’informations sur l’utilisation de l’applet de commande, accédez à la page [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) dans la documentation de référence de Windows PowerShell.
+Pour plus d’informations sur l’utilisation de l’applet de commande, accédez à la page [Test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) dans la documentation de référence de Windows PowerShell.
 
 > [!IMPORTANT]
 > Vous pouvez exécuter cette applet de commande pour le contrôleur passif et actif.
@@ -553,5 +553,5 @@ L’erreur peut provenir des éléments suivants :
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)
