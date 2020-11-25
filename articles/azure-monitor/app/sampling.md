@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168594"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024413"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -25,7 +25,7 @@ Lorsque les métriques sont présentées dans le portail, elles sont renormalis�
 * L’échantillonnage à fréquence fixe est disponible dans les versions récentes des SDK Application Insights pour ASP.NET, ASP.NET Core, Java (à la fois l’agent et le SDK) et Python.
 * L’échantillonnage d’ingestion fonctionne sur le point de terminaison de service Application Insights. Il s’applique seulement quand aucun autre échantillonnage n’est appliqué. Si le SDK échantillonne votre télémétrie, l’échantillonnage d’ingestion est désactivé.
 * Pour les applications web, si vous consignez des événements personnalisés et que vous devez garantir qu’un ensemble d’événements sont conservés ou ignorés conjointement, les événements doivent avoir la même valeur pour `OperationId`.
-* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../log-query/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
+* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
 * Certains types de données de télémétrie, notamment les métriques de performances et les métriques personnalisées, sont toujours conservées, que l’échantillonnage soit ou non activé.
 
 Le tableau suivant récapitule les types d’échantillonnage disponibles pour chaque SDK et chaque type d’application :

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008047"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025008"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -80,8 +80,8 @@ Cela se produit parce que vous utilisez Windows 10 entreprise en mode multisessi
 La plupart des environnements virtualisés sont configurés par défaut pour empêcher les utilisateurs d’installer des applications supplémentaires dans leurs profils. Si vous souhaitez vous assurer qu’une application ne disparaisse pas quand l’utilisateur se déconnecte de Windows Virtual Desktop, vous devez approvisionner cette application pour tous les profils utilisateurs au sein de votre environnement. Pour plus d’informations sur l’approvisionnement d’applications, consultez les ressources suivantes :
 
 - [Publier des applications intégrées dans Windows Virtual Desktop](publish-apps.md)
-- [Options de ligne de commande pour la maintenance des packages d’applications DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Options de ligne de commande pour la maintenance des packages d’applications DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Comment m’assurer que des utilisateurs ne téléchargent et n’installent pas des applications à partir du Microsoft Store ?
 

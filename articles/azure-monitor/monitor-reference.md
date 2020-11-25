@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461802"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021437"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -126,7 +126,6 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Applications gérées  | Non | Non | Non |  |
 |Cartes  | Non | Non | Non |  |
 |Media Services | Oui | Oui | Non |  |
-|Microsoft Flow | Non | Non | Non |  |
 |Bureau géré Microsoft | Non | Non | Non |  |
 |Microsoft PowerApps | Non | Non | Non |  |
 |Microsoft Social Engagement | Non | Non | Non |  |
@@ -136,7 +135,8 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Network Watcher | Oui | Oui | Non |  |
 |Notification Hubs | Oui | Non | Non |  |
 |Ouvrir des jeux de données | Non | Non | Non |  |
-|Policy | Non | Non | Non |  |
+|Stratégie | Non | Non | Non |  |
+|Power Automate | Non | Non | Non |  |
 |Power BI Embedded | Oui | Oui | Non |  |
 |Private Link | Non | Non | Non |  |
 |Project Spool Communication Platform | Non | Non | Non |  |

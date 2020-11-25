@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530134"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023273"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Azure Time Series Insights Gen1
 
@@ -37,7 +37,7 @@ Si aucune donnée n’apparaît dans [l’Explorateur Azure Time Series Insights
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Cause A : Les données sources de l’événement ne sont pas au format JSON
 
-Azure Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+Azure Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Cause B : Il manque une autorisation requise pour la clé de source de l’événement
 
@@ -85,7 +85,7 @@ Supposons qu’un environnement ingère les messages à partir d’un Event Hub.
 
 Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute).
 
-Pour en savoir plus sur le fonctionnement de la logique de mise à plat, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+Pour en savoir plus sur le fonctionnement de la logique de mise à plat, consultez [Structures JSON prises en charge](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Résolutions recommandées en cas de limitation excessive
 

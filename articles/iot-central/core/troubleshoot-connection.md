@@ -7,13 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.custom: device-developer
-ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424472"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990888"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Déterminer la raison pour laquelle les données de vos appareils ne s’affichent pas dans Azure IoT Central
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | approvisionné | Aucun problème immédiatement identifiable. | N/A |
 | Inscrit | L’appareil n’est pas encore connecté à IoT Central. | Consultez les journaux de votre appareil afin d’y détecter d’éventuels problèmes de connectivité. |
 | Bloqué | La connexion de l’appareil à IoT Central est bloquée. | L’appareil ne peut pas se connecter à l’application IoT Central. Débloquez l’appareil dans IoT Central et réessayez. Pour plus d’informations, consultez [Bloquer les appareils](concepts-get-connected.md#device-status-values). |
-| Non approuvé | L’appareil n’est pas approuvé. | L’appareil n’est pas approuvé pour se connecter à l’application IoT Central. Approuvez l’appareil dans IoT Central et réessayez. Pour plus d’informations, consultez [Approuver les appareils](concepts-get-connected.md#connect-without-registering-devices). |
+| Non approuvé | L’appareil n’est pas approuvé. | L’appareil n’est pas approuvé pour se connecter à l’application IoT Central. Approuvez l’appareil dans IoT Central et réessayez. Pour plus d’informations, consultez [Approuver les appareils](concepts-get-connected.md#device-registration). |
 | Non associé | L’appareil n’est pas associé à un modèle d’appareil. | Associez l’appareil à un modèle d’appareil pour permettre à IoT Central de savoir comment analyser les données. |
 
 Pour plus d’informations, consultez [Codes d’état des appareils](concepts-get-connected.md#device-status-values).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986246"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026469"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -41,7 +41,7 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
-1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation relative aux [JDK pris en charge dans Azure](https://aka.ms/azure-jdks).
+1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation relative aux [JDK pris en charge dans Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Téléchargez le package binaire approprié pour votre système :
 
    ```bash
@@ -207,7 +207,7 @@ Téléchargez le [fichier du tableau de bord](https://aka.ms/networkwatchernsgfl
 
 Dans l’onglet **Gestion** de Kibana, accédez à **Saved Objects** (Objets enregistrés) et importez les trois fichiers. Puis, à partir de l’onglet **Tableau de bord**, vous pouvez ouvrir et charger l’exemple de tableau de bord.
 
-Vous avez également la possibilité de créer vos propres visualisations et tableaux de bord en fonction des mesures qui vous intéressent. Reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana pour en savoir plus sur la création de visualisation Kibana.
+Vous avez également la possibilité de créer vos propres visualisations et tableaux de bord en fonction des mesures qui vous intéressent. Reportez-vous à la [documentation officielle](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) de Kibana pour en savoir plus sur la création de visualisation Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualiser les journaux de flux NSG
 

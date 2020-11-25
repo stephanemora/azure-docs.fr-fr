@@ -3,12 +3,12 @@ title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042852"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024294"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -211,8 +211,8 @@ Le déploiement peut être effectué sur le portail Azure, à l'aide de PowerShe
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Dans notre [référentiel GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), sélectionnez le bouton **Déployer sur Azure** disponible en regard du modèle que vous souhaitez utiliser. Le modèle s’ouvre dans le portail Azure.
-1. Entrez vos valeurs dans les champs **Nom de l'offre MSP** , **Description de l'offre MSP** , **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
-1. Sélectionnez **Vérifier et créer** , puis **Créer**.
+1. Entrez vos valeurs dans les champs **Nom de l'offre MSP**, **Description de l'offre MSP**, **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
+1. Sélectionnez **Vérifier et créer**, puis **Créer**.
 
 Au bout de quelques minutes, une notification indique que le déploiement est terminé.
 
@@ -286,6 +286,11 @@ Dans le locataire du client :
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

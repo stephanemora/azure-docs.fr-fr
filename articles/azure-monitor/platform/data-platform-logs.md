@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 35ed275419cc4319e7edfed608340853c986a927
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515623"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014235"
 ---
 # <a name="azure-monitor-logs-overview"></a>Vue d’ensemble de Journaux d’activité Azure Monitor
 Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte et organise les données de performances et de journal issues de [ressources supervisées](../monitor-reference.md). Les données provenant de différentes sources, telles que les [journaux de plateforme](platform-logs-overview.md) issus des services Azure, les données de journal et de performances issues des [agents de machines virtuelles](agents-overview.md) et les données d’utilisation et de performances issues des [applications](../app/app-insights-overview.md) peuvent être regroupées dans un espace de travail unique pour pouvoir être analysées ensemble à l’aide d’un langage de requête sophistiqué à même d’analyser rapidement des millions d’enregistrements. Vous pouvez effectuer une requête simple qui récupère simplement un ensemble spécifique d’enregistrements ou effectuer une analyse de données sophistiquée pour identifier les modèles critiques dans vos données de supervision. Utilisez les requêtes de journal et leurs résultats de manière interactive avec Log Analytics, utilisez-les dans des règles d’alerte pour être notifié des problèmes de manière proactive ou visualisez leurs résultats dans un classeur ou un tableau de bord.
@@ -75,8 +75,8 @@ Les données sont extraites d’un espace de travail Log Analytics à l’aide d
 ## <a name="log-analytics"></a>Log Analytics
 Utilisez Log Analytics, qui est un outil du portail Azure, pour modifier et exécuter des requêtes de journal et analyser leurs résultats de manière interactive. Vous pouvez ensuite utiliser les requêtes que vous créez pour prendre en charge d’autres fonctionnalités dans Azure Monitor telles que les alertes et les classeurs de requêtes de journal. Accédez à Log Analytics à partir de l’option **Journaux** dans le menu Azure Monitor ou à partir de la plupart des autres services du portail Azure.
 
-- Pour obtenir une description de Log Analytics, consultez [Présentation de Log Analytics dans Azure Monitor](/log-query/log-analytics-overview.md). 
-- Consultez [Tutoriel Log Analytics](/log-query/log-analytics-tutorial.md) pour parcourir les fonctionnalités de Log Analytics afin de créer une requête de journal simple et d’analyser ses résultats.
+- Pour obtenir une description de Log Analytics, consultez [Présentation de Log Analytics dans Azure Monitor](/azure/azure-monitor/log-query/log-analytics-overview). 
+- Consultez [Tutoriel Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial) pour parcourir les fonctionnalités de Log Analytics afin de créer une requête de journal simple et d’analyser ses résultats.
 
 
 

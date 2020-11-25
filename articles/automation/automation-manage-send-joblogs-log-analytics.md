@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397426"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024141"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrer la sortie de l’état du travail convertie en objet JSON
 
-Récemment, nous avons modifié le comportement relatif à la façon dont les données du journal Automation sont écrites dans la table `AzureDiagnostics` du service Log Analytics, où elles ne décomposent plus les propriétés JSON en champs distincts. Si vous avez configuré votre runbook pour qu’il formate des objets dans le flux de sortie au format JSON en tant que colonnes distinctes, vous devez reconfigurer vos requêtes pour analyser ce champ dans un objet JSON afin d’accéder à ces propriétés. Pour ce faire, utilisez [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) pour accéder à un élément JSON spécifique dans un chemin d’accès connu.
+Récemment, nous avons modifié le comportement relatif à la façon dont les données du journal Automation sont écrites dans la table `AzureDiagnostics` du service Log Analytics, où elles ne décomposent plus les propriétés JSON en champs distincts. Si vous avez configuré votre runbook pour qu’il formate des objets dans le flux de sortie au format JSON en tant que colonnes distinctes, vous devez reconfigurer vos requêtes pour analyser ce champ dans un objet JSON afin d’accéder à ces propriétés. Pour ce faire, utilisez [parsejson](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) pour accéder à un élément JSON spécifique dans un chemin d’accès connu.
 
 Par exemple, un runbook formate la propriété *ResultDescription* dans le flux de sortie au format JSON avec plusieurs champs. Pour rechercher les travaux qui sont à l’état d’échec, comme spécifié dans un champ appelé **État**, utilisez cet exemple de requête pour rechercher la propriété *ResultDescription* dont l’état est **Échec** :
 

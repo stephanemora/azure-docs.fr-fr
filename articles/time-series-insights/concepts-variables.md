@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653704"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020757"
 ---
 # <a name="time-series-model-variables"></a>Variables de modèle de série chronologique
 
@@ -34,7 +34,7 @@ Le tableau suivant répertorie les propriétés pertinentes pour chaque genre de
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
 | Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs ou transformées à l’aide d’expressions de série chronologique. Les variables de type numérique doivent être du type *Double*.|
 | Interpolation de variables | L’interpolation spécifie comment reconstruire un signal en utilisant des données existantes. Les options d’interpolation *pas à pas* et *linéaire* sont disponibles pour les variables numériques. |
-| Variable aggregation | Effectuez des calculs via les [fonctions d’agrégation prises en charge pour les types de variable numériques](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Variable aggregation | Effectuez des calculs via les [fonctions d’agrégation prises en charge pour les types de variable numériques](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Les variables sont conformes à l’exemple JSON suivant :
 
@@ -102,7 +102,7 @@ Les variables sont conformes à l’exemple JSON suivant :
 | Propriétés de la variable | Description |
 | --- | ---|
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
-| Variable aggregation | Effectuez des calculs via les [fonctions d’agrégation prises en charge pour les types de variable agrégés](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Variable aggregation | Effectuez des calculs via les [fonctions d’agrégation prises en charge pour les types de variable agrégés](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Les variables sont conformes à l’exemple JSON suivant :
 

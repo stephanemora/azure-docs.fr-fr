@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061838"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528225"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Déplacer des ressources entre régions (à partir d’un groupe de ressources)
 
@@ -27,7 +27,7 @@ Dans cet article explique comment déplacer des ressources au sein d’un groupe
 - Vous devez disposer d’un accès *Propriétaire* à l’abonnement dans lequel se trouvent les ressources que vous souhaitez déplacer.
     - La première fois que vous ajoutez une ressource pour un mappage de source et de destination spécifique dans un abonnement Azure, le service Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI), qui est approuvée par l’abonnement.
     - Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-- L’abonnement a besoin d’un quota suffisant pour créer les ressources sources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- L’abonnement a besoin d’un quota suffisant pour créer les ressources sources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
 - Vérifiez que les ressources que vous souhaitez déplacer sont prises en charge par le service Azure Resource Mover :
     - Machines virtuelles Azure et disques associés

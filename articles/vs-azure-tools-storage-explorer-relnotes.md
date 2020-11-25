@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828776"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521000"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -86,7 +86,7 @@ Pour télécharger les versions précédentes de l’Explorateur Stockage, visit
 * Les fonctionnalités des disques managés ne sont pas encore prises en charge dans Azure Stack.
 * Si un chargement ou un collage sur disque échoue et qu’un disque a été créé avant l’échec, l’Explorateur Stockage ne supprime pas le disque pour vous.
 * Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
 * Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
@@ -108,7 +108,7 @@ Pour télécharger les versions précédentes de l’Explorateur Stockage, visit
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 ## <a name="previous-releases"></a>Versions précédentes
 
@@ -176,7 +176,7 @@ Pour télécharger les versions précédentes de l’Explorateur Stockage, visit
   * Créer un instantané d’un disque
 
 Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
-* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
+* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](./vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux). #68
 * Deux changements majeurs ont été apportés à l’attachement à Azure Active Directory (Azure AD) pour rendre la fonctionnalité plus utile pour les utilisateurs d’ADLS Gen2 :
   * Vous sélectionnez à présent le locataire dans lequel se trouve la ressource que vous attachez. Vous n’avez donc plus besoin d’un accès RBAC à l’abonnement de la ressource.
   * Si vous attachez un conteneur d’objets blob ADLS Gen2, vous pouvez désormais effectuer l’attachement à un chemin spécifique dans le conteneur.
@@ -202,7 +202,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 * Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
 * Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
 * Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
 * Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
@@ -224,7 +224,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 
 ## <a name="version-1100"></a>Version 1.10.0
@@ -250,7 +250,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     * Créer un instantané d’un disque
 
     Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
-* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](https://aka.ms/storageexplorer/snapinformation). [68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](./vs-azure-tools-storage-manage-with-storage-explorer.md). [68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
 * Deux changements majeurs ont été apportés à l’attachement à Azure Active Directory (Azure AD) pour rendre la fonctionnalité plus utile pour les utilisateurs d’ADLS Gen2 : * Vous sélectionnez à présent le locataire dans lequel se trouve la ressource que vous attachez. Vous n’avez donc plus besoin d’un accès RBAC à l’abonnement de la ressource.
         * Si vous attachez un conteneur d’objets BLOB ADLS Gen2, vous pouvez désormais effectuer l’attachement à un chemin spécifique dans le conteneur.
 * Quand vous gérez des listes de contrôle d’accès pour des fichiers et des dossiers ADLS Gen2, l’Explorateur Stockage affiche désormais les noms conviviaux des entités dans la liste de contrôle d’accès. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
@@ -276,7 +276,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 * Si un chargement ou un collage sur disque échoue et qu’un disque a été créé avant l’échec, l’Explorateur Stockage ne supprime pas le disque pour vous.
 * Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
 * Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
 * Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
@@ -298,7 +298,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 ## <a name="version-190"></a>Version 1.9.0
 1/7/2019
@@ -334,7 +334,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 ### <a name="known-issues"></a>Problèmes connus
 
 * Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
@@ -356,7 +356,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 ## <a name="version-181"></a>Version 1.8.1
 13/05/2019
@@ -391,7 +391,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 ### <a name="known-issues"></a>Problèmes connus
 
 * Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
@@ -413,7 +413,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 ## <a name="version-180"></a>Version 1.8.0
 01/05/2019
@@ -443,7 +443,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 ### <a name="known-issues"></a>Problèmes connus
 
 * Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
@@ -465,7 +465,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
 
 ## <a name="version-170"></a>Version 1.7.0
 05/03/2019
@@ -499,7 +499,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 
 ### <a name="known-issues"></a>Problèmes connus
 
-* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](./storage/common/storage-explorer-troubleshooting.md) pour plus d’informations.
 * La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Pour plus d’informations, consultez #537.
@@ -559,7 +559,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
         
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)
@@ -628,7 +628,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
         
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)
@@ -683,7 +683,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)
@@ -1144,7 +1144,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 ### <a name="new"></a>Nouveau
 * L’Explorateur Stockage prend maintenant en charge l’utilisation d’Azurite. Remarque : La connexion à Azurite est codée en dur pour les points de terminaison de développement par défaut.
-* L’Explorateur Stockage prend maintenant en charge les niveaux d’accès pour les objets blob uniquement et les comptes de stockage GPV2. Explorez plus en détail les niveaux d’accès [ici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+* L’Explorateur Stockage prend maintenant en charge les niveaux d’accès pour les objets blob uniquement et les comptes de stockage GPV2. Explorez plus en détail les niveaux d’accès [ici](./storage/blobs/storage-blob-storage-tiers.md).
 * Une heure de début n’est plus nécessaire lors de la génération d’une signature SAP.
 
 ### <a name="fixes"></a>Correctifs
@@ -1204,7 +1204,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Les commentaires sur l’Explorateur Stockage sont maintenant actifs sur GitHub. Vous pouvez accéder à notre page Problèmes en cliquant sur le bouton Commentaires dans la partie inférieure gauche ou en accédant à [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). N’hésitez pas à effectuer des suggestions, à signaler des problèmes, à poser des questions ou à laisser toute autre forme de commentaires.
 * Si vous rencontrez des problèmes de certificat TLS/SSL et que vous ne parvenez pas à trouver le certificat qui pose problème, vous pouvez maintenant lancer l’Explorateur Stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Une fois lancé avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat TLS/SSL.
 * Il existe à présent une option Télécharger dans le menu contextuel pour les éléments blob et de fichier.
-* Prise en charge améliorée de l’accessibilité et des lecteurs d’écrans. Si vous vous appuyez sur des fonctionnalités d’accessibilité, consultez notre [documentation à ce sujet](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) pour plus d’informations.
+* Prise en charge améliorée de l’accessibilité et des lecteurs d’écrans. Si vous vous appuyez sur des fonctionnalités d’accessibilité, consultez notre [documentation à ce sujet](./vs-azure-tools-storage-explorer-accessibility.md) pour plus d’informations.
 * L’Explorateur Stockage utilise à présent Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Dernières modifications

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3460cd8a88733ede041f6c0635ba40797675ed03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629095"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025325"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Ajout de la prise en charge du type de données long dans Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ En fonction de votre solution IoT et de vos contraintes, vous risquez de ne pas 
 - Vous pouvez apporter par anticipation les modifications recommandées à toutes les étiquettes numériques.
 - Vous pouvez acheminer temporairement un sous-ensemble d’événements vers le stockage pour mieux comprendre et explorer votre schéma.
 
-Pour stocker des événements, activez la [capture d’événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) pour Azure Event Hub ou le [routage](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) à partir de votre IoT Hub vers le Stockage Blob Azure.
+Pour stocker des événements, activez la [capture d’événements](../event-hubs/event-hubs-capture-overview.md) pour Azure Event Hub ou le [routage](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) à partir de votre IoT Hub vers le Stockage Blob Azure.
 
-Les données peuvent également être observées par le biais de l’[explorateur Event Hub](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) ou à l’aide de l’[hôte du processeur d’événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Les données peuvent également être observées par le biais de l’[explorateur Event Hub](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) ou à l’aide de l’[hôte du processeur d’événements](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Si vous utilisez IoT Hub, accédez à [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) pour savoir comment accéder au point de terminaison intégré.
+Si vous utilisez IoT Hub, accédez à [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](../iot-hub/iot-hub-devguide-messages-read-builtin.md) pour savoir comment accéder au point de terminaison intégré.
 
 > [!NOTE]
 > Vous pouvez rencontrer une interruption si vous n’apportez pas les modifications recommandées. Par exemple, les variables de Time Series Insights affectées accessibles via les API de requête ou de l’Explorateur Time Series Insights retournent la valeur **null** (autrement dit, n’affiche pas de données dans l’Explorateur).
@@ -66,7 +66,7 @@ Si vous envoyez actuellement des données de télémétrie entières, vos donné
 
 Vos données entière sont écrites dans **propertyValue_long**. Les données numériques ingérées précédemment (et ultérieurement) dans **propertyValue_double** ne sont pas copiées.
 
-Si vous souhaitez interroger les données figurant dans ces deux colonnes pour la propriété **propertyValue**, vous devez utiliser la fonction scalaire **coalesce()** dans votre TSX. La fonction accepte les arguments du même **DataType** et retourne la première valeur non null de la liste d’arguments. Pour plus d’informations, consultez [Concepts d’accès aux données Azure Time Series Insights Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Si vous souhaitez interroger les données figurant dans ces deux colonnes pour la propriété **propertyValue**, vous devez utiliser la fonction scalaire **coalesce()** dans votre TSX. La fonction accepte les arguments du même **DataType** et retourne la première valeur non null de la liste d’arguments. Pour plus d’informations, consultez [Concepts d’accès aux données Azure Time Series Insights Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Définition de variable dans TSX – Numérique
 
@@ -78,7 +78,7 @@ Si vous souhaitez interroger les données figurant dans ces deux colonnes pour l
 
 [![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, numeric.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
+Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Définition de variable Inline à l’aide d’API de requête TSX – Numérique
 
@@ -126,7 +126,7 @@ Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble
 }
 ```
 
-Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
+Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 > [!NOTE]
 > Nous vous recommandons de mettre à jour ces variables dans tous les emplacements où elles pourraient être utilisées. Ces emplacements incluent un modèle de série chronologique, des requêtes enregistrées et les requêtes de connecteur Power BI.
@@ -145,9 +145,9 @@ Si vous utilisez actuellement des variables de catégorie qui mappent des valeur
 
 [![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, categorical.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
+Vous pouvez également utiliser **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** comme [expression de série chronologique](/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personnalisée.
 
-Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
+Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Définition de variable incluse à l’aide d’API de requête TSX – Catégorielle
 
@@ -227,7 +227,7 @@ Les variables de catégorie requièrent toujours une valeur de type entier. Le *
 }
 ```
 
-Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
+Les variables de catégorie requièrent toujours une valeur de type entier. Le **DataType** de tous les arguments dans **coalesce()** doit être de type **Long** dans l’[expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) personnalisée.
 
 > [!NOTE]
 > Nous vous recommandons de mettre à jour ces variables dans tous les emplacements où elles pourraient être utilisées. Ces emplacements incluent un modèle de série chronologique, des requêtes enregistrées et les requêtes de connecteur Power BI.

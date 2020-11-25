@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250329"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026231"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Fonctions de l’API SQL d’Hyperscale (Citus)
 
@@ -40,7 +40,7 @@ Cette fonction remplace l’utilisation de master\_create\_distributed\_table(),
 
 **colocate\_with:** (Facultatif) Inclure la table actuelle dans le groupe de colocation d’une autre table. Par défaut, les tables sont colocalisées lorsqu’elles sont distribuées par colonnes du même type, ont le même nombre de partitions et ont le même facteur de réplication. Les valeurs possibles pour `colocate_with` sont `default`, `none` pour démarrer un nouveau groupe de colocation, ou le nom d’une autre table à mettre en colocation avec cette table.  (See [colocation de table](concepts-hyperscale-colocation.md).)
 
-Gardez à l’esprit que la valeur par défaut de `colocate_with` effectue une colocation implicite. [La colocation](concepts-hyperscale-colocation.md) peut être une bonne chose lorsque les tables sont liées ou jointes.  Toutefois, lorsque deux tables ne sont pas liées, mais qu’elles utilisent le même type de données pour leurs colonnes de distribution, les mettre en colocation par inadvertance peut réduire les performances lors du [rééquilibrage de partition](howto-hyperscale-scaling.md#rebalance-shards).  Les partitions de table sont déplacées ensemble inutilement en \"cascade.\"
+Gardez à l’esprit que la valeur par défaut de `colocate_with` effectue une colocation implicite. [La colocation](concepts-hyperscale-colocation.md) peut être une bonne chose lorsque les tables sont liées ou jointes.  Toutefois, lorsque deux tables ne sont pas liées, mais qu’elles utilisent le même type de données pour leurs colonnes de distribution, les mettre en colocation par inadvertance peut réduire les performances lors du [rééquilibrage de partition](howto-hyperscale-scale-rebalance.md).  Les partitions de table sont déplacées ensemble inutilement en \"cascade.\"
 
 Si une nouvelle table distribuée n’est pas associée à d’autres tables, il est préférable de spécifier `colocate_with => 'none'`.
 

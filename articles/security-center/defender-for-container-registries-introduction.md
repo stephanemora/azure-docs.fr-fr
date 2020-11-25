@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145818"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529981"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
 Azure Container Registry (ACR) est un service de registre Docker privé et géré qui stocke et gère vos images conteneurs pour les déploiements Azure dans un registre central. Il est basé sur le registre Docker open source 2.0.
 
 Pour protéger tous les registres basés sur Azure Resource Manager de votre abonnement, activez **Azure Defender pour les registres de conteneurs** au niveau de l’abonnement. Security Center analysera ensuite les images envoyées au registre, importées dans le registre, ou les images extraites au cours des 30 derniers jours. Cette fonctionnalité est facturée par image.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quels sont les avantages d’Azure Defender pour les registres de conteneurs ?
 
@@ -47,7 +49,7 @@ Il existe trois déclencheurs pour une analyse d’image :
 
 - **Recently pulled** (extraites récemment) : étant donné que de nouvelles vulnérabilités sont découvertes chaque jour, **Azure Defender pour les registres de conteneurs** analyse également les images extraites au cours des 30 derniers jours. Aucuns frais supplémentaires ne sont facturés pour une nouvelle analyse. Comme indiqué ci-dessus, vous êtes facturé une fois par image.
 
-- **Lors de l’importation**  : Azure Container Registry inclut des outils d’importation pour importer des images dans votre registre à partir de Dockr Hub, d’un registre de conteneurs Microsoft ou d’un autre registre de conteneurs Azure. **Azure Defender pour les registres de conteneurs** analyse toutes les images prises en charge que vous importez. Pour plus d’informations, consultez [Importation d’images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md).
+- **Lors de l’importation** : Azure Container Registry inclut des outils d’importation pour importer des images dans votre registre à partir de Dockr Hub, d’un registre de conteneurs Microsoft ou d’un autre registre de conteneurs Azure. **Azure Defender pour les registres de conteneurs** analyse toutes les images prises en charge que vous importez. Pour plus d’informations, consultez [Importation d’images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md).
  
 L’analyse se termine généralement dans un délai de 2 minutes, mais elle peut prendre jusqu’à 15 minutes. Les résultats sont mis à disposition en tant que recommandations du Security Center, par exemple :
 

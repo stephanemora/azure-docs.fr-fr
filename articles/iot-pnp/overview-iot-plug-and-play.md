@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421632"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486294"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Qu’est ce qu’IoT Plug-and-Play ?
 
@@ -72,5 +72,5 @@ Le [programme de certification d’appareil IoT Plug-and-Play](howto-certify-dev
 
 Maintenant que vous disposez d’une vue d’ensemble d’IoT Plug-and-Play, l’étape suivante suggérée consiste à essayer l’un des démarrages rapides suivants :
 
-- [Connecter un appareil à IoT Hub (C)](./quickstart-connect-device-c.md)
-- [Interagir avec un appareil à partir de votre solution (Node.js)](./quickstart-service-node.md)
+- [Connecter un appareil à IoT Hub](./quickstart-connect-device.md)
+- [Interaction avec un appareil à partir de la solution](./quickstart-service.md)

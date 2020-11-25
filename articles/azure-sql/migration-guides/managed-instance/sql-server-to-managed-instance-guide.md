@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0aba809fd18dfd74a344a32b2335aba9426c9845
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496180"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026042"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guide de migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Si vous avez besoin de comparer les performances de votre charge de travail s’
 
 ### <a name="create-sql-managed-instance"></a>Créer une instance SQL Database Managed Instance 
 
-En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](/../../managed-instance/create-template-quickstart.md). 
+En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
 ## <a name="migrate"></a>Migrer
@@ -142,7 +142,7 @@ Le diagramme suivant fournit une vue d’ensemble du processus :
 
 Pour effectuer une migration à l’aide de la fonctionnalité de sauvegarde et restauration, suivez les étapes ci-dessous : 
 
-1. Sauvegardez votre base de données sur le Stockage Blob Azure. Par exemple, utilisez la fonctionnalité de [sauvegarde vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) dans [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Utilisez [Microsoft Azure Tools](https://go.microsoft.com/fwlink/?LinkID=324399) pour prendre en charge les bases de données antérieures à SQL Server 2012 SP1 CU2. 
+1. Sauvegardez votre base de données sur le Stockage Blob Azure. Par exemple, utilisez la fonctionnalité de [sauvegarde vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) dans [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Utilisez [Microsoft Azure Tools](https://go.microsoft.com/fwlink/?LinkID=324399) pour prendre en charge les bases de données antérieures à SQL Server 2012 SP1 CU2. 
 1. Connectez-vous à votre instance Azure SQL Managed Instance via SQL Server Management Studio. 
 1. Créez des informations d’identification à l’aide d’une signature d’accès partagé pour accéder à votre compte Stockage Blob Azure avec vos sauvegardes de base de données. Par exemple :
 

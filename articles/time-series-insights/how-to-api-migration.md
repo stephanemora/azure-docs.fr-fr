@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078236"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020723"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migration vers les nouvelles versions d’API d’Azure Time Series Insights Gen2
 
@@ -24,9 +24,9 @@ ms.locfileid: "92078236"
 Si vous avez créé un environnement Azure Time Series Insights Gen2 lors de la préversion publique (avant le 16 juillet 2020), mettez à jour votre environnement TSI pour utiliser les nouvelles versions mises à la disposition générale des API en suivant la procédure décrite dans cet article. Cette modification n’affecte pas les utilisateurs qui exécutent la version Gen1 d’Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Les mises à jour décrites dans cet article permettent UNIQUEMENT de mettre à niveau les versions d’API utilisées par votre environnement TSI. Cette modification n’est pas liée aux nouvelles [règles d’aplanissement et d’échappement JSON](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) introduites pour les environnements Gen2.
+> Les mises à jour décrites dans cet article permettent UNIQUEMENT de mettre à niveau les versions d’API utilisées par votre environnement TSI. Cette modification n’est pas liée aux nouvelles [règles d’aplanissement et d’échappement JSON](./concepts-json-flattening-escaping-rules.md) introduites pour les environnements Gen2.
 
-La nouvelle version de l’API est `2020-07-31` et utilise une [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) mise à jour.
+La nouvelle version de l’API est `2020-07-31` et utilise une [syntaxe d’expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) mise à jour.
 
 Les utilisateurs doivent migrer de leur environnement les [variables du modèle de série chronologique](./concepts-variables.md), les requêtes enregistrées, les requêtes Power BI et les outils personnalisés effectuant des appels aux points de terminaison de l’API. Si vous avez des questions ou des préoccupations concernant ce processus de migration, soumettez un ticket de support par le biais du portail Azure et mentionnez ce document.
 
@@ -84,28 +84,28 @@ Si votre application personnalisée effectue des appels aux points de terminaiso
 
 - API Time Series Model
   - API Paramètres du modèle
-    - [Get](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Mettre à jour](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [Get](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Mettre à jour](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - API d’instance
-    - [Toutes les opérations de traitement par lots](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [Liste](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [action](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Suggérer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [Toutes les opérations de traitement par lots](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [Liste](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [action](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Suggérer](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - API de hiérarchie
-    - [Toutes les opérations de traitement par lots](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [Liste](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [Toutes les opérations de traitement par lots](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [Liste](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - API de types
-    - [Opérations de suppression et de récupération](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [Liste](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [Opérations de suppression et de récupération](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [Liste](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-Pour les points de terminaison REST suivants, vous devez mettre à jour la version de l’API sur `2020-07-31` dans l’URI et vérifier que toutes les occurrences de la propriété `tsx` utilisent la [syntaxe d’expression de série chronologique mise à jour](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Pour les points de terminaison REST suivants, vous devez mettre à jour la version de l’API sur `2020-07-31` dans l’URI et vérifier que toutes les occurrences de la propriété `tsx` utilisent la [syntaxe d’expression de série chronologique mise à jour](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - API de types
-  - [Opération Put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Opération Put](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - API de requête
-  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
 ### <a name="examples"></a>Exemples
 
@@ -358,7 +358,7 @@ Corps de la demande mis à jour (utilisé par `2020-07-31`) :
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Si vous voyez l’erreur suivante, vous utilisez la nouvelle version de l’API (`2020-07-31`), mais la syntaxe TSX n’a pas été mise à jour. Consultez la [syntaxe d’expression de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) et les exemples de migration ci-dessus. Assurez-vous que toutes les propriétés de `tsx` sont correctement mises à jour avant de renvoyer la requête d’API.
+Si vous voyez l’erreur suivante, vous utilisez la nouvelle version de l’API (`2020-07-31`), mais la syntaxe TSX n’a pas été mise à jour. Consultez la [syntaxe d’expression de série chronologique](/rest/api/time-series-insights/reference-time-series-expression-syntax) et les exemples de migration ci-dessus. Assurez-vous que toutes les propriétés de `tsx` sont correctement mises à jour avant de renvoyer la requête d’API.
 
 ```JSON
 {

@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445572"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495285"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
@@ -125,7 +125,7 @@ Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion 
 
 1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil.
 
-1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service-node.md).
+1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service.md).
 
 ### <a name="custom-store"></a>Magasin personnalisé
 
@@ -137,12 +137,12 @@ Une fois que vous avez identifié l’ID de modèle pour une nouvelle connexion 
 
 1. Avec la définition de modèle de l’appareil connecté, vous pouvez énumérer les fonctionnalités de l’appareil. 
 
-1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service-node.md).  
+1. Avec les fonctionnalités énumérées de l’appareil, vous pouvez autoriser les utilisateurs à [interagir avec l’appareil](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à intégrer les modèles IoT Plug-and-Play dans une solution IoT, voici quelques étapes ultérieures suggérées :
 
-- [Interaction avec un appareil à partir de la solution](quickstart-service-node.md)
+- [Interaction avec un appareil à partir de la solution](quickstart-service.md)
 - [API REST de jumeau numérique IoT](/rest/api/iothub/service/digitaltwin)
 - [Explorateur Azure IoT](howto-use-iot-explorer.md)

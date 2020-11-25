@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569440"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016205"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planifier votre environnement Azure Time Series Insights Gen1
 
@@ -92,7 +92,7 @@ La limitation et la latence jouent un rôle dans la capacité par minute. En cas
 
 Par exemple, si vous avez une seule référence SKU S1, que des données sont entrées à un taux de 720 événements par minute, et un pic d’une durée inférieure à une heure à un taux de 1 440 événements maximum, aucune latence ne sera notable dans votre environnement. Toutefois, si vous dépassez les 1 440 événements par minute pendant plus d’une heure, vous constaterez probablement une latence des données qui sont visualisées et disponibles pour les requêtes dans votre environnement.
 
-Vous ne savez peut-être pas à l’avance la quantité de données que vous allez transmettre en mode push. Dans ce cas, la télémétrie de données pour [Azure IoT Hub](../iot-hub/iot-hub-metrics.md) et [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) est disponible dans votre abonnement Azure. La télémétrie peut vous aider à déterminer comment configurer votre environnement. Utilisez le volet **Indicateurs de performance** dans le portail Azure de la source d’événements correspondante pour afficher sa télémétrie. Comprendre les indicateurs de performance de votre source d’événement vous permet de planifier et configurer plus efficacement votre environnement Azure Time Series Insights.
+Vous ne savez peut-être pas à l’avance la quantité de données que vous allez transmettre en mode push. Dans ce cas, la télémétrie de données pour [Azure IoT Hub](../iot-hub/monitor-iot-hub.md) et [Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) est disponible dans votre abonnement Azure. La télémétrie peut vous aider à déterminer comment configurer votre environnement. Utilisez le volet **Indicateurs de performance** dans le portail Azure de la source d’événements correspondante pour afficher sa télémétrie. Comprendre les indicateurs de performance de votre source d’événement vous permet de planifier et configurer plus efficacement votre environnement Azure Time Series Insights.
 
 ### <a name="calculate-ingress-requirements"></a>Calculer les besoins d’entrée
 
@@ -128,6 +128,6 @@ Pour plus d’informations sur la création, le chargement et la gestion des don
 
 - Commencez par créer un [nouvel environnement Azure Time Series Insights dans le portail Azure](time-series-insights-get-started.md).
 
-- Découvrez comment [ajouter une source d’événement Event Hubs](time-series-insights-how-to-add-an-event-source-eventhub.md) à Azure Time Series Insights.
+- Découvrez comment [ajouter une source d’événement Event Hubs](./how-to-ingest-data-event-hub.md) à Azure Time Series Insights.
 
-- Apprenez-en plus sur la [configuration d’une source d’événement IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Apprenez-en plus sur la [configuration d’une source d’événement IoT Hub](./how-to-ingest-data-iot-hub.md).

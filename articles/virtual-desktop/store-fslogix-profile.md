@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 189ff3bbfdb3b8533defcedb77e15fef433598b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568691"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023086"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -41,7 +41,7 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 |Accès|Cloud, local et hybride (Azure File Sync)|Cloud, local (via ExpressRoute)|Cloud, local|
 |Sauvegarde|Intégration des instantanés de sauvegarde Azure|Instantanés Azure NetApp Files|Intégration des instantanés de sauvegarde Azure|
 |Sécurité et conformité|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|Terminé selon ISO|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Intégration d’Azure Active Directory|[Active Directory natif et Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
+|Intégration d’Azure Active Directory|[Active Directory natif et Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
 
 Une fois que vous avez choisi votre méthode de stockage, consultez [Tarification de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) pour obtenir des informations sur nos plans de tarification.
 

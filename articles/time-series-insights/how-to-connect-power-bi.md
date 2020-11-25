@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653772"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020774"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualiser des données à partir d’Azure Time Series Insights dans Power BI
 
@@ -32,7 +32,7 @@ Veillez à vous inscrire pour obtenir un [abonnement Azure gratuit](https://azur
 ## <a name="prerequisites"></a>Prérequis
 
 * Télécharger et installer la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Avoir ou créer un environnement [Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
+* Avoir ou créer un environnement [Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -80,7 +80,7 @@ Pour commencer :
 
 1. Sélectionnez **Copier la requête dans le Presse-papiers**.
 1. À présent, lancez Power BI Desktop.
-1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données**dans le coin supérieur droit, puis **Plus**.
+1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données** dans le coin supérieur droit, puis **Plus**.
 
     [![Liste déroulante Accueil](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
 
@@ -130,7 +130,7 @@ Une fois que vous avez créé votre rapport, vous pouvez le publier sur Power BI
 
 ## <a name="advanced-editing"></a>Modification avancée
 
-Si vous avez déjà chargé un jeu de données dans Power BI, mais que vous souhaitez modifier la requête (par exemple, la date/heure ou les paramètres d’ID d’environnement), vous pouvez le faire via la fonctionnalité Éditeur avancé de Power BI. Pour en savoir plus, reportez-vous à la [documentation Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview).
+Si vous avez déjà chargé un jeu de données dans Power BI, mais que vous souhaitez modifier la requête (par exemple, la date/heure ou les paramètres d’ID d’environnement), vous pouvez le faire via la fonctionnalité Éditeur avancé de Power BI. Pour en savoir plus, reportez-vous à la [documentation Power BI](/power-bi/desktop-query-overview).
 
 En guise de vue d’ensemble :
 
@@ -146,6 +146,6 @@ L’interface reflète désormais les modifications que vous avez apportées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [concepts de connecteur Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) pour Azure Time Series Insights.
+* En savoir plus sur les [concepts de connecteur Power BI](/power-bi/desktop-query-overview) pour Azure Time Series Insights.
 
-* En savoir plus sur [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* En savoir plus sur [Power BI Desktop](/power-bi/desktop-query-overview).

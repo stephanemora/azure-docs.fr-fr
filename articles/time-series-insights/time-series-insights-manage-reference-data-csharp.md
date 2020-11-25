@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569397"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020076"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Gérer des données de référence pour un environnement Azure Time Series Insights Gen1 à l’aide de C Sharp
 
 > [!CAUTION]
 > Il s’agit d’un article Gen1.
 
-Cet article explique comment combiner C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) et Azure Active Directory pour envoyer des requêtes d’API programmatiques à l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) d’Azure Time Series Insights Gen1 en disponibilité générale.
+Cet article explique comment combiner C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) et Azure Active Directory pour envoyer des requêtes d’API programmatiques à l’[API Reference Data Management](/rest/api/time-series-insights/gen1-reference-data-api) d’Azure Time Series Insights Gen1 en disponibilité générale.
 
 > [!TIP]
 > Consultez des exemples de code C# en disponibilité générale sur [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -33,8 +33,8 @@ Cet article explique comment combiner C#, [MSAL.NET](https://github.com/AzureAD/
 L’exemple de code ci-dessous illustre les fonctionnalités suivantes :
 
 * Acquisition d’un jeton d’accès à l’aide de [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**
-* Opérations séquentielles CREATE, READ, UPDATE et DELETE exécutées sur l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) Gen1
-* Codes de réponse courants, y compris les [codes d’erreur courants](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
+* Opérations séquentielles CREATE, READ, UPDATE et DELETE exécutées sur l’[API Reference Data Management](/rest/api/time-series-insights/gen1-reference-data-api) Gen1
+* Codes de réponse courants, y compris les [codes d’erreur courants](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
 
     L’API Reference Data Management traite chaque élément individuellement. De fait, si une erreur se produit au niveau d’un élément, cela n’empêche pas les autres de se terminer correctement. Par exemple, si votre requête contient 100 éléments et que l’un d’eux contient une erreur, 99 éléments seront écrits et 1 élément sera rejeté.
 
@@ -42,7 +42,7 @@ L’exemple de code ci-dessous illustre les fonctionnalités suivantes :
 
 Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
 
-1. [Approvisionner un environnement Azure Time Series Insights Gen1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Approvisionner un environnement Azure Time Series Insights Gen1](./time-series-insights-get-started.md
 ).
 
 1. [Créer un jeu de données de référence](time-series-insights-add-reference-data-set.md) dans votre environnement. Utilisez le schéma de données de référence suivant :
@@ -313,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la documentation de référence sur l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) Gen1.
+* Consultez la documentation de référence sur l’[API Reference Data Management](/rest/api/time-series-insights/gen1-reference-data-api) Gen1.

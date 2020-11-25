@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278292"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245872"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -111,10 +111,11 @@ Les frais de capacité de stockage Azure NetApp Files normaux pour le deuxième 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration requise et considérations pour la réplication inter-région](cross-region-replication-requirements-considerations.md)
-* [Créer un peering de réplication](cross-region-replication-create-peering.md)
+* [Créer une réplication de volume](cross-region-replication-create-peering.md)
 * [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md)
 * [Gérer la reprise d’activité après sinistre](cross-region-replication-manage-disaster-recovery.md)
 * [Métriques de réplication de volume](azure-netapp-files-metrics.md#replication)
+* [Supprimer des volumes ou des réplications de volume](cross-region-replication-delete.md)
 * [Résoudre les problèmes de réplication inter-région](troubleshoot-cross-region-replication.md)
 
 

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465216"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527324"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Intégrer un site web statique avec Azure CDN
 
@@ -63,7 +63,7 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement à parti
 
 Si vous ne voulez plus mettre en cache un objet dans Azure CDN, vous pouvez procéder comme suit :
 
-* Changez le statut du conteneur de public à privé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+* Changez le statut du conteneur de public à privé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](./anonymous-read-access-configure.md).
 * Désactivez ou supprimez le point de terminaison CDN à l’aide du portail Azure.
 * Modifiez votre service hébergé pour qu’il ne réponde plus aux demandes de l’objet.
 

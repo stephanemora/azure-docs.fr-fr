@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394949"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021012"
 ---
 # <a name="securing-azure-sql-edge"></a>Sécurisation d’Azure SQL Edge
 
@@ -34,7 +34,7 @@ L’implémentation de la sécurité de la plateforme commence par le maintien h
 - Spécification et restriction des ports hôtes qu’Azure SQL Edge utilise
 - Vérification qu’un contrôle d’accès approprié est appliqué à tous les volumes de données hébergeant des données Azure SQL Edge. 
 
-Pour plus d’informations sur les protocoles réseau Azure SQL Edge et les points de terminaison TDS, consultez [Protocoles réseau et points de terminaison TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Pour plus d’informations sur les protocoles réseau Azure SQL Edge et les points de terminaison TDS, consultez [Protocoles réseau et points de terminaison TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Authentification et autorisation 
 

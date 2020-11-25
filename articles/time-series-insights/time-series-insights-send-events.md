@@ -11,23 +11,23 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611824"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023256"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Azure Time Series Insights Gen1 Insights à l’aide d’un hub d’événements
 
 > [!CAUTION]
 > Il s’agit d’un article Gen1.
 
-Ce tutoriel explique comment créer et configurer un hub d’événements dans Azure Event Hubs. Il traite également de l’exécution d’un exemple d’application pour envoyer (push) des événements dans Azure Time Series Insights à partir d’Event Hubs. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Ce tutoriel explique comment créer et configurer un hub d’événements dans Azure Event Hubs. Il traite également de l’exécution d’un exemple d’application pour envoyer (push) des événements dans Azure Time Series Insights à partir d’Event Hubs. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurer un concentrateur d’événements
 
-1. Pour en savoir plus sur la création d'un hub d'événements, consultez la [documentation Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+1. Pour en savoir plus sur la création d'un hub d'événements, consultez la [documentation Event Hubs](../event-hubs/index.yml).
 1. Dans la zone de recherche, recherchez **Event Hubs**. Dans la liste retournée, sélectionnez **Event Hubs**.
 1. Sélectionnez votre hub d'événements.
 1. Lorsque vous créez un hub d’événements, vous créez un espace de noms de hub d’événements. Si vous n’avez pas encore créé de hub d’événements dans l’espace de noms, accédez au menu et, sous **Entités**, créez-en un.  
@@ -62,7 +62,7 @@ Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextue
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Créer une source d’événement Azure Time Series Insights
 
-1. Si vous n'avez créé aucune source d'événement, suivez la procédure de [création d'une source d'événement](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Si vous n'avez créé aucune source d'événement, suivez la procédure de [création d'une source d'événement](./how-to-ingest-data-event-hub.md).
 
 1. Définissez une valeur pour `timeSeriesId`. Pour en savoir plus sur l'**ID de série chronologique**, consultez [Modèles de séries chronologiques](./concepts-model-overview.md).
 
@@ -84,7 +84,7 @@ Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextue
 1. Sélectionnez **Cliquez pour démarrer**.
 
     > [!TIP]
-    > Le simulateur d’éoliennes crée également un fichier JSON que vous pouvez utiliser comme charge utile avec les [API de requête en disponibilité générale Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > Le simulateur d’éoliennes crée également un fichier JSON que vous pouvez utiliser comme charge utile avec les [API de requête en disponibilité générale Azure Time Series Insights](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > Le simulateur continuera à envoyer des données jusqu’à ce que l’onglet du navigateur soit fermé.
@@ -208,4 +208,4 @@ Dans Azure Time Series Insights Gen2, vous pouvez ajouter des données contextue
 
 * [Affichez votre environnement](https://insights.timeseries.azure.com) dans l’Explorateur Time Series Insights.
 
-* En savoir plus sur les [messages de l’appareil IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* En savoir plus sur les [messages de l’appareil IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md)

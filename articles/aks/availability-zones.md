@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043020"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026049"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -31,11 +31,14 @@ Les clusters AKS peuvent actuellement être créés en utilisant des zones de di
 * Australie Est
 * Centre du Canada
 * USA Centre
+* USA Est 
 * USA Est 2
-* USA Est
 * France Centre
+* Allemagne Centre-Ouest
 * Japon Est
 * Europe Nord
+* Afrique du Sud Nord
+* États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Sud du Royaume-Uni
 * Europe Ouest
@@ -72,7 +75,7 @@ Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-c
 
 Si vous ne définissez aucune zone pour le pool d’agents par défaut lorsque vous créez un cluster AKS, la répartition des composants du plan de contrôle entre les zones de disponibilité n’est pas garantie. Vous pouvez ajouter des pools de nœuds supplémentaires à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add] et spécifier `--zones` pour les nouveaux nœuds, mais cela ne changera pas la manière dont le plan de contrôle a été réparti entre les zones. Les paramètres de la zone de disponibilité peuvent être définis uniquement au moment de la création du cluster ou du pool de nœuds.
 
-L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1* , un dans la zone *2* , puis un dans la zone *3*.
+L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

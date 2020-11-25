@@ -3,12 +3,12 @@ title: Équilibrer la charge de partition sur plusieurs instances – Azure Even
 description: Décrit comment équilibrer la charge de partition sur plusieurs instances de votre application à l’aide d’un processeur d’événements et du Kit de développement logiciel (SDK) Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 03aeebb376c74e62a1bd935ac1fec4f178b63f4f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685135"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025042"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Équilibrer la charge de partition sur plusieurs instances de votre application
 Pour mettre à l’échelle votre application de traitement des événements, vous pouvez exécuter plusieurs instances de l’application et faire en sorte que celle-ci équilibre la charge entre elles. Dans les versions plus anciennes, [EventProcessorHost](event-hubs-event-processor-host.md) vous permettait d’équilibrer la charge entre plusieurs instances de votre programme et des événements de point de contrôle lors de la réception. Dans les versions plus récentes (à partir de 5.0), **EventProcessorClient** (.NET et Java) ou **EventHubConsumerClient** (Python et JavaScript) vous permet d’en faire de même. Le modèle de développement est simplifié par l’utilisation d’événements. Vous vous abonnez aux événements qui vous intéressent en inscrivant un gestionnaire d’événements. Si vous utilisez l’ancienne version de la bibliothèque de client, consultez les guides de migration suivants : [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md)et [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
@@ -76,7 +76,7 @@ Lorsque le point de contrôle est appliqué pour marquer un événement comme tr
 
 > [!NOTE]
 > Si vous utilisez Stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du SDK de stockage Blob que celle généralement disponible sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)

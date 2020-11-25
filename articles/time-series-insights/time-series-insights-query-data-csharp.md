@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a7dd67387a541ff62bfa85a7afc2f1bbf31c6180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 724bc80f8887ff2c47db93ecfc4cd2e20be7e7f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596422"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020042"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>Interroger des données à partir d’un environnement Azure Time Series Insights Gen1 en utilisant C Sharp
 
 > [!CAUTION]
 > Il s’agit d’un article Gen1.
 
-Cet exemple de code C# montre comment utiliser les [API de requête Gen1 ](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) pour interroger des données à partir d’environnements Azure Time Series Insights Gen1.
+Cet exemple de code C# montre comment utiliser les [API de requête Gen1 ](/rest/api/time-series-insights/gen1-query) pour interroger des données à partir d’environnements Azure Time Series Insights Gen1.
 
 > [!TIP]
 > Consultez des exemples de code C# Gen1 à l’adresse [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -37,22 +37,22 @@ L’exemple de code ci-dessous illustre les fonctionnalités suivantes :
 * Comment passer ce jeton d’accès acquis dans l’en-tête `Authorization` des requêtes ultérieures d’API de requête.
 
 * L’exemple appelle chacune des API de requête Gen1, illustrant la façon dont les requêtes HTTP sont adressées aux API :
-  * [API Get Environments](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environments-api) pour retourner les environnements auxquels l’utilisateur a accès
-  * [API Get Environment Availability](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-availability-api)
-  * [API Get Environment Metadata](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-metadata-api) pour récupérer les métadonnées d’environnement
-  * [API Get Environments Events](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-api)
-  * [API Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api)
+  * [API Get Environments](/rest/api/time-series-insights/gen1-query-api#get-environments-api) pour retourner les environnements auxquels l’utilisateur a accès
+  * [API Get Environment Availability](/rest/api/time-series-insights/gen1-query-api#get-environment-availability-api)
+  * [API Get Environment Metadata](/rest/api/time-series-insights/gen1-query-api#get-environment-metadata-api) pour récupérer les métadonnées d’environnement
+  * [API Get Environments Events](/rest/api/time-series-insights/gen1-query-api#get-environment-events-api)
+  * [API Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api)
 
 * Comment interagir avec les API de requête Gen1 à l’aide de WSS pour envoyer un message aux API :
 
-  * [API Get Environment Events Streamed](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-streamed-api)
-  * [API Get Environment Aggregates Streamed](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-streamed-api)
+  * [API Get Environment Events Streamed](/rest/api/time-series-insights/gen1-query-api#get-environment-events-streamed-api)
+  * [API Get Environment Aggregates Streamed](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-streamed-api)
 
 ## <a name="prerequisites-and-setup"></a>Composants requis et configuration
 
 Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
 
-1. [Approvisionnez un environnement Azure Time Series Insights Gen1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. [Approvisionnez un environnement Azure Time Series Insights Gen1](./time-series-insights-get-started.md).
 1. Configurez votre environnement Azure Time Series Insights pour Azure Active Directory, comme décrit dans [Authentification et autorisation](time-series-insights-authentication-and-authorization.md).
 1. Installez les dépendances de projet nécessaires.
 1. Modifiez l’exemple de code ci-dessous en remplaçant chaque espace réservé **#DUMMY#** par l’identificateur d’environnement qui convient.
@@ -82,7 +82,7 @@ Pour accéder à l’exemple de code C#, reportez-vous au dépôt [Azure Time Se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
+* Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](/rest/api/time-series-insights/gen1-query-api).
 
 * Découvrez comment [connecter une application JavaScript avec le SDK client](https://github.com/microsoft/tsiclient) à Time Series Insights.
 Azure-Samples/Azure-Time-Series-Insights/gen1-sample/csharp-tsi-gen1-sample/Program.cs

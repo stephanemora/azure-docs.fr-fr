@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433702"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023392"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -189,7 +189,7 @@ Les instructions suivantes vous indiqueront comment charger votre image principa
 
 1. Convertissez l’image de machine virtuelle (VHD) sur Fixed si vous ne l’avez pas déjà fait. Si l’image n’est pas convertie sur Fixed, elle ne sera pas correctement créée.
 
-2. Chargez le disque dur virtuel vers un conteneur d’objets blob dans votre compte de stockage. Vous pouvez le télécharger rapidement avec l’[outil Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/). Pour en savoir plus sur l’outil Explorateur de stockage, consultez [cet article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Chargez le disque dur virtuel vers un conteneur d’objets blob dans votre compte de stockage. Vous pouvez le télécharger rapidement avec l’[outil Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/). Pour en savoir plus sur l’outil Explorateur de stockage, consultez [cet article](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la fenêtre de recherche de l’outil Explorateur Stockage Microsoft Azure, avec la case « Charger les fichiers .vhd/vhdx en tant qu’objets blob de pages (recommandé) » cochée](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

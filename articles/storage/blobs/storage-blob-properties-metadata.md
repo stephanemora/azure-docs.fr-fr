@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399123"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521527"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gérer les propriétés et les métadonnées blob avec .NET
 
@@ -126,7 +126,7 @@ Vous pouvez indiquer des métadonnées sous la forme de paires nom-valeur sur un
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Les paires nom/valeur de métadonnées sont des en-têtes HTTP valides ; elles doivent donc respecter toutes les restrictions régissant les en-têtes HTTP. Les noms de métadonnées doivent être des noms d’en-tête HTTP et identificateurs C# valides, peuvent contenir uniquement des caractères ASCII, et doivent être considérés comme sensibles à la casse. Les valeurs de métadonnées contenant des caractères non-ASCII [codées en Base64](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) ou [codées en URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode).
+Les paires nom/valeur de métadonnées sont des en-têtes HTTP valides ; elles doivent donc respecter toutes les restrictions régissant les en-têtes HTTP. Les noms de métadonnées doivent être des noms d’en-tête HTTP et identificateurs C# valides, peuvent contenir uniquement des caractères ASCII, et doivent être considérés comme sensibles à la casse. Les valeurs de métadonnées contenant des caractères non-ASCII [codées en Base64](/dotnet/api/system.convert.tobase64string) ou [codées en URL](/dotnet/api/system.web.httputility.urlencode).
 
 Le nom de vos métadonnées doit respecter la convention d’affectation de noms pour les identificateurs C#. Les noms des métadonnées conservent la casse avec laquelle ils ont été créés, mais ils ne respectent pas la casse lorsqu’ils sont définis ou lus. Si deux en-têtes de métadonnées ou plus portant le même nom sont envoyés pour une ressource, le stockage blob retourne le code d’erreur HTTP 400 (requête incorrecte).
 

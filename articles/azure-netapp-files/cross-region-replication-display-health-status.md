@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708318"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249850"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Afficher l’état d’intégrité de la relation de réplication 
 
@@ -58,5 +58,6 @@ Vous pouvez afficher l’état de la réplication sur le volume source ou le vol
 * [Réplication entre régions](cross-region-replication-introduction.md)
 * [Gérer la reprise d’activité après sinistre](cross-region-replication-manage-disaster-recovery.md)
 * [Métriques de réplication de volume](azure-netapp-files-metrics.md#replication)
+* [Supprimer des volumes ou des réplications de volume](cross-region-replication-delete.md)
 * [Résoudre les problèmes de réplication inter-région](troubleshoot-cross-region-replication.md)
 

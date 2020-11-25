@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413502"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018390"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Déployer une application Java avec Open Liberty/WebSphere Liberty sur un cluster Azure Red Hat OpenShift 4
 
@@ -126,7 +126,7 @@ Pour exécuter l’application sur Open Liberty, vous devez créer un fichier co
    [INFO] Source compilation was successful.
    ```
 
-1. Ouvrez [http://localhost:9080/](http://localhost:9080/) dans votre navigateur pour accéder à la page d’accueil de l’application. L’application sera semblable à l’image suivante :
+1. Ouvrez `http://localhost:9080/` dans votre navigateur pour accéder à la page d’accueil de l’application. L’application sera semblable à l’image suivante :
 
    ![Interface utilisateur web de JavaEE Cafe](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Appuyez sur **Contrôle+C** pour arrêter l’application et le serveur Open Liberty.
@@ -164,7 +164,7 @@ Avant de déployer l’application conteneurisée sur un cluster distant, exécu
 
 1. Exécutez `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` dans votre console.
 2. Attendez que le serveur Liberty démarre et que l’application soit déployée correctement.
-3. Ouvrez [http://localhost:9080/](http://localhost:9080/) dans votre navigateur pour accéder à la page d’accueil de l’application.
+3. Ouvrez `http://localhost:9080/` dans votre navigateur pour accéder à la page d’accueil de l’application.
 4. Appuyez sur **Contrôle+C** pour arrêter l’application et le serveur Liberty.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Envoyer (push) l’image dans le registre d’images conteneur

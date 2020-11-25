@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909911"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026452"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -33,7 +33,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour PostgreSQL à surveiller.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes** , comme illustré :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes**, comme illustré :
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Sélectionner des règles d’alerte":::
 
@@ -43,7 +43,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulaire Ajouter une alerte Métrique":::
 
-5. Dans la section **Condition** , sélectionnez **Ajouter**.
+5. Dans la section **Condition**, sélectionnez **Ajouter**.
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
    
@@ -52,15 +52,15 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 7. Configurez la logique d’alerte :
 
     * **Opérateur** (par exemple, « Supérieur à »)
-    * **Valeur de seuil**  (par exemple, 85 pour cent)
-    * **Précision d’agrégation** , soit le temps pendant lequel la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes »)
+    * **Valeur de seuil** (par exemple, 85 pour cent)
+    * **Précision d’agrégation**, soit le temps pendant lequel la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes »)
     * et **Fréquence d’évaluation** (par exemple, « 1 minute »)
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Capture d’écran du volet permettant de configurer la logique des alertes":::
 
-8. Dans la section **Groupes d’actions** , sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
+8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
 9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
 
@@ -101,8 +101,8 @@ Nous vous recommandons de définir des alertes d’espace disque sur chaque nœu
 À mesure que le disque approche de sa limite d’espace, essayez ces techniques pour obtenir davantage d’espace libre :
 
 * Examinez la stratégie de conservation des données. Déplacez les données les plus anciennes vers le stockage froid si possible.
-* Envisagez d’[ajouter des nœuds](howto-hyperscale-scaling.md#add-worker-nodes) au groupe de serveurs et de rééquilibrer les partitions. Le rééquilibrage répartit les données sur d’autres ordinateurs.
-* Envisagez d’[augmenter la capacité](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) des nœuds worker. Chaque worker peut contenir jusqu’à 2 Tio de stockage. Toutefois, l’ajout de nœuds doit être tenté avant le redimensionnement des nœuds, car l’ajout de nœuds s’effectue plus rapidement.
+* Envisagez d’[ajouter des nœuds](howto-hyperscale-scale-grow.md#add-worker-nodes) au groupe de serveurs et de rééquilibrer les partitions. Le rééquilibrage répartit les données sur d’autres ordinateurs.
+* Envisagez d’[augmenter la capacité](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) des nœuds worker. Chaque worker peut contenir jusqu’à 2 Tio de stockage. Toutefois, l’ajout de nœuds doit être tenté avant le redimensionnement des nœuds, car l’ajout de nœuds s’effectue plus rapidement.
 
 ### <a name="cpu-usage"></a>Utilisation de l’UC
 

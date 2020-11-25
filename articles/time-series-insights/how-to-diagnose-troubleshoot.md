@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653755"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016834"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
 
@@ -39,7 +39,7 @@ Il existe plusieurs raisons pour lesquelles vos données pourraient ne pas appar
 
 - Vos données sources d’événements ne sont pas au format JSON.
 
-    Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples JSON, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
+    Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples JSON, consultez [Formes JSON prises en charge](./concepts-json-flattening-escaping-rules.md).
 
 - Il manque une autorisation requise pour votre clé de source d’événements.
 
@@ -61,13 +61,13 @@ Il existe plusieurs raisons pour lesquelles vos données pourraient ne pas appar
 
 - Votre propriété ID Time Series spécifiée au moment de l’approvisionnement est incorrecte, manquante ou nulle.
 
-    Ce problème peut survenir si la propriété Time Series ID (ID de série chronologique) est mal configurée au moment de l’approvisionnement de l’environnement. Pour plus d’informations, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). Pour le moment, vous ne pouvez pas mettre à jour un environnement Time Series Insights existant pour utiliser un ID de série chronologique différent.
+    Ce problème peut survenir si la propriété Time Series ID (ID de série chronologique) est mal configurée au moment de l’approvisionnement de l’environnement. Pour plus d’informations, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./how-to-select-tsid.md). Pour le moment, vous ne pouvez pas mettre à jour un environnement Time Series Insights existant pour utiliser un ID de série chronologique différent.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problème : Certaines données s’affichent, mais d’autres manquent
 
 Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 
-- Ce problème peut survenir lorsque vous envoyez des événements sans le champ ID de série chronologique dans la charge utile. Pour plus d’informations, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
+- Ce problème peut survenir lorsque vous envoyez des événements sans le champ ID de série chronologique dans la charge utile. Pour plus d’informations, consultez [Formes JSON prises en charge](./concepts-json-flattening-escaping-rules.md).
 - Ce problème peut survenir parce que votre environnement est limité.
 
     > [!NOTE]
@@ -111,7 +111,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
 - Vous accédez peut-être à un environnement Time Series Insights S1 ou S2.
 
-   Les modèles de séries chronologiques ne sont pris en charge que dans les environnements de paiement à l’utilisation. Pour plus d’informations sur la façon d’accéder à votre environnement S1 ou S2 à partir de l’Explorateur Gen2 Time Series Insights, consultez [Visualiser les données dans l’Explorateur](./time-series-insights-update-explorer.md).
+   Les modèles de séries chronologiques ne sont pris en charge que dans les environnements de paiement à l’utilisation. Pour plus d’informations sur la façon d’accéder à votre environnement S1 ou S2 à partir de l’Explorateur Gen2 Time Series Insights, consultez [Visualiser les données dans l’Explorateur](./concepts-ux-panels.md).
 
    [![Aucun événement dans l’environnement.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -121,7 +121,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problème : Toutes mes instances dans l’Explorateur Gen2 n’ont pas de parent
 
-Ce problème peut se produire si votre environnement n’a pas de hiérarchie de modèle Time Series définie. Pour plus d’informations, découvrez comment [utiliser des modèles Time Series](/azure/time-series-insights/time-series-insights-overview).
+Ce problème peut se produire si votre environnement n’a pas de hiérarchie de modèle Time Series définie. Pour plus d’informations, découvrez comment [utiliser des modèles Time Series](./time-series-insights-overview.md).
 
   [![Les instances non apparentées affichent un avertissement.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,8 +135,8 @@ Ce problème peut se produire si vous n’utilisez pas la dernière version du c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [utiliser des modèles Time Series](/azure/time-series-insights/time-series-insights-overview).
+- Découvrez comment [utiliser des modèles Time Series](./time-series-insights-overview.md).
 
-- En savoir plus sur les [formes JSON prises en charge](./how-to-shape-query-json.md).
+- En savoir plus sur les [formes JSON prises en charge](./concepts-json-flattening-escaping-rules.md).
 
-- Passez en revue [la planification et les limites](./time-series-insights-update-plan.md) dans Azure Time Series Insights Gen2.
+- Passez en revue [la planification et les limites](./how-to-plan-your-environment.md) dans Azure Time Series Insights Gen2.

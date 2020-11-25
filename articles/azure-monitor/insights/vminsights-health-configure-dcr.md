@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686446"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318097"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurer la supervision de l’intégrité des invités Azure Monitor pour machines virtuelles en utilisant des règles de collecte des données (préversion)
 L’[intégrité des invités Azure Monitor pour machines virtuelles](vminsights-health-overview.md) vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit comment vous pouvez modifier la supervision par défaut sur plusieurs machines virtuelles en utilisant des règles de collecte des données.
@@ -57,7 +57,7 @@ Le tableau suivant liste la configuration par défaut pour chaque moniteur. Cett
 ## <a name="overrides"></a>Remplacements
 Un *remplacement* modifie une ou plusieurs propriétés d’un moniteur. Par exemple, un remplacement peut désactiver un moniteur qui est activé par défaut, définir des critères d’avertissement pour le moniteur ou modifier le seuil critique du moniteur. 
 
-Les remplacements sont définis dans une [règles de collecte des données](../platform/data-collection-rule-overview.md). Vous pouvez créer plusieurs règles de collecte des données avec différents ensembles de remplacements et les appliquer à plusieurs machines virtuelles. Vous appliquez une règle de collecte des données à une machine virtuelle en créant une association, comme décrit dans [Configurer la collecte des données pour l’agent Azure Monitor (préversion)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+Les remplacements sont définis dans une [règles de collecte des données](../platform/data-collection-rule-overview.md). Vous pouvez créer plusieurs règles de collecte des données avec différents ensembles de remplacements et les appliquer à plusieurs machines virtuelles. Vous appliquez une règle de collecte des données à une machine virtuelle en créant une association, comme décrit dans [Configurer la collecte des données pour l’agent Azure Monitor (préversion)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## <a name="multiple-overrides"></a>Remplacements multiples

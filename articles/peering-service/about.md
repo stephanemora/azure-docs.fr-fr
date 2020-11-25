@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400177"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026727"
 ---
 # <a name="azure-peering-service-overview"></a>Vue d’ensemble d’Azure Peering Service
 
@@ -45,7 +45,7 @@ Peering Service est :
 Peering Service n’est pas un produit de connectivité privé comme Azure ExpressRoute ou un produit VPN.
 
 > [!NOTE]
-> Pour plus d’informations sur ExpressRoute, consultez la [documentation sur ExpressRoute](https://docs.microsoft.com/azure/expressroute/).
+> Pour plus d’informations sur ExpressRoute, consultez la [documentation sur ExpressRoute](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Arrière-plan
@@ -57,7 +57,7 @@ Microsoft et ses fournisseurs de services partenaires garantissent que le trafic
 ![Réseau Microsoft et connectivité publique](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Pour plus d’informations sur le réseau Microsoft mondial, consultez [Réseau Microsoft mondial](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Pour plus d’informations sur le réseau Microsoft mondial, consultez [Réseau Microsoft mondial](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Pourquoi utiliser Peering Service ?

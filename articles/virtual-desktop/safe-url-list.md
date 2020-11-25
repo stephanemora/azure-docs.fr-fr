@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023171"
 ---
 # <a name="safe-url-list"></a>Liste des URL sécurisées
 
@@ -34,7 +34,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent et mises à jour de pile SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Prise en charge du portail Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Point de terminaison Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Surveillance de l’intégrité de l’hôte de la session](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Surveillance de l’intégrité de l’hôte de la session](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop prend désormais en charge l’étiquette FQDN. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
@@ -56,7 +56,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Agent et mises à jour de pile SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Prise en charge du portail Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Point de terminaison Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Surveillance de l’intégrité de l’hôte de la session](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Surveillance de l’intégrité de l’hôte de la session](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles Azure peuvent accéder :
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874813"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531387"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -38,7 +38,7 @@ La capacité de réserve Stockage Azure est disponible pour un seul abonnement o
 
 Lorsque vous achetez une capacité de réserve Stockage Azure, vous pouvez utiliser votre réservation à la fois pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique au sein de l’abonnement.
 
-Une réservation de stockage Azure couvre uniquement la quantité de données stockées dans un abonnement ou un groupe de ressources partagé. Les frais relatifs à une suppression anticipée, aux opérations, à la bande passante et au transfert de données ne sont pas inclus dans la réservation. Dès que vous achetez une réservation, les frais de capacité qui correspondent aux attributs de la réservation sont facturés au tarif de la réduction plutôt qu’à celui du paiement à l’utilisation. Pour plus d’informations sur les réservations Azure, consultez [Qu’est-ce qu’une réservation Azure ?](/azure/billing/billing-save-compute-costs-reservations).
+Une réservation de stockage Azure couvre uniquement la quantité de données stockées dans un abonnement ou un groupe de ressources partagé. Les frais relatifs à une suppression anticipée, aux opérations, à la bande passante et au transfert de données ne sont pas inclus dans la réservation. Dès que vous achetez une réservation, les frais de capacité qui correspondent aux attributs de la réservation sont facturés au tarif de la réduction plutôt qu’à celui du paiement à l’utilisation. Pour plus d’informations sur les réservations Azure, consultez [Qu’est-ce qu’une réservation Azure ?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-account-types-tiers-and-redundancy-options"></a>Types de comptes, niveaux et options de redondance pris en charge
 
@@ -67,7 +67,7 @@ Les réservations sont disponibles aujourd’hui pour les blocs de 100 Tio ou 1
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Acheter une capacité de réserve Stockage Azure
 
-Vous pouvez acheter une capacité de réserve Stockage Azure par l’intermédiaire du [Portail Azure](https://portal.azure.com). Payez la réservation comptant ou par paiements mensuels. Pour plus d’informations sur l’achat par mensualités, consultez [Acheter des réservations Azure avec des paiements comptants ou mensuels](/azure/billing/billing-monthly-payments-reservations).
+Vous pouvez acheter une capacité de réserve Stockage Azure par l’intermédiaire du [Portail Azure](https://portal.azure.com). Payez la réservation comptant ou par paiements mensuels. Pour plus d’informations sur l’achat par mensualités, consultez [Acheter des réservations Azure avec des paiements comptants ou mensuels](../../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Pour obtenir de l’aide sur l’identification des conditions de réservation appropriées pour votre scénario, consultez [Comprendre la remise sur la capacité de réserve Stockage Azure](../../cost-management-billing/reservations/understand-storage-charges.md).
 

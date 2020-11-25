@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598113"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016783"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planifier votre environnement Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ Dans le cadre du processus de provisionnement, vous spécifiez si vous souhaitez
 Les requêtes sur le stockage chaud sont gratuites, contrairement aux requêtes sur le stockage froid qui sont facturées. Il est important de bien comprendre vos modèles de requête et de planifier la configuration de votre stockage chaud en conséquence. Nous vous recommandons de placer l’analytique interactive sur les données les plus récentes dans votre stockage chaud, et de placer l’analyse des modèles et les tendances à long terme dans le stockage froid.
 
 > [!NOTE]
-> Pour plus d’informations sur l’interrogation de vos données chaudes, consultez les [Informations de référence sur l’API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Pour plus d’informations sur l’interrogation de vos données chaudes, consultez les [Informations de référence sur l’API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Pour commencer, vous avez besoin de trois autres éléments :
 
@@ -64,7 +64,7 @@ Pour créer un environnement Azure Time Series Insights, sélectionnez un ID Tim
 > [!IMPORTANT]
 > Les ID de série chronologique *ne peuvent pas être changés ultérieurement*. Vérifiez-les tous avant la sélection finale et leur utilisation.
 
-Vous pouvez sélectionner jusqu’à trois clés pour différencier de manière unique vos ressources. Pour plus d’informations, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md) et [Règles d’ingestion](concepts-json-flattening-escaping-rules.md).
+Vous pouvez sélectionner jusqu’à trois clés pour différencier de manière unique vos ressources. Pour plus d’informations, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./how-to-select-tsid.md) et [Règles d’ingestion](concepts-json-flattening-escaping-rules.md).
 
 La propriété **Timestamp** est également importante. Vous pouvez désigner cette propriété lorsque vous ajoutez des sources d’événements. Chaque source d’événement a une propriété Timestamp facultative utilisée pour suivre les sources d’événements. Les valeurs de Timestamp respectent la casse et doivent être mises en forme selon les spécifications propres à chaque source.
 
@@ -74,7 +74,7 @@ Si ce champ est vide, l’heure à laquelle l’événement a été mis en file 
 
 Vous pouvez maintenant configurer le modèle Azure Time Series de votre environnement Azure Time Series Insights. Ce nouveau modèle simplifie la recherche et l’analyse des données IoT. Il permet la collecte, la maintenance et l’enrichissement des données de série chronologique et permet de préparer des jeux de données utilisables par le consommateur. Ce modèle utilise les ID Time Series, qui sont mappés sur une instance qui associe la ressource unique à des variables, comme les types, et les hiérarchies. Pour en savoir plus, consultez la présentation [Modèle TIme Series](./concepts-model-overview.md).
 
-Le modèle étant dynamique, il peut être généré à tout moment. Pour démarrer rapidement, générez-le et chargez-le avant d’envoyer les données à Azure Time Series Insights. Pour créer votre modèle, consultez [Utiliser le modèle Time Series](/azure/time-series-insights/concepts-model-overview).
+Le modèle étant dynamique, il peut être généré à tout moment. Pour démarrer rapidement, générez-le et chargez-le avant d’envoyer les données à Azure Time Series Insights. Pour créer votre modèle, consultez [Utiliser le modèle Time Series](./concepts-model-overview.md).
 
 Pour de nombreux clients, le modèle Time Series correspond à un modèle de ressource existant ou à un système ERP déjà en place. Si vous n’avez pas de modèle, une expérience utilisateur prédéfinie est [fournie](https://github.com/Microsoft/tsiclient) pour vous permettre d’être opérationnel rapidement. Pour voir comment un modèle peut vous aider, consultez l’[exemple d’environnement de démonstration](https://insights.timeseries.azure.com/preview/demo).
 

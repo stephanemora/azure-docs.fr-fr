@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338874"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014728"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Synchronisation des modèles entre Azure Digital Twins et Time Series Insights Gen2
 
-Cet article décrit les meilleures pratiques et les outils utilisés pour traduire un modèle de ressource dans Azure Digital Twins (ADT) en modèle de ressource dans Azure Time Series Insights (TSI).  Il constitue la deuxième partie d’une série de tutoriels qui en comprend deux, décrivant l’intégration d’Azure Digital Twins avec Azure Time Series Insights. L’intégration d’Azure Digital Twins avec Time Series Insights permet l’archivage et le suivi de l’historique des télémétries et des propriétés calculées de Digital Twins. Cette série de tutoriels est destinée aux développeurs qui travaillent l’intégration de Time Series Insights avec Azure Digital Twins. La première partie décrit la [mise en place d’un pipeline de données qui intègre les données de série chronologique d’Azure Digital Twins à Azure Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights), tandis que cette deuxième partie explique la synchronisation de modèles de ressource entre Azure Digital Twins et Azure Time Series Insights. Ce tutoriel décrit les meilleures pratiques en matière de choix et d’établissement d’une convention d’affectation de noms pour l’ID de série chronologique (ID TS) et l’établissement manuel de hiérarchies dans le modèle de série chronologique (TSM).
+Cet article décrit les meilleures pratiques et les outils utilisés pour traduire un modèle de ressource dans Azure Digital Twins (ADT) en modèle de ressource dans Azure Time Series Insights (TSI).  Il constitue la deuxième partie d’une série de tutoriels qui en comprend deux, décrivant l’intégration d’Azure Digital Twins avec Azure Time Series Insights. L’intégration d’Azure Digital Twins avec Time Series Insights permet l’archivage et le suivi de l’historique des télémétries et des propriétés calculées de Digital Twins. Cette série de tutoriels est destinée aux développeurs qui travaillent l’intégration de Time Series Insights avec Azure Digital Twins. La première partie décrit la [mise en place d’un pipeline de données qui intègre les données de série chronologique d’Azure Digital Twins à Azure Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md), tandis que cette deuxième partie explique la synchronisation de modèles de ressource entre Azure Digital Twins et Azure Time Series Insights. Ce tutoriel décrit les meilleures pratiques en matière de choix et d’établissement d’une convention d’affectation de noms pour l’ID de série chronologique (ID TS) et l’établissement manuel de hiérarchies dans le modèle de série chronologique (TSM).
 
 ## <a name="choosing-a-time-series-id"></a>Choix d’un ID de série chronologique
 
@@ -29,7 +29,7 @@ Un ID de série chronologique est un identificateur unique utilisé pour identif
 
 ## <a name="contextualizing-time-series"></a>Contextualisation de séries chronologiques
 
-La Contextualization des données (essentiellement spatiales par nature) dans Time Series Insights est obtenue via des hiérarchies de ressources, et utilisée pour faciliter la navigation dans les données via une arborescence dans l’Explorateur Time Series Insights. Les types de séries chronologiques et les hiérarchies sont définis à l’aide d’un modèle de série chronologique (TSM) dans Time Series Insights. Des types dans TSM permettent de définir des variables, tandis que des niveaux de hiérarchie et des valeurs de champ d’instance sont utilisés pour construire l’arborescence dans l’Explorateur Time Series Insights. Pour plus d’informations sur TSM, consultez la [documentation en ligne sur Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+La Contextualization des données (essentiellement spatiales par nature) dans Time Series Insights est obtenue via des hiérarchies de ressources, et utilisée pour faciliter la navigation dans les données via une arborescence dans l’Explorateur Time Series Insights. Les types de séries chronologiques et les hiérarchies sont définis à l’aide d’un modèle de série chronologique (TSM) dans Time Series Insights. Des types dans TSM permettent de définir des variables, tandis que des niveaux de hiérarchie et des valeurs de champ d’instance sont utilisés pour construire l’arborescence dans l’Explorateur Time Series Insights. Pour plus d’informations sur TSM, consultez la [documentation en ligne sur Time Series Insights](./concepts-model-overview.md).
 
 Dans Azure Digital Twins, la connexion entre des ressources est exprimée à l’aide de relations entre jumeaux. Les relations entre jumeaux sont simplement un graphique de ressources connectées. Toutefois, dans Time Series Insight, les relations entre ressources sont hiérarchiques par nature. Autrement dit, les ressources partagent une relation de type parent-enfant et sont représentées à l’aide d’une structure arborescente. Pour traduire les informations de relation d’Azure Digital Twins en hiérarchies Time Series Insights, nous devons choisir des relations hiérarchiques pertinentes d’Azure Digital Twins. Azure Digital Twins utilise un langage de modélisation standard ouvert, appelé DTDL (Digital Twin Definition Language). Les modèles DTDL sont décrits à l’aide d’une variante de JSON appelée JSON-LD. Pour plus d’informations sur la spécification, consultez la [documentation sur le langage DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
@@ -82,7 +82,7 @@ L’extrait de code ci-dessous montre comment l’application cliente a pu navig
 
 > [!Note]
 >
-> Cet exemple d’extrait de code suppose que les lecteurs ont pris connaissance de la [première partie](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) du tutoriel, et que ce changement de code a été effectué à l’intérieur de la fonction « ProcessHubToDTEvents ».
+> Cet exemple d’extrait de code suppose que les lecteurs ont pris connaissance de la [première partie](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) du tutoriel, et que ce changement de code a été effectué à l’intérieur de la fonction « ProcessHubToDTEvents ».
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Mise à jour des champs d’instance à l’aide d’API
 
-Cette section du tutoriel explique comment écouter des changements de modèle dans Azure Digital Twins, tels que la création et la suppression de jumeaux, ou la modification des relations entre jumeaux, ainsi que mettre à jour des champs d’instance et hiérarchies par programmation à l’aide d’API de modèle Time Series Insights. Cette méthode de mise à jour de modèle Time Series Insights est généralement obtenue via des fonctions Azure. Dans Azure Digital Twins, des notifications d’événements, telles que des ajouts ou suppressions de jumeaux, peuvent être des services routés en aval tels que des Event Hubs qui peuvent à leur tour alimenter des fonctions Azure. Vous trouverez des informations supplémentaires sur le routage et le filtrage d’événements [ici](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  Le reste de cette section explique comment utiliser des API de modèle Time Series Insights dans des fonctions Azure pour mettre à jour un modèle Time Series Insights en réponse à l’ajout de jumeau (un type de modification de modèle) dans Azure Digital Twins.
+Cette section du tutoriel explique comment écouter des changements de modèle dans Azure Digital Twins, tels que la création et la suppression de jumeaux, ou la modification des relations entre jumeaux, ainsi que mettre à jour des champs d’instance et hiérarchies par programmation à l’aide d’API de modèle Time Series Insights. Cette méthode de mise à jour de modèle Time Series Insights est généralement obtenue via des fonctions Azure. Dans Azure Digital Twins, des notifications d’événements, telles que des ajouts ou suppressions de jumeaux, peuvent être des services routés en aval tels que des Event Hubs qui peuvent à leur tour alimenter des fonctions Azure. Vous trouverez des informations supplémentaires sur le routage et le filtrage d’événements [ici](../digital-twins/how-to-manage-routes-portal.md).  Le reste de cette section explique comment utiliser des API de modèle Time Series Insights dans des fonctions Azure pour mettre à jour un modèle Time Series Insights en réponse à l’ajout de jumeau (un type de modification de modèle) dans Azure Digital Twins.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Réception et identification de notification d’événement d’ajout de jumeau
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le troisième tutoriel de la série montre comment interroger des données historiques d’Azure Digital Twins à l’aide d’API Time Series Insights. Il s’agit d’un travail en cours et la section sera mise à jour quand elle sera prête. En attendant, les lecteurs sont encouragés à consulter la [documentation sur l’API de requête de données Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+Le troisième tutoriel de la série montre comment interroger des données historiques d’Azure Digital Twins à l’aide d’API Time Series Insights. Il s’agit d’un travail en cours et la section sera mise à jour quand elle sera prête. En attendant, les lecteurs sont encouragés à consulter la [documentation sur l’API de requête de données Time Series Insights](./concepts-query-overview.md).

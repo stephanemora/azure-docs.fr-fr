@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686425"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318131"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)
 L’intégrité des invités d’Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
@@ -24,12 +24,18 @@ L’intégrité des invités d’Azure Monitor pour machines virtuelles présent
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 ou version ultérieure
 - La machine virtuelle doit se trouver dans l’une des régions suivantes :
+  - Australie Est
   - Australie Sud-Est
+  - Inde centrale
   - USA Centre
   - USA Est
   - USA Est 2
   - USA Est 2 (EUAP)
+  - Allemagne Centre-Ouest
+  - Japon Est
+  - Centre-Nord des États-Unis
   - Europe Nord
+  - États-Unis - partie centrale méridionale
   - Asie Sud-Est
   - Sud du Royaume-Uni
   - Europe Ouest

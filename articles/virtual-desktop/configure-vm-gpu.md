@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505306"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018339"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -23,27 +23,27 @@ Suivez les instructions de cet article pour créer une machine virtuelle Azure o
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Sélectionner une taille de machine virtuelle Azure optimisée pour le GPU appropriée
 
-Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](/azure/virtual-machines/nv-series), [NVv3](/azure/virtual-machines/nvv3-series) ou [NVv4](/azure/virtual-machines/nvv4-series). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau, et permettent aux applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
+Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau, et permettent aux applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
 
 >[!NOTE]
 >Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Windows Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. L’accélération générale des applications et des appareils de bureau avec des GPU NVIDIA nécessite une licence NVIDIA GRID. Celle-ci est fournie par Azure pour les tailles de machine virtuelle recommandées, mais pas pour les machines virtuelles de la série NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Créer un pool d’hôtes, provisionner votre machine virtuelle et configurer un groupe d’applications
 
-Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec le portail Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec le portail Azure](./create-host-pools-azure-marketplace.md).
 
 Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
 
 * Windows 10 version 1511 ou ultérieure
 * Windows Server 2016 ou version ultérieure
 
-Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Windows Virtual Desktop](./manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installer des pilotes graphiques pris en charge dans votre machine virtuelle
 
-Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la page [Systèmes d’exploitation et pilotes pris en charge](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) pour installer des pilotes à partir du fournisseur graphique approprié, manuellement ou à l’aide d’une extension de machine virtuelle Azure.
+Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la page [Systèmes d’exploitation et pilotes pris en charge](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer des pilotes à partir du fournisseur graphique approprié, manuellement ou à l’aide d’une extension de machine virtuelle Azure.
 
-Seuls les pilotes distribués par Azure sont pris en charge pour Windows Virtual Desktop. Pour les machines virtuelles Azure de la série NV avec des GPU NVIDIA, seuls les [pilotes NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), et non pas les pilotes NVIDIA Tesla (CUDA), prennent en charge l’accélération GPU pour les applications et appareils de bureau à usage général.
+Seuls les pilotes distribués par Azure sont pris en charge pour Windows Virtual Desktop. Pour les machines virtuelles Azure de la série NV avec des GPU NVIDIA, seuls les [pilotes NVIDIA GRID](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), et non pas les pilotes NVIDIA Tesla (CUDA), prennent en charge l’accélération GPU pour les applications et appareils de bureau à usage général.
 
 Après l’installation du pilote, le redémarrage de la machine virtuelle est nécessaire. Utilisez les étapes de vérification dans les instructions ci-dessus pour confirmer que les pilotes graphiques ont été correctement installés.
 
@@ -92,7 +92,7 @@ Si vous utilisez souvent des applications qui produisent un contenu à fréquenc
 
 Pour vérifier que les applications utilisent le GPU pour le rendu, essayez l’une des opérations suivantes :
 
-* Pour les machines virtuelles Azure dotées d’un GPU NVIDIA, utilisez l’utilitaire `nvidia-smi` comme décrit dans [Vérifier l’installation du pilote](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) pour vérifier l’utilisation du GPU lors de l’exécution de vos applications.
+* Pour les machines virtuelles Azure dotées d’un GPU NVIDIA, utilisez l’utilitaire `nvidia-smi` comme décrit dans [Vérifier l’installation du pilote](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) pour vérifier l’utilisation du GPU lors de l’exécution de vos applications.
 * Dans les versions de système d’exploitation prises en charge, vous pouvez utiliser le Gestionnaire des tâches pour vérifier l’utilisation du GPU. Sélectionnez le GPU dans l’onglet « Performances » pour voir si les applications utilisent le GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Vérifier le codage d’image avec accélération GPU
@@ -115,5 +115,5 @@ Pour vérifier que le Bureau à distance utilise le codage en plein écran :
 
 Grâce à ces instructions, vous pouvez commencer à utiliser l’accélération GPU sur un hôte de session unique (une machine virtuelle). Considérations supplémentaires pour l’activation de l’accélération GPU sur un plus grand pool d’hôtes :
 
-* Envisagez d’utiliser une [extension de machine virtuelle](/azure/virtual-machines/extensions/overview) pour simplifier l’installation et les mises à jour des pilotes sur plusieurs machines virtuelles. Utilisez l’[extension du pilote GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) pour les machines virtuelles dotées de GPU NVIDIA et utilisez l’[extension du pilote GPU](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) AMD pour les machines virtuelles dotées de GPU AMD.
-* Envisagez d’utiliser la stratégie de groupe Active Directory pour simplifier la configuration de la stratégie de groupe sur plusieurs machines virtuelles. Pour plus d’informations sur le déploiement de la stratégie de groupe dans le domaine Active Directory, consultez [Utilisation d’objets stratégie de groupe](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Envisagez d’utiliser une [extension de machine virtuelle](../virtual-machines/extensions/overview.md) pour simplifier l’installation et les mises à jour des pilotes sur plusieurs machines virtuelles. Utilisez l’[extension du pilote GPU NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md) pour les machines virtuelles dotées de GPU NVIDIA et utilisez l’[extension du pilote GPU](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md) AMD pour les machines virtuelles dotées de GPU AMD.
+* Envisagez d’utiliser la stratégie de groupe Active Directory pour simplifier la configuration de la stratégie de groupe sur plusieurs machines virtuelles. Pour plus d’informations sur le déploiement de la stratégie de groupe dans le domaine Active Directory, consultez [Utilisation d’objets stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

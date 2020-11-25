@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 133a27d8aef6c9df16ffcabfb4fac6c118665890
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: b3f903b69cebd22e870f7ccd5923e6f08455dff3
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904854"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992384"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Fonctionnalités Azure DDoS Protection Standard
 
@@ -48,11 +48,11 @@ Le service Azure DDoS Protection Basic contribue à protéger les clients et év
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Protection DDoS : télémétrie, monitoring et génération d’alertes
 
-DDoS Protection Standard expose des données de télémétrie riches par le biais [d’Azure Monitor](/azure/azure-monitor/overview) pendant la durée d’une attaque DDoS. Vous pouvez configurer des alertes pour une des mesures d’Azure Monitor utilisée par DDoS Protection. Vous pouvez intégrer la journalisation à Splunk (Azure Event Hubs), Journaux Azure Monitor et Stockage Azure pour l’analyse avancée via l’interface des diagnostics d’Azure Monitor.
+DDoS Protection Standard expose des données de télémétrie riches par le biais [d’Azure Monitor](../azure-monitor/overview.md) pendant la durée d’une attaque DDoS. Vous pouvez configurer des alertes pour une des mesures d’Azure Monitor utilisée par DDoS Protection. Vous pouvez intégrer la journalisation à Splunk (Azure Event Hubs), Journaux Azure Monitor et Stockage Azure pour l’analyse avancée via l’interface des diagnostics d’Azure Monitor.
 
 ### <a name="ddos-mitigation-policies"></a>Stratégies d’atténuation des risques liés à DDoS
 
-Dans le portail Azure, cliquez sur **Surveiller** > **Métriques**. Dans le volet **Métriques** , sélectionnez le groupe de ressources, le type de ressource **Adresse IP publique** et votre adresse IP publique Azure. Les métriques DDoS sont visibles dans le volet **Métriques disponibles**.
+Dans le portail Azure, cliquez sur **Surveiller** > **Métriques**. Dans le volet **Métriques**, sélectionnez le groupe de ressources, le type de ressource **Adresse IP publique** et votre adresse IP publique Azure. Les métriques DDoS sont visibles dans le volet **Métriques disponibles**.
 
 DDoS Protection Standard applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez afficher les seuils de stratégie en sélectionnant la métrique **Paquets entrants pour déclencher l’atténuation DDoS**.
 
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Gérer Azure DDoS Protection Standard à 
 
 ## <a name="web-application-firewall-for-resource-attacks"></a>Pare-feu d’applications web pour les attaques sur les ressources
 
-Pour lutter spécifiquement contre les attaques sur les ressources au niveau de la couche application et renforcer la sécurité des applications web, vous devez configurer le pare-feu d’applications web (WAF). WAF inspecte le trafic web entrant pour bloquer les injections SQL, les scripts intersites, les attaques DDoS et autres attaques au niveau de la couche 7. [WAF est une fonctionnalité d’Application Gateway](/azure/application-gateway/application-gateway-web-application-firewall-overview) fournie par Azure pour protéger de manière centralisée vos applications web contre les vulnérabilités et exploits courants. Les partenaires Azure proposent d’autres offres WAF. Pour trouver celle la mieux adaptée à vos besoins, visitez la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Pour lutter spécifiquement contre les attaques sur les ressources au niveau de la couche application et renforcer la sécurité des applications web, vous devez configurer le pare-feu d’applications web (WAF). WAF inspecte le trafic web entrant pour bloquer les injections SQL, les scripts intersites, les attaques DDoS et autres attaques au niveau de la couche 7. [WAF est une fonctionnalité d’Application Gateway](../web-application-firewall/ag/ag-overview.md) fournie par Azure pour protéger de manière centralisée vos applications web contre les vulnérabilités et exploits courants. Les partenaires Azure proposent d’autres offres WAF. Pour trouver celle la mieux adaptée à vos besoins, visitez la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Même les pare-feu d’application web sont vulnérables aux attaques volumétriques et d’épuisement d’état. Nous vous recommandons fortement d’activer DDoS Protection Standard sur le réseau virtuel WAF pour contribuer à vous protéger contre les attaques volumétriques et de protocole. Pour plus d’informations, consultez la section sur [les architectures de référence DDoS Protection](ddos-protection-reference-architectures.md).
 

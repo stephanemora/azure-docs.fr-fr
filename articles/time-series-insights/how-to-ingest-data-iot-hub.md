@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665920"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016800"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Découvrez comment ajouter une source d’événement de Hub IoT à votre environnement Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Cet article décrit comment utiliser le portail Azure pour ajouter une source d�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Créez un [environnement Azure Time Series Insights](time-series-insights-update-create-environment.md).
+* Créez un [environnement Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 * Créez un [IoT Hub à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
 * L’IoT Hub doit avoir des événements de message actifs envoyés.
 * Créez un groupe de consommateurs dédié dans IoT Hub pour l’environnement Azure Time Series Insights à utiliser. Chaque source d’événement Time Series Insights Azure doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles de présenter des défaillances. Pour plus d’informations, consultez le [Guide du développeur Azure IoT Hub](../iot-hub/iot-hub-devguide.md).
@@ -107,7 +107,7 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
+* [Définissez les stratégies d’accès aux données](./concepts-access-policies.md) pour sécuriser les données.
 
 * [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
 

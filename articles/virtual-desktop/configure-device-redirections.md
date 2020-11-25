@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328877"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018373"
 ---
 # <a name="configure-device-redirections"></a>Configurer des redirections d’appareil
 
@@ -19,11 +19,11 @@ La configuration des redirections d’appareils pour votre environnement Windows
 
 ## <a name="supported-device-redirections"></a>Redirections d’appareil prises en charge
 
-Chaque client prend en charge différentes redirections d’appareil. Consultez [Comparer les clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) pour obtenir la liste complète des redirections d’appareil prises en charge pour chaque client.
+Chaque client prend en charge différentes redirections d’appareil. Consultez [Comparer les clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) pour obtenir la liste complète des redirections d’appareil prises en charge pour chaque client.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Personnalisation des propriétés RDP pour un pool d’hôtes
 
-Pour en savoir plus sur la personnalisation des propriétés RDP d’un pool d’hôtes à l’aide de PowerShell ou du portail Azure, consultez les [propriétés RDP](customize-rdp-properties.md). Pour obtenir la liste complète des propriétés RDP prises en charge, consultez les [paramètres de fichier RDP pris en charge](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Pour en savoir plus sur la personnalisation des propriétés RDP d’un pool d’hôtes à l’aide de PowerShell ou du portail Azure, consultez les [propriétés RDP](customize-rdp-properties.md). Pour obtenir la liste complète des propriétés RDP prises en charge, consultez les [paramètres de fichier RDP pris en charge](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Configurer des redirections d’appareil
 
@@ -78,10 +78,10 @@ Tout d’abord, définissez la propriété RDP suivante pour activer la redirect
 
 Ensuite, définissez les stratégie de groupe suivante sur l’appareil local de l’utilisateur :
 
-- Accédez à **Configuration ordinateur** > **Stratégies**> **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Client Connexion Bureau à distance** > **Redirection des périphériques USB RemoteFX** .
-- Sélectionnez **Autoriser la redirection RDP d’autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur** .
-- Sélectionnez l’option **Activé** , puis cochez la case **Administrateurs et utilisateurs dans les droits d’accès à la redirection USB RemoteFX** .
-- Sélectionnez **OK** .
+- Accédez à **Configuration ordinateur** > **Stratégies**> **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Client Connexion Bureau à distance** > **Redirection des périphériques USB RemoteFX**.
+- Sélectionnez **Autoriser la redirection RDP d’autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur**.
+- Sélectionnez l’option **Activé**, puis cochez la case **Administrateurs et utilisateurs dans les droits d’accès à la redirection USB RemoteFX**.
+- Sélectionnez **OK**.
 
 ### <a name="plug-and-play-device-redirection"></a>Redirection d’appareils Plug-and-Play
 

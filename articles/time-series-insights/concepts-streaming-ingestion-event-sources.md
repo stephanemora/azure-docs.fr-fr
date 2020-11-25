@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650866"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020791"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -27,7 +27,7 @@ Les événements doivent être envoyés en tant que JSON encodé en UTF-8.
 
 ## <a name="create-or-edit-event-sources"></a>Créer ou modifier des sources d’événements
 
-Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Vous pouvez utiliser [le portail Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et [l’API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer des sources d’événements de votre environnement.
+Vos ressources de source d’événements peuvent être dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Vous pouvez utiliser [le portail Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [l’interface Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [les modèles Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et [l’API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer des sources d’événements de votre environnement.
 
 Lorsque vous connectez une source d’événements, votre environnement Azure Time Series Insights Gen2 lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l’événement le plus ancien.
 
@@ -45,7 +45,7 @@ Lorsque vous connectez une source d’événements, votre environnement Azure Ti
 
 - N’allez pas au-delà de la [limite du débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement ou de la limite de partition.
 
-- Configurez une [alerte](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
+- Configurez une [alerte](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
 
 - Utilisez l’ingestion de streaming uniquement pour des données récentes et en quasi-temps réel. Les données historiques de streaming ne sont pas prises en charge.
 
@@ -64,7 +64,7 @@ L’utilisation du pipeline de streaming pour importer des données historiques 
 
 ## <a name="event-source-timestamp"></a>Horodateur de la source de l’événement
 
-Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements dans le temps. Il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) et pour tracer des séries dans Explorateur Azure Time Series Insights. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
+Quand vous configurez une source d’événement, vous êtes invité à fournir une propriété d’ID d’horodatage. La propriété d’horodatage est utilisée pour effectuer le suivi des événements dans le temps. Il s’agit de l’heure qui sera utilisée comme $event.$ts dans les [API de requête](/rest/api/time-series-insights/dataaccessgen2/query/execute) et pour tracer des séries dans Explorateur Azure Time Series Insights. Si aucune propriété n’est fournie au moment de la création, ou si la propriété d’horodatage est absente d’un événement, IoT Hub ou Event Hubs sont utilisés par défaut. Les valeurs de propriété d’horodatage sont stockées au format UTC.
 
 En général, les utilisateurs choisissent de personnaliser la propriété d’horodatage et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture au lieu d’utiliser le hub par défaut mis en file d’attente. Cela est particulièrement nécessaire lorsque les appareils présentent une perte de connectivité intermittente et qu’un lot de messages retardés est transféré à Azure Time Series Insights Gen2.
 

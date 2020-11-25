@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596244"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016817"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser le Portail Azure pour ajouter une source d
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Créez un environnement Azure Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Créez un environnement Azure Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 - Créez un hub d’événements. Lisez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le Portail Azure](../event-hubs/event-hubs-create.md).
 - L’Event Hub doit avoir reçu des événements de message actifs. Découvrez comment [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Créez un groupe de consommateurs dédié dans l’Event Hub que l’environnement Azure Time Series Insights peut utiliser. Chaque source d’événement Azure Time Series Insights Azure doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles de présenter des défaillances. Il existe également une limite de 20 groupes de consommateurs par Event Hub. Pour plus d’informations, consultez le [guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
@@ -113,7 +113,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
+- [Définissez les stratégies d’accès aux données](./concepts-access-policies.md) pour sécuriser les données.
 
 - [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
 

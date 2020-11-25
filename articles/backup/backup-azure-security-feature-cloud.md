@@ -3,12 +3,12 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271543"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254047"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
@@ -87,11 +87,11 @@ Procédez comme suit :
 
 5. Choisissez **Supprimer les données de sauvegarde** pour supprimer définitivement les données de sauvegarde.
 
-   ![Choisir Supprimer les données de sauvegarde](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Choisir Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
-   ![Entrez le nom de l’élément de sauvegarde](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Entrez le nom de l’élément de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
