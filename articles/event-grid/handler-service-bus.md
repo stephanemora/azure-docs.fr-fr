@@ -3,12 +3,12 @@ title: Files d’attente et rubriques Service Bus en tant que gestionnaires d’
 description: Décrit comment vous pouvez utiliser des files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629503"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96024212"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus des files d’attente et des rubriques comme gestionnaires d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements et **Azure Service Bus** est l’un d’eux. 
@@ -50,18 +50,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="message-properties"></a>Propriétés du message
-Si vous utilisez **une rubrique ou une file d’attente Service Bus** en tant que gestionnaire d’événements pour des événements d’Event Grid, voici les propriétés que vous recevez dans les en-têtes des messages : 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nom de la propriété | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Nom de l’abonnement aux événements. |
-| aeg-delivery-count | <p>Nombre de tentatives effectuées pour l’événement.</p> <p>Exemple : "1"</p> |
-| aeg-event-type | <p>Type de l’événement.</p><p> Exemple : « Microsoft.Storage.blobCreated »</p> | 
-| aeg-metadata-version | <p>Version de métadonnées de l’événement.</p> <p>Exemple : "1".</p><p> Pour un **schéma d’événement Event Grid**, cette propriété représente la version des métadonnées et, pour un **schéma d’événements cloud**, elle représente la **version des spécifications**. </p>|
-| aeg-data-version | <p>Version de données de l’événement.</p><p>Exemple : "1".</p><p>Pour un **schéma d’événement Event Grid**, cette propriété représente la version des données et, pour un **schéma d’événements cloud**, elle ne s’applique pas.</p> |
-
-## <a name="message-headers"></a>En-têtes de message
 Lors de l’envoi d’un événement à une file d’attente ou une rubrique Service Bus en tant que message réparti, le `messageid` du message réparti est un ID système interne.
 
 L’ID système interne du message est conservé lors de la nouvelle remise de l’événement afin que vous puissiez éviter les remises en double en activant la **détection des doublons** sur l’entité Service Bus. Nous vous recommandons d’activer la durée de la détection des doublons sur l’entité Service Bus comme étant la durée de vie (TTL, Time-to-Live) de l’événement ou la durée maximale de nouvelle tentative, la valeur la plus longue étant retenue.

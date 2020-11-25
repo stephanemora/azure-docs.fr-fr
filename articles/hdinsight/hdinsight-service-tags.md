@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535244"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022749"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
@@ -26,9 +26,9 @@ Si vous souhaitez utiliser une région particulière et que l’étiquette de se
 
 Vous avez le choix entre deux options pour utiliser les balises de service dans vos groupes de sécurité réseau :
 
-- **Utiliser une étiquette de service HDInsight globale unique**  : cette option ouvre votre réseau virtuel à toutes les adresses IP que le service HDInsight utilise pour analyser les clusters dans l'ensemble des régions. Il s'agit de la méthode la plus simple, mais elle peut ne pas vous convenir si vous avez des exigences de sécurité restrictives.
+- **Utiliser une étiquette de service HDInsight globale unique** : cette option ouvre votre réseau virtuel à toutes les adresses IP que le service HDInsight utilise pour analyser les clusters dans l'ensemble des régions. Il s'agit de la méthode la plus simple, mais elle peut ne pas vous convenir si vous avez des exigences de sécurité restrictives.
 
-- **Utiliser plusieurs étiquettes de service régionales**  : cette option ouvre exclusivement votre réseau virtuel aux adresses IP que HDInsight utilise dans cette région spécifique. Toutefois, si vous utilisez plusieurs régions, vous devez ajouter plusieurs étiquettes de service à votre réseau virtuel.
+- **Utiliser plusieurs étiquettes de service régionales** : cette option ouvre exclusivement votre réseau virtuel aux adresses IP que HDInsight utilise dans cette région spécifique. Toutefois, si vous utilisez plusieurs régions, vous devez ajouter plusieurs étiquettes de service à votre réseau virtuel.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Utiliser une balise de service HDInsight globale unique
 
@@ -36,11 +36,11 @@ Pour commencer à utiliser des étiquettes de service avec votre cluster HDInsig
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre groupe de sécurité réseau.
 
-1. Sous **Paramètres** , sélectionnez **Règles de sécurité de trafic entrant** , puis sélectionnez **+ Ajouter** .
+1. Sous **Paramètres**, sélectionnez **Règles de sécurité de trafic entrant**, puis sélectionnez **+ Ajouter**.
 
-1. Dans la liste déroulante **Source** , sélectionnez **Étiquette de service** .
+1. Dans la liste déroulante **Source**, sélectionnez **Étiquette de service**.
 
-1. Dans la liste déroulante **Étiquette du service source** , sélectionnez **HDInsight** .
+1. Dans la liste déroulante **Étiquette du service source**, sélectionnez **HDInsight**.
 
     ![Ajouter une étiquette de service à partir du portail Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: e66329b93ebd7d90258ab4670b77ca849a28189b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547994"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024059"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualiser des données Apache Hive à l’aide de Microsoft Power BI et ODBC dans Azure HDInsight
 
@@ -50,13 +50,13 @@ La table Hive **hivesampletable** est fournie avec tous les clusters HDInsight.
 
     ![HDInsight - Excel, Power BI, Obtenir des données](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
-1. Dans la boîte de dialogue **Obtenir des données** , sélectionnez **Autre** à gauche, **ODBC** à droite, puis **Se connecter** en bas.
+1. Dans la boîte de dialogue **Obtenir des données**, sélectionnez **Autre** à gauche, **ODBC** à droite, puis **Se connecter** en bas.
 
-1. Dans la boîte de dialogue **À partir d’ODBC** , sélectionnez le nom de la source de données que vous avez créée dans la dernière section. Sélectionnez ensuite **OK** .
+1. Dans la boîte de dialogue **À partir d’ODBC**, sélectionnez le nom de la source de données que vous avez créée dans la dernière section. Sélectionnez ensuite **OK**.
 
-1. Lors de la première utilisation, une boîte de dialogue **Pilote ODBC** s’ouvre. Sélectionnez **Par défaut ou personnalisé** dans le menu de gauche. Ensuite, sélectionnez **Se connecter** pour ouvrir le **Navigateur** .
+1. Lors de la première utilisation, une boîte de dialogue **Pilote ODBC** s’ouvre. Sélectionnez **Par défaut ou personnalisé** dans le menu de gauche. Ensuite, sélectionnez **Se connecter** pour ouvrir le **Navigateur**.
 
-1. Dans la boîte de dialogue **Navigateur** , développez **ODBC > HIVE > par défaut** , sélectionnez **hivesampletable** , puis sélectionnez **Charger** .
+1. Dans la boîte de dialogue **Navigateur**, développez **ODBC > HIVE > par défaut**, sélectionnez **hivesampletable**, puis sélectionnez **Charger**.
 
 ## <a name="visualize-data"></a>Visualiser les données
 
@@ -66,7 +66,7 @@ Poursuivez la procédure précédente.
 
     ![personnalisation de rapport Power BI HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
 
-1. Dans le volet **Champs** , sélectionnez **country** et **devicemake** . Vous pouvez voir les données tracées sur la carte.
+1. Dans le volet **Champs**, sélectionnez **country** et **devicemake**. Vous pouvez voir les données tracées sur la carte.
 
 1. Développez la carte.
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
 ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339286"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023463"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Démarrage rapide : Déployer l’API Azure pour FHIR à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Sélectionnez **Créer** afin de créer un compte d’API Azure pour FHIR :
 
 ## <a name="enter-account-details"></a>Entrer les détails du compte
 
-Sélectionnez un groupe de ressources existant, ou créez-en un, choisissez un nom pour le compte, puis cliquez sur **Vérifier + créer**  :
+Sélectionnez un groupe de ressources existant, ou créez-en un, choisissez un nom pour le compte, puis cliquez sur **Vérifier + créer** :
 
 :::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Détails de la nouvelle API médicale":::
 
@@ -63,7 +63,7 @@ Pour vérifier que le nouveau compte d’API FHIR est provisionné, récupérez 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, l’API Azure pour FHIR et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources contenant le compte d’API Azure pour FHIR, sélectionnez **Supprimer le groupe de ressources** , puis confirmez le nom du groupe de ressources à supprimer.
+Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, l’API Azure pour FHIR et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources contenant le compte d’API Azure pour FHIR, sélectionnez **Supprimer le groupe de ressources**, puis confirmez le nom du groupe de ressources à supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022732"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utiliser des signatures d’accès partagé Stockage Blob Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -207,7 +207,7 @@ Vous devrez peut-être exécuter `pip install --upgrade azure-storage` si vous r
 
 1. Ouvrez la solution dans Visual Studio.
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SASExample** , puis sélectionnez **Propriétés** .
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SASExample**, puis sélectionnez **Propriétés**.
 
 3. Sélectionnez **Paramètres** et ajoutez des valeurs pour les entrées suivantes :
 
@@ -353,29 +353,29 @@ Si vous disposez d’un cluster existant, vous pouvez ajouter la SAP pour la con
 
 1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’adresse de cette page est `https://YOURCLUSTERNAME.azurehdinsight.net`. À l’invite, authentifiez-vous auprès du cluster au moyen du nom et du mot de passe d’administrateur que vous avez utilisés lors de la création du cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
 
-1. Développez la section **Configuration core-site personnalisée** , faites défiler jusqu’à la fin, puis sélectionnez **Ajouter une propriété…** . Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur**  :
+1. Développez la section **Configuration core-site personnalisée**, faites défiler jusqu’à la fin, puis sélectionnez **Ajouter une propriété…** . Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
-    * **Clé**  : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Clé** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Valeur** : la SAS retournée par l’une des méthodes exécutées précédemment.
 
     Remplacez `CONTAINERNAME` par le nom du conteneur que vous avez utilisé avec l’application C# ou SAP. Remplacez `STORAGEACCOUNTNAME` par le nom du compte de stockage utilisé.
 
     Sélectionnez **Ajouter** pour enregistrer cette clé et cette valeur.
 
-1. Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications apportées à la configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’un accès de stockage SAP », par exemple), puis sélectionnez **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications apportées à la configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’un accès de stockage SAP », par exemple), puis sélectionnez **Enregistrer**.
 
     Sélectionnez **OK** lorsque les modifications ont été effectuées.
 
    > [!IMPORTANT]  
    > Vous devez redémarrer plusieurs services pour que la modification prenne effet.
 
-1. Une liste déroulante **Redémarrer** s’affiche. Sélectionnez **Redémarrer tous les éléments affectés** dans la liste déroulante, puis __Confirmer le redémarrage__ .
+1. Une liste déroulante **Redémarrer** s’affiche. Sélectionnez **Redémarrer tous les éléments affectés** dans la liste déroulante, puis __Confirmer le redémarrage__.
 
-    Répétez ce processus pour les entrées **MapReduce2** et **YARN** .
+    Répétez ce processus pour les entrées **MapReduce2** et **YARN**.
 
-1. Une fois les services redémarrés, sélectionnez chacun d’entre eux et désactivez le mode maintenance à partir de la liste déroulante **Actions de service** .
+1. Une fois les services redémarrés, sélectionnez chacun d’entre eux et désactivez le mode maintenance à partir de la liste déroulante **Actions de service**.
 
 ## <a name="test-restricted-access"></a>Tester l’accès restreint
 
@@ -411,7 +411,7 @@ Procédez comme suit pour vérifier que vous pouvez uniquement lire et répertor
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Cette commande télécharge le fichier sur un fichier local nommé **testfile.txt** .
+    Cette commande télécharge le fichier sur un fichier local nommé **testfile.txt**.
 
 5. Utilisez la commande suivante pour charger le fichier local sur un nouveau fichier nommé **testupload.txt** sur le stockage SAP :
 

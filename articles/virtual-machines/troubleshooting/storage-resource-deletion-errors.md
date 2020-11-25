@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651631"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022868"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage
 
@@ -35,7 +35,7 @@ Azure empêche la suppression d’un disque qui est joint à une machine virtuel
 Le processus de suppression d’un compte de stockage, d’un conteneur ou d’un blob lorsque vous recevez l’une de ces erreurs est le suivant : 
 1. Identifier les objets blob joints à une machine virtuelle
 2. [Supprimer les machines virtuelles avec un **disque de système d’exploitation** joint](#step-2-delete-vm-to-detach-os-disk)
-3. [Détacher tous les**disques de données** des autres machines virtuelles](#step-3-detach-data-disk-from-the-vm)
+3. [Détacher tous les **disques de données** des autres machines virtuelles](#step-3-detach-data-disk-from-the-vm)
 
 Effectuez une nouvelle tentative de suppression du compte de stockage, du conteneur ou du blob après avoir terminé ces étapes.
 

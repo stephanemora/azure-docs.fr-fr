@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230107"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022375"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
 La suppression réversible pour les objets blob protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible pour les objets blob est activée pour un compte de stockage, les blobs, les versions des blobs et les captures instantanées de ce compte de stockage peuvent être récupérés après leur suppression, au cours d’une période de rétention que vous spécifiez.
 
-S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-enable.md).
+S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer et gérer la suppression réversible pour les blobs](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -149,7 +149,7 @@ Pour obtenir un pointeur vers l’application qui a produit cette sortie, voir l
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-Toutes les données supprimées de manière réversible sont facturées au même tarif que des données actives. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de rétention configurée. Pour plus de détails sur les instantanés et la manière dont ils augmentent les coûts, voir [Présentation des frais liés aux instantanés](storage-blob-snapshots.md).
+Toutes les données supprimées de manière réversible sont facturées au même tarif que des données actives. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de rétention configurée. Pour plus de détails sur les instantanés et la manière dont ils augmentent les coûts, voir [Présentation des frais liés aux instantanés](./snapshots-overview.md).
 
 Vous ne serez pas facturé pour les transactions associées à la génération automatique d’instantanés. Les transactions **Undelete Blob** vous seront facturées au taux des opérations d’écriture.
 
@@ -193,5 +193,5 @@ Vous pouvez tirer parti de la suppression réversible, quelle que soit la versio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer la suppression réversible pour les objets blob](soft-delete-enable.md)
+- [Activer la suppression réversible pour les objets blob](./soft-delete-blob-enable.md)
 - [Contrôle de version des blobs](versioning-overview.md)

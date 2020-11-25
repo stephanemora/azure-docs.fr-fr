@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535091"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022698"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -115,7 +115,7 @@ Le [tableau de bord de l’interface utilisateur Ambari](#view-cluster-configura
 
 ### <a name="check-your-webhcat-service"></a>Vérifier votre service WebHCat
 
-Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton* ). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN Apache Hadoop et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
+Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN Apache Hadoop et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (code d’état 502)
 
@@ -172,7 +172,7 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
     Si vous ouvrez le fichier journal `/var/log/webhcat/webhcat.log` et que vous recherchez un « travail en file d’attente », vous pouvez voir plusieurs entrées associées à une durée d’exécution trop longue (> 2 000 ms), où les entrées indiquent une augmentation des temps d’attente.
 
-    La durée des travaux en file d’attente continue d’augmenter car la vitesse à laquelle les nouveaux travaux sont envoyés est supérieure à la fréquence d’exécution des anciens travaux. Une fois que la mémoire de YARN est utilisée à 100 %, la *file d’attente joblauncher* ne peut plus emprunter de capacité à la *file d’attente par défaut* . Par conséquent, la file d’attente joblauncher ne peut plus accepter de nouveaux travaux. Ce comportement peut provoquer un allongement des temps d’attente et provoquer une erreur de délai d’expiration, qui est généralement suivie de nombreuses autres erreurs du même type.
+    La durée des travaux en file d’attente continue d’augmenter car la vitesse à laquelle les nouveaux travaux sont envoyés est supérieure à la fréquence d’exécution des anciens travaux. Une fois que la mémoire de YARN est utilisée à 100 %, la *file d’attente joblauncher* ne peut plus emprunter de capacité à la *file d’attente par défaut*. Par conséquent, la file d’attente joblauncher ne peut plus accepter de nouveaux travaux. Ce comportement peut provoquer un allongement des temps d’attente et provoquer une erreur de délai d’expiration, qui est généralement suivie de nombreuses autres erreurs du même type.
 
     L’illustration suivante montre la file d’attente joblauncher à un taux d’utilisation de 714,4 %. Ce taux est acceptable tant qu’il reste de la capacité disponible à emprunter à la file d’attente par défaut. Toutefois, lorsque le cluster est entièrement utilisé et que la mémoire YARN a atteint 100 % de sa capacité, les nouveaux travaux doivent attendre, ce qui finit par provoquer une expiration des délais d’attente.
 
@@ -206,7 +206,7 @@ Pour diagnostiquer ces problèmes :
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : Examiner la pile et les versions de l’environnement
 
-La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin** , puis **Piles et versions** .  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
+La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
 
 ![Apache Ambari - Piles et versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -228,7 +228,7 @@ Les journaux d’activité d’actions de script se trouvent dans le répertoire
 
 ### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Afficher les journaux d’activité HDInsight à l’aide des liens rapides d’Ambari
 
-L’interface utilisateur HDInsight Ambari comprend un certain nombre de sections **Liens rapides** .  Pour accéder aux liens vers les journaux d’un service donné de votre cluster HDInsight, ouvrez l’interface utilisateur Ambari de votre cluster, puis sélectionnez le lien du service dans la liste située à gauche. Sélectionnez la liste déroulante **Liens rapides** , puis le nœud HDInsight qui vous intéresse, et sélectionnez le lien vers le journal correspondant.
+L’interface utilisateur HDInsight Ambari comprend un certain nombre de sections **Liens rapides**.  Pour accéder aux liens vers les journaux d’un service donné de votre cluster HDInsight, ouvrez l’interface utilisateur Ambari de votre cluster, puis sélectionnez le lien du service dans la liste située à gauche. Sélectionnez la liste déroulante **Liens rapides**, puis le nœud HDInsight qui vous intéresse, et sélectionnez le lien vers le journal correspondant.
 
 Par exemple, pour les journaux d’activité HDFS :
 

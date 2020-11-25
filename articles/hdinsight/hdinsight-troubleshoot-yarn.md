@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288979"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022664"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
@@ -24,7 +24,7 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 
 Effectuez les étapes suivantes via Ambari pour créer une file d’attente YARN, puis équilibrer l’allocation de capacité entre toutes les files d’attente.
 
-Dans cet exemple, la capacité de deux files d’attente existantes ( **default** et **thriftsvr** ) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
+Dans cet exemple, la capacité de deux files d’attente existantes (**default** et **thriftsvr**) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
 
 | File d'attente | Capacité | Capacité maximale |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ Dans cet exemple, la capacité de deux files d’attente existantes ( **default*
 | thrftsvr | 25 % | 50 |
 | spark | 50 | 50 |
 
-1. Cliquez sur l’icône **Vues Ambari** , puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
+1. Cliquez sur l’icône **Vues Ambari**, puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
 
     ![Tableau de bord Apache Ambari - YARN - Gestionnaire de files d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Sélectionnez la file d’attente **default** (par défaut).
