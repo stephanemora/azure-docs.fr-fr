@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341836"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638812"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -109,14 +109,19 @@ Vous pouvez sélectionner un espace de travail Log Analytics existant pour stock
 
 Pour sélectionner un espace de travail Log Analytics existant :
 
-1. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Use another workspace** (Utiliser un autre espace de travail).
+1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+1. Sélectionnez l’abonnement approprié.
+1. Ouvrir la page **Approvisionnement automatique**
+1. Pour l’agent Log Analytics, sélectionnez **Modifier la configuration**. 
 
-    ![Utiliser un autre espace de travail][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Configuration de l’agent Log Analytics à utiliser lors de l’utilisation du déploiement automatique" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. Dans le menu déroulant, sélectionnez un espace de travail pour stocker les données collectées.
+1. Sélectionnez **Connect Azure VMs to a different workspace** (Connecter des machines virtuelles Azure à un autre espace de travail) et choisissez votre espace de travail existant.
 
-    > [!NOTE]
-    > Dans le menu déroulant, seuls les espaces de travail auxquels vous avez accès et se trouvant dans votre abonnement Azure sont affichés.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Sélection d’un espace de travail autre que celui par défaut auquel votre agent Log Analytics doit se rapporter" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > La liste comprend uniquement les espaces de travail auxquels vous avez accès et ceux qui se trouvent dans votre abonnement Azure.
 
 1. Sélectionnez **Enregistrer**. Vous serez invité à reconfigurer les machines virtuelles surveillées.
 
@@ -126,7 +131,6 @@ Pour sélectionner un espace de travail Log Analytics existant :
     > [!NOTE]
     > Si vous sélectionnez **Oui**, ne supprimez pas les espaces de travail créés par Security Center tant que toutes les machines virtuelles n’ont pas été reconnectées au nouvel espace de travail cible. Cette opération échoue si un espace de travail est supprimé trop tôt.
 
-    - Pour annuler l’opération, sélectionnez **Annuler**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Que se passe-t-il si l’agent Log Analytics est déjà installé en tant qu’extension sur la machine virtuelle ?<a name="mmaextensioninstalled"></a>
 
@@ -164,12 +168,17 @@ Si vous supprimez l’extension Microsoft Monitoring, Security Center n’est pa
 
 Vous pouvez désactiver l’approvisionnement automatique pour vos abonnements dans la stratégie de sécurité, mais ce n’est pas recommandé. La désactivation de l’approvisionnement automatique a pour effet de limiter les alertes et recommandations de Security Center. Pour désactiver l’approvisionnement automatique :
 
-1. Si Azure Defender est activé pour votre abonnement, ouvrez la stratégie de sécurité de cet abonnement et sélectionnez **Azure Defender désactivé**.
+1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+1. Sélectionnez l’abonnement approprié.
+1. Si votre abonnement a activé Azure Defender, ouvrez **Plans Azure Defender** et sélectionnez **Azure Defender désactivé**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Activer ou désactiver Azure Defender":::
 
-1. Ensuite, désactivez l’approvisionnement automatique en sélectionnant **Non** sur le page **Stratégie de sécurité : collecte de données**.
-   ![Collecte de données][2]
+1. Dans la page **Approvisionnement automatique**, sélectionnez Pen et désactivez l’approvisionnement automatique dans la page **Stratégie de sécurité – Collecte de données**.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Activer le déploiement automatique pour l’agent Log Analytics":::
+
+1. Sélectionnez **Enregistrer**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Dois-je refuser l’installation automatique de l’agent et la création de l’espace de travail ?
@@ -232,13 +241,11 @@ L’approvisionnement automatique est fortement recommandé si vous souhaitez ob
 
 Si vous l’avez activé, mais que vous souhaitez maintenant le désactiver :
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez **Centre de sécurité** et sélectionnez **Stratégie de sécurité**.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez **Centre de sécurité** et sélectionnez **Tarification et paramètres**.
 
 1. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver le provisionnement automatique.
 
-    **Stratégie de sécurité - Collecte de données** s’ouvre.
-
-1. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **Off** (Désactivé).
+1. Sous **Approvisionnement automatique**, désactivez la bascule de l’agent d’analytique des journaux d'activité.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Comment activer la collecte des données ?

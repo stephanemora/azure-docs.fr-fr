@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019655"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015058"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -79,7 +79,7 @@ Pour créer ou mettre à jour la zone dans Azure DNS, l’objet de zone qui cont
 > [!NOTE]
 > DnsManagementClient prend en charge trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).  Vous pouvez choisir l’un de ces modes, selon les besoins de votre application.
 
-Azure DNS prend en charge l’accès simultané optimiste, appelé [ETags](dns-getstarted-create-dnszone.md). Dans cet exemple, le fait de spécifier « * » pour l’en-tête « If-None-Match » indique à Azure DNS de créer une zone DNS si celle-ci n’existe pas déjà.  L’appel échoue si une zone portant le nom spécifié existe déjà dans le groupe de ressources donné.
+Azure DNS prend en charge l’accès simultané optimiste, appelé [ETags](./dns-getstarted-powershell.md). Dans cet exemple, le fait de spécifier « * » pour l’en-tête « If-None-Match » indique à Azure DNS de créer une zone DNS si celle-ci n’existe pas déjà.  L’appel échoue si une zone portant le nom spécifié existe déjà dans le groupe de ressources donné.
 
 ```cs
 // Create zone parameters

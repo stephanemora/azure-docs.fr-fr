@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394218"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630496"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guide de dépannage du Connecteur Azure IoT pour FHIR (préversion)
 
-Cet article décrit la procédure de résolution de messages et conditions d’erreur courants du Connecteur Azure IoT pour FHIR*.  
+Cet article décrit la procédure de résolution de messages et conditions d’erreur courants du Connecteur Azure IoT pour FHIR&#174; (Fast Healthcare Interoperability Resources)*.  
 
 Vous apprendrez également à créer des copies du connecteur Azure IoT pour le fichier JSON de mappage de conversion FHIR (par exemple : Appareil et FHIR).  
 
@@ -68,7 +68,7 @@ Cette section décrit le processus de validation que le Connecteur Azure IoT pou
 |Le compte n’existe pas.|API|La tentative d’ajout d’un connecteur Azure IoT pour FHIR et de l’API Azure pour la ressource FHIR n’existe pas.|Créez l’API Azure pour la ressource FHIR, puis retentez l’opération.|
 |La version de l’API Azure pour la ressource FHIR n’est pas prise en charge pour le Connecteur IoT.|API|Tentative d’utilisation d’un connecteur Azure IoT pour FHIR avec une version incompatible de la ressource API Azure pour FHIR.|Créez une nouvelle ressource API Azure pour FHIR (version R4) ou utilisez une ressource API Azure pour FHIR (version R4).
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Pourquoi mes données dans le connecteur Azure IoT pour FHIR (préversion) n’apparaissent pas dans l’API Azure pour FHIR ?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Pourquoi mes données dans le connecteur Azure IoT pour FHIR (préversion) n’apparaissent pas dans l’API Azure pour FHIR ?
 
 |Problèmes potentiels|Correctifs|
 |----------------|-----|
@@ -82,7 +82,74 @@ Cette section décrit le processus de validation que le Connecteur Azure IoT pou
 
 *Référence [Démarrage rapide : Déployer le connecteur Azure IoT (préversion) à l’aide du portail Azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) pour obtenir une description fonctionnelle du connecteur Azure IoT pour les types de résolution FHIR (par exemple : Rechercher ou Créer).
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Utiliser des métriques pour résoudre les problèmes dans le connecteur Azure IoT pour FHIR (préversion)
+
+Le connecteur Azure IoT pour FHIR génère plusieurs métriques pour fournir des informations sur le processus de flux de données. Parmi des métriques prises en charge, *Nb total d’erreurs*, indique le nombre d’erreurs qui se produisent dans une instance du connecteur Azure IoT pour FHIR.
+
+Chaque erreur est enregistrée avec un certain nombre de propriétés associées. Chaque propriété fournit un aspect différent de l’erreur, qui peut vous aider à identifier et à résoudre les problèmes. Cette section répertorie les différentes propriétés capturées pour chaque erreur dans la métrique *Nb total d’erreurs* et les valeurs possibles de ces propriétés.
+
+> [!NOTE]
+> Vous pouvez accéder à la métrique *Nb total d’erreurs* pour une instance du connecteur Azure IoT pour FHIR (préversion), comme décrit à la [page Métriques du connecteur Azure IoT pour FHIR (préversion)](iot-metrics-display.md).
+
+Cliquez sur le graphique *Nb total d’erreurs*, puis cliquez sur le bouton *Ajouter un filtre* pour découper et couper la métrique d’erreur à l’aide de l’une des propriétés mentionnées ci-dessous.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>Opération effectuée par le connecteur Azure IoT pour FHIR (préversion)
+
+Cette propriété représente l’opération exécutée par le connecteur IoT lorsque l’erreur s’est produite. Une opération représente généralement l’étape de flux de données lors du traitement d’un message d’appareil. Voici la liste des valeurs possibles pour cette propriété.
+
+> [!NOTE]
+> Vous pouvez en savoir plus sur les différentes étapes du workflow dans le connecteur Azure IoT pour FHIR (préversion) [ici](iot-data-flow.md).
+
+|Étape de flux de données|Description|
+|---------------|-----------|
+|Programme d’installation|Opération spécifique à la configuration de votre instance du connecteur IoT|
+|Normalisation|Étape de flux de données où les données de l’appareil sont normalisées|
+|Regroupement|Étape de flux de données dans laquelle les données normalisées sont regroupées|
+|FHIRConversion|Étape de flux de données où les données normalisées regroupées sont transformées en ressource FHIR|
+|Inconnu|Le type d’opération est inconnu quand une erreur s’est produite|
+
+### <a name="the-severity-of-the-error"></a>Gravité de l’erreur
+
+Cette propriété représente la gravité de l’erreur qui s’est produite. Voici la liste des valeurs possibles pour cette propriété.
+
+|severity|Description|
+|---------------|-----------|
+|Avertissement|Un problème mineur existe dans le processus de flux de données, mais le traitement du message de l’appareil ne s’arrête pas|
+|Error|Le traitement d’un message d’appareil spécifique a généré une erreur et d’autres messages peuvent continuer de s’exécuter comme prévu|
+|Critique|Il existe un problème au niveau du système avec le connecteur IoT et aucun message ne doit être traité|
+
+### <a name="the-type-of-the-error"></a>Type de l’erreur
+
+Cette propriété signifie une catégorie pour une erreur donnée, qui représente fondamentalement un regroupement logique pour un type d’erreur similaire. Voici la liste des valeurs possibles pour cette propriété.
+
+|Type d’erreur|Description|
+|----------|-----------|
+|DeviceTemplateError|Erreurs liées aux modèles de mappage d’appareils|
+|DeviceMessageError|Des erreurs se sont produites lors du traitement d’un message d’appareil spécifique|
+|FHIRTemplateError|Erreurs liées aux modèles de mappage FHIR|
+|FHIRConversionError|Des erreurs se sont produites lors de la transformation d’un message en ressource FHIR|
+|FHIRResourceError|Erreurs liées aux ressources existantes dans le serveur FHIR qui sont référencées par le connecteur IoT|
+|FHIRServerError|Erreurs qui se produisent lors de la communication avec le serveur FHIR|
+|GeneralError|Tous les autres types d’erreurs|
+
+### <a name="the-name-of-the-error"></a>Nom de l’erreur
+
+Cette propriété fournit le nom d’une erreur spécifique. Voici la liste de tous les noms d’erreur avec leur description et le ou les types d’erreurs associés, la gravité ainsi que la ou les étapes de flux de données.
+
+|Nom de l’erreur|Description|Type(s) d’erreur|Gravité de l’erreur|Étape(s) de flux de données|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Une erreur s’est produite lors de la détection de plusieurs ressources de patient ou d’appareil dans le serveur FHIR pour les identificateurs respectifs présents dans le message de l’appareil|FHIRResourceError|Error|FHIRConversion|
+|TemplateNotFoundException|Un modèle de mappage d’appareil ou de FHIR n’est pas configuré avec l’instance du connecteur IoT|DeviceTemplateError, FHIRTemplateError|Critique|Normalization, FHIRConversion|
+|CorrelationIdNotDefinedException|L’ID de corrélation n’est pas spécifié dans le modèle de mappage d’appareil. CorrelationIdNotDefinedException est une erreur conditionnelle qui se produit uniquement lorsque l’observation FHIR doit regrouper les mesures de l’appareil à l’aide d’un ID de corrélation, mais qu’elle n’est pas configurée correctement|DeviceMessageError|Error|Normalisation|
+|PatientDeviceMismatchException|Cette erreur se produit lorsque la ressource de l’appareil sur le serveur FHIR possède une référence à une ressource patient qui ne correspond pas à l’identificateur patient présent dans le message.|FHIRResourceError|Error|FHIRConversionError|
+|PatientNotFoundException|Aucune ressource FHIR de patient n’est référencée par la ressource FHIR d’appareil associée à l’identificateur d’appareil présent dans le message de l’appareil. Notez que cette erreur se produit uniquement lorsque l’instance de connecteur IoT est configurée avec un type de résolution *Recherche*|FHIRConversionError|Error|FHIRConversion|
+|DeviceNotFoundException|Aucune ressource d’appareil n’existe sur le serveur FHIR associé à l’identificateur de périphérique présent dans le message de l’appareil|DeviceMessageError|Error|Normalisation|
+|PatientIdentityNotDefinedException|Cette erreur se produit lorsque l’expression d’analyse de l’identificateur du patient à partir du message de l’appareil n’est pas configurée sur le modèle de mappage d’appareil ou que l’identificateur du patient ne figure pas dans le message de l’appareil. Cette erreur se produit uniquement lorsque le type de résolution du connecteur IoT est défini sur *Créer*|DeviceTemplateError|Critique|Normalisation|
+|DeviceIdentityNotDefinedException|Cette erreur se produit lorsque l’expression d’analyse de l’identificateur de l’appareil à partir du message de l’appareil n’est pas configurée sur le modèle de mappage d’appareil ou que l’identificateur de l’appareil ne figure pas dans le message de l’appareil.|DeviceTemplateError|Critique|Normalisation|
+|NotSupportedException|Une erreur s’est produite lors de la réception d’un message d’appareil avec un format non pris en charge|DeviceMessageError|Error|Normalisation|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Création de copies du connecteur Azure IoT pour le fichier JSON de mappage de conversion FHIR (préversion)
+
 La copie du connecteur Azure IoT pour les fichiers de mappage FHIR peut être utile pour la modification et l’archivage en dehors du site web du portail Azure.
 
 Les copies du fichier de mappage doivent être fournies au support technique Azure lors de l’ouverture d’un ticket de support afin de faciliter le dépannage.
@@ -124,6 +191,4 @@ Consultez les questions fréquemment posées sur le Connecteur Azure IoT pour FH
 >[!div class="nextstepaction"]
 >[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
 
-*Dans le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
-
-FHIR est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
+*Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
