@@ -9,11 +9,11 @@ manager: gwallace
 description: Découvrez comment configurer l’intégration continue/le déploiement continu à l’aide d’Azure DevOps avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017778"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utiliser CI/CD avec Azure Dev Spaces
 
