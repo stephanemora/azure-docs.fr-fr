@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540929"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018937"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés
 
@@ -81,4 +81,4 @@ Après avoir ajouté, modifié ou supprimé des intentions, [entraînez](luis-ho
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment ajouter des [exemples d’énoncés](luis-how-to-add-example-utterances.md) avec des entités.
+Découvrez comment ajouter des [exemples d’énoncés](./luis-how-to-add-entities.md) avec des entités.

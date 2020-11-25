@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ef317ee3917172d0de204adafe5d5bf21a2a9ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976366"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014507"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -80,7 +80,7 @@ Vous avez maintenant la possibilité d’utiliser la version 3.0 de l’API Lir
 * Score de confiance pour chaque mot extrait
 * Prise en charge de l’espagnol et de l’anglais avec le paramètre de langue supplémentaire
 
-Suivez [Démarrage rapide : Extraire du texte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) pour commencer à utiliser l’API 3.0.
+Suivez [Démarrage rapide : Extraire du texte](./quickstarts/csharp-hand-text.md?tabs=version-3) pour commencer à utiliser l’API 3.0.
 
 ## <a name="cognitive-service-updates"></a>Mises à jour du service cognitif
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018030"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019209"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Stockage et suppression des données dans Language Understanding (LUIS) Cognitive Services
 LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé. Ces données sont stockées pendant 30 jours. 
@@ -55,7 +55,7 @@ Si vous n’avez pas migré, vous pouvez supprimer votre compte et toutes vos ap
 La suppression d’un compte est possible à partir de la page **Paramètres**. Sélectionnez le nom de votre compte en haut à droite dans la barre de navigation supérieure pour accéder à la page **Paramètres**.
 
 ## <a name="delete-an-authoring-resource"></a>Supprimer une ressource de création
-Si vous avez [migré vers une ressource de création](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), la suppression de la ressource elle-même dans le portail Azure supprimera toutes vos applications associées à cette ressource, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 90 jours avant leur suppression définitive.    
+Si vous avez [migré vers une ressource de création](./luis-migration-authoring.md), la suppression de la ressource elle-même dans le portail Azure supprimera toutes vos applications associées à cette ressource, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 90 jours avant leur suppression définitive.    
 
 Pour supprimer votre ressource, accédez au [portail Azure](https://ms.portal.azure.com/#home) et sélectionnez votre ressource de création LUIS. Accédez à l’onglet **Vue d’ensemble** et cliquez sur le bouton **Supprimer** en haut de la page. Confirmez ensuite que votre ressource a été supprimée. 
 

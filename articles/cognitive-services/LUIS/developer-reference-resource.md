@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e4e43ead957bb6feca09fc8b2a8c16e37821c9b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8641235fb754080303a9a463d0964e5655234ff2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327168"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024549"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Ressources de développement SDK, REST et CLI pour implémenter LUIS (Language Understanding)
 
@@ -23,9 +23,9 @@ Utilisez la couche de gestion d’Azure Cognitive Services pour créer, modifier
 
 Recherchez de la documentation de référence basée sur l’outil :
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
-* [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
+* [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Demandes de création et de prédiction Language Understanding
@@ -88,10 +88,10 @@ Le [schéma d’application](app-schema-definition.md) est importé et exporté 
 
 |Langage |Documentation de référence|Package|Démarrages rapides|
 |--|--|--|--|
-|C#|[Création](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prédiction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet - création](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet - prédiction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Création](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[Prédiction de requête](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
+|C#|[Création](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prédiction](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet - création](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet - prédiction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Création](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[Prédiction de requête](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
 |Go|[Création et prédiction](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[Kit SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
-|Java|[Création et prédiction](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven - création](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven - prédiction](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Création](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prédiction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM - création](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM - prédiction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Création](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[Prédiction](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
+|Java|[Création et prédiction](/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven - création](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven - prédiction](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
+|JavaScript|[Création](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prédiction](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM - création](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM - prédiction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Création](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[Prédiction](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
 |Python|[Création et prédiction](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Création](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[Prédiction](azure-sdk-quickstart.md?pivots=programming-language-python)|
 
 
@@ -130,7 +130,7 @@ Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [codes d’erreur HTTP](luis-reference-response-codes.md) courants
-* [Documentation de référence](https://docs.microsoft.com/azure/index) pour l'ensemble des API et des kits de développement logiciel (SDK)
+* [Documentation de référence](../../index.yml) pour l'ensemble des API et des kits de développement logiciel (SDK)
 * [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) et [Azure Bot Service](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Conteneurs cognitifs](../cognitive-services-container-support.md)

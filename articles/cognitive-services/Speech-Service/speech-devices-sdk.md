@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355072"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015271"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Qu’est-ce que le Kit de développement logiciel (SDK) toujours ?
 
@@ -29,9 +29,9 @@ Le SDK Speech Devices vous permet d’effectuer les opérations suivantes :
 
 Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il utilise nos algorithmes avancés de traitement audio et le réseau de microphones de l’appareil pour envoyer l’audio au [service Speech](overview.md). Il fournit une [reconnaissance vocale](speech-to-text.md) à champ lointain précise par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
 
-Vous pouvez également utiliser le Kit de développement logiciel (SDK) Speech Devices pour créer des appareils ambiants dotés de votre propre [mot clé personnalisé](speech-devices-sdk-create-kws.md). Un mot clé personnalisé fournit un signal qui démarre une interaction utilisateur unique à votre marque.
+Vous pouvez également utiliser le Kit de développement logiciel (SDK) Speech Devices pour créer des appareils ambiants dotés de votre propre [mot clé personnalisé](./custom-keyword-basics.md). Un mot clé personnalisé fournit un signal qui démarre une interaction utilisateur unique à votre marque.
 
-Le Kit de développement logiciel (SDK) Speech Devices prend en charge différents scénarios vocaux, tels que les [assistants vocaux](https://aka.ms/bots/speech/va), les systèmes de commande au volant, la [transcription de conversation](conversation-transcription-service.md) et les haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
+Le Kit de développement logiciel (SDK) Speech Devices prend en charge différents scénarios vocaux, tels que les [assistants vocaux](./voice-assistants.md), les systèmes de commande au volant, la [transcription de conversation](./conversation-transcription.md) et les haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](./how-to-custom-voice-create-voice.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
 
 ## <a name="get-the-speech-devices-sdk"></a>Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
 

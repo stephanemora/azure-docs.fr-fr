@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12029d7a77eb7cbbb10cb5330eb18d6316520a2d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566634"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021318"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0 : Detect
 
@@ -49,7 +49,7 @@ Les en-têtes de demande sont les suivants :
   <th>Description</th>
   <tr>
     <td>En-tête(s) d’authentification</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
+    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -169,7 +169,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemples
 

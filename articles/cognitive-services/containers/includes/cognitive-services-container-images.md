@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c2ebe9b419100163ae55c1be85dd1464904e841
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677451"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979273"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
@@ -89,9 +89,8 @@ Précédemment, les conteneurs de préversion contrôlés étaient hébergés su
 |--|--|--|
 | [Vision par ordinateur](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lire v2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Vision par ordinateur](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lire v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Analyse spatiale | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Vision par ordinateur](../../computer-vision/spatial-analysis-container.md) | Analyse spatiale | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=ctts) | Synthèse vocale personnalisée | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=lid) | Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=ntts) | Synthèse vocale neuronale | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
 | [Analyse de texte pour la santé](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analyse de texte pour la santé | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
-

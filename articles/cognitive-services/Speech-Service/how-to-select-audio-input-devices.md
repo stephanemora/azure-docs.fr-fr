@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e67d0ae4d875699b26fdcd30093b0c2bf373458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282984"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026605"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procédure : Sélectionner un périphérique d’entrée audio avec le SDK Speech
 
@@ -392,5 +392,5 @@ Dans JavaScript, la méthode [MediaDevices.enumerateDevices()](https://developer
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
-- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+- [Personnaliser les modèles acoustiques](./how-to-custom-speech-train-model.md)
+- [Personnaliser les modèles de langage](./how-to-custom-speech-train-model.md)

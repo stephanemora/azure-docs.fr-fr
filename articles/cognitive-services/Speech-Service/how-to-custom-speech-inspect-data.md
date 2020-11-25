@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025631"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 
 > [!NOTE]
-> Cette page suppose que vous avez lu [Préparer des données de test pour Custom Speech](how-to-custom-speech-test-data.md) et que vous avez chargé un jeu de données pour l’inspecter.
+> Cette page suppose que vous avez lu [Préparer des données de test pour Custom Speech](./how-to-custom-speech-test-and-train.md) et que vous avez chargé un jeu de données pour l’inspecter.
 
 Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du [portail Custom Speech](https://speech.microsoft.com/customspeech), vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct. Cet outil vous permet d’inspecter la qualité du modèle de reconnaissance vocale de base de Microsoft, d’inspecter un modèle personnalisé entraîné ou de comparer la transcription selon deux modèles.
 
@@ -104,4 +104,4 @@ Les fichiers exportés vers Données seront utilisés comme un tout nouveau jeu 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Préparer les données de test pour Custom Speech](how-to-custom-speech-test-data.md)
+- [Préparer les données de test pour Custom Speech](./how-to-custom-speech-test-and-train.md)

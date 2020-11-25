@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359934"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015220"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
@@ -48,7 +48,7 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 
 ## <a name="customization"></a>Personnalisation
 
-En plus du modèle du service Speech standard, vous pouvez créer des modèles personnalisés. La personnalisation permet d’éliminer les obstacles à la reconnaissance vocale, comme le style d’élocution, le bruit de fond et le vocabulaire. Consultez [Custom Speech](how-to-custom-speech.md). Les options de personnalisation varient selon la langue et les paramètres régionaux. Consultez [Langues prises en charge](supported-languages.md) pour vérifier ce qui est pris en charge.
+En plus du modèle du service Speech standard, vous pouvez créer des modèles personnalisés. La personnalisation permet d’éliminer les obstacles à la reconnaissance vocale, comme le style d’élocution, le bruit de fond et le vocabulaire. Consultez [Custom Speech](how-to-custom-speech.md). Les options de personnalisation varient selon la langue et les paramètres régionaux. Consultez [Langues prises en charge](./language-support.md) pour vérifier ce qui est pris en charge.
 
 ## <a name="batch-transcription"></a>Transcription Batch
 

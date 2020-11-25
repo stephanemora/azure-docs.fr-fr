@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e415e0979e7f45531093993b0524a1bb556d339b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4eb92e499a1381516ae6bbc33383963155df371f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886552"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098349"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ ms.locfileid: "92886552"
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* [Créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
+* [Créez des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -43,9 +43,9 @@ cd my-app
 
 Votre espace de travail contiendra trois dossiers :
 
-* **src**  : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce répertoire.
-* **pkg**  : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
-* **bin**  : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
+* **src** : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce répertoire.
+* **pkg** : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
+* **bin** : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
 
 > [!TIP]
 > Pour plus d’informations sur la structure d’un espace de travail Go, consultez la [documentation du langage Go](https://golang.org/doc/code.html#Workspaces). Ce guide comprend des informations pour configurer `$GOPATH` et `$GOROOT`.
@@ -66,7 +66,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Créer une application Go
 
-Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src**  :
+Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src** :
 
 ```bash
 cd src
@@ -105,7 +105,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
 > [!NOTE]
-> Cette étape suppose que vous avez [créé des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison Vision par ordinateur nommées `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
+> Cette étape suppose que vous avez [créé des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour votre clé et votre point de terminaison Vision par ordinateur nommées `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 Créez une fonction `main` et ajoutez-lui le code suivant pour instancier un client avec votre point de terminaison et votre clé.
 
@@ -221,7 +221,7 @@ Définissez la nouvelle fonction de lecture du texte (`RecognizeTextReadAPIRemot
 
 ### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 
-Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **BatchReadFile** , puis utilisez la méthode **GetReadOperationResult** pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
+Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **BatchReadFile**, puis utilisez la méthode **GetReadOperationResult** pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
 

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e41eb0f6a61f7b195e251739ae93207c731cac5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5cc8a4508ceeda245fbc10a81e16f3ecf05284c7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535875"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013609"
 ---
 # <a name="detect-adult-content"></a>Détecter du contenu pour adultes
 
 Vision par ordinateur peut détecter des éléments pour adultes dans les images afin de permettre aux développeurs de restreindre l'affichage de telles images dans leurs logiciels. Des indicateurs de contenu sont appliquées avec un score compris entre zéro et un pour permettre aux développeurs d'interpréter les résultats en fonction de leurs préférences.
 
 > [!NOTE]
-> Cette fonctionnalité est en grande partie proposée par le service [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview). Reportez-vous à cette alternative pour des solutions adaptées à des scénarios de modération de contenu plus rigoureux, tels que les flux de travail de modération de contenu et de révision manuelle.
+> Cette fonctionnalité est en grande partie proposée par le service [Azure Content Moderator](../content-moderator/overview.md). Reportez-vous à cette alternative pour des solutions adaptées à des scénarios de modération de contenu plus rigoureux, tels que les flux de travail de modération de contenu et de révision manuelle.
 
 ## <a name="content-flag-definitions"></a>Définitions des indicateurs de contenu
 
@@ -37,5 +37,5 @@ La classification « pour adultes » regroupe plusieurs catégories :
 
 L'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) permet de détecter du contenu pour adultes. Lorsque vous ajoutez la valeur de `Adult` au paramètre de requête **visualFeatures**, l’API renvoie les trois propriétés booléennes &mdash;`isAdultContent`, `isRacyContent` et `isGoryContent`&mdash;dans sa réponse JSON. La méthode renvoie également les propriétés correspondantes &mdash;`adultScore`, `racyScore` et `goreScore`&mdash;qui représentent des scores de confiance compris entre zéro et un pour chaque catégorie respective.
 
-- [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 - [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

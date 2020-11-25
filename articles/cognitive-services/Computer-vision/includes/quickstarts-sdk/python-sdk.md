@@ -9,16 +9,16 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: da9ff2ab1ce90b7b27d52c68dc27eb646fe62513
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0fd094b7364263acb2abbe7bed2d65392155a930
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886550"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097776"
 ---
 <a name="HOLTop"></a>
 
-[Documentation de référence](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Exemples C#](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentation de référence](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Exemples C#](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,6 @@ ms.locfileid: "92886550"
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-
 
 ## <a name="setting-up"></a>Configuration
  
@@ -41,7 +40,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 ### <a name="create-a-new-python-application"></a>Créer une application Python
 
-Créez un fichier Python&mdash;*quickstart-file.py* , par exemple. Puis, ouvrez-le dans votre éditeur ou IDE habituel et importez les bibliothèques suivantes.
+Créez un fichier Python&mdash;*quickstart-file.py*, par exemple. Puis, ouvrez-le dans votre éditeur ou IDE habituel et importez les bibliothèques suivantes.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
 
@@ -55,7 +54,7 @@ Ensuite, créez des variables pour le point de terminaison et la clé Azure de v
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource Vision par ordinateur que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 
 ## <a name="object-model"></a>Modèle objet
@@ -64,9 +63,9 @@ Les classes et interfaces suivantes prennent en charge certaines des fonctionnal
 
 |Nom|Description|
 |---|---|
-|[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Cette classe prend en charge directement toutes les opérations relatives aux images, par exemple l’analyse d’image, la détection de texte et la génération de miniatures.|
-| [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Cette classe est nécessaire pour toutes les fonctionnalités de Vision par ordinateur. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes. Elle implémente **ComputerVisionClientOperationsMixin**.|
-|[VisualFeatureTypes](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| Cette énumération définit les différents types d’analyse d’image qui peuvent être effectués dans le cadre d’une opération d’analyse standard. Vous spécifiez un ensemble de valeurs **VisualFeatureTypes** en fonction de vos besoins. |
+|[ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Cette classe prend en charge directement toutes les opérations relatives aux images, par exemple l’analyse d’image, la détection de texte et la génération de miniatures.|
+| [ComputerVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Cette classe est nécessaire pour toutes les fonctionnalités de Vision par ordinateur. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes. Elle implémente **ComputerVisionClientOperationsMixin**.|
+|[VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| Cette énumération définit les différents types d’analyse d’image qui peuvent être effectués dans le cadre d’une opération d’analyse standard. Vous spécifiez un ensemble de valeurs **VisualFeatureTypes** en fonction de vos besoins. |
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -78,7 +77,7 @@ Ces extraits de code vous montrent comment effectuer les tâches suivantes avec 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Instanciez un client avec votre point de terminaison et la clé. Créez un objet [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) à l’aide de votre clé, puis utilisez-le avec votre point de terminaison pour créer un objet [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
+Instanciez un client avec votre point de terminaison et la clé. Créez un objet [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) à l’aide de votre clé, puis utilisez-le avec votre point de terminaison pour créer un objet [ComputerVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
@@ -89,7 +88,7 @@ Utilisez votre objet client pour analyser les fonctionnalités visuelles d’une
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
 > [!TIP]
-> Vous pouvez également analyser une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), comme **analyze_image_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également analyser une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), comme **analyze_image_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="get-image-description"></a>Obtenir une description d’image
 
@@ -168,11 +167,11 @@ Commencez par utiliser le code suivant afin d’appeler la méthode **read** pou
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 > [!TIP]
-> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), comme **read_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également lire du texte à partir d’une image locale. Consultez les méthodes [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python), comme **read_in_stream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 
-Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **read** , puis utilisez-le pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
+Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **read**, puis utilisez-le pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
@@ -188,8 +187,8 @@ python quickstart-file.py
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portail](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-* [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+* [Portail](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -198,8 +197,7 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèqu
 
 
 > [!div class="nextstepaction"]
->[Référence de l’API Vision par ordinateur (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+>[Référence de l’API Vision par ordinateur (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
 * [Qu’est-ce que le service Vision par ordinateur ?](../../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
-           

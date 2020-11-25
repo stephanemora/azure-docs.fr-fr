@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535954"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025957"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
@@ -48,7 +48,7 @@ Un modèle sert principalement à faciliter la prédiction des intentions et des
 Ne vous attendez pas à constater une amélioration de la prédiction d’entité si vous réduisez plusieurs énoncés dans un modèle unique. Pour que les entités simples se déclenchent, vous devez ajouter des énoncés ou utiliser des entités de liste, sinon votre modèle ne se déclenchera pas.
 
 ## <a name="patterns-use-entity-roles"></a>Les modèles utilisent des rôles d’entités
-Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](luis-concept-roles.md) d’entités pour extraire des informations contextuelles sur les entités.
+Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](./luis-concept-entity-types.md) d’entités pour extraire des informations contextuelles sur les entités.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Scores de prédiction avec et sans modèles
 Avec suffisamment d’exemples d’énoncés, LUIS doit pouvoir accroître la confiance des prévisions sans modèles. Les modèles augmentent le score de confiance sans avoir à fournir autant énoncés.

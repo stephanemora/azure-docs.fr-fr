@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357452"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024515"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
@@ -31,7 +31,7 @@ Dans cette vue d’ensemble, vous allez découvrir les avantages et les capacit�
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
-* Synthèse vocale : utilisez le [SDK Speech](quickstarts/text-to-speech-audio-file.md) ou l’[API REST](rest-text-to-speech.md) pour convertir du texte en voix avec des voix standard, neuronales ou personnalisées.
+* Synthèse vocale : utilisez le [SDK Speech](./get-started-text-to-speech.md) ou l’[API REST](rest-text-to-speech.md) pour convertir du texte en voix avec des voix standard, neuronales ou personnalisées.
 
 * Synthèse asynchrone d’audio long : utilisez l’[API Audio long](long-audio-api.md) pour synthétiser de texte en voix en mode asynchrone des fichiers de plus de 10 minutes (par exemple des livres audio ou des conférences). Contrairement à la synthèse effectuée avec le SDK Speech ou l’API REST de reconnaissance vocale, les réponses ne sont pas retournées en temps réel. Il est prévu que les demandes soient envoyées de façon asynchrone, que les réponses fassent l’objet d’une interrogation et que l’audio synthétisé soit téléchargé quand il est disponible auprès du service. Seules les voix neuronales personnalisées sont prises en charge.
 

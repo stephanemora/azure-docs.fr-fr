@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293727"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021896"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Chiffrement des données au repos des Commandes personnalisées
 
@@ -50,31 +50,31 @@ Pour demander la possibilité d’utiliser des clés gérées par le client, com
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Clés gérées par le client avec Azure Key Vault
 
-Vous devez utiliser Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. La ressource de reconnaissance vocale et le coffre de clés doivent se trouver dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent être dans des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Vous devez utiliser Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. La ressource de reconnaissance vocale et le coffre de clés doivent se trouver dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent être dans des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md).
 
 Quand une nouvelle ressource de reconnaissance vocale est créée et utilisée pour approvisionner l’application Commandes personnalisées, les données sont toujours chiffrées à l’aide de clés gérées par Microsoft. Il est impossible d'activer des clés gérées par le client au moment de la création de la ressource. Les clés gérées par le client sont stockées dans Azure Key Vault, et le coffre de clés doit être configuré avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée à la ressource Cognitive Services. L’identité managée est disponible uniquement une fois la ressource créée à l’aide du niveau tarifaire requis pour la CMK.
 
-L’activation des clés gérées par le client active également une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) affectée par le système, une fonctionnalité d’Azure AD. Une fois activée, l'identité managée affectée par le système est inscrite auprès d'Azure Active Directory. Une fois inscrite, elle a accès au coffre de clés sélectionné lors de la configuration des clés gérées par le client. 
+L’activation des clés gérées par le client active également une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) affectée par le système, une fonctionnalité d’Azure AD. Une fois activée, l'identité managée affectée par le système est inscrite auprès d'Azure Active Directory. Une fois inscrite, elle a accès au coffre de clés sélectionné lors de la configuration des clés gérées par le client. 
 
 > [!IMPORTANT]
 > Si vous désactivez les identités managées affectées par le système, l'accès au coffre de clés est supprimé et toutes les données chiffrées avec les clés client deviennent inaccessibles. Toutes les fonctionnalités dépendant de ces données cessent de fonctionner.
 
 > [!IMPORTANT]
-> Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Lorsque vous configurez des clés managées par le client sur le portail Azure, une identité managée est automatiquement affectée. Si, par la suite, vous déplacez l'abonnement, le groupe de ressources ou la ressource d'un répertoire Azure AD vers un autre, l'identité managée associée à la ressource n'est pas transférée vers le nouveau locataire. Par conséquent, les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Lorsque vous configurez des clés managées par le client sur le portail Azure, une identité managée est automatiquement affectée. Si, par la suite, vous déplacez l'abonnement, le groupe de ressources ou la ressource d'un répertoire Azure AD vers un autre, l'identité managée associée à la ressource n'est pas transférée vers le nouveau locataire. Par conséquent, les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## <a name="configure-azure-key-vault"></a>Configurer Azure Key Vault
 
 Pour utiliser des clés gérées par le client, deux propriétés doivent être configurées dans le coffre de clés, **Suppression réversible** et **Ne pas vider**. Ces propriétés ne sont pas activées par défaut, mais peuvent être activées à l’aide de PowerShell ou d’Azure CLI sur un coffre de clés nouveau ou existant.
 
 > [!IMPORTANT]
-> Si les propriétés**Suppression réversible** et **Ne pas purger** ne sont pas activées et que vous supprimez votre clé, vous ne pourrez pas récupérer les données dans votre ressource Cognitive Service.
+> Si les propriétés **Suppression réversible** et **Ne pas purger** ne sont pas activées et que vous supprimez votre clé, vous ne pourrez pas récupérer les données dans votre ressource Cognitive Service.
 
 Pour savoir comment activer ces propriétés sur un coffre de clés existant, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans l’un des articles suivants :
 
-- [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell).
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli).
+- [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](../../key-vault/general/key-vault-recovery.md).
+- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/key-vault-recovery.md).
 
-Seules les clés RSA de taille 2048 sont prises en charge avec le chiffrement Azure Storage. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Seules les clés RSA de taille 2048 sont prises en charge avec le chiffrement Azure Storage. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/general/about-keys-secrets-certificates.md).
 
 ## <a name="enable-customer-managed-keys-for-your-speech-resource"></a>Activer des clés gérées par le client pour votre ressource de reconnaissance vocale
 
@@ -140,7 +140,7 @@ La rotation de la clé ne déclenche pas de rechiffrement de données dans la re
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Révoquer l’accès aux clés gérées par le client
 
-Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque l’accès à toutes les données de la ressource Cognitive Services, car Cognitive Services n’a pas accès à la clé de chiffrement.
+Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Interface de ligne de commande Azure Key Vault](/cli/azure/keyvault). La révocation de l’accès bloque l’accès à toutes les données de la ressource Cognitive Services, car Cognitive Services n’a pas accès à la clé de chiffrement.
 
 ## <a name="disable-customer-managed-keys"></a>Désactiver les clés gérées par le client
 
@@ -152,8 +152,5 @@ Lorsque vous désactivez des clés gérées par le client, votre ressource de re
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Formulaire de demande de clé gérée par le client du service de reconnaissance vocale](https://aka.ms/cogsvc-cmk)
-* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Que sont les identités managées ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-
-
-
+* [En savoir plus sur Azure Key Vault](../../key-vault/general/overview.md)
+* [Que sont les identités managées ?](../../active-directory/managed-identities-azure-resources/overview.md)

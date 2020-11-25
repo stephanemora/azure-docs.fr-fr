@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0619dc11ed16f100332c775a8683ca77cbea92b9
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3ddd7b1139396a5952d1575ea72b00d5dfa14fab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482742"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097811"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -94,7 +94,7 @@ class Program
 }
 ```
 
-Si vous souhaitez utiliser un périphérique d’entrée audio *spécifique* , vous devez spécifier son ID dans l’`AudioConfig`. Découvrez [comment obtenir l’ID](../../../how-to-select-audio-input-devices.md) de votre périphérique d’entrée audio.
+Si vous souhaitez utiliser un périphérique d’entrée audio *spécifique*, vous devez spécifier son ID dans l’`AudioConfig`. Découvrez [comment obtenir l’ID](../../../how-to-select-audio-input-devices.md) de votre périphérique d’entrée audio.
 
 ## <a name="recognize-from-file"></a>Reconnaître la voix à partir d’un fichier
 
@@ -307,7 +307,7 @@ Il existe plusieurs façons d’améliorer la justesse de la reconnaissance avec
 > [!IMPORTANT]
 > La fonctionnalité Listes d’expressions est disponible uniquement en anglais.
 
-Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet).
+Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet).
 
 Les modifications apportées à [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) prennent effet lors de la reconnaissance suivante ou après une reconnexion au service Speech.
 

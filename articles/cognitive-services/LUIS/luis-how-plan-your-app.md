@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309453"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018954"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planifier votre schéma d’application LUIS avec le domaine de l’objet et l’extraction de données
 
@@ -21,7 +21,7 @@ Un schéma d’application LUIS contient des [intentions](luis-glossary.md#inten
 Une application LUIS est centrée sur un domaine de sujets. Par exemple, vous pouvez avoir une application de voyage qui gère la réservation de tickets, de vols, d’hôtels et de voitures de location. Une autre application peut fournir du contenu relatif à l’exercice physique, le suivi des efforts de fitness et la définition d’objectifs. L’identification du domaine vous permet de trouver des mots ou expressions qui sont pertinents pour votre domaine.
 
 > [!TIP]
-> LUIS offre des [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md) pour de nombreux scénarios courants. Vérifiez si vous pouvez utiliser un domaine prédéfini comme point de départ pour votre application.
+> LUIS offre des [domaines prédéfinis](./howto-add-prebuilt-models.md) pour de nombreux scénarios courants. Vérifiez si vous pouvez utiliser un domaine prédéfini comme point de départ pour votre application.
 
 ## <a name="identify-your-intents"></a>Identifier vos intentions
 
@@ -49,7 +49,7 @@ Dans les exemples d’énoncés, identifiez les entités à extraire. Pour rése
 Lorsque vous déterminez les entités à utiliser dans votre application, gardez à l’esprit qu’il existe différents types d’entités pour la capture des relations entre les types d’objet. Les [entités dans LUIS](luis-concept-entity-types.md) fournissent plus de détails sur les différents types.
 
 > [!TIP]
-> LUIS offre des [entités prédéfinies](luis-prebuilt-entities.md) pour les scénarios courants d’utilisateur conversationnel. Envisagez d’utiliser des entités prédéfinies comme point de départ pour le développement de votre application.
+> LUIS offre des [entités prédéfinies](./howto-add-prebuilt-models.md) pour les scénarios courants d’utilisateur conversationnel. Envisagez d’utiliser des entités prédéfinies comme point de départ pour le développement de votre application.
 
 ## <a name="resolution-with-intent-or-entity"></a>La résolution avec l’intention ou l’entité ?
 
@@ -79,4 +79,3 @@ Pour aider l’extraction, ajoutez des caractéristiques aux sous-entités. Vous
 
 > [!div class="nextstepaction"]
 > [Apprentissage du cycle de vie de développement LUIS](luis-concept-app-iteration.md)
-

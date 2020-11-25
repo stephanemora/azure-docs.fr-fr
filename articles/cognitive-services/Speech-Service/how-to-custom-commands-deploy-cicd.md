@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839246"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021828"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Déploiement continu avec Azure DevOps
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à configurer un déploiement continu pou
 > [!div class = "checklist"]
 > * Une application Commandes personnalisées pour le développement (DEV)
 > * Une application Commandes personnalisées pour la production (PROD)
-> * S’inscrire à [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * S’inscrire à [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## <a name="exportimportpublish"></a>Exportation/importation/publication
 
@@ -99,7 +99,7 @@ Les scripts sont hébergés dans [Assistant vocal Cognitive Services - Commandes
 
 ## <a name="deploy-from-source-code"></a>Déployer à partir de code source
 
-Si vous souhaitez conserver la définition de votre application dans un référentiel, nous fournissons les scripts pour les déploiements à partir du code source. Comme que les scripts sont de type bash, si vous utilisez Windows, vous devez installer le sous-système [Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Si vous souhaitez conserver la définition de votre application dans un référentiel, nous fournissons les scripts pour les déploiements à partir du code source. Comme que les scripts sont de type bash, si vous utilisez Windows, vous devez installer le sous-système [Linux](/windows/wsl/install-win10).
 
 Les scripts sont hébergés dans [Assistant vocal Cognitive Services - Commandes personnalisées](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clonez les scripts du répertoire bash dans votre référentiel. Veillez à conserver le même chemin d’accès.
 

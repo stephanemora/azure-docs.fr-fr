@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540861"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018818"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
 
-Les versions vous permettent de générer et de publier différents modèles. Une bonne pratique consiste à cloner le modèle actif en une [version](luis-concept-version.md) différente de l’application avant d’apporter des modifications au modèle.
+Les versions vous permettent de générer et de publier différents modèles. Une bonne pratique consiste à cloner le modèle actif en une [version](./luis-concept-app-iteration.md) différente de l’application avant d’apporter des modifications au modèle.
 
 La version active est la version que vous modifiez dans la section **Build** du portail LUIS avec des intentions, des entités, des fonctionnalités et des modèles. Lorsque vous utilisez les API de création, vous n’avez pas besoin de définir la version active, car les appels d’API REST spécifiques à la version incluent la version de l’itinéraire.
 
@@ -66,4 +66,3 @@ Vous pouvez importer une version `.json` ou `.lu` de votre application.
 * Pour **supprimer** une version, sélectionnez une version dans la liste, puis sélectionnez **Delete** (Supprimer) dans la barre d’outils. Sélectionnez **OK**.
 * Pour **renommer** une version, sélectionnez une version dans la liste, puis sélectionnez **Rename** (Renommer) dans la barre d’outils. Entrez le nouveau nom, puis sélectionnez **Done** (Terminé).
 * Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON ou LU pour exporter en vue d’une sauvegarde ou pour un enregistrement dans le contrôle de code source, choisissez **Export for container** (Exporter pour conteneur) pour [utiliser cette application dans un conteneur LUIS](luis-container-howto.md).
-

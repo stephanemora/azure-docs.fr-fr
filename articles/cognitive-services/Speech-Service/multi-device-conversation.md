@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921416"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025172"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Qu'est-ce que la conversation multi-appareil (préversion) ?
 
@@ -105,7 +105,7 @@ Lorsqu'il crée ou rejoint une conversation, chaque utilisateur doit choisir une
 Il existe deux types de langues : **Reconnaissance vocale** et **Texte uniquement** :
 - Si l'utilisateur choisit une langue de type **Reconnaissance vocale** comme langue principale, il pourra utiliser à la fois l'entrée vocale et l'entrée de texte dans le cadre de la conversation.
 
-- Si l'utilisateur choisit une langue de type **Texte uniquement**, il pourra seulement utiliser l'entrée de texte et envoyer des messages instantanés dans le cadre de la conversation. Les langues de type Texte uniquement sont les langues prises en charge pour la traduction de texte, mais pas pour la reconnaissance vocale. Pour connaître les langues disponibles, consultez la page [Langues prises en charge](supported-languages.md).
+- Si l'utilisateur choisit une langue de type **Texte uniquement**, il pourra seulement utiliser l'entrée de texte et envoyer des messages instantanés dans le cadre de la conversation. Les langues de type Texte uniquement sont les langues prises en charge pour la traduction de texte, mais pas pour la reconnaissance vocale. Pour connaître les langues disponibles, consultez la page [Langues prises en charge](./language-support.md).
 
 Outre sa langue principale, chaque participant peut également spécifier des langues supplémentaires pour traduire la conversation.
 
@@ -119,7 +119,7 @@ Vous trouverez ci-dessous un récapitulatif de ce que l'utilisateur peut faire d
 | Traduire la conversation | ✔️ | ✔️ |
 
 > [!NOTE]
-> Les langues compatibles avec la reconnaissance vocale et la traduction de texte sont répertoriées dans [Langues prises en charge](supported-languages.md).
+> Les langues compatibles avec la reconnaissance vocale et la traduction de texte sont répertoriées dans [Langues prises en charge](./language-support.md).
 
 
 

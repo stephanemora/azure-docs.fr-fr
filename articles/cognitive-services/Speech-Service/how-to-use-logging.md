@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4863ccff5807420315f04b1b454b4ed78e5c8ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282882"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026520"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
@@ -68,7 +68,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Vous trouverez des informations supplémentaires sur l’autorisation d’accès aux fichiers pour les applications UWP [ici](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Vous trouverez des informations supplémentaires sur l’autorisation d’accès aux fichiers pour les applications UWP [ici](/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 

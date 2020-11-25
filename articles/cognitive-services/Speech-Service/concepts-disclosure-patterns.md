@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425121"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021981"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
@@ -241,17 +241,17 @@ Utilisez la divulgation comme une opportunité d’échec élégant.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 - [Instructions pour Microsoft Bot](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Instructions pour la conception de Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Instructions pour la conception de Microsoft Windows UWP Speech](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Instructions pour les commandes vocales de Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Instructions pour la conception de Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Instructions pour la conception de Microsoft Windows UWP Speech](/windows/uwp/design/input/speech-interactions)
+- [Instructions pour les commandes vocales de Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
+* [Divulgation d’un talent vocal](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Vue d’ensemble du contingentement](concepts-gating-overview.md)
 * [Comment divulguer](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
+* [Divulgation d’un talent vocal](/legal/cognitive-services/speech-service/disclosure-voice-talent)

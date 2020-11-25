@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec8e40c0908855cd06d647bdd9121106e3553c11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918908"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021811"
 ---
 # <a name="test-your-custom-commands-application"></a>Tester votre application Commandes personnalisées
 
@@ -49,11 +49,10 @@ Pour configurer une application cliente plateforme Universal Windows Platform (U
 - [Procédure : Configurer des points de terminaison Web](./how-to-custom-commands-setup-web-endpoints.md)
 
 Pour d’autres plateformes et langages de programmation :
-- [Langages de programmation du SDK Speech, plateformes, capacités de scénario](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk)
+- [Langages de programmation du SDK Speech, plateformes, capacités de scénario](./speech-sdk.md)
 - [Exemples de code d’assistant vocal](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Voir des exemples sur GitHub](https://aka.ms/speech/cc-samples)
-

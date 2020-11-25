@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535881"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019141"
 ---
 # <a name="prebuilt-models"></a>Modèles prédéfinis
 
@@ -61,4 +61,4 @@ Quand une entité prédéfinie est incluse dans votre application, ses prédicti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [ajouter des entités prédéfinies](luis-prebuilt-entities.md) à votre application.
+Découvrez comment [ajouter des entités prédéfinies](./howto-add-prebuilt-models.md) à votre application.

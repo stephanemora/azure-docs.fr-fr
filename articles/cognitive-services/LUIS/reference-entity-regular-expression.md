@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 0c8d4a5013f23a805c22dc5c44444de6b10ab369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e44ec43e1169aa054e6e5b4591ccd8611a7f4d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316237"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025223"
 ---
 # <a name="regular-expression-entity"></a>Entité d’expression régulière
 
 Une entité d’expression régulière extrait une entité en fonction du modèle d’expression régulière que vous fournissez.
 
-Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Si l’expression régulière est trop complexe (par exemple, si elle utilise de nombreux crochets), vous ne pouvez pas l’ajouter au modèle. Utilise une partie seulement de la bibliothèque [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions).
+Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Si l’expression régulière est trop complexe (par exemple, si elle utilise de nombreux crochets), vous ne pouvez pas l’ajouter au modèle. Utilise une partie seulement de la bibliothèque [.Net Regex](/dotnet/standard/base-types/regular-expressions).
 
 **L’entité convient bien quand :**
 

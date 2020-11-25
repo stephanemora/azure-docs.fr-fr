@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496114"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014575"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -51,7 +51,7 @@ Entrées :
 Sorties :
 1. Azure Monitor
 
-Le module Telegraf d’analyse spatiale fourni publie toutes les données de télémétrie émises par le conteneur d’analyse spatiale dans Azure Monitor. Pour plus d’informations sur l’ajout d’Azure Monitor à votre abonnement, [cliquez ici](https://docs.microsoft.com/azure/azure-monitor/overview).
+Le module Telegraf d’analyse spatiale fourni publie toutes les données de télémétrie émises par le conteneur d’analyse spatiale dans Azure Monitor. Pour plus d’informations sur l’ajout d’Azure Monitor à votre abonnement, [cliquez ici](../../azure-monitor/overview.md).
 
 Après avoir configuré Azure Monitor, vous devrez créer des informations d’identification qui permettent au module d’envoyer des données de télémétrie. Vous pouvez utiliser le portail Azure pour créer un principal de service ou utiliser la commande Azure CLI ci-dessous pour en créer un.
 
@@ -105,7 +105,7 @@ Une fois le module Telegraf déployé, les métriques signalées sont accessible
 
 | Nom de l'événement | Description|
 |------|---------|
-|archon_exit    |Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté* .  |
+|archon_exit    |Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté*.  |
 |archon_error   |Envoyé lorsque l’un des processus à l’intérieur du conteneur plante. Il s'agit d'une erreur critique.  |
 |InputRate  |Rythme auquel le graphique traite l’entrée vidéo. Signalé toutes les 5 minutes. | 
 |OutputRate     |Rythme auquel le graphique génère des insights d’IA. Signalé toutes les 5 minutes. |
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’outil en ligne de commande `iotedge` pour vérifier l�
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Collecter les fichiers journaux avec le conteneur de diagnostics
 
-L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans le Registre de conteneurs Microsoft. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez le module *diagnostics* .
+L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans le Registre de conteneurs Microsoft. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez le module *diagnostics*.
 
 Dans la section « env », ajoutez la configuration suivante :
 
@@ -194,12 +194,12 @@ La collecte de `diagnostics` est effectuée à la demande et contrôlée via une
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurer les cibles de chargement des diagnostics
 
-Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnostics** . Dans l’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez la section **Variables d’environnement** pour diagnostics, nommée `env`, puis ajoutez les informations suivantes :
+Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnostics**. Dans l’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez la section **Variables d’environnement** pour diagnostics, nommée `env`, puis ajoutez les informations suivantes :
 
 **Configurer le chargement vers le stockage d’objets Blob Azure**
 
 1. Créez votre propre compte de stockage d’objets Blob Azure si vous ne l’avez pas déjà fait.
-2. Récupérez la **chaîne de connexion** pour votre compte de stockage à partir du portail Azure. Elle se trouve dans **Clés d’accès** .
+2. Récupérez la **chaîne de connexion** pour votre compte de stockage à partir du portail Azure. Elle se trouve dans **Clés d’accès**.
 3. Les journaux d’analyse spatiale sont téléchargés automatiquement dans un conteneur de stockage d’objets Blob nommé *rtcvlogs* avec le format de nom de fichier suivant : `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
@@ -215,16 +215,16 @@ Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnos
 Les journaux sont téléchargés à la demande à l’aide de la méthode IoT Edge `getRTCVLogs`, dans le module `diagnostics`. 
 
 
-1. Accédez à la page du portail IoT Hub, sélectionnez **Appareils Edge** , puis sélectionnez votre appareil et votre module de diagnostic. 
-2. Accédez à la page de détails du module et cliquez sur l’onglet * *_Méthode directe_* _.
+1. Accédez à la page du portail IoT Hub, sélectionnez **Appareils Edge**, puis sélectionnez votre appareil et votre module de diagnostic. 
+2. Accédez à la page de détails du module et cliquez sur l’onglet **_Méthode directe_* _.
 3. Entrez `getRTCVLogs` pour Nom de la méthode et une chaîne de format json dans la charge utile. Vous pouvez entrer `{}`, qui est une charge utile vide. 
 4. Définissez les délais d’expiration de connexion et de méthode, puis cliquez sur _*Appeler la méthode**.
-5. Sélectionnez votre conteneur cible, puis créez une chaîne json de charge utile à l’aide des paramètres décrits dans la section **Syntaxe de journalisation** . Cliquez sur **Appeler la méthode** pour effectuer la requête.
+5. Sélectionnez votre conteneur cible, puis créez une chaîne json de charge utile à l’aide des paramètres décrits dans la section **Syntaxe de journalisation**. Cliquez sur **Appeler la méthode** pour effectuer la requête.
 
 >[!NOTE]
 > L’appel de la méthode `getRTCVLogs` avec une charge utile vide retourne une liste de tous les conteneurs déployés sur l’appareil. Le nom de la méthode respecte la casse. Vous obtiendrez une erreur 501 si un nom de méthode incorrect est spécifié.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Rapport de télémétrie Azure Monitor":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Appel de la méthode getRTCVLogs":::
 ![Page Méthode directe getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -245,7 +245,7 @@ Le tableau suivant répertorie les attributs de la réponse à la requête.
 
 | Mot clé | Description|
 |--|--|
-|DoPost| *true* ou *false* . Indique si les journaux ont été chargés ou non. Lorsque vous choisissez de ne pas charger les journaux, l’API retourne des informations * **de façon synchrone** _. Lorsque vous choisissez de charger les journaux, l’API retourne 200 si la demande est valide, et démarre le chargement des journaux de façon _*_asynchrone_*_ .|
+|DoPost| *true* ou *false*. Indique si les journaux ont été chargés ou non. Lorsque vous choisissez de ne pas charger les journaux, l’API retourne des informations ***de façon synchrone** _. Lorsque vous choisissez de charger les journaux, l’API retourne 200 si la demande est valide, et démarre le chargement des journaux de façon _*_asynchrone_*_.|
 |TimeFilter| Filtre de temps appliqué aux journaux.|
 |ValueFilters| Filtres de mots clés appliqués aux journaux. |
 |TimeStamp| Heure de début de l’exécution de la méthode. |
@@ -316,8 +316,8 @@ La section suivante est fournie pour vous aider à déboguer et vérifier l’é
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Accédez au point de terminaison de l’API Kubernetes. 
 
-1. Dans l’interface utilisateur locale de votre appareil, accédez à la page _ *Appareils* *. 
-2. Sous **Points de terminaison de l’appareil** , copiez le point de terminaison du service d’API Kubernetes. Ce point de terminaison est une chaîne au format suivant : `https://compute..[device-IP-address]`.
+1. Dans l’interface utilisateur locale de votre appareil, accédez à la page _ *Appareils**. 
+2. Sous **Points de terminaison de l’appareil**, copiez le point de terminaison du service d’API Kubernetes. Ce point de terminaison est une chaîne au format suivant : `https://compute..[device-IP-address]`.
 3. Enregistrez la chaîne de point de terminaison. Vous allez l’utiliser ultérieurement lors de la configuration de `kubectl` pour accéder au cluster Kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Se connecter à l’interface PowerShell
@@ -326,7 +326,7 @@ Connexion à distance depuis un client Windows. Une fois le cluster Kubernetes c
 
 > [!TIP]
 > * Avant de commencer, assurez-vous que votre client Windows exécute Windows PowerShell 5.0 ou une version ultérieure.
-> * PowerShell est également [disponible sur Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * PowerShell est également [disponible sur Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Démarrez une session Windows PowerShell en tant qu’administrateur. 
     1. Assurez-vous que le service Windows Remote Management est en cours d’exécution sur votre client. À l’invite de commandes, tapez `winrm quickconfig`.
@@ -357,7 +357,7 @@ Une fois le cluster Kubernetes créé, vous pouvez utiliser l’outil de ligne d
     New-HcsKubernetesNamespace -Namespace
     ```
 
-2. Créez un utilisateur et obtenez un fichier config. Cette commande génère des informations de configuration pour le cluster Kubernetes. Copiez ces informations et enregistrez-les dans un fichier nommé *config* . N’enregistrez pas le fichier avec une extension de fichier.
+2. Créez un utilisateur et obtenez un fichier config. Cette commande génère des informations de configuration pour le cluster Kubernetes. Copiez ces informations et enregistrez-les dans un fichier nommé *config*. N’enregistrez pas le fichier avec une extension de fichier.
     
     ```powershell
     New-HcsKubernetesUser -UserName
@@ -397,7 +397,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 |Commande  |Description  |
 |---------|---------|
-|`Get-HcsKubernetesUserConfig -AseUser`     | Génère un fichier de configuration Kubernetes. Lors de l’utilisation de la commande, copiez les informations dans un fichier nommé *config* . N’enregistrez pas le fichier avec une extension.        |
+|`Get-HcsKubernetesUserConfig -AseUser`     | Génère un fichier de configuration Kubernetes. Lors de l’utilisation de la commande, copiez les informations dans un fichier nommé *config*. N’enregistrez pas le fichier avec une extension.        |
 | `Get-HcsApplianceInfo` | Retourne des informations sur votre appareil. |
 | `Enable-HcsSupportAccess` | Génère des informations d’identification d’accès pour démarrer une session de support. |
 

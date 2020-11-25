@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232523"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015339"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recommandations sur le réseau de microphones pour le SDK Speech Devices
 
@@ -97,7 +97,7 @@ Les directives suivantes concernant l'architecture sont nécessaires lors de l'i
 | Horloge d’échantillonnage      | L'audio de l'appareil doit être exempt de gigue et de parasites, avec une faible dérive |
 | Fonctionnalité d’enregistrement   | L'appareil doit être capable d'enregistrer simultanément des flux Raw de canaux individuels |
 | USB                 | Tous les périphériques d'entrée audio USB doivent définir des descripteurs conformément à la spécification [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Géométrie du microphone | Les pilotes doivent implémenter correctement les [descripteurs de géométrie du réseau de microphones](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
+| Géométrie du microphone | Les pilotes doivent implémenter correctement les [descripteurs de géométrie du réseau de microphones](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
 | Détectabilité     | Les appareils ne doivent avoir ni matériel ou microprogramme non détectable ou non contrôlable, ni algorithmes de traitement audio non linéaires basés sur un logiciel tiers de/vers l'appareil |
 | Format de capture      | Les formats de capture doivent utiliser une fréquence d’échantillonnage minimale de 16 kHz et une profondeur recommandée de 24 bits |
 

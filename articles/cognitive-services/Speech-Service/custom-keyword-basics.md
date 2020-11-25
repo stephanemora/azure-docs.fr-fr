@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305894"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021947"
 ---
 # <a name="get-started-with-custom-keyword"></a>Bien démarrer avec Mot clé personnalisé
 
@@ -35,7 +35,7 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer ce mot cl
 > Les modèles de mots clés personnalisés et les fichiers `.table` résultants peuvent **uniquement** être créés dans Speech Studio.
 > Vous ne pouvez pas créer de mots clés personnalisés à partir du kit SDK ni avec des appels REST.
 
-1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous** , ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
+1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
 1. Sur la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), créez un **Nouveau projet**. 
 
@@ -49,7 +49,7 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer ce mot cl
 
 1. Pour créer un nouveau modèle de mot clé, cliquez sur **Entraîner le modèle**.
 
-1. Entrez un **nom** pour le modèle, une **description** facultative et le **mot clé** de votre choix, puis cliquez sur **Suivant**. Consultez les [instructions](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sur le choix d’un mot clé efficace.
+1. Entrez un **nom** pour le modèle, une **description** facultative et le **mot clé** de votre choix, puis cliquez sur **Suivant**. Consultez les [instructions](./custom-keyword-overview.md#choose-an-effective-keyword) sur le choix d’un mot clé efficace.
 
     ![Entrez votre mot clé](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer ce mot cl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Testez votre mot clé personnalisé avec le [Guide de démarrage rapide du kit SDK Speech Devices](https://aka.ms/sdsdk-quickstart).
+Testez votre mot clé personnalisé avec le [Guide de démarrage rapide du kit SDK Speech Devices](./speech-devices-sdk-quickstart.md?pivots=platform-android).

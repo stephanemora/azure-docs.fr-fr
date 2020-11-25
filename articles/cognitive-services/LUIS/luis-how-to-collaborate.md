@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540901"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018903"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
@@ -66,7 +66,7 @@ Si vous ajoutez un contributeur/collaborateur à une application LUIS, vous spé
 
 ### <a name="azure-active-directory-resources"></a>Ressources Azure Active Directory
 
-Si vous utilisez [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) dans votre organisation, Language Understanding (LUIS) a besoin d’une autorisation pour accéder aux informations sur l'accès de vos utilisateurs quand ils souhaitent utiliser LUIS. Les ressources dont LUIS a besoin sont minimes.
+Si vous utilisez [Azure Active Directory](../../active-directory/index.yml) (Azure AD) dans votre organisation, Language Understanding (LUIS) a besoin d’une autorisation pour accéder aux informations sur l'accès de vos utilisateurs quand ils souhaitent utiliser LUIS. Les ressources dont LUIS a besoin sont minimes.
 
 La description détaillée s’affiche quand vous tentez de vous inscrire avec un compte qui a un consentement de l’administrateur ou qui n’en a pas besoin, de sorte que le consentement de l’administrateur :
 
@@ -87,7 +87,7 @@ L’administrateur de locataire doit travailler directement avec l’utilisateur
 
 Si l’administrateur de locataire veut uniquement que certaines personnes utilisent LUIS, plusieurs solutions sont possibles :
 * Donnez le « consentement administrateur » (à tous les utilisateurs d’Azure AD), mais affectez ensuite la valeur « Oui » à « Affectation de l’utilisateur obligatoire » sous les propriétés de l’application d’entreprise, et enfin attribuer/ajouter uniquement les utilisateurs souhaités à l’application. Avec cette méthode, l’administrateur offre quand même le « consentement administrateur » à l’application, mais il peut contrôler les utilisateurs en mesure d’y accéder.
-* Une deuxième solution consiste à utiliser l’[API de gestion des identités et des accès Azure AD dans Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) pour fournir un consentement à chaque utilisateur spécifique.
+* Une deuxième solution consiste à utiliser l’[API de gestion des identités et des accès Azure AD dans Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) pour fournir un consentement à chaque utilisateur spécifique.
 
 Découvrez-en plus sur les utilisateurs Azure Active Directory et le consentement :
 * [Limiter votre application](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) à un ensemble d’utilisateurs

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307177"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020944"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Ajouter des modèles de génération de langage pour les réponses vocales
 
@@ -34,7 +34,7 @@ Vous devez avoir effectué les étapes décrites dans les articles suivants :
 
 ## <a name="language-generation-templates-overview"></a>Vue d’ensemble des modèles de génération de langage
 
-Les modèles Commandes personnalisés sont basés sur les [modèles de génération de langage](https://aka.ms/speech/cc-lg-format) BotFramework. Comme les commandes personnalisées créent un nouveau modèle de génération de langage quand cela est nécessaire (autrement dit, pour les réponses vocales dans les paramètres ou les actions), vous n’avez pas besoin de spécifier le nom du modèle de génération de langage. Par conséquent, au lieu de définir votre modèle ainsi :
+Les modèles Commandes personnalisés sont basés sur les [modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) BotFramework. Comme les commandes personnalisées créent un nouveau modèle de génération de langage quand cela est nécessaire (autrement dit, pour les réponses vocales dans les paramètres ou les actions), vous n’avez pas besoin de spécifier le nom du modèle de génération de langage. Par conséquent, au lieu de définir votre modèle ainsi :
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Vous devez uniquement définir le corps du modèle sans le nom, comme suit.
 
 Cette modification introduit une variation aux réponses vocales envoyées au client. Ainsi, pour le même énoncé, la réponse vocale correspondante est choisie de manière aléatoire parmi les options fournies.
 
-Les modèles de génération de langage vous permettent également de définir des réponses vocales complexes pour les commandes à l’aide d’expressions adaptatives. Pour plus d’informations, reportez-vous au [format des modèles de génération de langage](https://aka.ms/speech/cc-lg-format). Par défaut, les commandes personnalisées prennent en charge toutes les fonctionnalités avec les différences mineures suivantes :
+Les modèles de génération de langage vous permettent également de définir des réponses vocales complexes pour les commandes à l’aide d’expressions adaptatives. Pour plus d’informations, reportez-vous au [format des modèles de génération de langage](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). Par défaut, les commandes personnalisées prennent en charge toutes les fonctionnalités avec les différences mineures suivantes :
 
 * Dans les modèles de génération de langage, les entités sont représentées sous la forme ${entityName}. Dans les commandes personnalisées, nous n’utilisons pas d’entités, mais les paramètres peuvent servir de variables avec l’une de ces représentations : ${parameterName} ou {parameterName}
 * La composition et l’expansion de modèle ne sont pas prises en charge dans les commandes personnalisées. Cela est dû au fait que vous ne modifiez jamais directement le fichier `.lg`, mais uniquement les réponses de modèles automatiquement créés.
@@ -110,7 +110,7 @@ Une autre façon de personnaliser les réponses de commandes personnalisées con
 > ![Exemples de phrases avec paramètres](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Concernant les **Voix publiques**, les **Types neuronaux** ne sont disponibles que pour certaines régions. Pour connaître la disponibilité, consultez [Voix standard et neuronales par région/point de terminaison](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Concernant les **Voix publiques**, les **Types neuronaux** ne sont disponibles que pour certaines régions. Pour connaître la disponibilité, consultez [Voix standard et neuronales par région/point de terminaison](./regions.md#standard-and-neural-voices).
 > - Les **voix personnalisées** peuvent être créées sur la page du projet Custom Voice. Consultez [Bien démarrer avec Custom Voice](./how-to-custom-voice.md).
 
 L’application répond à présent avec la voix sélectionnée, et non plus avec la voix par défaut.

@@ -1,20 +1,20 @@
 ---
 title: Relocalisation grossière
 description: En savoir plus sur l’utilisation de la relocalisation grossière pour trouver des ancres près de chez vous.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/18/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 02f5c570b7400266ac648eaa257fb76d26819a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a65b2ca4ba9f1912adeaf60df123bcd3c8833bd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003182"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496900"
 ---
 # <a name="coarse-relocalization"></a>Relocalisation grossière
 

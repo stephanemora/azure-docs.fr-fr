@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: local, Docker, conteneur, analyse des sentiments, traitement en langage naturel
-ms.openlocfilehash: 43684e814dd0049a08eacdce50ca6eef17fb7f97
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 088cf407320dcf8ef6705c57d86836531d9bdfe6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965164"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 

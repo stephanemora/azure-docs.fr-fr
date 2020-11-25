@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: f06fda777cbebd8034ac4fd9254a4bd172d011a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ddbca7a216421aad7240890a697f861d14fd1f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661501"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026350"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
-Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](support.md).
+Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Général
 
@@ -29,11 +29,11 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Par où commencer si je souhaite utiliser un modèle vocal standard ?**
 
-**R** : Plus de 80 modèles vocaux standard dans plus de 45 langues sont disponibles via des requêtes HTTP. Commencez par obtenir une [clé d’abonnement](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Pour effectuer des appels REST pour les modèles de voix prédéployés, consultez l’[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**R** : Plus de 80 modèles vocaux standard dans plus de 45 langues sont disponibles via des requêtes HTTP. Commencez par obtenir une [clé d’abonnement](./overview.md#try-the-speech-service-for-free). Pour effectuer des appels REST pour les modèles de voix prédéployés, consultez l’[API REST](./overview.md#reference-docs).
 
 **Q : Si je souhaite utiliser un modèle vocal personnalisé, l’API est-elle la même que celle utilisée pour les voix standard ?**
 
-**R** : Lorsqu’un modèle vocal personnalisé est créé et déployé, vous obtenez un point de terminaison unique pour votre modèle. Pour que la voix parle dans vos applications, vous devez spécifier le point de terminaison dans vos requêtes HTTP. La fonctionnalité qui est disponible dans l’API REST pour le service Synthèse vocale l’est également pour votre point de terminaison personnalisé. Découvrez comment [créer et utiliser votre point de terminaison personnalisé](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
+**R** : Lorsqu’un modèle vocal personnalisé est créé et déployé, vous obtenez un point de terminaison unique pour votre modèle. Pour que la voix parle dans vos applications, vous devez spécifier le point de terminaison dans vos requêtes HTTP. La fonctionnalité qui est disponible dans l’API REST pour le service Synthèse vocale l’est également pour votre point de terminaison personnalisé. Découvrez comment [créer et utiliser votre point de terminaison personnalisé](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
 
 **Q : Dois-je préparer les données d’apprentissage pour créer moi-même des modèles vocaux personnalisés ?**
 
@@ -41,7 +41,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 Une collection de données vocales est nécessaire pour créer un modèle vocal personnalisé. Cette collection se compose d’un ensemble de fichiers audio d’enregistrements vocaux et d’un fichier texte de transcription pour chaque fichier audio. Le résultat de votre voix numérique dépend fortement de la qualité de vos données d’apprentissage. Pour produire une bonne voix de synthèse vocale, il est important que les enregistrements soient effectués dans une pièce calme avec un micro sur support. Pour générer une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi qu’à la cohérence dans la manière de s’exprimer. Nous vous recommandons vivement d’enregistrer les voix dans un studio d’enregistrement.
 
-Nous ne prenons actuellement pas en charge l’enregistrement en ligne et ne recommandons pas de studios d’enregistrement. Concernant les formats requis, consultez [Comment préparer les enregistrements et les transcriptions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Nous ne prenons actuellement pas en charge l’enregistrement en ligne et ne recommandons pas de studios d’enregistrement. Concernant les formats requis, consultez [Comment préparer les enregistrements et les transcriptions](./how-to-custom-voice-create-voice.md).
 
 **Q : Quels scripts dois-je utiliser pour enregistrer les données vocales pour l’apprentissage de la voix personnalisée ?**
 

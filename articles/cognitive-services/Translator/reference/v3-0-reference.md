@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121015"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024498"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -147,7 +147,7 @@ Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeto
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
 
-Le service Translator est désormais disponible avec des capacités de réseau virtuel (VNET) dans toutes les régions du cloud public Azure. Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Le service Translator est désormais disponible avec des capacités de réseau virtuel (VNET) dans toutes les régions du cloud public Azure. Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Après avoir activé cette capacité, vous devez utiliser le point de terminaison personnalisé pour appeler Translator. Vous ne pouvez pas utiliser le point de terminaison du traducteur global (« api.cognitive.microsofttranslator.com ») et vous ne pouvez pas vous authentifier avec un jeton d’accès.
 
@@ -230,7 +230,7 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 503000| Le service est temporairement indisponible. Veuillez réessayer. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 
 ## <a name="metrics"></a>Mesures 
-Les métriques vous permettent de voir des informations sur l’utilisation et la disponibilité du traducteur dans le portail Azure, sous la section des métriques, comme illustré dans la capture d’écran ci-dessous. Pour plus d’informations, consultez [Métriques de données et de plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Les métriques vous permettent de voir des informations sur l’utilisation et la disponibilité du traducteur dans le portail Azure, sous la section des métriques, comme illustré dans la capture d’écran ci-dessous. Pour plus d’informations, consultez [Métriques de données et de plateforme](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Métriques de traducteur](../media/translatormetrics.png)
 

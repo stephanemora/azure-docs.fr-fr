@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410774"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024787"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Service Speech : nouveautés dans la documentation
 
@@ -38,17 +38,17 @@ Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du SDK
 
 * [À propos de l’API de flux d’entrée audio du Kit de développement logiciel (SDK) Speech](how-to-use-audio-input-streams.md) - Exemples par seconde autorisés mis à jour.
 * [Détection automatique de la langue pour la reconnaissance vocale](how-to-automatic-language-detection.md) - Instructions Objective-C ajoutées à la documentation.
-* [Choisir un mode de reconnaissance vocale](how-to-choose-recognition-mode.md) - Instructions JavaScript ajoutées à la documentation.
+* [Choisir un mode de reconnaissance vocale](./get-started-speech-to-text.md) - Instructions JavaScript ajoutées à la documentation.
 * [Configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](how-to-configure-rhel-centos-7.md) - Instructions de configuration améliorées.
-* [Listes d’expressions pour la reconnaissance vocale](how-to-phrase-lists.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Synthèse asynchrone pour un contenu audio long dans Python (préversion)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) - Mise à jour avec la prise en charge des voix neuronales publiques et les paramètres associés.
-* [Démarrage rapide : Reconnaître la voix à partir d’un fichier audio](quickstarts/speech-to-text-from-file.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Reconnaître la voix provenant d’un micro](quickstarts/speech-to-text-from-microphone.md ) - Instructions Go et JavaScript ajoutées à la documentation.
+* [Listes d’expressions pour la reconnaissance vocale](./get-started-speech-to-text.md) - Instructions JavaScript ajoutées à la documentation.
+* [Démarrage rapide : Synthèse asynchrone pour un contenu audio long dans Python (préversion)](./long-audio-api.md) - Mise à jour avec la prise en charge des voix neuronales publiques et les paramètres associés.
+* [Démarrage rapide : Reconnaître la voix à partir d’un fichier audio](./get-started-speech-to-text.md) - Instructions JavaScript ajoutées à la documentation.
+* [Démarrage rapide : Reconnaître la voix provenant d’un micro](./get-started-speech-to-text.md) - Instructions Go et JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Reconnaître la voix stockée dans Stockage Blob](quickstarts/from-blob.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Reconnaître la voix, les intentions et les entités avec LUIS](quickstarts/intent-recognition.md)
 * [Démarrage rapide : Configurer l’environnement de développement](quickstarts/setup-platform.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Synthétiser la voix vers un fichier audio](quickstarts/text-to-speech-audio-file.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Synthétiser la voix vers un haut-parleur](quickstarts/text-to-speech.md) - Instructions JavaScript ajoutées à la documentation.
+* [Démarrage rapide : Synthétiser la voix vers un fichier audio](./get-started-text-to-speech.md) - Instructions JavaScript ajoutées à la documentation.
+* [Démarrage rapide : Synthétiser la voix vers un haut-parleur](./get-started-text-to-speech.md) - Instructions JavaScript ajoutées à la documentation.
 * [Qu’est-ce qu’un mot clé ?](custom-keyword-overview.md) - Contenu et liens de la prise en main mis à jour.
 * [Spécifier la langue source pour la reconnaissance vocale](how-to-specify-source-language.md) - Instructions JavaScript et Objective-C ajoutées à la documentation.
 

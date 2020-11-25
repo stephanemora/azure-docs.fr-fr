@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324703"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018801"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites de vos clés et de votre modèle LUIS
 LUIS a plusieurs zones de limites. La première est la [limite de modèle](#model-limits), qui contrôle les intentions, les entités et les caractéristiques dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. La troisième zone de limites est la [séquence de touches](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -32,16 +32,16 @@ Si votre application dépasse les limites de modèle LUIS, utilisez une applicat
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
 | [Entités de machine-learning + rôles](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.<br>Les sous-entités peuvent avoir un maximum de 5 niveaux d’imbrication.|
 |Modèle en tant que fonctionnalité| Nombre maximum de modèles pouvant être utilisés en tant que fonctionnalité sur un modèle spécifique pour avoir 10 modèles. Nombre maximum de listes d’expressions utilisées en tant que fonctionnalité sur un modèle spécifique pour avoir 10 listes d’expressions.|
-| [Préversion - Entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
+| [Préversion - Entités de liste dynamique](./luis-migration-api-v3.md)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
 | [Liste d’expressions][phrase-list]|500 listes d’expressions. 10 listes d’expressions globales liées au modèle en tant que limite de fonctionnalité. La liste d’expressions non interchangeables comprend un maximum de 5 000 expressions. La liste d’expressions interchangeables comprend un maximum de 50 000 expressions. Nombre maximum d’expressions au total par application de 500 000 expressions.|
-| [Entités prédéfinies](./luis-prebuilt-entities.md) | aucune limite|
+| [Entités prédéfinies](./howto-add-prebuilt-models.md) | aucune limite|
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
-| [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
+| [Rôles](./luis-concept-entity-types.md)|300 rôles par application. 10 rôles par entité|
 | [Énoncé][utterances] | 500 caractères<br><br>Si vous avez un texte d’une longueur supérieure à cette limite de caractères, vous devez segmenter l’énoncé avant de l’entrer dans LUIS afin de recevoir les réponses d’intention individuelles propres à chaque segment. Vous pouvez utiliser des arrêts évidents, tels que les signes de ponctuation et les pauses marquées dans le discours.|
 | [Exemples d’énoncés][utterances] | 15 000 par application, il n’existe aucune limite du nombre d’énoncés par intention<br><br>Si vous devez entraîner l’application avec plus d’exemples, utilisez une approche de modèle [dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch). Vous entraînez les applications LUIS individuelles (appelées « applications enfants » par rapport à l’application de distribution parente) avec une ou plusieurs intentions, puis vous entraînez une application de distribution qui échantillonne les énoncés de chaque application LUIS enfant pour diriger la demande de prédiction vers l’application enfant appropriée. |
-| [Versions](luis-concept-version.md)| 100 versions par application |
+| [Versions](./luis-concept-app-iteration.md)| 100 versions par application |
 | [Nom de version][luis-how-to-manage-versions] | 128 caractères |
 
 \* 50 caractères par défaut maximum.
@@ -116,12 +116,12 @@ L'[intégration du Speech](../speech-service/how-to-recognize-intents-from-speec
 
 Votre accès de connexion est valable **60 minutes**. Une fois ce délai expiré, le message d’erreur suivant s’affichera. Vous devez vous reconnecter.
 
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
-[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
-[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
-[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
-[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
+[luis-get-started-create-app]: ./luis-get-started-create-app.md
+[batch-testing]: ./luis-concept-test.md#batch-testing
+[intents]: ./luis-concept-intent.md
+[phrase-list]: ./luis-concept-feature.md
+[utterances]: ./luis-concept-utterance.md
+[luis-how-to-manage-versions]: ./luis-how-to-manage-versions.md
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
 [speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

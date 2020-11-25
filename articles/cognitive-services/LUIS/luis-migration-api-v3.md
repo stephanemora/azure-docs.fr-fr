@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541337"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018784"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -60,7 +60,7 @@ Si vous savez qu’aucune de vos applications clientes ou intégrations (Bot Fra
 
 ### <a name="bing-spell-check"></a>Vérification orthographique Bing
 
-Cette API n’est pas prise en charge dans le point de terminaison de prédiction V3. Continuez à utiliser le point de terminaison de prédiction d’API V2 pour les corrections orthographiques. Si vous avez besoin de la correction orthographique quand vous utilisez l’API V3, faites en sorte que l’application cliente appelle l’API [Vérification orthographique Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview), puis remplacez le texte par l’orthographe correcte, avant d’envoyer le texte à l’API LUIS.
+Cette API n’est pas prise en charge dans le point de terminaison de prédiction V3. Continuez à utiliser le point de terminaison de prédiction d’API V2 pour les corrections orthographiques. Si vous avez besoin de la correction orthographique quand vous utilisez l’API V3, faites en sorte que l’application cliente appelle l’API [Vérification orthographique Bing](../bing-spell-check/overview.md), puis remplacez le texte par l’orthographe correcte, avant d’envoyer le texte à l’API LUIS.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Applications clientes Bot Framework et Azure Bot Service
 

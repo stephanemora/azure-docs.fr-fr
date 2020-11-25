@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566246"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025889"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
@@ -49,10 +49,10 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
    | headers | Clé : application, Valeur : prendre les 8 premiers chiffres de votre applicationId | Paramètres d’en-tête à inclure dans l’en-tête de la demande.|
 
     > [!NOTE]
-    > - Exemple de point de terminaison Web créé à l’aide d'[Azure Function](https://docs.microsoft.com/azure/azure-functions/), qui se connecte à la base de données enregistrant l’état du téléviseur et du ventilateur
+    > - Exemple de point de terminaison Web créé à l’aide d'[Azure Function](../../azure-functions/index.yml), qui se connecte à la base de données enregistrant l’état du téléviseur et du ventilateur
     > - L’en-tête suggéré n’est nécessaire que pour l’exemple de point de terminaison
     > - Pour vous assurer que la valeur de l’en-tête est unique dans notre exemple de point de terminaison, prenez les 8 premiers chiffres de votre applicationId
-    > - Dans le monde réel, le point de terminaison Web peut être le point de terminaison du [hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) qui gère vos appareils
+    > - Dans le monde réel, le point de terminaison Web peut être le point de terminaison du [hub IoT](../../iot-hub/about-iot-hub.md) qui gère vos appareils
 
 1. Cliquez sur **Enregistrer**.
 

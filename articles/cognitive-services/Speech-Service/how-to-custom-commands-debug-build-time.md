@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023123"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025699"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Déboguer les erreurs lors de la création d’une application Commandes personnalisées
 
@@ -24,7 +24,7 @@ Cet article explique comment déboguer les erreurs qui apparaissent lors de la c
 ## <a name="errors-when-creating-an-application"></a>Erreurs lors de la création d’une application
 Les commandes personnalisées créent également une application dans [LUIS](https://www.luis.ai/) lors de la génération d’une application Commandes personnalisée. 
 
-[LUIS comporte une limite de 500 applications par ressource de création](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). La création d’une application LUIS peut échouer si vous utilisez une ressource de création qui possède déjà 500 applications. 
+[LUIS comporte une limite de 500 applications par ressource de création](../luis/luis-limits.md). La création d’une application LUIS peut échouer si vous utilisez une ressource de création qui possède déjà 500 applications. 
 
 Assurez-vous que la ressource de création LUIS sélectionnée possède moins de 500 applications. Si ce n’est pas le cas, vous pouvez créer une ressource de création LUIS, basculer vers une autre ressource, ou essayer de nettoyer vos applications LUIS.  
 
@@ -61,7 +61,7 @@ Les commandes personnalisées n’autorisent pas le partage d’exemples de phra
 
 Assurez-vous qu’aucun exemple de phrase courante n’est partagé entre différentes commandes. 
 
-Pour connaître les meilleures pratiques en matière d’équilibrage des exemples de phrases sur différentes commandes, reportez-vous aux [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Pour connaître les meilleures pratiques en matière d’équilibrage des exemples de phrases sur différentes commandes, reportez-vous aux [Meilleures pratiques LUIS](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Exemples de phrases vides
 Vous devez avoir au moins un exemple de phrase pour chaque commande.
@@ -82,7 +82,7 @@ Par exemple, vous pouvez définir un paramètre {vehicle} pour les exemples de p
 | Book a flight | Réserver un(e) {vehicle} |
 | Réserver un taxi | Réserver un(e) {vehicle} |
 
-Pour connaître les meilleures pratiques en matière d’apprentissage LUIS, reportez-vous aux [Meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Pour connaître les meilleures pratiques en matière d’apprentissage LUIS, reportez-vous aux [Meilleures pratiques LUIS](../luis/luis-concept-best-practices.md).
 
 ## <a name="cant-update-luis-key"></a>Impossible de mettre à jour la clé LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Réaffecter à la ressource de création E0

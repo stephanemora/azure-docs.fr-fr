@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconnaissance de l’intention
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174619"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018699"
 ---
 # <a name="what-is-intent-recognition"></a>Qu’est-ce que la reconnaissance de l’intention ?
 
@@ -29,7 +29,7 @@ Grâce à la reconnaissance de l’intention, vos applications, outils et appare
 
 * LUIS s’intègre au service Speech pour reconnaître les intentions à partir de la reconnaissance vocale. Vous n’avez besoin que de LUIS, aucun abonnement au service Speech n’est nécessaire.
 * La reconnaissance de l’intention de Speech est intégrée au Kit de développement logiciel (SDK). Vous pouvez utiliser une clé LUIS avec le service Speech.
-* La reconnaissance de l’intention par le biais du Kit de développement logiciel (SDK) Speech est [proposée dans un sous-ensemble de régions pris en charge par LUIS](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* La reconnaissance de l’intention par le biais du Kit de développement logiciel (SDK) Speech est [proposée dans un sous-ensemble de régions pris en charge par LUIS](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -39,8 +39,8 @@ Consultez le [démarrage rapide](quickstarts/intent-recognition.md) pour prendre
 
 Exemple de code pour la reconnaissance de l’intention :
 
-* [Démarrage rapide : Utiliser une application domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Démarrage rapide : Utiliser une application domotique prédéfinie](../luis/luis-get-started-create-app.md)
+* [Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Reconnaissance de l’intention et autres services Speech utilisant Unity en C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Reconnaître des intentions à l’aide du Kit de développement logiciel (SDK) Speech pour Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Reconnaissance de l’intention et autres services Speech utilisant le Kit de développement logiciel (SDK) Speech pour C++ sur Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ Exemple de code pour la reconnaissance de l’intention :
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
+* [Kit de développement logiciel (SDK) de reconnaissance vocale](./speech-sdk.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

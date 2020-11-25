@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397757"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024326"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
-Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](support.md).
+Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Général
 
@@ -29,7 +29,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Par où commencer si je souhaite utiliser un modèle de référence ?**
 
-**R** : Commencez par obtenir une [clé d’abonnement](overview.md#try-the-speech-service-for-free). Si vous voulez adresser des appels REST à des modèles de référence pré-déployés, consultez les informations sur les [API REST](rest-apis.md). Si vous voulez utiliser des WebSockets, téléchargez le [Kit de développement logiciel (SDK)](speech-sdk.md).
+**R** : Commencez par obtenir une [clé d’abonnement](overview.md#try-the-speech-service-for-free). Si vous voulez adresser des appels REST à des modèles de référence pré-déployés, consultez les informations sur les [API REST](./overview.md#reference-docs). Si vous voulez utiliser des WebSockets, téléchargez le [Kit de développement logiciel (SDK)](speech-sdk.md).
 
 **Q : Dois-je toujours générer un modèle vocal personnalisé ?**
 

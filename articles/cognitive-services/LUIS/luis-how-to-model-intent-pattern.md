@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5e1cc5cdda921e63315c2904d560b7ad3939776
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018852"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
-Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent une [syntaxe](luis-concept-patterns.md#pattern-syntax) spécifique pour indiquer l’emplacement des éléments suivants : [entités](luis-concept-entity-types.md), [rôles](luis-concept-roles.md) d’entités et texte facultatif.
+Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent une [syntaxe](luis-concept-patterns.md#pattern-syntax) spécifique pour indiquer l’emplacement des éléments suivants : [entités](luis-concept-entity-types.md), [rôles](./luis-concept-entity-types.md) d’entités et texte facultatif.
 
 > [!CAUTION]
 > Les modèles incluent uniquement les entités de machine-learning parent, pas les sous-entités.
@@ -35,7 +35,7 @@ Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, uti
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de l’entité pour le modèle](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Si votre entité inclut un [rôle](luis-concept-roles.md), indiquez le rôle avec un signe deux-points, `:`, après le nom de l’entité, tel que `{Location:Origin}`. La liste des rôles pour les entités s’affiche dans une liste. Sélectionnez le rôle, puis Entrée.
+    Si votre entité inclut un [rôle](./luis-concept-entity-types.md), indiquez le rôle avec un signe deux-points, `:`, après le nom de l’entité, tel que `{Location:Origin}`. La liste des rôles pour les entités s’affiche dans une liste. Sélectionnez le rôle, puis Entrée.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de l’entité avec le rôle](./media/luis-how-to-model-intent-pattern/patterns-4.png)

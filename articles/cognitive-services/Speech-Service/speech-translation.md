@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduction vocale
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630068"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015203"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 
@@ -48,13 +48,13 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 
 ## <a name="migration-guides"></a>Guides de migration
 
-Si vos applications, outils ou produits utilisent l’[API Traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), nous avons créé des guides pour vous aider à effectuer une migration vers le service Speech.
+Si vos applications, outils ou produits utilisent l’[API Traduction de conversation Translator Speech](./how-to-migrate-from-translator-speech-api.md), nous avons créé des guides pour vous aider à effectuer une migration vers le service Speech.
 
 * [Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
+* [Kit de développement logiciel (SDK) de reconnaissance vocale](./speech-sdk.md)
 * [SDK Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)

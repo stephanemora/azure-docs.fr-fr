@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925404"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095524"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
-> * [Créer une ressource Azure Speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Créer une ressource Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurer votre environnement de développement et créer un projet vide](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Créer un bot connecté au [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Créer un bot connecté au [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Veiller à avoir accès à un microphone pour la capture audio
 > 
   > [!NOTE]
@@ -277,7 +277,7 @@ Le mode Création est mis à jour pour afficher l’interface utilisateur de l�
    > Reportez-vous à [la liste des régions prises en charge pour les assistants vocaux](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) et vérifiez que vos ressources sont déployées dans une de ces régions.
 
    > [!NOTE]
-   > Pour plus d’informations sur la configuration de votre bot, consultez la documentation de Bot Framework relative au [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Pour plus d’informations sur la configuration de votre bot, consultez la documentation de Bot Framework relative au [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Remplacez les chaînes `YourSpeechSubscriptionKey` et `YourServiceRegion` par vos propres valeurs pour votre abonnement Speech et votre [région](~/articles/cognitive-services/speech-service/regions.md).
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997300"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024753"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistants vocaux Windows
 
@@ -37,7 +37,7 @@ Lorsque l'utilisateur prononce un mot clé, le détecteur de mots clés logiciel
 
 ### <a name="registration"></a>Inscription
 
-La première fois qu'une application activée par la voix est exécutée, elle inscrit son ID d'application et les informations relatives au mot clé via les API ConversationalAgent. Le runtime AAR inscrit toutes les configurations du mappage global auprès du détecteur de mots clés matériel ou logiciel du système, ce qui permet de détecter le mot clé de l'application. L'application [s'inscrit également auprès du service d'arrière-plan](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+La première fois qu'une application activée par la voix est exécutée, elle inscrit son ID d'application et les informations relatives au mot clé via les API ConversationalAgent. Le runtime AAR inscrit toutes les configurations du mappage global auprès du détecteur de mots clés matériel ou logiciel du système, ce qui permet de détecter le mot clé de l'application. L'application [s'inscrit également auprès du service d'arrière-plan](/windows/uwp/launch-resume/register-a-background-task).
 
 Cela signifie qu'une application ne peut pas être activée par la voix tant qu'elle n'a pas été exécutée une première fois et que l'inscription n'a pas été autorisée.
 

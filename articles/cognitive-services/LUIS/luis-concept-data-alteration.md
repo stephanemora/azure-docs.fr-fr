@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324839"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026008"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modifier des données d’énoncé avant ou pendant la prédiction
 LUIS fournit des méthodes pour manipuler l’énoncé avant ou pendant la prédiction. Celles-ci incluent la [correction de l’orthographe](luis-tutorial-bing-spellcheck.md) et la résolution des problèmes de fuseau horaire pour l’entité [datetimeV2](luis-reference-prebuilt-datetimev2.md) prédéfinie.
@@ -98,7 +98,7 @@ Supprimer 60 minutes :
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>Le code C# de la prédiction V2 détermine la valeur correcte du paramètre
 
-Le code C# suivant utilise la méthode [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) de la classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) pour déterminer la valeur de décalage qui convient en fonction de l'heure du système :
+Le code C# suivant utilise la méthode [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) de la classe [TimeZoneInfo](/dotnet/api/system.timezoneinfo) pour déterminer la valeur de décalage qui convient en fonction de l'heure du système :
 
 ```csharp
 // Get CST zone id

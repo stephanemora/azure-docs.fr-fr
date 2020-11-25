@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 87cb0f93201b5111e4d5e954ee62451405436fa0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 46cead6f7b9362dc9b48fda15c0d04b13c2f989c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538727"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013653"
 ---
 # <a name="detect-popular-brands-in-images"></a>Détecter des marques populaires dans des images
 
@@ -23,7 +23,7 @@ La détection des marques est un mode spécialisé de la [détection des objets]
 
 Le service Vision par ordinateur permet de détecter si une image donnée contient un logo de marque. Si c’est le cas, il retourne le nom de la marque, un indice de confiance ainsi que les coordonnées du rectangle englobant qui se trouve autour du logo.
 
-La base de données de logos intégrée contient les marques les plus populaires d’appareils électroniques grand public, de vêtements, etc. Si la marque que vous recherchez n’est pas détectée par le service Vision par ordinateur, il peut être préférable de créer et d’entraîner votre propre détecteur de logos à l’aide du service [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/).
+La base de données de logos intégrée contient les marques les plus populaires d’appareils électroniques grand public, de vêtements, etc. Si la marque que vous recherchez n’est pas détectée par le service Vision par ordinateur, il peut être préférable de créer et d’entraîner votre propre détecteur de logos à l’aide du service [Custom Vision](../custom-vision-service/index.yml).
 
 ## <a name="brand-detection-example"></a>Exemple de détection de marque
 

@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcfff005eaaac034f5fed13b6d4d18e20d2afae
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078127"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018971"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Chiffrement des données au repos du service Language Understanding
 
@@ -32,7 +32,7 @@ Par défaut, votre abonnement utilise des clés de chiffrement gérées par Micr
 
 Une option vous permet également de gérer votre abonnement avec vos propres clés. Les clés gérées par le client (CMK), également appelées BYOK (Bring Your Own Key), offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d'accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
-Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. La ressource Cognitive Services et le coffre de clés doivent se trouver dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. La ressource Cognitive Services et le coffre de clés doivent se trouver dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md).
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Clés gérées par le client pour Language Understanding
 
@@ -44,7 +44,7 @@ Pour demander la possibilité d’utiliser des clés gérées par le client, com
 
 Il existe certaines limitations lors de l’utilisation du niveau E0 avec les applications existantes/créées précédemment :
 
-* La migration vers une ressource E0 sera bloquée. Les utilisateurs pourront uniquement migrer leurs applications vers les ressources F0. Une fois que vous avez migré une ressource existante vers F0, vous pouvez créer une ressource dans le niveau E0. Vous trouverez plus d’informations sur la [migration ici](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring).  
+* La migration vers une ressource E0 sera bloquée. Les utilisateurs pourront uniquement migrer leurs applications vers les ressources F0. Une fois que vous avez migré une ressource existante vers F0, vous pouvez créer une ressource dans le niveau E0. Vous trouverez plus d’informations sur la [migration ici](./luis-migration-authoring.md).  
 * Le déplacement d’applications vers ou depuis une ressource E0 est bloqué. Pour contourner cette limitation, vous pouvez exporter votre application existante et l’importer en tant que ressource E0.
 * La fonctionnalité Vérification orthographique Bing n’est pas prise en charge.
 * La journalisation du trafic de l’utilisateur final est désactivée si votre application est E0.
@@ -59,19 +59,19 @@ Pour en savoir plus sur l’utilisation des clés gérées par le client avec Az
 
 - [Configurer les clés gérées par le client avec Key Vault pour le chiffrement Cognitive Services depuis le portail Azure](../Encryption/cognitive-services-encryption-keys-portal.md)
 
-L'activation des clés gérées par le client active également une identité managée affectée par le système, une fonctionnalité d'Azure AD. Une fois activée, l'identité managée affectée par le système est inscrite auprès d'Azure Active Directory. Une fois inscrite, elle a accès au coffre de clés sélectionné lors de la configuration des clés gérées par le client. Découvrez-en plus sur les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+L'activation des clés gérées par le client active également une identité managée affectée par le système, une fonctionnalité d'Azure AD. Une fois activée, l'identité managée affectée par le système est inscrite auprès d'Azure Active Directory. Une fois inscrite, elle a accès au coffre de clés sélectionné lors de la configuration des clés gérées par le client. Découvrez-en plus sur les [identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Si vous désactivez les identités managées affectées par le système, l'accès au coffre de clés est supprimé et toutes les données chiffrées avec les clés client deviennent inaccessibles. Toutes les fonctionnalités dépendant de ces données cessent de fonctionner.
 
 > [!IMPORTANT]
-> Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Lorsque vous configurez des clés managées par le client sur le portail Azure, une identité managée est automatiquement affectée. Si, par la suite, vous déplacez l'abonnement, le groupe de ressources ou la ressource d'un répertoire Azure AD vers un autre, l'identité managée associée à la ressource n'est pas transférée vers le nouveau locataire. Par conséquent, les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> Les identités managées ne prennent actuellement pas en charge les scénarios entre répertoires. Lorsque vous configurez des clés managées par le client sur le portail Azure, une identité managée est automatiquement affectée. Si, par la suite, vous déplacez l'abonnement, le groupe de ressources ou la ressource d'un répertoire Azure AD vers un autre, l'identité managée associée à la ressource n'est pas transférée vers le nouveau locataire. Par conséquent, les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez **Transfert d’un abonnement entre des répertoires Azure AD** dans [FAQ et problèmes connus en lien avec les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Stocker les clés gérées par le client dans Azure Key Vault
 
 Pour activer les clés gérées par le client, vous devez utiliser une instance d'Azure Key Vault afin de stocker vos clés. Vous devez activer les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés.
 
-Seules les clés RSA de taille 2048 sont prises en charge par le chiffrement Cognitive Services. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Seules les clés RSA de taille 2048 sont prises en charge par le chiffrement Cognitive Services. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="rotate-customer-managed-keys"></a>Permuter des clés gérées par le client
 
@@ -81,9 +81,9 @@ La rotation de la clé ne déclenche pas de rechiffrement de données dans la re
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Révoquer l’accès aux clés gérées par le client
 
-Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque l’accès à toutes les données de la ressource Cognitive Services, car Cognitive Services n’a pas accès à la clé de chiffrement.
+Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Interface de ligne de commande Azure Key Vault](/cli/azure/keyvault). La révocation de l’accès bloque l’accès à toutes les données de la ressource Cognitive Services, car Cognitive Services n’a pas accès à la clé de chiffrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Formulaire de demande de clé gérée par le client du service LUIS](https://aka.ms/cogsvc-cmk)
-* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [En savoir plus sur Azure Key Vault](../../key-vault/general/overview.md)

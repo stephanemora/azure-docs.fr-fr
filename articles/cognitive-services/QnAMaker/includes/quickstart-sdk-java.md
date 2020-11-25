@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 01b8e32db50b8a1b75bb0d3ebeb6d2f4a3f901a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 59416d2e65f17dadfd9d92969319d1804fa308ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90982759"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095043"
 ---
 Utilisez la bibliothèque de client QnA Maker pour Java afin de :
 
@@ -77,7 +77,7 @@ Pour les opérations immédiates, une méthode retourne généralement le résul
 
 ### <a name="qnamakerruntimeclient-object-model"></a>Modèle objet QnAMakerRuntimeClient
 
-Le client QnA Maker d’exécution est un objet [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerRuntimeClient.java).
+Le client QnA Maker d’exécution est un objet [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerClient.java).
 
 Une fois que vous avez publié votre base de connaissances en utilisant le client d’exécution, utilisez la méthode [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Runtimes.java#L36) du client d’exécution pour recevoir une réponse de la base de connaissances.
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487775"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024991"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Qu’est-ce que la transcription de conversation dans les réunions (préversion) ?
 
-La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_ ) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
+La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
 
 ## <a name="key-features"></a>Fonctionnalités clés
 
@@ -54,7 +54,7 @@ Il s’agit d’une vue d’ensemble détaillée du fonctionnement de la transcr
 
 ## <a name="expected-inputs"></a>Entrées attendues
 
-- **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](https://aka.ms/cts/microphone). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](https://aka.ms/cts/getsdk).
+- **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](./speech-devices-sdk-microphone.md). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](./get-speech-devices-sdk.md).
 - **Exemples de voix utilisateur** : la transcription de conversation a besoin de profils utilisateur avant la conversation. Vous devrez collecter des enregistrements audio de chaque utilisateur puis envoyer les enregistrements au [service de génération de signatures](https://aka.ms/cts/signaturegenservice) pour valider le contenu audio et générer des profils utilisateur.
 
 > [!NOTE]

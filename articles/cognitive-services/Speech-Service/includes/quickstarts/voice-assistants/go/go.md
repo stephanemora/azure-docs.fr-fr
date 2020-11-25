@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136182"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096138"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -18,7 +18,7 @@ Avant de commencer :
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md)
-> * Créer un bot connecté au [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Créer un bot connecté au [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Veiller à avoir accès à un microphone pour la capture audio
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ Remplacez les valeurs `YOUR_SUBSCRIPTION_KEY` et `YOUR_BOT_REGION` par les valeu
    > Reportez-vous à [la liste des régions prises en charge pour les assistants vocaux](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) et vérifiez que vos ressources sont déployées dans une de ces régions.
 
    > [!NOTE]
-   > Pour plus d’informations sur la configuration de votre bot, consultez la documentation de Bot Framework relative au [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Pour plus d’informations sur la configuration de votre bot, consultez la documentation de Bot Framework relative au [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Explication du code
 La région et la clé de l’abonnement Speech sont nécessaires pour créer un objet de configuration Speech. L’objet de configuration est nécessaire pour instancier un objet de reconnaissance vocale.

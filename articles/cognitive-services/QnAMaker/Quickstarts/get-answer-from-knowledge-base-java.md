@@ -7,18 +7,18 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: ff40bcb58c1bdca39360a236e46a70ce5cf1b158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09123b46b259ec4ad512c6a57d926bbc70102fe7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777597"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023682"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Java
 
 Ce guide de démarrage rapide vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances QnA Maker publiée. La base de connaissances contient des questions et réponses de [sources de données](../Concepts/knowledge-base.md) telles que des FAQ. La [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) est envoyée au service QnA Maker. La [réponse](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclut la réponse la plus prévisible.
 
-[Documentation de référence](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Exemple](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/get-answer/GetAnswer.java)
+[Documentation de référence](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime) | [Exemple](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/get-answer/GetAnswer.java)
 
 ## <a name="prerequisites"></a>Prérequis
 

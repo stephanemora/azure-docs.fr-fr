@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322855"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025240"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Mettre à niveau une entité composite vers une entité de machine-learning
 
@@ -29,7 +29,7 @@ Le processus de mise à niveau :
     * Si l’entité enfant est utilisée dans l’entité composite _et_ en tant qu’entité distincte (étiquetée dans les exemples d’énoncés), elle sera ajoutée à la version en tant qu’entité et en tant que sous-entité de la nouvelle entité de machine-learning.
     * Si l’entité enfant utilise un rôle, chaque rôle est converti en sous-entité du même nom.
     * Si l’entité enfant est une entité non machine-learning (expression régulière, entité de liste ou entité prédéfinie), une nouvelle sous-entité est créée sous le même nom et celle-ci possède une fonctionnalité qui utilise l’entité non machine-learning avec la fonctionnalité requise ajoutée.
-* Les noms sont conservés mais doivent être uniques au même niveau de sous-entité/frère. Reportez-vous à la section [Limites d’attribution de noms uniques](luis-boundaries.md#name-uniqueness).
+* Les noms sont conservés mais doivent être uniques au même niveau de sous-entité/frère. Reportez-vous à la section [Limites d’attribution de noms uniques](./luis-limits.md#name-uniqueness).
 * Les étiquettes des exemples d’énoncés sont remplacées par la nouvelle entité de machine-learning avec des sous-entités.
 
 Consultez le tableau suivant pour comprendre les modifications apportées à votre modèle :

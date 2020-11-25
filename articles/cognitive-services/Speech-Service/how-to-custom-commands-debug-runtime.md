@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023021"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021794"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Déboguer les erreurs lors de l’exécution d’une application Commandes personnalisées
 
@@ -92,7 +92,7 @@ Language Understanding (LUIS) limite l’utilisation des ressources. Généralem
 
     Si vous utilisez une ressource de prédiction F0, elle est limitée à 10 000/mois et 5 requêtes/seconde.
 
-Pour plus d’informations sur les limites des ressources LUIS, consultez [Utilisation et limite d’une ressource Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Pour plus d’informations sur les limites des ressources LUIS, consultez [Utilisation et limite d’une ressource Language Understanding](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Échec de la connexion au module de reconnaissance
 En général, cela signifie que la connexion temporaire au module de reconnaissance Language Understanding (LUIS) a échoué. Essayez à nouveau, le problème devrait être résolu.
@@ -123,7 +123,7 @@ Des réponses inattendues peuvent être à l’origine de plusieurs événements
 
     La précision de la reconnaissance LUIS peut être affectée lorsque deux commandes partagent des intentions et des exemples de phrases similaires. Vous pouvez essayer de rendre la fonctionnalité des commandes et les exemples de phrases aussi distincts que possible.
 
-    Pour améliorer la précision de la reconnaissance, reportez-vous aux [meilleures pratiques LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Pour améliorer la précision de la reconnaissance, reportez-vous aux [meilleures pratiques LUIS](../luis/luis-concept-best-practices.md).
 
 - Le dialogue est annulé
     

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: sausin
-ms.openlocfilehash: b1e488653f210089ee5ed6757fb2f3d1e4fb0fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5c14909606dcb862fcf53d99bc5bc00fba63bd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293721"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025682"
 ---
 # <a name="use-custom-commands-with-custom-voice"></a>Utiliser des commandes personnalisées avec Custom Voice
 
@@ -32,7 +32,7 @@ Cet article décrit comment sélectionner une voix de sortie personnalisée pour
 > ![Exemples de phrases avec paramètres](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Concernant les **Voix publiques**, les **Types neuronaux** ne sont disponibles que pour certaines régions. Pour connaître la disponibilité, consultez [Voix standard et neuronales par région/point de terminaison](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Concernant les **Voix publiques**, les **Types neuronaux** ne sont disponibles que pour certaines régions. Pour connaître la disponibilité, consultez [Voix standard et neuronales par région/point de terminaison](./regions.md#standard-and-neural-voices).
 > - Les **voix personnalisées** peuvent être créées sur la page du projet Custom Voice. Consultez [Bien démarrer avec Custom Voice](./how-to-custom-voice.md).
 
 L’application répond à présent avec la voix sélectionnée, et non plus avec la voix par défaut.

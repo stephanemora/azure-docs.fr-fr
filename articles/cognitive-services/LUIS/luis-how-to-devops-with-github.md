@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783660"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018869"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Appliquer DevOps au développement d’applications LUIS à l’aide de GitHub Actions
 
@@ -27,7 +27,7 @@ Accédez au [référentiel de modèles DevOps LUIS](https://github.com/Azure-Sam
 Le [référentiel de modèles DevOps LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) vous indique comment effectuer les tâches suivantes :
 
 * **Cloner le référentiel de modèles** - Copiez le modèle dans votre propre référentiel GitHub.
-* **Configurer les ressources LUIS** - Créez les [ressources LUIS de création et de prédiction dans Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) qui seront utilisées par les flux de travail d’intégration en continu.
+* **Configurer les ressources LUIS** - Créez les [ressources LUIS de création et de prédiction dans Azure](./luis-how-to-azure-subscription.md) qui seront utilisées par les flux de travail d’intégration en continu.
 * **Configurer les flux de travail CI/CD** - Configurez les paramètres des flux de travail CI/CD et stockez-les dans [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 * **Décrit la [« boucle interne de développement »](https://mitchdenny.com/the-inner-loop/)** - Le développeur apporte des mises à jour à un exemple d’application LUIS tout en travaillant dans une branche de développement, teste les mises à jour, puis lève une demande de tirage (pull request) pour proposer des modification et obtenir une approbation après révision.
 * **Exécuter des flux de travail CI/CD** - Exécutez des [flux de travail d’intégration en continu pour générer et tester une application LUIS](luis-concept-devops-automation.md) à l’aide de GitHub Actions.

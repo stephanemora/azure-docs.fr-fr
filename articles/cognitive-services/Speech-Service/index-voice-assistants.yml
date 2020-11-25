@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 188273221d13098af04f1afae04da1ecc0111740
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 8b10f817abf73172018e904eb46d4c9e20b844e2
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756849"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95015385"
 landingContent:
 - title: À propos des assistants vocaux
   linkLists:
@@ -61,11 +61,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: C# (UWP)
-      url: quickstart-voice-assistant-csharp-uwp.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-csharp
     - text: Java (Windows, macOS, Linux)
-      url: quickstart-voice-assistant-java-jre.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
     - text: Java (Android)
-      url: quickstart-voice-assistant-java-android.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
   - linkListType: tutorial
     links:
     - text: Activer les fonctions vocales sur votre bot avec le SDK Speech
@@ -75,11 +75,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Créer un mot clé personnalisé
-      url: speech-devices-sdk-create-kws.md
+      url: ./custom-keyword-basics.md
   - linkListType: reference
     links:
     - text: Règles de nommage des mots clés personnalisés
-      url: speech-devices-sdk-kws-guidelines.md
+      url: ./custom-keyword-overview.md
 - title: Aide et commentaires
   linkLists:
   - linkListType: reference

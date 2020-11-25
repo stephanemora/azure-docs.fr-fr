@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128149"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019158"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -64,7 +64,7 @@ Sélectionnez **Terminé**.
     > [!div class="mx-imgBorder"]
     > [![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-1. Si vous souhaitez afficher les entités pour l’application, sélectionnez **Entités**. Si vous cliquez sur l’une des entités, par exemple **HomeAutomation.DeviceName** , vous verrez la liste des valeurs qui lui sont associées. 
+1. Si vous souhaitez afficher les entités pour l’application, sélectionnez **Entités**. Si vous cliquez sur l’une des entités, par exemple **HomeAutomation.DeviceName**, vous verrez la liste des valeurs qui lui sont associées. 
  
     :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Texte de l’image associée" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
@@ -98,12 +98,12 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
 1. En haut à droite de la fenêtre, sélectionnez **Publier**.
 
-1. Sélectionnez l’emplacement **Production** , puis sélectionnez **Terminé**.
+1. Sélectionnez l’emplacement **Production**, puis sélectionnez **Terminé**.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran LUIS - Publier sur le point de terminaison](media/howto-publish/publish-app-popup.png)
 
-1. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’ **Exemple de requête**.
+1. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’**Exemple de requête**.
 
 <!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
@@ -120,7 +120,7 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
     |`verbose=true`|
     |`show-all-intents=true`|
 
-3. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_ , puis appuyez sur Entrée.
+3. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_, puis appuyez sur Entrée.
 
     ```json
     {
@@ -223,4 +223,4 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 Vous pouvez appeler le point de terminaison à partir du code :
 
 > [!div class="nextstepaction"]
-> [Appeler un point de terminaison LUIS à l’aide d’un code](luis-get-started-cs-get-intent.md)
+> [Appeler un point de terminaison LUIS à l’aide d’un code](./luis-get-started-get-intent-from-rest.md)

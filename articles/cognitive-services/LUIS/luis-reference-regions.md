@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555768"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018648"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 
@@ -27,7 +27,7 @@ Il existe trois portails de création LUIS, en fonction de la région. Vous deve
 |[au.luis.ai][au.luis.ai] |Australie| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europe|`westeurope`|
 
-Les régions de création ont [des régions de basculement jumelées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Les régions de création ont [des régions de basculement jumelées](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,7 +102,7 @@ Découvrez-en plus sur les [points de terminaison de création et de prédiction
 
 Chaque région a une région secondaire vers laquelle basculer. L’Europe bascule à l’intérieur de l’Europe et l’Australie à l’intérieur de l’Australie.
 
-Les régions de création ont [des régions de basculement jumelées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Les régions de création ont [des régions de basculement jumelées](../../best-practices-availability-paired-regions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a529875536c2feafe05695e5d20daed0873a95e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934444"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024770"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implémentation des assistants vocaux sur Windows
 
@@ -30,15 +30,15 @@ Une fois [votre environnement configuré](how-to-windows-voice-assistants-get-st
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>Assurez-vous que le microphone est disponible et accessible, puis analyser son état
 
-MVA a besoin qu’un microphone présent et accessible pour pouvoir détecter une activation vocale. Utilisez les classes [AppCapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362) et [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) pour vérifier l’accès à la confidentialité du microphone, la présence d’appareils et l’état des appareils (par exemple, volume et muet), respectivement.
+MVA a besoin qu’un microphone présent et accessible pour pouvoir détecter une activation vocale. Utilisez les classes [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362) et [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) pour vérifier l’accès à la confidentialité du microphone, la présence d’appareils et l’état des appareils (par exemple, volume et muet), respectivement.
 
 ### <a name="register-the-application-with-the-background-service"></a>Enregistrer l'application auprès du service d'arrière-plan
 
-Pour que MVA lance l’application en arrière-plan, l’application doit être enregistrée auprès du service d’arrière-plan. Consultez un guide complet pour l’enregistrement des services en arrière-plan [ici](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+Pour que MVA lance l’application en arrière-plan, l’application doit être enregistrée auprès du service d’arrière-plan. Consultez un guide complet pour l’enregistrement des services en arrière-plan [ici](/windows/uwp/launch-resume/register-a-background-task).
 
 ### <a name="unlock-the-limited-access-feature"></a>Déverrouiller la fonctionnalité d’accès limité
 
-Utilisez votre clé de fonctionnalité d’accès limité fournie par Microsoft pour déverrouiller la fonctionnalité de l’assistant vocal. Pour ce faire, utilisez la classe [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) du SDK Windows.
+Utilisez votre clé de fonctionnalité d’accès limité fournie par Microsoft pour déverrouiller la fonctionnalité de l’assistant vocal. Pour ce faire, utilisez la classe [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) du SDK Windows.
 
 ### <a name="register-the-keyword-for-the-application"></a>Enregistrer le mot clé pour l’application
 
@@ -86,7 +86,7 @@ Une fois qu’une application d’agent vocal est activée par la voix, l’éta
 
 ### <a name="retrieve-activation-audio"></a>Récupérer l’audio d’activation
 
-Créez un [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) et transmettez-le à la `CreateAudioDeviceInputNodeAsync` du `ConversationalAgentSession`. Cela chargera la mémoire tampon audio du graphique avec l’audio *démarrant approximativement 3 secondes avant que le mot clé ne soit détecté*. Cet autre audio de début est inclus pour tenir compte d’un large éventail de longueurs de mots clés et de vitesses de débit de parole de l’orateur. Gérez ensuite l’événement [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) à partir du graphique audio pour récupérer les données audio.
+Créez un [AudioGraph](/uwp/api/windows.media.audio.audiograph) et transmettez-le à la `CreateAudioDeviceInputNodeAsync` du `ConversationalAgentSession`. Cela chargera la mémoire tampon audio du graphique avec l’audio *démarrant approximativement 3 secondes avant que le mot clé ne soit détecté*. Cet autre audio de début est inclus pour tenir compte d’un large éventail de longueurs de mots clés et de vitesses de débit de parole de l’orateur. Gérez ensuite l’événement [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) à partir du graphique audio pour récupérer les données audio.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -118,7 +118,7 @@ Les étapes suivantes décrivent la configuration requise pour permettre à un a
 
 Pour obtenir des conseils sur la conception des expériences au-dessus du verrou, consultez le [guide des meilleures pratiques](windows-voice-assistants-best-practices.md).
 
-Quand une application affiche une vue au-dessus du verrou, elle est considérée comme étant en mode plein écran. Pour plus d’informations sur l’implémentation d’une application qui utilise le mode plein écran, consultez la [documentation en mode plein écran](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+Quand une application affiche une vue au-dessus du verrou, elle est considérée comme étant en mode plein écran. Pour plus d’informations sur l’implémentation d’une application qui utilise le mode plein écran, consultez la [documentation en mode plein écran](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
 
 ### <a name="transitioning-above-lock"></a>Transition au-dessus du verrou
 
@@ -149,7 +149,7 @@ L’entrée de l’application dans la page Paramètres de confidentialité de l
 Pour fermer correctement l’application par programme alors qu’elle se trouve au-dessus ou au-dessous du verrou, utilisez l’API `WindowService.CloseWindow()`. Cela déclenche toutes les méthodes de cycle de vie UWP, y compris OnSuspend, permettant à l’application de supprimer son instance `ConversationalAgentSession` avant de se fermer.
 
 > [!NOTE]
-> L’application peut se fermer sans fermer l’[instance en-dessous du verrou](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). Dans ce cas, l’affichage au-dessus du verrou doit être « nettoyé », ce qui garantit qu’une fois l’écran déverrouillé, aucun gestionnaire d’événements ou aucune tâche ne tente de manipuler l’affichage au-dessus du verrou.
+> L’application peut se fermer sans fermer l’[instance en-dessous du verrou](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). Dans ce cas, l’affichage au-dessus du verrou doit être « nettoyé », ce qui garantit qu’une fois l’écran déverrouillé, aucun gestionnaire d’événements ou aucune tâche ne tente de manipuler l’affichage au-dessus du verrou.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

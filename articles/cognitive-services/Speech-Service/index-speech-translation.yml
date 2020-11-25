@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2020
   ms.author: trbye
-  ms.openlocfilehash: 4b9e79bfca206c014ba16e1ac39a9ddb04559e13
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a54153dc8fc7f3b5ea2f86b3bf03f469aa56cdb3
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756851"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95015423"
 landingContent:
 - title: À propos de la traduction vocale
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     - text: Qu’est-ce que la traduction vocale ?
       url: speech-translation.md
     - text: Bases de la traduction vocale
-      url: speech-translation-basics.md
+      url: ./get-started-speech-translation.md
     - text: Utiliser l’interface CLI pour convertir la voix sans code
       url: spx-overview.md
   - linkListType: quickstart
@@ -37,7 +37,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Traduction vocale en temps réel
-      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+      url: /learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
     - text: Traduire et synthétiser du texte avec des API REST

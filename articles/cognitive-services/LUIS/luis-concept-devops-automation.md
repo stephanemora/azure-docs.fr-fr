@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324805"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025974"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flux de travail d’intégration continue et de livraison continue pour LUIS DevOps
 
@@ -27,9 +27,9 @@ Dans votre gestionnaire de contrôle des services (GCL), configurez les pipeline
 
 Le **flux de travail CI/CD** combine deux processus de développement complémentaires :
 
-* [L’intégration continue (CI)](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment le code dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Associé à une approche de [test](luis-concept-devops-testing.md) automatisé, l’intégration continue nous permet de vérifier que, pour chaque mise à jour, la source LUDown est toujours valide et peut être importée dans une application LUIS, mais également qu’elle réussit les tests qui vérifient que l’application entraînée peut reconnaître les intentions et les entités requises pour votre solution.
+* [L’intégration continue (CI)](/azure/devops/learn/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment le code dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Associé à une approche de [test](luis-concept-devops-testing.md) automatisé, l’intégration continue nous permet de vérifier que, pour chaque mise à jour, la source LUDown est toujours valide et peut être importée dans une application LUIS, mais également qu’elle réussit les tests qui vérifient que l’application entraînée peut reconnaître les intentions et les entités requises pour votre solution.
 
-* La [livraison continue](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) permet au concept d’intégration continue de déployer automatiquement l’application dans un environnement de tests plus approfondis. Grâce à la livraison continue, nous pouvons découvrir rapidement tous les problèmes imprévus qui résultent des modifications apportées, mais aussi en savoir plus sur les potentielles failles de nos tests.
+* La [livraison continue](/azure/devops/learn/what-is-continuous-delivery) (CD) permet au concept d’intégration continue de déployer automatiquement l’application dans un environnement de tests plus approfondis. Grâce à la livraison continue, nous pouvons découvrir rapidement tous les problèmes imprévus qui résultent des modifications apportées, mais aussi en savoir plus sur les potentielles failles de nos tests.
 
 L’objectif de l’intégration continue et de la livraison continue est de s’assurer que la branche principale est toujours accessible. Pour une application LUIS, cela signifie que nous pourrions, si nécessaire, prendre n’importe quelle version de l’application de la branche principale LUIS et la livrer en production.
 
@@ -41,7 +41,7 @@ Utiliser les outils de génération de flux de travail automatisés suivants pou
 
 * [Interface CLI LUIS des outils de l’infrastructure du chatbot](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) pour fonctionner avec les applications et versions LUIS (apprentissage, test) et les publier dans le service LUIS.
 
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour interroger des abonnements Azure, récupérer des clés de prédiction et de création de LUIS, et pour créer un [principal de service Azure](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) utilisé pour l’authentification du flux de travail d’automatisation.
+* [Interface de ligne de commande Azure](/cli/azure/?view=azure-cli-latest) pour interroger des abonnements Azure, récupérer des clés de prédiction et de création de LUIS, et pour créer un [principal de service Azure](/cli/azure/ad/sp?view=azure-cli-latest) utilisé pour l’authentification du flux de travail d’automatisation.
 
 * Outil [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) pour [tester une application LUIS](luis-concept-devops-testing.md) et analyser les résultats des tests.
 
@@ -70,7 +70,7 @@ Ce flux de travail peut :
 * Effectuer l’apprentissage de l’application LUIS puis la publier.
 
   > [!NOTE]
-  > Comme expliqué dans la section [Exécution de tests dans un flux de travail de génération automatisé](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) vous devez publier la version de l’application LUIS en cours de test afin d’utiliser des outils tels que NLU.DevOps. LUIS prend uniquement en charge deux emplacements de publication nommés : *mise en lot* et *production* pour une application LUIS. Vous pouvez également [publier une version directement](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) et [faire une requête par version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Utilisez la publication de version directe dans vos flux de travail d’automatisation pour éviter d’être limité à l’utilisation des emplacements de publication nommés.
+  > Comme expliqué dans la section [Exécution de tests dans un flux de travail de génération automatisé](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) vous devez publier la version de l’application LUIS en cours de test afin d’utiliser des outils tels que NLU.DevOps. LUIS prend uniquement en charge deux emplacements de publication nommés : *mise en lot* et *production* pour une application LUIS. Vous pouvez également [publier une version directement](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) et [faire une requête par version](./luis-migration-api-v3.md#changes-by-slot-name-and-version-name). Utilisez la publication de version directe dans vos flux de travail d’automatisation pour éviter d’être limité à l’utilisation des emplacements de publication nommés.
 
 * Exécutez tous les [tests unitaires](luis-concept-devops-testing.md).
 
@@ -84,13 +84,13 @@ Ce flux de travail peut :
 
 La tâche CD dans un flux de travail CI/CD s’exécute de manière conditionnelle en cas de réussite de la génération et des tests unitaires automatisés. Son travail consiste à déployer automatiquement l’application LUIS dans un environnement où vous pouvez effectuer d’autres tests.
 
-Il n’existe pas de solution recommandée pour déployer votre application LUIS, vous devez implémenter le processus adapté à votre projet. Le référentiel de [modèle LUIS DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implémente une solution simple pour cela, qui consiste à [publier la nouvelle version de l’application LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) dans l’emplacement de publication de *production*. Cela convient parfaitement pour une configuration simple. Toutefois, si vous avez besoin de prendre en charge un certain nombre d’environnements de production différents en même temps, par exemple de *développement*, de *mise en lots* et d’*UAT*, la limite de deux emplacements de publication nommés par application s’avère insuffisante.
+Il n’existe pas de solution recommandée pour déployer votre application LUIS, vous devez implémenter le processus adapté à votre projet. Le référentiel de [modèle LUIS DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implémente une solution simple pour cela, qui consiste à [publier la nouvelle version de l’application LUIS](./luis-how-to-publish-app.md) dans l’emplacement de publication de *production*. Cela convient parfaitement pour une configuration simple. Toutefois, si vous avez besoin de prendre en charge un certain nombre d’environnements de production différents en même temps, par exemple de *développement*, de *mise en lots* et d’*UAT*, la limite de deux emplacements de publication nommés par application s’avère insuffisante.
 
 Il existe d'autres options pour déployer une version de l'application :
 
 * Laisser la version publiée de l'application au point de terminaison de la version directe et mettre en œuvre un processus pour configurer les environnements de production en aval avec le point de terminaison de la version directe selon les besoins.
 * Maintenir différentes applications LUIS pour chaque environnement de production et écrire des étapes d'automatisation pour importer `.lu` dans une nouvelle version de l’application LUIS pour l'environnement de production cible, l’alimenter et la publier.
-* Exporter la version testée de l'application LUIS dans un [conteneur docker LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) et déployer le conteneur LUIS dans les [instances de conteneur](https://docs.microsoft.com/azure/container-instances/) d’Azure.
+* Exporter la version testée de l'application LUIS dans un [conteneur docker LUIS](./luis-container-howto.md?tabs=v3) et déployer le conteneur LUIS dans les [instances de conteneur](../../container-instances/index.yml) d’Azure.
 
 ## <a name="release-management"></a>Gestion des mises en production
 

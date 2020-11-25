@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a09563e787573f3cb3dd510229822a0b0fbcb6c9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395884"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024719"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utiliser les API et les kits SDK Azure Digital Twins
 
@@ -31,8 +31,8 @@ La version la plus récente de l’API de plan de contrôle est _**2020-10-31**_
 Pour utiliser les API de plan de contrôle :
 * Vous pouvez appeler les API directement en référençant l’infrastructure Swagger la plus récente dans le [dossier Swagger du plan de contrôle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Ce référentiel comprend également un dossier d’exemples qui en montrent l’utilisation.
 * Vous pouvez accéder aux SDK des API de contrôle en...
-  - [ **.NET (C#)** ](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([référence [générée automatiquement]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([référence [générée automatiquement]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [ **.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([référence [générée automatiquement]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([référence [générée automatiquement]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -57,7 +57,7 @@ Pour utiliser les API de plan de données :
    - Vous pouvez afficher et ajouter le package à partir de NuGet : [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - vous pouvez consulter la [documentation de référence du SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
    - vous pouvez trouver la source du SDK, y compris un dossier d’exemples, sur GitHub : [Bibliothèque de client Azure IoT Digital Twins pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Vous pouvez obtenir des informations détaillées et des exemples d’utilisation en passant à la section [*SDK .NET (C#) (plan de données)* ](#net-c-sdk-data-plane) de cet article.
+   - Vous pouvez obtenir des informations détaillées et des exemples d’utilisation en passant à la section [*SDK .NET (C#) (plan de données)*](#net-c-sdk-data-plane) de cet article.
 * Vous pouvez utiliser le **SDK Java**. Pour utiliser le Kit de développement logiciel (SDK) Java…
    - vous pouvez afficher et installer le package à partir de Maven : [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar).
    - vous pouvez consulter la [documentation de référence du Kit de développement logiciel (SDK)](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable).

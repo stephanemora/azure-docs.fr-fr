@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316390"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019073"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -29,7 +29,7 @@ Collectez des énoncés dont vous pensez que les utilisateurs les entreront. Inc
 
 ## <a name="how-to-choose-varied-utterances"></a>Comment choisir les énoncés variés
 
-Lorsque vous commencez à [ajouter des exemples d’énoncé](luis-how-to-add-example-utterances.md) à votre modèle LUIS, voici quelques principes à garder à l’esprit.
+Lorsque vous commencez à [ajouter des exemples d’énoncé](./luis-how-to-add-entities.md) à votre modèle LUIS, voici quelques principes à garder à l’esprit.
 
 ### <a name="utterances-arent-always-well-formed"></a>Les énoncés ne sont pas toujours correctement formés
 
@@ -78,7 +78,7 @@ Les paramètres de normalisation de l’énoncé sont désactivés par défaut. 
 * Diacritiques
 * Ponctuation
 
-Si vous activez le paramètre de normalisation, les scores dans le volet **Test** , les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés pour ce paramètre de normalisation.
+Si vous activez le paramètre de normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés pour ce paramètre de normalisation.
 
 Lorsque vous clonez une version dans le portail LUIS, les paramètres de version sont toujours appliqués à la nouvelle version clonée.
 
@@ -147,5 +147,4 @@ Si vous souhaitez qu’une entité d’événement recherche toutes les données
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la formation d’une application LUIS pour comprendre les énoncés des utilisateurs, voir [Ajouter des exemples d’énoncés](luis-how-to-add-example-utterances.md).
-
+Pour plus d’informations sur la formation d’une application LUIS pour comprendre les énoncés des utilisateurs, voir [Ajouter des exemples d’énoncés](./luis-how-to-add-entities.md).

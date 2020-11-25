@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541796"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019243"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertir le format de données des énoncés
 LUIS fournit les conversions suivantes d’un énoncé utilisateur avant prédiction
@@ -26,7 +26,7 @@ LUIS fournit les conversions suivantes d’un énoncé utilisateur avant prédic
 La reconnaissance vocale est fournie en tant qu’intégration à LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Concepts de conversion d’intention
-La conversion de la reconnaissance vocale dans LUIS vous permet d’envoyer des énoncés parlés d’envoi à un point de terminaison et de recevoir une réponse de prédiction LUIS. Le processus est une intégration du service de [reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech) avec LUIS. En savoir plus sur la conversion de sortie orale en intention avec un [tutoriel](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+La conversion de la reconnaissance vocale dans LUIS vous permet d’envoyer des énoncés parlés d’envoi à un point de terminaison et de recevoir une réponse de prédiction LUIS. Le processus est une intégration du service de [reconnaissance vocale](/azure/cognitive-services/Speech) avec LUIS. En savoir plus sur la conversion de sortie orale en intention avec un [tutoriel](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Conditions clés
 Vous n’avez pas besoin de créer une clé d’**API Reconnaissance vocale Bing** pour cette intégration. Une clé **Language Understanding** créée dans le portail Azure fonctionne pour cette intégration. N’utilisez pas la clé de démarrage LUIS.
@@ -41,4 +41,3 @@ Voir les [limites de clés](luis-limits.md#key-limits) pour plus d’information
 
 > [!div class="nextstepaction"]
 > [Extraction des données](luis-concept-data-extraction.md)
-

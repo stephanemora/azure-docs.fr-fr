@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541428"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018886"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail LUIS ou par le biais des [API](developer-reference-resource.md) de création LUIS.
@@ -24,7 +24,7 @@ Il existe deux façons de créer une application LUIS. Vous pouvez créer une ap
 Vous pouvez créer une application dans le portail de plusieurs manières :
 
 * Démarrez avec une application vide et créer des intentions, des énoncés et des entités.
-* Démarrez avec une application vide et ajoutez un [domaine prédéfini](luis-how-to-use-prebuilt-domains.md).
+* Démarrez avec une application vide et ajoutez un [domaine prédéfini](./howto-add-prebuilt-models.md).
 * Importez une application LUIS à partir d’un fichier `.lu` ou `.json` qui contient déjà des intentions, des énoncés et des entités.
 
 ## <a name="using-the-authoring-apis"></a>Utilisation des API de création
@@ -75,4 +75,4 @@ La barre d’outils de contextuelle propose d’autres actions :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si la conception de votre application comprend la détection des intentions, [créez de nouvelles intentions](luis-how-to-add-intents.md) et ajoutez des exemples d’énoncés. Si la conception de votre application n’a trait qu’à l’extraction de données, ajoutez des exemples d’énoncés à l’intention None, puis [créez des entités](luis-how-to-add-example-utterances.md) et étiquetez les exemples d’énoncés avec ces entités.
+Si la conception de votre application comprend la détection des intentions, [créez de nouvelles intentions](luis-how-to-add-intents.md) et ajoutez des exemples d’énoncés. Si la conception de votre application n’a trait qu’à l’extraction de données, ajoutez des exemples d’énoncés à l’intention None, puis [créez des entités](./luis-how-to-add-entities.md) et étiquetez les exemples d’énoncés avec ces entités.
