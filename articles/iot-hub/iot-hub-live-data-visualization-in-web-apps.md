@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740993"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832175"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -51,13 +51,7 @@ Ce tutoriel explique comment visualiser en temps réel les données de capteur q
 
 * Les étapes de cet article supposent une machine de développement Windows. Vous pouvez, toutefois, effectuer ces étapes facilement sur un système Linux, dans l’interpréteur de commandes de votre choix.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Ajouter un groupe de consommateurs à votre instance IoT Hub
 
@@ -73,7 +67,7 @@ Notez le nom que vous choisissez, vous en aurez besoin plus loin dans ce tutorie
 
 ## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Obtenir une chaîne de connexion de service pour votre hub IoT
 
-Les hubs IoT sont créés avec plusieurs stratégies d’accès par défaut. L’une d’elles, la stratégie **service** , fournit des autorisations suffisantes pour qu’un service lise et écrive les points de terminaison du hub IoT. Exécutez la commande suivante afin d’obtenir une chaîne de connexion pour votre hub IoT qui respecte la stratégie de service :
+Les hubs IoT sont créés avec plusieurs stratégies d’accès par défaut. L’une d’elles, la stratégie **service**, fournit des autorisations suffisantes pour qu’un service lise et écrive les points de terminaison du hub IoT. Exécutez la commande suivante afin d’obtenir une chaîne de connexion pour votre hub IoT qui respecte la stratégie de service :
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
@@ -147,7 +141,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 Ouvrez un navigateur et accédez à `http://localhost:3000`.
 
-Dans la liste **Sélectionner un appareil** , sélectionnez votre appareil pour voir le tracé en cours des 50 derniers relevés de données de température et d’humidité envoyés par l’appareil à votre hub IoT.
+Dans la liste **Sélectionner un appareil**, sélectionnez votre appareil pour voir le tracé en cours des 50 derniers relevés de données de température et d’humidité envoyés par l’appareil à votre hub IoT.
 
 ![Page d’application web affichant l’humidité et la température en temps réel](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
@@ -253,9 +247,9 @@ Si vous rencontrez des problèmes avec cet exemple, consultez les étapes décri
 
 ### <a name="azure-app-service-issues"></a>Problèmes Azure App Service
 
-* Dans le portail Azure, accédez à votre application web. Dans le volet de gauche, sous **Surveillance** , sélectionnez **Journaux App Service** . Activez **Journal des applications (Système de fichiers)** , définissez **Niveau** sur Erreur, puis sélectionnez **Enregistrer** . Ouvrez ensuite **Flux de journaux** (sous **Surveillance** ).
+* Dans le portail Azure, accédez à votre application web. Dans le volet de gauche, sous **Surveillance**, sélectionnez **Journaux App Service**. Activez **Journal des applications (Système de fichiers)** , définissez **Niveau** sur Erreur, puis sélectionnez **Enregistrer**. Ouvrez ensuite **Flux de journaux** (sous **Surveillance**).
 
-* À partir de votre application web dans le portail Azure, sous **Outils de développement** , sélectionnez **Console** et validez des versions node et npm avec `node -v` et `npm -v`.
+* À partir de votre application web dans le portail Azure, sous **Outils de développement**, sélectionnez **Console** et validez des versions node et npm avec `node -v` et `npm -v`.
 
 * Si vous voyez une erreur au sujet d’un package introuvable, il est possible que vous ayez exécuté les étapes dans le désordre. Lorsque le site est déployé (avec `git push`), le service d’application exécute `npm install`, qui s’exécute en fonction de la version actuelle de node qu’il a configurée. Si cette configuration est modifiée ultérieurement, vous devrez apporter une modification mineure au code, et l’envoyer (push) de nouveau.
 

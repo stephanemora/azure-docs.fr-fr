@@ -3,6 +3,7 @@ title: Installer l’environnement de développement/test IBM zD&T sur Azure | M
 description: Déployez l’environnement de développement et de test IBM zD&T sur l’infrastructure Machine virtuelle Azure en tant que service IaaS (Infrastructure as a Service).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499917"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968330"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installer l’environnement de développement/test IBM zD&T sur Azure
 

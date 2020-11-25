@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e35d44d197e1ca4e8f8036cb7920a96e5a60a5f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424260"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948780"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -44,15 +44,15 @@ Les réseaux virtuels Azure ont des journaux de flux de groupe de sécurité ré
 
 ## <a name="key-components"></a>Composants clés
 
-- **Groupe de sécurité réseau**  : contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel Azure. Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Groupe de sécurité réseau** : contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel Azure. Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
 - **Journalisation des flux de groupe de sécurité réseau (NSG)**  : permet d’afficher des informations sur le trafic IP entrant et sortant via un groupe de sécurité réseau. Les journaux de flux de groupe de sécurité réseau sont écrits au format JSON et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic. Pour plus d’informations sur les journaux de flux de groupe de sécurité réseau, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**  : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Les applications de surveillance telles que Network Performance Monitor et Traffic Analytics sont basées sur des journaux Azure Monitor. Pour plus d’informations, voir [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espace de travail Log Analytics**  : instance d’analytique des journaux Azure Monitor, où les données appartenant à un compte Azure sont stockées. Pour plus d’informations sur les espaces de travail Log Analytics, voir [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**  : service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans Azure. Vous pouvez activer et désactiver les journaux de flux de groupe de sécurité réseau avec Network Watcher. Pour plus d’informations, consultez [Network Watcher](network-watcher-monitoring-overview.md).
+- **Log Analytics** : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Les applications de surveillance telles que Network Performance Monitor et Traffic Analytics sont basées sur des journaux Azure Monitor. Pour plus d’informations, voir [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- **Espace de travail Log Analytics** : instance d’analytique des journaux Azure Monitor, où les données appartenant à un compte Azure sont stockées. Pour plus d’informations sur les espaces de travail Log Analytics, voir [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher** : service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans Azure. Vous pouvez activer et désactiver les journaux de flux de groupe de sécurité réseau avec Network Watcher. Pour plus d’informations, consultez [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Fonctionnement de Traffic Analytics
 
-Traffic Analytics examine les journaux de flux de groupe de sécurité réseau bruts et capture les journaux d’activité réduits en agrégeant les flux communs entre l’adresse IP source, l’adresse IP de destination, le port de destination et le protocole similaires. Par exemple, l’hôte 1 (adresse IP : 10.10.10.10) communique avec l’hôte 2 (adresse IP : 10.10.20.10) 100 fois sur une période de 1 heure via le port (par exemple, 80) et le protocole (par exemple, http). Le journal réduit comporte une entrée, indiquant que les hôtes 1 et 2 ont communiqué 100 fois sur une période de 1 heure à l’aide du port *80* et du protocole *HTTP* , plutôt que de présenter 100 entrées. Les informations sur la topologie, la sécurité et la géographie viennent compléter les journaux d’activité réduits. Ils sont ensuite stockés dans l’espace de travail Log Analytics. L’illustration suivante montre le flux de données :
+Traffic Analytics examine les journaux de flux de groupe de sécurité réseau bruts et capture les journaux d’activité réduits en agrégeant les flux communs entre l’adresse IP source, l’adresse IP de destination, le port de destination et le protocole similaires. Par exemple, l’hôte 1 (adresse IP : 10.10.10.10) communique avec l’hôte 2 (adresse IP : 10.10.20.10) 100 fois sur une période de 1 heure via le port (par exemple, 80) et le protocole (par exemple, http). Le journal réduit comporte une entrée, indiquant que les hôtes 1 et 2 ont communiqué 100 fois sur une période de 1 heure à l’aide du port *80* et du protocole *HTTP*, plutôt que de présenter 100 entrées. Les informations sur la topologie, la sécurité et la géographie viennent compléter les journaux d’activité réduits. Ils sont ensuite stockés dans l’espace de travail Log Analytics. L’illustration suivante montre le flux de données :
 
 ![Flux de données pour le traitement des journaux de flux de groupe de sécurité réseau](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -197,7 +197,7 @@ Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou 
 
 Avant d’activer la journalisation de flux de groupe de sécurité réseau, vous devez disposer d’un groupe de sécurité réseau pour lequel journaliser des flux. Si vous n’en avez pas, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/manage-network-security-group.md#create-a-network-security-group) pour en créer un.
 
-Dans le portail Azure, accédez à **Network Watcher** , puis sélectionnez **Journaux de flux NSG**. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer un journal de flux de groupe de sécurité réseau, comme indiqué dans l’image suivante :
+Dans le portail Azure, accédez à **Network Watcher**, puis sélectionnez **Journaux de flux NSG**. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer un journal de flux de groupe de sécurité réseau, comme indiqué dans l’image suivante :
 
 ![Sélection de groupes de sécurité réseau qui nécessitent l’activation du journal de flux de groupe de sécurité réseau](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -232,7 +232,7 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. 
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
 6. Sélectionnez l’intervalle de traitement. Suivant votre choix, les journaux d’activité de flux seront collectés à partir du compte de stockage et traités par Traffic Analytics. Vous pouvez choisir un intervalle de traitement et le définir pour toutes les heures ou toutes les 10 minutes. 
-7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
 
 > [!NOTE]
 >L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
@@ -271,7 +271,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 - Statistiques du trafic malveillant autorisé/bloqué
   - Pourquoi un hôte reçoit-il du trafic malveillant et pourquoi les flux d’une source malveillante sont-ils autorisés ? Ce comportement requiert une enquête plus poussée et probablement l’optimisation de la configuration.
 
-    Sélectionnez **Afficher tout** sous **Hôte** , comme illustré dans l’image suivante :
+    Sélectionnez **Afficher tout** sous **Hôte**, comme illustré dans l’image suivante :
 
     ![Tableau de bord présentant les détails de l’hôte avec le plus de trafic](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
@@ -299,7 +299,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 - Quel est le protocole d’application le plus utilisé dans votre environnement, et quelles paires d’hôtes qui communiquent utilisent le plus le protocole d’application ?
     - Ces applications sont-elles autorisées sur ce réseau ?
-    - Les applications sont-elles configurées correctement ? Utilisent-elles le protocole approprié pour la communication ? Le comportement attendu est des ports courants, tels que 80 et 443. Pour la communication standard, si des ports inhabituels sont affichés, une modification de la configuration peut être nécessaire. Sélectionnez **Afficher tout** sous **Port de l'application** , comme illustré dans l’image suivante :
+    - Les applications sont-elles configurées correctement ? Utilisent-elles le protocole approprié pour la communication ? Le comportement attendu est des ports courants, tels que 80 et 443. Pour la communication standard, si des ports inhabituels sont affichés, une modification de la configuration peut être nécessaire. Sélectionnez **Afficher tout** sous **Port de l'application**, comme illustré dans l’image suivante :
 
         ![Tableau de bord présentant les principaux protocoles d’application](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
@@ -315,7 +315,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     - Chaque référence SKU de VPN autorise une certaine quantité de bande passante. Les passerelles VPN sont-elles sous-exploitées ?
     - Vos passerelles atteignent-elles la capacité définie ? Devez-vous mettre à niveau vers la référence SKU supérieure suivante ?
 - Quels sont les hôtes qui communiquent le plus, via quelle passerelle VPN, sur quel port ?
-    - Ce modèle est-il normal ? Sélectionnez **Afficher tout** sous **Passerelle VPN** , comme illustré dans l’image suivante :
+    - Ce modèle est-il normal ? Sélectionnez **Afficher tout** sous **Passerelle VPN**, comme illustré dans l’image suivante :
 
         ![Tableau de bord présentant les principales connexions VPN actives](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
@@ -331,7 +331,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
   - Si vous remarquez plus de charge sur un centre de données, vous pouvez planifier une distribution du trafic efficace.
   - Si des réseaux non fiables communiquent dans le centre de données, corrigez les règles de groupe de sécurité réseau pour les bloquer.
 
-    Sélectionnez **Afficher la carte** sous **Votre environnement** , comme illustré dans l’image suivante :
+    Sélectionnez **Afficher la carte** sous **Votre environnement**, comme illustré dans l’image suivante :
 
     ![Tableau de bord présentant la distribution du trafic](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
@@ -353,7 +353,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
   - Savoir quel réseau virtuel communique avec quel réseau virtuel. Si la conversation n’est pas attendue, cela peut être corrigé.
   - Si des réseaux non fiables communiquent avec un réseau virtuel, vous pouvez corriger les règles de groupe de sécurité réseau pour bloquer les réseaux non fiables.
  
-    Sélectionnez **Voir les réseaux virtuels** sous **Votre environnement** , comme illustré dans l’image suivante :
+    Sélectionnez **Voir les réseaux virtuels** sous **Votre environnement**, comme illustré dans l’image suivante :
 
     ![Tableau de bord présentant la distribution de réseau virtuel](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 

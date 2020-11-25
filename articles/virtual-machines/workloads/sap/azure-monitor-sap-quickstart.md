@@ -5,14 +5,15 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739891"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968585"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Déployer Azure Monitor pour les solutions SAP avec le portail Azure
 
@@ -28,7 +29,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
-2. Sous l’onglet **De base** , indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
+2. Sous l’onglet **De base**, indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Affichage des options de configuration du portail Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
@@ -52,7 +53,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 3. Entrez l’adresse IP privée du serveur HANA.
 
-4. Entrez le nom du locataire de la base de données que vous voulez utiliser. Vous pouvez choisir n’importe quel locataire. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB** , qui offre un ensemble plus vaste de zones de surveillance. 
+4. Entrez le nom du locataire de la base de données que vous voulez utiliser. Vous pouvez choisir n’importe quel locataire. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB**, qui offre un ensemble plus vaste de zones de surveillance. 
 
 5. Entrez le numéro de port SQL associé à votre base de données HANA. Le numéro de port doit être au format **[3]**  +  **[instance#]**  +  **[13]** . Par exemple, 30013. 
 

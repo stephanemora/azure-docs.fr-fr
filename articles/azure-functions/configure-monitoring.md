@@ -3,13 +3,13 @@ title: Configurer l’analyse pour Azure Functions
 description: Découvrez comment connecter votre application de fonction à Application Insights à des fins de surveillance et de configuration de la collecte de données.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217182"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833076"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Comment configurer l’analyse pour Azure Functions
 
@@ -228,24 +228,24 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 ## <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
 
-Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit se trouver dans un paramètre d’application nommé **APPINSIGHTS_INSTRUMENTATIONKEY** .
+Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit se trouver dans un paramètre d’application nommé **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
 Lorsque vous créez votre application de fonction dans le [portail Azure](functions-create-first-azure-function.md), à partir de la ligne de commande avec [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), ou à l’aide de [Visual Studio Code](functions-create-first-function-vs-code.md), l’intégration d’Application Insights est activée par défaut. La ressource Application Insights, qui porte le même nom que votre application de fonction est créée dans la même région ou dans la région la plus proche.
 
 ### <a name="new-function-app-in-the-portal"></a>Nouvelle application de fonction dans le portail
 
-Pour examiner la ressource Application Insights en cours de création, sélectionnez-la de manière à développer la fenêtre **Application Insights** . Vous pouvez modifier le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
+Pour examiner la ressource Application Insights en cours de création, sélectionnez-la de manière à développer la fenêtre **Application Insights**. Vous pouvez modifier le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
 
 ![Activer Application Insights pendant la création d’une application de fonction](media/functions-monitoring/enable-ai-new-function-app.png)
 
-Lorsque vous sélectionnez **Créer** , une ressource Application Insights est créée avec votre application de fonction, et `APPINSIGHTS_INSTRUMENTATIONKEY` est défini dans les paramètres de l’application. Tout est prêt.
+Lorsque vous sélectionnez **Créer**, une ressource Application Insights est créée avec votre application de fonction, et `APPINSIGHTS_INSTRUMENTATIONKEY` est défini dans les paramètres de l’application. Tout est prêt.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Ajouter à une application de fonction existante 
 
 Si une ressource Application Insights n’a pas été créée avec votre application de fonction, procédez comme suit pour créer la ressource. Vous pouvez ensuite ajouter la clé d’instrumentation de cette ressource en tant que [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) dans votre application de fonction.
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Application de fonction** , puis choisissez votre application de fonction. 
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Application de fonction**, puis choisissez votre application de fonction. 
 
 1. Sélectionnez la bannière **Application Insights n'est pas configuré** en haut de la fenêtre. Si vous ne voyez pas cette bannière, cela signifie que votre application a probablement déjà Application Insights activé.
 
@@ -258,13 +258,13 @@ Si une ressource Application Insights n’a pas été créée avec votre applica
     | **Nouveau nom de la ressource** | Nom d’application unique | Il est plus facile d’utiliser le même nom que celui de votre application de fonction, qui doit être unique dans votre abonnement. | 
     | **Lieu** | Europe Ouest | Si possible, utilisez la même [région](https://azure.microsoft.com/regions/) que celle de votre application de fonction ou une région proche. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Activer Application Insights à partir du portail":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Création d’une ressource Application Insights":::
 
-1. Sélectionnez **Appliquer** . 
+1. Sélectionnez **Appliquer**. 
 
    La ressource Application Insights est créée dans le même groupe de ressources et le même abonnement que votre application de fonction. Une fois la ressource créée, fermez la fenêtre Application Insights.
 
-1. Dans votre application de fonction, sélectionnez **Configuration** sous **Paramètres** , puis sélectionnez **Paramètres d'application** . Si vous voyez un paramètre nommé `APPINSIGHTS_INSTRUMENTATIONKEY`, cela signifie que l’intégration d’Application Insights est activée pour votre application de fonction s’exécutant dans Azure. Si, pour une raison quelconque, ce paramètre n’existe pas, ajoutez-le en utilisant votre clé d’instrumentation Application Insights comme valeur.
+1. Dans votre application de fonction, sélectionnez **Configuration** sous **Paramètres**, puis sélectionnez **Paramètres d'application**. Si vous voyez un paramètre nommé `APPINSIGHTS_INSTRUMENTATIONKEY`, cela signifie que l’intégration d’Application Insights est activée pour votre application de fonction s’exécutant dans Azure. Si, pour une raison quelconque, ce paramètre n’existe pas, ajoutez-le en utilisant votre clé d’instrumentation Application Insights comme valeur.
 
 > [!NOTE]
 > Les premières versions de Functions utilisaient la surveillance intégrée, ce qui n’est plus recommandé. Lorsque vous activez l’intégration d’Application Insights pour un telle application de fonction, vous devez également [désactiver la journalisation intégrée](#disable-built-in-logging).  

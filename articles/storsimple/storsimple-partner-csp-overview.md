@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88181998"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964913"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Qu’est-ce que StorSimple pour le programme des fournisseurs de solutions cloud ?
 
@@ -30,7 +30,7 @@ Microsoft Azure StorSimple est une approche unique pour le stockage d’entrepri
 
 La baie virtuelle StorSimple pour le programme des fournisseurs de solutions cloud permet aux partenaires de tirer profit de cette opportunité. Les partenaires maîtrisent le cycle de vie des clients de bout en bout à l’aide de méthodes directes d’approvisionnement, de facturation et de support des services cloud Microsoft. En bref, les partenaires peuvent désormais traiter avec StorSimple, ainsi qu’avec leurs services avec les clients.
 
-Pour plus d’informations sur StorSimple pour le programme des fournisseurs de solutions cloud, accédez à la page [Vue d’ensemble du programme des fournisseurs de solutions cloud Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+Pour plus d’informations sur StorSimple pour le programme des fournisseurs de solutions cloud, accédez à la page [Vue d’ensemble du programme des fournisseurs de solutions cloud Azure](/azure/cloud-solution-provider/overview/azure-csp-overview).
 
 Pour plus d’informations sur la facturation, la tarification, les offres incitatives et obtenir l’assistance relative aux fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions). 
 

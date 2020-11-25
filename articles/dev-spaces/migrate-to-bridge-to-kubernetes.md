@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Décrit le processus de migration d’Azure Dev Spaces vers Bridge to Kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Bridge to Kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895254"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888519"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migration vers la solution Bridge to Kubernetes
 
@@ -85,7 +85,7 @@ La solution Bridge to Kubernetes offre la flexibilité nécessaire pour travaill
 1. Si vous utilisez Visual Studio, mettez à jour votre environnement de développement intégré (IDE) Visual Studio vers la version 16.7 ou une version ultérieure, et installez l’extension Bridge to Kubernetes à partir de [Visual Studio Marketplace][vs-marketplace]. Si vous utilisez Visual Studio Code, installez l’extension [Bridge to Kubernetes][vsc-marketplace].
 1. Désactivez le contrôleur Azure Dev Spaces à l’aide du portail Azure ou de l’[interface de ligne de commande Azure Dev Spaces][azds-delete].
 1. Utilisez [Azure Cloud Shell](https://shell.azure.com). Ou sur Mac, Linux ou Windows avec bash installé, ouvrez une invite d’interpréteur de commandes bash. Assurez-vous que les outils suivants sont disponibles dans votre environnement de ligne de commande : Azure CLI, Docker, kubectl, curl, tar et gunzip.
-1. Créez un registre de conteneurs ou utilisez-en un existant. Vous pouvez créer un registre de conteneurs dans Azure à l’aide d’[Azure Container Registry](../container-registry/index.yml) ou en utilisant [Docker Hub](https://hub.docker.com/). Lorsque vous utilisez Azure Cloud Shell, seul Azure Container Registry est disponible pour héberger les images Docker.
+1. Créez un registre de conteneurs ou utilisez-en un existant. Vous pouvez créer un registre de conteneurs dans Azure à l’aide d’[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) ou en utilisant [Docker Hub](https://hub.docker.com/). Lorsque vous utilisez Azure Cloud Shell, seul Azure Container Registry est disponible pour héberger les images Docker.
 1. Exécutez le script de migration pour convertir les ressources Azure Dev Spaces en ressources Bridge to Kubernetes. Le script génère une nouvelle image compatible avec Bridge to Kubernetes, la charge dans le registre désigné, puis utilise [Helm](https://helm.sh) pour mettre à jour le cluster avec l’image. Vous devez indiquer le groupe de ressources, le nom du cluster AKS et un registre de conteneurs. Il existe d’autres options de ligne de commande, comme illustré ici :
 
    ```azure-cli

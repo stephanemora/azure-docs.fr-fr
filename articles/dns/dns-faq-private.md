@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308433"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952384"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
@@ -34,7 +34,7 @@ Non. Les zones privées fonctionnent avec les réseaux virtuels. Vous les utilis
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>La même zone privée peut-elle être utilisée pour plusieurs réseaux virtuels pour la résolution ?
 
-Oui. Vous pouvez lier une zone DNS privée à des milliers de réseaux virtuels. Pour plus d’informations, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits).
+Oui. Vous pouvez lier une zone DNS privée à des milliers de réseaux virtuels. Pour plus d’informations, consultez [Limites d’Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits).
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être lié à une zone privée ?
 
@@ -75,11 +75,11 @@ Oui. Les zones privées ne remplacent pas la zone internal.cloudapp.net fournie 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Le suffixe DNS sur les machines virtuelles au sein d’un réseau virtuel lié est-il remplacé par celui de la zone privée ?
 
 Non. Le suffixe DNS sur les machines virtuelles de votre réseau virtuel lié reste le suffixe par défaut fourni par Azure (« *.internal.cloudapp.net »). Vous pouvez changer manuellement ce suffixe DNS sur vos machines virtuelles en le remplaçant par celui de la zone privée.
-Pour obtenir des conseils sur la façon de modifier ce suffixe, consultez [Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients).
+Pour obtenir des conseils sur la façon de modifier ce suffixe, consultez [Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients).
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Quelles sont les limites d’utilisation d’Azure DNS Private Zones ?
 
-Pour plus d’informations sur les limites d’utilisation d’Azure DNS Private Zones, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits).
+Pour plus d’informations sur les limites d’utilisation d’Azure DNS Private Zones, consultez [Limites d’Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits).
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Pourquoi mes zones DNS privées existantes n’apparaissent-elles pas dans le nouveau portail ?
 

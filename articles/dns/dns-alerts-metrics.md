@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 85b681cbeb1b06784529e321c9e907ab2bdecb73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954645"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métriques et alertes Azure DNS
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. Cet article aborde les métriques et les alertes du service Azure DNS.
@@ -47,7 +47,7 @@ Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préver
 *Figure : Métriques QueryVolume (Volume de requêtes) dans Azure DNS*
 
 ### <a name="record-set-count"></a>Nombre de jeux d’enregistrements
-La métrique *RecordSetCount* (Nombre de recordsets) indique le nombre de recordsets qui se trouvent dans Azure DNS pour votre zone DNS. Tous les recordsets définis dans votre zone sont comptabilisés. L’unité de mesure est Nombre et l’agrégation correspond au nombre total de recordsets. Pour afficher cette métrique, sélectionnez l’explorateur **Métriques (préversion)** sous l’onglet **Surveiller** du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante **Ressource** , sélectionnez la métrique **RecordSetCount** (Nombre de recordsets), puis sélectionnez **Max** pour **Agrégation** . Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
+La métrique *RecordSetCount* (Nombre de recordsets) indique le nombre de recordsets qui se trouvent dans Azure DNS pour votre zone DNS. Tous les recordsets définis dans votre zone sont comptabilisés. L’unité de mesure est Nombre et l’agrégation correspond au nombre total de recordsets. Pour afficher cette métrique, sélectionnez l’explorateur **Métriques (préversion)** sous l’onglet **Surveiller** du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante **Ressource**, sélectionnez la métrique **RecordSetCount** (Nombre de recordsets), puis sélectionnez **Max** pour **Agrégation**. Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
 ![Nombre de jeux d’enregistrements](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
@@ -55,14 +55,14 @@ La métrique *RecordSetCount* (Nombre de recordsets) indique le nombre de record
 
 
 ### <a name="record-set-capacity-utilization"></a>Utilisation de la capacité du jeu d’enregistrements
-Dans Azure DNS, la métrique *RecordSetCapacityUtilization* (Utilisation de la capacité du recordset) indique le pourcentage d’utilisation de la capacité de votre recordset pour une zone DNS. Dans Azure DNS, chaque zone DNS est soumise à un nombre maximal de recordsets (voir [Limites DNS](dns-zones-records.md#limits)). Cette métrique vous permet donc de savoir si vous êtes proche de la limite autorisée. Par exemple, si vous avez configuré 500 recordsets pour votre zone DNS, et si la zone est limitée à 5 000 recordsets (limite par défaut), la métrique RecordSetCapacityUtilization (Utilisation de la capacité du recordset) affichera une valeur de 10 % (obtenue en divisant 5 000 par 500). L’unité de mesure est le **pourcentage** et **l’agrégation** est **maximale** . Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préversion) sous l’onglet Surveiller du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante Ressource, sélectionnez la métrique RecordSetCapacityUtilization (Utilisation de la capacité du recordset), puis sélectionnez Max pour l’agrégation. La capture d'écran ci-dessous montre un exemple. Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
+Dans Azure DNS, la métrique *RecordSetCapacityUtilization* (Utilisation de la capacité du recordset) indique le pourcentage d’utilisation de la capacité de votre recordset pour une zone DNS. Dans Azure DNS, chaque zone DNS est soumise à un nombre maximal de recordsets (voir [Limites DNS](dns-zones-records.md#limits)). Cette métrique vous permet donc de savoir si vous êtes proche de la limite autorisée. Par exemple, si vous avez configuré 500 recordsets pour votre zone DNS, et si la zone est limitée à 5 000 recordsets (limite par défaut), la métrique RecordSetCapacityUtilization (Utilisation de la capacité du recordset) affichera une valeur de 10 % (obtenue en divisant 5 000 par 500). L’unité de mesure est le **pourcentage** et **l’agrégation** est **maximale**. Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préversion) sous l’onglet Surveiller du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante Ressource, sélectionnez la métrique RecordSetCapacityUtilization (Utilisation de la capacité du recordset), puis sélectionnez Max pour l’agrégation. La capture d'écran ci-dessous montre un exemple. Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
 ![Capture d’écran montrant un exemple d’affichage des métriques.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Figure : Métriques RecordSetCapacityUtilization (Utilisation de la capacité du recordset) dans Azure DNS*
 
 ## <a name="alerts-in-azure-dns"></a>Alertes Azure DNS
-Azure Monitor permet d’être alerté lorsque des valeurs métriques sont disponibles. Les métriques DNS sont disponibles dans la nouvelle configuration des alertes. Comme décrit en détail dans la [documentation sur les alertes Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), vous pouvez sélectionner la zone DNS en tant que ressource, choisir le type de signalement des métriques et configurer la logique d’alerte et d’autres paramètres tels que la **Période** et la **Fréquence** . Vous pouvez définir un [Groupe d’actions](../azure-monitor/platform/action-groups.md) à effectuer lorsqu’une condition d’alerte est remplie. Pour plus d’informations sur la configuration des alertes dans Azure Monitor, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor permet d’être alerté lorsque des valeurs métriques sont disponibles. Les métriques DNS sont disponibles dans la nouvelle configuration des alertes. Comme décrit en détail dans la [documentation sur les alertes Azure Monitor](../azure-monitor/platform/alerts-metric.md), vous pouvez sélectionner la zone DNS en tant que ressource, choisir le type de signalement des métriques et configurer la logique d’alerte et d’autres paramètres tels que la **Période** et la **Fréquence**. Vous pouvez définir un [Groupe d’actions](../azure-monitor/platform/action-groups.md) à effectuer lorsqu’une condition d’alerte est remplie. Pour plus d’informations sur la configuration des alertes dans Azure Monitor, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-metric.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Azure DNS](dns-overview.md)

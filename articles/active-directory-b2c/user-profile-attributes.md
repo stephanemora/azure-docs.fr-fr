@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83738555"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952699"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -26,7 +26,7 @@ Le profil utilisateur de votre répertoire Azure Active Directory (Azure AD) B2C
 
 Vous pouvez également intégrer des systèmes externes. Par exemple, vous pouvez utiliser Azure AD B2C pour l’authentification, mais déléguer les données client à une base de données externe de gestion de la relation client (CRM) ou de fidélisation des clients en tant que source faisant autorité. Pour plus d’informations, consultez la solution [Profil distant](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateur](https://docs.microsoft.com/graph/api/resources/user) pris en charge par le profil utilisateur du répertoire Azure AD B2C. Il fournit les informations suivantes sur chaque attribut :
+Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateur](/graph/api/resources/user) pris en charge par le profil utilisateur du répertoire Azure AD B2C. Il fournit les informations suivantes sur chaque attribut :
 
 - Nom d’attribut utilisé par Azure AD B2C (suivi du nom Microsoft Graph entre parenthèses, si différent)
 - Type de données de l’attribut
@@ -94,7 +94,7 @@ Vous devez souvent créer vos propres attributs, comme dans les cas suivants :
 - Un fournisseur d’identité a un identificateur d’utilisateur unique, tel que **uniqueUserGUID**, qui doit être enregistré.
 - Un parcours utilisateur personnalisé doit conserver l’état de l’utilisateur, par exemple **migrationStatus**.
 
-Azure AD B2C étend l’ensemble d’attributs stocké dans chaque compte utilisateur. Les attributs d’extension [étendent le schéma](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) des objets utilisateur dans le répertoire. Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée b2c-extensions-app. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous les inscriptions d’applications Azure Active Directory.
+Azure AD B2C étend l’ensemble d’attributs stocké dans chaque compte utilisateur. Les attributs d’extension [étendent le schéma](/graph/extensibility-overview#schema-extensions) des objets utilisateur dans le répertoire. Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée b2c-extensions-app. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous les inscriptions d’applications Azure Active Directory.
 
 > [!NOTE]
 > - Jusqu’à 100 attributs d’extension peuvent être écrits dans un compte d’utilisateur donné.
@@ -113,6 +113,6 @@ Les types de données suivants sont pris en charge lors de la définition d’un
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les attributs d’extension :
-- [Extensions de schéma](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Extensions de schéma](/graph/extensibility-overview#schema-extensions)
 - [Définir des attributs personnalisés avec un flux d’utilisateur](user-flow-custom-attributes.md)
 - [Définir des attributs personnalisés avec une stratégie personnalisée](custom-policy-custom-attributes.md)

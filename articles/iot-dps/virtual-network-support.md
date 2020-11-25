@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959779"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Prise en charge des réseaux virtuels dans le service Azure IoT Hub Device Provisioning (DPS)
 
@@ -38,7 +38,7 @@ Pour plusieurs raisons, les clients peuvent souhaiter limiter la connectivité a
 
 Les approches courantes de limitation de la connectivité incluent les [règles de filtre IP DPS](./iot-dps-ip-filtering.md) et le réseau virtuel (VNET) avec des [points de terminaison privés](../private-link/private-endpoint-overview.md). L’objectif de cet article est de décrire l’approche de réseau virtuel pour DPS à l’aide de points de terminaison privés. 
 
-Les appareils qui fonctionnent sur des réseaux locaux peuvent utiliser un [réseau privé virtuel (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou l’homologation privée [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour se connecter à un réseau virtuel dans Azure et accéder aux ressources DPS via des points de terminaison privés. 
+Les appareils qui fonctionnent sur des réseaux locaux peuvent utiliser un [réseau privé virtuel (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou l’homologation privée [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour se connecter à un réseau virtuel dans Azure et accéder aux ressources DPS via des points de terminaison privés. 
 
 Un point de terminaison privé est une adresse IP privée attribuée à l'intérieur d'un réseau virtuel appartenant au client, qui permet l’accès à une ressource Azure. En ayant un point de terminaison privé pour votre ressource DPS, vous pouvez autoriser les appareils qui fonctionnent à l’intérieur de votre réseau virtuel à demander l’approvisionnement par votre ressource DPS sans autoriser le trafic vers le point de terminaison public.
 
@@ -51,7 +51,7 @@ Avant de commencer, assurez-vous que les conditions préalables suivantes sont r
 
 * Vous provisionné réseau virtuel Azure avec un sous-réseau dans lequel sera créé le point de terminaison privé. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide d’Azure CLI](../virtual-network/quick-create-cli.md).
 
-* Pour les appareils qui fonctionnent à l'intérieur de réseaux locaux, configurez un [réseau privé virtuel (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou un peering privé [ExpressRoute](https://azure.microsoft.com/services/expressroute/) dans votre réseau virtuel Azure.
+* Pour les appareils qui fonctionnent à l'intérieur de réseaux locaux, configurez un [réseau privé virtuel (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un peering privé [ExpressRoute](https://azure.microsoft.com/services/expressroute/) dans votre réseau virtuel Azure.
 
 ## <a name="private-endpoint-limitations"></a>Limitations de point de terminaison privé
 
@@ -154,5 +154,5 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 
 Utilisez les liens ci-dessous pour en savoir plus sur les fonctionnalités de sécurité DPS :
 
-* [Sécurité](concepts-security.md)
+* [Sécurité](./concepts-service.md#attestation-mechanism)
 * [Prise en charge de TLS 1.2](tls-support.md)

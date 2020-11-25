@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999494"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960357"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Device Manager pour surveiller les composants et l’état du matériel
 
@@ -47,7 +47,7 @@ Un appareil 8600 présente des composants supplémentaires qui correspondent au 
 ## <a name="monitor-the-hardware-status"></a>Surveillance de l'état du matériel
 Procédez comme suit pour afficher l'état du matériel d'un composant d’appareil :
 
-1. Accédez à **Appareils**et sélectionnez un appareil StorSimple. Accédez à **Surveiller > Hardware health** (Intégrité matérielle).
+1. Accédez à **Appareils** et sélectionnez un appareil StorSimple. Accédez à **Surveiller > Hardware health** (Intégrité matérielle).
 
     ![Capture d'écran montrant le panneau Paramètres du service Gestionnaire de périphériques. Sous Surveiller, l’option Intégrité matérielle est sélectionnée.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
@@ -74,7 +74,7 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
 
    ![Capture d’écran montrant l’élément Composants du contrôleur 1 sélectionné. Dans le panneau adjacent, le nœud de cluster est à l’état Échec.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. Si vous rencontrez un composant dont l'état n'est pas **sain** , contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+4. Si vous rencontrez un composant dont l'état n'est pas **sain** , contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](./storsimple-8000-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Liste des composants du boîtier principal de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal (sur les modèles 8100 et 8600) de votre appareil StorSimple local.
@@ -146,6 +146,5 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour utiliser le service StorSimple Device Manager pour gérer votre appareil, consultez [Utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 * Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
-* Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+* Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](./storsimple-8000-hardware-component-replacement.md).
 * Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md).
-

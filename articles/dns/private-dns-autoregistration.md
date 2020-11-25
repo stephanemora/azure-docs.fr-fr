@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042749"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966715"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qu’est-ce que la fonctionnalité d’inscription automatique des zones privées Azure DNS ?
 
@@ -29,7 +29,7 @@ Vous pouvez activer l’inscription automatique en sélectionnant l’option «�
 
 * L’inscription automatique est possible uniquement pour les machines virtuelles. Pour toutes les autres ressources, comme les équilibreurs de charge internes, vous pouvez créer manuellement des enregistrements DNS dans la zone DNS privée qui est liée au réseau virtuel.
 * Les enregistrements DNS sont créés automatiquement uniquement pour la carte réseau principale des machines virtuelles. Si vos machines virtuelles ont plusieurs cartes réseau, vous pouvez créer manuellement les enregistrements DNS pour les autres interfaces réseau.
-* Les enregistrements DNS sont créés automatiquement uniquement si la carte réseau principale des machines virtuelles utilise le protocole DHCP. Si des adresses IP statiques sont configurées (par exemple, pour utiliser [plusieurs adresses IP dans Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), l’inscription automatique ne crée pas d’enregistrements pour cette machine virtuelle.
+* Les enregistrements DNS sont créés automatiquement uniquement si la carte réseau principale des machines virtuelles utilise le protocole DHCP. Si des adresses IP statiques sont configurées (par exemple, pour utiliser [plusieurs adresses IP dans Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), l’inscription automatique ne crée pas d’enregistrements pour cette machine virtuelle.
 * L’inscription automatique pour IPv6 (enregistrements AAAA) n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

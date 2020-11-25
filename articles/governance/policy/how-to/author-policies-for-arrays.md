@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323224"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920455"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -28,7 +28,7 @@ Cet article traite chaque utilisation par Azure Policy et fournit plusieurs exem
 ### <a name="define-a-parameter-array"></a>Définir un tableau de paramètres
 
 La définition d’un paramètre sous forme de tableau permet une flexibilité de la stratégie lorsque plusieurs valeurs sont nécessaires.
-Cette définition de stratégie permet de régler n’importe quel emplacement unique pour le paramètre **allowedLocations** et les valeurs par défaut sur _eastus2_ :
+Cette définition de stratégie permet de régler n’importe quel emplacement unique pour le paramètre **allowedLocations** et les valeurs par défaut sur _eastus2_:
 
 ```json
 "parameters": {
@@ -44,7 +44,7 @@ Cette définition de stratégie permet de régler n’importe quel emplacement u
 }
 ```
 
-Comme le **type** était _chaîne_ , une seule valeur peut être définie lors de l’affectation de la stratégie. Si cette stratégie est affectée, les ressources dans l’étendue sont autorisées uniquement dans une seule région Azure. La plupart des définitions de stratégies doivent autoriser une liste des options approuvées, par exemple pour autoriser _eastus2_ , _eastus_ , et _westus2_.
+Comme le **type** était _chaîne_, une seule valeur peut être définie lors de l’affectation de la stratégie. Si cette stratégie est affectée, les ressources dans l’étendue sont autorisées uniquement dans une seule région Azure. La plupart des définitions de stratégies doivent autoriser une liste des options approuvées, par exemple pour autoriser _eastus2_, _eastus_, et _westus2_.
 
 Pour créer la définition de stratégie visant à autoriser plusieurs options, utilisez le **type** _tableau_. La même stratégie peut être réécrite comme suit :
 
@@ -75,7 +75,7 @@ Cette nouvelle définition de paramètre accepte plusieurs valeurs lors de l’a
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passer des valeurs à un tableau de paramètres lors de l’attribution
 
-Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche sous la forme d’une zone de texte unique. L’indicateur indique « Utiliser ’;’ pour séparer des valeurs. (par exemple, Londres;New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_ , _eastus_ et _westus2_ au paramètre, utilisez la chaîne suivante :
+Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche sous la forme d’une zone de texte unique. L’indicateur indique « Utiliser ’;’ pour séparer des valeurs. (par exemple, Londres;New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_, _eastus_ et _westus2_ au paramètre, utilisez la chaîne suivante :
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ Le format de la valeur du paramètre est différent lorsque vous utilisez Azure 
 
 Pour utiliser cette chaîne avec chaque kit SDK, utilisez les commandes suivantes :
 
-- Azure CLI : Commande [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) avec le paramètre **params**
+- Azure CLI : Commande [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) avec le paramètre **params**
 - Azure PowerShell : Applet de commande [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) avec le paramètre **PolicyParameter**
 - API REST : Dans l’opération _PUT_ [create](/rest/api/resources/policyassignments/create) en tant que partie intégrante du corps de la demande en tant que valeur d’une propriété **properties.parameters**
 
@@ -134,7 +134,7 @@ Une tentative de création de cette définition de stratégie via le portail Azu
 
 - « La stratégie '{GUID}' ne peut pas être paramétrée en raison d’erreurs de validation. Vérifiez si les paramètres de stratégie sont correctement définis. L’exception interne « Résultat d’évaluation de l’expression de langage '[parameters('allowedLocations')]' est de type « Tableau », le type attendu est « String ». »
 
-Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est de **type** _tableau_ , le moteur de stratégie évalue l’expression de langage et affiche l’erreur. Avec les conditions `in` et `notIn`, le moteur de stratégie attend le **type** _tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, remplacez `equals` par `in` ou `notIn`.
+Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est de **type** _tableau_, le moteur de stratégie évalue l’expression de langage et affiche l’erreur. Avec les conditions `in` et `notIn`, le moteur de stratégie attend le **type** _tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, remplacez `equals` par `in` ou `notIn`.
 
 ## <a name="referencing-array-resource-properties"></a>Référencement des propriétés de ressource de tableau
 
@@ -201,7 +201,7 @@ Avec la fonction `field()`, la valeur renvoyée est le tableau du contenu de la 
 
 #### <a name="referencing-the-array-members-collection"></a>Référencement de la collection des membres du tableau
 
-Les alias qui utilisent la syntaxe `[*]` représentent une **collection de valeurs de propriété sélectionnées à partir d’une propriété de tableau** , ce qui est différent de la sélection de la propriété de tableau proprement dite. Dans le cas de `Microsoft.Test/resourceType/stringArray[*]`, elle renvoie une collection qui contient tous les membres de `stringArray`. Comme mentionné précédemment, une condition `field` vérifie que toutes les propriétés de ressource sélectionnées remplissent la condition. Par conséquent, la condition suivante est vraie uniquement si **tous** les membres de `stringArray` sont égaux à la « valeur ».
+Les alias qui utilisent la syntaxe `[*]` représentent une **collection de valeurs de propriété sélectionnées à partir d’une propriété de tableau**, ce qui est différent de la sélection de la propriété de tableau proprement dite. Dans le cas de `Microsoft.Test/resourceType/stringArray[*]`, elle renvoie une collection qui contient tous les membres de `stringArray`. Comme mentionné précédemment, une condition `field` vérifie que toutes les propriétés de ressource sélectionnées remplissent la condition. Par conséquent, la condition suivante est vraie uniquement si **tous** les membres de `stringArray` sont égaux à la « valeur ».
 
 ```json
 {
@@ -311,7 +311,7 @@ Ce comportement fonctionne également avec les tableaux imbriqués. Par exemple,
 }
 ```
 
-La puissance de `count` tient à la condition `where`. Quand elle est spécifiée, Azure Policy énumère les membres du tableau et évalue chacun d’entre eux par rapport à la condition, en comptant le nombre de membres du tableau évalués comme `true`. Plus précisément, dans chaque itération de l’évaluation de la condition `where`, Azure Policy sélectionne un membre de tableau unique * **i** _ et évalue le contenu de la ressource par rapport à la condition `where` _*comme si * *_i_*_ était le seul membre du tableau_*. Le fait d’avoir un seul membre de tableau disponible dans chaque itération permet d’appliquer des conditions complexes sur chaque membre du tableau.
+La puissance de `count` tient à la condition `where`. Quand elle est spécifiée, Azure Policy énumère les membres du tableau et évalue chacun d’entre eux par rapport à la condition, en comptant le nombre de membres du tableau évalués comme `true`. Plus précisément, dans chaque itération de l’évaluation de la condition `where`, Azure Policy sélectionne un membre de tableau unique ***i** _ et évalue le contenu de la ressource par rapport à la condition `where` _*comme si **_i_*_ était le seul membre du tableau_*. Le fait d’avoir un seul membre de tableau disponible dans chaque itération permet d’appliquer des conditions complexes sur chaque membre du tableau.
 
 Exemple :
 ```json

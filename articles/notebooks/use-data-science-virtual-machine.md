@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830302"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843160"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Utiliser des Azure Data Science Virtual Machines
 
@@ -24,7 +24,7 @@ Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à
 
 ## <a name="create-a-dsvm-instance"></a>Créer une instance DSVM
 
-Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Pour plus d’informations, notamment des détails de tarification, consultez la page [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). Pour plus d’informations, notamment des détails de tarification, consultez la page [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Se connecter à la machine DSVM
 
@@ -68,4 +68,4 @@ Si plusieurs utilisateurs partagent une DSVM, vous pouvez éviter qu’ils ne se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les DSVM dans [Présentation d’Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview).
+En savoir plus sur les DSVM dans [Présentation d’Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md).

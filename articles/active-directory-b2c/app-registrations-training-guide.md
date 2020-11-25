@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214921"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952078"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nouvelle expérience d’inscriptions d’applications pour Azure Active Directory B2C
 
@@ -35,13 +35,13 @@ L’expérience d’inscriptions d’applications Azure AD B2C est basée sur l�
 - Vos applications et les configurations associées peuvent être trouvées telles quelles dans la nouvelle expérience. Vous n’avez pas besoin de réinscrire les applications et les utilisateurs de vos applications n’ont pas besoin de se reconnecter.
 
 > [!NOTE]
-> Pour afficher toutes les applications que vous avez créées précédemment, accédez au panneau **Inscriptions d’applications** et sélectionnez l’onglet **Toutes les applications** . Cela permet d’afficher les applications créées dans l’expérience héritée et la nouvelle expérience, ainsi que celles créées dans le service Azure AD.
+> Pour afficher toutes les applications que vous avez créées précédemment, accédez au panneau **Inscriptions d’applications** et sélectionnez l’onglet **Toutes les applications**. Cela permet d’afficher les applications créées dans l’expérience héritée et la nouvelle expérience, ainsi que celles créées dans le service Azure AD.
 
 ## <a name="key-new-features"></a>Nouvelles fonctionnalités clés
 
--   Une **liste d’applications unifiée** affiche toutes vos applications qui s’authentifient auprès d’Azure AD B2C et d’Azure AD dans un emplacement pratique. En outre, vous pouvez tirer parti des fonctionnalités déjà disponibles pour les applications Azure AD, notamment la **date de création** , l’état **Certificats et secrets** , la barre de recherche et bien plus encore.
+-   Une **liste d’applications unifiée** affiche toutes vos applications qui s’authentifient auprès d’Azure AD B2C et d’Azure AD dans un emplacement pratique. En outre, vous pouvez tirer parti des fonctionnalités déjà disponibles pour les applications Azure AD, notamment la **date de création**, l’état **Certificats et secrets**, la barre de recherche et bien plus encore.
 
--   L’ **inscription d’applications combinée** vous permet d’inscrire rapidement une application, qu’il s’agisse d’une application orientée client ou d’une application visant à accéder à Microsoft Graph.
+-   L’**inscription d’applications combinée** vous permet d’inscrire rapidement une application, qu’il s’agisse d’une application orientée client ou d’une application visant à accéder à Microsoft Graph.
 
 - Le volet **Points de terminaison** vous permet d’identifier rapidement les points de terminaison appropriés pour votre scénario, notamment la configuration OpenID Connect, les métadonnées SAML, l’API Microsoft Graph et les [points de terminaison de flux d’utilisateurs OAuth 2.0](tokens-overview.md#endpoints).
 
@@ -91,21 +91,21 @@ Les plateformes **iOS/macOS** et **Android** sont un type de client public. Elle
 
 ## <a name="application-certificates--secrets"></a>Certificats et secrets d’application
 
-Dans la nouvelle expérience, au lieu du panneau **Clés** , vous utilisez le panneau **Certificats et secrets** pour gérer les certificats et les secrets. Les informations d’identification permettent aux applications de s’identifier auprès du service d’authentification lors de la réception de jetons à un emplacement adressable sur le web (à l’aide d’un schéma HTTPS). Nous vous recommandons d’utiliser un certificat au lieu d’une clé secrète client pour les scénarios d’informations d’identification du client lors de l’authentification auprès d’Azure AD. Les certificats ne peuvent pas être utilisés pour l’authentification auprès d’Azure AD B2C.
+Dans la nouvelle expérience, au lieu du panneau **Clés**, vous utilisez le panneau **Certificats et secrets** pour gérer les certificats et les secrets. Les informations d’identification permettent aux applications de s’identifier auprès du service d’authentification lors de la réception de jetons à un emplacement adressable sur le web (à l’aide d’un schéma HTTPS). Nous vous recommandons d’utiliser un certificat au lieu d’une clé secrète client pour les scénarios d’informations d’identification du client lors de l’authentification auprès d’Azure AD. Les certificats ne peuvent pas être utilisés pour l’authentification auprès d’Azure AD B2C.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Fonctionnalités non disponibles dans les locataires Azure AD B2C
 Les capacités d’inscriptions d’applications Azure AD suivantes ne s’appliquent pas aux locataires Azure AD B2C :
 - **Rôles et administrateurs** : non disponible actuellement pour Azure AD B2C.
-- **Personnalisation**  : la personnalisation de l’interface utilisateur et de l’expérience utilisateur est configurée dans l’expérience **Personnalisation de l’entreprise** ou dans le cadre d’un flux d’utilisateurs. Apprenez à [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md).
-- **Vérification du domaine de l’éditeur**  : votre application est inscrite sur *.onmicrosoft.com* , qui n’est pas un domaine vérifié. En outre, le domaine de l’éditeur est principalement utilisé pour accorder le consentement de l’utilisateur, qui ne s’applique pas aux applications Azure AD B2C pour l’authentification des utilisateurs. [En savoir plus sur le domaine de l’éditeur](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
-- **Configuration de jeton**  : le jeton est configuré dans le cadre d’un flux d’utilisateurs plutôt que dans une application.
+- **Personnalisation** : la personnalisation de l’interface utilisateur et de l’expérience utilisateur est configurée dans l’expérience **Personnalisation de l’entreprise** ou dans le cadre d’un flux d’utilisateurs. Apprenez à [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md).
+- **Vérification du domaine de l’éditeur** : votre application est inscrite sur *.onmicrosoft.com*, qui n’est pas un domaine vérifié. En outre, le domaine de l’éditeur est principalement utilisé pour accorder le consentement de l’utilisateur, qui ne s’applique pas aux applications Azure AD B2C pour l’authentification des utilisateurs. [En savoir plus sur le domaine de l’éditeur](../active-directory/develop/howto-configure-publisher-domain.md).
+- **Configuration de jeton** : le jeton est configuré dans le cadre d’un flux d’utilisateurs plutôt que dans une application.
 - L’expérience **Démarrages rapides** n’est actuellement pas disponible pour les locataires Azure AD B2C.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Limites
 La nouvelle expérience présente les limites suivantes :
-- À ce stade, Azure AD B2C ne fait pas de différence entre la possibilité d’émettre des jetons d’accès ou d’ID pour des flux implicites. Les deux types de jetons sont disponibles pour le flux d’octroi implicite si l’option **Jetons d’ID** est sélectionnée dans le panneau **Authentification** .
+- À ce stade, Azure AD B2C ne fait pas de différence entre la possibilité d’émettre des jetons d’accès ou d’ID pour des flux implicites. Les deux types de jetons sont disponibles pour le flux d’octroi implicite si l’option **Jetons d’ID** est sélectionnée dans le panneau **Authentification**.
 <!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - L’interface utilisateur ne gère pas la modification de la valeur des comptes pris en charge. Vous devrez utiliser le manifeste de l’application, sauf si vous basculez entre une application Azure AD à locataire unique et une application mutualisée.
 

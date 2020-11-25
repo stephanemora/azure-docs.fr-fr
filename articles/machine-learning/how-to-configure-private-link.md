@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312730"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842700"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurer Azure Private Link pour un espace de travail Azure Machine Learning
 
@@ -115,8 +115,8 @@ az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint
 
 Dans l’espace de travail Azure Machine Learning dans le portail, sélectionnez __Connexions de point de terminaison privé__ puis __+ Point de terminaison privé__. Utilisez les champs pour créer un point de terminaison privé.
 
-* Lorsque vous sélectionnez la __Région__ , sélectionnez la même région que celle de votre réseau virtuel. 
-* Lorsque vous sélectionnez le __Type de ressource__ , utilisez __Microsoft.MachineLearningServices/workspaces__. 
+* Lorsque vous sélectionnez la __Région__, sélectionnez la même région que celle de votre réseau virtuel. 
+* Lorsque vous sélectionnez le __Type de ressource__, utilisez __Microsoft.MachineLearningServices/workspaces__. 
 * Définissez la __Ressource__ sur le nom de votre espace de travail.
 
 Pour finir, sélectionnez __Créer__ pour créer le point de terminaison privé.
@@ -146,7 +146,7 @@ L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Dans l’espace de travail Azure Machine Learning dans le portail, sélectionnez __Connexions de point de terminaison privé__ , puis sélectionnez le point de terminaison que vous voulez supprimer. Pour finir, sélectionnez __Supprimer__.
+Dans l’espace de travail Azure Machine Learning dans le portail, sélectionnez __Connexions de point de terminaison privé__, puis sélectionnez le point de terminaison que vous voulez supprimer. Pour finir, sélectionnez __Supprimer__.
 
 ---
 

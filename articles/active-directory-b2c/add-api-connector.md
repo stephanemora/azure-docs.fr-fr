@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504109"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949834"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Ajouter un connecteur d’API à un flux d’utilisateur d’inscription (version préliminaire)
 
@@ -27,22 +27,22 @@ Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d�
 ## <a name="create-an-api-connector"></a>Créer un connecteur d'API
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sous **Services Azure** , sélectionnez **Azure AD B2C** .
-4. Sélectionnez **Connecteurs d’API (version préliminaire)** , puis sélectionnez **Nouveau connecteur d’API** .
+2. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
+4. Sélectionnez **Connecteurs d’API (version préliminaire)** , puis sélectionnez **Nouveau connecteur d’API**.
 
    ![Ajoutez un nouveau connecteur d'API](./media/add-api-connector/api-connector-new.png)
 
-5. Indiquez un nom d’affichage pour l’appel. Par exemple, **Valider les informations utilisateur** .
-6. Indiquez l’ **URL du point de terminaison** pour l’appel d’API.
+5. Indiquez un nom d’affichage pour l’appel. Par exemple, **Valider les informations utilisateur**.
+6. Indiquez l’**URL du point de terminaison** pour l’appel d’API.
 7. Saisissez les informations d’authentification pour l’API.
 
-   - Seule l’authentification de base est actuellement prise en charge. Si vous souhaitez utiliser une API sans authentification de base à des fins de développement, saisissez simplement un **nom d’utilisateur** et un **mot de passe** « factices » que votre API peut ignorer. Pour vous en servir avec une fonction Azure et une clé API, vous pouvez inclure le code en tant que paramètre de requête dans l’ **URL du point de terminaison** (par exemple https []()://contoso.azurewebsites.net/api/endpoint <b>?code=0123456789</b>).
+   - Seule l’authentification de base est actuellement prise en charge. Si vous souhaitez utiliser une API sans authentification de base à des fins de développement, saisissez simplement un **nom d’utilisateur** et un **mot de passe** « factices » que votre API peut ignorer. Pour vous en servir avec une fonction Azure et une clé API, vous pouvez inclure le code en tant que paramètre de requête dans l’**URL du point de terminaison** (par exemple https []()://contoso.azurewebsites.net/api/endpoint <b>?code=0123456789</b>).
 
    ![Configurer un nouveau connecteur d’API](./media/add-api-connector/api-connector-config.png)
-8. Sélectionnez **Enregistrer** .
+8. Sélectionnez **Enregistrer**.
 
 ## <a name="the-request-sent-to-your-api"></a>Demande envoyée à votre API
-Un connecteur d’API est matérialisé en tant que requête **HTTP POST** , en envoyant les attributs utilisateur (« revendications ») en tant que paires clé-valeur dans un corps JSON. Les attributs sont sérialisés de la même façon que les propriétés utilisateur [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties). 
+Un connecteur d’API est matérialisé en tant que requête **HTTP POST**, en envoyant les attributs utilisateur (« revendications ») en tant que paires clé-valeur dans un corps JSON. Les attributs sont sérialisés de la même façon que les propriétés utilisateur [Microsoft Graph](/graph/api/resources/user#properties). 
 
 **Exemple de requête**
 ```http
@@ -83,27 +83,27 @@ De plus, la revendication **Paramètres régionaux de l’interface utilisateur 
 > Si une revendication n’a pas de valeur au moment où le point de terminaison de l’API est appelé, la revendication n’est pas envoyée à l’API. Votre API doit être conçue pour vérifier et gérer explicitement le cas où une revendication ne figure pas dans la requête.
 
 > [!TIP] 
-> Les revendications [**identités (« identities »)**](https://docs.microsoft.com/graph/api/resources/objectidentity) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. 
+> Les revendications [**identités (« identities »)**](/graph/api/resources/objectidentity) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Activer le connecteur d’API dans un workflow utilisateur
 
 Procédez comme suit pour ajouter un connecteur d’API à un workflow d’utilisateur d’inscription.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sous **Services Azure** , sélectionnez **Azure AD B2C** .
-4. Sélectionnez **Flux d’utilisateurs** , puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
-5. Sélectionnez **Connecteurs d’API** , puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
+2. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
+4. Sélectionnez **Flux d’utilisateurs**, puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
+5. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
 
    - **Après la connexion avec un fournisseur d’identité**
    - **Avant de créer l’utilisateur**
 
    ![Ajouter des API au flux de l’utilisateur](./media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Sélectionnez **Enregistrer** .
+6. Sélectionnez **Enregistrer**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>après la connexion avec un fournisseur d’identité
 
-Un connecteur d’API à cette étape du processus d’inscription est appelé immédiatement après que l’utilisateur s’est authentifié auprès d’un fournisseur d’identité (comme Google, Facebook et Azure AD). Cette étape précède la * *_page de collection d’attributs_* _, qui est le formulaire présenté à l’utilisateur pour collecter des attributs utilisateur. Cette étape n’est pas appelée si un utilisateur s’inscrit auprès d’un compte local.
+Un connecteur d’API à cette étape du processus d’inscription est appelé immédiatement après que l’utilisateur s’est authentifié auprès d’un fournisseur d’identité (comme Google, Facebook et Azure AD). Cette étape précède la **_page de collection d’attributs_* _, qui est le formulaire présenté à l’utilisateur pour collecter des attributs utilisateur. Cette étape n’est pas appelée si un utilisateur s’inscrit auprès d’un compte local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemple de demande envoyée à l’API à cette étape
 ```http
@@ -242,7 +242,7 @@ Content-type: application/json
 | version                                            | String            | Oui      | Version de l’API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Oui      | La valeur doit être `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que _*Revendication d’application**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que **Revendication d’application** .  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que **Revendication d’application**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemple de réponse de blocage
 
@@ -307,7 +307,7 @@ Les fonctions serverless, comme les déclencheurs HTTP dans Azure Functions, fou
 ### <a name="best-practices"></a>Meilleures pratiques
 Assurez-vous que :
 * Votre API suit les contrats de demande et de réponse d’API comme indiqué ci-dessus. 
-* L’ **URL du point de terminaison** du connecteur d’API pointe vers le point de terminaison d’API approprié.
+* L’**URL du point de terminaison** du connecteur d’API pointe vers le point de terminaison d’API approprié.
 * Votre API recherche explicitement les valeurs null des revendications reçues.
 * Votre API répond aussi rapidement que possible pour garantir une expérience utilisateur fluide.
     * Si vous utilisez une fonction serverless ou un service web scalable, utilisez un plan d’hébergement qui conserve l’API dans un état « de veille » ou « dynamique ». en production. Pour Azure Functions, il est recommandé d’utiliser le [plan Premium](../azure-functions/functions-scale.md)

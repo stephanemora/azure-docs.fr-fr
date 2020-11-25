@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320424"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920234"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -22,7 +22,7 @@ Il existe plusieurs façons d’accéder aux informations de conformité génér
 Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel moment les informations de conformité sont mises à jour et passons en revue la fréquence et les événements qui déclenchent un cycle d’évaluation.
 
 > [!WARNING]
-> Si l’état de conformité indiqué est **Non inscrit** , vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) appropriées, comme décrit dans [Autorisations Azure RBAC dans Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
+> Si l’état de conformité indiqué est **Non inscrit**, vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) appropriées, comme décrit dans [Autorisations Azure RBAC dans Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Déclencheurs d’évaluation
 
@@ -80,21 +80,21 @@ Pour plus d’informations et pour obtenir des exemples de workflow, consultez l
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Analyse d’évaluation à la demande – Azure CLI
 
-L’analyse de conformité est lancée avec la commande [az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan).
+L’analyse de conformité est lancée avec la commande [az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan).
 
-Par défaut, `az policy state trigger-scan` démarre une évaluation pour toutes les ressources de l’abonnement actuel. Pour démarrer une évaluation sur un groupe de ressources spécifique, utilisez le paramètre **resource-group** . L’exemple suivant démarre une analyse de conformité dans l’abonnement actuel pour le groupe de ressources _MyRG_  :
+Par défaut, `az policy state trigger-scan` démarre une évaluation pour toutes les ressources de l’abonnement actuel. Pour démarrer une évaluation sur un groupe de ressources spécifique, utilisez le paramètre **resource-group**. L’exemple suivant démarre une analyse de conformité dans l’abonnement actuel pour le groupe de ressources _MyRG_ :
 
 ```azurecli-interactive
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-Vous pouvez choisir de ne pas attendre que le processus asynchrone soit terminé avant de poursuivre avec le paramètre **no-wait** .
+Vous pouvez choisir de ne pas attendre que le processus asynchrone soit terminé avant de poursuivre avec le paramètre **no-wait**.
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>Analyse d’évaluation à la demande – Azure PowerShell
 
 L’analyse de conformité est lancée à l’aide de la cmdlet [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan).
 
-Par défaut, `Start-AzPolicyComplianceScan` démarre une évaluation pour toutes les ressources de l’abonnement actuel. Pour démarrer une évaluation sur un groupe de ressources spécifique, utilisez le paramètre **ResourceGroupName** . L’exemple suivant démarre une analyse de conformité dans l’abonnement actuel pour le groupe de ressources _MyRG_  :
+Par défaut, `Start-AzPolicyComplianceScan` démarre une évaluation pour toutes les ressources de l’abonnement actuel. Pour démarrer une évaluation sur un groupe de ressources spécifique, utilisez le paramètre **ResourceGroupName**. L’exemple suivant démarre une analyse de conformité dans l’abonnement actuel pour le groupe de ressources _MyRG_ :
 
 ```azurepowershell-interactive
 Start-AzPolicyComplianceScan -ResourceGroupName 'MyRG'
@@ -118,7 +118,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
 ```
 
-Lorsque l’analyse de conformité est terminée, la propriété **État** prend la valeur _Terminé_ .
+Lorsque l’analyse de conformité est terminée, la propriété **État** prend la valeur _Terminé_.
 
 #### <a name="on-demand-evaluation-scan---rest"></a>Analyse d’évaluation à la demande – REST
 
@@ -143,13 +143,13 @@ L’analyse prend en charge l’évaluation des ressources dans un abonnement ou
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
-L’appel retourne un état **202 Accepté** . Une propriété **Emplacement** est incluse dans l’en-tête de la réponse avec le format suivant :
+L’appel retourne un état **202 Accepté**. Une propriété **Emplacement** est incluse dans l’en-tête de la réponse avec le format suivant :
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue exécute déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}` **d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK** . Le corps d’une analyse terminée est une réponse JSON avec l’état :
+`{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue exécute déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}` **d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK**. Le corps d’une analyse terminée est une réponse JSON avec l’état :
 
 ```json
 {
@@ -164,7 +164,7 @@ Pour plus d’informations et pour connaître les étapes à suivre, consultez [
 
 ## <a name="how-compliance-works"></a>Principe de fonctionnement de la conformité
 
-Dans une affectation, une ressource est dite **Non conforme** si elle ne respecte pas les règles de l’initiative ou de la stratégie et n’est pas _exemptée_ . Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant :
+Dans une affectation, une ressource est dite **Non conforme** si elle ne respecte pas les règles de l’initiative ou de la stratégie et n’est pas _exemptée_. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant :
 
 | État de la ressource | Résultat | Évaluation de a stratégie | État de conformité |
 | --- | --- | --- | --- |
@@ -182,58 +182,58 @@ Supposons, par exemple, que vous disposiez d’un groupe de ressources (ContosoR
    Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G.  Les comptes de stockage un et trois sont en bleu, tandis que les comptes de stockage deux, quatre et cinq sont en rouge.
 :::image-end:::
 
-Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage inclus et non exemptés du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme** .
+Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage inclus et non exemptés du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme**.
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramme de la conformité de compte de stockage dans le groupe de ressources Contoso R G." border="false":::
    Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G. Des coches vertes apparaissent désormais en dessous des comptes de stockage un et trois, tandis que des signes d’avertissement rouges apparaissent désormais sous les comptes de stockage deux, quatre et cinq.
 :::image-end:::
 
-Outre les états **Conforme** et **Non conforme** , les stratégies et les ressources peuvent avoir quatre autres états :
+Outre les états **Conforme** et **Non conforme**, les stratégies et les ressources peuvent avoir quatre autres états :
 
 - **Exempté** : La ressource se trouve dans l’étendue d’une affectation, mais a une [exemption définie](../concepts/exemption-structure.md).
-- **En conflit**  : Il existe deux définitions de stratégie ou plus avec des règles en conflit. Par exemple, deux définitions de stratégie ajoutent la même balise avec des valeurs différentes.
-- **Non démarré**  : Le cycle d’évaluation n’a pas démarré pour la stratégie ou la ressource.
-- **Non inscrit**  : Le fournisseur de ressources Azure Policy n’a pas été inscrit ou le compte connecté n’est pas autorisé à lire les données de conformité.
+- **En conflit** : Il existe deux définitions de stratégie ou plus avec des règles en conflit. Par exemple, deux définitions de stratégie ajoutent la même balise avec des valeurs différentes.
+- **Non démarré** : Le cycle d’évaluation n’a pas démarré pour la stratégie ou la ressource.
+- **Non inscrit** : Le fournisseur de ressources Azure Policy n’a pas été inscrit ou le compte connecté n’est pas autorisé à lire les données de conformité.
 
-Azure Policy utilise les champs **type** , **nom** et **genre** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme** , **Non conforme** ou **Exempté** . Si le champ **type** , **nom** ou **genre** est la seule propriété dans la définition, toutes les ressources incluses et non exemptées sont considérées comme applicables et sont évaluées.
+Azure Policy utilise les champs **type**, **nom** et **genre** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme**, **Non conforme** ou **Exempté**. Si le champ **type**, **nom** ou **genre** est la seule propriété dans la définition, toutes les ressources incluses et non exemptées sont considérées comme applicables et sont évaluées.
 
-Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** et **exemptées** par le _nombre total de ressources_ . Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes** , **non conformes** , **exemptées** et **en conflit** . La conformité globale est la somme des ressources distinctes **conformes** ou **exemptées** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme** .
+Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** et **exemptées** par le _nombre total de ressources_. Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes**, **exemptées** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** ou **exemptées** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**.
 La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Capture d’écran des détails de conformité à la stratégie dans la page Conformité." border="false":::
 
 > [!NOTE]
 > La conformité réglementaire dans Azure Policy est une fonctionnalité en version préliminaire. Les propriétés de conformité du Kit de développement logiciel (SDK) et des pages dans le portail sont différentes pour les initiatives activées. Pour plus d’informations, voir [Conformité réglementaire](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portail
 
-Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie** , l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours. La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
+Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie**, l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours. La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Capture d’écran de la page Conformité, des options de filtrage et des détails." border="false":::
 
 Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En sélectionnant une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Capture d’écran de la page Détails de conformité, y compris les nombres et les détails de conformité des ressources." border="false":::
 
-La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme** , mais un filtre peut être appliqué.
-Les événements (Append, Audit, Deny, Deploy, Modify) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements** .
+La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
+Les événements (Append, Audit, Deny, Deploy, Modify) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
 
 > [!NOTE]
 > Pour une stratégie du moteur AKS, la ressource indiquée est le groupe de ressources.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Capture d’écran de l’onglet Événements sur la page Détails de conformité." border="false":::
 
-<a name="component-compliance"></a> Pour les ressources du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), dans l’onglet **Conformité des ressources** , la sélection de la ressource ou un clic droit sur la ligne et la sélection de l’option **Afficher les détails de la conformité** ouvre les détails de conformité du composant. Cette page propose également des onglets pour afficher les stratégies attribuées à cette ressource, les événements, les événements de composant et l’historique des modifications.
+<a name="component-compliance"></a> Pour les ressources du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), dans l’onglet **Conformité des ressources**, la sélection de la ressource ou un clic droit sur la ligne et la sélection de l’option **Afficher les détails de la conformité** ouvre les détails de conformité du composant. Cette page propose également des onglets pour afficher les stratégies attribuées à cette ressource, les événements, les événements de composant et l’historique des modifications.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Capture d’écran de l’onglet Conformité des composants et des détails de conformité pour une affectation de mode de fournisseur de ressources." border="false":::
 
-Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité** . La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
+Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Capture d’écran du journal d’activité pour les activités et évaluations Azure Policy." border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendre la non-conformité
 
-Lorsque le système détermine qu’une ressource est **non conforme** , plusieurs raisons justifient cela. Pour déterminer la raison d’une **non conformité** d’une ressource ou pour rechercher le ou la responsable de la modification, veuillez consulter [Déterminer une non-conformité](./determine-non-compliance.md).
+Lorsque le système détermine qu’une ressource est **non conforme**, plusieurs raisons justifient cela. Pour déterminer la raison d’une **non conformité** d’une ressource ou pour rechercher le ou la responsable de la modification, veuillez consulter [Déterminer une non-conformité](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Ligne de commande
 
@@ -249,7 +249,7 @@ Avec l’API REST, la synthèse peut être effectuée par conteneur, par défini
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
-La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-dessous, la conformité est synthétisée sous **value.results.nonCompliantResources** et **value.results.nonCompliantPolicies** . Cette requête fournit des détails supplémentaires, notamment sur chaque affectation concernée par la non-conformité, fournit des informations sur la définition de chaque affectation. Chaque objet de stratégie dans la hiérarchie fournit un **queryResultsUri** qui peut être utilisé pour obtenir des détails supplémentaires à ce niveau.
+La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-dessous, la conformité est synthétisée sous **value.results.nonCompliantResources** et **value.results.nonCompliantPolicies**. Cette requête fournit des détails supplémentaires, notamment sur chaque affectation concernée par la non-conformité, fournit des informations sur la définition de chaque affectation. Chaque objet de stratégie dans la hiérarchie fournit un **queryResultsUri** qui peut être utilisé pour obtenir des détails supplémentaires à ce niveau.
 
 ```json
 {
@@ -287,7 +287,7 @@ La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-d
 
 ### <a name="query-for-resources"></a>Interroger des ressources
 
-En reprenant l’exemple ci-dessus, **value.policyAssignments.policyDefinitions.results.queryResultsUri** nous donne un exemple d’URI pour toutes les ressources non conformes pour une définition de stratégie spécifique. Si l’on observe la valeur **$filter** , on remarque que ComplianceState est égal (eq) à « NonCompliant «, que PolicyAssignmentId est spécifié pour la définition de stratégie, puis pour PolicyDefinitionId proprement dit. Le PolicyAssignmentId est inclus dans le filtre car le PolicyDefinitionId peut figurer dans plusieurs stratégies ou affectations initiatives avec une diversité d’étendues. En spécifiant à la fois le PolicyAssignmentId et le PolicyDefinitionId, nous pouvons être explicites dans les résultats que nous recherchons. Auparavant, nous utilisions la valeur **latest (dernières)** pour PolicyStates : celle-ci définit automatiquement les paramètres **from (depuis)** et **to (jusqu’à)** d’une plage de temps dans les dernières 24 heures.
+En reprenant l’exemple ci-dessus, **value.policyAssignments.policyDefinitions.results.queryResultsUri** nous donne un exemple d’URI pour toutes les ressources non conformes pour une définition de stratégie spécifique. Si l’on observe la valeur **$filter**, on remarque que ComplianceState est égal (eq) à « NonCompliant «, que PolicyAssignmentId est spécifié pour la définition de stratégie, puis pour PolicyDefinitionId proprement dit. Le PolicyAssignmentId est inclus dans le filtre car le PolicyDefinitionId peut figurer dans plusieurs stratégies ou affectations initiatives avec une diversité d’étendues. En spécifiant à la fois le PolicyAssignmentId et le PolicyDefinitionId, nous pouvons être explicites dans les résultats que nous recherchons. Auparavant, nous utilisions la valeur **latest (dernières)** pour PolicyStates : celle-ci définit automatiquement les paramètres **from (depuis)** et **to (jusqu’à)** d’une plage de temps dans les dernières 24 heures.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
@@ -333,7 +333,7 @@ L’exemple de réponse ci-dessous a été ramené à une seule ressource non co
 
 ### <a name="view-events"></a>Afficher les événements
 
-Lorsqu’une ressource est créée ou mise à jour, un résultat d’évaluation de stratégie est généré. Ces résultats sont appelés _événements de stratégie_ . L’URI suivant permet d’afficher les événements de stratégie récents associés à l’abonnement.
+Lorsqu’une ressource est créée ou mise à jour, un résultat d’évaluation de stratégie est généré. Ces résultats sont appelés _événements de stratégie_. L’URI suivant permet d’afficher les événements de stratégie récents associés à l’abonnement.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
@@ -685,7 +685,7 @@ Trent Baker
 
 Si vous avez un [espace de travail Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) dans lequel `AzureActivity` de la [solution Activity Log Analytics](../../../azure-monitor/platform/activity-log.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes de l’évaluation des nouvelles ressources et de celles mises à jour en utilisant de simples requêtes Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Capture d’écran des journaux Azure Monitor montrant les actions Azure Policy dans la table AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

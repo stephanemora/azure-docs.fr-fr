@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850929"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842133"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Créer un pool Azure Batch sans adresses IP publiques
 
@@ -34,7 +34,7 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
 - **Un réseau virtuel Azure**. Si vous créez votre pool dans un [réseau virtuel](batch-virtual-network.md), vous devez respecter les exigences et appliquer les configurations qui suivent. Pour préparer un réseau virtuel avec un ou plusieurs sous-réseaux à l’avance, vous pouvez utiliser le portail Azure, Azure PowerShell, l’interface de ligne de commande Azure (CLI) ou d’autres méthodes.
   - Le réseau virtuel doit se trouver dans la même région et le même abonnement que le compte Batch utilisé pour créer le pool.
   - Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit.
-  - Vous devez désactiver les stratégies relatives aux services de liaison privée et aux réseaux de points de terminaison. Pour cela, vous pouvez utiliser Azure CLI : ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Vous devez désactiver les stratégies relatives aux services de liaison privée et aux réseaux de points de terminaison. Pour cela, vous pouvez utiliser Azure CLI : ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Pour chaque groupe de 100 nœuds dédiés ou basse priorité, Batch alloue un service de liaison privée et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être [demander une augmentation du quota](batch-quota-limit.md#increase-a-quota) pour une ou plusieurs de ces ressources. En outre, aucun verrou de ressource ne doit être appliqué à une ressource créée par Batch, puisque cela empêche le nettoyage des ressources à la suite d’actions lancées par l’utilisateur, telles que la suppression d’un pool ou le redimensionnement à zéro.

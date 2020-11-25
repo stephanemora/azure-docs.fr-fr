@@ -3,13 +3,13 @@ title: Cadence des mises à jour correctives du système d’exploitation et des
 description: Découvrez comment Azure App Service met à jour le système d’exploitation et les runtimes, les runtimes et le niveau de correctif dont disposent vos applications, et comment obtenir les annonces de mise à jour.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961514"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833484"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 

@@ -5,27 +5,27 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789639"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841120"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Lorsque vous créez dans Azure SQL Database ou Azure Synapse Analytics un serveur nommé *mysqlserver* , par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net* ). Par souci de simplicité, *SQL Database* est utilisé pour désigner tant SQL Database qu’Azure Synapse Analytics (anciennement SQL Data Warehouse).
+Lorsque vous créez dans Azure SQL Database ou Azure Synapse Analytics un serveur nommé *mysqlserver*, par exemple, un pare-feu au niveau du serveur bloque tout accès au point de terminaison public du serveur (accessible à l'adresse *mysqlserver.database.windows.net*). Par souci de simplicité, *SQL Database* est utilisé pour désigner tant SQL Database qu’Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 > [!IMPORTANT]
-> Cet article ne s’applique *pas* à *Azure SQL Managed Instance* . Pour plus d'informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
+> Cet article ne s’applique *pas* à *Azure SQL Managed Instance*. Pour plus d'informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
 >
 > Azure Synapse ne prend en charge que les règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données.
 
@@ -37,7 +37,7 @@ Les tentatives de connexion à partir d'Internet et d'Azure doivent franchir le 
 
 ### <a name="server-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau du serveur
 
-Ces règles permettent aux clients d'accéder à l'ensemble de votre serveur, c'est-à-dire à toutes les bases de données gérées par le serveur. Les règles sont stockées dans la base de données *MASTER* . Vous pouvez avoir un maximum de 128 règles de pare-feu IP au niveau du serveur par serveur. Si le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est activé, cela compte comme une seule règle de pare-feu pour le serveur.
+Ces règles permettent aux clients d'accéder à l'ensemble de votre serveur, c'est-à-dire à toutes les bases de données gérées par le serveur. Les règles sont stockées dans la base de données *MASTER*. Vous pouvez avoir un maximum de 128 règles de pare-feu IP au niveau du serveur par serveur. Si le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est activé, cela compte comme une seule règle de pare-feu pour le serveur.
   
 Vous pouvez configurer des règles de pare-feu IP au niveau du serveur à l’aide du portail Azure, de PowerShell ou d’instructions Transact-SQL.
 
@@ -46,7 +46,7 @@ Vous pouvez configurer des règles de pare-feu IP au niveau du serveur à l’ai
 
 ### <a name="database-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau de la base de données
 
-Ces règles de pare-feu IP au niveau de la base de données permettent aux clients d'accéder à certaines bases de données (sécurisées). Vous devez créer les règles pour chaque base de données (dont la base de données *MASTER* ). Elles y seront stockées de façon individuelle.
+Ces règles de pare-feu IP au niveau de la base de données permettent aux clients d'accéder à certaines bases de données (sécurisées). Vous devez créer les règles pour chaque base de données (dont la base de données *MASTER*). Elles y seront stockées de façon individuelle.
   
 - Vous pouvez créer et gérer des règles de pare-feu IP au niveau de la base de données pour les bases MASTER et utilisateur uniquement à l’aide d’instructions Transact-SQL et seulement après avoir configuré le premier pare-feu au niveau du serveur.
 - Si vous spécifiez dans la règle de pare-feu IP au niveau de la base de données une plage d’adresses IP en dehors de la plage spécifiée dans la règle de pare-feu IP au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage au niveau de la base de données peuvent accéder à la base de données.
@@ -63,11 +63,11 @@ Nous vous recommandons d’utiliser des règles de pare-feu IP au niveau de la b
 
 *Les utilisateurs d’une base de données doivent-ils être totalement isolés d’une autre base de données ?*
 
-*Si c’est le cas* , accordez l’accès à l’aide de règles de pare-feu IP au niveau de la base de données. Cette méthode évite d’utiliser des règles de pare-feu IP au niveau du serveur, qui permettent à toutes les bases de données de franchir le pare-feu et réduisent ainsi le champ de vos défenses.
+*Si c’est le cas*, accordez l’accès à l’aide de règles de pare-feu IP au niveau de la base de données. Cette méthode évite d’utiliser des règles de pare-feu IP au niveau du serveur, qui permettent à toutes les bases de données de franchir le pare-feu et réduisent ainsi le champ de vos défenses.
 
 *Les utilisateurs aux adresses IP ont-ils besoin d’accéder à toutes les bases de données ?*
 
-*Si c’est le cas* , utilisez des règles de pare-feu IP au niveau du serveur pour réduire le nombre de règles de pare-feu IP à configurer.
+*Si c’est le cas*, utilisez des règles de pare-feu IP au niveau du serveur pour réduire le nombre de règles de pare-feu IP à configurer.
 
 *La personne ou l’équipe qui configure les règles de pare-feu IP a-t-elle seulement accès par le biais du portail Azure, de PowerShell ou de l’API REST ?*
 
@@ -98,7 +98,7 @@ Lorsqu'un ordinateur tente de se connecter à votre serveur à partir d'Internet
 
 ### <a name="connections-from-inside-azure"></a>Connexions à partir d’Azure
 
-Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Lorsqu'une application Azure tente de se connecter à votre serveur, le pare-feu vérifie que les connexions Azure sont autorisées. Vous pouvez activer la connexion directement à partir du panneau du portail Azure en définissant des règles de pare-feu, ainsi qu'en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels** . Si la connexion n'est pas autorisée, la demande n'atteint pas le serveur.
+Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Lorsqu'une application Azure tente de se connecter à votre serveur, le pare-feu vérifie que les connexions Azure sont autorisées. Vous pouvez activer la connexion directement à partir du panneau du portail Azure en définissant des règles de pare-feu, ainsi qu'en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. Si la connexion n'est pas autorisée, la demande n'atteint pas le serveur.
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Si vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
@@ -138,17 +138,17 @@ Pour définir une règle de pare-feu IP au niveau du serveur sur le portail Azur
 
     La page **Paramètres de pare-feu** du serveur s'ouvre.
 
-2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer** . Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle.
+2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle.
 
     ![Règle de pare-feu IP au niveau du serveur définie](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>À partir de la page de présentation du serveur
 
-La page de présentation de votre serveur s’ouvre. Elle affiche le nom de serveur complet (tel que *mynewserver20170403.database.windows.net* ) et fournit des options permettant de poursuivre la configuration.
+La page de présentation de votre serveur s’ouvre. Elle affiche le nom de serveur complet (tel que *mynewserver20170403.database.windows.net*) et fournit des options permettant de poursuivre la configuration.
 
 1. Pour définir une règle au niveau du serveur à partir de cette page, sélectionnez **Pare-feu** dans le menu **Paramètres** sur le côté gauche.
 
-2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer** . Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle.
+2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle.
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Gérer des règles de pare-feu IP avec Transact-SQL
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Pour supprimer une règle de pare-feu IP au niveau du serveur, exécutez la procédure stockée *sp_delete_firewall_rule* . L’exemple suivant supprime la règle *ContosoFirewallRule*  :
+Pour supprimer une règle de pare-feu IP au niveau du serveur, exécutez la procédure stockée *sp_delete_firewall_rule*. L’exemple suivant supprime la règle *ContosoFirewallRule* :
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
@@ -250,7 +250,7 @@ Tenez compte des points suivants lorsque l'accès à Azure SQL Database est anor
   En raison du protocole de traduction d'adresses réseau (NAT, network address translation), l'adresse IP utilisée par votre ordinateur pour se connecter à Azure SQL Database peut être différente de celle indiquée dans les paramètres de configuration IP de votre ordinateur. Pour voir l’adresse IP utilisée par votre ordinateur pour se connecter à Azure :
     1. Connectez-vous au portail.
     1. Accédez à l’onglet **Configurer** du serveur qui héberge votre base de données.
-    1. L’ **adresse IP du client actif** s’affiche dans la section **Adresses IP autorisées** . Sélectionnez **Ajouter** sous **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
+    1. L’**adresse IP du client actif** s’affiche dans la section **Adresses IP autorisées**. Sélectionnez **Ajouter** sous **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
 
 - **Les modifications apportées à la liste verte n’ont pas encore été prises en compte :**
 
@@ -258,7 +258,7 @@ Tenez compte des points suivants lorsque l'accès à Azure SQL Database est anor
 
 - **La connexion n’est pas autorisée ou un mot de passe incorrect a été utilisé :**
 
-  Si une connexion n'a pas d'autorisations sur le serveur ou que le mot de passe est incorrect, la connexion au serveur est refusée. La création d’un paramètre de pare-feu permet uniquement aux clients d’ *essayer* de se connecter à votre serveur. Ils doivent toujours fournir les informations d’identification de sécurité nécessaires. Pour plus d'informations sur la préparation des connexions, consultez [Contrôle et octroi de l'accès à la base de données](logins-create-manage.md).
+  Si une connexion n'a pas d'autorisations sur le serveur ou que le mot de passe est incorrect, la connexion au serveur est refusée. La création d’un paramètre de pare-feu permet uniquement aux clients d’*essayer* de se connecter à votre serveur. Ils doivent toujours fournir les informations d’identification de sécurité nécessaires. Pour plus d'informations sur la préparation des connexions, consultez [Contrôle et octroi de l'accès à la base de données](logins-create-manage.md).
 
 - **Adresse IP dynamique :**
 

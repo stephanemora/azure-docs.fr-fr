@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 550e22ac861b92994f2695594d09fc2935d273d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927190"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967752"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 Ce document décrit la façon dont [HANA - Grandes instances](./hana-overview-architecture.md) est présenté dans le [portail Azure](https://portal.azure.com) et les activités qui peuvent être effectuées par le biais du portail Azure avec des unités de Grande instance HANA qui sont automatiquement déployées. La visibilité de la fonctionnalité HANA - Grandes instances dans le portail Azure est fournie par le biais d’un fournisseur de ressources Azure pour HANA - Grandes instances, qui est actuellement en préversion publique
@@ -151,7 +152,7 @@ Dans la liste des services, vous trouverez le service **Grande instance SAP HANA
 
 ![Sélectionner la classe de problème dans le portail Azure](./media/hana-li-portal/portal-select-problem-class.png)
 
-Sous chacun des différents types de problèmes, une sélection des sous-types de problèmes que vous devez sélectionner pour mieux caractériser votre problème est disponible. Après avoir sélectionné le sous-type, vous pouvez nommer l’objet. Une fois que vous avez terminé le processus de sélection, vous pouvez passer à l’étape suivante de la création. Dans la section **Solutions** , vous êtes dirigé vers une documentation concernant HANA - Grandes instances, qui peut donner des indications pour résoudre votre problème. Si vous ne trouvez aucune solution à votre problème dans la documentation suggérée, vous passez à l’étape suivante. À l’étape suivante, vous devrez indiquer si le problème concerne les machines virtuelles ou les unités de Grande instance HANA. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés. 
+Sous chacun des différents types de problèmes, une sélection des sous-types de problèmes que vous devez sélectionner pour mieux caractériser votre problème est disponible. Après avoir sélectionné le sous-type, vous pouvez nommer l’objet. Une fois que vous avez terminé le processus de sélection, vous pouvez passer à l’étape suivante de la création. Dans la section **Solutions**, vous êtes dirigé vers une documentation concernant HANA - Grandes instances, qui peut donner des indications pour résoudre votre problème. Si vous ne trouvez aucune solution à votre problème dans la documentation suggérée, vous passez à l’étape suivante. À l’étape suivante, vous devrez indiquer si le problème concerne les machines virtuelles ou les unités de Grande instance HANA. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés. 
 
 ![Détails d’un cas de support dans le portail Azure](./media/hana-li-portal/portal-support-request-details.png)
 

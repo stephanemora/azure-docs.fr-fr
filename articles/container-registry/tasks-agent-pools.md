@@ -3,13 +3,13 @@ title: Utiliser un pool dédié pour exécuter des tâches - Tâches
 description: Configurez un pool de calcul dédié (pool d’agents) dans votre registre pour exécuter une tâche Azure Container Registry.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997112"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844912"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Exécuter une tâche ACR sur un pool d’agents dédié
 

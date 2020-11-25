@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893728"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962567"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problèmes connus et limitations concernant les migrations en ligne de PostgreSQL vers Azure DB pour PostgreSQL
 
@@ -96,13 +96,13 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS Postgre
 - **Erreur** : La valeur par défaut de la colonne '{colonne}' dans la table '{table}' de la base de données '{base de données}' est différente sur les serveurs source et cible. Elle est '{valeur sur la source}' sur la source et '{valeur sur la cible}' sur la cible.
 
   **Limitation** : Cette erreur se produit quand la valeur par défaut sur un schéma de colonne est différente entre les bases de données source et cible.
-  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erreur** : La base de données cible '{base de données}' a '{nombre de tables}' tables alors que la base de données source '{base de données}' en a '{nombre de tables}'. Les bases de données source et cible doivent avoir le même nombre de tables.
 
   **Limitation** : Cette erreur se produit quand le nombre de tables est différent entre les bases de données source et cible.
 
-  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erreur :** La base de données source {database} est vide.
 
@@ -113,7 +113,7 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS Postgre
 - **Erreur :** La base de données cible {database} est vide. Migrez le schéma.
 
   **Limitation** : Cette erreur se produit quand il n’y a pas de schéma dans la base de données cible. Vérifiez que le schéma sur la cible correspond au schéma sur la source.
-  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Autres limitations
 

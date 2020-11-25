@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978218"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950361"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -106,8 +107,8 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - Passez en revue les ressources dans les notes de support SAP, dans le répertoire matériel SAP HANA et dans SAP PAM. Assurez-vous qu’aucune modification n’est apportée aux machines virtuelles prises en charge pour Azure, aux versions de système d’exploitation prises en charge pour ces types de machines virtuelles et aux versions SAP et de SGBD.
         - Validez à nouveau le dimensionnement de votre application et de l'infrastructure que vous déployez sur Azure. Si vous déplacez des applications existantes, vous pouvez souvent extraire le SAPS nécessaire de l’infrastructure utilisée et de la [page web du benchmark SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) et le comparer avec les numéros de SAPS répertoriés sur la [note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Consultez également [cet article sur les évaluations SAPS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208).
         - Évaluez et testez le dimensionnement de vos machines virtuelles Azure en fonction du débit de stockage et du débit réseau maximum des types de machines virtuelles que vous avez choisis durant la phase de planification. Les données sont disponibles ici :
-           -  [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
-           -  [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
+           -  [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache* pour le dimensionnement.
+           -  [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache* pour le dimensionnement.
    2. Stockage.
         - Vérifiez le document [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md).
         - Utilisez au minimum le [stockage Disque SSD Standard Azure](../../disks-types.md#standard-ssd) pour les machines virtuelles représentant des couches Application SAP et pour un déploiement de SGBD non sensibles aux performances.

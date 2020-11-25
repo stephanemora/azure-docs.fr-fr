@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314060"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958753"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur SUSE Linux Enterprise Server 
 
@@ -232,7 +233,7 @@ Les instructions suivantes supposent que vous avez déjà créé le groupe de re
 
    c. Sélectionnez le sous-réseau de réseau virtuel Azure client. Sélectionnez [Mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
-   Lorsque vous déployez les machines virtuelles, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau générées automatiquement, qui sont attachées au sous-réseau de réseau virtuel Azure client, en tant que **hanadb1-client**, **hanadb2-client**et **hanadb3-client**. 
+   Lorsque vous déployez les machines virtuelles, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau générées automatiquement, qui sont attachées au sous-réseau de réseau virtuel Azure client, en tant que **hanadb1-client**, **hanadb2-client** et **hanadb3-client**. 
 
 3. Créez 3 interfaces réseau, une pour chaque machine virtuelle, pour le sous-réseau de réseau virtuel `storage` (dans cet exemple **hanadb1-storage**, **hanadb2-storage** et **hanadb3-storage**).  
 
@@ -435,7 +436,7 @@ Configurez et préparez votre système d’exploitation en procédant comme suit
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-5. **[A]** Créez manuellement le groupe et l’utilisateur SAP HANA. Les ID pour le groupe sapsys et l’utilisateur **hn1**adm doivent être définis sur les mêmes ID que ceux fournis lors de l’intégration. (Dans cet exemple, les ID sont définis sur **1001**.) Si les ID ne sont pas définis correctement, vous ne pourrez pas accéder aux volumes. Les ID pour le groupe sapsys et les comptes d’utilisateurs **hn1**adm et sapadm doivent être identiques sur toutes les machines virtuelles.  
+5. **[A]** Créez manuellement le groupe et l’utilisateur SAP HANA. Les ID pour le groupe sapsys et l’utilisateur **hn1** adm doivent être définis sur les mêmes ID que ceux fournis lors de l’intégration. (Dans cet exemple, les ID sont définis sur **1001**.) Si les ID ne sont pas définis correctement, vous ne pourrez pas accéder aux volumes. Les ID pour le groupe sapsys et les comptes d’utilisateurs **hn1** adm et sapadm doivent être identiques sur toutes les machines virtuelles.  
 
     <pre><code>
     # Create user group 
@@ -533,7 +534,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Modifiez la propriété de SAP HANA des répertoires `data` et `log` pour **hn1**adm.   
+4. **[2], [3]** Modifiez la propriété de SAP HANA des répertoires `data` et `log` pour **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -657,7 +658,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 
 1. Simulez un incident de nœud sur un nœud Worker SAP HANA. Effectuez les actions suivantes : 
 
-   a. Avant de simuler l’incident du nœud, exécutez les commandes suivantes en tant que **hn1**adm pour capturer l’état de l’environnement :  
+   a. Avant de simuler l’incident du nœud, exécutez les commandes suivantes en tant que **hn1** adm pour capturer l’état de l’environnement :  
 
    <pre><code>
     # Check the landscape status
@@ -712,7 +713,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 
 2. Tuez le serveur de noms en procédant comme suit :
 
-   a. Avant le test, vérifiez l’état de l’environnement en exécutant les commandes suivantes en tant que **hn1**adm :  
+   a. Avant le test, vérifiez l’état de l’environnement en exécutant les commandes suivantes en tant que **hn1** adm :  
 
    <pre><code>
     #Landscape status 
@@ -734,7 +735,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b. Exécutez les commandes suivantes en tant que **hn1**adm sur le nœud principal actif, en l’occurrence **hanadb1** :  
+   b. Exécutez les commandes suivantes en tant que **hn1** adm sur le nœud principal actif, en l’occurrence **hanadb1** :  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

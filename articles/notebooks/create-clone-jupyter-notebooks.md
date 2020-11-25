@@ -3,12 +3,12 @@ title: Créer et cloner des notebooks Jupyter - Azure Notebooks en préversion
 description: Les projets Azure Notebooks (préversion) gèrent une collection de notebooks et de fichiers associés, que vous pouvez créer ou cloner à partir d’une autre source.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181492"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844384"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Créer et cloner des projets dans Azure Notebooks en préversion
 
@@ -138,4 +138,4 @@ Pour cloner un projet :
 - [Procédure : présenter un diaporama](present-jupyter-notebooks-slideshow.md)
 - [Procédure : utiliser des fichiers de données](work-with-project-data-files.md)
 - [Procédure : accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
-- [Procédure : Utiliser Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Procédure : Utiliser Azure Machine Learning](../machine-learning/samples-notebooks.md)

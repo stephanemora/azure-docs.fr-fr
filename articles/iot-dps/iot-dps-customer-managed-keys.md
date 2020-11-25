@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22a01bab81fc330484e7715a65c89a1cfd7802c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85298223"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967174"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Chiffrement de données au repos avec des clés gérées par le client pour le Service Device Provisioning
 
@@ -26,6 +26,6 @@ Cette fonctionnalité requiert la création d’un service DPS. Pour essayer cet
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur le service Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)
+* [En savoir plus sur le service Device Provisioning](./index.yml)
 
-* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [En savoir plus sur Azure Key Vault](../key-vault/general/overview.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876786"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948542"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Démarrage rapide : Déployer et gérer les journaux de flux NSG à l’aide d’Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91876786"
 Azure Policy aide à appliquer les normes organisationnelles et à évaluer la conformité à l’échelle. Les cas d’usage courants pour Azure Policy incluent la mise en œuvre de la gouvernance pour la cohérence des ressources, la conformité réglementaire, la sécurité, le coût et la gestion. Dans cet article, nous allons utiliser deux stratégies intégrées disponibles pour les journaux de flux NSG afin de gérer l’installation de vos journaux de flux. La première stratégie marque tous les NSG sans les journaux de flux activés. La deuxième stratégie déploie automatiquement les journaux de flux pour les NSG sans les journaux de flux activés. 
 
 Si vous créez une stratégie Azure pour la première fois, vous pouvez lire : 
-- [Vue d’ensemble d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Tutoriel sur la création d’une stratégie](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Vue d’ensemble d’Azure Policy](../governance/policy/overview.md) 
+- [Tutoriel sur la création d’une stratégie](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Rechercher les stratégies
@@ -134,5 +134,5 @@ Une fois votre stratégie exécutée, vous devez voir quelque chose de semblable
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
--   Utilisez ce [tutoriel](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) aller plus loin en utilisant des modèles ARM pour déployer des journaux de flux et Traffic Analytics.
--   En savoir plus sur [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-   Utilisez ce [tutoriel](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) aller plus loin en utilisant des modèles ARM pour déployer des journaux de flux et Traffic Analytics.
+-   En savoir plus sur [Network Watcher](./index.yml)

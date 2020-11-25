@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893168"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958743"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur Red Hat Enterprise Linux 
 
@@ -235,7 +236,7 @@ Les instructions suivantes supposent que vous avez déjà créé le groupe de re
 
    c. Sélectionnez le sous-réseau de réseau virtuel Azure client. Sélectionnez [Mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
-   Lorsque vous déployez les machines virtuelles, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau générées automatiquement, qui sont attachées au sous-réseau de réseau virtuel Azure client, en tant que **hanadb1-client**, **hanadb2-client**et **hanadb3-client**. 
+   Lorsque vous déployez les machines virtuelles, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau générées automatiquement, qui sont attachées au sous-réseau de réseau virtuel Azure client, en tant que **hanadb1-client**, **hanadb2-client** et **hanadb3-client**. 
 
 3. Créez 3 interfaces réseau, une pour chaque machine virtuelle, pour le sous-réseau de réseau virtuel `storage` (dans cet exemple **hanadb1-storage**, **hanadb2-storage** et **hanadb3-storage**).  
 
@@ -531,7 +532,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Modifiez la propriété de SAP HANA des répertoires `data` et `log` pour **hn1**adm.   
+4. **[2], [3]** Modifiez la propriété de SAP HANA des répertoires `data` et `log` pour **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +731,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 
 1. Simulez un incident de nœud sur un nœud Worker SAP HANA. Effectuez les actions suivantes : 
 
-   a. Avant de simuler l’incident du nœud, exécutez les commandes suivantes en tant que **hn1**adm pour capturer l’état de l’environnement :  
+   a. Avant de simuler l’incident du nœud, exécutez les commandes suivantes en tant que **hn1** adm pour capturer l’état de l’environnement :  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 
 2. Tuez le serveur de noms en procédant comme suit :
 
-   a. Avant le test, vérifiez l’état de l’environnement en exécutant les commandes suivantes en tant que **hn1**adm :  
+   a. Avant le test, vérifiez l’état de l’environnement en exécutant les commandes suivantes en tant que **hn1** adm :  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Exécutez les commandes suivantes en tant que **hn1**adm sur le nœud principal actif, en l’occurrence **hanadb1** :  
+   b. Exécutez les commandes suivantes en tant que **hn1** adm sur le nœud principal actif, en l’occurrence **hanadb1** :  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

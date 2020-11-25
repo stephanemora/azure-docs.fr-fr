@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272533"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966460"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
 Découvrez comment lire les entrées de journaux de flux de groupe de sécurité réseau avec PowerShell.
 
-Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux d’activité sont créés toutes les heures, les journaux d’activité sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
+Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux d’activité sont créés toutes les heures, les journaux d’activité sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Avant de commencer, la journalisation des flux de groupe de sécurité réseau d
 
 ## <a name="retrieve-the-block-list"></a>Récupérer la liste de blocs
 
-La commande PowerShell suivante définit les variables nécessaires pour interroger l’objet blob des journaux de flux de groupe de sécurité réseau et répertorier les blocs dans l’objet blob de blocs [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Mettez à jour le script pour contenir des valeurs valides pour votre environnement.
+La commande PowerShell suivante définit les variables nécessaires pour interroger l’objet blob des journaux de flux de groupe de sécurité réseau et répertorier les blocs dans l’objet blob de blocs [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Mettez à jour le script pour contenir des valeurs valides pour votre environnement.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Ce scénario est un exemple montrant comment lire les entrées dans les journaux
 
 Visitez [Utiliser Elasic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Utiliser Grafana](network-watcher-nsg-grafana.md) et [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) pour en savoir plus sur les façons de visualiser les journaux de flux NSG. Une approche Azure Function Open permettant de consommer directement les blobs et d’émettre vers les différents consommateurs de l’analytique des journaux d’activité est décrite ici : [Connecteur des journaux de flux de groupe de sécurité réseau Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Vous pouvez utiliser [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) pour obtenir des insights sur vos flux de trafic. Traffic Analytics utilise [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) pour rendre votre flux de trafic interrogeable.
+Vous pouvez utiliser [Azure Traffic Analytics](./traffic-analytics.md) pour obtenir des insights sur vos flux de trafic. Traffic Analytics utilise [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) pour rendre votre flux de trafic interrogeable.
 
 Pour en savoir plus sur les objets blob de stockage, visitez : [Liaisons de stockage Blob Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

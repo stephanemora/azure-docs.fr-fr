@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c6caea2de9063b133d4d5d643629184e412dad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797744"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957688"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -442,7 +443,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    >Vous pouvez vérifier l’extension en exécutant la commande SUSEConnect---list-extensions.  
    >Pour obtenir des délais de basculement plus rapides avec Azure Fence Agent :
    > - sur SLES 12 SP4 ou SLES 12 SP5, installez la version **4.6.2** ou une version ultérieure du package python-azure-mgmt-compute  
-   > - sur SLES 15, installez la version **4.6.2** ou une version ultérieure du package python**3**-azure-mgmt-compute 
+   > - sur SLES 15, installez la version **4.6.2** ou une version ultérieure du package python **3**-azure-mgmt-compute 
 
 1. **[A]** Configurer la résolution de nom d’hôte
 

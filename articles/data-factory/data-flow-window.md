@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: 896254a5577dad1bdcf474b963b9544029a4c81a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/16/2020
+ms.openlocfilehash: 8f0d10b6ed69cd31249447b59114c590bdbeb078
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040122"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832362"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Transformation de fenêtre dans le flux de données de mappage
 
@@ -22,6 +22,8 @@ ms.locfileid: "93040122"
 C’est lors de la transformation de fenêtres que vous allez définir des agrégations de colonnes utilisant une fenêtre dans vos flux de données. Dans le Générateur d’expressions, vous pouvez définir différents types d’agrégations basées sur les données ou sur des fenêtres de temps (clause SQL OVER), telles que LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Un nouveau champ qui inclut ces agrégations sera créé dans votre sortie. Vous pouvez également inclure des champs de regroupement facultatifs.
 
 ![Capture d’écran montrant l’option de fenêtrage sélectionnée dans le menu.](media/data-flow/windows1.png "fenêtres 1")
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## <a name="over"></a>Over
 Définir le partitionnement des données de colonne pour la transformation de votre fenêtre. L’équivalent SQL est le ```Partition By``` dans la clause Over de SQL. Si vous souhaitez créer un calcul ou une expression à utiliser pour le partitionnement, vous pouvez le faire en plaçant le curseur sur le nom de colonne et en sélectionnant « colonne calculée ».

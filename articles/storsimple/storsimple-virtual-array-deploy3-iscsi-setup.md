@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742415"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956549"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
@@ -37,7 +37,7 @@ Les procédures décrites ici prennent de 30 minutes à 1 heure environ. Les inf
 
 Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
 
-* Vous avez configuré un tableau virtuel et vous êtes connecté à celui-ci, comme décrit dans [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Vous avez configuré un tableau virtuel et vous êtes connecté à celui-ci, comme décrit dans [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Vous disposez de la clé d’inscription du service StorSimple Device Manager que vous avez créé pour gérer les instances StorSimple Virtual Array. Pour plus d'informations, consultez **Étape 2 : Obtention de la clé d'inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * S’il s’agit de la deuxième baie virtuelle (ou d’une baie ultérieure) que vous inscrivez auprès d’un service StorSimple Device Manager existant, vous devez disposer de la clé de chiffrement des données du service. Cette clé a été générée lorsque le premier appareil a été correctement inscrit auprès de ce service. Si vous avez perdu cette clé, consultez la rubrique **Obtenir la clé de chiffrement des données de service** dans [Utiliser l’interface utilisateur web pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -245,7 +245,4 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 3. Enregistrez cette chaîne.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

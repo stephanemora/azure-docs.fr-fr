@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152113"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957331"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Haute disponibilité du système de montée en charge SAP HANA sur Red Hat Enterprise Linux 
 
@@ -57,7 +58,7 @@ ms.locfileid: "92152113"
 
 Cet article explique comment déployer un système SAP HANA à haut niveau de disponibilité dans une configuration de montée en charge avec réplication de système HANA (HSR) et Pacemaker sur les machines virtuelles Red Hat Enterprise Linux Azure. Les systèmes de fichiers partagés dans l’architecture présentée sont fournis par [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) et sont montés sur NFS.  
 
-Dans les exemples de configuration, de commandes d’installation, etc., l’instance HANA est **03** et l’ID de système HANA est **HN1** . Les exemples sont basés sur HANA 2.0 SP4 et Red Hat Enterprise Linux pour SAP 7.6. 
+Dans les exemples de configuration, de commandes d’installation, etc., l’instance HANA est **03** et l’ID de système HANA est **HN1**. Les exemples sont basés sur HANA 2.0 SP4 et Red Hat Enterprise Linux pour SAP 7.6. 
 
 Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 
@@ -120,9 +121,9 @@ Les instructions suivantes supposent que vous avez déjà créé le groupe de re
 ### <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Déployer des machines virtuelles Linux via le Portail Azure
 1. Déployer les machines virtuelles Azure.  
 Pour la configuration présentée dans ce document, déployez sept machines virtuelles : 
-   - trois machines virtuelles à servir de nœuds de base de données HANA pour le site de réplication HANA 1 : **hana-s1-db1** , **hana-s1-db2** et **hana-s1-db3**  
-   - trois machines virtuelles à servir de nœuds de base de données HANA pour le site de réplication HANA 2 : **hana-s2-db1** , **hana-s2-db2** et **hana-s2-db3**  
-   - une petite machine virtuelle à servir de *créateur de majorité*  : **hana-s-mm**
+   - trois machines virtuelles à servir de nœuds de base de données HANA pour le site de réplication HANA 1 : **hana-s1-db1**, **hana-s1-db2** et **hana-s1-db3**  
+   - trois machines virtuelles à servir de nœuds de base de données HANA pour le site de réplication HANA 2 : **hana-s2-db1**, **hana-s2-db2** et **hana-s2-db3**  
+   - une petite machine virtuelle à servir de *créateur de majorité* : **hana-s-mm**
 
    Les machines virtuelles, déployées en tant que nœuds HANA de base de données SAP doivent être certifiées par SAP pour HANA, telles qu’elles sont publiées dans le [Répertoire matériel SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Lors du déploiement des nœuds de base de données HANA, assurez-vous que [Accelerated Network](../../../virtual-network/create-vm-accelerated-networking-cli.md) (réseau accélérée) est sélectionné.  
   
@@ -131,30 +132,30 @@ Pour la configuration présentée dans ce document, déployez sept machines virt
    Déployer des disques managés locaux pour `/hana/data` et `/hana/log`. La configuration de stockage minimale recommandée pour `/hana/data` et `/hana/log` est décrite dans [Configurations de stockage SAP HANA des machines virtuelles Azure](./hana-vm-operations-storage.md).
 
    Déployez l’interface réseau principale pour chaque machine virtuelle dans le sous-réseau du réseau virtuel `client`.  
-   Lorsque la machine virtuelle est déployée via le Portail Azure, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau principales générées automatiquement, qui sont attachées au sous-réseau `client` du réseau virtuel Azure, en tant que **hana-s1-db1-client** , **hana-s1-db2-client** , **hana-s1-db3-client** , etc.  
+   Lorsque la machine virtuelle est déployée via le Portail Azure, le nom de l’interface réseau est généré automatiquement. Dans ces instructions, par soucis de simplicité, nous allons faire référence aux interfaces réseau principales générées automatiquement, qui sont attachées au sous-réseau `client` du réseau virtuel Azure, en tant que **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, etc.  
 
 
    > [!IMPORTANT]
    > Vérifiez que le système d’exploitation que vous sélectionnez est certifié SAP pour SAP HANA sur les types de machine virtuelle spécifiques que vous utilisez. Pour obtenir la liste des types de machines virtuelles certifiés SAP HANA et des versions de système d’exploitation correspondants, accédez au site [SAP HANA Certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Cliquez sur les détails du type de machine virtuelle répertorié pour obtenir la liste complète des versions de système d’exploitation prises en charge par SAP HANA pour ce type.  
   
 
-2. Créez six interfaces réseau, une pour chaque machine virtuelle de base de données HANA, dans le sous-réseau `inter` du réseau virtuel (dans cet exemple, **hana-s1-db1-inter** , **hana-s1-db2-inter** , **hana-s1-db3-inter** , **hana-s2-db1-inter** , **hana-s2-db2-inter** , et **hana-s2-db3-inter** ).  
+2. Créez six interfaces réseau, une pour chaque machine virtuelle de base de données HANA, dans le sous-réseau `inter` du réseau virtuel (dans cet exemple, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, et **hana-s2-db3-inter**).  
 
-3. Créez six interfaces réseau, une pour chaque machine virtuelle de base de données HANA, dans le sous-réseau `hsr` du réseau virtuel (dans cet exemple, **hana-s1-db1-hsr** , **hana-s1-db2-hsr** , **hana-s1-db3-hsr** , **hana-s2-db1-hsr** , **hana-s2-db2-hsr** , et **hana-s2-db3-hsr** ).  
+3. Créez six interfaces réseau, une pour chaque machine virtuelle de base de données HANA, dans le sous-réseau `hsr` du réseau virtuel (dans cet exemple, **hana-s1-db1-hsr**, **hana-s1-db2-hsr**, **hana-s1-db3-hsr**, **hana-s2-db1-hsr**, **hana-s2-db2-hsr**, et **hana-s2-db3-hsr**).  
 
 4. Attachez les interfaces réseau virtuelles nouvellement créées aux machines virtuelles correspondantes :  
 
     a. Accédez à la machine virtuelle sur le [Portail Azure](https://portal.azure.com/#home).  
 
-    b. Dans le volet gauche, sélectionnez **Machines virtuelles** . Filtrez sur le nom de la machine virtuelle (par exemple, **hana-s1-db1** ), puis sélectionnez la machine virtuelle.  
+    b. Dans le volet gauche, sélectionnez **Machines virtuelles**. Filtrez sur le nom de la machine virtuelle (par exemple, **hana-s1-db1**), puis sélectionnez la machine virtuelle.  
 
-    c. Dans le volet **Vue d’ensemble** , sélectionnez **Arrêter** pour libérer la machine virtuelle.  
+    c. Dans le volet **Vue d’ensemble**, sélectionnez **Arrêter** pour libérer la machine virtuelle.  
 
-    d. Sélectionnez **Mise en réseau** , puis attachez l’interface réseau. Dans la liste déroulante sous **Attacher l’interface réseau** , sélectionnez les interfaces réseau déjà créées pour les sous-réseaux `inter` et `hsr`.  
+    d. Sélectionnez **Mise en réseau**, puis attachez l’interface réseau. Dans la liste déroulante sous **Attacher l’interface réseau**, sélectionnez les interfaces réseau déjà créées pour les sous-réseaux `inter` et `hsr`.  
     
-    e. Sélectionnez **Enregistrer** . 
+    e. Sélectionnez **Enregistrer**. 
  
-    f. Répétez les étapes b à e pour les machines virtuelles restantes (dans notre exemple,  **hana-s1-db2** , **hana-s1-db3** , **hana-s2-db1** , **hana-s2-db2** et **hana-s2-db3** ).
+    f. Répétez les étapes b à e pour les machines virtuelles restantes (dans notre exemple,  **hana-s1-db2**, **hana-s1-db3**, **hana-s2-db1**, **hana-s2-db2** et **hana-s2-db3**).
  
     g. Laissez les machines virtuelles dans l’état arrêté pour l’instant. Ensuite, nous allons activer [Mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-cli.md) pour toutes les interfaces réseau qui viennent d’être attachées.  
 
@@ -187,37 +188,37 @@ Pour la configuration présentée dans ce document, déployez sept machines virt
 1. Nous vous recommandons d’utiliser l’équilibreur de charge standard. Suivez ces étapes de configuration pour déployer l’équilibreur de charge standard :
    1. Commencez par créer un pool d’adresses IP frontales :
 
-      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
-      1. Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend** ).
-      1. Définissez l’ **Affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.23.0.18** ).
-      1. Sélectionnez **OK** .
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
+      1. Définissez l’**Affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.23.0.18**).
+      1. Sélectionnez **OK**.
       1. Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
 
    1. Ensuite, créez un pool de back-ends et ajoutez toutes les machines virtuelles du cluster au pool de back-ends :
 
-      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
-      1. Entrer le nom du nouveau pool principal (par exemple **hana-backend** ).
-      1. Cliquez sur **Ajouter une machine virtuelle** .
-      1. Sélectionnez **Machine virtuelle** .
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
+      1. Cliquez sur **Ajouter une machine virtuelle**.
+      1. Sélectionnez **Machine virtuelle**.
       1. Sélectionnez les machines virtuelles du cluster SAP HANA et leurs adresses IP pour le sous-réseau `client`.
-      1. Sélectionnez **Ajouter** .
+      1. Sélectionnez **Ajouter**.
 
    1. Créez ensuite une sonde d’intégrité :
 
-      1. Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité** , puis cliquez sur **Ajouter** .
-      1. Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp** ).
-      1. Sélectionnez **TCP** pour le protocole et le port 625 **03** . Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
-      1. Sélectionnez **OK** .
+      1. Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
+      1. Sélectionnez **TCP** pour le protocole et le port 625 **03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
+      1. Sélectionnez **OK**.
 
    1. Ensuite, créez les règles d’équilibrage de charge :
    
-      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge** , puis cliquez sur **Ajouter** .
-      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb** ).
-      1. Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **hana-frontend** , **hana-backend** et **hana-hp** ).
-      1. Sélectionnez **Ports HA** .
+      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
+      1. Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
+      1. Sélectionnez **Ports HA**.
       1. Augmentez le **délai d’inactivité** à 30 minutes.
       1. Veillez à **activer l’IP flottante** .
-      1. Sélectionnez **OK** .
+      1. Sélectionnez **OK**.
 
    > [!IMPORTANT]
    > Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.    
@@ -227,7 +228,7 @@ Pour la configuration présentée dans ce document, déployez sept machines virt
 
 
    > [!IMPORTANT]
-   > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0** . Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
+   > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
    > Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Déployer l’infrastructure Azure NetApp Files 
@@ -236,8 +237,8 @@ Déployez les volumes ANF pour le système de fichiers `/hana/shared`. Vous aure
 
 Dans cet exemple, les volumes Azure NetApp Files suivants ont été utilisés : 
 
-* volume **HN1** -shared-s1 (nfs://10.23.1.7/ **HN1** -shared-s1)
-* volume **HN1** -shared-s2 (nfs://10.23.1.7/ **HN1** -shared-s2)
+* volume **HN1**-shared-s1 (nfs://10.23.1.7/**HN1**-shared-s1)
+* volume **HN1**-shared-s2 (nfs://10.23.1.7/**HN1**-shared-s2)
 
 ## <a name="operating-system-configuration-and-preparation"></a>Configuration et préparation du système d’exploitation
 
@@ -306,7 +307,7 @@ Dans cet exemple, les systèmes de fichiers HANA partagés sont déployés sur A
     mkdir -p /hana/shared
     ```
 
-2. **[AH]** Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine par défaut Azure NetApp Files, autrement dit, **`defaultv4iddomain.com`** et que le mappage est défini sur **nobody** .  
+2. **[AH]** Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine par défaut Azure NetApp Files, autrement dit, **`defaultv4iddomain.com`** et que le mappage est défini sur **nobody**.  
    Cette étape n’est nécessaire que si vous utilisez Azure NetAppFiles NFSv4.1.  
 
     > [!IMPORTANT]
@@ -322,7 +323,7 @@ Dans cet exemple, les systèmes de fichiers HANA partagés sont déployés sur A
     Nobody-Group = nobody
     ```
 
-3. **[AH]** Vérifiez `nfs4_disable_idmapping`. Cette option doit avoir la valeur **Y** . Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.  
+3. **[AH]** Vérifiez `nfs4_disable_idmapping`. Cette option doit avoir la valeur **Y**. Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.  
    Cette étape n’est nécessaire que si vous utilisez Azure NetAppFiles NFSv4.1.  
 
     ```
@@ -352,7 +353,7 @@ Dans cet exemple, les systèmes de fichiers HANA partagés sont déployés sur A
     ```
 
 
-10. **[AH]** Vérifiez que les systèmes de fichiers `/hana/shared/` correspondants sont montés sur toutes les machines virtuelles de base de données HANA avec la version de protocole NFS **NFSv4** .  
+10. **[AH]** Vérifiez que les systèmes de fichiers `/hana/shared/` correspondants sont montés sur toutes les machines virtuelles de base de données HANA avec la version de protocole NFS **NFSv4**.  
 
     ```
     sudo nfsstat -m
@@ -395,7 +396,7 @@ Configurez la disposition du disque avec **Logical Volume Manager (LVM)** . L’
     ```
 
 4. **[AH]** Créez les volumes logiques. 
-   Un volume linéaire est créé lorsque vous utilisez `lvcreate` sans le commutateur `-i`. Nous vous suggérons de créer un volume agrégé par bandes pour obtenir de meilleures performances d’E/S, et d’aligner les tailles des bandes sur les valeurs décrites dans [Configurations de stockage de machines virtuelles SAP HANA](./hana-vm-operations-storage.md). L’argument `-i` doit indiquer le nombre de volumes physiques sous-jacents et l’argument `-I` la taille de bande. Dans ce document, deux volumes physiques sont utilisés pour le volume de données. Par conséquent, l’argument de commutateur `-i` est défini sur **2** . La taille de bande pour le volume de données est de **256 Kio** . Un volume physique étant utilisé pour le volume du fichier journal, aucun commutateur `-i` ou `-I` n’est utilisé explicitement pour les commandes de volume du fichier journal.  
+   Un volume linéaire est créé lorsque vous utilisez `lvcreate` sans le commutateur `-i`. Nous vous suggérons de créer un volume agrégé par bandes pour obtenir de meilleures performances d’E/S, et d’aligner les tailles des bandes sur les valeurs décrites dans [Configurations de stockage de machines virtuelles SAP HANA](./hana-vm-operations-storage.md). L’argument `-i` doit indiquer le nombre de volumes physiques sous-jacents et l’argument `-I` la taille de bande. Dans ce document, deux volumes physiques sont utilisés pour le volume de données. Par conséquent, l’argument de commutateur `-i` est défini sur **2**. La taille de bande pour le volume de données est de **256 Kio**. Un volume physique étant utilisé pour le volume du fichier journal, aucun commutateur `-i` ou `-I` n’est utilisé explicitement pour les commandes de volume du fichier journal.  
 
    > [!IMPORTANT]
    > Utilisez le commutateur `-i` et définissez sa valeur sur le nombre de volumes physiques sous-jacents lorsque vous utilisez plusieurs volumes physiques pour chaque volume de données ou de journal. Utilisez le commutateur `-I` pour spécifier la taille de bande lors de la création d’un volume agrégé par bandes.  
@@ -490,12 +491,12 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
 
    b. À l’invite, entrez les valeurs suivantes :
 
-     * Pour **Choisir une action**  : entrer **1** (pour l’installation)
-     * Pour **Composants supplémentaires pour l’installation**  : entrer **2, 3**
+     * Pour **Choisir une action** : entrer **1** (pour l’installation)
+     * Pour **Composants supplémentaires pour l’installation** : entrer **2, 3**
      * Pour le chemin d’accès de l’installation : appuyer sur Entrée (utilise par défaut /hana/shared)
-     * Pour **Nom d’hôte local**  : appuyer sur Entrée pour accepter la valeur par défaut
+     * Pour **Nom d’hôte local** : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Voulez-vous ajouter des hôtes au système ?**  : entrer **n**
-     * Pour **ID système SAP HANA**  : entrer **HN1**
+     * Pour **ID système SAP HANA** : entrer **HN1**
      * Pour **Numéro d’instance** [00] : entrer **03**
      * Pour **Groupe Worker hôte local** [par défaut] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Sélectionner Utilisation du système/Entrer l’index [4]**  : entrer **4** (pour personnalisé)
@@ -503,10 +504,10 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
      * Pour **Emplacement des volumes de journaux** [/hana/log/HN1] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Restreindre l’allocation de mémoire maximale ?** [n] : entrer **n**
      * Pour **Nom d’hôte du certificat pour l’hôte hana-s1-db1** [hana-s1-db1] : appuyer sur Entrée pour accepter la valeur par défaut
-     * Pour **Mot de passe (sapadm) utilisateur de l’agent hôte SAP**  : entrer le mot de passe
-     * Pour **Confirmer le mot de passe (sapadm) utilisateur de l’agent hôte SAP**  : entrer le mot de passe
+     * Pour **Mot de passe (sapadm) utilisateur de l’agent hôte SAP** : entrer le mot de passe
+     * Pour **Confirmer le mot de passe (sapadm) utilisateur de l’agent hôte SAP** : entrer le mot de passe
      * Pour **Mot de passe de l’administrateur système (hn1adm)**  : entrer le mot de passe
-     * Pour **Répertoire de base de l’administrateur système** [/usr/sap/HN1/home] : appuyer sur Entrée pour accepter la valeur par défaut
+     * Pour **Répertoire de base de l’administrateur système**[/usr/sap/HN1/home] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Environnement de connexion de l’administrateur système** [/bin/sh] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **ID utilisateur de l’administrateur système** [1001] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Entrer l’ID du groupe d’utilisateurs (sapsys)** [79] : appuyrz sur Entrée pour accepter la valeur par défaut
@@ -519,7 +520,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
 
 3. **[1,2]** Vérifiez global. ini  
 
-   Affichez global.ini et assurez-vous que la configuration de la communication interne SAP HANA entre les nœuds est en place. Vérifiez la section **communication** . Elle doit comporter un espace d’adressage pour le sous-réseau `inter` et `listeninterface` doit être défini sur `.internal`. Vérifiez la section **internal_hostname_resolution** . Elle doit comporter les adresses IP des machines virtuelles HANA qui appartiennent au sous-réseau `inter`.  
+   Affichez global.ini et assurez-vous que la configuration de la communication interne SAP HANA entre les nœuds est en place. Vérifiez la section **communication**. Elle doit comporter un espace d’adressage pour le sous-réseau `inter` et `listeninterface` doit être défini sur `.internal`. Vérifiez la section **internal_hostname_resolution**. Elle doit comporter les adresses IP des machines virtuelles HANA qui appartiennent au sous-réseau `inter`.  
 
    ```
      sudo cat /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -574,9 +575,9 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
 
    b. À l’invite, entrez les valeurs suivantes :
 
-     * Pour **Choisir une action**  : entrer **2** (pour ajouter des hôtes)
-     * Pour **Entrer les noms d’hôte séparés par une virgule à ajouter**  : hana-s1-db2, hana-s1-db3
-     * Pour **Composants supplémentaires pour l’installation**  : entrer **2, 3**
+     * Pour **Choisir une action** : entrer **2** (pour ajouter des hôtes)
+     * Pour **Entrer les noms d’hôte séparés par une virgule à ajouter** : hana-s1-db2, hana-s1-db3
+     * Pour **Composants supplémentaires pour l’installation** : entrer **2, 3**
      * Pour **Entrer le nom d’utilisateur racine [root]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Sélectionner des rôles pour l’hôte 'hana-s1-db2' [1]**  : 1 (pour le Worker)
      * Pour **Entrer le groupe de basculement hôte pour l’hôte 'hana-s1-db2' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
@@ -587,8 +588,8 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
      * Pour **Entrer le numéro de partition de stockage pour l’hôte 'hana-s1-db3' [<<assign automatically>>]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Entrer le groupe de Worker hôte pour l’hôte 'hana-s1-db3' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Mot de passe de l’administrateur système (hn1adm)**  : entrer le mot de passe
-     * Pour **Entrer le mot de passe (sapadm) utilisateur de l’agent hôte SAP**  : entrer le mot de passe
-     * Pour **Confirmer le mot de passe (sapadm) utilisateur de l’agent hôte SAP**  : entrer le mot de passe
+     * Pour **Entrer le mot de passe (sapadm) utilisateur de l’agent hôte SAP** : entrer le mot de passe
+     * Pour **Confirmer le mot de passe (sapadm) utilisateur de l’agent hôte SAP** : entrer le mot de passe
      * Pour **Nom d’hôte du certificat pour l’hôte hana-s1-db2** [hana-s1-db2] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Nom d’hôte du certificat pour l’hôte hana-s1-db3** [hana-s1-db3] : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Voulez-vous continuer (y/n)**  : valider le résumé et si tout semble correct, entrer **y**
@@ -915,7 +916,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
    1. Assurez-vous que le cluster est déjà en mode maintenance.  
     
    2. Ensuite, créez la ressource de topologie HANA.  
-      Si vous créez un cluster RHEL  **7.x** , utilisez les commandes suivantes :  
+      Si vous créez un cluster RHEL **7.x**, utilisez les commandes suivantes :  
       ```
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopologyScaleOut \
        SID=HN1 InstanceNumber=03 \
@@ -924,7 +925,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
       pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
       ```
 
-      Si vous créez un cluster RHEL  **8.x** , utilisez les commandes suivantes :  
+      Si vous créez un cluster RHEL **8.x**, utilisez les commandes suivantes :  
       ```
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
@@ -936,9 +937,9 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
 
    3. Ensuite, créez la ressource d’instance HANA.  
       > [!NOTE]
-      > Cet article contient des références au terme  *esclave* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.  
+      > Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.  
  
-      Si vous créez un cluster RHEL  **7.x** , utilisez les commandes suivantes :    
+      Si vous créez un cluster RHEL **7.x**, utilisez les commandes suivantes :    
       ```
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -949,7 +950,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
        meta master-max="1" clone-node-max=1 interleave=true
       ```
 
-      Si vous créez un cluster RHEL  **8.x** , utilisez les commandes suivantes :  
+      Si vous créez un cluster RHEL **8.x**, utilisez les commandes suivantes :  
       ```
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -961,7 +962,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > Nous vous recommandons, comme meilleure pratique, de définir AUTOMATED_REGISTER uniquement sur **non** , tout en effectuant des tests de basculement détaillés, afin d’éviter l’échec de l’inscription automatique de l’instance principale comme secondaire. Une fois les tests de basculement terminés, définissez AUTOMATED_REGISTER sur **oui** , afin qu’après la réplication du système de prise en charge, la réplication puisse reprendre automatiquement. 
+      > Nous vous recommandons, comme meilleure pratique, de définir AUTOMATED_REGISTER uniquement sur **non**, tout en effectuant des tests de basculement détaillés, afin d’éviter l’échec de l’inscription automatique de l’instance principale comme secondaire. Une fois les tests de basculement terminés, définissez AUTOMATED_REGISTER sur **oui**, afin qu’après la réplication du système de prise en charge, la réplication puisse reprendre automatiquement. 
 
    4. Créez une adresse IP virtuelle et les ressources associées.  
       ```
@@ -971,7 +972,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
       ```
 
    5. Créer les contraintes de cluster  
-      Si vous créez un cluster RHEL  **7.x** , utilisez les commandes suivantes :  
+      Si vous créez un cluster RHEL **7.x**, utilisez les commandes suivantes :  
       ```
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then msl_SAPHana_HN1_HDB03
@@ -981,7 +982,7 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
  
-      Si vous créez un cluster RHEL  **8.x** , utilisez les commandes suivantes :  
+      Si vous créez un cluster RHEL **8.x**, utilisez les commandes suivantes :  
       ```
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
@@ -1068,9 +1069,9 @@ Incluez toutes les machines virtuelles, y compris le créateur de majorité dans
 
 2. Vérifiez la configuration du cluster pour un scénario d’échec lorsqu’un nœud perd l’accès au partage NFS (`/hana/shared`).  
 
-   Les agents de ressource SAP HANA dépendent de binaires, qui sont stockés sur `/hana/shared` pour effectuer des opérations pendant le basculement. Le système de fichiers `/hana/shared` est monté sur NFS dans la configuration présentée. Un test possible consiste à remonter le système de fichiers `/hana/shared` en *Lecture seule* . Cette approche valide le basculement du cluster en cas de perte de l’accès à `/hana/shared` sur le site de réplication de système actif.  
+   Les agents de ressource SAP HANA dépendent de binaires, qui sont stockés sur `/hana/shared` pour effectuer des opérations pendant le basculement. Le système de fichiers `/hana/shared` est monté sur NFS dans la configuration présentée. Un test possible consiste à remonter le système de fichiers `/hana/shared` en *Lecture seule*. Cette approche valide le basculement du cluster en cas de perte de l’accès à `/hana/shared` sur le site de réplication de système actif.  
 
-   **Résultat attendu**  : Lorsque vous remontez `/hana/shared` en *Lecture seule* , l’opération d’analyse qui effectue une opération de lecture/écriture sur le système de fichiers échoue, car il n’est pas en mesure d’écrire dans le système de fichiers et déclenche un basculement de ressource HANA. Le même résultat est attendu lorsque votre nœud HANA perd l’accès au partage NFS.  
+   **Résultat attendu** : Lorsque vous remontez `/hana/shared` en *Lecture seule*, l’opération d’analyse qui effectue une opération de lecture/écriture sur le système de fichiers échoue, car il n’est pas en mesure d’écrire dans le système de fichiers et déclenche un basculement de ressource HANA. Le même résultat est attendu lorsque votre nœud HANA perd l’accès au partage NFS.  
      
    Vous pouvez vérifier l’état des ressources de cluster en exécutant `crm_mon` ou `pcs status`. État des ressources avant le début du test :
       ```

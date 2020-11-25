@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288363"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987335"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
 
@@ -37,7 +37,7 @@ Si vous êtes un client Azure AD Identity Protection, accédez à la vue [Utilis
 
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Pourquoi ma connexion est-elle bloquée, mais Identity Protection n’a-t-il pas généré de détection des risques ?
 Les connexions peuvent être bloquées pour plusieurs raisons. Il est important de noter qu’Identity Protection ne génère des détections de risque que lorsque des informations d’identification correctes sont utilisées dans la demande d’authentification. Si un utilisateur entre des informations d’identification incorrectes, il n’est pas marqué par Identity Protection, car il n’y a aucun risque de compromission des informations d’identification, sauf si une personne inappropriée utilise les informations d’identification correctes. Il est possible qu’Identity Protection ne génère pas de détection pour un utilisateur dont la signature a été bloquée pour certaines raisons, notamment :
-* L’ **adresse IP peut être bloquée** en raison d’une activité malveillante à partir de l’adresse IP. Le message bloqué par l’adresse IP n’est pas différent si les informations d’identification sont correctes ou non. Si l’adresse IP est bloquée et que des informations d’identification incorrectes sont utilisées, Identity Protection ne génère pas de détection
+* L’**adresse IP peut être bloquée** en raison d’une activité malveillante à partir de l’adresse IP. Le message bloqué par l’adresse IP n’est pas différent si les informations d’identification sont correctes ou non. Si l’adresse IP est bloquée et que des informations d’identification incorrectes sont utilisées, Identity Protection ne génère pas de détection
 * Le **[verrouillage intelligent](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** peut empêcher la connexion du compte après plusieurs tentatives ayant échoué
 * Une **stratégie d’accès conditionnel** peut être appliquée et peut utiliser d’autres conditions que le niveau de risque pour bloquer une demande d’authentification
 
@@ -76,7 +76,7 @@ Toutes les détections de risques sont documentées dans l’article [Qu’est-c
 - Nous fournissons également les informations à nos systèmes de Machine Learning dans le but d’améliorations futures de l’évaluation des risques.
 
     > [!NOTE]
-    > Si l’utilisateur est déjà corrigé, ne cliquez pas sur **Confirmer comme étant compromise** , car ceci définit l’état du risque de connexion et de l’utilisateur sur **État compromis confirmé** et le niveau de risque sur **Élevé**.
+    > Si l’utilisateur est déjà corrigé, ne cliquez pas sur **Confirmer comme étant compromise**, car ceci définit l’état du risque de connexion et de l’utilisateur sur **État compromis confirmé** et le niveau de risque sur **Élevé**.
 
 **Confirmer comme étant sécurisée** (sur une connexion) : informe Azure AD Identity Protection que la connexion a été effectuée par le propriétaire de l’identité et n’indique pas de compromis.
 
@@ -95,6 +95,4 @@ Toutes les détections de risques sont documentées dans l’article [Qu’est-c
 
 L’indice de risque d’agrégat élevé peut être basé sur d’autres fonctionnalités de la connexion, ou sur le fait que plusieurs détections ont été déclenchées pour cette connexion. À l’inverse, une connexion peut avoir un risque de connexion (agrégat) moyen même si les détections associées à la connexion sont de risque élevé. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Pourquoi la détection qui est liée à une connexion risquée a-t-elle un niveau de risque différent du niveau de risque de connexion (en temps réel) ? 
 
-Nous avons récemment apporté des améliorations au calcul du risque de connexion en temps réel. Les différences observées entre le niveau de détection des risques et le niveau de risque de connexion résultent de ces modifications. Notez que le risque de connexion en temps réel est la valeur utilisée lors de l’application de la stratégie. 

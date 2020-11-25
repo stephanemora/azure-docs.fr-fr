@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
-ms.openlocfilehash: 2316e0314c9d8f36aee123d4a516f382f58e83e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962414"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne d'Oracle vers Azure DB pour PostgreSQL - Serveur unique.
 
@@ -34,7 +34,7 @@ Azure Database Migration Service ne prend pas en charge la connexion aux bases d
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Versions de PostgreSQL prises en charge en tant que base de données cible
 
-Azure Database Migration Service prend en charge les migrations vers Azure Database pour PostgreSQL - Serveur unique versions 9.5, 9.6, 10 et 11. Pour plus d’informations sur la prise en charge des versions dans Azure Database pour PostgreSQL - Serveur unique, consultez l’article [Versions prises en charge de la base de données PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+Azure Database Migration Service prend en charge les migrations vers Azure Database pour PostgreSQL - Serveur unique versions 9.5, 9.6, 10 et 11. Pour plus d’informations sur la prise en charge des versions dans Azure Database pour PostgreSQL - Serveur unique, consultez l’article [Versions prises en charge de la base de données PostgreSQL](../postgresql/concepts-supported-versions.md).
 
 ## <a name="datatype-limitations"></a>Limitations relatives au type de données
 

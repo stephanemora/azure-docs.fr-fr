@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202954"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832804"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Cet article fournit des informations sur l’authentification des clients auprès d’Azure Communication Services à l’aide des *clés d’accès* et des *jetons d’accès utilisateur* . Chaque interaction client avec Azure Communication Services doit être authentifiée.
+Cet article fournit des informations sur l’authentification des clients auprès d’Azure Communication Services à l’aide des *clés d’accès* et des *jetons d’accès utilisateur*. Chaque interaction client avec Azure Communication Services doit être authentifiée.
 
 Le tableau suivant décrit les options d’authentification prises en charge par les bibliothèques clientes d’Azure Communication Services :
 
@@ -72,11 +72,11 @@ Si vous n’utilisez pas de bibliothèque cliente pour effectuer les requêtes H
 
 Les jetons d’accès utilisateur permettent à vos applications clientes de s’authentifier directement auprès d’Azure Communication Services. Pour ce faire, vous devez configurer un service approuvé qui authentifie les utilisateurs de votre application et émet des jetons d’accès utilisateur avec la bibliothèque cliente d’administration. Pour en savoir plus sur nos considérations en matière d’architecture, consultez la documentation conceptuelle [architecture client et serveur](./client-and-server-architecture.md).
 
-La classe `CommunicationClientCredential` contient la logique permettant de fournir des informations d’identification de jeton d’accès utilisateur aux bibliothèques clientes et de gérer leur cycle de vie.
+La classe `CommunicationUserCredential` contient la logique permettant de fournir des informations d’identification de jeton d’accès utilisateur aux bibliothèques clientes et de gérer leur cycle de vie.
 
 ### <a name="initialize-the-client-libraries"></a>Initialiser les bibliothèques client
 
-Pour initialiser les bibliothèques clientes Azure Communication Services qui requièrent l’authentification par jeton d’accès utilisateur, vous devez d’abord créer une instance de la classe `CommunicationClientCredential`, puis l’utiliser pour initialiser un client API.
+Pour initialiser les bibliothèques clientes Azure Communication Services qui requièrent l’authentification par jeton d’accès utilisateur, vous devez d’abord créer une instance de la classe `CommunicationUserCredential`, puis l’utiliser pour initialiser un client API.
 
 Les extraits de code suivants montrent comment initialiser la bibliothèque cliente de conversation avec un jeton d’accès utilisateur :
 

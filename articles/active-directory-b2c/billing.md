@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255337"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949783"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
-La tarification Azure Active Directory B2C (Azure AD B2C) est basée sur les utilisateurs actifs mensuels (MAU), qui représentent le nombre d’utilisateurs uniques avec une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois aux locataires Azure AD B2C et à la [collaboration d’utilisateur invité (B2B) Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Dans cet article, découvrez la facturation MAU, la liaison de vos locataires Azure AD B2C à un abonnement et le changement de niveau tarifaire.
+La tarification Azure Active Directory B2C (Azure AD B2C) est basée sur les utilisateurs actifs mensuels (MAU), qui représentent le nombre d’utilisateurs uniques avec une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois aux locataires Azure AD B2C et à la [collaboration d’utilisateur invité (B2B) Azure AD](../active-directory/external-identities/external-identities-pricing.md). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Dans cet article, découvrez la facturation MAU, la liaison de vos locataires Azure AD B2C à un abonnement et le changement de niveau tarifaire.
 
 > [!IMPORTANT]
 > Cet article ne contient pas d’informations sur les tarifs. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

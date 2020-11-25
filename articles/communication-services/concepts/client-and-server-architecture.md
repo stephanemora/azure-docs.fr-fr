@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666940"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886071"
 ---
 # <a name="client-and-server-architecture"></a>Architecture client et serveur
 
@@ -37,19 +37,19 @@ Les bibliothèques de client Azure Communication Services requièrent `user acce
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
 
-Pour plus d’informations, consultez les [meilleures pratiques de gestion des identités](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+Pour plus d’informations, consultez les [meilleures pratiques de gestion des identités](../../security/fundamentals/identity-management-best-practices.md)
 
 ## <a name="browser-communication"></a>Communication du navigateur
 
 Les bibliothèques de client JavaScript Azure communications peuvent activer des applications Web avec des fonctionnalités de texte enrichi, de voix et d’interaction vidéo. L’application interagit directement avec Azure Communication Services via la bibliothèque de client pour accéder au plan de données et fournir une communication texte, vocale et vidéo en temps réel. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramme montrant l’architecture navigateur à navigateur pour Communication Services.":::
 
 ## <a name="native-app-communication"></a>Communication des applications natives
 
 De nombreux scénarios sont mieux servis avec les applications natives. Azure Communication Services prend en charge à la fois les communications navigateur-application et application-application.  Lors de la création d’une application native, la présence de notifications Push permettra aux utilisateurs de recevoir des appels même lorsque l’application ne fonctionne pas. Azure Communication Services facilite cette tâche grâce à des notifications Push intégrées à Google Firebase, Apple Push Notification Service et aux notifications Push Windows. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramme montrant l’architecture de Communication Services pour la communication des applications natives.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voix et SMS sur le réseau téléphonique public commuté (RTPC)
 
@@ -58,7 +58,7 @@ La communication sur le système téléphonique peut augmenter considérablement
 > [!Note]
 > Pendant la préversion publique, l’obtention de numéros de téléphone américains est disponible pour les clients dont les adresses de facturation se trouvent aux États-Unis et au Canada. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramme montrant l’architecture du RTPC dans Communication Services.":::
 
 Pour plus d’informations sur les solutions de RTPC et de SMS, consultez [Planifier votre solution RTPC et votre solution SMS](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,7 +66,7 @@ Pour plus d’informations sur les solutions de RTPC et de SMS, consultez [Plani
 
 Azure Communication Services prend en charge la communication entre humains et système via des chaînes de texte et de voix, avec des services qui accèdent directement au plan de données Azure Communication Services. Par exemple, vous pouvez demander à un bot de répondre à des appels téléphoniques entrants ou de participer à une conversation Web. Azure Communication Services fournit des bibliothèques de client qui permettent à ces scénarios d’appeler et de discuter. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramme montrant l’architecture des conversations dans Communication Services.":::
 
 ## <a name="networking"></a>Mise en réseau
 

@@ -4,12 +4,12 @@ description: Cet article décrit les différentes façons d’authentifier les �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d38d4ffc868d442980cda576ea158704231f9efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c415b7e1bb6bd7a2116da82c7d8f1de205009d0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856328"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886258"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Authentifier les clients de publication (Azure Event Grid)
 Cet article fournit des informations sur l’authentification des clients publiant des événements dans des rubriques ou des domaines Azure Event Grid à l’aide d'une **clé d’accès** ou d’un jeton **signature d’accès partagé (SAS)** . Nous vous recommandons l’utilisation d’un jeton SAS, mais l’authentification par clé propose une programmation simple et est compatible avec de nombreux éditeurs de webhook existants.  
@@ -82,7 +82,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### <a name="using-aeg-sas-token-header"></a>Utilisation de l’en-tête eg-sas-token
-Voici un exemple de transmission du jeton SAP en tant que valeur pour l’en-tête `aeg-sas-toke`. 
+Voici un exemple de transmission du jeton SAP en tant que valeur pour l’en-tête `aeg-sas-token`. 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

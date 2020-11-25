@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089534"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953370"
 ---
 # <a name="secure-your-restful-services"></a>Sécuriser vos services API RESTful 
 
@@ -45,22 +45,22 @@ Pour configurer un profil technique API REST avec l’authentification HTTP de b
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité** .
-1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
-1. Pour **Options** , sélectionnez **Manuel** .
-1. Dans **Nom** , indiquez **RestApiUsername** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, sélectionnez **Manuel**.
+1. Dans **Nom**, indiquez **RestApiUsername**.
     Il est possible que le préfixe *B2C_1A_* soit ajouté automatiquement.
-1. Dans la zone **Secret** , entrez le nom d’utilisateur de l’API REST.
-1. Pour **Utilisation de la clé** , sélectionnez **Chiffrement** .
+1. Dans la zone **Secret**, entrez le nom d’utilisateur de l’API REST.
+1. Pour **Utilisation de la clé**, sélectionnez **Chiffrement**.
 1. Sélectionnez **Create** (Créer).
-1. Sélectionnez de nouveau **Clés de stratégie** .
-1. Sélectionnez **Ajouter** .
-1. Pour **Options** , sélectionnez **Manuel** .
-1. Dans **Nom** , indiquez **RestApiPassword** .
+1. Sélectionnez de nouveau **Clés de stratégie**.
+1. Sélectionnez **Ajouter**.
+1. Pour **Options**, sélectionnez **Manuel**.
+1. Dans **Nom**, indiquez **RestApiPassword**.
     Il est possible que le préfixe *B2C_1A_* soit ajouté automatiquement.
-1. Dans la zone **Secret** , entrez le mot de passe de l’API REST.
-1. Pour **Utilisation de la clé** , sélectionnez **Chiffrement** .
+1. Dans la zone **Secret**, entrez le mot de passe de l’API REST.
+1. Pour **Utilisation de la clé**, sélectionnez **Chiffrement**.
 1. Sélectionnez **Create** (Créer).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Configurer votre profil technique d’API REST afin d’utiliser l’authentification de base HTTP
@@ -111,7 +111,7 @@ L’authentification par certificat client est une authentification mutuelle bas
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Préparer un certificat auto-signé (facultatif)
 
-Pour les environnements hors production, si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
+Pour les environnements hors production, si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
 
 1. Exécutez cette commande PowerShell pour générer un certificat auto-signé. Modifiez l’argument `-Subject` comme il convient pour votre application et le nom de locataire Azure AD B2C. Vous pouvez également ajuster la date de `-NotAfter` pour spécifier un délai d’expiration différent pour le certificat.
     ```powershell
@@ -124,24 +124,24 @@ Pour les environnements hors production, si vous n’avez pas encore de certific
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Ouvrez **Gérer les certificats utilisateur** > **Utilisateur actuel** > **Personnel** > **Certificats** > *yourappname.yourtenant.onmicrosoft.com* .
-1. Sélectionnez le certificat > **Action** > **Toutes les tâches** > **Exporter** .
-1. Sélectionnez **Oui** > **Suivant** > **Oui, exporter la clé privée** > **Suivant** .
-1. Acceptez les valeurs par défaut pour **Format de fichier d’exportation** .
+1. Ouvrez **Gérer les certificats utilisateur** > **Utilisateur actuel** > **Personnel** > **Certificats** > *yourappname.yourtenant.onmicrosoft.com*.
+1. Sélectionnez le certificat > **Action** > **Toutes les tâches** > **Exporter**.
+1. Sélectionnez **Oui** > **Suivant** > **Oui, exporter la clé privée** > **Suivant**.
+1. Acceptez les valeurs par défaut pour **Format de fichier d’exportation**.
 1. Fournissez un mot de passe pour le certificat.
 
 ### <a name="add-a-client-certificate-policy-key"></a>Ajoutez une clé de stratégie de certificat client
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité** .
-1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
-1. Dans la zone **Options** , sélectionnez **Charger** .
-1. Dans la zone **Nom** , tapez **RestApiClientCertificate** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Dans la zone **Options**, sélectionnez **Charger**.
+1. Dans la zone **Nom**, tapez **RestApiClientCertificate**.
     Le préfixe *B2C_1A_* est ajouté automatiquement.
-1. Dans la zone **Chargement de fichier** , sélectionnez le fichier .pfx de votre certificat avec une clé privée.
-1. Dans la zone **Mot de passe** , entrez le mot de passe du certificat.
+1. Dans la zone **Chargement de fichier**, sélectionnez le fichier .pfx de votre certificat avec une clé privée.
+1. Dans la zone **Mot de passe**, entrez le mot de passe du certificat.
 1. Sélectionnez **Create** (Créer).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Configurer votre profil technique d’API REST afin d’utiliser l’authentification par certificat client
@@ -196,8 +196,8 @@ Authorization: Bearer <token>
 
 Un jeton de porteur est une chaîne opaque. Il peut s’agir d’un jeton d’accès JWT ou d’une chaîne que l’API REST attend que le client Azure AD B2C envoie dans l’en-tête Authorization. Azure AD B2C prend en charge les types suivants :
 
-- **Jeton du porteur** . Pour pouvoir envoyer le jeton du porteur dans le profil technique RESTful, votre stratégie doit d’abord acquérir le jeton du porteur, puis l’utiliser dans le profil technique RESTful.  
-- **Jeton du porteur statique** . Utilisez cette approche lorsque votre API REST émet un jeton d’accès à long terme. Pour utiliser un jeton de porteur statique, créez une clé de stratégie et faites une référence du profil technique RESTful à votre clé de stratégie. 
+- **Jeton du porteur**. Pour pouvoir envoyer le jeton du porteur dans le profil technique RESTful, votre stratégie doit d’abord acquérir le jeton du porteur, puis l’utiliser dans le profil technique RESTful.  
+- **Jeton du porteur statique**. Utilisez cette approche lorsque votre API REST émet un jeton d’accès à long terme. Pour utiliser un jeton de porteur statique, créez une clé de stratégie et faites une référence du profil technique RESTful à votre clé de stratégie. 
 
 
 ## <a name="using-oauth2-bearer"></a>Utilisation du porteur OAuth2  
@@ -208,10 +208,10 @@ Les étapes suivantes montrent comment utiliser les informations d’identificat
 
 Une revendication fournit un stockage temporaire de données lors d’une exécution de stratégie Azure AD B2C. Le [schéma de revendications](claimsschema.md) est l’endroit où vous déclarez vos revendications. Le jeton d’accès doit être stocké dans une revendication à utiliser ultérieurement. 
 
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
-1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema** .  
+1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="bearerToken">
@@ -230,9 +230,9 @@ Une revendication fournit un stockage temporaire de données lors d’une exécu
 
 ### <a name="acquiring-an-access-token"></a>Acquisition d’un jeton d’accès 
 
-Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-custom.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) ou à l’aide du [flux d’informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
+Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-custom.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](../active-directory/develop/v2-oauth-ropc.md) ou à l’aide du [flux d’informations d’identification du client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
-L’exemple suivant utilise un profil technique de l’API REST pour soumettre une requête au point de terminaison du jeton Azure AD à l’aide des informations d’identification du client passées en tant qu’authentification de base HTTP. Pour effectuer la configuration dans Azure AD, consultez [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Vous devrez peut-être modifier cette valeur pour l’interface avec votre fournisseur d’identité. 
+L’exemple suivant utilise un profil technique de l’API REST pour soumettre une requête au point de terminaison du jeton Azure AD à l’aide des informations d’identification du client passées en tant qu’authentification de base HTTP. Pour effectuer la configuration dans Azure AD, consultez [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Vous devrez peut-être modifier cette valeur pour l’interface avec votre fournisseur d’identité. 
 
 Au niveau de ServiceUrl, remplacez your-tenant-name par le nom de votre locataire Azure AD. Consultez la référence [Profil technique RESTful](restful-technical-profile.md) pour connaître toutes les options disponibles.
 
@@ -264,14 +264,14 @@ Au niveau de ServiceUrl, remplacez your-tenant-name par le nom de votre locatair
 
 Pour prendre en charge l’authentification par jeton du porteur dans votre stratégie personnalisée, modifiez le profil technique de l’API REST avec les éléments suivants :
 
-1. Dans votre répertoire de travail, ouvrez le fichier de stratégie d’extension *TrustFrameworkExtensions.xml* .
+1. Dans votre répertoire de travail, ouvrez le fichier de stratégie d’extension *TrustFrameworkExtensions.xml*.
 1. Recherchez le nœud `<TechnicalProfile>` qui inclut `Id="REST-API-SignUp"`.
 1. Recherchez l’élément `<Metadata>`.
-1. Définissez *AuthenticationType* sur *Bearer* , comme suit :
+1. Définissez *AuthenticationType* sur *Bearer*, comme suit :
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Modifiez ou ajoutez *UseClaimAsBearerToken* en le définissant sur *bearerToken* , comme suit. *bearerToken* est le nom de la revendication à partir de laquelle le jeton du porteur sera récupéré (revendication de sortie de `SecureREST-AccessToken`).
+1. Modifiez ou ajoutez *UseClaimAsBearerToken* en le définissant sur *bearerToken*, comme suit. *bearerToken* est le nom de la revendication à partir de laquelle le jeton du porteur sera récupéré (revendication de sortie de `SecureREST-AccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -316,13 +316,13 @@ Pour configurer un profil technique API REST avec un jeton du porteur OAuth2, ob
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité** .
-1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
-1. Pour **Options** , choisissez `Manual`.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
 1. Entrez un **nom** pour la clé de stratégie. Par exemple : `RestApiBearerToken`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-1. Dans **Secret** , entrez la clé secrète client que vous avez enregistrée.
-1. Pour **Utilisation de la clé** , sélectionnez `Encryption`.
+1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Encryption`.
 1. Sélectionnez **Create** (Créer).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Configurer votre profil technique de l’API REST pour utiliser la clé de stratégie de jeton du porteur
@@ -367,4 +367,4 @@ Voici un exemple de profil technique RESTful configuré avec l’authentificatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur le [profil technique RESTful](restful-technical-profile.md) dans le guide de référence IEF. 
+- Apprenez-en davantage sur le [profil technique RESTful](restful-technical-profile.md) dans le guide de référence IEF.

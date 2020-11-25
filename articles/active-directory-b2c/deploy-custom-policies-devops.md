@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363927"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951760"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Déployer des stratégies personnalisées avec Azure Pipelines
 
@@ -29,7 +29,7 @@ Trois étapes principales sont nécessaires pour permettre à Azure Pipelines de
 1. Configurer un pipeline Azure
 
 > [!IMPORTANT]
-> La gestion de stratégies Azure AD B2C personnalisées avec un pipeline Azure utilise actuellement des opérations en **préversion** disponibles sur le point de terminaison `/beta` de l’API Microsoft Graph. L’utilisation de ces API dans les applications de production n’est pas prise en charge. Pour plus d’informations, voir la [référence du point de terminaison beta de l’API REST Microsoft Graph](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> La gestion de stratégies Azure AD B2C personnalisées avec un pipeline Azure utilise actuellement des opérations en **préversion** disponibles sur le point de terminaison `/beta` de l’API Microsoft Graph. L’utilisation de ces API dans les applications de production n’est pas prise en charge. Pour plus d’informations, voir la [référence du point de terminaison beta de l’API REST Microsoft Graph](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +40,7 @@ Trois étapes principales sont nécessaires pour permettre à Azure Pipelines de
 
 ## <a name="client-credentials-grant-flow"></a>Flux d’octroi d’informations d’identification de client
 
-Le scénario décrit ici utilise des appels de service à service entre Azure Pipelines et Azure AD B2C à l’aide du [flux d’octroi d’informations d’identification de client](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0. Le flux d’octroi permet à un service web tel qu’Azure Pipelines (le client confidentiel) d’utiliser ses propres informations d’identification au lieu d’emprunter l’identité d’un utilisateur pour s’authentifier lorsqu’il appelle un autre service web (en l’occurrence l’API Microsoft Graph). Azure Pipelines obtient un jeton de manière non interactive, puis adresse des demandes à l’API Microsoft Graph.
+Le scénario décrit ici utilise des appels de service à service entre Azure Pipelines et Azure AD B2C à l’aide du [flux d’octroi d’informations d’identification de client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0. Le flux d’octroi permet à un service web tel qu’Azure Pipelines (le client confidentiel) d’utiliser ses propres informations d’identification au lieu d’emprunter l’identité d’un utilisateur pour s’authentifier lorsqu’il appelle un autre service web (en l’occurrence l’API Microsoft Graph). Azure Pipelines obtient un jeton de manière non interactive, puis adresse des demandes à l’API Microsoft Graph.
 
 ## <a name="register-an-application-for-management-tasks"></a>Inscrire une application pour des tâches de gestion
 
@@ -56,11 +56,11 @@ Avec une application de gestion inscrite, vous êtes prêt à configurer un réf
 
 1. Connectez-vous à votre organisation Azure DevOps Services.
 1. [Créez un projet][devops-create-project] ou sélectionnez un projet existant.
-1. Dans votre projet, accédez à **Référentiels** , puis sélectionnez la page **Fichiers**. Sélectionnez un référentiel existant ou créez-en un pour cet exercice.
-1. Créez un dossier intitulé *B2CAssets*. Nommez le fichier d’espace réservé requis *README.md* , puis **validez** le fichier. Vous pouvez supprimer ce fichier ultérieurement si nécessaire.
-1. Ajoutez vos fichiers de stratégie Azure AD B2C au dossier *B2CAssets*. Cette opération comprend les fichiers de stratégie *TrustFrameworkBase.xml* , *TrustFrameWorkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* et *PasswordReset.xml* , ainsi que toutes les autres stratégies que vous avez créées. Enregistrez le nom de fichier de chaque fichier de stratégie Azure AD B2C à utiliser dans une étape ultérieure (ils sont utilisés en tant qu’arguments de script PowerShell).
+1. Dans votre projet, accédez à **Référentiels**, puis sélectionnez la page **Fichiers**. Sélectionnez un référentiel existant ou créez-en un pour cet exercice.
+1. Créez un dossier intitulé *B2CAssets*. Nommez le fichier d’espace réservé requis *README.md*, puis **validez** le fichier. Vous pouvez supprimer ce fichier ultérieurement si nécessaire.
+1. Ajoutez vos fichiers de stratégie Azure AD B2C au dossier *B2CAssets*. Cette opération comprend les fichiers de stratégie *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* et *PasswordReset.xml*, ainsi que toutes les autres stratégies que vous avez créées. Enregistrez le nom de fichier de chaque fichier de stratégie Azure AD B2C à utiliser dans une étape ultérieure (ils sont utilisés en tant qu’arguments de script PowerShell).
 1. Créez un dossier nommé *Scripts* dans le répertoire racine du référentiel, nommez le fichier d’espace réservé *DeployToB2c.ps1*. Ne validez pas le fichier à ce stade. Vous le ferez à une étape ultérieure.
-1. Collez le script PowerShell suivant dans le fichier *DeployToB2c.ps1* , puis **validez** le fichier. Le script acquiert un jeton à partir de Azure AD et appelle l’API Microsoft Graph pour charger les stratégies dans le dossier *B2CAssets* sur votre locataire Azure AD B2C.
+1. Collez le script PowerShell suivant dans le fichier *DeployToB2c.ps1*, puis **validez** le fichier. Le script acquiert un jeton à partir de Azure AD et appelle l’API Microsoft Graph pour charger les stratégies dans le dossier *B2CAssets* sur votre locataire Azure AD B2C.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -115,9 +115,9 @@ Une fois votre référentiel initialisé et rempli avec vos fichiers de stratég
 
 1. Connectez-vous à votre organisation Azure DevOps et accédez à votre projet.
 1. Dans votre projet, sélectionnez **Pipelines** > **Versions** > **Nouveau pipeline**.
-1. Sous **Sélectionnez un modèle** , choisissez **Travail vide**.
-1. Entrez le **Nom de l’étape** , par exemple, *DeployCustomPolicies* , puis fermez le volet.
-1. Sélectionnez **Ajouter un artefact** , puis, sous **Type de source** , choisissez **Référentiel Azure**.
+1. Sous **Sélectionnez un modèle**, choisissez **Travail vide**.
+1. Entrez le **Nom de l’étape**, par exemple, *DeployCustomPolicies*, puis fermez le volet.
+1. Sélectionnez **Ajouter un artefact**, puis, sous **Type de source**, choisissez **Référentiel Azure**.
     1. Choisissez le référentiel source contenant le dossier *Scripts* que vous avez rempli avec le script PowerShell.
     1. Choisissez une **Branche par défaut**. Si vous avez créé un référentiel dans la section précédente, la branche par défaut est la branche *master*.
     1. Conservez le paramètre **Version par défaut** de *La dernière de la branche par défaut*.
@@ -129,7 +129,7 @@ Une fois votre référentiel initialisé et rempli avec vos fichiers de stratég
 ### <a name="configure-pipeline-variables"></a>Configurer des variables de pipeline
 
 1. Sélectionnez l’onglet **Variables**.
-1. Ajoutez les variables suivantes sous **Variables de pipeline** , puis définissez leurs valeurs comme indiqué :
+1. Ajoutez les variables suivantes sous **Variables de pipeline**, puis définissez leurs valeurs comme indiqué :
 
     | Nom | Valeur |
     | ---- | ----- |
@@ -144,14 +144,14 @@ Une fois votre référentiel initialisé et rempli avec vos fichiers de stratég
 Ensuite, ajoutez une tâche pour déployer un fichier de stratégie.
 
 1. Cliquez sur l’onglet **Tâches**.
-1. Sélectionnez **Travail de l’agent** , puis le signe plus ( **+** ) pour ajouter une tâche au travail de l’agent.
+1. Sélectionnez **Travail de l’agent**, puis le signe plus ( **+** ) pour ajouter une tâche au travail de l’agent.
 1. Recherchez et sélectionnez **PowerShell**. Ne sélectionnez pas « Azure PowerShell », « PowerShell sur des machines cibles » ou une autre entrée PowerShell.
 1. Sélectionnez la tâche de **Script PowerShell** que vous venez d’ajouter.
 1. Entrez les valeurs suivantes pour la tâche de Script PowerShell :
-    * **Version de la tâche**  : 2.*
-    * **Nom d'affichage**  : Nom de la stratégie que cette tâche doit charger. Par exemple, *B2C_1A_TrustFrameworkBase*.
-    * **Type**  : Chemin d'accès au fichier
-    * **Chemin d’accès au script** : Sélectionnez les points de suspension (* *_..._* _), accédez au dossier _Scripts*, puis sélectionnez le fichier *DeployToB2C.ps1*.
+    * **Version de la tâche** : 2.*
+    * **Nom d'affichage** : Nom de la stratégie que cette tâche doit charger. Par exemple, *B2C_1A_TrustFrameworkBase*.
+    * **Type** : Chemin d'accès au fichier
+    * **Chemin d’accès au script** : Sélectionnez les points de suspension (**_..._* _), accédez au dossier _Scripts*, puis sélectionnez le fichier *DeployToB2C.ps1*.
     * **Arguments :**
 
         Entrez les valeurs suivantes pour les **Arguments**. Remplacez `{alias-name}` par l’alias que vous avez spécifié dans la section précédente.
@@ -161,7 +161,7 @@ Ensuite, ajoutez une tâche pour déployer un fichier de stratégie.
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/TrustFrameworkBase.xml
         ```
 
-        Par exemple, si l’alias que vous avez spécifié est *policyRepo* , la ligne d’argument doit être :
+        Par exemple, si l’alias que vous avez spécifié est *policyRepo*, la ligne d’argument doit être :
 
         ```PowerShell
         # After
@@ -170,11 +170,11 @@ Ensuite, ajoutez une tâche pour déployer un fichier de stratégie.
 
 1. Sélectionnez **Enregistrer** pour enregistrer le Travail de l’agent.
 
-La tâche que vous venez d’ajouter charge *un* fichier de stratégie sur Azure AD B2C. Avant de continuer, déclenchez manuellement le travail ( **Créer une mise en production** ) pour vous assurer qu’il soit correctement accompli avant la création de tâches supplémentaires.
+La tâche que vous venez d’ajouter charge *un* fichier de stratégie sur Azure AD B2C. Avant de continuer, déclenchez manuellement le travail (**Créer une mise en production**) pour vous assurer qu’il soit correctement accompli avant la création de tâches supplémentaires.
 
 Si la tâche se termine avec succès, ajoutez des tâches de déploiement en suivant les étapes précédentes pour chacun des fichiers de stratégie personnalisée. Modifiez les valeurs des arguments `-PolicyId` et `-PathToFile` pour chaque stratégie.
 
-L’ID `PolicyId` est une valeur trouvée au début d’un fichier de stratégie XML au sein du nœud TrustFrameworkPolicy. Par exemple, l’ID `PolicyId` dans le fichier XML de stratégie suivant est *B2C_1A_TrustFrameworkBase*  :
+L’ID `PolicyId` est une valeur trouvée au début d’un fichier de stratégie XML au sein du nœud TrustFrameworkPolicy. Par exemple, l’ID `PolicyId` dans le fichier XML de stratégie suivant est *B2C_1A_TrustFrameworkBase* :
 
 ```xml
 <TrustFrameworkPolicy
@@ -201,9 +201,9 @@ L’infrastructure Identity Experience Framework applique cet ordre lorsque la s
 
 Pour tester votre pipeline de mise en production :
 
-1. Sélectionnez **Pipelines** , puis **Mises en production**.
+1. Sélectionnez **Pipelines**, puis **Mises en production**.
 1. Sélectionnez le pipeline précédemment, par exemple *DeployCustomPolicies*.
-1. Sélectionnez **Créer une mise en production** , puis **Créer** pour mettre en file d’attente la mise en production.
+1. Sélectionnez **Créer une mise en production**, puis **Créer** pour mettre en file d’attente la mise en production.
 
 Vous devez voir une bannière de notification indiquant qu’une mise en production a été mise en file d’attente. Pour afficher son état, sélectionnez le lien dans la bannière de notification ou dans la liste sous l’onglet **Mises en production**.
 
@@ -211,10 +211,10 @@ Vous devez voir une bannière de notification indiquant qu’une mise en product
 
 Pour en savoir plus :
 
-* [Appels de service à service utilisant des informations d’identification de client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Appels de service à service utilisant des informations d’identification de client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/?view=azure-devops
+[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: /azure/devops/pipelines

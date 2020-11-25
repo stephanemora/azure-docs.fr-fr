@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972014"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950726"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
@@ -63,7 +63,7 @@ Dans Update 4, les cmdlets Windows PowerShell peuvent être utilisées pour int
 
 * `Set-HcsRehydrationJob` : cette cmdlet vous permet d’interrompre, d’arrêter ou de reprendre le travail de rafraîchissement au cours du rafraîchissement.
 
-Pour plus d’informations sur les cmdlets de rafraîchissement, consultez le [document de référence sur les cmdlets Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Pour plus d’informations sur les cmdlets de rafraîchissement, consultez le [document de référence sur les cmdlets Windows PowerShell pour StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Avec le rafraîchissement automatique, les performances de lecture temporaires sont généralement plus élevées. L'ampleur des améliorations dépend de divers facteurs, tels que le modèle d'accès, le taux d'activité des données et le type de données. 
 
@@ -137,4 +137,3 @@ Pour terminer l’opération de restauration, mettez le volume hors connexion su
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [gérer des volumes StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Découvrez comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
-

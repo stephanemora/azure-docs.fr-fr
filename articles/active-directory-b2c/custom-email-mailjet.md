@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949579"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Vérification des e-mails personnalisée avec Mailjet
 
 Utilisez un e-mail personnalisé dans Azure Active Directory B2C (Azure AD B2C) afin d’envoyer un e-mail personnalisé aux utilisateurs qui s'inscrivent pour utiliser vos applications. En utilisant [DisplayControls](display-controls.md) (actuellement en préversion) et le Mailjet fournisseur d’e-mails tiers, vous pouvez utiliser votre propre modèle d’e-mail ainsi qu’une adresse *De :* et un objet, en bénéficiant également du support de la localisation et des paramètres personnalisés du mot de passe à usage unique (OTP).
 
-La vérification d’e-mails personnalisée nécessite l’utilisation d'un fournisseur d’e-mails tiers comme [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md) ou [SparkPost](https://sparkpost.com), une API REST personnalisée ou tout fournisseur d'e-mails basé sur HTTP (y compris le vôtre). Cet article décrit la configuration d'une solution qui utilise Mailjet.
+La vérification d’e-mails personnalisée nécessite l’utilisation d'un fournisseur d’e-mails tiers comme [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md) ou [SparkPost](https://sparkpost.com), une API REST personnalisée ou tout fournisseur d'e-mails basé sur HTTP (y compris le vôtre). Cet article décrit la configuration d'une solution qui utilise Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,28 +40,28 @@ Stockez ensuite la clé API Mailjet dans une clé de stratégie Azure AD B2C pou
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-1. Dans la page **de présentation** , sélectionnez **Identity Experience Framework** .
-1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
-1. Dans **Options** , choisissez **Manuel** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page **de présentation**, sélectionnez **Identity Experience Framework**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Dans **Options**, choisissez **Manuel**.
 1. Entrez un **nom** pour la clé de stratégie. Par exemple : `MailjetApiKey`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-1. Dans **Secret** , entrez votre **Clé API** Mailjet que vous avez précédemment enregistrée.
-1. Pour **Utilisation de la clé** , sélectionnez **Signature** .
+1. Dans **Secret**, entrez votre **Clé API** Mailjet que vous avez précédemment enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 1. Sélectionnez **Create** (Créer).
-1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
-1. Dans **Options** , choisissez **Manuel** .
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Dans **Options**, choisissez **Manuel**.
 1. Entrez un **nom** pour la clé de stratégie. Par exemple : `MailjetSecretKey`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-1. Dans **Secret** , entrez la **Clé API** Mailjet que vous avez précédemment enregistrée.
-1. Pour **Utilisation de la clé** , sélectionnez **Signature** .
+1. Dans **Secret**, entrez la **Clé API** Mailjet que vous avez précédemment enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-mailjet-template"></a>Créer un modèle Mailjet
 
 Avec un compte Mailjet créé et une Clé API Mailjet stockée dans une clé de stratégie Azure AD B2C, créez un [modèle transactionnel dynamique](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/) Mailjet.
 
-1. Sur le site Mailjet, ouvrez la page des [modèles transactionnels](https://app.mailjet.com/templates/transactional) et sélectionnez **Créer un nouveau modèle** .
-1. Sélectionnez **En le codant dans le HTML** , puis sélectionnez **Code à partir de zéro** .
-1. Entrez un nom de modèle unique comme `Verification email`, puis sélectionnez **Créer** .
+1. Sur le site Mailjet, ouvrez la page des [modèles transactionnels](https://app.mailjet.com/templates/transactional) et sélectionnez **Créer un nouveau modèle**.
+1. Sélectionnez **En le codant dans le HTML**, puis sélectionnez **Code à partir de zéro**.
+1. Entrez un nom de modèle unique comme `Verification email`, puis sélectionnez **Créer**.
 1. Dans l'éditeur HTML, collez le modèle HTML suivant ou utilisez le vôtre. Les paramètres `{{var:otp:""}}` et `{{var:email:""}}` seront remplacés dynamiquement par la valeur du mot de passe à usage unique et l'adresse e-mail de l'utilisateur.
 
     ```HTML
@@ -159,12 +159,12 @@ Avec un compte Mailjet créé et une Clé API Mailjet stockée dans une clé de 
     ```
 
 1. Développez **Modifier l’objet** en haut à gauche
-    1. Dans **Objet** , entrez une valeur par défaut pour l’objet. Mailjet utilise cette valeur lorsque l’API ne contient pas de paramètre d’objet.
-    1. Dans la case **Nom** , indiquez le nom de votre société.
-    1. Dans la case **Adresse** , sélectionnez votre adresse e-mail
-    1. Sélectionnez **Enregistrer** .
-1. Dans le coin supérieur droit, sélectionnez **Enregistrer et publier** , puis **Oui, publier les modifications**
-1. Enregistrez l’ **ID du modèle** que vous avez créé pour l'utiliser à une étape ultérieure. Vous spécifiez cet ID lorsque vous [ajoutez la transformation de revendications](#add-the-claims-transformation).
+    1. Dans **Objet**, entrez une valeur par défaut pour l’objet. Mailjet utilise cette valeur lorsque l’API ne contient pas de paramètre d’objet.
+    1. Dans la case **Nom**, indiquez le nom de votre société.
+    1. Dans la case **Adresse**, sélectionnez votre adresse e-mail
+    1. Sélectionnez **Enregistrer**.
+1. Dans le coin supérieur droit, sélectionnez **Enregistrer et publier**, puis **Oui, publier les modifications**
+1. Enregistrez l’**ID du modèle** que vous avez créé pour l'utiliser à une étape ultérieure. Vous spécifiez cet ID lorsque vous [ajoutez la transformation de revendications](#add-the-claims-transformation).
 
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Ajouter des types de revendications Azure AD B2C

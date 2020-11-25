@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089517"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951925"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C pour valider une entrée d’utilisateur
 
@@ -65,16 +65,16 @@ En cas d’échec de la validation, l’API REST doit retourner un message d’e
 }
 ```
 
-Cet article ne traite pas de la configuration du point de terminaison d’API REST. Vous avez créé un exemple [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Vous pouvez accéder au code complet de la fonction Azure sur le site de [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Cet article ne traite pas de la configuration du point de terminaison d’API REST. Vous avez créé un exemple [Azure Functions](../azure-functions/functions-reference.md). Vous pouvez accéder au code complet de la fonction Azure sur le site de [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Définir des revendications
 
 Une revendication fournit un stockage temporaire de données lors d’une exécution de stratégie Azure AD B2C. Vous pouvez déclarer des revendications dans la section [Schéma de revendications](claimsschema.md). 
 
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
-1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema** .  
+1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -135,10 +135,10 @@ Dans cet exemple, le `userLanguage` sera envoyé au service REST en tant que `la
 
 Après avoir déployé votre API REST, définissez les métadonnées du profil technique `REST-ValidateProfile` pour refléter votre propre API REST, notamment :
 
-- **ServiceUrl** . Définissez l’URL du point de terminaison de l’API REST.
-- **SendClaimsIn** . Spécifiez la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful.
-- **AuthenticationType** . Définissez le type de l’authentification effectuée par le fournisseur de revendications RESTful. 
-- **AllowInsecureAuthInProduction** . Dans un environnement de production, veillez à définir ces métadonnées sur `true`
+- **ServiceUrl**. Définissez l’URL du point de terminaison de l’API REST.
+- **SendClaimsIn**. Spécifiez la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful.
+- **AuthenticationType**. Définissez le type de l’authentification effectuée par le fournisseur de revendications RESTful. 
+- **AllowInsecureAuthInProduction**. Dans un environnement de production, veillez à définir ces métadonnées sur `true`
     
 Pour plus d’informations sur les configurations, consultez [Métadonnées du profil technique RESTful](restful-technical-profile.md#metadata).
 
@@ -150,7 +150,7 @@ Pour obtenir le numéro de fidélité de l’utilisateur lors de l’inscription
 
 Ajoutez la référence du profil technique de validation au profil technique d’inscription, qui appelle le `REST-ValidateProfile`. Le nouveau profil technique de validation sera ajouté au début de la collection `<ValidationTechnicalProfiles>` définie dans la stratégie de base. Ce comportement signifie qu’une fois la validation réussie, Azure AD B2C poursuit le processus en créant le compte dans le répertoire.   
 
-1. Recherchez l’élément **ClaimsProviders** . Ajoutez un fournisseur de revendications comme suit :
+1. Recherchez l’élément **ClaimsProviders**. Ajoutez un fournisseur de revendications comme suit :
 
     ```xml
     <ClaimsProvider>
@@ -231,14 +231,14 @@ Pour retourner la revendication de code promotionnel à l’application par part
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications** .
-1. Sélectionnez **Infrastructure d’expérience d’identité** .
-1. Sélectionnez **Charger une stratégie personnalisée** , puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkExtensions.xml* et *SignUpOrSignin.xml* . 
-1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkExtensions.xml* et *SignUpOrSignin.xml*. 
+1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 1. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
-1. Cliquez sur le lien **S’inscrire maintenant** .
-1. Dans le champ **Votre ID de fidélité** , saisissez 1234, puis cliquez sur **Continuer** . À ce stade, vous devez obtenir un message d’erreur de validation.
-1. Remplacez par une autre valeur et cliquez sur **Continuer** .
+1. Cliquez sur le lien **S’inscrire maintenant**.
+1. Dans le champ **Votre ID de fidélité**, saisissez 1234, puis cliquez sur **Continuer**. À ce stade, vous devez obtenir un message d’erreur de validation.
+1. Remplacez par une autre valeur et cliquez sur **Continuer**.
 1. Le jeton envoyé à votre application inclut la revendication `promoCode`.
 
 ```json

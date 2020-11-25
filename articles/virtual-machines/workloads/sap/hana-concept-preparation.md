@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424245"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967854"
 ---
 # <a name="disaster-recovery-principles"></a>Principes de la récupération d’urgence
 
@@ -76,7 +77,7 @@ L’équipe des opérations établit la relation de réplication entre les volum
 >Le volume /hana/log n’est pas répliqué, car il n’est pas nécessaire pour restaurer la base de données SAP HANA répliquée dans un état cohérent sur le site de récupération d’urgence.
 
 Ensuite, définissez ou ajustez la planification des sauvegardes de capture instantanée de stockage pour atteindre vos RTO et RPO en cas d’urgence. Pour réduire l’objectif de point de récupération, définissez les intervalles de réplication suivants dans le service de grande instance HANA :
-- Pour les volumes couverts par la capture instantanée combinée (type **hana** ), configurez la réplication toutes les 15 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
+- Pour les volumes couverts par la capture instantanée combinée (type **hana**), configurez la réplication toutes les 15 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
 - Pour le volume de sauvegarde de fichier journal (type **logs** de capture instantanée), configurez la réplication toutes les 3 minutes vers les cibles de volume de stockage équivalents sur le site de récupération d’urgence.
 
 Pour réduire l’objectif de point de récupération, effectuez le paramétrage suivant :

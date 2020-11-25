@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291501"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961479"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Rôles personnalisés pour les migrations en ligne de SQL Server vers Azure SQL Managed Instance
 
@@ -32,7 +32,7 @@ Nous vous recommandons actuellement de créer au moins deux rôles personnalisé
 > [!NOTE]
 > La dernière exigence de rôle personnalisée pourrait finir par être supprimée, car un nouveau code SQL Managed Instance est déployé sur Azure.
 
-**Rôle personnalisé pour l’ID d’application**. Ce rôle est requis pour la migration d’Azure Database Migration Service au niveau de la *ressource* ou du *groupe de ressources* (pour plus d’informations sur l’ID d’application, consultez l’article [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Rôle personnalisé pour l’ID d’application**. Ce rôle est requis pour la migration d’Azure Database Migration Service au niveau de la *ressource* ou du *groupe de ressources* (pour plus d’informations sur l’ID d’application, consultez l’article [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md)).
 
 ```json
 {
@@ -83,7 +83,7 @@ Nous vous recommandons actuellement de créer au moins deux rôles personnalisé
 
 Le JSON ci-dessus doit être stocké dans trois fichiers texte. Vous pouvez utiliser les applets de commande AZ PowerShell, AzureRM ou Azure CLI pour créer les rôles à l’aide de **New-AzureRmRoleDefinition (AzureRM)** ou **New-AzRoleDefinition (AZ)** .
 
-Pour plus d’informations, consultez l’article [Rôles personnalisés Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Pour plus d’informations, consultez l’article [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 Après avoir créé ces rôles personnalisés, vous devez ajouter des attributions de rôles aux utilisateurs et aux ID d’application pour les ressources ou groupes de ressources appropriés :
 

@@ -5,19 +5,19 @@ keywords: chiffrement des données, clé de chiffrement, chiffrement cloud
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841459"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurer Always Encrypted à l’aide d’Azure Key Vault 
 
@@ -49,13 +49,13 @@ Suivez les étapes de cet article et découvrez comment configurer Always Encryp
 
 ## <a name="enable-client-application-access"></a>Activer l’accès à l’application cliente
 
-Vous devez autoriser votre application cliente à accéder à votre base de données dans SQL Database en configurant une application Azure Active Directory (Azure AD) et en copiant l’ *ID d’application* et la *clé* dont vous aurez besoin pour authentifier votre application.
+Vous devez autoriser votre application cliente à accéder à votre base de données dans SQL Database en configurant une application Azure Active Directory (Azure AD) et en copiant l’*ID d’application* et la *clé* dont vous aurez besoin pour authentifier votre application.
 
-Pour obtenir l’ *ID d’application* et la *clé* , suivez la procédure dans [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
+Pour obtenir l’*ID d’application* et la *clé*, suivez la procédure dans [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Créer un coffre de clés pour stocker vos clés
 
-À présent que votre application cliente est configurée et que vous avez votre ID d’application, vous devez créer un coffre de clés et configurer sa stratégie d’accès pour que votre application et vous-même puissiez accéder aux clés secrètes contenues dans le coffre (clés Always Encrypted). Les autorisations *create* , *get* , *list* , *sign* , *verify* , *wrapKey* et *unwrapKey* sont nécessaires pour créer une clé principale de colonne et configurer le chiffrement avec SQL Server Management Studio.
+À présent que votre application cliente est configurée et que vous avez votre ID d’application, vous devez créer un coffre de clés et configurer sa stratégie d’accès pour que votre application et vous-même puissiez accéder aux clés secrètes contenues dans le coffre (clés Always Encrypted). Les autorisations *create*, *get*, *list*, *sign*, *verify*, *wrapKey* et *unwrapKey* sont nécessaires pour créer une clé principale de colonne et configurer le chiffrement avec SQL Server Management Studio.
 
 Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant. Pour obtenir une description détaillée de ces commandes et des informations complémentaires sur la création et la configuration d’un coffre de clés, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md).
 
@@ -147,19 +147,19 @@ GO
 SSMS intègre un Assistant pour vous aider à configurer facilement le chiffrement intégral en définissant pour vous la clé principale de colonne, la clé de chiffrement de colonne et les colonnes chiffrées.
 
 1. Développez **Bases de données** > **Clinique** > **Tables**.
-2. Cliquez avec le bouton droit sur la table **Patients** , puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Always Encrypted :
+2. Cliquez avec le bouton droit sur la table **Patients**, puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Always Encrypted :
 
     ![Capture d’écran sur laquelle l’option de menu Chiffrer les colonnes... est encadrée en rouge.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-L’Assistant Always Encrypted comprend les sections suivantes : **Sélection de la colonne** , **Configuration de la clé principale** , **Validation** et **Résumé**.
+L’Assistant Always Encrypted comprend les sections suivantes : **Sélection de la colonne**, **Configuration de la clé principale**, **Validation** et **Résumé**.
 
 ### <a name="column-selection"></a>Sélection de colonnes
 
-Dans la page **Introduction** , cliquez sur **Suivant** pour ouvrir la page **Sélection de colonne**. Dans cette page, sélectionnez les colonnes à chiffrer, [le type de chiffrement et la clé de chiffrement de colonne (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) à utiliser.
+Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sélection de colonne**. Dans cette page, sélectionnez les colonnes à chiffrer, [le type de chiffrement et la clé de chiffrement de colonne (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) à utiliser.
 
 Chiffrez les informations **SSN** et **BirthDate** pour chaque patient. La colonne SSN utilise un chiffrement déterministe qui prend en charge les recherches d’égalité, les jointures et les regroupements. La colonne BirthDate utilisera le chiffrement aléatoire, qui ne prend pas en charge ces opérations.
 
-Définissez le **Type de chiffrement** de la colonne SSN sur **Déterministe** , et celui de la colonne BirthDate sur **Aléatoire**. Cliquez sur **Suivant**.
+Définissez le **Type de chiffrement** de la colonne SSN sur **Déterministe**, et celui de la colonne BirthDate sur **Aléatoire**. Cliquez sur **Suivant**.
 
 ![Chiffrer les colonnes](./media/always-encrypted-azure-key-vault-configure/column-selection.png)
 
@@ -177,7 +177,7 @@ Ce didacticiel montre comment stocker vos clés dans Azure Key Vault.
 
 ### <a name="validation"></a>Validation
 
-Vous pouvez chiffrer les colonnes maintenant ou enregistrer un script PowerShell à exécuter ultérieurement. Pour ce didacticiel, sélectionnez **Continuer pour terminer maintenant** , puis cliquez sur **Suivant**.
+Vous pouvez chiffrer les colonnes maintenant ou enregistrer un script PowerShell à exécuter ultérieurement. Pour ce didacticiel, sélectionnez **Continuer pour terminer maintenant**, puis cliquez sur **Suivant**.
 
 ### <a name="summary"></a>Résumé
 
@@ -203,7 +203,7 @@ Maintenant qu’Always Encrypted est configuré, nous allons créer une applicat
 > Votre application doit utiliser des objets [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) lors de la transmission de données en clair vers le serveur avec des colonnes intégralement chiffrées. La transmission de valeurs littérales sans objets SqlParameter entraînera une exception.
 
 1. Ouvrez Visual Studio et créez une **application console** C# (Visual Studio 2015 et versions antérieures) ou une **application console (.NET Framework)** (Visual Studio 2017 et versions ultérieures). Assurez-vous que votre projet est défini sur **.NET Framework 4.6** ou version ultérieure.
-2. Nommez le projet **AlwaysEncryptedConsoleAKVApp** , puis cliquez sur **OK**.
+2. Nommez le projet **AlwaysEncryptedConsoleAKVApp**, puis cliquez sur **OK**.
 3. Installez les packages NuGet suivants en accédant à **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**.
 
 Dans la Console du Gestionnaire de package, exécutez ces deux lignes de code :
@@ -576,12 +576,12 @@ Vous pouvez voir que les colonnes chiffrées ne contiennent pas de donnée en cl
 
    ![Capture d’écran qui montre que les colonnes chiffrées ne contiennent pas de donnée en clair.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-Pour utiliser SSMS dans le but d’accéder aux données texte en clair, vous devez tout d’abord vérifier que l’utilisateur dispose des autorisations appropriées pour Azure Key Vault : *get* , *unwrapKey* et *verify*. Pour plus d’informations, consultez [Créer et stocker des clés principales de colonne (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+Pour utiliser SSMS dans le but d’accéder aux données texte en clair, vous devez tout d’abord vérifier que l’utilisateur dispose des autorisations appropriées pour Azure Key Vault : *get*, *unwrapKey* et *verify*. Pour plus d’informations, consultez [Créer et stocker des clés principales de colonne (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Ajoutez ensuite le paramètre *Column Encryption Setting=enabled* lors de votre connexion.
 
-1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans **l’Explorateur d’objets** , puis choisissez **Déconnecter**.
-2. Cliquez sur **Se connecter** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur** , puis cliquez sur **Options**.
+1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans **l’Explorateur d’objets**, puis choisissez **Déconnecter**.
+2. Cliquez sur **Se connecter** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur**, puis cliquez sur **Options**.
 3. Cliquez sur **Paramètres de connexion supplémentaires** et tapez **Column Encryption Setting=enabled**.
 
     ![Capture d’écran qui montre l’onglet Additional Correction Parameters (Paramètres de correction supplémentaires) sélectionné.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055909"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954237"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 
@@ -46,7 +46,7 @@ En outre, le Gestionnaire d’instantanés StorSimple prend en charge [navigatio
 L’interface utilisateur du gestionnaire d’instantanés StorSimple prend en charge les fonctionnalités d’accessibilité fournies par le système d’exploitation Windows et la console Microsoft Management Console (MMC), ainsi que certains raccourcis clavier de gestionnaire d’instantanés StorSimple spécifiques. 
 
 * Pour obtenir une description des fonctionnalités d’accessibilité de Windows, accédez aux [raccourcis clavier pour Windows](https://support.microsoft.com/kb/126449). 
-* Pour obtenir une description des fonctionnalités d’accessibilité MMC, consultez la section [Accessibilité à MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+* Pour obtenir une description des fonctionnalités d’accessibilité MMC, consultez la section [Accessibilité à MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766075(v=ws.11))
 * Pour obtenir une description des fonctionnalités d’accessibilité du Gestionnaire d’instantanés StorSimple, consultez la section [Navigation et raccourcis clavier](#keyboard-navigation-and-shortcuts).
 
 ## <a name="menu-bar"></a>Barre de menus
@@ -73,7 +73,7 @@ Le tableau suivant décrit des éléments qui apparaissent dans le menu **Fichie
 | Ouvrir |Cliquez sur **Ouvrir** pour ouvrir une console existante. |
 | Enregistrer |Cliquez sur **Enregistrer** pour enregistrer la console actuelle. |
 | Enregistrer sous |Cliquez sur **Enregistrer sous** pour créer une nouvelle instance de la console actuelle avec un nouveau nom. Utilisez l’option **Enregistrer sous** pour personnaliser un affichage et l’enregistrer pour une récupération ultérieure. Par exemple, vous pouvez créer des composants logiciels enfichables Gestionnaire d’instantanés StorSimple pointant vers des serveurs spécifiques. |
-| Ajouter/Supprimer le composant logiciel enfichable |Cliquez sur **Ajouter/Supprimer le composant logiciel enfichable** pour ajouter ou supprimer des composants et organiser les nœuds dans le volet **Étendue**. Pour plus d’informations, consultez la page [Ajouter, supprimer et organiser des composants logiciels enfichables et les extensions dans MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Ajouter/Supprimer le composant logiciel enfichable |Cliquez sur **Ajouter/Supprimer le composant logiciel enfichable** pour ajouter ou supprimer des composants et organiser les nœuds dans le volet **Étendue**. Pour plus d’informations, consultez la page [Ajouter, supprimer et organiser des composants logiciels enfichables et les extensions dans MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722035(v=ws.11)). |
 | Options |Cliquez sur **Options** pour modifier l’icône de la console, spécifier des modes d’accès et les autorisations utilisateur, ou supprimer des fichiers de console pour augmenter l’espace disque disponible. |
 | Liste des chemins d’accès |Cliquez sur un chemin d’accès dans la liste numérotée pour rouvrir un fichier récemment ouvert. |
 | Quitter |Cliquez sur **Quitter** pour fermer le menu **Fichier**. |
@@ -450,4 +450,3 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
-

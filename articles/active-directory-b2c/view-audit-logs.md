@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383935"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952724"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -84,7 +84,7 @@ Pour télécharger la liste des événements d’activité dans un fichier de va
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Obtenir les journaux d’audit avec l’API de création de rapports Azure AD
 
-Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Pour plus d’informations, consultez [Prise en main de l’API de création de rapports Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](/graph/api/directoryaudit-list). Pour plus d’informations, consultez [Prise en main de l’API de création de rapports Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Activer l’accès à l’API de rapports
 

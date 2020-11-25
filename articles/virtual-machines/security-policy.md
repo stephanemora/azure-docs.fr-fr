@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977746"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843551"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure
 
@@ -67,7 +67,7 @@ La fonctionnalité des identités managées pour les ressources Azure dans Azure
 
 Vous pouvez utiliser des [stratégies Azure](../governance/policy/overview.md) pour définir le comportement souhaité des machines virtuelles [Windows](./windows/policy.md) et [Linux](./linux/policy.md) de votre organisation. Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation.
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
 Grâce au [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md), vous pouvez séparer les tâches au sein de votre équipe et n’accorder aux utilisateurs que les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le [portail Azure](../role-based-access-control/role-assignments-portal.md), à l’aide d’[Azure CLI](/cli/azure/role), ou d’[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

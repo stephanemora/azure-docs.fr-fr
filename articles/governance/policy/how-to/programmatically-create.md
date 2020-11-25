@@ -3,12 +3,12 @@ title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491798"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920013"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -88,7 +88,7 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
    Le paramètre **Scope** sur `New-AzPolicyAssignment` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement.
-   `{rType}` est remplacé par le **type de la ressource** , comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+   `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Groupe de ressources : `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -203,12 +203,12 @@ Pour créer une définition de stratégie, procédez comme suit :
    ```
 
    La commande crée une définition de stratégie nommée _Audit Storage Accounts Open to Public Networks_.
-   Pour plus d’informations sur les autres paramètres utilisables, consultez [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+   Pour plus d’informations sur les autres paramètres utilisables, consultez [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create).
 
    Lorsqu’il est appelé sans paramètre d’emplacement, par défaut, `az policy definition creation` enregistre la définition de stratégie dans l’abonnement sélectionné du contexte de sessions. Pour enregistrer la définition dans un autre emplacement, utilisez les paramètres suivants :
 
-   - **subscription**  : enregistrer dans un autre abonnement. Nécessite une valeur _GUID_ pour l’ID d’abonnement ou une valeur _chaîne_ pour le nom de l’abonnement.
-   - **--management-group**  : enregistrer dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
+   - **subscription** : enregistrer dans un autre abonnement. Nécessite une valeur _GUID_ pour l’ID d’abonnement ou une valeur _chaîne_ pour le nom de l’abonnement.
+   - **--management-group** : enregistrer dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
 
 1. Pour créer une attribution de stratégie, utilisez la commande suivante. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
@@ -216,7 +216,7 @@ Pour créer une définition de stratégie, procédez comme suit :
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Le paramètre **Scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle pour **scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource** , comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+   Le paramètre **Scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle pour **scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Groupe de ressources : `/subscriptions/{subID}/resourceGroups/{rgName}`

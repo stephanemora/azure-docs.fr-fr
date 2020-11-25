@@ -10,13 +10,13 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782380"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843381"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault
 
@@ -35,15 +35,15 @@ L’utilisation de clés gérées par le client avec le chiffrement Azure Storag
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Pour en savoir plus sur la création d’un coffre de clés via le portail Azure, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../../key-vault/general/quick-create-portal.md). Lorsque vous créez le coffre de clés, sélectionnez **Activer la protection contre le vidage** , comme illustré dans l’image suivante.
+Pour en savoir plus sur la création d’un coffre de clés via le portail Azure, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../../key-vault/general/quick-create-portal.md). Lorsque vous créez le coffre de clés, sélectionnez **Activer la protection contre le vidage**, comme illustré dans l’image suivante.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Capture d’écran montrant comment activer la protection contre le vidage lors de la création d’un coffre de clés":::
 
 Pour activer la protection contre le vidage sur un coffre de clés existant, procédez comme suit :
 
 1. Accédez à votre coffre de clés dans le portail Azure.
-1. Sous **Paramètres** , choisissez **Propriétés**.
-1. Dans la section **Protection contre le vidage** , choisissez **Activer la protection contre le vidage**.
+1. Sous **Paramètres**, choisissez **Propriétés**.
+1. Dans la section **Protection contre le vidage**, choisissez **Activer la protection contre le vidage**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -175,7 +175,7 @@ Le stockage Azure peut automatiquement mettre à jour la clé gérée par le cli
 Pour configurer les clés gérées par le client avec une mise à jour automatique de la version de la clé dans le Portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Clés gérées par le client** , comme illustré dans l’image suivante.
+1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Clés gérées par le client**, comme illustré dans l’image suivante.
 
     ![Capture d’écran du portail affichant l’option de chiffrement](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
@@ -241,7 +241,7 @@ Si vous préférez mettre à jour manuellement la version de la clé, spécifiez
 Pour configurer les clés gérées par le client avec la mise à jour manuelle de la version de la clé dans le portail Azure, spécifiez l’URI de la clé, en incluant la version. Pour spécifier une clé en tant qu’URI, procédez comme suit :
 
 1. Pour localiser l’URI de la clé dans le portail Azure, naviguez jusqu'à votre coffre de clés, puis sélectionnez le paramètre **Clés**. Sélectionnez la clé souhaitée, puis cliquez dessus pour afficher ses versions. Sélectionnez une version de clé pour afficher les paramètres de cette version.
-1. Copiez la valeur du champ **Identificateur de clé** , qui fournit l’URI.
+1. Copiez la valeur du champ **Identificateur de clé**, qui fournit l’URI.
 
     ![Capture d’écran montrant l’URI de la clé du coffre de clés](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297356"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962278"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Résoudre certains problèmes et erreurs courants liés à l’utilisation d’Azure Database Migration Service
 
@@ -54,7 +54,7 @@ Quand vous effectuez une migration de MySQL vers Azure Database pour MySQL à l�
 
 | Cause         | Résolution |
 | ------------- | ------------- |
-| Cette erreur peut se produire si l’utilisateur qui effectue la migration n’a pas le rôle ReplicationAdmin et/ou les privilèges REPLICATION CLIENT, REPLICATION REPLICA et SUPER (versions antérieures à MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Vérifiez que les [privilèges nécessaires](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) pour le compte d’utilisateur sont correctement configurés sur l’instance Azure Database pour MySQL. Par exemple, effectuez les étapes suivantes pour créer un utilisateur nommé 'migrateuser' avec les privilèges nécessaires :<br>1. Créer un utilisateur avec CREATE USER migrateuser@'%' IDENTIFIED BY 'secret' ; <br>2. Accorder tous les privilèges sur db_name.* à 'migrateuser'@'%' identifié par 'secret' ; // répéter cette étape pour accorder l’accès sur d’autres bases de données <br>3. Accorder le privilège de subordonné de réplication sur db_name *.* à 'migrateuser'@'%' identifié par 'secret' ;<br>4. Accorder le privilège de client de réplication sur db_name *.* à 'migrateuser'@'%' identifié par 'secret' ;<br>5. Supprimer (flush) les privilèges. |
+| Cette erreur peut se produire si l’utilisateur qui effectue la migration n’a pas le rôle ReplicationAdmin et/ou les privilèges REPLICATION CLIENT, REPLICATION REPLICA et SUPER (versions antérieures à MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Vérifiez que les [privilèges nécessaires](./tutorial-mysql-azure-mysql-online.md#prerequisites) pour le compte d’utilisateur sont correctement configurés sur l’instance Azure Database pour MySQL. Par exemple, effectuez les étapes suivantes pour créer un utilisateur nommé 'migrateuser' avec les privilèges nécessaires :<br>1. Créer un utilisateur avec CREATE USER migrateuser@'%' IDENTIFIED BY 'secret' ; <br>2. Accorder tous les privilèges sur db_name.* à 'migrateuser'@'%' identifié par 'secret' ; // répéter cette étape pour accorder l’accès sur d’autres bases de données <br>3. Accorder le privilège de subordonné de réplication sur db_name *.* à 'migrateuser'@'%' identifié par 'secret' ;<br>4. Accorder le privilège de client de réplication sur db_name *.* à 'migrateuser'@'%' identifié par 'secret' ;<br>5. Supprimer (flush) les privilèges. |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erreur lors de la tentative d’arrêt d’Azure Database Migration Service
 
@@ -84,7 +84,7 @@ Lorsque vous effectuez une migration en ligne de SQL Server vers Azure SQL Manag
 
 | Cause         | Résolution    |
 | ------------- | ------------- |
-| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers Azure SQL Managed Instance n’a pas l’autorisation de contribution sur l’abonnement. Certains appels d’API avec Managed Instance requièrent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilisez l’applet de commande PowerShell `Get-AzureADServicePrincipal` en spécifiant la valeur `-ObjectId` indiquée dans le message d’erreur pour obtenir le nom complet de l’ID d’application utilisé.<br><br> Vérifiez les autorisations configurées pour cette application et assurez-vous que cette dernière a le [rôle Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) au niveau de l’abonnement. <br><br> L’équipe d’ingénierie Azure Database Migration Service travaille sur la restriction de l’accès requis par le rôle contributeur sur l’abonnement. Si vous avez une exigence métier qui n’autorise pas l’utilisation du rôle de contribution, contactez le support Azure pour obtenir de l’aide. |
+| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers Azure SQL Managed Instance n’a pas l’autorisation de contribution sur l’abonnement. Certains appels d’API avec Managed Instance requièrent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilisez l’applet de commande PowerShell `Get-AzureADServicePrincipal` en spécifiant la valeur `-ObjectId` indiquée dans le message d’erreur pour obtenir le nom complet de l’ID d’application utilisé.<br><br> Vérifiez les autorisations configurées pour cette application et assurez-vous que cette dernière a le [rôle Contributeur](../role-based-access-control/built-in-roles.md#contributor) au niveau de l’abonnement. <br><br> L’équipe d’ingénierie Azure Database Migration Service travaille sur la restriction de l’accès requis par le rôle contributeur sur l’abonnement. Si vous avez une exigence métier qui n’autorise pas l’utilisation du rôle de contribution, contactez le support Azure pour obtenir de l’aide. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erreur lors de la suppression de la carte d’interface réseau associée à Azure Database Migration Service
 
@@ -102,7 +102,7 @@ Quand vous essayez de vous connecter à une source dans l’Assistant Projet Azu
 
 | Cause         | Résolution    |
 | ------------- | ------------- |
-| Quand [ExpressRoute](https://azure.microsoft.com/services/expressroute/) est utilisé, Azure Database Migration Service [requiert](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) le provisionnement de trois points de terminaison de service sur le sous-réseau du réseau virtuel associé au service :<br> -- Point de terminaison Service Bus<br> -- Point de terminaison de stockage<br> -- Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)<br><br><br><br><br> | [Activez](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) les points de terminaison de service requis pour la connectivité ExpressRoute entre la source et Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| Quand [ExpressRoute](https://azure.microsoft.com/services/expressroute/) est utilisé, Azure Database Migration Service [requiert](./tutorial-sql-server-azure-sql-online.md) le provisionnement de trois points de terminaison de service sur le sous-réseau du réseau virtuel associé au service :<br> -- Point de terminaison Service Bus<br> -- Point de terminaison de stockage<br> -- Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)<br><br><br><br><br> | [Activez](./tutorial-sql-server-azure-sql-online.md) les points de terminaison de service requis pour la connectivité ExpressRoute entre la source et Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Verrouiller l’erreur de délai d’expiration lors de la migration d’une base de données MySQL vers une base de données Azure pour MySQL
 
@@ -126,13 +126,13 @@ Quand vous essayez de connecter Azure Database Migration Service à une source S
 
 ## <a name="additional-known-issues"></a>Autres problèmes connus
 
-* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour MySQL](./known-issues-azure-mysql-online.md)
+* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez l’article [PowerShell pour Azure Database Migration Service](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Consultez l’article [Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Consultez l’article [Vue d’ensemble des prérequis pour l’utilisation d’Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Consultez les [questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).
+* Consultez l’article [PowerShell pour Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Consultez l’article [Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure](../mysql/howto-server-parameters.md).
+* Consultez l’article [Vue d’ensemble des prérequis pour l’utilisation d’Azure Database Migration Service](./pre-reqs.md).
+* Consultez les [questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](./faq.md).

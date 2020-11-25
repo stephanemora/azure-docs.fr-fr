@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 12725c28c3e128317301bc51f9ce93f76021cc2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 249667dfa8c0491027f0244d4aa5e49d19399ab0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291365"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955036"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Tutoriel : Migrer en ligne RDS SQL Server vers Azure SQL Database ou une instance gérée SQL Azure à l’aide de DMS
 
-Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration des bases de données d’une instance RDS SQL Server vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou une [instance gérée SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) avec un temps d’arrêt minimal. Dans ce tutoriel, vous migrez la base de données **Adventureworks2012** restaurée sur une instance RDS SQL Server de SQL Server 2012 (ou version ultérieure) vers SQL Database ou une instance gérée SQL à l’aide d’Azure Database Migration Service.
+Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration des bases de données d’une instance RDS SQL Server vers [Azure SQL Database](/azure/sql-database/) ou une [instance gérée SQL Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) avec un temps d’arrêt minimal. Dans ce tutoriel, vous migrez la base de données **Adventureworks2012** restaurée sur une instance RDS SQL Server de SQL Server 2012 (ou version ultérieure) vers SQL Database ou une instance gérée SQL à l’aide d’Azure Database Migration Service.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -48,12 +48,12 @@ Cet article décrit le processus de migration en ligne de RDS SQL Server vers SQ
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Créez une [base de données RDS SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
-* [Créez une base de données dans Azure SQL Database sur le portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) ou [créez une base de données dans SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), puis créez une base de données vide nommée **AdventureWorks2012**. 
+* [Créez une base de données dans Azure SQL Database sur le portail Azure](../azure-sql/database/single-database-create-quickstart.md) ou [créez une base de données dans SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md), puis créez une base de données vide nommée **AdventureWorks2012**. 
 * Téléchargez et installez [l’Assistant Migration de données](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 ou version ultérieure.
-* Créer un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager. Si vous effectuez la migration vers une instance gérée SQL, veillez à créer l’instance DMS sur le même réseau virtuel que celui utilisé pour l’instance gérée SQL, mais dans un autre sous-réseau.  Si vous utilisez un autre réseau virtuel pour DMS, vous devrez créer un peering entre les deux réseaux virtuels. Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Créer un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager. Si vous effectuez la migration vers une instance gérée SQL, veillez à créer l’instance DMS sur le même réseau virtuel que celui utilisé pour l’instance gérée SQL, mais dans un autre sous-réseau.  Si vous utilisez un autre réseau virtuel pour DMS, vous devrez créer un peering entre les deux réseaux virtuels. Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](../virtual-network/index.yml), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](../virtual-network/virtual-network-service-endpoints-overview.md) au sous-réseau où doit être provisionné le service :
     >
     > * Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > * Point de terminaison de stockage
@@ -61,10 +61,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet. 
 
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurez votre [pare-feu Windows pour accéder au moteur de base de données](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
-* Pour SQL Database, créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) au niveau du serveur pour qu’Azure Database Migration Service puisse accéder à la base de données cible. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
+* Pour SQL Database, créez une [règle de pare-feu](../azure-sql/database/firewall-configure.md) au niveau du serveur pour qu’Azure Database Migration Service puisse accéder à la base de données cible. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
 * Vérifiez que les informations d’identification utilisées pour la connexion à l’instance RDS SQL Server source sont associées à un compte membre du rôle serveur « Processadmin » et membre des rôles de base de données « db_owner » pour toutes les bases de données à migrer.
 * Vérifiez que les informations d’identification utilisées pour la connexion à la base de données cible comportent l’autorisation CONTROL DATABASE pour la base de données cible dans SQL Database, ainsi qu’un membre du rôle sysadmin en cas de migration vers une base de données située dans SQL Managed Instance.
 * La version de l’instance RDS SQL Server source doit être SQL Server 2012 ou ultérieur. Pour déterminer la version que votre instance SQL Server exécute, consultez l’article [Comment faire pour déterminer la version, l’édition et le niveau de mise à jour de SQL Server et ses composants](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -94,7 +94,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     select * from sys.triggers
     DISABLE TRIGGER (Transact-SQL)
     ```
-    Pour plus d’informations, consultez l’article [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+    Pour plus d’informations, consultez l’article [DISABLE TRIGGER (Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 ## <a name="migrate-the-sample-schema"></a>Migrer l’exemple de schéma
 Utilisez l’Assistant Migration de données pour effectuer la migration du schéma.
@@ -171,7 +171,7 @@ Pour effectuer la migration du schéma **AdventureWorks2012**, effectuez les ét
 
     Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source, ainsi qu’à la base de données SQL Database ou SQL Managed Instance cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
 
 6. Sélectionnez un niveau tarifaire. Pour cette migration en ligne, veillez à sélectionner le niveau tarifaire Premium.
 
@@ -295,6 +295,6 @@ Une fois le chargement complet initial effectué, les bases de données identifi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les limitations et les problèmes connus concernant les migrations en ligne vers Azure, consultez [Problèmes connus et solutions de contournement pour les migrations en ligne](known-issues-azure-sql-online.md).
-* Pour plus d’informations sur Database Migration Service, consultez l’article [Qu’est-ce que Database Migration Service ?](https://docs.microsoft.com/azure/dms/dms-overview)
-* Pour plus d’informations sur SQL Database, consultez l’article [Qu’est-ce que le service SQL Database ?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
-* Pour plus d’informations sur SQL Managed Instance, consultez [Présentation de SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
+* Pour plus d’informations sur Database Migration Service, consultez l’article [Qu’est-ce que Database Migration Service ?](./dms-overview.md)
+* Pour plus d’informations sur SQL Database, consultez l’article [Qu’est-ce que le service SQL Database ?](../azure-sql/database/sql-database-paas-overview.md)
+* Pour plus d’informations sur SQL Managed Instance, consultez [Présentation de SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

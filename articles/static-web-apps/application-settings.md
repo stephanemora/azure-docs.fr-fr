@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js
-ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844810"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurer les paramètres d’application pour Azure Static Web Apps - Préversion
 
@@ -144,7 +144,7 @@ L’interface de ligne de commande Azure exige un certain nombre de valeurs spé
 2. Nom de groupe ressources
 3. Identifiant d’abonnement
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Affichage de la configuration Azure Static Web Apps":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Vue d’ensemble d’Azure Static Web Apps":::
 
 4. Dans un terminal ou une ligne de commande, exécutez la commande suivante. Veillez à remplacer les espaces réservés de `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`et `<YOUR_SUBSCRIPTION_ID>` par les valeurs de la fenêtre _Vue d’ensemble_.
 

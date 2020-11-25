@@ -3,27 +3,27 @@ title: Vue d’ensemble des machines virtuelles de série HBv2 – Machines vir
 description: En savoir plus sur la taille des machines virtuelles de la série HBv2 dans Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 48366f205ed8eb2d179bdc39c8da3d673f066a69
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332583"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966936"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles de la série HBv2 
 
  
 L’optimisation des performances des applications de calcul haute performance (HPC)sur AMD EPYC nécessite une approche bien pensée de l’emplacement de la mémoire et du placement du processus. Nous décrivons ci-dessous l’architecture AMD EPYC et son implémentation sur Azure pour les applications HPC. Nous utiliserons le terme **pNUMA** pour faire référence à un domaine NUMA physique et **vNUMA** pour faire référence à un domaine NUMA virtualisé. 
 
-Physiquement, un serveur de la [série HBv2](../../hbv2-series.md) a 2 processeurs EPYC 7742 de 64 cœurs, soit un total de 128 cœurs physiques. Ces 128 cœurs sont divisées en 32 domaines pNUMA (16 par socket), chacun d’eux comprenant 4 cœurs et étant appelé **complexe de cœurs** (ou **CCX** ) par AMD. Chaque CCX a son propre cache L3, qui représente la limite pNUMA/vNUMA du système d’exploitation. Quatre CCX adjacents partagent l’accès à deux canaux de DRAM physique. 
+Physiquement, un serveur de la [série HBv2](../../hbv2-series.md) a 2 processeurs EPYC 7742 de 64 cœurs, soit un total de 128 cœurs physiques. Ces 128 cœurs sont divisées en 32 domaines pNUMA (16 par socket), chacun d’eux comprenant 4 cœurs et étant appelé **complexe de cœurs** (ou **CCX**) par AMD. Chaque CCX a son propre cache L3, qui représente la limite pNUMA/vNUMA du système d’exploitation. Quatre CCX adjacents partagent l’accès à deux canaux de DRAM physique. 
 
 Pour permettre à l’hyperviseur Azure de fonctionner sans interférer avec la machine virtuelle, nous réservons les domaines pNUMA physiques 0 et 16 (c’est-à-dire le premier CCX de chaque socket de processeur). Les 30 domaines pNUMA restants sont tous attribués à la machine virtuelle et deviennent alors des vNUMA. Par conséquent, la machine virtuelle verra :
 

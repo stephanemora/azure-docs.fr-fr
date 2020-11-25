@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054761"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951789"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -90,7 +90,7 @@ Vous pouvez utiliser l’API Microsoft Graph pour écrire l’outil de migration
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Quel flux d’utilisateur de mot de passe est utilisé pour les comptes locaux dans Azure AD B2C ?
 
-Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégies et restrictions de mot de passe dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégies et restrictions de mot de passe dans Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Non, pour des raisons de sécurité, les pages Azure AD B2C ne peuvent pas être
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C fonctionne-t-il avec les systèmes CRM, tels que Microsoft Dynamics ?
 
-L’intégration avec le portail Microsoft Dynamics 365 est disponible. Consultez [Configuration du portail Dynamics 365 pour utiliser Azure AD B2C pour l’authentification ](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+L’intégration avec le portail Microsoft Dynamics 365 est disponible. Consultez [Configuration du portail Dynamics 365 pour utiliser Azure AD B2C pour l’authentification ](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C fonctionne-t-il avec SharePoint localement 2016 ou version antérieure ?
 
@@ -112,7 +112,7 @@ Azure AD B2C n’est pas conçu pour le scénario de partage partenaire externe 
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Dois-je utiliser Azure AD B2C ou B2B pour gérer les identités externes ?
 
-Lisez [Comparer B2B Collaboration et B2C dans Azure AD](../active-directory/b2b/compare-with-b2c.md) pour en savoir plus sur l’application des fonctionnalités appropriées à vos scénarios d’identités externes.
+Lisez [Comparer B2B Collaboration et B2C dans Azure AD](../active-directory/external-identities/compare-with-b2c.md) pour en savoir plus sur l’application des fonctionnalités appropriées à vos scénarios d’identités externes.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quelles sont les fonctionnalités de création de rapports et d’audit proposées par Azure AD B2C ? Sont-elles identiques à celles d’Azure AD Premium ?
 
@@ -134,7 +134,7 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 
 Procédez comme suit pour supprimer votre locataire Azure AD B2C.
 
-Vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
+Vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 

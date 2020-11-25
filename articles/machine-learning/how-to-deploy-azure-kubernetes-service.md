@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325184"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873792"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 - __Collection de données de modèle__
 - __Authentification__
 - __Arrêt TLS__
-- Options d’ __accélération matérielle__ telles que le GPU et les FPGA (Field-Programmable Gate Array)
+- Options d’__accélération matérielle__ telles que le GPU et les FPGA (Field-Programmable Gate Array)
 
 Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un cluster AKS qui est __connecté à votre espace de travail__. Pour en savoir plus sur la connexion d’un cluster AKS à votre espace de travail, consultez [Créer et attacher un cluster Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
@@ -87,7 +87,7 @@ Dans Azure Machine Learning, le « déploiement » est utilisé dans le sens l
 Le composant frontal (azureml-fe) qui achemine les demandes d’inférence entrantes vers les services déployés se met à l’échelle automatiquement selon les besoins. La mise à l’échelle du composant azureml-fe se fait en fonction de l’objet et de la taille (nombre de nœuds) du cluster AKS. L’objet et les nœuds du cluster sont configurés lorsque vous [créez ou attachez un cluster AKS](how-to-create-attach-kubernetes.md). Il existe un service azureml-fe par cluster, susceptible de s’exécuter sur plusieurs pods.
 
 > [!IMPORTANT]
-> Lorsque vous utilisez un cluster configuré comme __dev-test__ , le processus de mise à l’échelle automatique est **désactivé**.
+> Lorsque vous utilisez un cluster configuré comme __dev-test__, le processus de mise à l’échelle automatique est **désactivé**.
 
 Azureml-fe met à l’échelle aussi bien verticalement, de façon à utiliser plus de cœurs, qu’horizontalement, de façon à utiliser plus de pods. En cas de choix d’un scale-up, on tient compte du temps nécessaire pour acheminer les demandes d’inférence entrantes. Si cette durée dépasse le seuil, un scale-up est effectué. Si le temps nécessaire pour acheminer les demandes entrantes continue de dépasser le seuil, un scale-out est effectué.
 
@@ -154,7 +154,7 @@ Le composant qui gère la mise à l’échelle automatique pour les déploiement
 > [!IMPORTANT]
 > * **N’activez pas l’Autoscaler de pods horizontaux (HPA) Kubernetes pour les déploiements de modèles**. Cela mettrait en concurrence les deux composants de mise à l’échelle automatique. Azureml-fe est conçu pour mettre à l’échelle automatiquement les modèles déployés par Azure ML, dans lesquels HPA devrait deviner ou estimer l’utilisation du modèle à partir d’une mesure générique telle que l’utilisation du processeur ou une configuration de métrique personnalisée.
 > 
-> * **Azureml-fe ne met pas à l’échelle le nombre de nœuds d’un cluster AKS** , car cela pourrait entraîner une augmentation inattendue du coût. Au lieu de cela, **il met à l’échelle le nombre de réplicas du modèle** dans les limites du cluster physique. Si vous devez mettre à l’échelle le nombre de nœuds au sein du cluster, vous pouvez mettre à l’échelle le cluster manuellement ou [configurer le programme de mise à l’échelle automatique du cluster AKS](../aks/cluster-autoscaler.md).
+> * **Azureml-fe ne met pas à l’échelle le nombre de nœuds d’un cluster AKS**, car cela pourrait entraîner une augmentation inattendue du coût. Au lieu de cela, **il met à l’échelle le nombre de réplicas du modèle** dans les limites du cluster physique. Si vous devez mettre à l’échelle le nombre de nœuds au sein du cluster, vous pouvez mettre à l’échelle le cluster manuellement ou [configurer le programme de mise à l’échelle automatique du cluster AKS](../aks/cluster-autoscaler.md).
 
 La mise à l’échelle automatique peut être contrôlée en définissant les paramètres `autoscale_target_utilization`, `autoscale_min_replicas` et `autoscale_max_replicas` pour le service web AKS. L’exemple suivant montre comment activer la mise à l’échelle automatique :
 
@@ -204,7 +204,7 @@ Analyser et promouvoir des versions de modèle de manière contrôlée à l’ai
 * Marquez une version de point de terminaison comme __contrôle__ ou __traitement__. Par exemple, la version actuelle du point de terminaison de production peut être le contrôle, tandis que les éventuels nouveaux modèles sont déployés en tant que versions de traitement. Après évaluation des performances des versions de traitement, si l’une d’elles obtient de meilleures performances que le contrôle actuel, elle peut être promue comme nouvelle version de production/contrôle.
 
     > [!NOTE]
-    > Vous ne pouvez avoir qu’ __un seul__ contrôle. Vous pouvez avoir plusieurs traitements.
+    > Vous ne pouvez avoir qu’__un seul__ contrôle. Vous pouvez avoir plusieurs traitements.
 
 Vous pouvez activer App Insights pour afficher les métriques opérationnelles des points de terminaison et des versions déployées.
 
@@ -333,6 +333,7 @@ Azure Security Center fournit des fonctionnalités unifiées de gestion de la s�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Utiliser Azure RBAC pour l’autorisation Kubernetes](../aks/manage-azure-rbac.md)
 * [Sécuriser l’environnement d’inférence avec un réseau virtuel Microsoft Azure](how-to-secure-inferencing-vnet.md)
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)

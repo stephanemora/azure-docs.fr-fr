@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330153"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965666"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -34,7 +34,7 @@ Le groupe de ressources *myResourceGroup* contient cinq zones pour Contoso Corp
 
 La façon la plus simple d’attribuer des autorisations Azure RBAC consiste à utiliser [le portail Azure](../role-based-access-control/role-assignments-portal.md).  
 
-Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **Ajouter** , puis sélectionnez le rôle **Collaborateur de zone DNS** . Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
+Ouvrez **Contrôle d’accès (IAM)** pour le groupe de ressources, sélectionnez **Ajouter**, puis sélectionnez le rôle **Collaborateur de zone DNS**. Sélectionnez les utilisateurs ou les groupes auxquels accorder des autorisations.
 
 ![Azure RBAC au niveau groupe de ressources via le portail Azure](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -65,9 +65,9 @@ az role assignment create \
 
 Vous pouvez appliquer les règles RBAC d’Azure à un abonnement, à un groupe de ressources ou à une ressource. Cette ressource peut correspondre à une zone DNS ou à un jeu d’enregistrements.
 
-Par exemple, le groupe de ressources *myResourceGroup* contient la zone *contoso.com* et la sous-zone *customers.contoso.com* . Des enregistrements CNAMe sont créés pour chaque compte client. Le compte d’administrateur utilisé pour gérer les enregistrements CNAME se voit attribuer des autorisations lui permettant de créer des enregistrements dans la zone *customers.contoso.com* . Le compte peut gérer uniquement *customers.contoso.com* .
+Par exemple, le groupe de ressources *myResourceGroup* contient la zone *contoso.com* et la sous-zone *customers.contoso.com*. Des enregistrements CNAMe sont créés pour chaque compte client. Le compte d’administrateur utilisé pour gérer les enregistrements CNAME se voit attribuer des autorisations lui permettant de créer des enregistrements dans la zone *customers.contoso.com*. Le compte peut gérer uniquement *customers.contoso.com*.
 
-Vous pouvez accorder les autorisations Azure RBAC au niveau zone via le portail Azure.  Ouvrez **Contrôle d’accès (IAM)** pour la zone, sélectionnez **Ajouter** , sélectionnez le rôle **Contributeur de zone DNS** , puis sélectionnez les utilisateurs ou groupes auxquels accorder les autorisations.
+Vous pouvez accorder les autorisations Azure RBAC au niveau zone via le portail Azure.  Ouvrez **Contrôle d’accès (IAM)** pour la zone, sélectionnez **Ajouter**, sélectionnez le rôle **Contributeur de zone DNS**, puis sélectionnez les utilisateurs ou groupes auxquels accorder les autorisations.
 
 ![Azure RBAC au niveau zone DNS via le portail Azure](./media/dns-protect-zones-recordsets/rbac2.png)
 
@@ -192,17 +192,17 @@ Pour plus d’informations sur la façon de créer, gérer et attribuer des rôl
 
 Azure Resource Manager prend en charge un autre type de contrôle de sécurité : la possibilité de verrouiller des ressources. Un verrou de ressource est appliqué à une ressource et le verrouillage de celle-ci s’étend à l’ensemble des utilisateurs et des rôles qui l’utilisent. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-Il existe deux types de verrou de ressource : **CanNotDelete** et **ReadOnly** . Ces types de verrous peuvent être appliqués à une zone DNS privée ou à un jeu d’enregistrements. Les sections suivantes décrivent quelques scénarios courants et la manière de les prendre en charge à l’aide de verrous de ressources.
+Il existe deux types de verrou de ressource : **CanNotDelete** et **ReadOnly**. Ces types de verrous peuvent être appliqués à une zone DNS privée ou à un jeu d’enregistrements. Les sections suivantes décrivent quelques scénarios courants et la manière de les prendre en charge à l’aide de verrous de ressources.
 
 ### <a name="protecting-against-all-changes"></a>Protection contre toute modification
 
 Pour empêcher toute modification, appliquez à la zone un verrou ReadOnly. Le verrou empêche toute création, modification ou suppression de jeux d’enregistrements.
 
-Vous pouvez créer des verrous de ressources au niveau zone via le portail Azure.  Dans la page des zones DNS, sélectionnez **Verrous** , puis **+Ajouter**  :
+Vous pouvez créer des verrous de ressources au niveau zone via le portail Azure.  Dans la page des zones DNS, sélectionnez **Verrous**, puis **+Ajouter** :
 
 ![Verrous de ressources au niveau zone via le portail Azure](./media/dns-protect-zones-recordsets/locks1.png)
 
-Vous pouvez également créer des verrous de ressources au niveau d’une zone via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest) :
+Vous pouvez également créer des verrous de ressources au niveau d’une zone via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest) :
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-La commande équivalente est également [disponible via l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create) :
+La commande équivalente est également [disponible via l’interface de ligne de commande Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create) :
 
 ```azurecli
 # Lock a DNS zone

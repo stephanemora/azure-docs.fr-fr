@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1ba6a19b271943c7ecbe2254ef2544a5f576ad3d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167421"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965236"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -57,9 +58,9 @@ ms.locfileid: "92167421"
 Cet article explique comment déployer plusieurs systèmes hautement disponible SAP NetWeaver ou S4HANA (c’est-à-dire, plusieurs SID) dans un cluster à deux nœuds sur des machines virtuelles Azure avec SUSE Linux Enterprise Server pour les applications SAP.  
 
 Dans les exemples de configuration, commandes d’installation, etc., trois systèmes SAP NetWeaver 7.50 sont déployés dans un même cluster à deux nœuds à haute disponibilité. Les SID des systèmes SAP sont les suivants :
-* **NW1**  : Numéro d’instance ASCS **00** et nom d’hôte virtuel **msnw1ascs**  ; numéro d’instance ERS **02** et nom d’hôte virtuel **msnw1ers** .  
-* **NW2**  : Numéro d’instance ASCS **10** et nom d’hôte virtuel **msnw2ascs**  ; numéro d’instance ERS **12** et nom d’hôte virtuel **msnw2ers** .  
-* **NW3**  : Numéro d’instance ASCS **20** et nom d’hôte virtuel **msnw3ascs**  ; numéro d’instance ERS **22** et nom d’hôte virtuel **msnw3ers** .  
+* **NW1** : Numéro d’instance ASCS **00** et nom d’hôte virtuel **msnw1ascs** ; numéro d’instance ERS **02** et nom d’hôte virtuel **msnw1ers**.  
+* **NW2** : Numéro d’instance ASCS **10** et nom d’hôte virtuel **msnw2ascs** ; numéro d’instance ERS **12** et nom d’hôte virtuel **msnw2ers**.  
+* **NW3** : Numéro d’instance ASCS **20** et nom d’hôte virtuel **msnw3ascs** ; numéro d’instance ERS **22** et nom d’hôte virtuel **msnw3ers**.  
 
 Cet article ne couvre pas la couche de base de données et le déploiement des partages NFS SAP. Dans les exemples de cet article, nous utilisons les noms virtuels nw2-nfs pour les partages NW2 NFS et nw3-nfs pour les partages NW3 NFS, en partant du principe que le cluster NFS a été déployé.  
 
@@ -96,7 +97,7 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite des partages NFS
 ![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> La prise en charge du clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure est limitée à **cinq** SID SAP sur le même cluster. Chaque nouveau SID augmente la complexité. La combinaison de Enqueue Replication Server 1 et Enqueue Replication Server 2 SAP sur le même cluster n'est **pas prise en charge** . Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker. Actuellement, le clustering multi-SID est uniquement pris en charge pour ASCS/ERS.  
+> La prise en charge du clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure est limitée à **cinq** SID SAP sur le même cluster. Chaque nouveau SID augmente la complexité. La combinaison de Enqueue Replication Server 1 et Enqueue Replication Server 2 SAP sur le même cluster n'est **pas prise en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker. Actuellement, le clustering multi-SID est uniquement pris en charge pour ASCS/ERS.  
 
 > [!TIP]
 > Le clustering multi-SID de SAP ASCS/ERS relève d'une solution particulièrement complexe. Il s'avère plus difficile à implémenter. En outre, il implique plus d'effort administratif lors de l’exécution d’activités de maintenance (application de correctifs au système d’exploitation, par exemple). Avant de procéder à l'implémentation, prenez le temps de planifier soigneusement le déploiement et tous les composants impliqués, tels que les machines virtuelles, montages NFS, adresses IP virtuelles, configurations d’équilibreur de charge, etc.  
@@ -112,7 +113,7 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
   * Adresse IP pour NW2 :  10.3.1.16
   * Adresse IP pour NW3 :  10.3.1.13
 * Ports d'analyse
-  * Port 620 <strong>&lt;nr&gt;</strong>, par conséquent pour NW1, NW2 et NW3 ports d'analyse 620 **00** , 620 **10** et 620 **20**
+  * Port 620 <strong>&lt;nr&gt;</strong>, par conséquent pour NW1, NW2 et NW3 ports d'analyse 620 **00**, 620 **10** et 620 **20**
 * Règles d’équilibrage de charge - 
 * créez-en une pour chaque instance, à savoir NW1/ASCS, NW2/ASCS et NW3/ASCS.
   * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
@@ -132,7 +133,7 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
   * Adresse IP pour NW2 10.3.1.17
   * Adresse IP pour NW3 10.3.1.19
 * Port de la sonde
-  * Port 621 <strong>&lt;Nr&gt;</strong>, par conséquent pour NW1, NW2 et N# ports d'analyse 621 **02** , 621 **12** et 621 **22**
+  * Port 621 <strong>&lt;Nr&gt;</strong>, par conséquent pour NW1, NW2 et N# ports d'analyse 621 **02**, 621 **12** et 621 **22**
 * Règles d’équilibrage de charge - créez-en une pour chaque instance, à savoir NW1/ERS, NW2/ERS et NW3/ERS.
   * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
   * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
@@ -152,7 +153,7 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
 > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0** . Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
 
 ## <a name="sap-nfs-shares"></a>Partages NFS SAP
 
@@ -174,7 +175,7 @@ Les documents répertoriés ci-dessus vous guident tout au long des étapes de p
 
 ## <a name="deploy-additional-sap-systems-in-the-cluster"></a>Déployer des systèmes SAP supplémentaires au cluster
 
-Dans cet exemple, nous partons du principe que le système **NW1** a déjà été déployé dans le cluster. Nous allons vous expliquer comment effectuer un déploiement dans les systèmes SAP du cluster **NW2** et **NW3** . 
+Dans cet exemple, nous partons du principe que le système **NW1** a déjà été déployé dans le cluster. Nous allons vous expliquer comment effectuer un déploiement dans les systèmes SAP du cluster **NW2** et **NW3**. 
 
 Les éléments suivants sont précédés de **[A]** (applicable à tous les nœuds), de **[1]** (applicable uniquement au nœud 1) ou de **[2]** (applicable uniquement au nœud 2).
 
@@ -191,7 +192,7 @@ Cette documentation suppose ce qui suit :
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Préparer l’installation de SAP NetWeaver
 
-1. Ajoutez une configuration pour le système récemment déployé (à savoir, **NW2** , **NW3** ) à l'instance Azure Load Balancer existante. Pour ce faire, consultez [Déployer Azure Load Balancer manuellement via le portail Azure](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal). Ajustez les adresses IP, les ports de sonde d’intégrité et les règles d’équilibrage de charge pour votre configuration.  
+1. Ajoutez une configuration pour le système récemment déployé (à savoir, **NW2**, **NW3**) à l'instance Azure Load Balancer existante. Pour ce faire, consultez [Déployer Azure Load Balancer manuellement via le portail Azure](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal). Ajustez les adresses IP, les ports de sonde d’intégrité et les règles d’équilibrage de charge pour votre configuration.  
 
 2. **[A]** Configurez la résolution de noms pour les systèmes SAP supplémentaires. Vous pouvez utiliser un serveur DNS ou modifier `/etc/hosts` sur tous les nœuds. Cet exemple vous explique comment utiliser le fichier `/etc/hosts`.  Adaptez les adresses IP et les noms d’hôte à votre environnement. 
 
@@ -234,7 +235,7 @@ Cette documentation suppose ce qui suit :
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** Configurez `autofs` pour monter les systèmes de fichiers /sapmnt/SID et /usr/sap/SID/SYS pour les systèmes SAP supplémentaires que vous déployez sur le cluster. Dans cet exemple, **NW2** et **NW3** .  
+4. **[A]** Configurez `autofs` pour monter les systèmes de fichiers /sapmnt/SID et /usr/sap/SID/SYS pour les systèmes SAP supplémentaires que vous déployez sur le cluster. Dans cet exemple, **NW2** et **NW3**.  
 
    Mettez à jour le fichier `/etc/auto.direct` avec les systèmes de fichiers pour les systèmes SAP supplémentaires que vous déployez sur le cluster.  
 
@@ -290,7 +291,7 @@ Cette documentation suppose ce qui suit :
 
 2. **[1]** Installer SAP NetWeaver ASCS  
 
-   Installez SAP NetWeaver ASCS en tant que racine à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend d’équilibreur de charge pour l'instance ASCS. Par exemple, pour le système **NW2** , le nom d’hôte virtuel est <b>msnw2ascs</b>, <b>10.3.1.16</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>10</b>. Pour le système **NW3** , le nom d’hôte virtuel est <b>msnw3ascs</b>, <b>10.3.1.13</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>20</b>.
+   Installez SAP NetWeaver ASCS en tant que racine à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend d’équilibreur de charge pour l'instance ASCS. Par exemple, pour le système **NW2**, le nom d’hôte virtuel est <b>msnw2ascs</b>, <b>10.3.1.16</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>10</b>. Pour le système **NW3**, le nom d’hôte virtuel est <b>msnw3ascs</b>, <b>10.3.1.13</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>20</b>.
 
    Vous pouvez utiliser le paramètre sapinst SAPINST_REMOTE_ACCESS_USER pour autoriser un utilisateur non racine à se connecter à sapinst. Vous pouvez utiliser le paramètre SAPINST_USE_HOSTNAME pour installer SAP à l’aide du nom d’hôte virtuel.  
 
@@ -298,7 +299,7 @@ Cette documentation suppose ce qui suit :
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/ **SID** /ASCS **Instance#** lors de l'installation, essayez de définir le propriétaire sur **sid** adm et le groupe sur sapsys pour **l'instance ASCS #** , puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/**SID**/ASCS **Instance#** lors de l'installation, essayez de définir le propriétaire sur **sid** adm et le groupe sur sapsys pour **l'instance ASCS #** , puis réessayez.
 
 3. **[1]** Créez une adresse IP virtuelle et des ressources de cluster de sonde d’intégrité pour l’instance ERS du système SAP supplémentaire que vous déployez sur le cluster. L’exemple illustré ici correspond à **NW2** et **NW3** ERS, avec serveur NFS hautement disponible. 
 
@@ -340,7 +341,7 @@ Cette documentation suppose ce qui suit :
 
 4. **[2]** Installer SAP NetWeaver ERS
 
-   Installez l’instance ERS SAP NetWeaver en tant que racine sur l'autre nœud, à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend d’équilibreur de charge pour l'instance ERS. Par exemple, pour le système **NW2** , le nom d’hôte virtuel sera <b>msnw2ers</b>, <b>10.3.1.17</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>12</b>. Pour le système **NW3** , le nom d’hôte virtuel sera <b>msnw3ers</b>, <b>10.3.1.19</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>22</b>. 
+   Installez l’instance ERS SAP NetWeaver en tant que racine sur l'autre nœud, à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend d’équilibreur de charge pour l'instance ERS. Par exemple, pour le système **NW2**, le nom d’hôte virtuel sera <b>msnw2ers</b>, <b>10.3.1.17</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>12</b>. Pour le système **NW3**, le nom d’hôte virtuel sera <b>msnw3ers</b>, <b>10.3.1.19</b> et le numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>22</b>. 
 
    Vous pouvez utiliser le paramètre sapinst SAPINST_REMOTE_ACCESS_USER pour autoriser un utilisateur non racine à se connecter à sapinst. Vous pouvez utiliser le paramètre SAPINST_USE_HOSTNAME pour installer SAP à l’aide du nom d’hôte virtuel.  
 
@@ -351,9 +352,9 @@ Cette documentation suppose ce qui suit :
    > [!NOTE]
    > Utilisez SWPM SP 20 PL 05 ou ultérieur. Les versions antérieures ne définissent pas les autorisations correctement et l’installation échouera.
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/ **NW2** /ERS **Instance#** lors de l'installation, essayez de définir le propriétaire sur **sid** adm et le groupe sur sapsys pour **l'instance ERS #** , puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/**NW2**/ERS **Instance#** lors de l'installation, essayez de définir le propriétaire sur **sid** adm et le groupe sur sapsys pour **l'instance ERS #** , puis réessayez.
 
-   Si vous avez dû migrer le groupe ERS du système SAP récemment déployé vers un nœud de cluster différent, n’oubliez pas de supprimer la contrainte d’emplacement pour le groupe ERS. Vous pouvez supprimer cette contrainte en exécutant la commande suivante (l’exemple correspond aux systèmes SAP **NW2** et **NW3** ).  
+   Si vous avez dû migrer le groupe ERS du système SAP récemment déployé vers un nœud de cluster différent, n’oubliez pas de supprimer la contrainte d’emplacement pour le groupe ERS. Vous pouvez supprimer cette contrainte en exécutant la commande suivante (l’exemple correspond aux systèmes SAP **NW2** et **NW3**).  
 
     ```
       crm resource unmigrate g-NW2_ERS
@@ -398,7 +399,7 @@ Cette documentation suppose ce qui suit :
    # Autostart = 1
    ```
 
-6. **[A]** Configurez les utilisateurs SAP pour le système SAP récemment déployé, dans cet exemple **NW2** et **NW3** . 
+6. **[A]** Configurez les utilisateurs SAP pour le système SAP récemment déployé, dans cet exemple **NW2** et **NW3**. 
 
    ```
    # Add sidadm to the haclient group
@@ -406,7 +407,7 @@ Cette documentation suppose ce qui suit :
    sudo usermod -aG haclient nw3adm
    ```
 
-7. Ajoutez les services SAP ASCS et ERS pour le système SAP récemment installé au fichier `sapservice`. L’exemple ci-dessous correspond aux systèmes SAP **NW2** et **NW3** .  
+7. Ajoutez les services SAP ASCS et ERS pour le système SAP récemment installé au fichier `sapservice`. L’exemple ci-dessous correspond aux systèmes SAP **NW2** et **NW3**.  
 
    Ajoutez l’entrée de service ASCS au deuxième nœud et copiez l’entrée de service ERS dans le premier nœud. Exécutez les commandes pour chaque système SAP du nœud, où l’instance ASCS correspondant au système SAP a été installée.  
 
@@ -469,7 +470,7 @@ Cette documentation suppose ce qui suit :
     ```
 
    SAP a introduit la prise en charge du serveur de file d’attente 2, y compris la réplication, avec SAP NW 7.52. À partir de la plateforme ABAP 1809, le serveur de file d’attente 2 est installé par défaut. Consultez la note SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour plus d’informations sur la prise en charge du serveur de file d’attente 2.
-   Si vous utilisez l’architecture ENSA2 ( [serveur de file d’attente 2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), définissez les ressources pour les systèmes SAP  **NW2** et **NW3** comme indiqué ci-après :
+   Si vous utilisez l’architecture ENSA2 ([serveur de file d’attente 2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), définissez les ressources pour les systèmes SAP **NW2** et **NW3** comme indiqué ci-après :
 
     ```
      sudo crm configure property maintenance-mode="true"

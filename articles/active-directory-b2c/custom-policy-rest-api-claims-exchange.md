@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089568"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949493"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procédure pas à pas : Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
@@ -53,16 +53,16 @@ Une fois que votre API REST valide les données, elle doit retourner un message
 }
 ```
 
-Cet article ne traite pas de la configuration du point de terminaison d’API REST. Vous avez créé un exemple [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Vous pouvez accéder au code complet de la fonction Azure sur le site de [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Cet article ne traite pas de la configuration du point de terminaison d’API REST. Vous avez créé un exemple [Azure Functions](../azure-functions/functions-reference.md). Vous pouvez accéder au code complet de la fonction Azure sur le site de [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Définir des revendications
 
 Une revendication fournit un stockage temporaire de données lors d’une exécution de stratégie Azure AD B2C. Vous pouvez déclarer des revendications dans la section [Schéma de revendications](claimsschema.md). 
 
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
-1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema** .  
+1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="balance">
@@ -116,10 +116,10 @@ Dans cet exemple, le `userLanguage` sera envoyé au service REST en tant que `la
 
 Après avoir déployé votre API REST, définissez les métadonnées du profil technique `REST-ValidateProfile` pour refléter votre propre API REST, notamment :
 
-- **ServiceUrl** . Définissez l’URL du point de terminaison de l’API REST.
-- **SendClaimsIn** . Spécifiez la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful.
-- **AuthenticationType** . Définissez le type de l’authentification effectuée par le fournisseur de revendications RESTful. 
-- **AllowInsecureAuthInProduction** . Dans un environnement de production, veillez à définir ces métadonnées sur `true`
+- **ServiceUrl**. Définissez l’URL du point de terminaison de l’API REST.
+- **SendClaimsIn**. Spécifiez la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful.
+- **AuthenticationType**. Définissez le type de l’authentification effectuée par le fournisseur de revendications RESTful. 
+- **AllowInsecureAuthInProduction**. Dans un environnement de production, veillez à définir ces métadonnées sur `true`
     
 Pour plus d’informations sur les configurations, consultez [Métadonnées du profil technique RESTful](restful-technical-profile.md#metadata).
 
@@ -129,9 +129,9 @@ Les commentaires ci -dessus `AuthenticationType` et `AllowInsecureAuthInProducti
 
 Les [parcours utilisateur](userjourneys.md) spécifient des chemins explicites par le biais desquels une stratégie autorise une application par partie de confiance à obtenir les revendications souhaitées pour un utilisateur. Un parcours utilisateur est représenté en tant que séquence d’orchestration qui doit être suivie pour que la transaction réussisse. Vous pouvez ajouter ou soustraire des étapes d’orchestration. Dans ce cas, vous allez ajouter une étape d’orchestration qui est utilisée pour compléter les informations fournies à l’application après l’inscription ou la connexion de l’utilisateur via l’appel de l’API REST.
 
-1. Ouvrez le fichier de base de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
+1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
 1. Recherchez l’élément `<UserJourneys>`. Copiez l’élément dans son intégralité, puis supprimez-le.
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Collez le `<UserJourneys>` dans le fichier des extensions après avoir fermé l’élément `<ClaimsProviders>`.
 1. Localisez le `<UserJourney Id="SignUpOrSignIn">` et ajoutez l’étape d’orchestration suivante en avant-dernier.
 
@@ -155,7 +155,7 @@ Les [parcours utilisateur](userjourneys.md) spécifient des chemins explicites p
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 
-1. Répétez les deux dernières étapes pour les parcours utilisateur **ProfileEdit** et **PasswordReset** .
+1. Répétez les deux dernières étapes pour les parcours utilisateur **ProfileEdit** et **PasswordReset**.
 
 
 ## <a name="include-a-claim-in-the-token"></a>Inclure une revendication dans le jeton 
@@ -183,18 +183,18 @@ Pour retourner la revendication `balance` à l’application par partie de confi
 </RelyingParty>
 ```
 
-Répétez cette étape pour les parcours utilisateur **ProfileEdit.xml** et **PasswordReset.xml** .
+Répétez cette étape pour les parcours utilisateur **ProfileEdit.xml** et **PasswordReset.xml**.
 
-Enregistrez les fichiers que vous avez modifiés : *TrustFrameworkBase.xml* , *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* et *PasswordReset.xml* . 
+Enregistrez les fichiers que vous avez modifiés : *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* et *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications** .
-1. Sélectionnez **Infrastructure d’expérience d’identité** .
-1. Sélectionnez **Charger une stratégie personnalisée** , puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkBase.xml* , *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* et *PasswordReset.xml* . 
-1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* et *PasswordReset.xml*. 
+1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 1. Vous devriez pouvoir vous inscrire au moyen d’une adresse e-mail ou d’un compte Facebook.
 1. Le jeton envoyé à votre application inclut la revendication `balance`.
 

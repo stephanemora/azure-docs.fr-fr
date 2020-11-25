@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cdd7f4957b22eb4c87d60e3d57b0cec675659963
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7ba0604c0fb1a51c5276f2a28fb0e39b878b7639
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131800"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949562"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Traduire l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) vous permet de prendre en charge plusieurs langues pour répondre aux besoins de votre client. Microsoft fournit les traductions en [36 langues](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages. 
+La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) vous permet de prendre en charge plusieurs langues pour répondre aux besoins de votre client. Microsoft fournit les traductions en [36 langues](./user-flow-language-customization.md#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages. 
 
 Cet article montre comment prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie des parcours utilisateur. La traduction nécessite trois étapes : configurer la liste explicite des langues prises en charge, fournir des chaînes et collections spécifiques de la langue et modifier la [définition de contenu](contentdefinitions.md) de la page. 
 
@@ -265,4 +265,3 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 - Apprenez-en davantage sur l’élément [localization](localization.md) dans la référence IEF.
 - Consultez la liste des [ID de chaîne de traduction](localization-string-ids.md) disponible dans Azure AD B2C.
-

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 52c07861fcd3db5f9a53c4bd6730f89925b11ae6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e41be54ce2017b303543a2e53eabbecb3ddc2978
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348948"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843330"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -78,7 +78,7 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 
 2. Accédez à votre compte de stockage.
 
-3. Dans la section **Supervision** , cliquez sur **Paramètres de diagnostic (préversion)** .
+3. Dans la section **Supervision**, cliquez sur **Paramètres de diagnostic (préversion)** .
 
    > [!div class="mx-imgBorder"]
    > ![Portail - Journaux de diagnostics](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)
@@ -99,30 +99,30 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
 
-1. Cochez la case **Archiver dans un compte de stockage** , puis sélectionnez le bouton **Configurer**.
+1. Cochez la case **Archiver dans un compte de stockage**, puis sélectionnez le bouton **Configurer**.
 
    > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Stockage d’archive](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. Dans la liste déroulante **Compte de stockage** , sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK** , puis sélectionnez le bouton **Enregistrer**.
+2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
 
    > [!NOTE]
    > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](/azure/azure-monitor/platform/resource-logs-collect-storage) pour comprendre les conditions préalables relatives au compte de stockage.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Diffuser les journaux en continu vers Azure Event Hubs
 
-1. Cochez la case **Diffuser sur un Event Hub** , puis sélectionnez le bouton **Configurer**.
+1. Cochez la case **Diffuser sur un Event Hub**, puis sélectionnez le bouton **Configurer**.
 
-2. Dans le volet **Sélectionner un Event Hub** , choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu.
+2. Dans le volet **Sélectionner un Event Hub**, choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu.
 
    > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Event Hub](media/monitor-queue-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Cliquez sur le bouton **OK** , puis sélectionnez le bouton **Enregistrer**.
+3. Cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Envoyer des journaux à Azure Log Analytics
 
-1. Cochez la case **Envoyer à Log Analytics** , sélectionnez un espace de travail Log Analytics, puis sélectionnez le bouton **Enregistrer**.
+1. Cochez la case **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics, puis sélectionnez le bouton **Enregistrer**.
 
    > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Log Analytics](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
@@ -482,7 +482,7 @@ Les entrées de journal sont créées uniquement si des demandes sont effectuée
 - Demandes ayant réussi
 - Demandes ayant échoué, y compris les erreurs de délai d’expiration, limitation, réseau, autorisation et autres erreurs
 - Demandes utilisant une signature d’accès partagé (SAS) ou OAuth, y compris les demandes ayant réussi et ayant échoué
-- Demandes de données d’analyse (données de journal classique dans le conteneur **$logs** et données de métriques de classe dans les tables **$metric** )
+- Demandes de données d’analyse (données de journal classique dans le conteneur **$logs** et données de métriques de classe dans les tables **$metric**)
 
 Les demandes effectuées par le service Stockage File d'attente lui-même, telles que la création ou la suppression d'un journal, ne sont pas consignées. Pour obtenir une liste complète des données enregistrées, consultez [Opérations et messages d’état enregistrés de stockage](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de stockage](monitor-queue-storage-reference.md).
 

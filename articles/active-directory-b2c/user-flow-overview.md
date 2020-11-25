@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481595"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840189"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Pour vous aider à configurer les tâches d’identité les plus courantes pour 
 
 - Types de compte utilisés pour la connexion, comme les comptes de réseaux sociaux de type Facebook ou les comptes locaux
 - Attributs à collecter auprès du consommateur, comme le prénom, le code postal et la pointure
-- Azure Multi-Factor Authentication
+- Authentification multifacteur Azure AD
 - Personnalisation de l’interface utilisateur
 - Informations que l’application reçoit sous forme de revendications dans un jeton
 

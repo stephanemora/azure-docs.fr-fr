@@ -3,19 +3,19 @@ title: Performances de la taille de machine virtuelle de la série HBv2
 description: En savoir plus sur les résultats des tests de performances pour les machines virtuelles de la série HBv2 dans Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 96c70936d6025ad5c1686f5ebae054d01ae05d07
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b782f3d435b7b3737de09b7a12d0fb17aa5f1edc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332585"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963315"
 ---
 # <a name="hbv2-series-virtual-machine-sizes"></a>Tailles des machines virtuelles de la série HBv2
 
@@ -52,7 +52,7 @@ Le test de bande passante MPI de la suite de microbenchmark OSU est exécuté. L
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ``` 
 
-:::image type="content" source="./media/bandwidth-hbv2.png" alt-text="Latence MPI sur Azure HB.":::
+:::image type="content" source="./media/bandwidth-hbv2.png" alt-text="Bande passante MPI sur Azure HB.":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest

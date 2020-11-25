@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400041"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964930"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
@@ -59,7 +59,7 @@ StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud e
 Il existe plusieurs solutions :
 
 - Les partenaires peuvent revendre StorSimple Virtual Array. 
-- Les partenaires peuvent offrir des solutions développées autour de StorSimple et d’autres services Azure ou d’un logiciel tiers. Pour plus d’informations, examinez quelques [solutions potentielles relatives à StorSimple](https://aka.ms/storsimple-build-solutions).
+- Les partenaires peuvent offrir des solutions développées autour de StorSimple et d’autres services Azure ou d’un logiciel tiers. Pour plus d’informations, examinez quelques [solutions potentielles relatives à StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - Ils peuvent également découvrir de nouveaux modèles d’entreprise, en fournissant des services gérés.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quelles sont les primes disponibles pour les partenaires du programme des fournisseurs de solutions cloud StorSimple ? Suis-je éligible à une prime du programme des fournisseurs de solutions cloud ?

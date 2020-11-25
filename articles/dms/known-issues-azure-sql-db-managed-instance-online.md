@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 6393624cb4520ccd28dff41dd97746873bc13f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5c79a141dbe1310762dc90b447fe78848ac10d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330296"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962482"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Managed Instance
 
@@ -31,7 +31,7 @@ Les problèmes connus et limitations associées aux migrations en ligne de SQL S
 
     Azure Database Migration Service utilise la méthode de sauvegarde et de restauration pour migrer vos bases de données locales vers SQL Managed Instance. Azure Database Migration Service prend uniquement en charge les sauvegardes créées à l'aide de la somme de contrôle.
 
-    [Activer ou désactiver des sommes de contrôle de sauvegarde au cours d’opérations de sauvegarde ou de restauration (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Activer ou désactiver des sommes de contrôle de sauvegarde au cours d’opérations de sauvegarde ou de restauration (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
     > Si vous effectuez des sauvegardes de base de données avec compression, la somme de contrôle correspond au comportement par défaut, sauf désactivation explicite.

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427460"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965355"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -57,11 +58,11 @@ Dans cette section, nous allons créer deux machines virtuelles avec l’image d
 
    - Pour obtenir une redondance pour chaque niveau dans le cadre d’un déploiement à plusieurs instances, placez les machines virtuelles de chaque niveau dans un groupe à haute disponibilité. Veillez à séparer les groupes à haute disponibilité pour chaque niveau en fonction de votre architecture.
 
-4. Créez la machine virtuelle 1 ( **azusbosl1** ).
+4. Créez la machine virtuelle 1 (**azusbosl1**).
 
    - Vous pouvez utiliser l’image personnalisée ou choisir une image à partir de Place de marché Azure. Reportez-vous à [Déploiement d’une machine virtuelle à partir de Place de marché Azure pour SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) ou [Déploiement d’une machine virtuelle avec une image personnalisée pour SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) en fonction de vos besoins.
 
-5. Créez la machine virtuelle 2 ( **azusbosl2** ).
+5. Créez la machine virtuelle 2 (**azusbosl2**).
 6. Ajoutez un disque SSD Premium. Il sera utilisé comme répertoire d’installation SAP BOBI.
 
 ## <a name="provision-azure-netapp-files"></a>Approvisionner Azure NetApp Files
@@ -196,7 +197,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
    **Vérifier les paramètres de domaine NFS**
 
-   Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, c’est-à-dire **defaultv4iddomain.com** , et que le mappage est défini sur **nobody**.
+   Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, c’est-à-dire **defaultv4iddomain.com**, et que le mappage est défini sur **nobody**.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -280,7 +281,7 @@ Connectez-vous à Portail Azure et suivez les étapes mentionnées dans ce [guid
 
 2. Choisissez une version de base de donnée prise en charge basée sur la [matrice de disponibilité des produits (PAM) pour SAP BI](https://support.sap.com/pam) spécifique à votre version de SAP BOBI. Suivez les mêmes instructions de compatibilité que pour MySQL AB dans la PAM SAP.
 
-3. Dans « Calcul + stockage », sélectionnez **Configurer le serveur** , puis sélectionnez le niveau tarifaire approprié en fonction de la taille de votre sortie.
+3. Dans « Calcul + stockage », sélectionnez **Configurer le serveur**, puis sélectionnez le niveau tarifaire approprié en fonction de la taille de votre sortie.
 
 4. **Croissance automatique du stockage** est activée par défaut. N’oubliez pas que vous pouvez uniquement effectuer un scale-up du [stockage](../../../mysql/concepts-pricing-tiers.md#storage), et non un scale-down.
 
@@ -401,9 +402,9 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 2. **[A]** Vérifiez que le fuseau horaire de votre ordinateur est correctement défini. Reportez-vous à la section [Additional Unix and Linux requirements](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) (Conditions requises supplémentaires pour UNIX et Linux) dans le guide d’installation.
 
-3. **[A]** Créez un compte d’utilisateur ( **bl1** adm) et un groupe (sapsys) sous lesquels les processus d’arrière-plan du logiciel peuvent s’exécuter. Utilisez ce compte pour exécuter l’installation et faire fonctionner le logiciel. Le compte ne nécessite pas de privilèges racine.
+3. **[A]** Créez un compte d’utilisateur (**bl1** adm) et un groupe (sapsys) sous lesquels les processus d’arrière-plan du logiciel peuvent s’exécuter. Utilisez ce compte pour exécuter l’installation et faire fonctionner le logiciel. Le compte ne nécessite pas de privilèges racine.
 
-4. **[A]** Configurez l’environnement du compte d’utilisateur ( **bl1** adm) pour utiliser des paramètres régionaux UTF-8 pris en charge et vérifiez que votre logiciel de console prend en charge les jeux de caractères UTF-8. Pour vous assurer que votre système d’exploitation utilise les paramètres régionaux corrects, définissez les variables d’environnement LC_ALL et LANG sur les paramètres régionaux de votre choix dans votre environnement utilisateur ( **bl1** adm).
+4. **[A]** Configurez l’environnement du compte d’utilisateur (**bl1** adm) pour utiliser des paramètres régionaux UTF-8 pris en charge et vérifiez que votre logiciel de console prend en charge les jeux de caractères UTF-8. Pour vous assurer que votre système d’exploitation utilise les paramètres régionaux corrects, définissez les variables d’environnement LC_ALL et LANG sur les paramètres régionaux de votre choix dans votre environnement utilisateur (**bl1** adm).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ Les étapes de cette section utilisent les préfixes suivants :
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Configurez le compte d’utilisateur ( **bl1** adm).
+5. **[A]** Configurez le compte d’utilisateur (**bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -557,7 +558,7 @@ Dans le cadre du processus de sauvegarde, un instantané est créé et les donn�
 
 #### <a name="backup--restore-for-file-repository-server"></a>Sauvegarder et restaurer le serveur de référentiel de fichiers
 
-Pour **Azure NetApp Files** , vous pouvez créer des instantanés à la demande et planifier un instantané automatique en utilisant des stratégies d’instantané. Les instantanés fournissent une copie à un moment donné de votre volume ANF. Pour plus d’informations, consultez [Gérer les instantanés avec Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Pour **Azure NetApp Files**, vous pouvez créer des instantanés à la demande et planifier un instantané automatique en utilisant des stratégies d’instantané. Les instantanés fournissent une copie à un moment donné de votre volume ANF. Pour plus d’informations, consultez [Gérer les instantanés avec Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 La sauvegarde **Azure Files** est intégrée au service [Sauvegarde Azure](../../../backup/backup-overview.md) natif, qui centralise la fonction de sauvegarde et de restauration ainsi que la sauvegarde de machines virtuelles et simplifie le travail d’exploitation. Pour plus d’informations, consultez [Sauvegarde des partages de fichiers Azure](../../../backup/azure-file-share-backup-overview.md) et [Forum aux questions – Sauvegarde des fichiers Azure](../../../backup/backup-azure-files-faq.md).
 

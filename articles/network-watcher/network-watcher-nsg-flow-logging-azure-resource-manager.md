@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738139"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948678"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurer des journaux de flux NSG avec un modèle Azure Resource Manager
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738139"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) est la méthode native et puissante d’Azure pour gérer votre [infrastructure en tant que code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) est la méthode native et puissante d’Azure pour gérer votre [infrastructure en tant que code](/azure/devops/learn/what-is-infrastructure-as-code).
 
-Cet article explique comment activer les [journaux de flux NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmatiquement avec un modèle Azure Resource Manager et Azure PowerShell. Nous commençons par fournir une vue d’ensemble des propriétés de l’objet de journal de flux NSG, suivie de quelques exemples de modèles. Ensuite, nous déployons le modèle à l’aide d’une instance PowerShell locale.
+Cet article explique comment activer les [journaux de flux NSG](./network-watcher-nsg-flow-logging-overview.md) programmatiquement avec un modèle Azure Resource Manager et Azure PowerShell. Nous commençons par fournir une vue d’ensemble des propriétés de l’objet de journal de flux NSG, suivie de quelques exemples de modèles. Ensuite, nous déployons le modèle à l’aide d’une instance PowerShell locale.
 
 
 ## <a name="nsg-flow-logs-object"></a>Objet de journaux de flux NSG
 
 L'objet de journaux de flux NSG ainsi que tous les paramètres sont indiqués ci-après.
-Pour obtenir une vue d’ensemble complète des propriétés, vous pouvez consulter les [informations de référence sur le modèle de journaux de flux NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Pour obtenir une vue d’ensemble complète des propriétés, vous pouvez consulter les [informations de référence sur le modèle de journaux de flux NSG](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Pour créer une ressource Microsoft.Network/networkWatchers/flowLogs, ajoutez le
 
 Si vous utilisez des modèles Azure Resource Manager pour la première fois, vous pouvez en savoir plus à leur sujet à l’aide des liens ci-dessous.
 
-* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Vous trouverez ci-dessous deux exemples de modèles complets permettant de configurer des journaux de flux NSG.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Vérification de votre déploiement
 
-Il existe deux façons de vérifier si votre déploiement a réussi. Votre console PowerShell doit indiquer « Succeeded » (réussite) pour « ProvisioningState ». De plus, vous pouvez consulter la [page du portail dédiée aux journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) pour vérifier vos modifications. Si vous rencontrez des problèmes lors du déploiement, consultez [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Il existe deux façons de vérifier si votre déploiement a réussi. Votre console PowerShell doit indiquer « Succeeded » (réussite) pour « ProvisioningState ». De plus, vous pouvez consulter la [page du portail dédiée aux journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) pour vérifier vos modifications. Si vous rencontrez des problèmes lors du déploiement, consultez [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Suppression de votre ressource
-Azure permet la suppression des ressources via le mode de déploiement « Complet ». Pour supprimer une ressource de journaux de flux, spécifiez un déploiement en mode complet sans inclure la ressource que vous souhaitez supprimer. En savoir plus sur le [mode de déploiement complet](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+Azure permet la suppression des ressources via le mode de déploiement « Complet ». Pour supprimer une ressource de journaux de flux, spécifiez un déploiement en mode complet sans inclure la ressource que vous souhaitez supprimer. En savoir plus sur le [mode de déploiement complet](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment visualiser vos données de flux NSG avec les outils suivants :
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure Traffic Analytics](./traffic-analytics.md)

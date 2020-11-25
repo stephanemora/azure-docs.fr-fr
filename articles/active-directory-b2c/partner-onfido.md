@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48fc8533ee1fd206e69e16d4c03e4b4acf047135
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259218"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953682"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutoriel de configuration d’Onfido avec Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 
-- Un [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) lié à votre abonnement Azure.
+- Un [locataire Azure AD B2C](./tutorial-create-tenant.md) lié à votre abonnement Azure.
 
 - Un [compte d’essai](https://onfido.com/signup/) Onfido.
 
@@ -74,7 +74,7 @@ Pour plus d’informations sur Onfido, consultez la [documentation sur l’API O
 
 ### <a name="part-1---deploy-the-api"></a>Partie 1 : Déploiement de l’API
 
-- Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 - Configurez CORS, et ajoutez une **Origine autorisée** en tant que https://{votre_nom_locataire}.b2clogin.com.
 
 >[!NOTE]
@@ -82,7 +82,7 @@ Pour plus d’informations sur Onfido, consultez la [documentation sur l’API O
 
 #### <a name="adding-sensitive-configuration-settings"></a>Ajout de paramètres de configuration sensibles
 
-Les paramètres de l’application peuvent être configurés dans le [service d’application dans Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Le service d’application permet de configurer les paramètres en toute sécurité sans les archiver dans un référentiel. L’API REST a besoin des paramètres suivants :
+Les paramètres de l’application peuvent être configurés dans le [service d’application dans Azure](../app-service/configure-common.md#configure-app-settings). Le service d’application permet de configurer les paramètres en toute sécurité sans les archiver dans un référentiel. L’API REST a besoin des paramètres suivants :
 
 | Nom du paramètre d’application | Source | Notes |
 |:-------------------------|:-------|:-------|
@@ -92,7 +92,7 @@ Les paramètres de l’application peuvent être configurés dans le [service d�
 
 #### <a name="configure-your-storage-location"></a>Configurer votre emplacement de stockage
 
-1. Configurer un [conteneur de stockage blob dans votre compte de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+1. Configurer un [conteneur de stockage blob dans votre compte de stockage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 
 2. Stockez les fichiers d’interface utilisateur du [dossier d’interface utilisateur](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) dans votre conteneur d’objets blob.
 
@@ -110,7 +110,7 @@ Les paramètres de l’application peuvent être configurés dans le [service d�
 
 2. Ouvrez chaque fichier HTML.
 
-3. Recherchez et remplacez {your-ui-blob-container-url} par l’URL de l’emplacement où se trouvent les dossiers **ocean_blue**, **dist**et **assets** de votre interface utilisateur.
+3. Recherchez et remplacez {your-ui-blob-container-url} par l’URL de l’emplacement où se trouvent les dossiers **ocean_blue**, **dist** et **assets** de votre interface utilisateur.
 
 4. Recherchez et remplacez {your-intermediate-api-url} par l’URL du service d’application API intermédiaire.
 
@@ -118,7 +118,7 @@ Les paramètres de l’application peuvent être configurés dans le [service d�
 
 1. Stockez les fichiers d’interface utilisateur du dossier d’interface utilisateur dans votre conteneur d’objets blob.
 
-2. Utilisez l’[Explorateur Stockage Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-use-storage-explorer-managed-disks) pour gérer vos fichiers et autorisations d’accès.
+2. Utilisez l’[Explorateur Stockage Azure](../virtual-machines/disks-use-storage-explorer-managed-disks.md) pour gérer vos fichiers et autorisations d’accès.
 
 ### <a name="part-3---configure-azure-ad-b2c"></a>Partie 3 : Configurer Azure AD B2C
 
@@ -142,7 +142,7 @@ Dans les [stratégies personnalisées](https://github.com/azure-ad-b2c/partner-i
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Partie 4 : Configuration de la stratégie Azure AD B2C
 
-Pour obtenir des instructions sur la configuration de votre client Azure AD B2C et de stratégies, consultez ce [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack).
+Pour obtenir des instructions sur la configuration de votre client Azure AD B2C et de stratégies, consultez ce [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack).
 
 >[!NOTE]
 > Nous recommandons aux clients d’ajouter une notification de consentement sur la page de collection d’attributs. Informez les utilisateurs que des informations seront envoyées à des services tiers à des fins de vérification d’identité.
@@ -169,6 +169,6 @@ Pour obtenir des instructions sur la configuration de votre client Azure AD B2C 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

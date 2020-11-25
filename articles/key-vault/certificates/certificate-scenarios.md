@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286882"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920438"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -41,7 +41,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
     -   DigiCert : Key Vault propose des certificats TSL/SSL OV avec DigiCert.  
     -   GlobalSign : Key Vault propose des certificats TSL/SSL OV avec GlobalSign.  
 
-**Étape 2**  : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification pouvant être utilisées par Key Vault pour inscrire, renouveler et utiliser des certificats TSL/SSL via Key Vault.
+**Étape 2** : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification pouvant être utilisées par Key Vault pour inscrire, renouveler et utiliser des certificats TSL/SSL via Key Vault.
 
 **Étape 3** : un administrateur Contoso, ainsi qu’un employé Contoso (utilisateur Key Vault) qui possède des certificats, dépendant de l’autorité de certification, peuvent obtenir un certificat auprès de l’administrateur ou directement à partir du compte avec l’autorité de certification.  
 
@@ -52,7 +52,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
     Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
-**Étape 3.1**  : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
+**Étape 3.1** : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
 
 Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opération unique.  
 
@@ -113,7 +113,6 @@ AKV prend en charge 2 formats basés sur PEM. Vous pouvez fusionner un seul cer
 
 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
-Pour l’instant, nous ne prenons pas en charge les clés EC au format PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Création d’un certificat auprès d’une autorité de certification non associée à Key Vault  
  Cette méthode permet d’avoir recours à d’autres autorités de certification que les fournisseurs associés à Key Vault. Autrement dit, votre organisation peut utiliser une autorité de certification de son choix.  

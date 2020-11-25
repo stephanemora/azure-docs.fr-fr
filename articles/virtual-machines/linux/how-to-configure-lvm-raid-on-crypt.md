@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911815"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843517"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurer LVM et RAID sur des appareils chiffrés
 
@@ -287,7 +287,7 @@ Au lieu d’utiliser le nom de l’appareil, utilisez les chemins d’accès /de
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Configurer LVM par-dessus les couches chiffrées
 #### <a name="create-the-physical-volumes"></a>Créer les volumes physiques
-Un avertissement s’affiche pour vous demander si vous souhaitez effacer la signature du système de fichiers. Continuez en entrant **y** ou utilisez l’écho **y** , comme indiqué ci-dessous :
+Un avertissement s’affiche pour vous demander si vous souhaitez effacer la signature du système de fichiers. Continuez en entrant **y** ou utilisez l’écho **y**, comme indiqué ci-dessous :
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -370,11 +370,11 @@ df -h
 ```
 ![Capture d’écran montrant une fenêtre de console avec des systèmes de fichiers montés en tant que data0 et data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-Sur cette variation de **lsblk** , nous répertorions les appareils qui affichent les dépendances dans l’ordre inverse. Cette option permet d’identifier les appareils regroupés par le volume logique à la place des noms d’appareil /dev/sd[disk] d’origine.
+Sur cette variation de **lsblk**, nous répertorions les appareils qui affichent les dépendances dans l’ordre inverse. Cette option permet d’identifier les appareils regroupés par le volume logique à la place des noms d’appareil /dev/sd[disk] d’origine.
 
 Il est important de s’assurer que l’option **nofail** est ajoutée aux options de point de montage des volumes LVM créés par-dessus un appareil chiffré par Azure Disk Encryption. Elle empêche que le système d’exploitation se bloque pendant le processus de démarrage (ou en mode de maintenance).
 
-Si vous n’utilisez pas l’option **nofail**  :
+Si vous n’utilisez pas l’option **nofail** :
 
 - Le système d’exploitation n’arrive jamais à l’étape où Azure Disk Encryption est lancé et les disques de données sont déverrouillés et montés. 
 - Les disques chiffrés seront déverrouillés à la fin du processus de démarrage. Les volumes LVM et les systèmes de fichiers sont automatiquement montés jusqu’à ce qu’Azure Disk Encryption les déverrouille. 
@@ -441,7 +441,7 @@ df -h
 
 Il est important de s’assurer que l’option **nofail** est ajoutée aux options de point de montage des volumes RAIS créés par-dessus un appareil chiffré par Azure Disk Encryption. Elle empêche que le système d’exploitation se bloque pendant le processus de démarrage (ou en mode de maintenance).
 
-Si vous n’utilisez pas l’option **nofail**  :
+Si vous n’utilisez pas l’option **nofail** :
 
 - Le système d’exploitation n’arrive jamais à l’étape où Azure Disk Encryption est lancé et les disques de données sont déverrouillés et montés.
 - Les disques chiffrés seront déverrouillés à la fin du processus de démarrage. Les volumes RAID et les systèmes de fichiers sont automatiquement montés jusqu’à ce qu’Azure Disk Encryption les déverrouille.
