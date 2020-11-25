@@ -1,6 +1,6 @@
 ---
 title: Synchronisation SCIM avec Active Directory
-description: Guide architectural pour atteindre ce modèle de synchronisation
+description: Guide architectural sur la réalisation d'une synchronisation SCIM avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367854"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578856"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Synchronisation SCIM avec Active Directory
 
@@ -35,13 +35,13 @@ Vous souhaitez approvisionner automatiquement les informations utilisateur à pa
 
 ## <a name="components-of-system"></a>Composants du système 
 
-* **Système HCM**  : Applications et technologies qui permettent de gérer les processus et pratiques de gestion du capital humain (HCM) et automatisent les processus RH tout au long du cycle de vie des employés. 
+* **Système HCM** : Applications et technologies qui permettent de gérer les processus et pratiques de gestion du capital humain (HCM) et automatisent les processus RH tout au long du cycle de vie des employés. 
 
 * **Service d’approvisionnement Azure AD** : Utilise le protocole SCIM 2.0 pour l’approvisionnement automatique. Le service se connecte au point de terminaison SCIM de l’application, et il utilise le schéma d’objet utilisateur SCIM et les API REST pour automatiser le provisionnement et le déprovisionnement des utilisateurs et des groupes.  
 
-* **Azure AD**  : Le référentiel d’utilisateurs utilisé pour la gestion du cycle de vie des identités et de leurs droits. 
+* **Azure AD** : Le référentiel d’utilisateurs utilisé pour la gestion du cycle de vie des identités et de leurs droits. 
 
-* **Système cible**  : Application ou système disposant d’un point de terminaison SCIM et qui fonctionne avec l’approvisionnement Azure AD pour activer l’approvisionnement automatique des utilisateurs et groupes.  
+* **Système cible** : Application ou système disposant d’un point de terminaison SCIM et qui fonctionne avec l’approvisionnement Azure AD pour activer l’approvisionnement automatique des utilisateurs et groupes.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implémenter SCIM avec Azure AD 
 

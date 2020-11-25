@@ -1,6 +1,6 @@
 ---
 title: Personnalisation de la langue dans Azure Active Directory B2C
-description: Apprenez-en davantage sur la personnalisation de l’expérience linguistique dans vos flux utilisateur.
+description: Apprenez à personnaliser l’expérience linguistique de vos flux utilisateur dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355091"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575949"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 

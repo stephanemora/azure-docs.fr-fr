@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358335"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579570"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
-
 
 Dans cet article, vous apprendrez à gérer les versions et à suivre les jeux de données Azure Machine Learning pour la reproductibilité. Un contrôle de version d’un jeu de données est un moyen de marquer l’état de vos données, afin de pouvoir appliquer une version spécifique du jeu de données pour des expérimentations ultérieures.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Gérer la version d’un jeu de données de sortie de pipeline
+## <a name="version-an-ml-pipeline-output-dataset"></a>Gérer la version d’un jeu de données de sortie de pipeline ML
 
-Vous pouvez utiliser un jeu de données comme entrée et sortie de chaque étape de pipeline Machine Learning. Lorsque vous réexécutez des pipelines, la sortie de chaque étape de pipeline est inscrite en tant que nouvelle version du jeu de données.
+Vous pouvez utiliser un jeu de données comme entrée et sortie de chaque étape de [pipeline ML](concept-ml-pipelines.md). Lorsque vous réexécutez des pipelines, la sortie de chaque étape de pipeline est inscrite en tant que nouvelle version du jeu de données.
 
-Comme les pipelines Machine Learning remplissent la sortie de chaque étape dans un nouveau dossier à chaque exécution du pipeline, les jeux de données de sortie sont reproductibles. En savoir plus sur les [jeux de données dans les pipelines](how-to-create-your-first-pipeline.md#steps).
+Les pipelines ML renseignent la sortie de chaque étape dans un nouveau dossier chaque fois que le pipeline est réexécuté. Ce comportement permet de reproduire les jeux de données de sortie avec version. En savoir plus sur les [jeux de données dans les pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Suivre des jeux de données dans les expériences
+## <a name="track-datas-in-your-experiments"></a>Suivre les données dans vos expériences
 
-Pour chaque expérience Machine Learning, vous pouvez facilement suivre les jeux de données utilisés comme entrée via l’objet `Run` de l’expérience.
+Azure Machine Learning effectue le suivi de vos données dans votre expérience en tant que jeux de données d’entrée et de sortie.  
+
+Voici les scénarios dans lesquels vos données sont suivies en tant que **jeu de données d’entrée**. 
+
+* En tant qu’`DatasetConsumptionConfig`objet par le biais du paramètre `inputs` ou `arguments` de votre objet `ScriptRunConfig` lors de l’envoi d’une exécution d’expérimentation. 
+
+* Lorsque des méthodes, telles que get_by_name() ou get_by_id(), sont appelées dans votre script. Pour ce scénario, le nom attribué au jeu de données lorsque vous l’avez enregistré dans l’espace de travail est le nom affiché. 
+
+Voici les scénarios dans lesquels vos données sont suivies en tant que **jeu de données de sortie**.  
+
+* Transmettez un objet `OutputFileDatasetConfig` par le biais du paramètre `outputs` ou `arguments` lors de l’envoi d’une exécution d’expérimentation. Les objets `OutputFileDatasetConfig` peuvent également être utilisés pour rendre les données persistantes entre les étapes du pipeline. Consultez [Déplacer des données entre des étapes du pipeline ML](how-to-move-data-in-out-of-pipelines.md).
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) est une classe de préversion publique qui contient des fonctionnalités d'évaluation [expérimentales](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) susceptibles d’être modifiées à tout moment.
+
+* Inscrivez un jeu de données dans votre script. Pour ce scénario, le nom attribué au jeu de données lorsque vous l’avez enregistré dans l’espace de travail est le nom affiché. Dans l'exemple suivant, `training_ds` est le nom qui s’afficherait.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* Envoyez l’exécution enfant avec un jeu de données non inscrit dans le script. Cela aboutit à un jeu de données anonyme enregistré.
+
+### <a name="trace-datasets-in-experiment-runs"></a>Suivre des jeux de données dans les exécutions d’expérimentation
+
+Pour chaque expérience Machine Learning, vous pouvez facilement suivre les jeux de données utilisés comme entrée avec l’objet `Run` de l’expérience.
 
 Le code suivant utilise la méthode [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) pour suivre les jeux de données d’entrée qui ont été utilisés lors de l’exécution de l’expérimentation :
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Vous pouvez également trouver `input_datasets` à partir d’expériences à l’adresse https://ml.azure.com/. 
+Vous pouvez également trouver `input_datasets` à partir d’expériences à l’aide d’[Azure Machine Learning Studio](). 
 
 L’illustration suivante montre où trouver le jeu de données d’entrée d’une expérience sur Azure Machine Learning Studio. Pour cet exemple, accédez à votre volet **Expériences** et ouvrez l’onglet **Propriétés** pour une exécution spécifique de votre expérience, `keras-mnist`.
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou en accédant à https://ml.azure.com/.
+Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou en accédant au [studio](https://ml.azure.com/).
 
 L’affichage suivant est issu du volet **Jeux de données** sous **Ressources**. Sélectionnez le jeu de données, puis l’onglet **Modèles** pour obtenir la liste des modèles qui sont inscrits avec le jeu de données. 
 

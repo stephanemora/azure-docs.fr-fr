@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395867"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576612"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -55,6 +55,9 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 
 Les ressources maximales suivantes sont accessibles à un groupe de conteneurs déployé avec [Ressources GPU](container-instances-gpu.md) (préversion).
 
+> [!IMPORTANT]
+> À ce stade, les déploiements avec des ressources GPU ne sont pas pris en charge dans le déploiement d’un réseau virtuel Azure et ne sont disponibles que sur les groupes de conteneurs Linux.
+
 | Références SKU de GPU | Nombre de GPU | Utilisation maximale du processeur | Mémoire max. (GB) | Stockage (Go) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -67,6 +70,9 @@ Les ressources maximales suivantes sont accessibles à un groupe de conteneurs d
 ## <a name="windows-container-groups"></a>Groupes de conteneurs Windows
 
 Les régions et les ressources maximales suivantes sont accessibles aux groupes de conteneurs Windows Server 2019 (préversion) avec les conteneurs Windows Server [pris en charge ou en préversion](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!IMPORTANT]
+> À ce stade, les déploiements avec des groupes de conteneurs Windows ne sont pas pris en charge dans le déploiement d’un réseau virtuel Azure.
 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 

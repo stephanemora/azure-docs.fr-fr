@@ -4,12 +4,12 @@ description: Répond à certaines questions courantes concernant les réseaux da
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538056"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578227"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquentes concernant les réseaux dans Azure Functions
 
@@ -31,11 +31,9 @@ N’oubliez pas que l’éditeur du portail Azure nécessite un accès direct à
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Comment limiter mon application de fonction à un réseau virtuel ?
 
-Vous pouvez limiter le trafic **entrant** d’une application de fonction à un seul réseau virtuel à l’aide de [points de terminaison de service](./functions-networking-options.md#private-site-access). Cette configuration permet toujours à l’application de fonction d’effectuer des appels sortants vers Internet.
+Vous pouvez limiter le trafic **entrant** d’une application de fonction à un seul réseau virtuel à l’aide de [points de terminaison de service](./functions-networking-options.md#use-service-endpoints). Cette configuration permet toujours à l’application de fonction d’effectuer des appels sortants vers Internet.
 
-La seule façon de restreindre totalement une fonction afin que tout le trafic transite via un réseau virtuel consiste à utiliser un environnement App Service Environment dont la charge est équilibrée en interne. Cette option déploie votre site sur une infrastructure dédiée à l’intérieur d’un réseau virtuel, et envoie le trafic ainsi que l’ensemble des déclencheurs via le réseau virtuel. 
-
-Pour plus d’informations sur l’utilisation d’App Service Environment, commencez par lire l’article [Créer et utiliser un équilibreur de charge interne avec App Service Environment](../app-service/environment/create-ilb-ase.md).
+Pour limiter complètement une fonction de sorte que tout le trafic transite par un réseau virtuel, vous pouvez utiliser des [points de terminaison privés](./functions-networking-options.md#private-endpoint-connections) avec l’intégration du réseau virtuel sortant ou un App Service Environment.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Comment accéder aux ressources d’un réseau virtuel à partir d’une application de fonction ?
 
@@ -47,7 +45,7 @@ Avec l’intégration de réseau virtuel, vous pouvez accéder aux ressources s�
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Comment déclencher une fonction à partir d’une ressource d’un réseau virtuel ?
 
-Vous pouvez permettre aux déclencheurs HTTP d’être appelés à partir d’un réseau virtuel en utilisant des [points de terminaison de service](./functions-networking-options.md#private-site-access). 
+Vous pouvez permettre aux déclencheurs HTTP d’être appelés à partir d’un réseau virtuel en utilisant des [points de terminaison de service](./functions-networking-options.md#use-service-endpoints) ou des [connexions de point de terminaison privé](./functions-networking-options.md#private-endpoint-connections). 
 
 Vous pouvez également déclencher une fonction à partir d’autres ressources d’un réseau virtuel en déployant votre application de fonction dans un plan Premium, un plan App Service ou App Service Environment. Pour plus d’informations, consultez [Déclencheurs de réseau virtuel non-HTTP](./functions-networking-options.md#virtual-network-triggers-non-http).
 

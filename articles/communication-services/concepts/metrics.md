@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b8d74f86fc9c3d2cc020628f67c36d8d67973fff
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128556"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888655"
 ---
 # <a name="metrics-overview"></a>Vue d’ensemble des métriques
 
-Azure Communication Services fournit des métriques pour la conversation et les SMS. [Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) peut être utilisé pour tracer vos propres graphiques, examiner les anomalies dans vos valeurs de métrique et comprendre le trafic de vos API à l’aide des données de métriques émises par les demandes des services de conversation et SMS.
+Azure Communication Services fournit des métriques pour la conversation et les SMS. [Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) peut être utilisé pour tracer vos propres graphiques, examiner les anomalies dans vos valeurs de métrique et comprendre le trafic de vos API à l’aide des données de métriques émises par les demandes des services de conversation et SMS.
 
 ## <a name="where-to-find-metrics"></a>Où trouver les métriques
 
@@ -26,15 +26,15 @@ Les services de conversation et de SMS dans Azure Communication Services émette
 
 ## <a name="metric-definitions"></a>Définitions de métriques
 
-Deux types de demandes sont représentés dans les métriques Communication Services : **Demandes d’API de conversation** et **demandes d’API SMS** .
+Deux types de demandes sont représentés dans les métriques Communication Services : **Demandes d’API de conversation** et **demandes d’API SMS**.
 
 Les métriques de demande d’API SMS et de conversation contiennent trois dimensions que vous pouvez utiliser pour filtrer vos données de métriques. Ces dimensions peuvent être agrégées ensemble à l’aide du type d’agrégation `Count` et prennent en charge toutes les séries chronologiques d’agrégation Azure standard, notamment `Sum`, `Average`, `Min` et `Max`.
 
-Vous trouverez plus d’informations sur les types d’agrégation pris en charge et les agrégations de série chronologique dans [Fonctionnalités avancées d’Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation).
+Vous trouverez plus d’informations sur les types d’agrégation pris en charge et les agrégations de série chronologique dans [Fonctionnalités avancées d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation).
 
-- **Opération**  : toutes les opérations ou routes qui peuvent être appelées sur la passerelle de conversation ACS.
-- **Code d’état**  : réponse de code d’état envoyée après la demande.
-- **StatusSubClass**  : série de codes d’état envoyée après la réponse. 
+- **Opération** : toutes les opérations ou routes qui peuvent être appelées sur la passerelle de conversation ACS.
+- **Code d’état** : réponse de code d’état envoyée après la demande.
+- **StatusSubClass** : série de codes d’état envoyée après la réponse. 
 
 
 ### <a name="chat-api-request-metric-operations"></a>Opérations pour les métriques des demandes d’API de conversation
@@ -75,8 +75,8 @@ Les opérations suivantes sont disponibles sur les métriques des demandes d’A
 | SMSMessagesReceived      | Obtient les SMS. |
 
 
-:::image type="content" source="./media/sms-metric.png" alt-text="Métrique de demande d’API de conversation":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Métrique de demande d’API SMS":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en plus sur les [métriques de la plateforme de données](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+- Découvrez-en plus sur les [métriques de la plateforme de données](../../azure-monitor/platform/data-platform-metrics.md).

@@ -1,6 +1,6 @@
 ---
 title: Authentification basée sur l’en-tête avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’implémentation de l’authentification basée sur l’en-tête avec Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113913"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577156"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Authentification basée sur l’en-tête avec Azure Active Directory
 
@@ -34,17 +34,17 @@ Les utilisateurs distants doivent utiliser l’authentification unique (SSO) de 
 
 ## <a name="components-of-system"></a>Composants du système
 
-* **Utilisateur**  : Accède aux applications héritées prises en charge par le proxy d’application.
+* **Utilisateur** : Accède aux applications héritées prises en charge par le proxy d’application.
 
 * **Navigateur web**  : Composant avec lequel l’utilisateur interagit pour accéder à l’URL externe de l’application.
 
-* **Azure AD**  : Authentifie l’utilisateur. 
+* **Azure AD** : Authentifie l’utilisateur. 
 
 * **Service Proxy d’application** : Agit comme un proxy inversé pour envoyer la demande de l’utilisateur à l’application locale. Il se trouve dans Azure AD et peut également appliquer toutes les stratégies d’accès conditionnel.
 
 * **Connecteur de proxy d’application** : Installé localement sur les serveurs Windows pour assurer la connectivité aux applications. Il utilise uniquement des connexions sortantes. Retourne la réponse à Azure AD.
 
-* **Applications héritées**  : Applications qui reçoivent les requêtes des utilisateurs du proxy d’application. L’application héritée reçoit les en-têtes HTTP nécessaires pour configurer une session et retourner une réponse. 
+* **Applications héritées** : Applications qui reçoivent les requêtes des utilisateurs du proxy d’application. L’application héritée reçoit les en-têtes HTTP nécessaires pour configurer une session et retourner une réponse. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implémenter l’authentification basée sur l’en-tête avec Azure AD
 

@@ -4,11 +4,11 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Bluep
 ms.date: 08/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: bb9aeb4d4b96227f7bf7296854c56df4058fbe69
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648654"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022528"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail :
 
@@ -48,7 +48,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Capture d’écran des options d’artefact d’attribution de rôle pour l’ajout à une définition de blueprint." border="false":::
 
    > [!NOTE]
    > La plupart des artefacts prennent en charge les paramètres. Un paramètre auquel une valeur est affectée durant la création du blueprint est un _paramètre statique_. Si la valeur est attribuée au paramètre durant l’affectation du blueprint, il s’agit d’un _paramètre dynamique_. Pour plus d’informations, consultez [Paramètres de blueprint](./concepts/parameters.md).
@@ -143,11 +143,11 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Capture d’écran des options d’artefact dz modèle Resource Manager pour l’ajout à une définition de blueprint." border="false":::
 
 1. Votre blueprint terminé doit ressembler à ce qui suit. Notez que chaque artefact a **_x_ paramètres renseignés sur _y_** dans la colonne **Paramètres**. Les paramètres dynamiques sont définis à chaque affectation du blueprint.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Capture d’écran d’une définition de blueprint complétée avec chaque type d’artefact." border="false":::
 
 1. Une fois tous les artefacts planifiés ajoutés, sélectionnez **Enregistrer le brouillon** en bas de la page.
 
@@ -175,11 +175,11 @@ Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de des
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Capture d’écran des options d’artefact de la deuxième attribution de rôle pour l’ajout à une définition de blueprint." border="false":::
 
 1. Votre blueprint terminé doit ressembler à ce qui suit. Remarquez que l’attribution de rôle nouvellement ajoutée montre **1 paramètres renseignés sur 1**. Cela signifie qu’il s’agit d’un paramètre statique.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Capture d’écran de la deuxième définition de blueprint complétée avec l’artefact d’attribution de rôle supplémentaire." border="false":::
 
 1. Le blueprint étant désormais à jour, sélectionnez **Enregistrer le brouillon**.
 
@@ -218,7 +218,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
    1. Au bas de la page, sélectionnez **Créer**.
 
-      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Capture d’écran de la fenêtre Créer un abonnement et des options disponibles pour le nouvel abonnement." border="false":::
 
       > [!IMPORTANT]
       > Quand vous sélectionnez **Créer**, le nouvel abonnement est immédiatement créé.
@@ -234,7 +234,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
 1. Pour **Verrouiller l’affectation**, conservez la valeur par défaut **Ne pas verrouiller**. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](./concepts/resource-locking.md).
 
-   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Capture d’écran des options de verrouillage d’attribution et d’identité managée pour l’affectation de blueprint." border="false":::
 
 1. Sous **Identité managée**, conservez la valeur par défaut **Affecté(e) par le système**.
 
@@ -265,7 +265,7 @@ Maintenant que le blueprint est affecté à un abonnement, vérifiez la progress
 
 1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment affecté, puis sélectionnez **Voir les détails de l’affectation**.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Capture d’écran du bouton « Créer un blueprint » dans la page des définitions de blueprint." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Capture d’écran du menu contextuel d’attribution de blueprint avec l’option « Voir les détails de l’attribution » sélectionnée." border="false":::
 
 1. Dans la page **Affectation de blueprint**, vérifiez que tous les artefacts ont été déployés et qu’aucune erreur ne s’est produite durant le déploiement. Si des erreurs se sont produites, consultez [Dépannage d’un blueprint](./troubleshoot/general.md) pour déterminer la cause du problème.
 

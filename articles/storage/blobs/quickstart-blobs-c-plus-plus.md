@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ba5dfbaba49be0521e07b2460c9920664790bf1e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 246d2677c784daee4cc6b083cff04b6993ab3818
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006487"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour C++
 
@@ -30,14 +30,14 @@ Ressources :
 
 - [Documentation de référence de l’API](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Exemples](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Exemples](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Abonnement Azure](https://azure.microsoft.com/free/)
-- [Compte Azure Storage](/azure/storage/common/storage-quickstart-create-account)
+- [Compte Azure Storage](../common/storage-account-create.md)
 - [Compilateur C++](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
 - [Vcpkg - Gestionnaire de package C et C++](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)

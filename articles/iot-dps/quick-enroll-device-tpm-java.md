@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075923"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966596"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Démarrage rapide : Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du kit Java Service SDK
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous allez créer programmatiquement une ins
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement 
 
-1. Assurez-vous que le [Java SE Development Kit 8](https://aka.ms/azure-jdks) est bien installé sur votre ordinateur. 
+1. Assurez-vous que le [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) est bien installé sur votre ordinateur. 
 
 2. Configurez les variables d’environnement pour votre installation Java. La variable `PATH` doit inclure le chemin d’accès complet au répertoire *jdk1.8.x\bin*. S’il s’agit de la première installation de Java sur cet ordinateur, vous devez alors créer une variable d’environnement nommée `JAVA_HOME` et la faire pointer vers le chemin complet du répertoire *jdk1.8.x*. Sur une machine Windows, ce répertoire se trouve dans le dossier *C:\\Program Files\\Java\\* . De plus, vous pouvez créer ou modifier les variables d’environnement en recherchant **Modifier les variables d’environnement du système** dans le **Panneau de configuration** de votre machine Windows. 
 
@@ -72,7 +72,7 @@ Cette section montre comment ajouter à l’exemple de code les détails de l’
 
    1. Ajoutez `[Provisioning Connection String]` pour votre service d’approvisionnement. Pour cela, procédez comme suit depuis le portail :
        1. Accédez au service d’approvisionnement dans le [portail Azure](https://portal.azure.com). 
-       2. Ouvrez les **Stratégies d’accès partagé** , puis sélectionnez une stratégie qui a pour autorisation *EnrollmentWrite*.
+       2. Ouvrez les **Stratégies d’accès partagé**, puis sélectionnez une stratégie qui a pour autorisation *EnrollmentWrite*.
        3. Copiez la **chaîne de connexion de la clé primaire**. 
 
            ![Comment obtenir la chaîne de connexion d’approvisionnement à partir du portail](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
@@ -98,7 +98,7 @@ Cette section montre comment ajouter à l’exemple de code les détails de l’
             ```Java
             private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
-        2. Attribuez un nom convivial au paramètre *DEVICE_ID* , puis maintenez *PROVISIONING_STATUS* sur la valeur par défaut *ENABLED*. 
+        2. Attribuez un nom convivial au paramètre *DEVICE_ID*, puis maintenez *PROVISIONING_STATUS* sur la valeur par défaut *ENABLED*. 
     
       - OU, si vous choisissez de ne pas configurer votre service d’approvisionnement, veillez à ajouter un commentaire ou à supprimer les instructions suivantes dans le fichier _ServiceEnrollmentSample.java_ :
           ```Java
@@ -141,7 +141,7 @@ Cette section montre comment ajouter à l’exemple de code les détails de l’
 
 4. Observez la fenêtre de sortie pour savoir si l’inscription a abouti. 
 
-5. Accédez au service d’approvisionnement dans le portail Azure. Sélectionnez **Gérer les inscriptions** , puis l’onglet **Inscriptions individuelles**. Notez que *l’ID d’inscription* de votre appareil TPM simulé est maintenant répertorié. 
+5. Accédez au service d’approvisionnement dans le portail Azure. Sélectionnez **Gérer les inscriptions**, puis l’onglet **Inscriptions individuelles**. Notez que *l’ID d’inscription* de votre appareil TPM simulé est maintenant répertorié. 
 
     ![Comment vérifier la réussite de l’inscription du TPM dans le portail](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -150,7 +150,7 @@ Si vous prévoyez d’explorer davantage l’exemple de service Java, ne nettoye
 
 1. Fermez la fenêtre de sortie de l’exemple Java sur votre ordinateur.
 1. Fermez la fenêtre du simulateur TPM que vous avez créée pour simuler l’appareil TPM.
-1. Accédez au service Device Provisioning dans le portail Azure, sélectionnez **Gérer les inscriptions** , puis sélectionnez l’onglet **Inscriptions individuelles**. Cochez la case à côté de l’ *ID d’inscription* correspondant à l’entrée d’inscription que vous avez créée à l’aide de ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.
+1. Accédez au service Device Provisioning dans le portail Azure, sélectionnez **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**. Cochez la case à côté de l’*ID d’inscription* correspondant à l’entrée d’inscription que vous avez créée à l’aide de ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez inscrit un appareil TPM simulé auprès du service Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
