@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 771b48c36a409654a1d1586590811c81e5c2340a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086752"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007322"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -55,7 +55,7 @@ Le niveau d’accès froid possède des coûts de stockage plus faibles et des c
 
 - Sauvegarde à court terme et récupération d’urgence de jeux de données.
 - Ancien contenu multimédia qui n’est plus consulté fréquemment mais qui est censé être disponible immédiatement lors d’un accès.
-- Jeux de données volumineux qui doivent être stockés de manière économique tout en permettant la collecte de plus de données à des fins de traitement ultérieur. ( *Par exemple* , le stockage à long terme de données scientifiques, les données de télémétrie brute d’un site de production)
+- Jeux de données volumineux qui doivent être stockés de manière économique tout en permettant la collecte de plus de données à des fins de traitement ultérieur. (*Par exemple*, le stockage à long terme de données scientifiques, les données de télémétrie brute d’un site de production)
 
 ## <a name="archive-access-tier"></a>Niveau d’accès archive
 
@@ -112,7 +112,7 @@ Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, 
 
 Les objets blob déplacés vers le niveau d’accès froid (comptes GPv2 uniquement) sont soumis à une période de suppression anticipée du niveau d’accès froid de 30 jours. Les objets blob déplacés vers le niveau archive sont soumis à une période de suppression anticipée de 180 jours. Ces charges sont calculées au prorata. Par exemple, si un objet blob est déplacé vers le niveau archive puis supprimé ou déplacé vers le niveau d’accès chaud après 45 jours, des frais de suppression anticipée équivalents à 135 (180 moins 45) jours de stockage de cet objet blob dans le niveau archive vous seront facturés.
 
-Vous pouvez calculer la suppression anticipée en utilisant la propriété blob, **Last-Modified** , s’il n’y a pas eu de changement de niveau d’accès. Sinon, vous pouvez l’utiliser lorsque le niveau d’accès a été défini sur froid ou archive en affichant la propriété blob : **access-tier-change-time**. Pour plus d’informations sur les propriétés de l’objet blob, consultez [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
+Vous pouvez calculer la suppression anticipée en utilisant la propriété blob, **Last-Modified**, s’il n’y a pas eu de changement de niveau d’accès. Sinon, vous pouvez l’utiliser lorsque le niveau d’accès a été défini sur froid ou archive en affichant la propriété blob : **access-tier-change-time**. Pour plus d’informations sur les propriétés de l’objet blob, consultez [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Comparaison des options de stockage d’objets blob de blocs
 
@@ -150,7 +150,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 1. Sélectionnez votre compte de stockage.
 
-1. Dans **Paramètres** , cliquez su **Configuration** pour afficher et modifier la configuration du compte.
+1. Dans **Paramètres**, cliquez su **Configuration** pour afficher et modifier la configuration du compte.
 
 1. Sélectionnez le niveau d’accès adapté à vos besoins : Affectez la valeur **Froid** ou **Chaud** au **Niveau d’accès**.
 
@@ -180,9 +180,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Sélectionnez votre conteneur, puis sélectionnez votre objet blob.
 
-1. Dans **Propriétés de l’objet blob** , sélectionnez **Modifiez le niveau**.
+1. Dans **Propriétés de l’objet blob**, sélectionnez **Modifiez le niveau**.
 
-1. Sélectionnez le niveau d’accès **Chaud** , **Froid** ou **Archive**. Si votre objet blob est actuellement dans le niveau archive et que vous souhaitez le réalimenter dans un niveau en ligne, vous pouvez également sélectionner une priorité de réalimentation **Standard** ou **Élevée**.
+1. Sélectionnez le niveau d’accès **Chaud**, **Froid** ou **Archive**. Si votre objet blob est actuellement dans le niveau archive et que vous souhaitez le réalimenter dans un niveau en ligne, vous pouvez également sélectionner une priorité de réalimentation **Standard** ou **Élevée**.
 
 1. Sélectionnez **Enregistrer** en bas.
 
@@ -213,11 +213,11 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage d’objet blob de blocs basé sur le niveau de chaque objet blob. Gardez à l’esprit les conditions de facturation suivantes :
 
-- **Coûts de stockage**  : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
-- **Coûts d’accès aux données**  : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
-- **Coûts de transaction**  : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
-- **Coûts de transfert de données de géoréplication**  : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-- **Coûts de transfert de données sortantes**  : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
+- **Coûts de stockage** : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
+- **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
+- **Coûts de transaction** : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
+- **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
+- **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
 - **Modification du niveau d’accès** : La modification du niveau d’accès du compte entraîne des frais de modification de niveau pour les objets blob de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Pour plus d’informations sur la modification du niveau d’accès pour un objet blob unique, reportez-vous à [Facturation de la hiérarchisation au niveau de l’objet blob](#blob-level-tiering-billing).
 
     Le changement du niveau d’accès pour un objet blob lorsque la gestion des versions des objets blob est activée, ou si l’objet blob a des instantanés, peut donner lieu à des frais supplémentaires. Pour plus d’informations sur la facturation appliquée quand la gestion des versions des objets blob est activée et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](versioning-overview.md#pricing-and-billing) dans la documentation relative à la gestion des versions des objets blob. Pour plus d’informations sur la facturation appliquée quand un objet blob a des instantanés et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](snapshots-overview.md#pricing-and-billing) dans la documentation relative aux instantanés d’objets blob.
@@ -291,6 +291,6 @@ Le stockage des données ainsi que d’autres limites sont établis à partir du
 - [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)
 - [Découvrir comment réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md)
 - [Déterminer si les performances de l’édition Premium peuvent tirer parti de votre application](storage-blob-performance-tiers.md)
-- [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](../common/storage-enable-and-view-metrics.md)
+- [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](./monitor-blob-storage.md)
 - [Vérifier la tarification du niveau chaud, froid et archive dans les comptes de stockage d’objets blob et GPv2 par région](https://azure.microsoft.com/pricing/details/storage/)
 - [Vérifier la tarification des transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)
