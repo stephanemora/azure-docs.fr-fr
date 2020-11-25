@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95982260"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Storm à l’aide d’Azure HDInsight
 
@@ -27,8 +27,8 @@ Deux options vous permettent d’accéder à l’interface utilisateur Storm à 
 ### <a name="apache-ambari-ui"></a>Interface utilisateur Apache Ambari
 
 1. Accédez au tableau de bord Ambari.
-2. Dans la liste des services, sélectionnez **Storm** .
-3. Dans le menu **Quick Links** (Liens rapides), sélectionnez **Storm UI** .
+2. Dans la liste des services, sélectionnez **Storm**.
+3. Dans le menu **Quick Links** (Liens rapides), sélectionnez **Storm UI**.
 
 ### <a name="direct-link"></a>Lien direct
 
@@ -186,4 +186,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 - Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
