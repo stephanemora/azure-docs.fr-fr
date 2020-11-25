@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012831"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -66,7 +66,7 @@ La procédure suivante décrit les étapes permettant de créer une fabrique de 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Pour créer la fabrique de données, exécutez la cmdlet suivante **New-AzDataFactory** , à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
+5. Pour créer la fabrique de données, exécutez la cmdlet suivante **New-AzDataFactory**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -79,7 +79,7 @@ Notez les points suivants :
     ```
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire** , ou un **administrateur** de l’abonnement Azure.
+* Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
 Créez un service lié pour lier votre base de données dans Azure SQL Database qui héberge le catalogue SSIS à votre fabrique de données. Data Factory utilise les informations de ce service lié pour se connecter à la base de données SSISDB, et exécute une procédure stockée pour exécuter un package SSIS. 
@@ -100,8 +100,8 @@ Créez un service lié pour lier votre base de données dans Azure SQL Database 
         }
         }
     ```
-2. Dans **Azure PowerShell** , basculez vers le dossier **C:\ADF\RunSSISPackage** .
-3. Exécutez l’applet de commande **New-AzDataFactoryLinkedService** pour créer le service lié : **AzureSqlDatabaseLinkedService** . 
+2. Dans **Azure PowerShell**, basculez vers le dossier **C:\ADF\RunSSISPackage**.
+3. Exécutez l’applet de commande **New-AzDataFactoryLinkedService** pour créer le service lié : **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -168,7 +168,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
     }    
     ```
 
-2. Pour créer le pipeline : **RunSSISPackagePipeline** , exécutez la cmdlet **New-AzDataFactoryPipeline** .
+2. Pour créer le pipeline : **RunSSISPackagePipeline**, exécutez la cmdlet **New-AzDataFactoryPipeline**.
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -188,7 +188,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Vous pouvez continuer d’exécuter cette applet de commande jusqu’à ce que le segment apparaisse dans l’état **Prêt** ou **En échec** . 
+    Vous pouvez continuer d’exécuter cette applet de commande jusqu’à ce que le segment apparaisse dans l’état **Prêt** ou **En échec**. 
 
     Vous pouvez exécuter la requête suivante dans la base de données SSISDB de votre serveur pour vérifier que le package s'est exécuté. 
 

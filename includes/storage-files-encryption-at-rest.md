@@ -9,11 +9,11 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011736"
 ---
 Toutes les données stockées dans Azure Files sont chiffrées au repos avec Azure Storage Service Encryption (SSE). Cette fonctionnalité fonctionne de la même façon que BitLocker sur Windows : les données sont chiffrées sous le niveau du système de fichiers. Comme les données sont chiffrées sous le système de fichiers du partage de fichiers Azure, car codées sur le disque, il n’est pas nécessaire d’avoir accès à la clé sous-jacente sur le client pour lire ou écrire sur le partage de fichiers Azure. Le chiffrement au repos s’applique aux protocoles SMB et NFS.
 

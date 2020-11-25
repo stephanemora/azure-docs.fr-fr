@@ -4,11 +4,11 @@ description: Découvrez comment vous connecter à distance à une instance de gr
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012542"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster
 Dans un cluster Service Fabric s’exécutant dans Azure, chaque type de nœud de cluster que vous définissez [définit une échelle mise à l’échelle séparée des machines virtuelles](service-fabric-cluster-nodetypes.md).  Vous pouvez vous connecter à distance à des instances de groupes identiques (nœuds de cluster) spécifiques.  Contrairement aux machines virtuelles à une seule instance, les instances de groupe identique ne possèdent pas leurs propres adresses IP virtuelles. Cela peut poser des problèmes quand il s’agit de rechercher une adresse IP et un port permettant de se connecter à distance à une instance spécifique.
@@ -39,7 +39,7 @@ Pour rechercher une adresse IP et un port permettant de se connecter à distance
 
 3. Connectez-vous à distance au nœud (instance de groupe identique) spécifique. Vous pouvez utiliser le nom d’utilisateur et le mot de passe que vous avez définis lors de la création du cluster ou de toutes autres informations d’identification que vous avez configurées. 
 
-    La capture d’écran suivante illustre l’utilisation de la connexion Bureau à distance pour se connecter au nœud**FrontEnd (Instance 1)** dans un cluster Windows :
+    La capture d’écran suivante illustre l’utilisation de la connexion Bureau à distance pour se connecter au nœud **FrontEnd (Instance 1)** dans un cluster Windows :
     
     ![Connexion Bureau à distance](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
 

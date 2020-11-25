@@ -9,11 +9,11 @@ ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088112"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012916"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Java
 
@@ -154,7 +154,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-1. Dans la zone de texte **Filtrer par nom** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
+1. Dans la zone de texte **Filtrer par nom**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
    ![Groupe de ressources Azure supprimé](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 

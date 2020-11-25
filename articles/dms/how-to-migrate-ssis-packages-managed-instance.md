@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01370092c5e272fe64f4ffdad577b69d3a532810
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292130"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012150"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrer les packages SQL Server Integration Services vers une instance managée Azure SQL Managed Instance
 Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par une instance managée Azure SQL Managed Instance, vous pouvez effectuer cette migration à l’aide d’Azure Database Migration Service.
 
-Si votre version de SSIS est antérieure à 2012, ou si vous utilisez des magasins de packages d’autres types que SSISDB, vous devez convertir vos projets/packages SSIS avant de les migrer, en utilisant l’Assistant Conversion de projet Integration Services disponible dans SSMS. Pour plus d’informations, voir l’article [Conversion de projets en modèle de déploiement de projet](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
+Si votre version de SSIS est antérieure à 2012, ou si vous utilisez des magasins de packages d’autres types que SSISDB, vous devez convertir vos projets/packages SSIS avant de les migrer, en utilisant l’Assistant Conversion de projet Integration Services disponible dans SSMS. Pour plus d’informations, voir l’article [Conversion de projets en modèle de déploiement de projet](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
 > [!NOTE]
-> Azure Database Migration Service (DMS) ne prend pas actuellement en charge Azure SQL Database comme destination de migration cible. Pour redéployer des projets/packages SSIS vers Azure SQL Database, consultez l’article [Redéployer des packages SQL Server Integration Services vers Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+> Azure Database Migration Service (DMS) ne prend pas actuellement en charge Azure SQL Database comme destination de migration cible. Pour redéployer des projets/packages SSIS vers Azure SQL Database, consultez l’article [Redéployer des packages SQL Server Integration Services vers Azure SQL Database](./how-to-migrate-ssis-packages.md).
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
@@ -37,15 +37,15 @@ Dans cet article, vous apprendrez comment :
 
 Pour effectuer cette procédure, vous avez besoin de :
 
-* Créer un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux en utilisant [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations SQL Managed Instance à l’aide d’Azure Database Migration Service]( https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
-* Vérifier que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Configurer votre [Pare-feu Windows pour l’accès au moteur de base de données source](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
+* Créer un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux en utilisant [ExpressRoute](../expressroute/expressroute-introduction.md) ou [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations SQL Managed Instance à l’aide d’Azure Database Migration Service]( https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](../virtual-network/index.yml), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Vérifier que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurer votre [Pare-feu Windows pour l’accès au moteur de base de données source](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
 * Ouvrir votre Pare-feu Windows et permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut sur le port TCP 1433.
 * Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
 * Si vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration, ainsi qu’aux fichiers par le biais du port SMB 445.
-* Instance SQL Managed Instance pour héberger SSISDB. Si vous devez en créer une, suivez les indications détaillées dans l’article [Créer une instance Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* Instance SQL Managed Instance pour héberger SSISDB. Si vous devez en créer une, suivez les indications détaillées dans l’article [Créer une instance Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Vous assurer que les comptes de connexion utilisés pour connecter l’instance SQL Server source et l’instance managée cible sont membres du rôle serveur sysadmin.
-* Vérifier que SSIS est provisionné dans une instance Azure Data Factory (ADF) contenant Azure-SSIS Integration Runtime avec la SSISDB de destination qui est hébergée par une instance SQL Managed Instance (comme décrit dans l’article [Créer le runtime d’intégration Azure-SSIS IR dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)).
+* Vérifier que SSIS est provisionné dans une instance Azure Data Factory (ADF) contenant Azure-SSIS Integration Runtime avec la SSISDB de destination qui est hébergée par une instance SQL Managed Instance (comme décrit dans l’article [Créer le runtime d’intégration Azure-SSIS IR dans Azure Data Factory](../data-factory/create-azure-ssis-integration-runtime.md)).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Évaluer des projets/packages SSIS sources
 
@@ -83,9 +83,9 @@ Bien que l’évaluation de la SSISDB source ne soit pas encore intégrée dans 
 
     Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source et à l’instance Azure SQL Managed Instance cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le Portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du Portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le Portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du Portail Azure](../virtual-network/quick-create-portal.md).
 
-    Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](./resource-network-topologies.md).
 
 6. Sélectionnez un niveau tarifaire.
 

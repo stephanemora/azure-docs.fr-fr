@@ -4,11 +4,11 @@ description: Cet article décrit comment voir et analyser les performances d’u
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368755"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011079"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -28,7 +28,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vue multicluster à partir d’Azure Monitor
 
-Pour afficher l’état d’intégrité de tous les clusters Kubernetes déployés, sélectionnez **Surveiller** dans le volet de gauche du Portail Azure. Sous la section **Insights** , sélectionnez **Conteneurs**.
+Pour afficher l’état d’intégrité de tous les clusters Kubernetes déployés, sélectionnez **Surveiller** dans le volet de gauche du Portail Azure. Sous la section **Insights**, sélectionnez **Conteneurs**.
 
 ![Exemple de tableau de bord multicluster dans Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
 
@@ -52,15 +52,15 @@ Dans l’onglet **Monitored clusters** (Clusters surveillés), vous découvrez l
 
 Les états d’intégrité inclus sont :
 
-* **Sain**  : Aucun problème détecté pour la machine virtuelle et le fonctionnement répond aux attentes.
+* **Sain** : Aucun problème détecté pour la machine virtuelle et le fonctionnement répond aux attentes.
 * **Critique** : Un ou plusieurs problèmes critiques ont été détectés et doivent être corrigés afin de restaurer l’état opérationnel normal attendu.
-* **Avertissement**  : Un ou plusieurs problèmes ont été détectés et doivent être corrigés pour éviter que la condition d’intégrité ne devienne critique.
-* **Inconnue**  : Si le service n’a pas pu établir de connexion avec le nœud ou le pod, l’état passe à Inconnu.
-* **Introuvable**  : L’espace de travail, le groupe de ressources ou l’abonnement contenant l’espace de travail pour cette solution a été supprimé.
-* **Non autorisé**  : L’utilisateur ne dispose pas des autorisations requises pour lire les données dans l’espace de travail.
-* **Erreur**  : Une erreur s’est produite lors de la tentative de lecture à partir de l’espace de travail.
-* **Mal configuré**  : Azure Monitor pour les conteneurs n’a pas été configuré correctement dans l’espace de travail spécifié.
-* **Aucune donnée**  : Aucune donnée n’a été signalée à l’espace de travail au cours des 30 dernières minutes.
+* **Avertissement** : Un ou plusieurs problèmes ont été détectés et doivent être corrigés pour éviter que la condition d’intégrité ne devienne critique.
+* **Inconnue** : Si le service n’a pas pu établir de connexion avec le nœud ou le pod, l’état passe à Inconnu.
+* **Introuvable** : L’espace de travail, le groupe de ressources ou l’abonnement contenant l’espace de travail pour cette solution a été supprimé.
+* **Non autorisé** : L’utilisateur ne dispose pas des autorisations requises pour lire les données dans l’espace de travail.
+* **Erreur** : Une erreur s’est produite lors de la tentative de lecture à partir de l’espace de travail.
+* **Mal configuré** : Azure Monitor pour les conteneurs n’a pas été configuré correctement dans l’espace de travail spécifié.
+* **Aucune donnée** : Aucune donnée n’a été signalée à l’espace de travail au cours des 30 dernières minutes.
 
 L’état d’intégrité calcule l’état global des clusters en fonction du *pire* des trois états à une exception près. Si l’un des trois états est inconnu, l’état global des clusters affiche **Inconnu**.
 
@@ -104,10 +104,10 @@ La page par défaut s’ouvre et affiche quatre graphiques en courbes des perfor
 
 Les graphiques de performances affichent quatre métriques de performance :
 
-- **Utilisation de l’UC du nœud&nbsp;%**  : vue agrégée de l’utilisation du processeur pour le cluster entier. Pour filtrer les résultats pour l’intervalle de temps, sélectionnez **Avg** (Moy), **Min** , **50th** (50e), **90th** (90e), **95th** (95e) ou **Max** dans le sélecteur de centiles au-dessus du graphique. Les filtres peuvent être utilisés individuellement ou combinés.
-- **Utilisation de mémoire du nœud&nbsp;%** : vue agrégée de l’utilisation de la mémoire pour le cluster entier. Pour filtrer les résultats pour l’intervalle de temps, sélectionnez **Avg** (Moy), **Min** , **50th** (50e), **90th** (90e), **95th** (95e) ou **Max** dans le sélecteur de centiles au-dessus du graphique. Les filtres peuvent être utilisés individuellement ou combinés.
+- **Utilisation de l’UC du nœud&nbsp;%**  : vue agrégée de l’utilisation du processeur pour le cluster entier. Pour filtrer les résultats pour l’intervalle de temps, sélectionnez **Avg** (Moy), **Min**, **50th** (50e), **90th** (90e), **95th** (95e) ou **Max** dans le sélecteur de centiles au-dessus du graphique. Les filtres peuvent être utilisés individuellement ou combinés.
+- **Utilisation de mémoire du nœud&nbsp;%** : vue agrégée de l’utilisation de la mémoire pour le cluster entier. Pour filtrer les résultats pour l’intervalle de temps, sélectionnez **Avg** (Moy), **Min**, **50th** (50e), **90th** (90e), **95th** (95e) ou **Max** dans le sélecteur de centiles au-dessus du graphique. Les filtres peuvent être utilisés individuellement ou combinés.
 - **Nombre de nœuds** : nombre et état des nœuds fournis par Kubernetes. L’état des nœuds de cluster représentés est Total, Ready (Prêts) ou Not Ready (Non prêts). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique.
-- **Nombre de pods actifs**  : nombre et état des pods fournis par Kubernetes. L’état des pods représentés est Total, Pending (En attente), Running (En cours d’exécution), Unknown (Inconnus), Succeeded (Réussite) ou Failed (Échec). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique.
+- **Nombre de pods actifs** : nombre et état des pods fournis par Kubernetes. L’état des pods représentés est Total, Pending (En attente), Running (En cours d’exécution), Unknown (Inconnus), Succeeded (Réussite) ou Failed (Échec). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique.
 
 Utilisez les touches de direction gauche et droite pour parcourir chaque point de données sur le graphe. Utilisez les touches de direction haut et bas pour faire défiler les lignes de centile. Sélectionnez l’icône d’épingle dans le coin supérieur droit de l’un des graphiques pour épingler le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique depuis le tableau de bord, vous êtes redirigé vers Azure Monitor pour conteneurs et chargez l’étendue et la vue appropriées.
 
@@ -143,7 +143,7 @@ Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleur
 
 Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Depuis le volet, vous pouvez également afficher les journaux de conteneur Kubernetes (stdout/stderror), les événements et les mesures pod en sélectionnant le lien **Afficher les données actives (préversion)** en haut du volet. Pour plus d’informations sur la configuration requise pour accorder et contrôler l’accès à l’affichage de ces données, consultez [Setup the Live Data (preview)](container-insights-livedata-setup.md) (Configurer les données actives [préversion]). Lorsque vous consultez des ressources de cluster, vous pouvez voir ces informations en temps réel. Pour plus d’informations sur cette fonctionnalité, consultez [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md) (Comment afficher les journaux, les événements et les mesures pod Kubernetes en temps réel). Pour afficher les données de journal Kubernetes stockées dans votre espace de travail en fonction de recherches de journal prédéfinies, sélectionnez **Afficher les journaux d’activité du conteneur** dans la liste déroulante **Afficher dans Analytics**. Pour plus d’informations sur ce sujet, consultez [Rechercher des journaux d’activité pour analyser les données](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Utilisez l’option **+ Ajouter un filtre** en haut de la page pour filtrer les résultats de la vue par **Service** , **Nœud** ou **Espace de noms** ou **Pool de nœuds**. Après avoir sélectionné l’étendue de filtre, sélectionnez l’une des valeurs affichées dans le champ **Select value(s)** (Sélectionner une ou plusieurs valeurs). Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS. La formule prend uniquement en charge le signe égal. Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats. Par exemple, si vous spécifiez un filtre par **Nœud** , vous pouvez uniquement sélectionner **Service** ou **Espace de noms** pour le deuxième filtre.
+Utilisez l’option **+ Ajouter un filtre** en haut de la page pour filtrer les résultats de la vue par **Service**, **Nœud** ou **Espace de noms** ou **Pool de nœuds**. Après avoir sélectionné l’étendue de filtre, sélectionnez l’une des valeurs affichées dans le champ **Select value(s)** (Sélectionner une ou plusieurs valeurs). Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS. La formule prend uniquement en charge le signe égal. Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats. Par exemple, si vous spécifiez un filtre par **Nœud**, vous pouvez uniquement sélectionner **Service** ou **Espace de noms** pour le deuxième filtre.
 
 La spécification d’un filtre dans un onglet continue d’être appliquée quand vous en sélectionnez un autre. Il est supprimé lorsque vous cliquez sur le symbole **x** en regard du filtre spécifié.
 
@@ -173,11 +173,11 @@ La **plage de travail de la mémoire** montre la mémoire résidente et la mémo
 
 - La mémoire virtuelle correspond à l’espace disque réservé (cache) utilisé par le système d’exploitation pour échanger des données de la mémoire sur le disque en cas de sollicitation de la mémoire, puis les replacer en mémoire si nécessaire.
 
-Par défaut, les données de performances sont basées sur les six dernières heures, mais vous pouvez modifier la fenêtre à l’aide de l’option **Plage horaire** située en haut à gauche. Vous pouvez également filtrer les résultats dans l’intervalle de temps en sélectionnant les options du sélecteur de centiles **Min** , **Avg** (Moy), **50th** (50e), **90th** (90e), **95th** (95e) et **Max**.
+Par défaut, les données de performances sont basées sur les six dernières heures, mais vous pouvez modifier la fenêtre à l’aide de l’option **Plage horaire** située en haut à gauche. Vous pouvez également filtrer les résultats dans l’intervalle de temps en sélectionnant les options du sélecteur de centiles **Min**, **Avg** (Moy), **50th** (50e), **90th** (90e), **95th** (95e) et **Max**.
 
 ![Sélection de centile pour le filtrage des données](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Lorsque vous pointez sur le graphique à barres sous la colonne **Tendance** , chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes. Après avoir sélectionné le graphique de tendances à l’aide d’un clavier, utilisez la combinaison Alt + Pg. préc ou Alt + Pg. suiv pour parcourir chaque barre individuellement. Vous obtenez les mêmes détails, comme vous le feriez en pointant sur la barre.
+Lorsque vous pointez sur le graphique à barres sous la colonne **Tendance**, chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes. Après avoir sélectionné le graphique de tendances à l’aide d’un clavier, utilisez la combinaison Alt + Pg. préc ou Alt + Pg. suiv pour parcourir chaque barre individuellement. Vous obtenez les mêmes détails, comme vous le feriez en pointant sur la barre.
 
 ![Exemple de pointage sur le graphique à barres](./media/container-insights-analyze/containers-metric-trend-bar-01.png)
 
@@ -235,7 +235,7 @@ Les informations qui sont affichées dans les contrôleurs sont décrites dans l
 | Colonne | Description |
 |--------|-------------|
 | Nom | Nom du contrôleur.|
-| Statut | Statut du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK* , *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournis dans le tableau suivant.|
+| Statut | Statut du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournis dans le tableau suivant.|
 | Min&nbsp;%, Avg&nbsp;% (Moy %), 50th&nbsp;% (50e %), 90th&nbsp;% (90e %), 95th&nbsp;% (95e %), Max&nbsp;%| Moyenne cumulée du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
 | Min, Avg (Moy), 50th (50e), 90th (90e), 95th (95e), Max  | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |
 | Containers | Nombre total de conteneurs pour le contrôleur ou pod. |
@@ -301,23 +301,23 @@ Les classeurs regroupent du texte, des  [requêtes de journal](/azure/data-exp
 
 Azure Monitor pour les conteneurs inclut quatre classeurs pour vous aider à démarrer :
 
-- **Capacité du disque**  : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
+- **Capacité du disque** : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
 
     - Pourcentage d’utilisation de disque pour tous les disques.
     - Espace disque disponible pour tous les disques.
     - Grille qui indique pour chaque disque des nœuds, son pourcentage d’espace utilisé, sa tendance du pourcentage d’espace utilisé, l’espace disque disponible (Gio) et la tendance de l’espace disque disponible (Gio). Lorsqu’une ligne est sélectionnée dans la table, le pourcentage d’espace utilisé et l’espace disque disponible (Gio) sont indiqués sous la ligne.
 
-- **E/S disque**  : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
+- **E/S disque** : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
 
     - E/S disque totalisées pour tous les disques par octets lus/s, octets écrits/s, et octets lus et écrits/s.
     - Les huit graphiques de performances montrent des indicateurs de performance clés pour aider à mesurer et à identifier les goulots d’étranglement des E/S disque.
 
-- **Kubelet**  : Comprend deux grilles qui montrent les statistiques clés de fonctionnement des nœuds :
+- **Kubelet** : Comprend deux grilles qui montrent les statistiques clés de fonctionnement des nœuds :
 
     - Grille de vue d’ensemble par nœud indiquant le nombre total d’opérations, le nombre total d’erreurs et les opérations réussies en pourcentage et en tendance pour chaque nœud.
     - Vue d’ensemble par type d’opération montrant pour chaque opération le nombre total d’opérations, le nombre total d’erreurs et les opérations réussies en pourcentage et en tendance.
 
-- **Réseau**  : Présente des graphiques interactifs d’utilisation du réseau pour chaque carte réseau des nœuds, et une grille qui présente les indicateurs de performance clés pour vous aider à mesurer les performances de vos cartes réseau.
+- **Réseau** : Présente des graphiques interactifs d’utilisation du réseau pour chaque carte réseau des nœuds, et une grille qui présente les indicateurs de performance clés pour vous aider à mesurer les performances de vos cartes réseau.
 
 Vous accédez à ces classeurs en les sélectionnant dans la liste déroulante **Voir les classeurs**.
 

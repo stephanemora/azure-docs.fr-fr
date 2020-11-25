@@ -9,11 +9,11 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563435"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011754"
 ---
 Les partages de fichiers Azure sont déployés dans des *comptes de stockage*, qui sont des objets de niveau supérieur représentant un pool de stockage partagé. Ce pool de stockage peut être utilisé pour déployer plusieurs partages de fichiers ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob, des files d’attente ou des tables. Toutes les ressources de stockage qui sont déployées dans un compte de stockage partagent les limites qui s’appliquent à ce compte de stockage. Pour voir les limites actuelles d’un compte de stockage, consultez [Objectifs de scalabilité et de performances d’Azure Files](../articles/storage/files/storage-files-scale-targets.md).
 

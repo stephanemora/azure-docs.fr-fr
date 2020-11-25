@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011215"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utiliser les fonctionnalités du tableau de bord de l’accélérateur de solution Usine connectée
 

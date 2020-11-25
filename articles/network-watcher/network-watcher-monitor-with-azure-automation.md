@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011810"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 
@@ -51,7 +51,7 @@ Avant de réaliser ce scénario, vous devez disposer des éléments suivants :
 
 ### <a name="create-the-runbook"></a>Créer le runbook
 
-La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-create-runas-account.md).
+La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/manage-runas-account.md).
 
 ### <a name="step-1"></a>Étape 1
 

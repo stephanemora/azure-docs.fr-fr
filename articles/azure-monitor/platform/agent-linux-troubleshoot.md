@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011895"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -92,9 +92,9 @@ Nous avons vu qu’une nouvelle réinstallation de l’agent permet de résoudre
 | NOT_DEFINED | Les dépendances nécessaires n’étant pas installées, le plug-in auoms auditd n’est pas installé. | L’installation d’auoms a échoué, installez le package auditd. |
 | 2 | Option non valide fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 3 | Aucune option fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
-| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent- *rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent - *deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
+| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
 | 5 | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
-| 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent- *x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Échec de l’installation du package OMS. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 19 | Échec de l’installation du package OMI. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 20 | Échec de l’installation du package SCX. Examinez le résultat de la commande pour déterminer l’échec de root. |
@@ -431,7 +431,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
 2. Vérifiez que l’agent `omsconfig` peut communiquer avec Azure Monitor en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux d’activité personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Cette commande force l’agent omsconfig à parler à Azure Monitor pour récupérer la configuration la plus récente.
 
-**Contexte**  : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
+**Contexte** : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
 
 1. Ajoutez l’utilisateur `omsagent` à un groupe spécifique : `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Accordez l’accès en lecture universel au fichier requis : `sudo chmod -R ugo+rx <FILE DIRECTORY>`

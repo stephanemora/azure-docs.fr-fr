@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efd3f0f19325bdaccf98d10306c90488c78b3de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b506ada0bc072a4174de6f884d1814a63f1f93ca
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012508"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -1607,7 +1608,7 @@ Vous pouvez facilement tester et surveiller le basculement et la réplication de
 
 ### <a name="sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> L’instance SAP ASCS/SCS s’exécute sur le nœud de cluster A
 
-Le groupe de clusters **SAP PR1**s’exécute sur le nœud de cluster A, par exemple sur **pr1-ascs-0**. Affectez le lecteur de disque partagé S, qui fait partie du groupe de clusters **SAP PR1** et que l’instance ASCS/SCS utilise, au nœud de cluster A.
+Le groupe de clusters **SAP PR1** s’exécute sur le nœud de cluster A, par exemple sur **pr1-ascs-0**. Affectez le lecteur de disque partagé S, qui fait partie du groupe de clusters **SAP PR1** et que l’instance ASCS/SCS utilise, au nœud de cluster A.
 
 ![Figure 61 : Gestionnaire du cluster de basculement : Le groupe de cluster SAP <SID> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
 

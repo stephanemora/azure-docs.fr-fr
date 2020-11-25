@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011487"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Présentation approfondie de la passerelle et meilleures pratiques pour Apache Hive dans Azure HDInsight
 
@@ -56,7 +56,7 @@ Il existe plusieurs moyens d’atténuer et de comprendre les problèmes de perf
 
 * Utilisez la clause **LIMIT** lors de l’exécution de requêtes **SELECT** volumineuses. La clause **LIMIT** permet de réduire le nombre total de lignes signalées à l’hôte client. La clause **LIMIT** concerne uniquement la génération de résultats et ne modifie pas le plan de requête. Pour appliquer la clause **LIMIT** au plan de requête, utilisez la configuration `hive.limit.optimize.enable`. **LIMIT** peut être combinée à un décalage à l’aide de la forme d’argument **LIMIT x,y**.
 
-* Nommez les colonnes qui vous intéressent lorsque vous exécutez des requêtes **SELECT** au lieu d’utiliser * *SELECT \** _. Si vous sélectionnez moins de colonnes, la quantité de données lues diminue.
+* Nommez les colonnes qui vous intéressent lorsque vous exécutez des requêtes **SELECT** au lieu d’utiliser **SELECT \** _. Si vous sélectionnez moins de colonnes, la quantité de données lues diminue.
 
 _ Essayez d’exécuter la requête qui vous intéresse par le biais d’Apache Beeline. Si la récupération des résultats via Apache Beeline prend beaucoup de temps, attendez-vous à des retards lorsque vous récupérez les mêmes résultats via des outils externes.
 

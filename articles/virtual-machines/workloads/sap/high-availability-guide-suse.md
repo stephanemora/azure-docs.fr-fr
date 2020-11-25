@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 508fff16f96d0dfddb77b219bb545fb8580b4048
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012371"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -180,14 +181,14 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 10.0.0.7 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-ascs-frontend** )
-         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7** )
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-ascs-frontend**)
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
          1. Cliquez sur OK
       1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-backend** )
+         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-backend**)
    1. Créer le pool principal
       1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend** )
+      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
       1. Cliquer sur Ajouter une machine virtuelle
       1. Sélectionnez Machine virtuelle.
       1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
@@ -195,33 +196,33 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
    1. Créer les sondes d’intégrité
       1. Port 620 **00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-ascs-hp** )
-         1. Sélectionner le protocole TCP et le port 620 **00** , et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-ascs-hp**)
+         1. Sélectionner le protocole TCP et le port 620 **00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
          1. Cliquez sur OK
       1. Port 621 **02** pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp** )
+         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
    1. Règles d’équilibrage de charge
       1. Règles d’équilibreur de charge pour ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs** )
-         1. Sélectionnez l’adresse IP du front-end, le pool de back-ends et la sonde d’intégrité créée précédemment (par exemple, **nw1-ascs-frontend** , **nw1-backend** et **nw1-ascs-hp** )
+         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs**)
+         1. Sélectionnez l’adresse IP du front-end, le pool de back-ends et la sonde d’intégrité créée précédemment (par exemple, **nw1-ascs-frontend**, **nw1-backend** et **nw1-ascs-hp**)
          1. Sélectionnez **Ports haute disponibilité**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
-         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **nw1-lb-ers** )
+         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **nw1-lb-ers**)
 1. Sinon, si votre scénario requiert l’équilibrage de charge de base (interne), procédez comme suit :  
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 10.0.0.7 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-ascs-frontend** )
-         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7** )
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-ascs-frontend**)
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
          1. Cliquez sur OK
       1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
-         * Répétez les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple, **10.0.0.8** et **nw1-aers-frontend** )
+         * Répétez les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple, **10.0.0.8** et **nw1-aers-frontend**)
    1. Créer le pool principal
       1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend** )
+      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
       1. Cliquer sur Ajouter une machine virtuelle
       1. Sélectionner le groupe à haute disponibilité créé précédemment
       1. Sélectionner les machines virtuelles du cluster (A)SCS
@@ -229,24 +230,24 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
    1. Créer les sondes d’intégrité
       1. Port 620 **00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-ascs-hp** )
-         1. Sélectionner le protocole TCP et le port 620 **00** , et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-ascs-hp**)
+         1. Sélectionner le protocole TCP et le port 620 **00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
          1. Cliquez sur OK
       1. Port 621 **02** pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp** )
+         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
    1. Règles d’équilibrage de charge
       1. TCP 32 **00** pour l’instance ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-3200** )
-         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend** )
+         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-3200**)
+         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**)
          1. Conserver le protocole **TCP** et indiquer le port **3200**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
       1. Ports supplémentaires pour l’instance ASCS
-         * Répéter les étapes ci-dessus pour les ports 36 **00** , 39 **00** , 81 **00** , 5 **00** 13, 5 **00** 14, 5 **00** 16 et TCP pour l’instance ASCS
+         * Répéter les étapes ci-dessus pour les ports 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour les ports 33 **02** , 5 **02** 13, 5 **02** 14, 5 **02** 16 et TCP pour les instances ASCS ERS
+         * Répéter les étapes ci-dessus pour les ports 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 et TCP pour les instances ASCS ERS
 
 > [!IMPORTANT]
 > Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte d’interface réseau.  
@@ -271,7 +272,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    </code></pre>
 
    > [!NOTE]
-   > Le problème connu lié à l’utilisation d’un tiret dans les noms d’hôtes est résolu avec la version  **3.1.1** du package **sap-suse-cluster-connector**. Veillez à utiliser au moins la version 3.1.1 du package sap-suse-cluster-connector si vous utilisez des nœuds de cluster avec un tiret dans le nom d’hôte. Dans le cas contraire, le cluster ne fonctionnera pas. 
+   > Le problème connu lié à l’utilisation d’un tiret dans les noms d’hôtes est résolu avec la version **3.1.1** du package **sap-suse-cluster-connector**. Veillez à utiliser au moins la version 3.1.1 du package sap-suse-cluster-connector si vous utilisez des nœuds de cluster avec un tiret dans le nom d’hôte. Dans le cas contraire, le cluster ne fonctionnera pas. 
 
    Vérifiez que vous avez installé la nouvelle version du connecteur de cluster SUSE SAP. L’ancienne version s’appelle sap_suse_cluster_connector et la nouvelle **sap-suse-cluster-connector**.
 
@@ -450,7 +451,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/ **NW1** /ASCS **00** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ASCS **00** , puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/**NW1**/ASCS **00** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ASCS **00**, puis réessayez.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -507,7 +508,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    > [!NOTE]
    > Utilisez SWPM SP 20 PL 05 ou ultérieur. Les versions antérieures ne définissent pas les autorisations correctement et l’installation échouera.
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/ **NW1** /ERS **02** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ERS **02** , puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/**NW1**/ERS **02** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ERS **02**, puis réessayez.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
@@ -794,7 +795,7 @@ Suivez ces étapes pour installer un serveur d’applications SAP.
      DATABASE: <b>HN1</b>
    </code></pre>
 
-   La sortie indique que l’adresse IP de l’entrée par défaut pointe vers la machine virtuelle et non vers l’adresse IP de l’équilibreur de charge. Cette entrée doit être modifiée pour pointer vers le nom d’hôte virtuel de l’équilibreur de charge. Assurez-vous d’utiliser le même port ( **30313** dans la sortie ci-dessus) et le même nom de base de données ( **HN1** dans la sortie ci-dessus) !
+   La sortie indique que l’adresse IP de l’entrée par défaut pointe vers la machine virtuelle et non vers l’adresse IP de l’équilibreur de charge. Cette entrée doit être modifiée pour pointer vers le nom d’hôte virtuel de l’équilibreur de charge. Assurez-vous d’utiliser le même port (**30313** dans la sortie ci-dessus) et le même nom de base de données (**HN1** dans la sortie ci-dessus) !
 
    <pre><code>su - <b>nw1</b>adm
    hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>

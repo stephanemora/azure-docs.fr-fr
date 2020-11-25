@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010926"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 
@@ -56,7 +56,7 @@ Une fois la procédure terminée, vous devriez constater que votre entrée a ét
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Bloquer un certificat d’autorité de certification racine ou intermédiaire X.509 à l’aide d’un groupe d’inscription
 
-Les certificats X.509 sont généralement organisés en une chaîne d’approbation de confiance. Si un certificat à un endroit quelconque d’une chaîne est compromis, l’approbation est rompue. Le certificat doit être bloqué pour empêcher le service d’approvisionnement d’appareils d’approvisionner des appareils en aval dans la chaîne contenant ce certificat. Pour en savoir plus sur les certificats X.509 et sur leur utilisation avec le service de provisionnement, consultez [Certificats X.509](./concepts-security.md#x509-certificates). 
+Les certificats X.509 sont généralement organisés en une chaîne d’approbation de confiance. Si un certificat à un endroit quelconque d’une chaîne est compromis, l’approbation est rompue. Le certificat doit être bloqué pour empêcher le service d’approvisionnement d’appareils d’approvisionner des appareils en aval dans la chaîne contenant ce certificat. Pour en savoir plus sur les certificats X.509 et sur leur utilisation avec le service de provisionnement, consultez [Certificats X.509](./concepts-x509-attestation.md#x509-certificates). 
 
 Un groupe d’inscriptions est une entrée pour des appareils partageant un mécanisme commun d’attestation de certificats X.509 signés par la même autorité de certification racine ou intermédiaire. L’entrée du groupe d’inscription est configurée avec le certificat X.509 associé à l’autorité de certification racine ou intermédiaire. L’entrée est également configurée avec toutes les valeurs de configuration, telles que l’état du jumeau et la connexion du hub IoT, qui sont partagées par les appareils dont la chaîne de certificats contient ce certificat. Pour bloquer le certificat, vous pouvez désactiver ou supprimer son groupe d’inscriptions.
 
@@ -110,4 +110,4 @@ Une fois votre inscription créée, vous devez normalement voir l’inscription 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La désinscription fait également partie du processus général d’annulation du provisionnement. L’annulation de l’approvisionnement d’un appareil comprend la désinscription du service de provisionnement, et le retrait de l’instance IoT Hub. Pour en savoir plus sur le processus complet, consultez la section [Guide pratique pour déprovisionner des appareils inscrits par votre service de provisionnement](how-to-unprovision-devices.md) 
+La désinscription fait également partie du processus général d’annulation du provisionnement. L’annulation de l’approvisionnement d’un appareil comprend la désinscription du service de provisionnement, et le retrait de l’instance IoT Hub. Pour en savoir plus sur le processus complet, consultez la section [Guide pratique pour déprovisionner des appareils inscrits par votre service de provisionnement](how-to-unprovision-devices.md)

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793294"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011850"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données mutualisées partitionnées
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
-Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride* . La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](./elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
+Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride*. La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](./elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
 
 ![Écran](./media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -75,7 +75,7 @@ Les scripts de base de données Wingtip Tickets SaaS mutualisée et le code sour
 
 Ce didacticiel nécessite l’utilisation de PowerShell pour créer la base de données de l’agent de travail et l’agent de travail. Comme la base de données MSDB utilisée par SQL Agent, un agent de travail utilise une base de données d'Azure SQL Database pour stocker les définitions, l'état et l'historique des travaux. Une fois l’agent de travail créé, vous pouvez immédiatement créer et surveiller des travaux.
 
-1. Dans **PowerShell ISE** , ouvrez *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1* .
+1. Dans **PowerShell ISE**, ouvrez *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Appuyez sur **F5** pour exécuter le script.
 
 Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement.ps1* pour créer une base de données nommée _jobagent_ sur le serveur de catalogue. Il crée ensuite l’agent de travail, en passant la base de données _jobagent_ comme un paramètre.
@@ -84,12 +84,12 @@ Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement
 
 #### <a name="prepare"></a>Préparation
 
-Chaque base de données de client comprend un ensemble de types de lieux dans la table **VenueTypes** . Chaque type de lieux définit le type d’événements qui peut être hébergé dans un lieu. Ces types de lieux correspondent aux images d’arrière-plan visibles dans l’application des événements client.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
+Chaque base de données de client comprend un ensemble de types de lieux dans la table **VenueTypes**. Chaque type de lieux définit le type d’événements qui peut être hébergé dans un lieu. Ces types de lieux correspondent aux images d’arrière-plan visibles dans l’application des événements client.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
 
 Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données.
 
 1. Ouvrez SSMS et connectez-vous au serveur client : *tenants1-dpt-&lt;utilisateur&gt;.database.windows.net*
-1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes* .
+1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes*.
 
 
 
@@ -97,19 +97,19 @@ Tout d’abord, examinez les types de lieux inclus dans chaque base de données 
 
 Maintenant, vous créez une tâche pour mettre à jour la table **VenueTypes** dans chaque base de données de locataire en ajoutant les deux nouveaux types de lieux.
 
-Pour créer un nouveau travail, utilisez l’ensemble de procédures stockées du système de travaux créé dans la base de données _jobagent_ . Les procédures stockées ont été créées lors de la création de l’agent de travail.
+Pour créer un nouveau travail, utilisez l’ensemble de procédures stockées du système de travaux créé dans la base de données _jobagent_. Les procédures stockées ont été créées lors de la création de l’agent de travail.
 
 1. Dans SSMS, connectez-vous également au serveur de locataire tenants1-mt-&lt;user&gt;.database.windows.net
 
-2. Naviguez jusqu’à la base de données *tenants1* .
+2. Naviguez jusqu’à la base de données *tenants1*.
 
 3. Interrogez la table *VenueTypes* pour confirmer que *Motorcycle Racing* et *Swimming Club* ne sont pas encore dans la liste des résultats.
 
-4. Connectez-vous au serveur de catalogue *catalog-mt-&lt;user&gt;.database.windows.net* .
+4. Connectez-vous au serveur de catalogue *catalog-mt-&lt;user&gt;.database.windows.net*.
 
 5. Connectez-vous à la base de données _jobagent_ dans le serveur de catalogues.
 
-6. Dans SSMS, ouvrez le fichier *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql* .
+6. Dans SSMS, ouvrez le fichier *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
 
 7. Modifiez l’instruction : set @User = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application de base de données Wingtip Tickets SaaS mutualisée.
 
@@ -122,10 +122,10 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 - **sp\_add\_target\_group** crée le nom de groupe cible *DemoServerGroup* et ajoute des membres cibles au groupe.
 
 - **sp\_add\_target\_group\_member** ajoute les éléments suivants :
-    - Un type de membre cible *serveur* .
+    - Un type de membre cible *serveur*.
         - Il s’agit du serveur *tenants1-mt-&lt;user&gt;* qui contient les bases de données de locataire.
         - Y compris le serveur contient les bases de données client qui existent au moment de l'exécution du travail.
-    - Un type de membre cible *base de données* pour la base de données modèle ( *basetenantdb* ) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;* ,
+    - Un type de membre cible *base de données* pour la base de données modèle (*basetenantdb*) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;* ,
     - Un type de membre cible *base de données* pour inclure la base de données *adhocreporting* utilisée dans un autre didacticiel.
 
 - **sp\_add\_job** crée une tâche appelée *Reference Data Deployment* (Déploiement des données de référence).
@@ -140,9 +140,9 @@ Dans SSMS, accédez à la base de données de locataire sur le serveur *tenants1
 
 Cet exercice crée un travail pour régénérer l’index sur la clé primaire de la table de référence de toutes les bases de données client. Une régénération d’index est une opération d’administration de bases de données qu’un administrateur peut exécuter après le chargement de charge de données volumineuses, afin d’améliorer les performances.
 
-1. Dans SSMS, connectez-vous à la base de données _jobagent_ sur le serveur *catalog-mt-&lt;Utilisateur&gt;.database.windows.net* .
+1. Dans SSMS, connectez-vous à la base de données _jobagent_ sur le serveur *catalog-mt-&lt;Utilisateur&gt;.database.windows.net*.
 
-2. Dans SSMS, ouvrez *...\\Learning Modules\\Schema Management\\OnlineReindex.sql* .
+2. Dans SSMS, ouvrez *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
 
 3. Appuyez sur **F5** pour exécuter le script.
 
@@ -150,7 +150,7 @@ Cet exercice crée un travail pour régénérer l’index sur la clé primaire d
 
 Observez les éléments suivants dans le script *OnlineReindex.sql* :
 
-* **sp\_add\_job** crée une tâche nommée *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885* .
+* **sp\_add\_job** crée une tâche nommée *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*.
 
 * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour l’index.
 

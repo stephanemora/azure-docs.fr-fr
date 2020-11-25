@@ -6,11 +6,11 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012337"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -22,11 +22,11 @@ Nous aimerions beaucoup avoir votre avis, envoyez vos commentaires à <azurealer
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Quand et pourquoi l’utilisation d’un type de condition dynamique est-elle recommandée ?
 
-1. **Génération d’alertes évolutive**  : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement.  [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](alerts-metric-create-templates.md).
+1. **Génération d’alertes évolutive** : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement.  [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](alerts-metric-create-templates.md).
 
-1. **Reconnaissance intelligente des modèles de métriques**  : avec notre technologie de machine learning, nous sommes en mesure de détecter automatiquement des modèles de métriques pour nous adapter à leur évolution au fil du temps, ce qui peut souvent inclure leur saisonnalité (toutes les heures/tous les jours/toutes les semaines). L’adaptation au comportement des métriques au fil du temps et les alertes émises selon les écarts par rapport à un modèle permettent de ne pas avoir à connaître le « bon » seuil de chaque métrique. L’algorithme ML utilisé dans les seuils dynamiques est conçu pour empêcher les seuils bruyants (faible précision) ou larges (faible rappel) qui n’ont pas de modèle attendu.
+1. **Reconnaissance intelligente des modèles de métriques** : avec notre technologie de machine learning, nous sommes en mesure de détecter automatiquement des modèles de métriques pour nous adapter à leur évolution au fil du temps, ce qui peut souvent inclure leur saisonnalité (toutes les heures/tous les jours/toutes les semaines). L’adaptation au comportement des métriques au fil du temps et les alertes émises selon les écarts par rapport à un modèle permettent de ne pas avoir à connaître le « bon » seuil de chaque métrique. L’algorithme ML utilisé dans les seuils dynamiques est conçu pour empêcher les seuils bruyants (faible précision) ou larges (faible rappel) qui n’ont pas de modèle attendu.
 
-1. **Configuration intuitive**  : les seuils dynamiques permettent de configurer des alertes de métrique avec des concepts généraux, ce qui limite le besoin de connaissances spécifiques approfondies sur la métrique.
+1. **Configuration intuitive** : les seuils dynamiques permettent de configurer des alertes de métrique avec des concepts généraux, ce qui limite le besoin de connaissances spécifiques approfondies sur la métrique.
 
 ## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>Comment configurer des règles d’alerte avec des seuils dynamiques ?
 
@@ -61,7 +61,7 @@ Vous pouvez choisir l’alerte à déclencher dans l’une des trois conditions 
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Que signifient les paramètres avancés dans les seuils dynamiques ?
 
-**Périodes d’échec**  : les seuils dynamiques vous permettent également de configurer le « nombre de violations avant de déclencher l’alerte », qui correspond à un nombre minimal d’écarts nécessaire pendant une certaine fenêtre de temps pour que le système déclenche une alerte (la fenêtre de temps par défaut est de quatre écarts en 20 minutes). L’utilisateur peut configurer des périodes d’échec et choisir sur quoi être alerté en modifiant les périodes d’échec et la fenêtre de temps. Cette possibilité permet de réduire le nombre d’alertes générées par des pics passagers. Par exemple :
+**Périodes d’échec** : les seuils dynamiques vous permettent également de configurer le « nombre de violations avant de déclencher l’alerte », qui correspond à un nombre minimal d’écarts nécessaire pendant une certaine fenêtre de temps pour que le système déclenche une alerte (la fenêtre de temps par défaut est de quatre écarts en 20 minutes). L’utilisateur peut configurer des périodes d’échec et choisir sur quoi être alerté en modifiant les périodes d’échec et la fenêtre de temps. Cette possibilité permet de réduire le nombre d’alertes générées par des pics passagers. Par exemple :
 
 Pour déclencher une alerte quand le problème perdure pendant 20 minutes, 4 fois de suite par groupe de périodes de 5 minutes, utilisez les paramètres suivants :
 
@@ -71,7 +71,7 @@ Pour déclencher une alerte en cas de violation d’un seuil dynamique pendant 2
 
 ![Paramètres des périodes d’échec pour un problème qui perdure pendant 20 minutes sur les 30 dernières minutes par groupe de périodes de 5 minutes](media/alerts-dynamic-thresholds/0009.png)
 
-**Ignorer les données précédentes**  : Les utilisateurs peuvent éventuellement définir aussi une date de début à partir de laquelle le système doit commencer à calculer les seuils. Un cas d’usage typique peut se produire quand une ressource était exécutée en mode de test et qu’elle est à présent promue pour répondre à une charge de travail de production. Ainsi, le comportement de toute métrique pendant la phase de test doit être ignoré.
+**Ignorer les données précédentes** : Les utilisateurs peuvent éventuellement définir aussi une date de début à partir de laquelle le système doit commencer à calculer les seuils. Un cas d’usage typique peut se produire quand une ressource était exécutée en mode de test et qu’elle est à présent promue pour répondre à une charge de travail de production. Ainsi, le comportement de toute métrique pendant la phase de test doit être ignoré.
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Comment connaître la raison pour laquelle une alerte de seuil dynamique a été déclenchée ?
 
@@ -103,33 +103,33 @@ Voici une série de bonnes pratiques sur la façon de configurer des alertes sur
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Seuils dynamiques sur les métriques de pourcentage processeur de machine virtuelle
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Moniteur** . L’affichage Moniteur consolide tous vos paramètres et données de supervision dans une même vue.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Moniteur**. L’affichage Moniteur consolide tous vos paramètres et données de supervision dans une même vue.
 
-2. Cliquez sur **Alertes** , puis sur **+ Nouvelle règle d’alerte** .
+2. Cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
 
     > [!TIP]
-    > La plupart des panneaux de ressources incluent également l’option **Alertes** dans leur menu de ressources, sous **Supervision** . Vous pouvez créer des alertes à partir de là également.
+    > La plupart des panneaux de ressources incluent également l’option **Alertes** dans leur menu de ressources, sous **Supervision**. Vous pouvez créer des alertes à partir de là également.
 
 3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible sur laquelle définir une alerte. Utilisez les listes déroulantes **Abonnement** et **Type de ressource « Machines virtuelles »** pour rechercher la ressource à superviser. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
 
-4. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition** .
+4. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition**.
 
-5. Sélectionnez **Pourcentage UC** .
+5. Sélectionnez **Pourcentage UC**.
 
-6. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation** . Nous vous déconseillons d’utiliser le type d’agrégation « Maximum » pour ce type de métrique, car il est moins représentatif du comportement. Pour le type d’agrégation « Maximum », le seuil statique est peut-être plus approprié.
+6. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation**. Nous vous déconseillons d’utiliser le type d’agrégation « Maximum » pour ce type de métrique, car il est moins représentatif du comportement. Pour le type d’agrégation « Maximum », le seuil statique est peut-être plus approprié.
 
 7. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres d’alerte :
-    1. **Type de condition**  : choisissez l’option « Dynamique ».
-    1. **Sensibilité**  : choisissez la sensibilité Moyenne ou Faible pour réduire le bruit des alertes.
-    1. **Opérateur**  : choisissez « Supérieur à », sauf si le comportement représente l’utilisation de l’application.
-    1. **Fréquence**  : envisagez de la réduire suivant l’impact commercial de l’alerte.
+    1. **Type de condition** : choisissez l’option « Dynamique ».
+    1. **Sensibilité** : choisissez la sensibilité Moyenne ou Faible pour réduire le bruit des alertes.
+    1. **Opérateur** : choisissez « Supérieur à », sauf si le comportement représente l’utilisation de l’application.
+    1. **Fréquence** : envisagez de la réduire suivant l’impact commercial de l’alerte.
     1. **Périodes d’échec** (option avancée) : la fenêtre de vérification doit être d’au moins 15 minutes. Par exemple, si la période est définie sur cinq minutes, il doit y avoir au moins trois périodes d’échec.
 
 8. Le graphique de métriques affiche les seuils calculés en fonction des données récentes.
 
-9. Cliquez sur **Done** .
+9. Cliquez sur **Done**.
 
-10. Renseignez les **détails de l’alerte** ( **Nom de règle d’alerte** , **Description** et **Gravité** par exemple).
+10. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 
 11. Ajoutez un groupe d’actions à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 
@@ -140,31 +140,31 @@ Voici une série de bonnes pratiques sur la façon de configurer des alertes sur
 
 ### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Seuils dynamiques sur la durée d’exécution de la requête HTTP Application Insights
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Moniteur** . L’affichage Moniteur consolide tous vos paramètres et données de supervision dans une même vue.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Moniteur**. L’affichage Moniteur consolide tous vos paramètres et données de supervision dans une même vue.
 
-2. Cliquez sur **Alertes** , puis sur **+ Nouvelle règle d’alerte** .
+2. Cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
 
     > [!TIP]
-    > La plupart des panneaux de ressources incluent également l’option **Alertes** dans leur menu de ressources, sous **Supervision** . Vous pouvez créer des alertes à partir de là également.
+    > La plupart des panneaux de ressources incluent également l’option **Alertes** dans leur menu de ressources, sous **Supervision**. Vous pouvez créer des alertes à partir de là également.
 
 3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible sur laquelle définir une alerte. Utilisez les listes déroulantes **Abonnement** et **Type de ressource « Application Insights »** pour rechercher la ressource à superviser. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
 
-4. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition** .
+4. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter une condition**.
 
-5. Sélectionnez la **Durée d’exécution de la requête HTTP** .
+5. Sélectionnez la **Durée d’exécution de la requête HTTP**.
 
-6. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation** . Nous vous déconseillons d’utiliser le type d’agrégation « Maximum » pour ce type de métrique, car il est moins représentatif du comportement. Pour le type d’agrégation « Maximum », le seuil statique est peut-être plus approprié.
+6. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation**. Nous vous déconseillons d’utiliser le type d’agrégation « Maximum » pour ce type de métrique, car il est moins représentatif du comportement. Pour le type d’agrégation « Maximum », le seuil statique est peut-être plus approprié.
 
 7. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres d’alerte :
-    1. **Type de condition**  : choisissez l’option « Dynamique ».
-    1. **Opérateur**  : choisissez « Supérieur à » pour réduire les alertes déclenchées sur l’amélioration de la durée.
-    1. **Fréquence**  : envisagez de la réduire suivant l’impact commercial de l’alerte.
+    1. **Type de condition** : choisissez l’option « Dynamique ».
+    1. **Opérateur** : choisissez « Supérieur à » pour réduire les alertes déclenchées sur l’amélioration de la durée.
+    1. **Fréquence** : envisagez de la réduire suivant l’impact commercial de l’alerte.
 
 8. Le graphique de métriques affiche les seuils calculés en fonction des données récentes.
 
-9. Cliquez sur **Done** .
+9. Cliquez sur **Done**.
 
-10. Renseignez les **détails de l’alerte** ( **Nom de règle d’alerte** , **Description** et **Gravité** par exemple).
+10. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 
 11. Ajoutez un groupe d’actions à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 
@@ -181,11 +181,11 @@ Vous trouverez ci-dessous un graphique présentant une métrique, ses limites de
 
 Utilisez les informations suivantes pour interpréter le graphique précédent.
 
-- **Ligne bleue**  : métrique réelle mesurée au fil du temps.
-- **Zone colorée en bleu**  : montre la plage autorisée pour la métrique. Tant que les valeurs de la métrique restent dans cette plage, aucune alerte n’est générée.
-- **Points bleus**  : si vous cliquez sur une partie du graphique, puis pointez sur la ligne bleue, un point bleu apparaît sous le curseur pour indiquer une valeur de métrique agrégée individuelle.
-- **Fenêtre avec un point bleu**  : montre la valeur de la métrique mesurée (le point bleu) et les valeurs supérieure et inférieure de la plage autorisée.  
-- **Point rouge avec un cercle noir**  : montre la première valeur de la métrique située en dehors de la plage autorisée. Il s’agit de la valeur qui déclenche une alerte de métrique et la met dans un état actif.
-- **Points rouges**  : indique d’autres valeurs mesurées en dehors de la plage autorisée. Ces valeurs ne déclenchent pas d’autres alertes de métrique, mais l’alerte reste active.
-- **Zone rouge**  : indique l’heure à laquelle la valeur de la métrique est sortie de la plage autorisée. L’alerte reste à l’état actif tant que les valeurs mesurées suivantes se trouvent en dehors de la plage autorisée, mais aucune nouvelle alerte n’est déclenchée.
-- **Fin de la zone rouge**  : lorsque la ligne bleue revient à l’intérieur des valeurs autorisées, la zone rouge s’arrête et la ligne des valeurs mesurées redevient bleue. L’état de l’alerte de métrique déclenchée au moment du point rouge avec le contour noir est défini sur résolu. 
+- **Ligne bleue** : métrique réelle mesurée au fil du temps.
+- **Zone colorée en bleu** : montre la plage autorisée pour la métrique. Tant que les valeurs de la métrique restent dans cette plage, aucune alerte n’est générée.
+- **Points bleus** : si vous cliquez sur une partie du graphique, puis pointez sur la ligne bleue, un point bleu apparaît sous le curseur pour indiquer une valeur de métrique agrégée individuelle.
+- **Fenêtre avec un point bleu** : montre la valeur de la métrique mesurée (le point bleu) et les valeurs supérieure et inférieure de la plage autorisée.  
+- **Point rouge avec un cercle noir** : montre la première valeur de la métrique située en dehors de la plage autorisée. Il s’agit de la valeur qui déclenche une alerte de métrique et la met dans un état actif.
+- **Points rouges** : indique d’autres valeurs mesurées en dehors de la plage autorisée. Ces valeurs ne déclenchent pas d’autres alertes de métrique, mais l’alerte reste active.
+- **Zone rouge** : indique l’heure à laquelle la valeur de la métrique est sortie de la plage autorisée. L’alerte reste à l’état actif tant que les valeurs mesurées suivantes se trouvent en dehors de la plage autorisée, mais aucune nouvelle alerte n’est déclenchée.
+- **Fin de la zone rouge** : lorsque la ligne bleue revient à l’intérieur des valeurs autorisées, la zone rouge s’arrête et la ligne des valeurs mesurées redevient bleue. L’état de l’alerte de métrique déclenchée au moment du point rouge avec le contour noir est défini sur résolu. 

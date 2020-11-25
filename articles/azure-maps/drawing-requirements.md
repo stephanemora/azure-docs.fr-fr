@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895832"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013120"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
@@ -50,9 +50,9 @@ Vous pouvez organiser les fichiers DWG à votre guise dans le dossier, mais le f
 
 ## <a name="dwg-files-requirements"></a>Exigences relatives aux fichiers DWG
 
-Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données du niveau doivent être contenues dans un fichier DWG unique. Toute référence externe ( _xref_ ) doit être liée au dessin parent. En outre, chaque fichier DWG :
+Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données du niveau doivent être contenues dans un fichier DWG unique. Toute référence externe (_xref_) doit être liée au dessin parent. En outre, chaque fichier DWG :
 
-* Doit définir les calques _Extérieur_ et _Unité_ . Il peut éventuellement définir les calques facultatifs suivants : _Mur_ , _Porte_ , _UnitLabel_ , _Zone_ et _ZoneLabel_ .
+* Doit définir les calques _Extérieur_ et _Unité_. Il peut éventuellement définir les calques facultatifs suivants : _Mur_, _Porte_, _UnitLabel_, _Zone_ et _ZoneLabel_.
 * Ne doit pas contenir de caractéristiques de plusieurs niveaux.
 * Ne doit pas contenir de caractéristiques de plusieurs bâtiments.
 
@@ -93,7 +93,7 @@ Les sections suivantes détaillent les exigences pour chaque calque.
 
 ### <a name="exterior-layer"></a>Calque Extérieur
 
-Le fichier DWG pour chaque niveau doit contenir un calque pour définir le périmètre de ce niveau. Ce calque est appelé calque *Extérieur* . Par exemple, si un bâtiment contient deux niveaux, il doit avoir deux fichiers DWG, avec un calque Extérieur pour chaque fichier.
+Le fichier DWG pour chaque niveau doit contenir un calque pour définir le périmètre de ce niveau. Ce calque est appelé calque *Extérieur*. Par exemple, si un bâtiment contient deux niveaux, il doit avoir deux fichiers DWG, avec un calque Extérieur pour chaque fichier.
 
 Quel que soit le nombre de dessins d’entité dans le calque Extérieur, le [jeu de données du bâtiment obtenu](tutorial-creator-indoor-maps.md#create-a-feature-stateset) ne contient qu’une seule caractéristique de niveau pour chaque fichier DWG. De plus :
 
@@ -168,7 +168,7 @@ Vous pouvez consulter un exemple de calque ZoneLabel dans l’[exemple de packag
 
 ## <a name="manifest-file-requirements"></a>Exigences du fichier manifeste
 
-Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json** . Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
+Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json**. Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
 
 Les chemins d’accès aux fichiers, dans l’objet `buildingLevels` du fichier manifeste doivent être relatifs à la racine du dossier zip. Le nom du fichier DWG doit correspondre exactement au nom du niveau du bâtiment. Par exemple, un fichier DWG pour le niveau « sous-sol » est nommé « sous-sol.dwg ». Un fichier DWG pour le niveau 2 est nommé « niveau_2.dwg ». Si votre nom de niveau comporte une espace, remplacez-la par un trait de soulignement.
 
