@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166975"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908810"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
 
@@ -64,13 +64,13 @@ Un client peut se connecter via un point de terminaison public ou [un point de t
 
   Vous devrez configurer votre compte de stockage pour autoriser l’accès à ce réseau virtuel associé. Pour en savoir plus, consultez [Autoriser l'accès à partir d'un réseau virtuel](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
-- Un réseau local connecté à votre réseau virtuel principal à l’aide d'une [passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou d’une [passerelle ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). 
+- Un réseau local connecté à votre réseau virtuel principal à l’aide d'une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou d’une [passerelle ExpressRoute](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). 
 
   Pour en savoir plus, consultez [Configuration de l’accès à partir de réseaux locaux](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
 
 - Un réseau local connecté à un réseau associé.
 
-  Cette opération peut être effectuée avec une [passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou une [passerelle ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) ainsi qu’avec le [transit de la passerelle](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
+  Cette opération peut être effectuée avec une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou une [passerelle ExpressRoute](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) ainsi qu’avec le [transit de la passerelle](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
 
 > [!IMPORTANT]
 > Si vous vous connectez à partir d’un réseau local, assurez-vous que votre client autorise les communications sortantes via les ports 111 et 2048. Le protocole NFS 3.0 utilise ces ports.
@@ -114,8 +114,3 @@ Une transaction n’est pas facturée pendant la préversion. La tarification de
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour démarrer, consultez [Monter le stockage Blob sur Linux à l’aide du protocole NFS (Network File System) 3.0 (préversion)](network-file-system-protocol-support-how-to.md).
-
-
-
-
-

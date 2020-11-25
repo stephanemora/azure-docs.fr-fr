@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0642b26898249d78f5103e8a8f80198887bed9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080556"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542522"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure
 L'exemple qui suit montre comment utiliser Twilio pour passer un appel depuis une page web PHP hébergée sur Azure. L’application finale demande à l'utilisateur les valeurs de l’appel téléphonique, comme illustré dans la capture d’écran qui suit.
@@ -29,7 +29,7 @@ Pour utiliser le code de cette rubrique, vous devrez effectuer les opérations s
 1. Obtenir un compte Twilio et un jeton d’authentification auprès de la [console Twilio][twilio_console]. Pour bien démarrer avec Twilio, évaluez les tarifs sur le site [https://www.twilio.com/pricing][twilio_pricing]. Vous pouvez demander un compte d'évaluation gratuit sous [https://www.twilio.com/try-twilio][try_twilio].
 2. Obtenez la [bibliothèque Twilio pour PHP](https://github.com/twilio/twilio-php) ou installez-la sous forme de package PEAR. Pour plus d’informations, consultez le fichier [Lisezmoi](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Installer le kit SDK Azure pour PHP. 
-<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](./app-service/quickstart-php.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Création d'un formulaire web pour passer un appel
 Le code HTML qui suit présente la conception d'une page web (**callform.html**) qui extrait les données des utilisateurs pour passer un appel :
@@ -129,8 +129,8 @@ Pour obtenir des informations supplémentaires sur Twilio, consultez [https://ww
 [twilio_api_service]: https://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
-[howto_blob_storage_php]: https://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: https://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: ./storage/blobs/storage-quickstart-blobs-php.md
+[howto_sql_azure_php]: ./azure-sql/database/connect-query-content-reference-guide.md
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs

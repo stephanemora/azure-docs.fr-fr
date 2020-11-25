@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280468"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895721"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs
 
@@ -29,7 +29,7 @@ Pour en savoir plus sur la restauration jusqu’à une date et heure, consultez 
 
 Avant d’activer et de configurer la limite de restauration dans le temps, activez ses prérequis pour le compte de stockage : suppression réversible, flux de modification et gestion des versions d’objets blob. Pour plus d’informations sur l’activation de chacune de ces fonctionnalités, consultez les articles suivants :
 
-- [Activer la suppression réversible pour les objets blob](soft-delete-enable.md)
+- [Activer la suppression réversible pour les objets blob](./soft-delete-blob-enable.md)
 - [Activer et désactiver le flux de modification](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)
 
@@ -122,7 +122,7 @@ Pour restaurer tous les conteneurs et objets blob dans le compte de stockage à 
 1. Confirmez que vous souhaitez continuer en cochant la case.
 1. Sélectionnez **Restaurer** pour commencer l’opération de restauration.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Capture d’écran montrant comment configurer la restauration jusqu’à une date et heure dans le Portail Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Capture d’écran montrant comment restaurer tous les conteneurs sur un point de restauration spécifié":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Pour restaurer une plage d’objets blob dans un ou plusieurs conteneurs avec le
 1. Spécifiez les plages à restaurer. Utilisez une barre oblique (/) pour détourer le nom du conteneur du préfixe de l’objet blob.
 1. Par défaut, le volet **Restaurer les conteneurs sélectionnés** spécifie une plage qui comprend tous les objets blob du conteneur. Supprimez cette plage si vous ne souhaitez pas restaurer l’intégralité du conteneur. La plage par défaut est indiquée dans l’image suivante.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Capture d’écran montrant comment configurer la restauration jusqu’à une date et heure dans le Portail Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Capture d’écran montrant la plage d’objets blob par défaut à supprimer avant de spécifier la plage personnalisée":::
 
 1. Confirmez que vous souhaitez continuer en cochant la case.
 1. Sélectionnez **Restaurer** pour commencer l’opération de restauration.
 
 L’illustration suivante montre une opération de restauration sur un ensemble de plages.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Capture d’écran montrant comment configurer la restauration jusqu’à une date et heure dans le Portail Azure":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Capture d’écran montrant comment restaurer des plages d’objets blob dans un ou plusieurs conteneurs":::
 
 L’opération de restauration indiquée dans l’image effectue les actions suivantes :
 
@@ -248,6 +248,6 @@ Pour exécuter l’opération de restauration de façon synchrone et bloquer l�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md)
-- [Suppression réversible](soft-delete-overview.md)
+- [Suppression réversible](./soft-delete-blob-overview.md)
 - [Flux de modification](storage-blob-change-feed.md)
 - [Contrôle de version des blobs](versioning-overview.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912584"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Niveau d’accès froid|Mise à la disposition générale|Non pris en charge|[Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md)|
 |Événements|Mise à la disposition générale|Mise à la disposition générale|[Réaction aux événements de stockage Blob](storage-blob-event-overview.md)|
 |Métriques (classique)|Mise à la disposition générale|Mise à la disposition générale|[Métriques Azure Storage Analytics (classique)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Mesures dans Azure Monitor|Mise à la disposition générale|PRÉVERSION|[Métriques de Stockage Azure dans Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Mesures dans Azure Monitor|Mise à la disposition générale|PRÉVERSION|[Métriques de Stockage Azure dans Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Commandes PowerShell de stockage de blobs|Mise à la disposition générale|Mise à la disposition générale|[Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell](storage-quickstart-blobs-powershell.md)|
 |Commandes Azure CLI de stockage de blobs|Mise à la disposition générale|Mise à la disposition générale|[Démarrage rapide : Créer, télécharger et lister des blobs avec Azure CLI](storage-quickstart-blobs-cli.md)|
 |API Stockage Blob|Mise à la disposition générale|Mise à la disposition générale|[Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour .NET](storage-quickstart-blobs-dotnet.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) Java v12](storage-quickstart-blobs-java.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) Python v12](storage-quickstart-blobs-python.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
@@ -39,12 +39,12 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Niveau d’accès archive|Mise à la disposition générale|Non pris en charge|[Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md)|
 |Stratégies de gestion du cycle de vie (hiérarchisation)|Mise à la disposition générale|Pas encore pris en charge|[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)|
 |Stratégies de gestion du cycle de vie (supprimer l’objet blob)|Mise à la disposition générale|Mise à la disposition générale|[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)|
-|Connexion à Azure Monitor|PRÉVERSION |PRÉVERSION|[Surveillance du stockage Azure](../common/monitor-storage.md)|
+|Connexion à Azure Monitor|PRÉVERSION |PRÉVERSION|[Surveillance du stockage Azure](./monitor-blob-storage.md)|
 |Instantanés|PRÉVERSION|PRÉVERSION|[Instantanés d’objet blob](snapshots-overview.md)|
 |Sites web statiques|PRÉVERSION|PRÉVERSION|[Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)|
 |Stockage non modifiable|PRÉVERSION|PRÉVERSION|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
 |Suppression réversible de conteneur|PRÉVERSION|PRÉVERSION|[Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md)|
-|Suppression réversible de blob|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob](storage-blob-soft-delete.md)|
+|Suppression réversible de blob|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob](./soft-delete-blob-overview.md)|
 |Blobfuse|Mise à la disposition générale|Mise à la disposition générale|[Comment monter le stockage Blob en tant que système de fichiers avec blobfuse](storage-how-to-mount-container-linux.md)|
 |Basculement de compte|Pas encore pris en charge|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL de conteneurs de blobs|Non pris en charge<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Non pris en charge<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Voir la note correspondante sous ce tableau|

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912754"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Accélération des requêtes Azure Data Lake Storage
 
@@ -50,7 +50,7 @@ Le diagramme suivant illustre la façon dont une application typique utilise l�
 
 L’accélération des requêtes optimise les performances en réduisant la quantité de données transférées et traitées par votre application.
 
-Pour calculer une valeur agrégée, les applications récupèrent généralement **toutes** les données à partir d’un fichier, puis traitent et filtrent les données localement. Une analyse des modèles d’entrée/sortie pour les charges de travail analytiques révèle que les applications n’ont généralement besoin que de 20 % des données qu’elles lisent pour effectuer un calcul donné. Cette statistique est vraie même après l’application de techniques telles que l’[élagage de partition](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Cela signifie que 80 % de ces données sont inutilement transférées via le réseau, analysées et filtrées par des applications. Ce modèle, conçu essentiellement pour supprimer les données inutiles, entraîne un coût de calcul significatif.  
+Pour calculer une valeur agrégée, les applications récupèrent généralement **toutes** les données à partir d’un fichier, puis traitent et filtrent les données localement. Une analyse des modèles d’entrée/sortie pour les charges de travail analytiques révèle que les applications n’ont généralement besoin que de 20 % des données qu’elles lisent pour effectuer un calcul donné. Cette statistique est vraie même après l’application de techniques telles que l’[élagage de partition](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Cela signifie que 80 % de ces données sont inutilement transférées via le réseau, analysées et filtrées par des applications. Ce modèle, conçu essentiellement pour supprimer les données inutiles, entraîne un coût de calcul significatif.  
 
 Même si Azure dispose d’un réseau de pointe, tant en termes de débit que de latence, le transfert inutile de données sur ce réseau reste coûteux pour les performances des applications. En filtrant les données indésirables pendant la demande de stockage, l’accélération des requêtes élimine ce coût.
 
@@ -76,5 +76,3 @@ Malgré la modification apportée au modèle de facturation, le modèle de tarif
 
 - [Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
 - [Informations de référence sur l’accélération des requêtes en langage SQL](query-acceleration-sql-reference.md)
-
-

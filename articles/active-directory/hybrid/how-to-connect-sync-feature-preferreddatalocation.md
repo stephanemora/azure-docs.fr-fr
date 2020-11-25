@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972757"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les capacités multigéographiques dans Microsoft 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Microsoft 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -70,7 +70,7 @@ Azure AD Connect prend en charge la synchronisation de l’attribut **preferredD
 Par défaut, l’attribut **preferredDataLocation** n’est pas activé pour la synchronisation. Cette fonctionnalité est destinée aux grandes organisations. Le schéma Active Directory dans Windows Server 2019 a un attribut **msDS-preferredDataLocation** que vous devez utiliser à cet effet. Si vous n’avez pas mis à jour le schéma Active Directory et que vous ne pouvez pas le faire, vous devez identifier un attribut destiné à contenir la zone géographique Microsoft 365 pour vos utilisateurs. Cet attribut varie d’une organisation à l’autre.
 
 > [!IMPORTANT]
-> Azure AD permet que l’attribut **preferredDataLocation** sur des **objets utilisateur cloud** soit directement configuré à l’aide d’Azure AD PowerShell. Pour configurer cet attribut sur des **objets utilisateur synchronisés** , vous devez utiliser Azure AD Connect.
+> Azure AD permet que l’attribut **preferredDataLocation** sur des **objets utilisateur cloud** soit directement configuré à l’aide d’Azure AD PowerShell. Pour configurer cet attribut sur des **objets utilisateur synchronisés**, vous devez utiliser Azure AD Connect.
 
 Avant d’activer la synchronisation :
 
@@ -101,9 +101,9 @@ Pour éviter l’exportation de modifications indésirables vers Azure AD, veill
 Si vous avez mis à jour le schéma Active Directory vers 2019 et que Connect a été installé avant l’extension de schéma, le schéma de connexion Connect ne dispose pas du schéma mis à jour. Vous devez alors actualiser le schéma à partir de l’Assistant pour qu’il s’affiche dans l’interface utilisateur.
 
 1. Démarrez l’Assistant Azure AD Connect à partir du bureau.
-2. Sélectionnez l’option **Actualiser le schéma de l’annuaire** , puis cliquez sur **Suivant**.
+2. Sélectionnez l’option **Actualiser le schéma de l’annuaire**, puis cliquez sur **Suivant**.
 3. Entrez vos informations d’identification Azure AD, puis cliquez sur **Suivant**.
-4. Dans la page **Actualiser le schéma de l’annuaire** , vérifiez que toutes les forêts sont sélectionnées, puis cliquez sur **Suivant**.
+4. Dans la page **Actualiser le schéma de l’annuaire**, vérifiez que toutes les forêts sont sélectionnées, puis cliquez sur **Suivant**.
 5. Quand vous avez terminé, fermez l’Assistant.
 
 ![Capture d’écran de l’option Actualiser le schéma de l’annuaire dans l’Assistant Connect](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-refreshschema.png)
@@ -138,7 +138,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 1. Lancez **Synchronization Rules Editor** dans le menu **DÉMARRER** > **Éditeur de règles de synchronisation**.
 2. Définissez le filtre de recherche **Direction** sur **Entrant**.
 3. Pour créer une règle de trafic entrant, sélectionnez **Ajouter une nouvelle règle**.
-4. Sous l’onglet **Description** , définissez la configuration suivante :
+4. Sous l’onglet **Description**, définissez la configuration suivante :
 
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
@@ -151,7 +151,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
 5. Conservez le **filtre d’étendue** vide pour inclure tous les objets. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
-6. Accédez à l’onglet **Transformation** , puis implémentez la règle de transformation suivante :
+6. Accédez à l’onglet **Transformation**, puis implémentez la règle de transformation suivante :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
@@ -164,10 +164,10 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 ## <a name="step-6-create-an-outbound-synchronization-rule"></a>Étape 6 : Créer une règle de synchronisation de trafic sortant
 La règle de synchronisation du trafic sortant permet de transmettre la valeur de l’attribut à l’attribut **preferredDataLocation** dans Azure AD à partir du métaverse :
 
-1. Accédez à l’ **Éditeur de règles de synchronisation**.
+1. Accédez à l’**Éditeur de règles de synchronisation**.
 2. Définissez le filtre de recherche **Direction** sur **Sortante**.
 3. Sélectionnez **Ajouter une nouvelle règle**.
-4. Sous l’onglet **Description** , définissez la configuration suivante :
+4. Sous l’onglet **Description**, définissez la configuration suivante :
 
     | Attribut | Valeur | Détails |
     | ----- | ------ | --- |
@@ -179,7 +179,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | Type de lien | **Join** ||
     | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
-5. Accédez à l’onglet **Filtre d’étendue** , puis ajoutez un groupe de filtres à étendue unique avec deux clauses :
+5. Accédez à l’onglet **Filtre d’étendue**, puis ajoutez un groupe de filtres à étendue unique avec deux clauses :
 
     | Attribut | Opérateur | Valeur |
     | --- | --- | --- |
@@ -188,7 +188,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
     Le filtre d’étendue détermine les objets Active Directory auxquels cette règle de synchronisation de trafic sortant s’applique. Dans cet exemple, nous utilisons le filtre d’étendue de la règle de synchronisation prête à l’emploi « Sortant vers Azure AD – Identité de l’utilisateur ». Il empêche l’application de la règle de synchronisation aux objets **Utilisateur** non synchronisés à partir de l’Active Directory local. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
 
-6. Accédez à l’onglet **Transformation** , puis implémentez la règle de transformation suivante :
+6. Accédez à l’onglet **Transformation**, puis implémentez la règle de transformation suivante :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
@@ -204,8 +204,8 @@ En règle générale, un cycle de synchronisation complet est nécessaire. Ceci 
 1. Exécutez une **Importation intégrale** sur le connecteur Active Directory local :
 
    1. Accédez à l’onglet **Opérations** dans Synchronization Service Manager.
-   2. Cliquez avec le bouton droit sur le **connecteur Active Directory local** , puis sélectionnez **Exécuter**.
-   3. Dans la boîte de dialogue, sélectionnez **Importation intégrale** , puis **OK**.
+   2. Cliquez avec le bouton droit sur le **connecteur Active Directory local**, puis sélectionnez **Exécuter**.
+   3. Dans la boîte de dialogue, sélectionnez **Importation intégrale**, puis **OK**.
    4. Attendez que l’opération se termine.
 
       > [!NOTE]
@@ -213,8 +213,8 @@ En règle générale, un cycle de synchronisation complet est nécessaire. Ceci 
 
 2. Exécutez une **Importation intégrale** sur le Connecteur Azure AD :
 
-   1. Cliquez avec le bouton droit sur le **connecteur Azure AD** , puis sélectionnez **Exécuter**.
-   2. Dans la boîte de dialogue, sélectionnez **Importation intégrale** , puis **OK**.
+   1. Cliquez avec le bouton droit sur le **connecteur Azure AD**, puis sélectionnez **Exécuter**.
+   2. Dans la boîte de dialogue, sélectionnez **Importation intégrale**, puis **OK**.
    3. Attendez que l’opération se termine.
 
 3. Vérifiez le changement de la règle de synchronisation sur un objet **Utilisateur** existant.
@@ -223,8 +223,8 @@ En règle générale, un cycle de synchronisation complet est nécessaire. Ceci 
 
 4. Exécutez une **Synchronisation complète** sur le connecteur Active Directory local :
 
-   1. Cliquez avec le bouton droit sur le **connecteur Active Directory local** , puis sélectionnez **Exécuter**.
-   2. Dans la boîte de dialogue, sélectionnez **Synchronisation complète** , puis **OK**.
+   1. Cliquez avec le bouton droit sur le **connecteur Active Directory local**, puis sélectionnez **Exécuter**.
+   2. Dans la boîte de dialogue, sélectionnez **Synchronisation complète**, puis **OK**.
    3. Attendez que l’opération se termine.
 
 5. Vérifiez les **Exportations en attente** vers Azure AD :
@@ -232,15 +232,15 @@ En règle générale, un cycle de synchronisation complet est nécessaire. Ceci 
    1. Cliquez avec le bouton droit sur le **connecteur Azure AD** et sélectionnez **Rechercher dans l’espace connecteur**.
    2. Dans la boîte de dialogue **Rechercher dans l’espace connecteur** :
 
-        a. Définissez l’ **Étendue** sur **En attente d’exportation**.<br>
+        a. Définissez l’**Étendue** sur **En attente d’exportation**.<br>
         b. Cochez les trois cases : **Ajouter, Modifier et Supprimer**.<br>
         c. Pour obtenir la liste d’objets contenant des modifications à exporter, sélectionnez **Rechercher**. Pour examiner les modifications apportées à un objet donné, double-cliquez sur celui-ci.<br>
         d. Vérifiez que les modifications sont correctes.
 
 6. Exécutez une **Exportation** sur le **connecteur Azure AD**
 
-   1. Cliquez avec le bouton droit sur le **connecteur Azure AD** , puis sélectionnez **Exécuter**.
-   2. Dans la boîte de dialogue **Exécuter le connecteur** , sélectionnez **Exporter** , puis **OK**.
+   1. Cliquez avec le bouton droit sur le **connecteur Azure AD**, puis sélectionnez **Exécuter**.
+   2. Dans la boîte de dialogue **Exécuter le connecteur**, sélectionnez **Exporter**, puis **OK**.
    3. Attendez que l’opération se termine.
 
 > [!NOTE]

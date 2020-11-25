@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913553"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Dans cet article, vous allez découvrir les bonnes pratiques et considérations 
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 
-Azure Data Lake Storage Gen2 offre des contrôles d’accès POSIX pour les utilisateurs, les groupes et les principaux de service Azure Active Directory (Azure AD). Ces contrôles d’accès peuvent être définis pour des fichiers et des répertoires existants. Ils peuvent aussi être utilisés pour créer des autorisation par défauts pouvant être appliquées automatiquement à de nouveaux fichiers ou répertoires. Pour plus d’informations sur les listes de contrôle d’accès (ACL) Azure Data Lake Storage Gen2, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 offre des contrôles d’accès POSIX pour les utilisateurs, les groupes et les principaux de service Azure Active Directory (Azure AD). Ces contrôles d’accès peuvent être définis pour des fichiers et des répertoires existants. Ils peuvent aussi être utilisés pour créer des autorisation par défauts pouvant être appliquées automatiquement à de nouveaux fichiers ou répertoires. Pour plus d’informations sur les listes de contrôle d’accès (ACL) Azure Data Lake Storage Gen2, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilisation de groupes de sécurité et utilisation d’utilisateurs individuels
 
@@ -41,7 +41,7 @@ Les principaux de service Azure Active Directory sont en général utilisés par
 
 Data Lake Storage Gen2 prend en charge l’option d’activation d’un pare-feu et de limitation de l’accès uniquement aux services Azure, ce qui est recommandé pour limiter le vecteur d’attaques extérieures. Le pare-feu peut être activé sur un compte de stockage dans le portail Azure par le biais des options **Pare-feu** > **Activer le pare-feu (ON)**  > **Autoriser l’accès aux services Azure**.
 
-Pour accéder à votre compte de stockage depuis Azure Databricks, déployez Azure Databricks sur votre réseau virtuel, puis ajoutez ce réseau virtuel à votre pare-feu. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Pour accéder à votre compte de stockage depuis Azure Databricks, déployez Azure Databricks sur votre réseau virtuel, puis ajoutez ce réseau virtuel à votre pare-feu. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Remarques relatives à la résilience
 

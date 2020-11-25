@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604476"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533053"
 ---
 # <a name="modify-target-settings"></a>Modifier les paramètres cibles
 
@@ -41,8 +41,8 @@ Les paramètres de configuration que vous pouvez modifier sont résumés dans le
 **Référence de la machine virtuelle** | [Type de machine virtuelle](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponible dans la région cible) qui sera utilisé pour la machine virtuelle cible.<br/><br/> La taille de la machine virtuelle cible sélectionnée ne doit pas être inférieure à celle de la machine virtuelle source.
 **Ressources réseau** | Options pour les réseaux virtuels (VNets)/groupes de sécurité/interfaces réseau :<br/><br/> - Créer une nouvelle ressource sous le même nom dans la région cible.<br/><br/> - Créer une nouvelle ressource sous un nom différent dans la région cible.<br/><br/> - Utiliser une ressource réseau existante dans la région cible.<br/><br/> Si vous créez une nouvelle ressource cible, mis à part les paramètres que vous modifiez, elle hérite des mêmes paramètres que la ressource source.
 **Nom de l’adresse IP publique** | Spécifiez le nom.
-**Référence SKU d’adresse IP publique** | Spécifiez la référence [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zone des adresses IP publiques** | Spécifiez la [zone](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) pour les adresses IP publiques standard.<br/><br/> Si vous voulez qu’elles soient redondantes interzone, définissez-les comme étant **Redondant interzone**.
+**Référence SKU d’adresse IP publique** | Spécifiez la référence [SKU](../virtual-network/public-ip-addresses.md#sku).
+**Zone des adresses IP publiques** | Spécifiez la [zone](../virtual-network/public-ip-addresses.md#standard) pour les adresses IP publiques standard.<br/><br/> Si vous voulez qu’elles soient redondantes interzone, définissez-les comme étant **Redondant interzone**.
 **Nom de l’équilibreur de charge** | Spécifiez le nom.
 **Référence SKU de l’équilibreur de charge** | De base ou Standard. Nous vous recommandons d’utiliser l’option Standard.
 **Zone de l’équilibreur de charge** | Spécifiez une zone pour l’équilibreur de charge. <br/><br/> Si vous voulez qu’il soit redondant interzone, définissez-le comme étant **Redondant interzone**.

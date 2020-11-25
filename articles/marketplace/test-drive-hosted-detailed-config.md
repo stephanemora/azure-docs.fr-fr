@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491611"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751247"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuration détaillée pour les versions d'évaluation hébergées
 
@@ -29,7 +29,7 @@ Cet article explique comment configurer une version d’évaluation hébergée p
 
     - **Type of Test Drive** (Type de version d’évaluation) : choisissez **Microsoft Hosted (Dynamics 365 for Customer Engagement)** (Hébergé par Microsoft (Dynamics 365 for Customer Engagement)). Cela indique que Microsoft héberge et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.
 
-5. Accordez l’autorisation Microsoft AppSource pour approvisionner et déprovisionner les utilisateurs de la version d’évaluation dans votre locataire à l’aide [des instructions se trouvant ici](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). Au cours de cette étape, vous allez générer les valeurs **Azure AD App ID** (ID Azure AD App) et **Azure AD App Key** (Clé Azure AD App) mentionnées ci-dessous.
+5. Accordez l’autorisation Microsoft AppSource pour approvisionner et déprovisionner les utilisateurs de la version d’évaluation dans votre locataire à l’aide [des instructions se trouvant ici](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). Au cours de cette étape, vous allez générer les valeurs **Azure AD App ID** (ID Azure AD App) et **Azure AD App Key** (Clé Azure AD App) mentionnées ci-dessous.
 6. Renseignez les champs de la page **Configuration technique de la version d’évaluation**.
 
     [![La page Configuration technique de la version d’évaluation.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

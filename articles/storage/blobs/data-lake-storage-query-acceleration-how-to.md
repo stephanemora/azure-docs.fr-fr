@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746417"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912771"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
@@ -26,7 +26,7 @@ L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake 
 
 - Pour accéder à Stockage Azure, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Un compte de stockage **universel v2** . Voir [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
+- Un compte de stockage **universel v2**. Voir [Créer un compte de stockage](../common/storage-account-create.md).
 
 - Choisissez un onglet pour afficher la configuration requise spécifique au Kit de développement logiciel (SDK).
 
@@ -92,7 +92,7 @@ Pour utiliser l’accélération des requêtes, vous devez d’abord inscrire la
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Ouvrez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ou, si vous avez [installé](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+1. Ouvrez [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
 
 2. Si votre identité est associée à plusieurs abonnements, définissez l’abonnement actif comme abonnement du compte de stockage.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-La méthode asynchrone `BlobQuickQueryClient.QueryAsync` envoie la requête à l’API d’accélération des requêtes, puis transmet en continu les résultats à l’application sous la forme d’un objet [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream).
+La méthode asynchrone `BlobQuickQueryClient.QueryAsync` envoie la requête à l’API d’accélération des requêtes, puis transmet en continu les résultats à l’application sous la forme d’un objet [Stream](/dotnet/api/system.io.stream).
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

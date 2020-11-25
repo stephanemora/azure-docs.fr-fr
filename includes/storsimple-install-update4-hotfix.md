@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 89ad3dfffa82f062ef8bc808da19440adfa32f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050410"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563386"
 ---
 #### <a name="to-download-hotfixes"></a>Pour télécharger des correctifs logiciels
 
@@ -101,7 +101,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    * `HcsSoftwareVersion: 6.3.9600.17820`
    
-     Si le numéro de version ne change pas après la mise à jour, cela indique que le correctif n’a pas pu s’appliquer. Dans ce cas, contactez le [Support Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
+     Si le numéro de version ne change pas après la mise à jour, cela indique que le correctif n’a pas pu s’appliquer. Dans ce cas, contactez le [Support Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
      
      > [!IMPORTANT]
      > Vous devez redémarrer le contrôleur actif via la cmdlet `Restart-HcsController` avant d’appliquer la prochaine mise à jour.
@@ -267,4 +267,3 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
    `Exit-HcsMaintenanceMode`
 
 5. Les contrôleurs redémarrent quand vous quittez le mode maintenance. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure Classic. Remarque : il se peut que le portail n’affiche pas les mises à jour installées en mode maintenance pendant 24 heures.
-

@@ -10,12 +10,12 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908793"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -49,7 +49,7 @@ L’opération **Restaurer les plages d'objets blob** retourne un ID de restaura
 
 La limite de restauration dans le temps implique que les fonctionnalités Stockage Azure suivantes soient activées avant la restauration :
 
-- [Suppression réversible](soft-delete-overview.md)
+- [Suppression réversible](./soft-delete-blob-overview.md)
 - [Flux de modification](storage-blob-change-feed.md)
 - [Contrôle de version des blobs](versioning-overview.md)
 
@@ -92,5 +92,5 @@ Pour plus d’informations sur la tarification pour la restauration dans le pass
 
 - [Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs](point-in-time-restore-manage.md)
 - [Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)
-- [Activer la suppression réversible pour les objets blob](soft-delete-enable.md)
+- [Activer la suppression réversible pour les objets blob](./soft-delete-blob-enable.md)
 - [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)

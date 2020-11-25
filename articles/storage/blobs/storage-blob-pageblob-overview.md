@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288326"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545956"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -27,11 +27,11 @@ Les principales fonctionnalités des objets blob de pages Azure résident dans s
 
 ## <a name="restrictions"></a>Restrictions
 
-Les objets blob de pages ne peuvent utiliser que le niveau d’accès **chaud** , et ne peuvent donc pas utiliser les niveaux **froid** et **archive**. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+Les objets blob de pages ne peuvent utiliser que le niveau d’accès **chaud**, et ne peuvent donc pas utiliser les niveaux **froid** et **archive**. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Exemples de cas d’utilisation
 
-Étudions quelques cas d’utilisation des objets blob de pages avec des disques IaaS Azure. Les objets blob de pages Azure constituent la base de la plateforme de disques virtuels pour IaaS Azure. Le système d’exploitation Azure et les disques de données sont implémentés en tant que disques virtuels dans lesquels les données sont conservées durablement dans la plateforme Stockage Azure, puis remises aux machines virtuelles pour des performances optimales. Les disques Azure sont conservés au [format VHD](https://technet.microsoft.com/library/dd979539.aspx) Hyper-V et stockés en tant qu’[objet blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) dans Stockage Azure. En plus des disques virtuels pour machines virtuelles IaaS Azure, les objets blob de pages permettent également des scénarios PaaS et DBaaS tels que le service Azure SQL DB qui utilise actuellement des objets blob de pages pour stocker des données SQL, permettant ainsi des opérations de lecture/écriture aléatoires rapides pour la base de données. Dans un autre exemple, si vous disposez d’un service PaaS pour accéder aux fichiers multimédias partagés d’applications collaboratives d’édition vidéo, les objets blob de pages permettent un accès rapide à des emplacements aléatoires dans le média. Cela permet également à plusieurs utilisateurs de modifier et de fusionner rapidement et efficacement un même média. 
+Étudions quelques cas d’utilisation des objets blob de pages avec des disques IaaS Azure. Les objets blob de pages Azure constituent la base de la plateforme de disques virtuels pour IaaS Azure. Le système d’exploitation Azure et les disques de données sont implémentés en tant que disques virtuels dans lesquels les données sont conservées durablement dans la plateforme Stockage Azure, puis remises aux machines virtuelles pour des performances optimales. Les disques Azure sont conservés au [format VHD](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) Hyper-V et stockés en tant qu’[objet blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) dans Stockage Azure. En plus des disques virtuels pour machines virtuelles IaaS Azure, les objets blob de pages permettent également des scénarios PaaS et DBaaS tels que le service Azure SQL DB qui utilise actuellement des objets blob de pages pour stocker des données SQL, permettant ainsi des opérations de lecture/écriture aléatoires rapides pour la base de données. Dans un autre exemple, si vous disposez d’un service PaaS pour accéder aux fichiers multimédias partagés d’applications collaboratives d’édition vidéo, les objets blob de pages permettent un accès rapide à des emplacements aléatoires dans le média. Cela permet également à plusieurs utilisateurs de modifier et de fusionner rapidement et efficacement un même média. 
 
 Des services Microsoft internes comme Azure Site Recovery et Azure Backup, ainsi que de nombreux développeurs tiers, ont implémenté des innovations de pointe à l’aide de l’interface REST des objets blob de pages. Voici quelques-uns des scénarios uniques implémentés sur Azure : 
 
@@ -47,7 +47,7 @@ Les deux types de stockage proposés avec des objets blob de pages ont leur prop
 
 ### <a name="rest-api"></a>API REST
 
-Consultez le document suivant pour commencer à [développer à l’aide d’objets blob de pages](storage-dotnet-how-to-use-blobs.md). Par exemple, vous pouvez voir comment accéder aux objets blob de pages à l’aide de la bibliothèque de client de stockage pour .NET. 
+Consultez le document suivant pour commencer à [développer à l’aide d’objets blob de pages](./storage-quickstart-blobs-dotnet.md). Par exemple, vous pouvez voir comment accéder aux objets blob de pages à l’aide de la bibliothèque de client de stockage pour .NET. 
 
 Le diagramme suivant décrit les relations globales entre le compte, les conteneurs et les objets blob de pages.
 
@@ -63,7 +63,7 @@ Commencez par obtenir une référence à un conteneur. Pour créer un objet blob
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient** , avec l’URI de base pour accéder au stockage blob de votre compte de stockage ( *pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey** , comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer** , puis la création du conteneur ( *testvhds* ) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer** , nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
+Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
 
 ```csharp
 using Microsoft.Azure;

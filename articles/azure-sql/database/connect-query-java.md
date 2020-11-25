@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746734"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972672"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Utiliser Java et JDBC avec Azure SQL Database
 
@@ -176,7 +176,7 @@ CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR
 
 Ensuite, ajoutez le code Java qui utilisera JDBC pour stocker et récupérer des données à partir de votre base de données Azure SQL Database.
 
-Créez un fichier *src/main/java/DemoApplication.java* , qui contient :
+Créez un fichier *src/main/java/DemoApplication.java*, qui contient :
 
 ```java
 package com.example.demo;
@@ -230,7 +230,7 @@ Ce code Java utilisera les fichiers *application.properties* et *schema.sql* que
 Dans ce fichier, vous pouvez voir que nous avons commenté des méthodes pour insérer, lire, mettre à jour et supprimer des données : nous allons coder ces méthodes dans le reste de cet article, et vous pourrez en supprimer les marques de commentaire les unes après les autres.
 
 > [!NOTE]
-> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties* . Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
+> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties*. Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
 
 Vous pouvez maintenant exécuter cette classe main avec votre outil favori :
 
@@ -315,11 +315,11 @@ public class Todo {
 }
 ```
 
-Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql* .
+Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql*.
 
 ### <a name="insert-data-into-azure-sql-database"></a>Insérer des données dans Azure SQL Database
 
-Dans le fichier *src/main/java/DemoApplication.java* , après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
+Dans le fichier *src/main/java/DemoApplication.java*, après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -357,7 +357,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons lire les données précédemment insérées pour valider le bon fonctionnement de notre code.
 
-Dans le fichier *src/main/java/DemoApplication.java* , après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
+Dans le fichier *src/main/java/DemoApplication.java*, après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -401,7 +401,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons mettre à jour les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -445,7 +445,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Enfin, nous allons supprimer les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

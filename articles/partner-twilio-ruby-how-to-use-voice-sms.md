@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170698"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542675"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Ruby
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -48,7 +48,7 @@ TwiML est un jeu d'instructions XML qui informent Twilio sur la façon de traite
 Tous les documents TwiML ont un élément racine `<Response>` . Vous pouvez donc utiliser des verbes Twilio pour définir le comportement de votre application.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbes TwiML
-Les verbes Twilio sont des balises XML qui indiquent à Twilio les **actions**à effectuer. Par exemple, le verbe **&lt;Say&gt;** indique à Twilio de délivrer un message audible lors d'un appel. 
+Les verbes Twilio sont des balises XML qui indiquent à Twilio les **actions** à effectuer. Par exemple, le verbe **&lt;Say&gt;** indique à Twilio de délivrer un message audible lors d'un appel. 
 
 La liste suivante présente les verbes Twilio.
 
@@ -206,4 +206,4 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

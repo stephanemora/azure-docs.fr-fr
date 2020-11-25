@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061872"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542998"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Déplacer des machines virtuelles Azure vers une zone de disponibilité dans une autre région
 
@@ -35,7 +35,7 @@ Si vous souhaitez déplacer des machines virtuelles vers une autre zone de dispo
 - L’accès *Propriétaire* à l’abonnement dans lequel se trouvent les ressources que vous souhaitez déplacer.
     - La première fois que vous ajoutez une ressource pour un mappage source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement.
     - Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-- L’abonnement a besoin d’un quota suffisant pour créer les ressources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- L’abonnement a besoin d’un quota suffisant pour créer les ressources dans la région cible. Si ce n’est pas le cas, demandez des limites supplémentaires. [Plus d’informations](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
     
 

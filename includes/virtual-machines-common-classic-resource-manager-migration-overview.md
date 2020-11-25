@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9af5aa57da9db8c54ef3119fffbf8a5809aefd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507215"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555380"
 ---
 Cet article décrit comment migrer des ressources infrastructure as a service (IaaS) de modèles de déploiement Classic vers Resource Manager et détaille comment connecter les ressources des deux modèles qui coexistent dans votre abonnement avec des passerelles de site à site de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -40,7 +40,7 @@ Ces ressources IaaS classiques sont prises en charge lors de la migration
 
 | Service | Configuration |
 | --- | --- |
-| Services de domaine Azure AD | [Réseaux virtuels contenant des services de domaine Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
+| Services de domaine Azure AD | [Réseaux virtuels contenant des services de domaine Azure AD](../articles/active-directory-domain-services/migrate-from-classic-vnet.md) |
 
 ## <a name="supported-scopes-of-migration"></a>Étendues de migration prises en charge
 Il existe quatre façons différentes de migrer les ressources de calcul, de réseau et de stockage :
@@ -129,7 +129,7 @@ Les configurations non prises en charge actuellement sont les suivantes.
 | Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement. |
 | Calcul | Services cloud qui contiennent plus d’un groupe à haute disponibilité ou des groupes à haute disponibilité multiples. |Non pris en charge actuellement. Placez les machines virtuelles dans le même groupe à haute disponibilité avant la migration. |
 | Calcul | Machine virtuelle avec l’extension Azure Security Center | Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. Pour migrer les machines virtuelles, désactivez la stratégie du centre de sécurité sur l’abonnement, ce qui supprimera l’extension de surveillance Security Center des machines virtuelles. |
-| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Alors que la migration de ces machines virtuelles n’est pas prise en charge, suivez les instructions mentionnées [ici](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) pour conserver les sauvegardes qui ont été effectuées avant la migration.  |
+| Calcul | Machine virtuelle avec une extension de sauvegarde ou de capture instantanée | Ces extensions sont installées sur une machine virtuelle configurée avec le service Sauvegarde Azure. Alors que la migration de ces machines virtuelles n’est pas prise en charge, suivez les instructions mentionnées [ici](../articles/virtual-machines/migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) pour conserver les sauvegardes qui ont été effectuées avant la migration.  |
 | Calcul | Machine virtuelle avec extension d’Azure Site Recovery | Ces extensions sont installées sur une machine virtuelle configurée avec le service Azure Site Recovery. Même si la migration du stockage utilisé avec Site Recovery fonctionnera, il y aura des conséquences sur la réplication actuelle. Vous devez désactiver et activer la réplication de machine virtuelle après la migration du stockage. |
 | Réseau |Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail |Non pris en charge actuellement. Placez les rôles Web/de travail dans leur propre réseau virtuel avant la migration. Une fois que le réseau virtuel classique a migré, le réseau virtuel Azure Resource Manager qui a migré peut être appairé avec le réseau virtuel classique pour obtenir une configuration similaire à celle d’avant.|
 | Réseau | Circuits Express Route classiques |Non pris en charge actuellement. Ces circuits doivent migrer vers Azure Resource Manager avant le début de la migration IaaS. Pour en savoir plus, consultez [Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](../articles/expressroute/expressroute-move.md).|

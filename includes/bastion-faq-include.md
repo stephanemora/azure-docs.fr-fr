@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331756"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554577"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quelles régions sont disponibles ?
 
@@ -89,7 +89,7 @@ Une session ne doit être lancée qu’à partir du portail Azure. Connectez-vou
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Comment gérer les échecs de déploiement ?
 
-Passez en revue les messages d’erreur et [déclenchez une demande de support dans le portail Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) en fonction des besoins. Les échecs de déploiement peuvent être dus aux [limites, quotas et contraintes de l’abonnement Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Plus précisément, les clients peuvent rencontrer une limite relative au nombre d’adresses IP publiques autorisées par abonnement, qui entraîne l’échec du déploiement Azure Bastion.
+Passez en revue les messages d’erreur et [déclenchez une demande de support dans le portail Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) en fonction des besoins. Les échecs de déploiement peuvent être dus aux [limites, quotas et contraintes de l’abonnement Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Plus précisément, les clients peuvent rencontrer une limite relative au nombre d’adresses IP publiques autorisées par abonnement, qui entraîne l’échec du déploiement Azure Bastion.
 
 ### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Comment incorporer Azure Bastion dans mon plan de reprise d’activité après sinistre ?
 

@@ -3,12 +3,12 @@ title: Déployer Horizon sur Azure VMware Solution
 description: Découvrez comment déployer VMware Horizon sur Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423101"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537439"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Déployer Horizon sur Azure VMware Solution 
 
@@ -139,22 +139,6 @@ Les tables affichent les charges de travail courantes de travailleur du savoir e
 #### <a name="power-worker-workloads"></a>Charges de travail de travailleur avancé
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table des profils VDI courants pour VMware Horizon pour les charges de travail de travailleur avancé VSI" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Instance d’hôte Azure VMware Solution
-
-* Serveur R640 PowerEdge : LIMITÉ PAR DSS
-
-* 36 cœurs \@2,3 GHz
-
-* 576 Go de RAM
-
-* Contrôleur HBA SAS HBA330 12 Gbits/s (NON RAID)
-
-* SSD SATA 1,92 To à usage mixte 6 Gbits/s 512 lecteur AG 2,5 po, 3 DWPD, 10512 TBW
-
-* Intel 1,6 To, NVMe, Express Flash usage mixte, lecteur SFF 2,5 po, U.2, P4600 avec support
-
-* 2 groupes de disques vSAN : 1,6 x 4 (1,92 To)
 
 ### <a name="horizon-sizing-inputs"></a>Entrées de dimensionnement d’Horizon
 

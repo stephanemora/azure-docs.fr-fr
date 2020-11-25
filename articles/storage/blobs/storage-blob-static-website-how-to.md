@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746458"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537847"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -38,11 +38,11 @@ L’hébergement de site web statique est une fonctionnalité que vous devez act
 
 4. Sélectionnez **Activé** pour activer l’hébergement de site web statique pour le compte de stockage.
 
-5. Dans le champ **Nom du document d’index** , spécifiez une page d’index par défaut (par exemple, *index.html* ). 
+5. Dans le champ **Nom du document d’index**, spécifiez une page d’index par défaut (par exemple, *index.html*). 
 
    La page d’index par défaut s’affiche quand un utilisateur accède à la racine de votre site web statique.  
 
-6. Dans le champ **Chemin du document d’erreur** , spécifiez une page d’erreur par défaut (par exemple, *404.html* ). 
+6. Dans le champ **Chemin du document d’erreur**, spécifiez une page d’erreur par défaut (par exemple, *404.html*). 
 
    La page d’erreur par défaut s’affiche quand un utilisateur tente d’accéder à une page qui n’existe pas dans votre site web statique.
 
@@ -54,9 +54,9 @@ L’hébergement de site web statique est une fonctionnalité que vous devez act
 
 <a id="cli"></a>
 
-Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Azure CLI).
+Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](/cli/azure/?view=azure-cli-latest) (Azure CLI).
 
-1. Commencez par ouvrir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) ou, si vous avez [installé](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+1. Commencez par ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) ou, si vous avez [installé](/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
 
 2. Si votre identité est associée à plusieurs abonnements, définissez comme abonnement actif l’abonnement du compte de stockage qui doit héberger votre site web statique.
 
@@ -136,11 +136,11 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Ces instructions vous indiquent comment charger des fichiers à l’aide de la version de l’Explorateur Stockage qui figure dans le portail Azure. Toutefois, vous pouvez également utiliser la version de l’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) qui est exécutée en dehors du portail Azure. Vous pouvez utiliser [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI ou n’importe quelle application personnalisée capable de charger des fichiers dans le conteneur **$web** de votre compte. Pour obtenir la procédure pas à pas qui permet de charger des fichiers à l’aide de Visual Studio Code, consultez [Tutoriel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+Ces instructions vous indiquent comment charger des fichiers à l’aide de la version de l’Explorateur Stockage qui figure dans le portail Azure. Toutefois, vous pouvez également utiliser la version de l’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) qui est exécutée en dehors du portail Azure. Vous pouvez utiliser [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI ou n’importe quelle application personnalisée capable de charger des fichiers dans le conteneur **$web** de votre compte. Pour obtenir la procédure pas à pas qui permet de charger des fichiers à l’aide de Visual Studio Code, consultez [Tutoriel : Héberger un site web statique sur le Stockage Blob](./storage-blob-static-website-host.md).
 
 1. Sélectionnez **Explorateur Stockage (préversion)** .
 
-2. Développez le nœud **Conteneurs d’objets blob** , puis sélectionnez le conteneur **$web**.
+2. Développez le nœud **Conteneurs d’objets blob**, puis sélectionnez le conteneur **$web**.
 
 3. Choisissez le bouton **Charger** pour charger des fichiers.
 
@@ -173,7 +173,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > Si vous utilisez l’emplacement d’installation d’Azure CLI, vous pouvez utiliser le chemin d’accès de tout emplacement sur votre ordinateur local. Par exemple : `C:\myFolder`.
 >
-> Si vous utilisez Azure Cloud Shell, vous devez faire référence à un partage de fichiers visible pour Cloud Shell. Cet emplacement peut être le partage de fichiers du partage cloud ou un partage de fichiers existant que vous montez à partir du Cloud Shell. Pour savoir comment procéder, voir [Conserver des fichiers dans Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> Si vous utilisez Azure Cloud Shell, vous devez faire référence à un partage de fichiers visible pour Cloud Shell. Cet emplacement peut être le partage de fichiers du partage cloud ou un partage de fichiers existant que vous montez à partir du Cloud Shell. Pour savoir comment procéder, voir [Conserver des fichiers dans Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -261,11 +261,11 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 
    ![Capture d'écran illustrant la métrique Sortie des sites web statiques Stockage Azure.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Dans le sélecteur **Agrégation** , sélectionnez *Somme*.
+5. Dans le sélecteur **Agrégation**, sélectionnez *Somme*.
 
    ![Agrégation des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Cliquez sur le bouton **Ajouter un filtre** , puis choisissez **Nom API** dans le sélecteur *Propriété*.
+6. Cliquez sur le bouton **Ajouter un filtre**, puis choisissez **Nom API** dans le sélecteur *Propriété*.
 
    ![Nom d’API des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
@@ -279,4 +279,3 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez à configurer un domaine personnalisé avec votre site web statique. Consultez [Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure](storage-custom-domain-name.md).
-

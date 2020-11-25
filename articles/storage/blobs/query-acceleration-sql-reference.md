@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659569"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908776"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Informations de référence sur l’accélération des requêtes en langage SQL
 
@@ -63,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |timestamp|Limite dans le temps.                           |
 |BOOLEAN  |True ou false.                             |
 
-Lors de la lecture de valeurs à partir de données au format CSV, toutes les valeurs sont lues en tant que chaînes.  Les valeurs de chaîne peuvent être converties en d’autres types à l’aide d’expressions CAST.  Les valeurs peuvent être castées implicitement en d’autres types en fonction du contexte. Pour plus d’informations, consultez [Priorité des types de données (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+Lors de la lecture de valeurs à partir de données au format CSV, toutes les valeurs sont lues en tant que chaînes.  Les valeurs de chaîne peuvent être converties en d’autres types à l’aide d’expressions CAST.  Les valeurs peuvent être castées implicitement en d’autres types en fonction du contexte. Pour plus d’informations, consultez [Priorité des types de données (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Expressions
 
@@ -79,34 +79,34 @@ Les opérateurs SQL standard suivants sont pris en charge :
 
 |Opérateur|Description|
 |--|--|
-|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Compare l'égalité de deux expressions (opérateur de comparaison).|
-|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Teste si une expression est différente d'une autre expression (opérateur de comparaison).|
-|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compare deux expressions avec l’opérateur de comparaison différent de.|
-|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison inférieur à.|
-|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison inférieur ou égal à.|
-|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison supérieur à. |
-|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compare deux expressions avec l'opérateur de comparaison supérieur ou égal à.|
-|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Additionne deux nombres. Cet opérateur arithmétique d'addition peut aussi ajouter un nombre de jours à une date.|
-|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Effectue une soustraction entre deux nombres (opérateur de soustraction arithmétique). |
-|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divise un nombre par un autre (opérateur arithmétique de division).|
-|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplie deux expressions (opérateur arithmétique de multiplication).|
-|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Renvoie le reste d'un nombre divisé par un autre.|
-|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Effectue une opération AND logique au niveau du bit avec deux valeurs entières.|
-|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Exécute une opération logique OR au niveau du bit entre deux valeurs entières spécifiées, traduites en expressions binaires dans les instructions Transact-SQL.|
-|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Inverse une entrée booléenne.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Convertit une expression d'un type de données à un autre.|
-|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Définit un intervalle sur lequel la recherche doit porter.|
-|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Détermine si une valeur donnée correspond à la valeur d'une liste ou d'une sous-requête.|
-|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Retourne une valeur NULL si les deux expressions spécifiées sont égales.|
-|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Évalue les arguments dans l’ordre et retourne la valeur actuelle de la première expression qui ne prend pas initialement la valeur NULL.|
+|[=](/sql/t-sql/language-elements/equals-transact-sql)    |Compare l'égalité de deux expressions (opérateur de comparaison).|
+|[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Teste si une expression est différente d'une autre expression (opérateur de comparaison).|
+|[<>](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compare deux expressions avec l’opérateur de comparaison différent de.|
+|[<](/sql/t-sql/language-elements/less-than-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison inférieur à.|
+|[<=](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison inférieur ou égal à.|
+|[>](/sql/t-sql/language-elements/greater-than-transact-sql)    |Compare deux expressions avec l’opérateur de comparaison supérieur à. |
+|[>=](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compare deux expressions avec l'opérateur de comparaison supérieur ou égal à.|
+|[+](/sql/t-sql/language-elements/add-transact-sql)    |Additionne deux nombres. Cet opérateur arithmétique d'addition peut aussi ajouter un nombre de jours à une date.|
+|[-](/sql/t-sql/language-elements/subtract-transact-sql)    |Effectue une soustraction entre deux nombres (opérateur de soustraction arithmétique). |
+|[/](/sql/t-sql/language-elements/divide-transact-sql)    |Divise un nombre par un autre (opérateur arithmétique de division).|
+|[*](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplie deux expressions (opérateur arithmétique de multiplication).|
+|[%](/sql/t-sql/language-elements/modulo-transact-sql)    |Renvoie le reste d'un nombre divisé par un autre.|
+|[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Effectue une opération AND logique au niveau du bit avec deux valeurs entières.|
+|[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Exécute une opération logique OR au niveau du bit entre deux valeurs entières spécifiées, traduites en expressions binaires dans les instructions Transact-SQL.|
+|[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Inverse une entrée booléenne.|
+|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Convertit une expression d'un type de données à un autre.|
+|[BETWEEN](/sql/t-sql/language-elements/between-transact-sql)    |Définit un intervalle sur lequel la recherche doit porter.|
+|[IN](/sql/t-sql/language-elements/in-transact-sql)    |Détermine si une valeur donnée correspond à la valeur d'une liste ou d'une sous-requête.|
+|[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Retourne une valeur NULL si les deux expressions spécifiées sont égales.|
+|[COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql)    |Évalue les arguments dans l’ordre et retourne la valeur actuelle de la première expression qui ne prend pas initialement la valeur NULL.|
 
-Si les types de données à gauche et à droite d’un opérateur sont différents, la conversion automatique sera effectuée en fonction des règles spécifiées ici : [Priorité des types de données (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+Si les types de données à gauche et à droite d’un opérateur sont différents, la conversion automatique sera effectuée en fonction des règles spécifiées ici : [Priorité des types de données (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 Le langage SQL d’accélération des requêtes prend en charge uniquement un très petit sous-ensemble des types de données décrits dans cet article.  Consultez la section [Types de données](#data-types) de cet article.
 
 ### <a name="casts"></a>Casts
 
-Le langage SQL d’accélération des requêtes prend en charge l’opérateur CAST, conformément aux règles ci-dessous : [Conversion de types de données (Moteur de base de données)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
+Le langage SQL d’accélération des requêtes prend en charge l’opérateur CAST, conformément aux règles ci-dessous : [Conversion de types de données (Moteur de base de données)](/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 Le langage SQL d’accélération des requêtes prend en charge uniquement un minuscule sous-ensemble des types de données décrits dans cet article.  Consultez la section [Types de données](#data-types) de cet article.
 
@@ -118,10 +118,10 @@ Le langage SQL d’accélération des requêtes prend en charge les fonctions d
 |--|--|
 |CHAR_LENGTH    | Retourne la longueur en caractères de l’expression de chaîne, si l’expression de chaîne est de type de données character ; sinon, retourne la longueur en octets de l’expression de chaîne (le plus petit entier qui n’est pas inférieur au nombre de bits divisé par 8). (Cette fonction est la même que la fonction CHARACTER_LENGTH.)|
 |CHARACTER_LENGTH    |Retourne la longueur en caractères de l’expression de chaîne, si l’expression de chaîne est de type de données character ; sinon, retourne la longueur en octets de l’expression de chaîne (le plus petit entier qui n’est pas inférieur au nombre de bits divisé par 8). (Cette fonction est la même que la fonction CHAR_LENGTH.)|
-|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Retourne une chaîne de caractères après avoir transformé les caractères majuscules en caractères minuscules.|
-|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Transforme les caractères d'une expression en minuscules en caractères majuscules.|
-|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Retourne une partie d’une expression de type caractère, binaire, texte ou image dans SQL Server.|
-|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Supprime le caractère espace char(32) ou d’autres caractères spécifiés au début et à la fin d’une chaîne.|
+|[LOWER](/sql/t-sql/functions/lower-transact-sql)    |Retourne une chaîne de caractères après avoir transformé les caractères majuscules en caractères minuscules.|
+|[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Transforme les caractères d'une expression en minuscules en caractères majuscules.|
+|[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Retourne une partie d’une expression de type caractère, binaire, texte ou image dans SQL Server.|
+|[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Supprime le caractère espace char(32) ou d’autres caractères spécifiés au début et à la fin d’une chaîne.|
 |LEADING    |Description|
 |TRAILING    |Description|
 
@@ -340,4 +340,3 @@ Dans la plupart des cas, la taille de chaque lot sera légèrement supérieure a
 
 - [Accélération des requêtes Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
 - [Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
-

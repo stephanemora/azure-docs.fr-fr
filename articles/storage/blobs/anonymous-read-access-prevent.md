@@ -10,12 +10,12 @@ ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913774"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
@@ -59,7 +59,7 @@ Suivez ces étapes pour créer une métrique qui effectue le suivi des requêtes
 
 Une fois que vous avez configuré la métrique, les demandes anonymes commencent à s’afficher sur le graphique. L’illustration suivante montre les demandes anonymes agrégées sur les trente dernières minutes.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Capture d’écran montrant les demandes anonymes agrégées sur le stockage Blob":::
 
 Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes anonymes sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -67,9 +67,9 @@ Vous pouvez également configurer une règle d’alerte pour vous avertir quand 
 
 Les journaux du stockage Azure capturent des détails sur les demandes effectuées sur le compte de stockage, y compris la manière dont une demande a été autorisée. Vous pouvez analyser les journaux pour identifier les conteneurs qui reçoivent des demandes anonymes.
 
-Pour journaliser les demandes dans votre compte de stockage Azure afin d’évaluer les demandes anonymes, vous pouvez utiliser la journalisation du stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../common/monitor-storage.md).
+Pour journaliser les demandes dans votre compte de stockage Azure afin d’évaluer les demandes anonymes, vous pouvez utiliser la journalisation du stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](./monitor-blob-storage.md).
 
-La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 > [!NOTE]
 > La préversion de la journalisation Stockage Azure dans Azure Monitor est prise en charge uniquement dans le cloud public Azure. Les clouds du secteur public ne prennent pas en charge la journalisation pour Stockage Azure avec Azure Monitor.
@@ -88,11 +88,11 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 1. Sous **Détails de la catégorie**, dans la section **Journal**, choisissez les types de demandes à journaliser. Toutes les demandes anonymes étant des demandes de lecture, sélectionnez **StorageRead** pour capturer les demandes anonymes.
 1. Sous **Détails de la destination**, sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment créer un paramètre de diagnostic pour la journalisation des demandes":::
 
 Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](../common/monitor-storage-reference.md#resource-logs-preview).
+Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-anonymous-requests"></a>Interroger les journaux pour rechercher les demandes anonymes
 
@@ -164,7 +164,7 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 ### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Vérifier le paramètre d’accès public pour plusieurs comptes
 
-Pour vérifier le paramètre d’accès public d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+Pour vérifier le paramètre d’accès public d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](../../governance/resource-graph/first-query-portal.md).
 
 L’exécution de la requête suivante dans l’Explorateur Resource Graph retourne une liste de comptes de stockage et affiche le paramètre d’accès public pour chaque compte :
 
@@ -244,7 +244,7 @@ Pour afficher le rapport de conformité dans le Portail Azure, procédez comme s
 1. Filtrez les résultats pour le nom de l’attribution de stratégie que vous avez créée à l’étape précédente. Le rapport indique le nombre de ressources qui ne sont pas conformes à la stratégie.
 1. Vous pouvez explorer le rapport pour obtenir des détails supplémentaires, notamment une liste des comptes de stockage qui ne sont pas conformes.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Capture d’écran montrant le rapport de conformité de la stratégie d’audit pour l’accès public aux blobs":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Utiliser Azure Policy pour appliquer l’accès autorisé
 
@@ -280,7 +280,7 @@ Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez 
 
 L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage qui autorise l’accès public (valeur par défaut pour un nouveau compte) lorsqu’une stratégie avec effet de refus exige que l’accès public soit interdit.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

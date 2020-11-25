@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913060"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -41,21 +41,21 @@ Les API Blob et les API Data Lake Storage Gen2 peuvent fonctionner sur les même
 
 Cette section décrit les problèmes et les limitations liés à l’utilisation des API d’objets BLOB et des API Data Lake Storage Gen 2 pour fonctionner sur les mêmes données.
 
-* Il n’est pas possible d’utiliser l’API Blob et les API Data Lake Storage pour écrire dans la même instance d’un fichier. Si vous écrivez dans un fichier à l’aide des API Data Lake Storage Gen 2, les blocs de ce fichier ne seront pas visibles pour les appels à l’API [Obtenir la liste de bloc](https://docs.microsoft.com/rest/api/storageservices/get-block-list) d’objets BLOB. La seule exception concerne les cas de remplacement. Il est en effet possible de remplacer un fichier ou un objet blob à l’aide de n’importe quelle API.
+* Il n’est pas possible d’utiliser l’API Blob et les API Data Lake Storage pour écrire dans la même instance d’un fichier. Si vous écrivez dans un fichier à l’aide des API Data Lake Storage Gen 2, les blocs de ce fichier ne seront pas visibles pour les appels à l’API [Obtenir la liste de bloc](/rest/api/storageservices/get-block-list) d’objets BLOB. La seule exception concerne les cas de remplacement. Il est en effet possible de remplacer un fichier ou un objet blob à l’aide de n’importe quelle API.
 
-* Lorsque vous utilisez l’opération [Lister les objets BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sans spécifier de délimiteur, les résultats incluront à la fois des répertoires et des objets BLOB. Si vous choisissez d’utiliser un délimiteur, n’utilisez qu’une barre oblique (`/`). Il s’agit du seul délimiteur pris en charge.
+* Lorsque vous utilisez l’opération [Lister les objets BLOB](/rest/api/storageservices/list-blobs) sans spécifier de délimiteur, les résultats incluront à la fois des répertoires et des objets BLOB. Si vous choisissez d’utiliser un délimiteur, n’utilisez qu’une barre oblique (`/`). Il s’agit du seul délimiteur pris en charge.
 
-* Si vous utilisez l’API [Supprimer un objet BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) pour supprimer un répertoire, ce répertoire est supprimé uniquement s’il est vide. Cela signifie que vous ne pouvez pas utiliser les répertoires de suppression de l’API d’objet BLOB de manière récursive.
+* Si vous utilisez l’API [Supprimer un objet BLOB](/rest/api/storageservices/delete-blob) pour supprimer un répertoire, ce répertoire est supprimé uniquement s’il est vide. Cela signifie que vous ne pouvez pas utiliser les répertoires de suppression de l’API d’objet BLOB de manière récursive.
 
 Ces API REST BLOB ne sont pas prises en charge :
 
-* [Placer BLOB (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Obtenir les portées de page](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Copie incrémentielle BLOB](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Placer la page à partir de l’URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Ajouter un bloc à partir d’une URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Placer BLOB (Page)](/rest/api/storageservices/put-blob)
+* [Put Page](/rest/api/storageservices/put-page)
+* [Obtenir les portées de page](/rest/api/storageservices/get-page-ranges)
+* [Copie incrémentielle BLOB](/rest/api/storageservices/incremental-copy-blob)
+* [Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url)
+* [Append Block](/rest/api/storageservices/append-block)
+* [Ajouter un bloc à partir d’une URL](/rest/api/storageservices/append-block-from-url)
 
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
@@ -70,7 +70,7 @@ La possibilité d’appliquer les modifications aux listes ACL de manière récu
 
 ## <a name="azcopy"></a>AzCopy
 
-Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy, telles qu’AzCopy v8.1, ne sont pas prises en charge.
+Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy, telles qu’AzCopy v8.1, ne sont pas prises en charge.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ Les applications tierces qui utilisent les API REST continueront à fonctionner 
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listes de contrôle d’accès (ACL) et accès en lecture anonyme
 
-Si l’[accès en lecture anonyme](storage-manage-access-to-resources.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
+Si l’[accès en lecture anonyme](./anonymous-read-access-configure.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 

@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359440"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913604"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
-Cet article vous explique comment utiliser l’[interface de ligne de commande (CLI) Azure](https://docs.microsoft.com/cli/azure/) pour créer et gérer des répertoires, des fichiers et des autorisations dans des comptes de stockage dotés d’un espace de noms hiérarchique. 
+Cet article vous explique comment utiliser l’[interface de ligne de commande (CLI) Azure](/cli/azure/) pour créer et gérer des répertoires, des fichiers et des autorisations dans des comptes de stockage dotés d’un espace de noms hiérarchique. 
 
 [Exemples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Donner votre avis](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,19 +27,19 @@ Cet article vous explique comment utiliser l’[interface de ligne de commande (
 
 > [!div class="checklist"]
 > * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Un compte de stockage doté d’un espace de noms hiérarchique (HNS) activé. Pour créer un test, suivez [ces](data-lake-storage-quickstart-create-account.md) instructions.
+> * Un compte de stockage doté d’un espace de noms hiérarchique (HNS) activé. Pour créer un test, suivez [ces](../common/storage-account-create.md) instructions.
 > * Azure CLI version `2.6.0` ou ultérieure.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Vérifiez que la version correcte d’Azure CLI est installée.
 
-1. Ouvrez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) ou, si vous avez [installé](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+1. Ouvrez [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
 
 2. Vérifiez que la version `2.6.0` d’Azure CLI ou une version supérieure est installée à l’aide de la commande suivante.
 
    ```azurecli
     az --version
    ```
-   Si la version d’Azure CLI est inférieure à `2.6.0`, installez une version plus récente. Voir [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Si la version d’Azure CLI est inférieure à `2.6.0`, installez une version plus récente. Voir [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
@@ -53,7 +53,7 @@ Cet article vous explique comment utiliser l’[interface de ligne de commande (
 
    Sinon, ouvrez une page de navigateur à l’adresse [https://aka.ms/devicelogin](https://aka.ms/devicelogin) et entrez le code d’autorisation affiché dans votre terminal. Connectez-vous ensuite avec les informations d’identification de votre compte dans le navigateur.
 
-   Pour en savoir plus sur les différentes méthodes d’authentification, consultez [Autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md).
+   Pour en savoir plus sur les différentes méthodes d’authentification, consultez [Autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI](./authorize-data-operations-cli.md).
 
 2. Si votre identité est associée à plusieurs abonnements, définissez comme abonnement actif l’abonnement du compte de stockage qui doit héberger votre site web statique.
 
@@ -64,7 +64,7 @@ Cet article vous explique comment utiliser l’[interface de ligne de commande (
    Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
 
 > [!NOTE]
-> L’exemple présenté dans cet article illustre l’autorisation Azure Active Directory (AD). Pour en savoir plus sur les méthodes d’autorisation, consultez [Autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md).
+> L’exemple présenté dans cet article illustre l’autorisation Azure Active Directory (AD). Pour en savoir plus sur les méthodes d’autorisation, consultez [Autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers.
 
 > [!NOTE]
-> Si vous utilisez Azure Active Directory (Azure AD) pour autoriser des commandes, assurez-vous que le [rôle Propriétaire des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) est attribué à votre principal de sécurité. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Si vous utilisez Azure Active Directory (Azure AD) pour autoriser des commandes, assurez-vous que le [rôle Propriétaire des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) est attribué à votre principal de sécurité. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Obtenir une liste de contrôle d’accès
 
@@ -319,5 +319,3 @@ Vous pouvez ajouter, mettre à jour et supprimer des listes ACL de manière réc
 * [Exemples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Envoyer des commentaires](https://github.com/Azure/azure-cli-extensions/issues)
 * [Problèmes connus](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

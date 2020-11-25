@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034544"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561470"
 ---
 Lorsque vous concevez un système, il est important de comprendre les menaces potentielles qui pèsent sur ce dernier et d’ajouter les défenses appropriées en conséquence, à mesure de sa conception et de la création de son architecture. Il est particulièrement important de concevoir le produit dès le début dans une optique de sécurité : comprendre comment une personne malveillante peut compromettre un système contribue à s’assurer que les préventions adéquates sont en place dès le début.
 
@@ -72,7 +72,7 @@ Les quatre éléments principaux d’un modèle de menace sont les suivants :
 
 * Entités externes (tout ce qui interagit avec le système sans être sous le contrôle de l’application, par exemple des flux d’utilisateur et des programmes transmis par satellite)
 
-Tous les éléments du diagramme architectural sont exposés à différentes menaces ; nous allons utiliser le mnémonique STRIDE dans cet article. Lisez le blog [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modélisation des menaces, STRIDE) pour en savoir plus sur les éléments STRIDE.
+Tous les éléments du diagramme architectural sont exposés à différentes menaces ; nous allons utiliser le mnémonique STRIDE dans cet article. Lisez le blog [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Modélisation des menaces, STRIDE) pour en savoir plus sur les éléments STRIDE.
 
 Divers éléments du diagramme d’application sont exposés à certaines menaces STRIDE :
 

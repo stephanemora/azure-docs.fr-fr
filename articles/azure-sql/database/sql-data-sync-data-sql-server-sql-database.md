@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540618"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736474"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -81,7 +81,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
 | **Avantages** | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration <br/>\- Prise en charge d’Azure SQL Managed Instance |
-| **Inconvénients** | - Fréquence minimale de 5 min entre les synchronisations<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
+| **Inconvénients** | - Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
 
 ## <a name="get-started"></a>Bien démarrer 
 
@@ -166,7 +166,6 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
 | Taille de ligne de données sur une table                                        | 24 Mo                  |                             |
-| Intervalle de fréquence de synchronisation minimal (depuis le début de la synchronisation précédente)     | 5 minutes              |                             |
 
 > [!NOTE]
 > Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
