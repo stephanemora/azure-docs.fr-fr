@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130747"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025257"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du machine learning dans LUIS
 
@@ -64,7 +64,7 @@ Téléchargez et enregistrez le [fichier JSON de l’application](https://raw.gi
 
 Pour extraire des détails d’une commande de pizza, créez une entité `Order` issue du machine learning de niveau supérieur.
 
-1. Dans la page **intentions** , sélectionnez l’intention **OrderPizza**.
+1. Dans la page **intentions**, sélectionnez l’intention **OrderPizza**.
 
 1. Dans la liste exemples d’énoncés, sélectionnez l’énoncé suivant.
 
@@ -79,7 +79,7 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     > [!NOTE]
     > Une entité n’est pas toujours l’intégralité d’un énoncé. Dans ce cas précis, `pickup` indique comment la commande doit être reçue. D’un point de vue conceptuel, `pickup` doit faire partie de l’entité étiquetée pour la commande.
 
-1. Dans la zone **Choisir un type d’entité** , sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-entités comme la taille et la quantité.
+1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-entités comme la taille et la quantité.
 
     ![La capture d’écran présente la fenêtre Choisir un type d’entité avec l’option Ajouter une structure cochée.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -100,7 +100,7 @@ Les étapes précédentes créent l’entité et la sous-entité. Pour améliore
 
 1. Sélectionnez **Create new phrase list** (Créer une liste d’expressions) dans le menu déroulant.
 
-1. Dans la zone **Créer une liste d’expressions** , entrez le nom `SizePhraselist`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Créer** pour créer la liste d’expressions.
+1. Dans la zone **Créer une liste d’expressions**, entrez le nom `SizePhraselist`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Créer** pour créer la liste d’expressions.
 
     Ce composant de liste d’expressions aide la sous-entité `Size` à trouver des mots associés à la taille en lui fournissant des exemples de mots. Cette liste d’expressions n’a pas besoin d’inclure tous les mots associés à la taille, mais doit inclure des mots censés indiquer la taille.
 
@@ -151,7 +151,7 @@ L’ajout d’une entité de nombre prédéfinie facilite également l’extract
 
 1. Sélectionnez **Order** (Commande) dans la liste des entités.
 
-1. Sous l’onglet **Schema and features** (Schéma et caractéristiques), sélectionnez l’entité **Quantity** , puis sélectionnez **+ Add feature** (Ajouter une caractéristique).
+1. Sous l’onglet **Schema and features** (Schéma et caractéristiques), sélectionnez l’entité **Quantity**, puis sélectionnez **+ Add feature** (Ajouter une caractéristique).
 
 1. Sélectionnez **@ number** dans la liste déroulante.
 
@@ -159,7 +159,7 @@ L’ajout d’une entité de nombre prédéfinie facilite également l’extract
 
 ## <a name="configure-required-features"></a>Configurer les caractéristiques requises
 
-Dans la page de détails de l’entité **Order** , sélectionnez l’astérisque, `*`, pour les caractéristiques **@ SizeList** et **@ number**. L’astérisque apparaît dans la même étiquette que le nom de la caractéristique.
+Dans la page de détails de l’entité **Order**, sélectionnez l’astérisque, `*`, pour les caractéristiques **@ SizeList** et **@ number**. L’astérisque apparaît dans la même étiquette que le nom de la caractéristique.
 
 > [!div class="mx-imgBorder"]
 > ![La capture d’écran montre la caractéristique @SizeList avec l’astérisque et l’avertissement Requis.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
@@ -173,7 +173,7 @@ L’entité issue du machine learning est créée et les sous-entités ont des c
 
 1. Sélectionnez **Intents** (Intentions) dans le volet de navigation gauche, puis choisissez l’intention **OrderPizza**.
 
-1. Pour ouvrir la **palette d’entités** , sélectionnez le symbole **@** dans la barre d’outils contextuelle.
+1. Pour ouvrir la **palette d’entités**, sélectionnez le symbole **@** dans la barre d’outils contextuelle.
 
 1. Sélectionnez chaque ligne d’entité dans la palette, puis utilisez le curseur de la palette pour sélectionner l’entité dans chaque exemple d’énoncé. Quand vous avez terminé, la liste d’entités doit ressembler à l’image suivante.
 
@@ -236,12 +236,12 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
     ![Capture d’écran du bouton LUIS Publier sur le point de terminaison dans le menu en haut à droite](./media/howto-publish/publish-button.png)
 
-1. Sélectionnez l’emplacement **Production** , puis sélectionnez successivement **Change settings** (Changer les paramètres), **Sentiment Analysis** (Analyse des sentiments) et **Done** (Terminé).
+1. Sélectionnez l’emplacement **Production**, puis sélectionnez successivement **Change settings** (Changer les paramètres), **Sentiment Analysis** (Analyse des sentiments) et **Done** (Terminé).
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran LUIS - Publier sur le point de terminaison](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
 
-1. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’ **Exemple de requête**.
+1. Sélectionnez le lien **Accéder à vos URL de point de terminaison** dans la notification pour accéder à la page **Ressources Azure**. Les URL de point de terminaison sont répertoriées en tant qu’**Exemple de requête**.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Obtenir une prédiction d’intention et d’entité à partir d’un point de terminaison HTTP
 
@@ -297,7 +297,7 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
 ## <a name="related-information"></a>Informations connexes
 
-* [Didacticiel – intentions](luis-quickstart-intents-only.md)
+* [Didacticiel – intentions](./tutorial-intents-only.md)
 * [Concept – entités](luis-concept-entity-types.md) informations conceptuelles
 * [Concept – fonctionnalités](luis-concept-feature.md) informations conceptuelles
 * [Guide pratique pour entraîner](luis-how-to-train.md)
@@ -309,4 +309,4 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 Dans ce tutoriel, l’application utilise une entité issue du machine learning pour rechercher l’intention d’un énoncé d’utilisateur et extraire des détails de cet énoncé. L’utilisation de l’entité issue du machine learning vous permet d’en décomposer les détails.
 
 > [!div class="nextstepaction"]
-> [Ajouter une entité keyphrase prédéfinie](luis-quickstart-intent-and-key-phrase.md)
+> [Ajouter une entité keyphrase prédéfinie](./luis-reference-prebuilt-keyphrase.md)

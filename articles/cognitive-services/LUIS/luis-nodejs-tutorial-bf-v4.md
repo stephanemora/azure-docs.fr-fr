@@ -6,16 +6,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d399dc9298c51906d62dabbc36650bf21f94af8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542828"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018733"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutoriel : Utilisez un Web App Bot activé avec Language Understanding dans Node.js
 
-Utilisez Node.js pour créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est conçu avec la ressource Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) et [Bot Framework V4](https://github.com/Microsoft/botbuilder-dotnet).
+Utilisez Node.js pour créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est conçu avec la ressource Azure [Web app bot](/azure/bot-service/) et [Bot Framework V4](https://github.com/Microsoft/botbuilder-dotnet).
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -395,4 +395,4 @@ Posez une question au bot sur l’intention de réserver un vol.
 Consultez d’autres [exemples](https://github.com/microsoft/botframework-solutions) avec des bots conversationnels.
 
 > [!div class="nextstepaction"]
-> [Créer une application Language Understanding avec un domaine de l’objet personnalisé](luis-quickstart-intents-only.md)
+> [Créer une application Language Understanding avec un domaine de l’objet personnalisé](./tutorial-intents-only.md)

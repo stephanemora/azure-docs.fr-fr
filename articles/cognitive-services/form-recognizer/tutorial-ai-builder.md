@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912325"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757418"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutoriel : Créer une application de traitement de formulaires avec AI Builder
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un ensemble d’au moins cinq formulaires de même type à utiliser pour les données d’entraînement/de test. Consultez [Créer un jeu de données d’entraînement](./build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’ [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2128080).
+* Un ensemble d’au moins cinq formulaires de même type à utiliser pour les données d’entraînement/de test. Consultez [Créer un jeu de données d’entraînement](./build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2128080).
 * Une licence Power Apps ou Power Automate - consultez le [guide de gestion des licences](https://go.microsoft.com/fwlink/?linkid=2085130). La licence doit inclure [Common Data Service](https://powerplatform.microsoft.com/common-data-service/).
 * Un [module complémentaire ou une version d’essai gratuit](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409) d’AI Builder.
 
@@ -47,7 +47,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="upload-and-analyze-documents"></a>Charger et analyser des documents
 
-Dans la page **Ajouter des documents** , vous devez ajouter des exemples de documents afin d’entraîner votre modèle pour le type de formulaire à partir duquel vous souhaitez extraire des informations. AI Builder analyse les documents chargés pour vérifier qu’ils sont suffisants pour entraîner le modèle.
+Dans la page **Ajouter des documents**, vous devez ajouter des exemples de documents afin d’entraîner votre modèle pour le type de formulaire à partir duquel vous souhaitez extraire des informations. AI Builder analyse les documents chargés pour vérifier qu’ils sont suffisants pour entraîner le modèle.
 
 > [!NOTE]
 > Actuellement, AI Builder ne prend pas en charge les types de données d’entrée suivants pour le traitement de formulaires :
@@ -61,7 +61,7 @@ Dans la page **Ajouter des documents** , vous devez ajouter des exemples de docu
 
 ### <a name="upload-your-documents"></a>Charger les documents
 
-1. Sélectionnez **Ajouter des documents** , sélectionnez au moins cinq documents, puis sélectionnez **Charger**.
+1. Sélectionnez **Ajouter des documents**, sélectionnez au moins cinq documents, puis sélectionnez **Charger**.
 1. Quand le chargement est terminé, sélectionnez **Fermer**.
 1. Sélectionnez ensuite **Analyser**.
 
@@ -89,8 +89,8 @@ Sur la page de sélection des champs, choisissez les champs qui vous intéressen
 
     Quand vous cliquez sur un champ détecté, les informations suivantes s’affichent :
 
-    - **Nom du champ**  : nom de l’étiquette du champ détecté
-    - **Valeur de champ**  : valeur du champ détecté
+    - **Nom du champ** : nom de l’étiquette du champ détecté
+    - **Valeur de champ** : valeur du champ détecté
 
 > [!div class="mx-imgBorder"]
 > ![Page d’étiquetage](./media/tutorial-ai-builder/select-fields-page.png)
