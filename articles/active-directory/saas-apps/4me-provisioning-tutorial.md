@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357587"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998666"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutoriel : Configurer 4me pour l’attribution automatique d’utilisateurs
 
@@ -45,7 +45,7 @@ Avant de configurer 4me pour l’approvisionnement automatique d’utilisateurs 
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Avant de configurer 4me pour l’approvisionnement automatique d’utilisateurs 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **4me** , sélectionnez **4me** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **4me**, sélectionnez **4me** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![4me dans la liste des résultats](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour 4me dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -96,7 +96,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Pour récupérer l’ **URL de locataire** et le **jeton secret** de votre compte 4me, suivez la procédure pas à pas, comme décrit à l’étape 6.
+5. Pour récupérer l’**URL de locataire** et le **jeton secret** de votre compte 4me, suivez la procédure pas à pas, comme décrit à l’étape 6.
 
 6. Connectez-vous à votre Console d’administration 4me. Accédez aux **Paramètres**.
 
@@ -114,25 +114,25 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec 4me**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec 4me**.
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Capture d’écran de la page Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec 4me est mis en évidence." border="false":::
     
-11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 4me en vue de mises à jour ultérieures. Vérifiez que [4me prend en charge le filtrage](https://developer.4me.com/v1/scim/users/) sur l’attribut correspondant que vous avez choisi. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 4me en vue de mises à jour ultérieures. Vérifiez que [4me prend en charge le filtrage](https://developer.4me.com/v1/scim/users/) sur l’attribut correspondant que vous avez choisi. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau répertorie les attributs Azure Active Directory, les attributs 4me correspondants et l’état de correspondance." border="false":::
     
-12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec 4me**.
+12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec 4me**.
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Capture d’écran de la page Mappages. Sous Nom, Synchroniser les groupes Azure Active Directory avec 4me est mis en évidence." border="false":::
     
-13. Dans la section **Mappages des attributs** , passez en revue les attributs groupe qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans 4me dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+13. Dans la section **Mappages des attributs**, passez en revue les attributs groupe qui sont synchronisés entre Azure AD et 4me. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans 4me dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Mappages de groupes 4me](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
@@ -156,7 +156,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* 4me dispose d’URL de point de terminaison SCIM différentes pour des environnements de test et de production. Celle d’un environnement de test se termine par **.qa** , tandis que celle d’un environnement de production se termine par **.com**.
+* 4me dispose d’URL de point de terminaison SCIM différentes pour des environnements de test et de production. Celle d’un environnement de test se termine par **.qa**, tandis que celle d’un environnement de production se termine par **.com**.
 * Les jetons secrets générés par 4me expirent un mois après leur génération.
 * 4me ne prend pas en charge les opérations **DELETE** (SUPPRIMER)
 

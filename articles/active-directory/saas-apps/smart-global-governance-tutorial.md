@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 5a2169db47ca5a6adcddbcc9558161370b896a62
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92509520"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997067"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Smart Global Governance
 
@@ -49,9 +49,9 @@ Pour configurer l’intégration de Smart Global Governance à Azure AD, vous de
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte Microsoft personnel.
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Smart Global Governance** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Smart Global Governance** dans la zone de recherche.
 1. Sélectionnez **Smart Global Governance** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso-for-smart-global-governance"></a>Configurer et tester l’authentification unique Azure AD pour Smart Global Governance
@@ -71,36 +71,36 @@ Pour configurer et tester l’authentification unique Azure AD avec Smart Globa
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure :
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Smart Global Governance** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez le bouton représentant un crayon et correspondant à **Configuration SAML de base** pour modifier les paramètres :
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Smart Global Governance**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez le bouton représentant un crayon et correspondant à **Configuration SAML de base** pour modifier les paramètres :
 
    ![Bouton représentant un crayon pour la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le fournisseur d’identité, effectuez les étapes suivantes.
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le fournisseur d’identité, effectuez les étapes suivantes.
 
-    a. Dans la zone **Identificateur** , entrez une de ces URL :
+    a. Dans la zone **Identificateur**, entrez une de ces URL :
 
     - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/metadata`
     - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/metadata`
 
-    b. Dans la zone **URL de réponse** , entrez une de ces URL :
+    b. Dans la zone **URL de réponse**, entrez une de ces URL :
 
     - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/acs`
     - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/acs`
 
-1. Si vous souhaitez configurer l’application en mode lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** , puis procédez comme suit.
+1. Si vous souhaitez configurer l’application en mode lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires**, puis procédez comme suit.
 
-   - Dans la zone **URL de connexion** , entrez une de ces URL :
+   - Dans la zone **URL de connexion**, entrez une de ces URL :
 
     - `https://eu-fr-south.console.smartglobalprivacy.com/dpo`
     - `https://eu-fr-south.console.smartglobalprivacy.com/platform`
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , sélectionnez le lien **Télécharger** correspondant à **Certificat (brut)** pour télécharger le certificat et l’enregistrer sur votre ordinateur :
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** correspondant à **Certificat (brut)** pour télécharger le certificat et l’enregistrer sur votre ordinateur :
 
     ![Lien de téléchargement du certificat](common/certificateraw.png)
 
-1. Dans la section **Configurer Smart Global Governance** , copiez la ou les URL appropriées en fonction de vos besoins :
+1. Dans la section **Configurer Smart Global Governance**, copiez la ou les URL appropriées en fonction de vos besoins :
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -108,31 +108,31 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
 
 Dans cette section, vous allez créer un utilisateur de test appelé B.Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**. Sélectionnez **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**. Sélectionnez **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans la zone **Nom** , entrez **B.Simon**.  
-   1. Dans la zone **Nom d’utilisateur** , entrez \<username>@\<companydomain>.\<extension>. Par exemple : `B.Simon@contoso.com`.
-   1. Sélectionnez **Afficher le mot de passe** , puis notez la valeur affichée dans la zone **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans la zone **Nom**, entrez **B.Simon**.  
+   1. Dans la zone **Nom d’utilisateur**, entrez \<username>@\<companydomain>.\<extension>. Par exemple : `B.Simon@contoso.com`.
+   1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
    1. Sélectionnez **Create** (Créer).
 
 ### <a name="grant-access-to-the-test-user"></a>Octroyer l’accès à l’utilisateur de test
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Smart Global Governance.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Smart Global Governance**.
-1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer** , sélectionnez **Utilisateurs et groupes**  :
+1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer**, sélectionnez **Utilisateurs et groupes** :
 
    ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**  :
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** :
 
     ![Sélectionnez Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** dans la liste **Utilisateurs** , puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste **Utilisateurs**, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ## <a name="configure-smart-global-governance-sso"></a>Configuration de l’authentification unique pour Smart Global Governance
 

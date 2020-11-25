@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124966"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997084"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Créer un compte BlockBlobStorage
 
 Le genre de compte BlockBlobStorage vous permet de créer des objets blob de blocs présentant des caractéristiques de performances Premium. Ce type de compte de stockage est optimisé pour les charges de travail aux taux de transaction élevés ou nécessitant des délais d'accès très courts. Cet article explique comment créer un compte BlockBlobStorage à l’aide du portail Azure, d’Azure CLI ou d’Azure PowerShell.
 
-Pour plus d’informations sur les comptes BlockBlobStorage, voir [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Pour plus d’informations sur les comptes BlockBlobStorage, voir [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -88,21 +88,21 @@ az login
 ## <a name="portal"></a>[Portail](#tab/azure-portal)
 Pour créer un compte BlockBlobStorage sur le portail Azure, procédez comme suit :
 
-1. Sur le portail Azure, sélectionnez **Tous les services**  > la catégorie **Stockage**  > **Comptes de stockage**.
+1. Sur le portail Azure, sélectionnez **Tous les services** > la catégorie **Stockage** > **Comptes de stockage**.
 
-2. Sous **Comptes de stockage** , sélectionnez **Ajouter**.
+2. Sous **Comptes de stockage**, sélectionnez **Ajouter**.
 
-3. Dans le champ **Abonnement** , sélectionnez l'abonnement dans lequel vous souhaitez créer le compte de stockage.
+3. Dans le champ **Abonnement**, sélectionnez l'abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-4. Dans le champ **Groupe de ressources** , sélectionnez un groupe de ressources existant ou choisissez **Créer** , puis entrez un nom pour le nouveau groupe de ressources.
+4. Dans le champ **Groupe de ressources**, sélectionnez un groupe de ressources existant ou choisissez **Créer**, puis entrez un nom pour le nouveau groupe de ressources.
 
-5. Dans le champ **Nom du compte de stockage** , entrez un nom pour le compte. Respectez les recommandations suivantes :
+5. Dans le champ **Nom du compte de stockage**, entrez un nom pour le compte. Respectez les recommandations suivantes :
 
    - Le nom doit être unique dans tout Azure.
    - Le nom doit comporter 3 à 24 caractères.
    - Le nom ne peut contenir que des chiffres et des lettres minuscules.
 
-6. Dans le champ **Emplacement** , sélectionnez l'emplacement du compte de stockage, ou utilisez l'emplacement par défaut.
+6. Dans le champ **Emplacement**, sélectionnez l'emplacement du compte de stockage, ou utilisez l'emplacement par défaut.
 
 7. Pour les autres paramètres, configurez ce qui suit :
 
@@ -194,6 +194,6 @@ Pour créer un compte d'objets blob de blocs à l'aide d'Azure CLI, vous devez c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
-- Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).

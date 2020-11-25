@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998104"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -65,7 +65,7 @@ Pour un développement local, il existe deux scénarios d’authentification pri
 
 Les ordinateurs locaux ne prennent pas en charge les identités managées pour les ressources Azure. Par conséquent, la bibliothèque `Microsoft.Azure.Services.AppAuthentication` utilise vos informations d’identification de développeur pour s’exécuter dans votre environnement de développement local. Lorsque la solution est déployée sur Azure, la bibliothèque utilise une identité managée pour basculer vers un flux d’octroi d’informations d’identification de client OAuth 2.0. Cette approche signifie que vous pouvez sans problème tester le même code en local et à distance.
 
-Pour le développement local, `AzureServiceTokenProvider` extrait des jetons à l’aide de **Visual Studio** , de **l’interface de ligne de commande Azure** (CLI) ou de **l’authentification intégrée Azure AD**. Le système essaie chaque option de manière séquentielle et utilise la première option qui aboutit. Si aucune option ne fonctionne, une exception `AzureServiceTokenProviderException` est levée, avec des informations détaillées.
+Pour le développement local, `AzureServiceTokenProvider` extrait des jetons à l’aide de **Visual Studio**, de **l’interface de ligne de commande Azure** (CLI) ou de **l’authentification intégrée Azure AD**. Le système essaie chaque option de manière séquentielle et utilise la première option qui aboutit. Si aucune option ne fonctionne, une exception `AzureServiceTokenProviderException` est levée, avec des informations détaillées.
 
 #### <a name="authenticating-with-visual-studio"></a>Authentification avec Visual Studio
 
@@ -73,11 +73,11 @@ Pour authentifier à l’aide de Visual Studio :
 
 1. Connectez-vous à Visual Studio puis sélectionnez **Outils**&nbsp;>&nbsp;**Options** pour ouvrir **Options**.
 
-1. Sélectionnez **Authentification par le service Azure** , choisissez un compte pour le développement local, puis cliquez sur **OK**.
+1. Sélectionnez **Authentification par le service Azure**, choisissez un compte pour le développement local, puis cliquez sur **OK**.
 
 Si vous rencontrez des problèmes lorsque vous utilisez Visual Studio, telles que les erreurs impliquant le fichier du fournisseur de jetons, lisez attentivement les étapes précédentes.
 
-Il se peut que vous deviez authentifier à nouveau votre jeton de développeur. Pour ce faire, sélectionnez **Outils**&nbsp;>&nbsp;**Options** , puis **Azure&nbsp;Service&nbsp;Authentification**. Recherchez un lien **Réauthentifier** sous le compte sélectionné. Cliquez sur ce lien pour effectuer l’authentification.
+Il se peut que vous deviez authentifier à nouveau votre jeton de développeur. Pour ce faire, sélectionnez **Outils**&nbsp;>&nbsp;**Options**, puis **Azure&nbsp;Service&nbsp;Authentification**. Recherchez un lien **Réauthentifier** sous le compte sélectionné. Cliquez sur ce lien pour effectuer l’authentification.
 
 #### <a name="authenticating-with-azure-cli"></a>Authentification avec Azure CLI
 
@@ -85,13 +85,13 @@ Pour utiliser Azure CLI pour le développement local, vérifiez que vous dispose
 
 Pour utiliser Azure CLI :
 
-1. Recherchez Azure CLI dans la barre des tâches Windows pour ouvrir l’ **invite de commandes de Microsoft Azure**.
+1. Recherchez Azure CLI dans la barre des tâches Windows pour ouvrir l’**invite de commandes de Microsoft Azure**.
 
 1. Connectez-vous au portail Azure : *az login* pour se connecter à Azure.
 
 1. Vérifiez l’accès en entrant *az account get-access-token --resource https:\//vault.azure.net*. Si vous recevez une erreur, vérifiez que la version appropriée d’Azure CLI est correctement installée.
 
-   Si Azure CLI n’est pas installé dans le répertoire par défaut, vous pouvez recevoir une erreur signalant que `AzureServiceTokenProvider` ne peut pas trouver le chemin d’accès à Azure CLI. Utilisez la variable d’environnement **AzureCLIPath** pour définir le dossier d’installation d’Azure CLI. Le paramètre `AzureServiceTokenProvider` ajoute le répertoire spécifié dans la variable d’environnement **AzureCLIPath** à la variable d’environnement **Path** , le cas échéant.
+   Si Azure CLI n’est pas installé dans le répertoire par défaut, vous pouvez recevoir une erreur signalant que `AzureServiceTokenProvider` ne peut pas trouver le chemin d’accès à Azure CLI. Utilisez la variable d’environnement **AzureCLIPath** pour définir le dossier d’installation d’Azure CLI. Le paramètre `AzureServiceTokenProvider` ajoute le répertoire spécifié dans la variable d’environnement **AzureCLIPath** à la variable d’environnement **Path**, le cas échéant.
 
 1. Si vous êtes connecté à Azure CLI à l’aide de plusieurs comptes, ou si votre compte peut accéder à plusieurs abonnements, vous devez spécifier l’abonnement à utiliser. Entrez la commande *az account set --subscription <subscription-id>* .
 
@@ -167,7 +167,7 @@ Il existe trois méthodes principales d’utilisation d’un principal de servic
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Remplacez *{AppId}* , *{TenantId}* et *{Thumbprint}* par les valeurs générées à l’étape 1. Remplacez *{CertificateStore}* par *LocalMachine* ou *CurrentUser* , en fonction de votre plan de déploiement.
+    Remplacez *{AppId}* , *{TenantId}* et *{Thumbprint}* par les valeurs générées à l’étape 1. Remplacez *{CertificateStore}* par *LocalMachine* ou *CurrentUser*, en fonction de votre plan de déploiement.
 
 1. Exécutez l'application.
 
@@ -217,7 +217,7 @@ Pour utiliser un certificat client pour l’authentification de principal de ser
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Par exemple, si votre coffre de clés a été appelé *myKeyVault* et que vous avez créé un certificat nommé *myCert* , l’identificateur de certificat serait :
+    Par exemple, si votre coffre de clés a été appelé *myKeyVault* et que vous avez créé un certificat nommé *myCert*, l’identificateur de certificat serait :
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -262,7 +262,7 @@ Pour voir la bibliothèque `Microsoft.Azure.Services.AppAuthentication` en actio
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>Azure CLI n’est pas installé, vous n’êtes pas connecté ou vous ne disposez pas de la dernière version
 
-Exécutez *az account get-access-token* pour déterminer si Azure CLI affiche un jeton pour vous. Si aucun **programme de ce type n’est trouvé** , installez la [dernière version d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous serez peut-être invité à vous connecter.
+Exécutez *az account get-access-token* pour déterminer si Azure CLI affiche un jeton pour vous. Si aucun **programme de ce type n’est trouvé**, installez la [dernière version d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous serez peut-être invité à vous connecter.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider ne peut pas trouver le chemin d’accès pour Azure CLI
 

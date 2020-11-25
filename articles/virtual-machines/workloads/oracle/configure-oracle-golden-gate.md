@@ -3,16 +3,17 @@ title: Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure | M
 description: Configurez et exécutez rapidement une base de données Oracle Golden Gate dans votre environnement Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999142"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
@@ -389,7 +390,7 @@ Il s’agit d’une étape facultative. Vous pouvez l’ignorer si vous utilisez
 3. Dans PuTTY Key Generator :
 
    - Pour générer une clé, sélectionnez le bouton **Generate** (Générer).
-   - Copiez le contenu de la clé ( **Ctrl+C** ).
+   - Copiez le contenu de la clé (**Ctrl+C**).
    - Sélectionnez le bouton **Save private key** (Enregistrer la clé privée).
    - Ignorer l’avertissement qui s’affiche, puis sélectionnez **OK**.
 

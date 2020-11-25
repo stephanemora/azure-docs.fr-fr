@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998360"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutoriel : Configurer un répertoire fédéré pour l’attribution automatique d’utilisateurs
 
@@ -82,7 +82,7 @@ Avant de configurer un répertoire fédéré pour l’attribution automatique d�
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -94,7 +94,7 @@ Avant de configurer un répertoire fédéré pour l’attribution automatique d�
 
     ![Répertoire fédéré dans la liste des résultats](common/search-new-app.png)
 
-5. Accédez à l’ **URL** mise en évidence ci-dessous dans un autre navigateur. 
+5. Accédez à l’**URL** mise en évidence ci-dessous dans un autre navigateur. 
 
     :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Capture d’écran d’une page du portail Azure qui affiche des informations relatives au répertoire fédéré. La valeur URL est mise en évidence." border="false":::
 
@@ -118,7 +118,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Si vous souhaitez configurer l’attribution automatique d’utilisateurs pour le répertoire fédéré dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -134,22 +134,22 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez `https://api.federated.directory/v2/` dans URL de locataire. Entrez la valeur que vous avez récupérée et enregistrée précédemment à partir du répertoire fédéré dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter au répertoire fédéré. Si la connexion échoue, vérifiez que votre compte de répertoire fédéré dispose des autorisations d’administrateur, puis réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez `https://api.federated.directory/v2/` dans URL de locataire. Entrez la valeur que vous avez récupérée et enregistrée précédemment à partir du répertoire fédéré dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter au répertoire fédéré. Si la connexion échoue, vérifiez que votre compte de répertoire fédéré dispose des autorisations d’administrateur, puis réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec un répertoire fédéré**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec un répertoire fédéré**.
 
     :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Capture d’écran de la section Mappages. Sous Nom, Synchroniser les utilisateurs Azure Active Directory avec Répertoire fédéré est mis en évidence." border="false":::
     
     
-11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et le répertoire fédéré. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans le répertoire fédéré à des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et le répertoire fédéré. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans le répertoire fédéré à des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Capture d’écran de la page Mappages d’attributs. Un tableau répertorie les attributs Azure Active Directory et Répertoire fédéré et l’état de correspondance." border="false":::
     
@@ -160,7 +160,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer au répertoire fédéré en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
+14. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer au répertoire fédéré en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998751"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -60,7 +60,7 @@ Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autor
 
 * Si votre cluster utilise un [groupe de sécurité réseau (NSG](../../virtual-network/virtual-network-vnet-plan-design-arm.md)).
 
-    Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic sortant** , autoriser l’accès sortant à Internet sans limitation (notez qu' il s’agit d’un numéro de **priorité** plus faible ici signifie une priorité plus élevée). En outre, dans la section **Sous-réseaux** , vérifiez si ce groupe de sécurité réseau est appliqué au sous-réseau du cluster.
+    Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic sortant**, autoriser l’accès sortant à Internet sans limitation (notez qu' il s’agit d’un numéro de **priorité** plus faible ici signifie une priorité plus élevée). En outre, dans la section **Sous-réseaux**, vérifiez si ce groupe de sécurité réseau est appliqué au sous-réseau du cluster.
 
 * Si votre cluster utilise des [itinéraires définis par l’utilisateur (UDR)](../../virtual-network/virtual-networks-udr-overview.md).
 

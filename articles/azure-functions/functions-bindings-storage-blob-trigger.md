@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213941"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998831"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
@@ -20,6 +20,16 @@ Le déclencheur de stockage Blob démarre une fonction lors de la détection d�
 Le déclencheur Stockage Blob Azure nécessite un compte de stockage universel. Les comptes Stockage v2 avec [espaces de noms hiérarchiques](../storage/blobs/data-lake-storage-namespace.md) sont également pris en charge. Pour utiliser un compte dédié aux blobs ou si votre application a des besoins spécifiques, passez en revue les alternatives à l’utilisation de ce déclencheur.
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Interrogation
+
+L’interrogation fonctionne de façon hybride entre l’inspection des journaux et l’exécution d’analyses régulières des conteneurs. Les objets blob sont analysés dans des groupes de 10 000 à la fois avec un jeton de continuation utilisé entre les intervalles.
+
+> [!WARNING]
+> En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.
+> 
+> Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Autres solutions
 
@@ -413,16 +423,6 @@ Le déclencheur de blob utilise une file d’attente en interne. Le nombre maxim
 [Le plan Consommation](functions-scale.md#how-the-consumption-and-premium-plans-work) limite une application de fonction sur une machine virtuelle à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 * la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 * 24 = 72 appels de fonction.
 
 Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string` ou `Byte[]`.
-
-## <a name="polling"></a>Interrogation
-
-L’interrogation fonctionne de façon hybride entre l’inspection des journaux et l’exécution d’analyses régulières des conteneurs. Les objets blob sont analysés dans des groupes de 10 000 à la fois avec un jeton de continuation utilisé entre les intervalles.
-
-> [!WARNING]
-> En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.
-> 
-> Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

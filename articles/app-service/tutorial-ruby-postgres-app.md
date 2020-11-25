@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997909"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez créer un serveur et une base de données Azure D
 az extension add --name db-up
 ```
 
-Créez la base de données Postgres dans Azure avec la commande [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), comme indiqué dans l’exemple suivant. Remplacez *\<postgresql-name>* par un nom *unique* (le point de terminaison de serveur est *https://\<postgresql-name>.postgres.database.azure.com* ). Pour *\<admin-username>* et *\<admin-password>* , spécifiez les informations d’identification afin de créer un utilisateur administrateur pour ce serveur Postgres.
+Créez la base de données Postgres dans Azure avec la commande [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), comme indiqué dans l’exemple suivant. Remplacez *\<postgresql-name>* par un nom *unique* (le point de terminaison de serveur est *https://\<postgresql-name>.postgres.database.azure.com*). Pour *\<admin-username>* et *\<admin-password>* , spécifiez les informations d’identification afin de créer un utilisateur administrateur pour ce serveur Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -157,7 +157,7 @@ Dans cette étape, vous allez connecter l’application Ruby on Rails à la base
 
 ### <a name="configure-the-database-connection"></a>Configurer la connexion à la base de données
 
-Dans le dépôt, ouvrez _config/database.yml_ . En bas du fichier, remplacez les variables de production par le code suivant. 
+Dans le dépôt, ouvrez _config/database.yml_. En bas du fichier, remplacez les variables de production par le code suivant. 
 
 ```txt
 production:
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Accédez à `http://<app-name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Capture d’écran d’un exemple d’application Ruby on Rails intitulé Tasks (Tâches).":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Capture d’écran de l’exemple d’application Azure nommé Tasks (Tâches) montrant les tâches ajoutées à la liste.":::
 
 Félicitations, vous exécutez une application Ruby on Rails orientée données dans Azure App Service.
 
@@ -336,7 +336,7 @@ Générez une nouvelle migration qui ajoute une colonne booléenne appelée `Don
 rails generate migration AddDoneToTasks Done:boolean
 ```
 
-Cette commande génère un nouveau fichier de migration dans le répertoire _db/migrate_ .
+Cette commande génère un nouveau fichier de migration dans le répertoire _db/migrate_.
 
 
 Dans le terminal, exécutez les migrations de base de données Rails pour apporter la modification dans la base de données locale.
@@ -347,7 +347,7 @@ rake db:migrate
 
 ### <a name="update-application-logic"></a>Mise à jour de la logique d’application
 
-Ouvrez le fichier *app/controllers/tasks_controller.rb* . Ajoutez la ligne suivante à la fin du fichier :
+Ouvrez le fichier *app/controllers/tasks_controller.rb*. Ajoutez la ligne suivante à la fin du fichier :
 
 ```rb
 params.require(:task).permit(:Description)
@@ -361,7 +361,7 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Mise à jour des vues
 
-Ouvrez le fichier *app/views/tasks/_form.html.erb* , qui est le formulaire d’édition.
+Ouvrez le fichier *app/views/tasks/_form.html.erb*, qui est le formulaire d’édition.
 
 Recherchez la ligne `<%=f.error_span(:Description) %>` et insérez le code suivant juste en dessous :
 
@@ -372,7 +372,7 @@ Recherchez la ligne `<%=f.error_span(:Description) %>` et insérez le code suiva
 </div>
 ```
 
-Ouvrez le fichier *app/views/tasks/show.html.erb* , qui est la page de vue à enregistrement unique. 
+Ouvrez le fichier *app/views/tasks/show.html.erb*, qui est la page de vue à enregistrement unique. 
 
 Recherchez la ligne `<dd><%= @task.Description %></dd>` et insérez le code suivant juste en dessous :
 
@@ -381,7 +381,7 @@ Recherchez la ligne `<dd><%= @task.Description %></dd>` et insérez le code suiv
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Ouvrez le fichier *app/views/tasks/index.html.erb* , qui est la page d’index pour tous les enregistrements.
+Ouvrez le fichier *app/views/tasks/index.html.erb*, qui est la page d’index pour tous les enregistrements.
 
 Recherchez la ligne `<th><%= model_class.human_attribute_name(:Description) %></th>` et insérez le code suivant juste en dessous :
 
@@ -439,7 +439,7 @@ Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de don
 
 Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services** , puis sur le nom de votre application Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
 

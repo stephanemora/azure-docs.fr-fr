@@ -4,11 +4,11 @@ description: Cet article décrit la prise en charge de Sauvegarde Azure quand vo
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363236"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997237"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 

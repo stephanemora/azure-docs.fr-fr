@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340459"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996982"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,9 +31,9 @@ Cet article explique des cas d’utilisation courants et montre comment utiliser
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Métriques de performances Cosmos DB dans le Portail Azure":::
 
-Les métriques suivantes sont disponibles dans le volet **Métriques**  : 
+Les métriques suivantes sont disponibles dans le volet **Métriques** : 
 
-* **Métriques de débit**  : cette métrique indique le nombre de demandes consommées ou ayant échoué (code de réponse 429) en raison du dépassement de la capacité de débit ou de stockage provisionnée pour le conteneur.
+* **Métriques de débit** : cette métrique indique le nombre de demandes consommées ou ayant échoué (code de réponse 429) en raison du dépassement de la capacité de débit ou de stockage provisionnée pour le conteneur.
 
 * **Métriques de stockage** - Cette métrique indique la taille utilisée par les données et les index.
 
@@ -57,7 +57,7 @@ Le code d’état d’erreur le plus courant est 429 (limitation du débit). Cet
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Déterminer la distribution du débit entre les partitions
 
-Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit** , la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
+Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit**, la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partition unique fortement utilisée":::
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métriques, red hat
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996846"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Déployer une instance Prometheus autonome dans un cluster Azure Red Hat OpenShift
 
@@ -36,9 +36,9 @@ Vous allez préparer certains fichiers de configuration Prometheus localement. C
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Connectez-vous au cluster à l’aide de l’outil OC
 
-1. Ouvrez un navigateur web, accédez à la console web de votre cluster (https://openshift. *random-id* . *region* .azmosa.io).
+1. Ouvrez un navigateur web, accédez à la console web de votre cluster (https://openshift.*random-id*.*region*.azmosa.io).
 2. Connectez-vous avec vos informations d’identification Azure.
-3. Dans l’angle supérieur droit, sélectionnez votre nom d’utilisateur, puis **Copier la commande de connexion** .
+3. Dans l’angle supérieur droit, sélectionnez votre nom d’utilisateur, puis **Copier la commande de connexion**.
 4. Collez votre nom d’utilisateur dans le terminal que vous allez utiliser.
 
 > [!NOTE]
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Facultatif : Déployer l’exemple d’application
 
-Tout fonctionne, mais il n’y a aucune source de métriques. Accédez à l’URL Prometheus (https://prom-prometheus-project.apps. *random-id* . *region* .azmosa.io/). Vous pouvez la trouver à l’aide de la commande suivante :
+Tout fonctionne, mais il n’y a aucune source de métriques. Accédez à l’URL Prometheus (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). Vous pouvez la trouver à l’aide de la commande suivante :
 
 ```
 oc get route prom -n prometheus-project
@@ -206,10 +206,10 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Les nouvelles applications devraient apparaître en tant que cibles valides dans la page de découverte des services dans les 30 secondes après le déploiement.
 
-Pour plus d’informations, sélectionnez **État** > **Cibles** .
+Pour plus d’informations, sélectionnez **État** > **Cibles**.
 
 > [!NOTE]
-> Pour chaque cible correctement interrogée, Prometheus ajoute un point de données dans la métrique « up ». Cliquez sur **Prometheus** dans le coin supérieur gauche, puis entrez **up** comme expression et cliquez sur **Exécuter** .
+> Pour chaque cible correctement interrogée, Prometheus ajoute un point de données dans la métrique « up ». Cliquez sur **Prometheus** dans le coin supérieur gauche, puis entrez **up** comme expression et cliquez sur **Exécuter**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

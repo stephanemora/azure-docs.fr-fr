@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242396"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998564"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
 
@@ -33,14 +33,14 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource de liaison privée.
 
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-2. Dans **Créer un réseau virtuel** , entrez ou sélectionnez ces informations :
+2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Abonnement | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau** , entrez *myResourceGroup* et sélectionnez **OK**. |
+    | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
     | Emplacement | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *mySubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
@@ -51,7 +51,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**.
 
-2. Dans **Créer une machine virtuelle - Notions de base** , entrez ou sélectionnez ces informations :
+2. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -76,9 +76,9 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Sélectionnez **Suivant : Disques**.
 
-1. Dans **Créer une machine virtuelle - Disks** , conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
+1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
-1. Dans **Créer une machine virtuelle - Mise en réseau** , sélectionnez ces informations :
+1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -101,7 +101,7 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
 
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Bases de données** > **Azure Database pour MySQL**.
 
-1. Dans **Azure Database pour MySQL** , fournissez les informations suivantes :
+1. Dans **Azure Database pour MySQL**, fournissez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -132,11 +132,11 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
 
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Liaison privée**.
 
-2. Dans **Centre de liaisons privées - Vue d’ensemble** , dans l’option permettant de **Générer une connexion privée à un service** , sélectionnez **Démarrer**.
+2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **Générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Présentation de Private Link":::
 
-1. Dans **Créer un point de terminaison privé – Informations de base** , entrez ou sélectionnez ces informations :
+1. Dans **Créer un point de terminaison privé – Informations de base**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -149,7 +149,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     |||
 
 5. Sélectionnez **Suivant : Ressource**.
-6. Dans **Créer un point de terminaison privé - Ressource** , entrez ou sélectionnez les informations suivantes :
+6. Dans **Créer un point de terminaison privé - Ressource**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -160,7 +160,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     |Sous-ressource cible |Sélectionnez *mysqlServer*|
     |||
 7. Sélectionnez **Suivant : Configuration**.
-8. Dans **Créer un point de terminaison privé – Configuration** , entrez ou sélectionnez ces informations :
+8. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -186,13 +186,13 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Se connecter à une machine virtuelle à l’aide du Bureau à distance (RDP)
 
 
-Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à partir d’Internet comme suit : 
+Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à partir d’Internet comme suit : 
 
 1. Dans la barre de recherche du portail, entrez *myVm*.
 
-1. Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter** , **Se connecter à la machine virtuelle** s’ouvre.
+1. Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter**, **Se connecter à la machine virtuelle** s’ouvre.
 
-1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp* ) et le télécharge sur votre ordinateur.
+1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
 1. Ouvrez le fichier *downloaded.rdp*.
 
@@ -201,7 +201,7 @@ Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à part
     1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
 
         > [!NOTE]
-        > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte** , pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
+        > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 
 1. Sélectionnez **OK**.
 
@@ -211,7 +211,7 @@ Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à part
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Accéder au serveur MySQL en privé à partir de la machine virtuelle
 
-1. Dans le Bureau à distance de *myVM* , ouvrez PowerShell.
+1. Dans le Bureau à distance de *myVM*, ouvrez PowerShell.
 
 2. Entrez `nslookup  myServer.privatelink.mysql.database.azure.com`. 
 
@@ -226,7 +226,7 @@ Après avoir créé **myVm** , connectez-vous à cette machine virtuelle à part
 
 3. Testez la connexion de liaison privée pour le serveur MySQL à l’aide de tout client disponible. Dans l’exemple ci-dessous, j’ai utilisé [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) pour effectuer l’opération.
 
-4. Dans **Nouvelle connexion** , entrez ou sélectionnez les informations suivantes :
+4. Dans **Nouvelle connexion**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -250,7 +250,7 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur M
 
 1. Entrez *myResourceGroup* dans la zone **Recherche** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES** , puis sélectionnez **Supprimer**.
+3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896798"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997271"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -44,9 +44,9 @@ Pour ce tutoriel, vous allez charger des données de geofencing GeoJSON qui cont
 >[!TIP]
 >Vous pouvez mettre à jour vos données de geofencing à tout moment. Pour plus d’informations, consultez la page sur l’[API de chargement de données](/rest/api/maps/data/uploadpreview).
 
-1. Ouvrez l’application Postman. Vers le haut, sélectionnez **New** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection** . Nommez la collection, puis sélectionnez **Create** .
+1. Ouvrez l’application Postman. Vers le haut, sélectionnez **New**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection, puis sélectionnez **Create**.
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer** .
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
 
 3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger les données de geofencing vers Azure Maps. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -56,7 +56,7 @@ Pour ce tutoriel, vous allez charger des données de geofencing GeoJSON qui cont
 
     Le paramètre `geojson` de l’URL représente le format des données en cours de chargement.
 
-4. Sélectionnez l’onglet **Corps** . Sélectionnez **brut** , puis **JSON** comme format d’entrée. Copiez les données GeoJSON suivantes et collez-les dans la zone de texte **Corps**  :
+4. Sélectionnez l’onglet **Corps** . Sélectionnez **brut**, puis **JSON** comme format d’entrée. Copiez les données GeoJSON suivantes et collez-les dans la zone de texte **Corps** :
 
    ```JSON
    {
@@ -144,7 +144,7 @@ Pour ce tutoriel, vous allez charger des données de geofencing GeoJSON qui cont
    }
    ```
 
-5. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **Headers** de la réponse. Copiez la valeur de la **Emplacement** , qui est l’URL `status URL`.
+5. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **Headers** de la réponse. Copiez la valeur de la **Emplacement**, qui est l’URL `status URL`.
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
@@ -190,43 +190,43 @@ Ensuite, vous allez créer deux points de terminaison d’[application logique](
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. En haut à gauche du portail Azure, sélectionnez **Créer une ressource** .
+2. En haut à gauche du portail Azure, sélectionnez **Créer une ressource**.
 
-3. Dans la zone **Recherche dans la Place de marché** , tapez **Application logique** .
+3. Dans la zone **Recherche dans la Place de marché**, tapez **Application logique**.
 
-4. Dans les résultats, sélectionnez **Application logique** > **Créer** .
+4. Dans les résultats, sélectionnez **Application logique** > **Créer**.
 
-5. Dans la page **Application logique** , entrez les valeurs suivantes :
-    * Sous **Abonnement** , l’abonnement à utiliser pour cette application logique.
-    * Sous **Groupe de ressources** , le nom du groupe de ressources pour cette application logique. Vous pouvez choisir de **Créer** ou d’utiliser un groupe de ressources **Existant** .
-    * Sous **Nom de l’application logique** , le nom de votre application logique. En l’occurrence, utilisez le nom `Equipment-Enter`.
+5. Dans la page **Application logique**, entrez les valeurs suivantes :
+    * Sous **Abonnement**, l’abonnement à utiliser pour cette application logique.
+    * Sous **Groupe de ressources**, le nom du groupe de ressources pour cette application logique. Vous pouvez choisir de **Créer** ou d’utiliser un groupe de ressources **Existant**.
+    * Sous **Nom de l’application logique**, le nom de votre application logique. En l’occurrence, utilisez le nom `Equipment-Enter`.
 
     Pour les besoins de ce tutoriel, conservez toutes les autres valeurs par défaut.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Capture d’écran de la création d’une application logique.":::
 
-6. Sélectionnez **Vérifier + créer** . Passez en revue vos paramètres, puis sélectionnez **Créer** pour soumettre le déploiement. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** . Vous accédez alors au **concepteur d’application logique** .
+6. Sélectionnez **Vérifier + créer**. Passez en revue vos paramètres, puis sélectionnez **Créer** pour soumettre le déploiement. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**. Vous accédez alors au **concepteur d’application logique**.
 
-7. Sélectionnez un type de déclencheur. Faites défiler la page vers le bas pour faire apparaître la section **Démarrer avec un déclencheur courant** . Sélectionnez **Lors de la réception d’une demande HTTP** .
+7. Sélectionnez un type de déclencheur. Faites défiler la page vers le bas pour faire apparaître la section **Démarrer avec un déclencheur courant**. Sélectionnez **Lors de la réception d’une demande HTTP**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Capture d’écran de la création d’une application logique.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Capture d’écran de la création d’un déclencheur HTTP d’application logique.":::
 
-8. Dans l’angle supérieur droit du concepteur d’application logique, sélectionnez **Enregistrer** . L’ **URL HTTP POST** est générée automatiquement. Enregistrez l’URL. Vous en aurez besoin dans la section suivante pour créer un point de terminaison d’événement.
+8. Dans l’angle supérieur droit du concepteur d’application logique, sélectionnez **Enregistrer**. L’**URL HTTP POST** est générée automatiquement. Enregistrez l’URL. Vous en aurez besoin dans la section suivante pour créer un point de terminaison d’événement.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Capture d’écran de l’URL et du JSON de la requête HTTP d’application logique":::
 
-9. Sélectionnez **+ Nouvelle étape** . Vous allez à présent choisir une action. Tapez `outlook.com email` dans la zone de recherche. Faites défiler la liste **Actions** vers le bas et sélectionnez **Envoyer un e-mail (V2)** .
+9. Sélectionnez **+ Nouvelle étape**. Vous allez à présent choisir une action. Tapez `outlook.com email` dans la zone de recherche. Faites défiler la liste **Actions** vers le bas et sélectionnez **Envoyer un e-mail (V2)** .
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Capture d’écran du concepteur d’application logique.":::
 
 10. Connectez-vous à votre compte Outlook. Veillez à sélectionner **Oui** pour autoriser l’application logique à accéder au compte. Renseignez les champs pour l’envoi d’un e-mail.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Capture d’écran de l’étape d’envoi d’un e-mail de la création d’une application logique.":::
 
     >[!TIP]
     > Vous pouvez récupérer des données de réponse GeoJSON, telles que `geometryId` ou `deviceId`, dans vos notifications par e-mail. Vous pouvez configurer Logic Apps pour lire les données envoyées par Event Grid. Pour plus d’informations sur la configuration de Logic Apps pour consommer et transmettre des données d’événement dans des notifications par e-mail, consultez [Tutoriel : Envoyer des notifications par e-mail concernant des événements Azure IoT Hub à l’aide d’Event Grid et de Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
-11. Dans l’angle supérieur gauche du concepteur d’application logique, sélectionnez **Enregistrer** .
+11. Dans l’angle supérieur gauche du concepteur d’application logique, sélectionnez **Enregistrer**.
 
 Pour créer une deuxième application logique afin de notifier le chef d’exploitation quand un équipement sort du site de construction, répétez les étapes 3 à 11. Nommez l’application logique `Equipment-Exit`.
 
@@ -236,23 +236,23 @@ Azure Maps prend en charge [trois types d’événements](../event-grid/event-sc
 
 Les étapes suivantes montrent comment créer un abonnement aux événements d’entrée dans la limite géographique. Vous pouvez vous abonner aux événements de sortie en suivant la même procédure.
 
-1. Accédez à votre compte Azure Maps. Dans le tableau de bord, sélectionnez **Abonnements** . Sélectionnez le nom de votre abonnement, puis **Événements** dans le menu de paramètres.
+1. Accédez à votre compte Azure Maps. Dans le tableau de bord, sélectionnez **Abonnements**. Sélectionnez le nom de votre abonnement, puis **Événements** dans le menu de paramètres.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Capture d’écran de l’accès aux événements de compte Azure Maps.":::
 
 2. Pour créer un abonnement aux événements, sélectionnez **+ Abonnement aux événements** dans la page des événements.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Capture d’écran de la création d’un abonnement aux événements Azure Maps.":::
 
-3. Dans la page **Créer un abonnement aux événements** , entrez les valeurs suivantes :
+3. Dans la page **Créer un abonnement aux événements**, entrez les valeurs suivantes :
     * **Nom** de l’abonnement.
-    * **Schéma d’événement**  : *Schéma Event Grid* .
+    * **Schéma d’événement** : *Schéma Event Grid*.
     * **Nom de la rubrique système** pour cet abonnement aux événements, en l’occurrence `Contoso-Construction`.
-    * Pour **Filtrer sur les types d’événements** , choisissez le type d’événement `Geofence Entered`.
-    * Pour **Type de point de terminaison** , choisissez `Web Hook`.
-    * Pour **Point de terminaison** , copiez l’URL HTTP POST du point de terminaison d’entrée de l’application logique que vous avez créé dans la section précédente. Si vous avez oublié de l’enregistrer, vous pouvez simplement revenir au concepteur d’application logique et le copier (à partir de l’étape relative au déclencheur HTTP).
+    * Pour **Filtrer sur les types d’événements**, choisissez le type d’événement `Geofence Entered`.
+    * Pour **Type de point de terminaison**, choisissez `Web Hook`.
+    * Pour **Point de terminaison**, copiez l’URL HTTP POST du point de terminaison d’entrée de l’application logique que vous avez créé dans la section précédente. Si vous avez oublié de l’enregistrer, vous pouvez simplement revenir au concepteur d’application logique et le copier (à partir de l’étape relative au déclencheur HTTP).
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Capture d’écran de la création d’une application logique.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Capture d’écran des détails de l’abonnement aux événements Azure Maps.":::
 
 4. Sélectionnez **Create** (Créer).
 
@@ -264,7 +264,7 @@ Utilisez l’[API d’obtention de limite géographique spatiale](/rest/api/maps
 
 Chaque équipement a un `deviceId`. Dans ce tutoriel, vous suivez un seul équipement dont l’ID unique est `device_1`.
 
-Le schéma ci-dessous montre les cinq localisations de l’équipement au fil du temps en commençant par la localisation *Start* , située en dehors des limites géographiques. Pour les besoins de ce tutoriel, la localisation *Start* n’est pas définie, car vous n’interrogerez pas l’appareil à cette localisation.
+Le schéma ci-dessous montre les cinq localisations de l’équipement au fil du temps en commençant par la localisation *Start*, située en dehors des limites géographiques. Pour les besoins de ce tutoriel, la localisation *Start* n’est pas définie, car vous n’interrogerez pas l’appareil à cette localisation.
 
 Quand vous interrogez l’[API d’obtention de limite géographique spatiale](/rest/api/maps/spatial/getgeofence) avec une localisation d’équipement indiquant l’entrée ou la sortie initiale dans la limite géographique, Event Grid appelle le point de terminaison d’application logique approprié pour envoyer une notification par e-mail au chef d’exploitation.
 
@@ -274,7 +274,7 @@ Chacune des sections suivantes effectue des requêtes d’API avec chacune des c
 
 ### <a name="equipment-location-1-47638237-122132483"></a>Localisation de l’équipement 1 (47.638237,-122.132483)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 1* . Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer** .
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 1*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
@@ -282,7 +282,7 @@ Chacune des sections suivantes effectue des requêtes d’API avec chacune des c
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Sélectionnez **Envoyer** . Le code GeoJSON suivant s’affiche dans la fenêtre de réponse.
+3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse.
 
     ```json
     {
@@ -314,7 +314,7 @@ Dans la réponse GeoJSON précédente, la distance négative par rapport à la l
 
 ### <a name="location-2-4763800-122132531"></a>Localisation 2 (47.63800,-122.132531)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 2* . Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer** .
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 2*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
@@ -322,7 +322,7 @@ Dans la réponse GeoJSON précédente, la distance négative par rapport à la l
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Sélectionnez **Envoyer** . Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
+3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
 
     ```json
     {
@@ -354,7 +354,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>Localisation 3 (47.63810783315048,-122.13336020708084)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 3* . Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer** .
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 3*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
@@ -362,7 +362,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
-3. Sélectionnez **Envoyer** . Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
+3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
 
     ```json
     {
@@ -397,7 +397,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
 
 ### <a name="location-4-47637988-1221338344"></a>Localisation 4 (47.637988,-122.1338344)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 4* . Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer** .
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 4*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
@@ -405,7 +405,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Sélectionnez **Envoyer** . Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
+3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
 
     ```json
     {
@@ -431,7 +431,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
 
 ### <a name="location-5-4763799--122134505"></a>Localisation 5 (47.63799, -122.134505)
 
-1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 5* . Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer** .
+1. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Affectez-la comme *Localisation 5*. Sélectionnez la collection que vous avez créée à la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data), puis sélectionnez **Enregistrer**.
 
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet du générateur, puis entrez l’URL suivante. Veillez à remplacer `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement primaire et `{udid}` par l’`udid` que vous avez enregistré dans la section [Charger les données de geofencing GeoJSON](#upload-geofencing-geojson-data).
 
@@ -439,7 +439,7 @@ Dans la réponse GeoJSON précédente, l’équipement est resté dans la limite
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Sélectionnez **Envoyer** . Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
+3. Sélectionnez **Envoyer**. Le code GeoJSON suivant s’affiche dans la fenêtre de réponse :
 
     ```json
     {

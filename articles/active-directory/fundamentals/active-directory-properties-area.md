@@ -14,11 +14,11 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996750"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Ajouter les informations de confidentialité de votre organisation à l’aide d’Azure Active Directory
 Cet article explique comment un administrateur de locataires peut ajouter des informations de confidentialité au locataire Azure Active Directory (Azure AD) d’une organisation, par le biais du portail Azure.
