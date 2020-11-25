@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317785"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974423"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingérer les données dans un pool SQL dédié
 
@@ -23,15 +23,15 @@ Cet article explique comment ingérer les données d’un compte de stockage Azu
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte de stockage Azure**  : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour découvrir comment procéder.
-* **Azure Synapse Analytics**  : Vous utilisez un pool SQL dédié en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL dédié](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
+* **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour découvrir comment procéder.
+* **Azure Synapse Analytics** : Vous utilisez un pool SQL dédié en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL dédié](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
 
 ## <a name="create-linked-services"></a>Créez des services liés
 
 Dans Azure Synapse Analytics, un service lié vous permet de définir vos informations de connexion à d’autres services. Dans cette section, vous allez ajouter un service lié Azure Synapse Analytics et Azure Data Lake Storage Gen2.
 
 1. Ouvrez l'expérience utilisateur Azure Synapse Analytics et accédez à l’onglet **Gérer**.
-1. Sous **Connexions externes** , sélectionnez **Services liés**.
+1. Sous **Connexions externes**, sélectionnez **Services liés**.
 1. Pour ajouter un service lié, sélectionnez **Nouveau**.
 1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis sélectionnez **Continuer**.
 1. Entrez vos informations d’identification d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Sélectionnez Tester la connexion pour vérifier que vos informations d’identification sont correctes. Lorsque vous avez terminé, sélectionnez **Créer**.
@@ -42,7 +42,7 @@ Dans Azure Synapse Analytics, un service lié vous permet de définir vos inform
 Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline contenant une activité de copie qui ingère des données d'ADLS Gen2 dans un pool SQL dédié.
 
 1. Accédez à l’onglet **Intégrer**. Sélectionnez l’icône + à côté de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
-1. Dans le volet des activités, sous **Déplacer et transformer** , faites glisser **Copier les données** sur le canevas du pipeline.
+1. Dans le volet des activités, sous **Déplacer et transformer**, faites glisser **Copier les données** sur le canevas du pipeline.
 1. Sélectionnez l’activité de copie, puis accédez à l’onglet **Source**. Sélectionnez **Nouveau** pour créer un jeu de données source.
 1. Sélectionnez Azure Data Lake Storage Gen2 comme magasin de données, puis sélectionnez Continuer.
 1. Sélectionnez DelimitedText comme format, puis sélectionnez Continuer.
@@ -65,7 +65,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
 
 Au cours de cette étape, vous déclenchez manuellement le pipeline publié à l’étape précédente. 
 
-1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline** , sélectionnez **Terminer**.  
+1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline**, sélectionnez **Terminer**.  
 1. Accédez à l’onglet **Surveiller** dans la barre latérale gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne **Actions** pour afficher les détails de l’activité et réexécuter le pipeline.
 1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Sélectionnez **Exécutions de pipeline** au sommet de la page pour revenir à la vue des exécutions du pipeline. Sélectionnez **Actualiser** pour actualiser l’affichage.
 1. Vérifiez que vos données sont correctement écrites dans le pool SQL dédié.

@@ -7,13 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094056"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974661"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -110,7 +109,6 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| jvm.gc.pause.total.count | jvm.gc.pause (nombre total) | Count | Nombre total de GC après le démarrage de cette JMV, y compris les GC de nouvelle et d’ancienne génération. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (durée totale) | Millisecondes | Durée totale du GC utilisée après le démarrage de cette JMV, y compris les GC de nouvelle et d’ancienne génération. |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Performance (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -136,7 +134,6 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| Nombre de minuteurs actifs               | active-timer-count               | Count | Nombre de minuteurs actuellement actifs. Un minuteur actif est un minuteur défini pour sonner à un moment donné et qui n’a pas encore été annulé. |
 
 Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="request"></a>Requête
 >[!div class="mx-tdCol2BreakAll"]
@@ -147,7 +144,6 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 >| tomcat.global.request.total.count | tomcat.global.request (nombre total) | Count | Nombre total de requêtes traitées par le serveur web Tomcat |
 >| tomcat.global.request.max | tomcat.global.request.max | Millisecondes | Durée maximale de traitement d’une requête par le serveur web Tomcat |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Requête (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -159,7 +155,6 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 >| Demandes ayant échoué | failed-requests | Count | Nombre d’échecs de requêtes. |
 
 Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="session"></a>session
 >[!div class="mx-tdCol2BreakAll"]

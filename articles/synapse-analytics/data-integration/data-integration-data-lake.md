@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309330"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974457"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingérer des données dans Azure Data Lake Storage Gen2 
 
@@ -30,7 +30,7 @@ Cet article explique comment ingérer des données d’un emplacement dans un au
 Dans Azure Synapse Analytics, un service lié vous permet de définir vos informations de connexion à d’autres services. Dans cette section, vous allez ajouter Azure Synapse Analytics et Azure Data Lake Gen 2 en tant que services liés.
 
 1. Ouvrez l’expérience utilisateur Azure Synapse Analytics et accédez à l’onglet **Gérer**.
-1. Sous **Connexions externes** , sélectionnez **Services liés**.
+1. Sous **Connexions externes**, sélectionnez **Services liés**.
 1. Pour ajouter un service lié, sélectionnez **Nouveau**.
 1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis sélectionnez **Continuer**.
 1. Entrez vos informations d’identification d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Sélectionnez Tester la connexion pour vérifier que vos informations d’identification sont correctes. 
@@ -41,7 +41,7 @@ Dans Azure Synapse Analytics, un service lié vous permet de définir vos inform
 Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline contenant une activité de copie qui ingère des données d’Azure Data Lake Gen 2 dans un pool SQL dédié.
 
 1. Accédez à l’onglet **Orchestrer**. Sélectionnez l’icône + en regard de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
-1. Dans le volet des activités, sous **Déplacer et transformer** , faites glisser **Copier les données** sur le canevas du pipeline.
+1. Dans le volet des activités, sous **Déplacer et transformer**, faites glisser **Copier les données** sur le canevas du pipeline.
 1. Sélectionnez l’activité de copie, puis accédez à l’onglet **Source**. Sélectionnez **Nouveau** pour créer un jeu de données source.
 1. Sélectionnez Azure Data Lake Storage Gen2 comme magasin de données, puis sélectionnez Continuer.
 1. Sélectionnez DelimitedText comme format, puis sélectionnez Continuer.
@@ -64,7 +64,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
 
 Au cours de cette étape, vous déclenchez manuellement le pipeline publié à l’étape précédente. 
 
-1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline** , sélectionnez **Terminer**.  
+1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline**, sélectionnez **Terminer**.  
 1. Accédez à l’onglet **Surveiller** dans la barre latérale gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne **Actions** pour afficher les détails de l’activité et réexécuter le pipeline.
 1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Sélectionnez **Exécutions de pipeline** au sommet de la page pour revenir à la vue des exécutions du pipeline. Sélectionnez **Actualiser** pour actualiser l’affichage.
 1. Vérifiez que vos données sont correctement écrites dans le pool SQL dédié.

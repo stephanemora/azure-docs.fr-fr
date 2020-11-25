@@ -14,11 +14,11 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371849"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973913"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Créer un groupe de base et ajouter des membres avec Azure Active Directory
 Vous pouvez créer un groupe de base à l’aide du portail Azure Active Directory (Azure AD). Pour les besoins de cet article, un groupe de base est ajouté à une seule ressource par le propriétaire de la ressource (administrateur) ; il inclut les membres spécifiques (employés) qui doivent accéder à cette ressource. Pour des scénarios plus complexes, notamment la création de règles et les appartenances dynamiques, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../enterprise-users/index.yml).
@@ -27,8 +27,8 @@ Vous pouvez créer un groupe de base à l’aide du portail Azure Active Directo
 Il existe plusieurs types de groupe et d’appartenance. Les informations suivantes expliquent chaque type de groupe et d’appartenance, et pourquoi ils sont utilisés. Vous pourrez ainsi déterminer les options à utiliser lorsque vous créez un groupe.
 
 ### <a name="group-types"></a>Types de groupe :
-- **Sécurité** . Utilisé pour gérer l’accès de membres et d’ordinateurs aux ressources partagées d’un groupe d’utilisateurs. Par exemple, vous pouvez créer un groupe de sécurité pour une stratégie de sécurité particulière. En procédant ainsi, vous pouvez donner un ensemble d’autorisations à tous les membres à la fois, au lieu de devoir ajouter des autorisations individuellement à chaque membre. Un groupe de sécurité peut avoir des utilisateurs, des appareils, des groupes et des principaux de service comme membres ainsi que des utilisateurs et des principaux de service comme propriétaires. Pour plus d’informations sur la gestion de l’accès aux ressources, consultez [Gérer l’accès aux ressources avec des groupes Azure Active Directory](active-directory-manage-groups.md).
-- **Microsoft 365** . Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe. Un groupe Microsoft 365 ne peut contenir que des utilisateurs comme membres. Les utilisateurs et les principaux de service peuvent être propriétaires d’un groupe Microsoft 365. Pour plus d’informations sur les groupes Microsoft 365, consultez [En savoir plus sur les groupes Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Sécurité**. Utilisé pour gérer l’accès de membres et d’ordinateurs aux ressources partagées d’un groupe d’utilisateurs. Par exemple, vous pouvez créer un groupe de sécurité pour une stratégie de sécurité particulière. En procédant ainsi, vous pouvez donner un ensemble d’autorisations à tous les membres à la fois, au lieu de devoir ajouter des autorisations individuellement à chaque membre. Un groupe de sécurité peut avoir des utilisateurs, des appareils, des groupes et des principaux de service comme membres ainsi que des utilisateurs et des principaux de service comme propriétaires. Pour plus d’informations sur la gestion de l’accès aux ressources, consultez [Gérer l’accès aux ressources avec des groupes Azure Active Directory](active-directory-manage-groups.md).
+- **Microsoft 365**. Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe. Un groupe Microsoft 365 ne peut contenir que des utilisateurs comme membres. Les utilisateurs et les principaux de service peuvent être propriétaires d’un groupe Microsoft 365. Pour plus d’informations sur les groupes Microsoft 365, consultez [En savoir plus sur les groupes Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Types d’appartenance :
 - **Affecté.** Vous permet d’ajouter des utilisateurs spécifiques pour qu’ils soient membres de ce groupe et qu’ils disposent d’autorisations uniques. Pour les besoins de cet article, nous utilisons cette option.
@@ -43,9 +43,9 @@ Vous pouvez créer un groupe de base et ajouter vos membres en même temps. Pour
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-1. Recherchez et sélectionnez **Azure Active Directory** .
+1. Recherchez et sélectionnez **Azure Active Directory**.
 
-1. Sur la page **Active Directory** , sélectionnez **Groupes** , puis **Nouveau groupe** .
+1. Sur la page **Active Directory**, sélectionnez **Groupes**, puis **Nouveau groupe**.
 
     ![Page Azure AD, avec affichage des groupes](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
@@ -55,21 +55,21 @@ Vous pouvez créer un groupe de base et ajouter vos membres en même temps. Pour
 
 1. Sélectionnez un **type de groupe** prédéfini. Pour plus d’informations sur les types de groupe, consultez [Types de groupe et d’appartenance](#group-types).
 
-1. Créez et ajoutez un **nom de groupe** . Choisissez un nom dont vous vous souviendrez et qui est logique pour le groupe. Une vérification sera effectuée pour déterminer si le nom est déjà utilisé par un autre groupe. Si le nom est déjà en cours d’utilisation, pour éviter les noms en double, vous devrez modifier le nom de votre groupe.
+1. Créez et ajoutez un **nom de groupe**. Choisissez un nom dont vous vous souviendrez et qui est logique pour le groupe. Une vérification sera effectuée pour déterminer si le nom est déjà utilisé par un autre groupe. Si le nom est déjà en cours d’utilisation, pour éviter les noms en double, vous devrez modifier le nom de votre groupe.
 
 1. Ajoutez une **adresse e-mail de groupe** pour le groupe ou conservez l’adresse e-mail qui est renseignée automatiquement.
 
-1. **Description du groupe** . Ajoutez une description facultative à votre groupe.
+1. **Description du groupe**. Ajoutez une description facultative à votre groupe.
 
 1. Sélectionnez un **type d’appartenance (obligatoire)** prédéfini. Pour plus d’informations sur les types d’appartenance, consultez [Types de groupe et d’appartenance](#membership-types).
 
 1. Sélectionnez **Create** (Créer). Votre groupe est créé et prêt pour l’ajout de membres.
 
-1. Sélectionnez la zone **Membres** dans la page **Groupe** , puis commencez à rechercher les membres à ajouter à votre groupe à partir de la page **Sélectionner des membres** .
+1. Sélectionnez la zone **Membres** dans la page **Groupe**, puis commencez à rechercher les membres à ajouter à votre groupe à partir de la page **Sélectionner des membres**.
 
     ![Sélection de membres pour votre groupe pendant le processus de création du groupe](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
 
-1. Lorsque vous avez terminé l’ajout de membres, choisissez **Sélectionner** .
+1. Lorsque vous avez terminé l’ajout de membres, choisissez **Sélectionner**.
 
     La page **Présentation du groupe** est mise à jour pour afficher le nombre de membres désormais ajoutés au groupe.
 

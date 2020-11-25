@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973199"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -74,7 +74,7 @@ Vérifiez que les prérequis suivants sont remplis.
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, ajoutez des connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
    - Vos agents d’authentification doivent accéder à **login.windows.net** et à **login.microsoftonline.net** pour l’inscription initiale. Par conséquent, ouvrez également votre pare-feu pour ces URL.
-    - Pour la validation des certificats, débloquez les URL suivantes : **crl3.digicert.com:80** , **crl4.digicert.com:80** , **ocsp.digicert.com:80** , **www\.d-trust.net:80** , **root-c3-ca2-2009.ocsp.d-trust.net:80** , **crl.microsoft.com:80** , **oneocsp.microsoft.com:80** et **ocsp.msocsp.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
+    - Pour la validation des certificats, débloquez les URL suivantes : **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80** et **ocsp.msocsp.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Cloud Azure Government - Prérequis
 Avant d'activer l'authentification directe via Azure AD Connect à l'étape 2, téléchargez la dernière version de l'agent PTA à partir du portail Azure.  Vous devez vous assurer que vous disposez de la version **1.5.1742.0.** ou version ultérieure.  Pour vérifier votre agent, consultez [Mettre à niveau les agents d'authentification](how-to-connect-pta-upgrade-preview-authentication-agents.md).
@@ -88,7 +88,7 @@ Activez l’authentification directe via [Azure AD Connect](whatis-hybrid-identi
 >[!IMPORTANT]
 >Vous pouvez activer l’authentification directe sur le serveur principal ou sur un serveur intermédiaire Azure AD Connect. Nous vous recommandons vivement de l’activer à partir du serveur principal. Si vous installez un serveur intermédiaire Azure AD Connect plus tard, vous **devez** continuer à choisir l’authentification directe comme option de connexion. Le choix d’une autre option **désactivera** l’authentification directe sur le client et remplacera le paramètre dans le serveur principal.
 
-Si vous installez Azure AD Connect pour la première fois, choisissez le [chemin d’installation personnalisé](how-to-connect-install-custom.md). Dans la page **Connexion utilisateur** , choisissez **Authentification directe** comme **méthode d’authentification**. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect. La fonctionnalité d’authentification directe est également activée sur votre locataire.
+Si vous installez Azure AD Connect pour la première fois, choisissez le [chemin d’installation personnalisé](how-to-connect-install-custom.md). Dans la page **Connexion utilisateur**, choisissez **Authentification directe** comme **méthode d’authentification**. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect. La fonctionnalité d’authentification directe est également activée sur votre locataire.
 
 ![Azure AD Connect : Connexion de l’utilisateur](./media/how-to-connect-pta-quick-start/sso3.png)
 
@@ -134,7 +134,7 @@ Pour commencer, suivez ces instructions pour télécharger l’agent d’authent
 
 1. Pour télécharger la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure), connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire.
 2. Sélectionnez **Active Directory** dans le volet de gauche.
-3. Sélectionnez **Azure AD Connect** , **Authentification directe** , puis **Télécharger l'agent**.
+3. Sélectionnez **Azure AD Connect**, **Authentification directe**, puis **Télécharger l'agent**.
 4. Cliquez sur le bouton **Accepter les conditions et télécharger**.
 
 ![Centre d'administration Azure Active Directory : Bouton de téléchargement de l'Agent d'authentification](./media/how-to-connect-pta-quick-start/pta9.png)
