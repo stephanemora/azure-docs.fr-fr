@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975953"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
@@ -38,11 +38,11 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
 
 2. Dans le volet Favoris du portail Azure, cliquez sur Toutes les ressources. Cliquez sur la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
 
-3. Sélectionnez **Sondes d’intégrité** , puis sélectionnez **Ajouter** pour ajouter une nouvelle sonde d’intégrité.
+3. Sélectionnez **Sondes d’intégrité**, puis sélectionnez **Ajouter** pour ajouter une nouvelle sonde d’intégrité.
 
    ![Ajouter une nouvelle sonde][4]
 
-4. Sur la page **Ajouter une sonde d’intégrité** , fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
+4. Sur la page **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
 
    |**Paramètre** | **Valeur** | **Détails**|
    |---|---|---|
@@ -93,7 +93,7 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
 
    ![Ajouter un panneau Sonde contenant toutes les informations][1]
 
-4. Dans le volet **Ajouter une sonde d’intégrité** , fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
+4. Dans le volet **Ajouter une sonde d’intégrité**, fournissez les informations nécessaires à la sonde, puis sélectionnez **OK** une fois que vous avez terminé.
 
    |**Paramètre** | **Valeur** | **Détails**|
    |---|---|---|
@@ -118,7 +118,7 @@ Maintenant que la sonde a été créée, il est temps de l’ajouter à la passe
 
    ![fenêtre de paramètres https][2]
 
-2. Dans la page des paramètres **appGatewayBackEndHttpSettings** , cochez la case **Utiliser la sonde personnalisée** , puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
+2. Dans la page des paramètres **appGatewayBackEndHttpSettings**, cochez la case **Utiliser la sonde personnalisée**, puis choisissez la sonde créée à la section [Créer la sonde](#createprobe) dans la liste déroulante **Sonde personnalisée**.
    Quand vous avez terminé, cliquez sur **Enregistrer** pour appliquer les paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
