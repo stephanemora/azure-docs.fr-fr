@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312688"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020600"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test de code de science des données dans Azure avec Team Data Science Process et Azure DevOps Services
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -134,7 +134,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     f. Dans les détails de PowerShell, renseignez les informations requises, notamment le nom et la version de PowerShell. Choisissez **Script Inline** comme type. 
     
-    Dans la zone sous **Script Inline** , saisissez **python test1.py**. Assurez-vous que la variable d’environnement est correctement configurée pour Python. Si vous avez besoin d’un noyau ou d’une version différente de Python, vous pouvez spécifier explicitement le chemin d’accès, comme indiqué dans l’illustration : 
+    Dans la zone sous **Script Inline**, saisissez **python test1.py**. Assurez-vous que la variable d’environnement est correctement configurée pour Python. Si vous avez besoin d’un noyau ou d’une version différente de Python, vous pouvez spécifier explicitement le chemin d’accès, comme indiqué dans l’illustration : 
     
     ![Détails de PowerShell](./media/code-test/powershell_scripts.PNG)
 

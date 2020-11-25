@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006020"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021830"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 
@@ -48,7 +48,7 @@ Le tableau suivant décrit certains des principaux avantages offerts par Microso
 | Mobilité des données |Les données chargées sur Microsoft Azure Cloud Services sont accessibles à partir d’autres sites à des fins de récupération et de migration. En outre, vous pouvez utiliser StorSimple pour configurer les appliances cloud StorSimple sur les machines virtuelles de Microsoft Azure. Les machines virtuelles peuvent ensuite utiliser les appareils virtuels pour accéder aux données stockées à des fins de test ou de récupération. |
 | Continuité de l’activité |Permet aux utilisateurs de StorSimple série 5000-7000 de migrer leurs données vers un appareil StorSimple série 8000. |
 | Disponibilité sur le portail Azure Government |StorSimple est disponible sur le portail Azure Government. Pour plus d’informations, consultez [Déploiement de votre appareil StorSimple local sur le portail Microsoft Azure Government](storsimple-8000-deployment-walkthrough-gov-u2.md). |
-| Disponibilité et protection des données |Les appareils StorSimple série 8000 prennent en charge le stockage redondant dans une zone (ZRS), en plus du stockage localement redondant (LRS) et du stockage géo-redondant (GRS). Pour en savoir plus sur le stockage redondant dans une zone, consultez [cet article sur les options de redondance d’Azure Storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/) . |
+| Disponibilité et protection des données |Les appareils StorSimple série 8000 prennent en charge le stockage redondant dans une zone (ZRS), en plus du stockage localement redondant (LRS) et du stockage géo-redondant (GRS). Pour en savoir plus sur le stockage redondant dans une zone, consultez [cet article sur les options de redondance d’Azure Storage](../storage/common/storage-redundancy.md) . |
 | Prise en charge des applications critiques |StorSimple vous permet d’identifier les volumes appropriés comme des volumes épinglés localement, ce qui à son tour garantit que les données requises par les applications critiques ne sont pas hiérarchisées dans le cloud. Les volumes épinglés localement ne sont pas soumis aux latences de cloud ou à des problèmes de connectivité. Pour en savoir plus sur les volumes épinglés localement, voir [Utiliser le service StorSimple Device Manager pour gérer les volumes sur l’instance StorSimple Virtual Array](storsimple-8000-manage-volumes-u2.md). |
 | Faible latence et hautes performances |Vous pouvez créer des appliances cloud qui tirent parti des faibles latences et des hautes performances fournies par Azure Premium Storage. Pour plus d’informations sur les appliances cloud StorSimple Premium, consultez la page [Déployer et gérer une appliance cloud StorSimple dans Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -315,4 +315,3 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [sécurité StorSimple](storsimple-8000-security.md).
-

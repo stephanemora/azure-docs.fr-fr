@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148714"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020719"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimisation avec Azure CDN des téléchargements de fichiers volumineux
 
@@ -60,7 +60,7 @@ La fonctionnalité de remplissage du cache complet par défaut permet au CDN d�
 
 Le remplissage du cache complet est très utile pour les ressources volumineuses. En règle générale, les utilisateurs ne téléchargent pas celles-ci du début à la fin. Ils utilisent un téléchargement progressif. Le comportement par défaut consiste à forcer le serveur de périphérie à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Ensuite, la ressource se trouve dans le cache local du serveur de périphérie. Une fois l’objet complet dans le cache, le serveur de périphérie satisfait les demandes de plages d’octets adressées au CDN pour l’objet mis en cache.
 
-Le comportement par défaut peut être désactivé par le biais du moteur de règles dans **Azure CDN Premium de Verizon** .
+Le comportement par défaut peut être désactivé par le biais du moteur de règles dans **Azure CDN Premium de Verizon**.
 
 ### <a name="peer-cache-fill-hot-filing"></a>Remplissage à chaud du cache d'homologue
 
@@ -83,11 +83,11 @@ L’optimisation des fichiers volumineux est efficace lorsque certaines conditio
 
 Vous pouvez configurer votre point de terminaison **Azure CDN Standard d’Akamai** pour optimiser la distribution de fichiers volumineux par le biais du portail Azure. Pour ce faire, vous pouvez également utiliser les API REST ou tout Kit de développement logiciel (SDK) client. Les étapes suivantes montrent le processus par le biais du portail Azure pour un profil **CDN Azure Standard fourni par Akamai** :
 
-1. Pour ajouter un point de terminaison, dans une page **Profil CDN** d’Akamai, sélectionnez **Point de terminaison** .
+1. Pour ajouter un point de terminaison, dans une page **Profil CDN** d’Akamai, sélectionnez **Point de terminaison**.
 
     ![Nouveau point de terminaison](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
  
-2. Dans la liste déroulante **Optimisé pour** , sélectionnez **Téléchargement de fichiers volumineux** .
+2. Dans la liste déroulante **Optimisé pour**, sélectionnez **Téléchargement de fichiers volumineux**.
 
     ![Optimisation des fichiers volumineux sélectionnée](./media/cdn-large-file-optimization/cdn-large-file-select.png)
 

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
 ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534326"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020787"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Storage Gen1
 
@@ -58,24 +58,24 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
     Copy Completed. 1 file copied.
     ```
 
-    Le fichier de données ( **HVAC.csv** ) est copié sous un dossier **/hvac** du compte Data Lake Storage.
+    Le fichier de données (**HVAC.csv**) est copié sous un dossier **/hvac** du compte Data Lake Storage.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Utiliser un cluster HDInsight Spark avec Data Lake Storage Gen1
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Apache Spark (si vous l’avez épinglée au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight** .
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Apache Spark (si vous l’avez épinglée au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
-2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides** , puis dans le panneau **Tableau de bord du cluster** , cliquez sur **Bloc-notes Jupyter** . Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
    > [!NOTE]  
    > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau** , puis sur **PySpark** .
+3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
     ![Créer un bloc-notes Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Créer un bloc-notes Jupyter")
 
-4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE** .
+4. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour cela, collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
     ```scala
     from pyspark.sql.types import *
@@ -105,7 +105,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     Dans une cellule vide, collez l’exemple de code suivant, remplacez **MYDATALAKESTORE** par votre nom de compte Data Lake Storage, puis appuyez sur **Maj + Entrée** . Cet exemple de code enregistre les données dans une table temporaire appelée **hvac** .
+     Dans une cellule vide, collez l’exemple de code suivant, remplacez **MYDATALAKESTORE** par votre nom de compte Data Lake Storage, puis appuyez sur **Maj + Entrée**. Cet exemple de code enregistre les données dans une table temporaire appelée **hvac**.
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
@@ -138,7 +138,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Storage comme stockage 
 
      ![Graphique en aires du résultat de la requête](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Graphique en aires du résultat de la requête")
 
-8. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter** . Cette opération permet d’arrêter et de fermer le bloc-notes.
+8. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

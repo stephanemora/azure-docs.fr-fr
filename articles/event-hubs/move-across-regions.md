@@ -4,11 +4,11 @@ description: Cet article explique comment déplacer un espace de noms Azure Even
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019920"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Déplacer un espace de noms Azure Event Hubs vers une autre région
 Cet article vous explique comment exporter un modèle Azure Resource Manager pour un espace de noms Event Hubs existant, puis comment utiliser ce modèle pour créer un espace de noms avec les mêmes paramètres de configuration dans une autre région. Toutefois, ce processus ne déplace pas les événements qui n’ont pas encore été traités. Vous devez traiter les événements à partir de l’espace de noms d’origine avant de le supprimer.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
 ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427235"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021110"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Utiliser l'interface de ligne de commande Azure pour créer une application Azure AD et configurer celle-ci pour accéder à l'API Media Services
 
@@ -57,11 +57,11 @@ Par exemple :
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
 ```
 
-Dans cet exemple, l’ **étendue** est le chemin d’accès complet de la ressource pour le compte de services multimédia. Toutefois, l’ **étendue** peut être à n’importe quel niveau.
+Dans cet exemple, l’**étendue** est le chemin d’accès complet de la ressource pour le compte de services multimédia. Toutefois, l’**étendue** peut être à n’importe quel niveau.
 
 Par exemple, il peut s’agir d’un des niveaux suivants :
  
-* Niveau d' **abonnement**.
+* Niveau d'**abonnement**.
 * Niveau de **groupe de ressources**.
 * Niveau de **ressource** (par exemple, compte multimédia).
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748733"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020623"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -227,7 +227,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](/cli/azure/ge
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez les colonnes **Subscription_ID** et __Tenant_ID__ . Enregistrez ces valeurs.
+    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez les colonnes **Subscription_ID** et __Tenant_ID__. Enregistrez ces valeurs.
 
 2. Utilisez les commandes suivantes pour créer une application dans Azure Active Directory.
 
@@ -242,13 +242,13 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](/cli/azure/ge
 
    La valeur retournée par cette commande est __l’ID de l’application__ pour la nouvelle application. Enregistrez cette valeur.
 
-3. Utilisez la commande suivante pour créer un principal du service à l’aide de **l’ID de l’application** .
+3. Utilisez la commande suivante pour créer un principal du service à l’aide de **l’ID de l’application**.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     La valeur retournée par cette commande est __l’ID d’objet__ . Enregistrez cette valeur.
+     La valeur retournée par cette commande est __l’ID d’objet__. Enregistrez cette valeur.
 
 4. Affectez le rôle **Owner** (Propriétaire) au principal du service à l’aide de la valeur **Object ID** (ID d’objet). Utilisez **l’ID d’abonnement** obtenu précédemment.
 
@@ -274,7 +274,7 @@ Définissez `$TENANTID`, `$APPID` et `$PASSWORD` sur des valeurs obtenues ou uti
 
 Si cette demande aboutit, vous recevez une réponse de type 200 dont le corps contient un document JSON.
 
-Le document JSON retourné par cette demande contient un élément nommé **access_token** . La valeur de l’élément **access_token** est utilisée pour les demandes d’authentification adressées à l’API REST.
+Le document JSON retourné par cette demande contient un élément nommé **access_token**. La valeur de l’élément **access_token** est utilisée pour les demandes d’authentification adressées à l’API REST.
 
 ```json
 {

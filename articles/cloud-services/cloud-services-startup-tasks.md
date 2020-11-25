@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020702"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
 Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée.
@@ -31,7 +31,7 @@ Votre tâche de démarrage peut enregistrer des informations et des erreurs dans
 
 Les tâches de démarrage peuvent également être exécutées plusieurs fois entre des redémarrages. Par exemple, la tâche de démarrage est exécutée chaque fois que le rôle est recyclé, et les recyclages de rôle n’incluent pas toujours un redémarrage. Les tâches de démarrage doivent être écrites de façon à pouvoir s’exécuter de façon répétée sans problèmes.
 
-Les tâches de démarrage doivent s’arrêter avec un **errorlevel** (ou code de sortie) égal à zéro pour que le processus de démarrage soit terminé. Si une tâche de démarrage se termine par un **errorlevel**différent de zéro, le rôle ne démarre pas.
+Les tâches de démarrage doivent s’arrêter avec un **errorlevel** (ou code de sortie) égal à zéro pour que le processus de démarrage soit terminé. Si une tâche de démarrage se termine par un **errorlevel** différent de zéro, le rôle ne démarre pas.
 
 ## <a name="role-startup-order"></a>Ordre de démarrage des rôles
 Les informations suivantes indiquent la procédure de démarrage de rôle dans Azure :

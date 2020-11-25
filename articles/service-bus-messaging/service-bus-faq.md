@@ -3,12 +3,12 @@ title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899524"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022135"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Forum Aux Questions (FAQ)
 
@@ -26,7 +26,7 @@ Un [espace de nom](service-bus-create-namespace-portal.md) fournit un conteneur 
 Une [file d’attente Service Bus](service-bus-queues-topics-subscriptions.md) est une entité dans laquelle les messages sont stockés. Les files d’attente sont utiles lorsque vous disposez de plusieurs applications ou de plusieurs parties d’une application distribuée qui doivent communiquer entre elles. La file d’attente est comparable à un centre de distribution, dans la mesure où plusieurs produits (messages) sont reçus, puis envoyés à partir de cet emplacement.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Présentation des rubriques et des abonnements Azure Service Bus
-Une rubrique peut être visualisée comme une file d’attente. En cas d’utilisation de plusieurs abonnements, elle devient un modèle de messagerie plus riche ; plus simplement, il s’agit d’un outil de communication de type un-à-plusieurs. Ce modèle de publication/abonnement (ou *pub/sub* ) permet à une application d’envoyer un message à une rubrique avec plusieurs abonnements pour que ce message soit reçu par plusieurs applications.
+Une rubrique peut être visualisée comme une file d’attente. En cas d’utilisation de plusieurs abonnements, elle devient un modèle de messagerie plus riche ; plus simplement, il s’agit d’un outil de communication de type un-à-plusieurs. Ce modèle de publication/abonnement (ou *pub/sub*) permet à une application d’envoyer un message à une rubrique avec plusieurs abonnements pour que ce message soit reçu par plusieurs applications.
 
 ### <a name="what-is-a-partitioned-entity"></a>Présentation des entités partitionnées
 Une file d’attente ou une rubrique classique est gérée par un seul courtier de messages et stockée dans une seule banque de messagerie. Uniquement prise en charge pour les niveaux de messagerie De base et Standard, une [file d’attente ou une rubrique partitionnée](service-bus-partitioning.md) est gérée par plusieurs répartiteurs de messages et stockée dans plusieurs banques de messagerie. Cette caractéristique signifie que le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul répartiteur de messages ou d’une seule banque de messagerie. En outre, la panne temporaire d’une banque de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible.
@@ -53,14 +53,9 @@ Consultez le tableau suivant pour savoir quels ports TCP sortants vous devez ouv
 
 Le port HTTPS est généralement requis pour les communications sortantes quand AMQP est utilisé sur le port 5671, car plusieurs opérations de gestion effectuées par les kits de développement logiciel (SDK) clients et l’acquisition de jetons à partir d’Azure Active Directory (le cas échéant) s’exécutent sur HTTPS. 
 
-Les kits de développement logiciel (SDK) officiels Azure utilisent généralement le protocole AMQP pour envoyer et recevoir des messages à partir de Service Bus. L’option de protocole AMQP sur WebSockets s’exécute sur le port TCP 443, tout comme l’API HTTP, mais son fonctionnement est identique au mode AMQP classique. Cette option présente une latence de connexion initiale plus élevée en raison des allers-retours de liaison supplémentaire et d’une surcharge légèrement plus importante en cas de compromis pour le partage du port HTTPS. Si ce mode est sélectionné, le port TCP 443 s’avère suffisant à des fins de communication. Les options suivantes permettent de sélectionner le mode AMQP classique ou le mode AMQP WebSockets :
+Les kits de développement logiciel (SDK) officiels Azure utilisent généralement le protocole AMQP pour envoyer et recevoir des messages à partir de Service Bus. 
 
-| Language | Option   |
-| -------- | ----- |
-| .NET     | Propriété [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) avec [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) ou [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
-| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) avec [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) ou [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
-| Nœud  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) présente un argument de constructeur `webSocket`. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) avec [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) ou [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
 L’ancien package WindowsAzure. ServiceBus pour .NET Framework peut utiliser le protocole hérité « Service Bus Messaging Protocol » (SBMP), également appelé « NetMessaging ». Ce protocole utilise les ports TCP 9350-9354. Le mode par défaut de ce package consiste à déterminer automatiquement si ces ports sont disponibles à des fins de communication et à basculer vers WebSockets avec TLS sur le port 443 dans le cas contraire. Vous pouvez remplacer ce paramètre et forcer ce mode en définissant le paramètre `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) sur le paramètre [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet), qui s’applique globalement à l’application.
 
@@ -81,7 +76,7 @@ Si vous utilisez la **redondance de zone** pour votre espace de noms, vous devez
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Notez le nom dans la section **Réponse ne faisant pas autorité** , qui se présente dans l’un des formats suivants : 
+2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans l’un des formats suivants : 
 
     ```
     <name>-s1.cloudapp.net
@@ -96,7 +91,7 @@ Si vous utilisez la **redondance de zone** pour votre espace de noms, vous devez
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Où puis-je trouver l’adresse IP du client qui envoie des messages à un espace de noms ou en reçoit de ce dernier ? 
 Nous ne journalisons pas les adresses IP des clients qui envoient des messages à votre espace de noms ou en reçoivent de ce dernier. Régénérez les clés afin que tous les clients existants ne puissent pas s’authentifier et passez en revue les paramètres de contrôle d’accès en fonction du rôle Azure ([Azure RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) pour vous assurer que seuls les utilisateurs ou les applications autorisés ont accès à l’espace de noms. 
 
-Si vous utilisez un espace de noms **Premium** , utilisez le [filtrage IP](service-bus-ip-filtering.md), des [points de terminaison de service de réseau virtuel](service-bus-service-endpoints.md) et des [points de terminaison privés](private-link-service.md) pour limiter l’accès à l’espace de noms. 
+Si vous utilisez un espace de noms **Premium**, utilisez le [filtrage IP](service-bus-ip-filtering.md), des [points de terminaison de service de réseau virtuel](service-bus-service-endpoints.md) et des [points de terminaison privés](private-link-service.md) pour limiter l’accès à l’espace de noms. 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Présentation des meilleures pratiques Azure Service Bus

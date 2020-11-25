@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021212"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutoriel : Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
 > [!div class="op_single_selector"]
@@ -45,42 +45,42 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 ## <a name="prerequisites-for-the-tutorial"></a>Configuration requise pour le didacticiel
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Abonnement Azure** .  Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Consultez l'article [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
-* **Compte Azure Storage** . Dans le cadre de ce didacticiel, le stockage d’objets blob est utilisé comme magasin de données **source** . Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-* **Azure SQL Database** . Vous allez utiliser Azure SQL Database comme magasin de données **cible** dans ce tutoriel. Si vous n’avez pas de base de données dans Azure SQL Database pouvant être utilisée pour le tutoriel, consultez [Comment créer et configurer une base de données dans Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) pour en créer une.
-* **SQL Server 2012/2014 ou Visual Studio 2013** . Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.  
+* **Abonnement Azure**.  Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Consultez l'article [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
+* **Compte Azure Storage**. Dans le cadre de ce didacticiel, le stockage d’objets blob est utilisé comme magasin de données **source** . Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
+* **Azure SQL Database**. Vous allez utiliser Azure SQL Database comme magasin de données **cible** dans ce tutoriel. Si vous n’avez pas de base de données dans Azure SQL Database pouvant être utilisée pour le tutoriel, consultez [Comment créer et configurer une base de données dans Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) pour en créer une.
+* **SQL Server 2012/2014 ou Visual Studio 2013**. Vous allez utiliser SQL Server Management Studio ou Visual Studio pour créer un exemple de base de données et afficher les données de résultat dans la base de données.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Récupération du nom de compte Blob Storage et de la clé d'accès
 Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre compte de stockage Azure. Notez le **nom** et la **clé** de votre compte de stockage Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Tous les services** dans le menu de gauche, puis sélectionnez **Comptes de stockage** .
+2. Cliquez sur **Tous les services** dans le menu de gauche, puis sélectionnez **Comptes de stockage**.
 
     ![Parcourir - Comptes de stockage](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
-3. Dans le panneau **Comptes de stockage** , sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
-4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES** .
+3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
+4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES**.
 5. Cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **Nom du compte de stockage** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
-6. Répétez l'étape précédente pour copier ou noter la **clé1** .
+6. Répétez l'étape précédente pour copier ou noter la **clé1**.
 
     ![Clé d’accès de stockage](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Fermez tous les panneaux en cliquant sur **X** .
+7. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Récupérer les noms de serveur SQL, de base de données et d’utilisateur
-Pour suivre ce tutoriel, vous avez besoin des noms du serveur SQL logique, de la base de données et de l’utilisateur. Notez les noms du **serveur** , de la **base de données** et de **l’utilisateur** pour Azure SQL Database.
+Pour suivre ce tutoriel, vous avez besoin des noms du serveur SQL logique, de la base de données et de l’utilisateur. Notez les noms du **serveur**, de la **base de données** et de **l’utilisateur** pour Azure SQL Database.
 
-1. Dans le **portail Azure** , cliquez sur **Tous les services** dans le volet gauche, puis sélectionnez **Bases de données SQL** .
-2. Dans le panneau **Bases de données SQL** , sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données** .  
-3. Dans le panneau **Base de données SQL** , cliquez sur la vignette **Propriétés** sous **PARAMÈTRES** .
-4. Notez les valeurs de **NOM DU SERVEUR** et de **CONNEXION D'ADMINISTRATEUR DU SERVEUR** .
-5. Fermez tous les panneaux en cliquant sur **X** .
+1. Dans le **portail Azure**, cliquez sur **Tous les services** dans le volet gauche, puis sélectionnez **Bases de données SQL**.
+2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.  
+3. Dans le panneau **Base de données SQL**, cliquez sur la vignette **Propriétés** sous **PARAMÈTRES**.
+4. Notez les valeurs de **NOM DU SERVEUR** et de **CONNEXION D'ADMINISTRATEUR DU SERVEUR**.
+5. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Autoriser les services Azure à accéder au serveur
 Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur afin que le service Data Factory puisse y accéder. Pour vérifier et activer ce paramètre, procédez comme suit :
 
-1. Cliquez sur le hub **Tous les services** sur la gauche, puis sur **Serveurs SQL** .
-2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES** .
-3. Dans le panneau **Paramètres de pare-feu** , cliquez sur **ACTIVER** pour **Autoriser l’accès aux services Azure** .
-4. Fermez tous les panneaux en cliquant sur **X** .
+1. Cliquez sur le hub **Tous les services** sur la gauche, puis sur **Serveurs SQL**.
+2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**.
+3. Dans le panneau **Paramètres de pare-feu**, cliquez sur **ACTIVER** pour **Autoriser l’accès aux services Azure**.
+4. Fermez tous les panneaux en cliquant sur **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Préparer Blob Storage et la Base de données SQL
 À présent, préparez votre stockage Blob Azure et Azure SQL Database pour ce tutoriel, en procédant comme suit :  

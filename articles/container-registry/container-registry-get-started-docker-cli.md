@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020056"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 
@@ -19,12 +19,12 @@ Dans les étapes suivantes, téléchargez une [image Nginx](https://store.docker
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Azure Container Registry**  : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Docker CLI** : Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Se connecter à un Registre
 
-Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Par exemple, pour vous connecter à un registre nommé *myregistry*  :
+Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Par exemple, pour vous connecter à un registre nommé *myregistry* :
 
 ```azurecli
 az acr login --name myregistry
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 Les deux commandes retournent `Login Succeeded` une fois terminées.
 
 > [!TIP]
-> Spécifiez toujours le nom complet du registre (tout en minuscules) lorsque vous utilisez `docker login` et lorsque vous étiquetez des images à pousser dans votre registre. Dans les exemples de cet article, le nom complet est *myregistry.azurecr.io* .
+> Spécifiez toujours le nom complet du registre (tout en minuscules) lorsque vous utilisez `docker login` et lorsque vous étiquetez des images à pousser dans votre registre. Dans les exemples de cet article, le nom complet est *myregistry.azurecr.io*.
 
 ## <a name="pull-the-official-nginx-image"></a>Tirer (pull) l’image Nginx officielle
 

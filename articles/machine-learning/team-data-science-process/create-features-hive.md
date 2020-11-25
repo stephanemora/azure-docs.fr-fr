@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020583"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-Dans cette requête, si *\<datetime field>* suit le modèle *03/26/2015 12:04:39* , *\<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si *\<datetime field>* suit le modèle *03/26/2015 12:04:39*, *\<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
 La requête fournie dans cette section peut être directement appliquée aux données du jeu « NYC Taxi Trip ». Cette requête montre comment appliquer une fonction mathématique intégrée dans Hive pour générer des fonctionnalités.
 
-Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude* , *pickup\_latitude* , *dropoff\_longitude* *dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
+Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* *dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
 
 ```hiveql
 set R=3959;
@@ -175,7 +175,7 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
     set hive.auto.convert.join=true;
     ```
 
-3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size* , car la taille de chaque tâche de mappage est déterminée par :
+3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size*, car la taille de chaque tâche de mappage est déterminée par :
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
