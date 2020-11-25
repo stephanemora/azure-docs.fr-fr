@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
 ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348625"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013783"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Stratégie de protection des informations SQL dans Azure Security Center
  
@@ -26,8 +26,8 @@ Le [mécanisme de découverte et de classification des données](../azure-sql/da
 
 Le mécanisme de classification est basé sur les deux éléments suivants :
 
-- **Étiquettes**  : principaux attributs de classification utilisés pour définir le *niveau de sensibilité des données* stockées dans la colonne. 
-- **Types d’informations**  : spécifie une granularité supplémentaire au niveau du *type des données* stockées dans la colonne.
+- **Étiquettes** : principaux attributs de classification utilisés pour définir le *niveau de sensibilité des données* stockées dans la colonne. 
+- **Types d’informations** : spécifie une granularité supplémentaire au niveau du *type des données* stockées dans la colonne.
 
 Les options de la stratégie de protection des informations dans Security Center fournissent un ensemble prédéfini d’étiquettes et de types d’informations qui servent de valeurs par défaut pour le moteur de classification. Vous pouvez personnaliser la stratégie en fonction des besoins de votre organisation, comme décrit ci-dessous.
 
@@ -70,7 +70,7 @@ Dans la page des **tarifs et des paramètres** de Security Center, sélectionnez
 
 Utilisez la recommandation de Security Center, « Les données sensibles de vos bases de données SQL doivent être classifiées », pour afficher la page de découverte et de classification des données de votre base de données. Là, vous verrez également les colonnes découvertes qui contiennent des informations que nous vous recommandons de classifier.
 
-1. Dans la page **Recommendations de Security Center** , recherchez la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées**.
+1. Dans la page **Recommendations de Security Center**, recherchez la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées**.
 
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Recherche de la recommandation qui fournit l’accès aux stratégies de protection des informations SQL":::
 
@@ -92,7 +92,7 @@ Utilisez la recommandation de Security Center, « Les données sensibles de vos
 
 1. Sélectionnez une base de données.
 
-1. Dans la zone **Sécurité** du menu, ouvrez la page **Découverte et classification des données**  (1) et sélectionnez **Configurer**  (2).
+1. Dans la zone **Sécurité** du menu, ouvrez la page **Découverte et classification des données** (1) et sélectionnez **Configurer** (2).
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Ouverture de la stratégie de protection des informations SQL depuis SQL Azure":::
 

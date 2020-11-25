@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013613"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Fonctionnement de la réplication Hyper-V
 
@@ -70,9 +70,9 @@ Vous pouvez limiter la quantité de bande passante utilisée pour télécharger 
 
 
 1. Connectez-vous à l’hôte Hyper-V ou au nœud de cluster.
-2. Exécutez **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**pour ouvrir le composant logiciel enfichable MMC de Windows Sauvegarde Azure.
+2. Exécutez **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** pour ouvrir le composant logiciel enfichable MMC de Windows Sauvegarde Azure.
 3. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
-4. Dans**Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
+4. Dans **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
 I
 
 ### <a name="influence-upload-efficiency"></a>Améliorer l’efficacité du chargement

@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014021"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Héberger des zones de recherche DNS inversées dans Azure DNS
 
@@ -29,11 +29,11 @@ Cet article vous indique la procédure à suivre pour créer votre première zon
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Créer une zone de recherche inversée DNS
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans le menu **Hub** , sélectionnez **Nouveau** > **Mise en réseau** , puis choisissez **Zone DNS** .
+1. Dans le menu **Hub**, sélectionnez **Nouveau** > **Mise en réseau**, puis choisissez **Zone DNS**.
 
    ![Sélection de « zone DNS »](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. Dans le panneau **Créer une zone DNS** , nommez votre zone DNS. Le nom de la zone a été conçu différemment pour les préfixes IPv4 et IPv6. Utilisez les instructions relatives à [IPv4](#ipv4) ou à [IPv6](#ipv6) pour nommer votre zone. Lorsque vous avez terminé, cliquez sur **Créer** pour créer la zone.
+1. Dans le panneau **Créer une zone DNS**, nommez votre zone DNS. Le nom de la zone a été conçu différemment pour les préfixes IPv4 et IPv6. Utilisez les instructions relatives à [IPv4](#ipv4) ou à [IPv6](#ipv6) pour nommer votre zone. Lorsque vous avez terminé, cliquez sur **Créer** pour créer la zone.
 
 ### <a name="ipv4"></a>IPv4
 
@@ -50,7 +50,7 @@ L’exemple suivant montre comment créer une zone DNS inversée de « Classe C 
 
  ![Capture d’écran montrant comment créer une zone DNS inversée de classe C nommée 2.0.192.in-addr.arpa dans Azure DNS via le portail Azure.](./media/dns-reverse-dns-hosting/figure2.png)
 
-Sous **Emplacement du groupe de ressources** , définissez l’emplacement du groupe de ressources. Cela n’a aucun effet sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
+Sous **Emplacement du groupe de ressources**, définissez l’emplacement du groupe de ressources. Cela n’a aucun effet sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
 
 Les exemples suivants montrent comment effectuer cette tâche à l’aide d’Azure PowerShell et Azure CLI.
 
@@ -81,7 +81,7 @@ L’exemple suivant montre comment créer une zone de recherche inversée DNS IP
 
  ![Volet « Créer une zone DNS » avec cases renseignées](./media/dns-reverse-dns-hosting/figure3.png)
 
-Sous **Emplacement du groupe de ressources** , définissez l’emplacement du groupe de ressources. Cela n’a aucun effet sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
+Sous **Emplacement du groupe de ressources**, définissez l’emplacement du groupe de ressources. Cela n’a aucun effet sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
 
 Les exemples suivants montrent comment effectuer cette tâche à l’aide d’Azure PowerShell et Azure CLI.
 
@@ -115,15 +115,15 @@ Pour les zones de recherche directe, le processus de délégation de zone DNS es
 
 L’exemple suivant vous guide tout au long du processus de création d’un enregistrement PTR dans une zone DNS inversée dans Azure DNS. Pour découvrir d’autres types d’enregistrements et pour modifier les enregistrements existants, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-1. En haut du panneau **Zone DNS** , sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements** .
+1. En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
 
    ![Capture d’écran du panneau Zone DNS avec une flèche pointant sur le bouton + jeu d’enregistrements.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. Le nom du jeu d’enregistrements d’un enregistrement PTR doit correspondre à la fin de l’adresse IPv4 dans l’ordre inverse. 
 
-   Dans cet exemple, les trois premiers octets figurent déjà dans le nom de la zone (.2.0.192). Par conséquent, seul le dernier octet figure dans le champ **Nom** . Vous pouvez par exemple nommer votre jeu d’enregistrements **15** pour une ressource dont l’adresse IP est 192.0.2.15.  
-1. Pour **Type** , sélectionnez **PTR** .  
-1. Dans le champ **NOM DE DOMAINE** , entrez le nom de domaine complet (FQDN) de la ressource utilisant l’adresse IP.
+   Dans cet exemple, les trois premiers octets figurent déjà dans le nom de la zone (.2.0.192). Par conséquent, seul le dernier octet figure dans le champ **Nom**. Vous pouvez par exemple nommer votre jeu d’enregistrements **15** pour une ressource dont l’adresse IP est 192.0.2.15.  
+1. Pour **Type**, sélectionnez **PTR**.  
+1. Dans le champ **NOM DE DOMAINE**, entrez le nom de domaine complet (FQDN) de la ressource utilisant l’adresse IP.
 1. Sélectionnez **OK** en bas du panneau pour créer l’enregistrement DNS.
 
    ![Panneau Ajouter un jeu d’enregistrement avec cases renseignées](./media/dns-reverse-dns-hosting/figure5.png)
@@ -151,15 +151,15 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 
 L’exemple suivant vous guide tout au long du processus de création d’un nouvel enregistrement PTR. Pour découvrir d’autres types d’enregistrements et pour modifier les enregistrements existants, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-1. En haut du panneau **Zone DNS** , sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements** .
+1. En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
 
    ![Bouton de création d’un jeu d’enregistrement](./media/dns-reverse-dns-hosting/figure6.png)
 
 2. Le nom du jeu d’enregistrements d’un enregistrement PTR doit correspondre à la fin de l’adresse IPv6 dans l’ordre inverse. Il ne doit inclure aucune compression des zéros. 
 
-   Dans cet exemple, les 64 premiers bits de l’IPv6 figurent déjà dans le cadre du nom de zone (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Par conséquent, seuls les 64 derniers bits figurent dans le champ **Nom** . Les 64 derniers bits de l’adresse IP sont entrés dans l’ordre inverse, à l’aide d’un point comme séparateur entre chaque nombre hexadécimal. Par exemple, vous pouvez nommer votre jeu d’enregistrements **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** pour une ressource dont l’adresse IP est 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
-3. Pour **Type** , sélectionnez **PTR** .  
-4. Dans le champ **NOM DE DOMAINE** , entrez le nom de domaine complet (FQDN) de la ressource utilisant l’adresse IP.
+   Dans cet exemple, les 64 premiers bits de l’IPv6 figurent déjà dans le cadre du nom de zone (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Par conséquent, seuls les 64 derniers bits figurent dans le champ **Nom**. Les 64 derniers bits de l’adresse IP sont entrés dans l’ordre inverse, à l’aide d’un point comme séparateur entre chaque nombre hexadécimal. Par exemple, vous pouvez nommer votre jeu d’enregistrements **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** pour une ressource dont l’adresse IP est 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
+3. Pour **Type**, sélectionnez **PTR**.  
+4. Dans le champ **NOM DE DOMAINE**, entrez le nom de domaine complet (FQDN) de la ressource utilisant l’adresse IP.
 5. Sélectionnez **OK** en bas du panneau pour créer l’enregistrement DNS.
 
 ![Capture d’écran montrant le panneau « Ajouter un jeu d’enregistrements » avec une flèche pointant sur la valeur dans le champ Type.](./media/dns-reverse-dns-hosting/figure7.png)
@@ -186,7 +186,7 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8
 
 ## <a name="view-records"></a>Affichage des enregistrements
 
-Pour afficher les enregistrements que vous avez créés, accédez à votre zone DNS dans le portail Azure. Vous pouvez afficher les enregistrements de la zone DNS dans la partie inférieure du panneau **Zone DNS** . Les enregistrements NS et SOA par défaut devraient s’afficher, avec les enregistrement que vous avez créés. Les enregistrements NS et SOA sont créés dans chaque zone. 
+Pour afficher les enregistrements que vous avez créés, accédez à votre zone DNS dans le portail Azure. Vous pouvez afficher les enregistrements de la zone DNS dans la partie inférieure du panneau **Zone DNS**. Les enregistrements NS et SOA par défaut devraient s’afficher, avec les enregistrement que vous avez créés. Les enregistrements NS et SOA sont créés dans chaque zone. 
 
 ### <a name="ipv4"></a>IPv4
 

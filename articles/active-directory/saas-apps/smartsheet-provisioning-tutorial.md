@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 79fa480e0cca590446a0251f43c45b2e04c97cd5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013154"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutoriel : Configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
@@ -51,7 +51,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 Avant de configurer Smartsheet pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez activer le provisionnement SCIM sur Smartsheet.
 
-1. Connectez-vous en tant que **SysAdmin** dans le **[portail Smartsheet](https://app.smartsheet.com/b/home)** et accédez à l’ **administrateur de compte**.
+1. Connectez-vous en tant que **SysAdmin** dans le **[portail Smartsheet](https://app.smartsheet.com/b/home)** et accédez à l’**administrateur de compte**.
 
     ![Administrateur de compte Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
 
@@ -79,7 +79,7 @@ Avant de configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
     ![Capture d’écran de Step 1 of 2: Generate new access token (Étape 1 sur 2 : Générer un nouveau jeton d’accès) avec l’option OK en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
-8. Copiez le jeton d’accès d’API et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Il est requis dans le champ **Jeton secret** , dans Azure AD.
+8. Copiez le jeton d’accès d’API et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Il est requis dans le champ **Jeton secret**, dans Azure AD.
 
     ![Jeton Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
@@ -107,7 +107,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Smartsheet dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -123,17 +123,17 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** récupérées précédemment sur Smartsheet dans **URL de locataire** et **Jeton secret** , respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Smartsheet. Si la connexion échoue, vérifiez que votre compte Smartsheet dispose d’autorisations d’administrateur système et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** récupérées précédemment sur Smartsheet dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Smartsheet. Si la connexion échoue, vérifiez que votre compte Smartsheet dispose d’autorisations d’administrateur système et réessayez.
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Sous la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Smartsheet (Synchroniser les utilisateurs Azure Active Directory dans Smartsheet)** .
+8. Sous la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Smartsheet (Synchroniser les utilisateurs Azure Active Directory dans Smartsheet)** .
 
 9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Smartsheet dans la section **Mappage d’attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les comptes d’utilisateur dans Smartsheet pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -164,7 +164,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou groupes que vous aimeriez provisionner dans Smartsheet en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
+12. Définissez les utilisateurs et/ou groupes que vous aimeriez provisionner dans Smartsheet en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

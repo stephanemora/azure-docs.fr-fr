@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129947"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014378"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer les volumes sur l’instance StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les volumes StorSimple peuvent être les suivants :
 
-* **Épinglé localement**  : les données de ces volumes demeurent à tout moment sur le tableau, sans jamais déborder dans le cloud.
-* **Hiérarchisé**  : les données de ces volumes peuvent se disperser dans le cloud. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un volume à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
+* **Épinglé localement** : les données de ces volumes demeurent à tout moment sur le tableau, sans jamais déborder dans le cloud.
+* **Hiérarchisé** : les données de ces volumes peuvent se disperser dans le cloud. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un volume à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée
 Reportez-vous au tableau suivant pour connaître la capacité maximale allouée pour chaque type de volume.
@@ -55,10 +55,10 @@ Un volume est constitué d’une série d’attributs :
 
 * **Nom du volume** : nom descriptif qui doit être unique et vous aide à identifier le volume.
 * **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
-* **Type**  : indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
-* **Capacité**  : spécifie la quantité de données utilisées par rapport au volume total des données pouvant être stockées par l’initiateur (serveur).
-* **Sauvegarde**  : dans le cas d’une instance StorSimple Virtual Array, l’ensemble des volumes sont automatiquement activés pour la sauvegarde.
-* **Hôtes connectés**  : indique les initiateurs (serveurs) autorisés à accéder à ce volume.
+* **Type** : indique si le volume est **Hiérarchisé** (par défaut) ou **Épinglé localement**.
+* **Capacité** : spécifie la quantité de données utilisées par rapport au volume total des données pouvant être stockées par l’initiateur (serveur).
+* **Sauvegarde** : dans le cas d’une instance StorSimple Virtual Array, l’ensemble des volumes sont automatiquement activés pour la sauvegarde.
+* **Hôtes connectés** : indique les initiateurs (serveurs) autorisés à accéder à ce volume.
 
 ![Détails de volumes](./media/storsimple-virtual-array-manage-volumes/volume-details.png)
 
@@ -74,13 +74,13 @@ Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes 
 1. À partir du panneau de synthèse du service StorSimple, cliquez sur **+ Ajouter un volume** dans la barre de commandes. Le panneau **Ajouter un volume** s’ouvre.
    
     ![Capture d’écran montrant le bouton Ajouter un volume et le volet Ajouter un volume.](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
-2. Dans le panneau **Ajouter un volume** , procédez comme suit :
+2. Dans le panneau **Ajouter un volume**, procédez comme suit :
    
-   * Dans le champ **Nom du volume** , saisissez un nom unique pour votre volume. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
-   * Dans la liste déroulante **Type** , spécifiez si vous souhaitez créer un volume **Hiérarchisé** ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez **Volume attaché localement**. Pour toutes les autres données, sélectionnez le volume **hiérarchisé**.
-   * Dans le champ **Capacité** , spécifiez la taille du volume. Un volume hiérarchisé doit être compris entre 500 Go et 5 To, tandis qu’un volume attaché doit être compris entre 50 Go et 500 Go.
-   * * Cliquez sur **Hôtes connectés** , sélectionnez un enregistrement de contrôle d’accès correspondant à l’initiateur iSCSI que vous souhaitez connecter à ce volume, puis cliquez sur **Sélectionner**.
-3. Pour ajouter un hôte connecté, cliquez sur **Ajouter nouveau** , saisissez un nom pour l’hôte et son nom complet iSCSI, puis cliquez sur **Ajouter**.
+   * Dans le champ **Nom du volume**, saisissez un nom unique pour votre volume. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
+   * Dans la liste déroulante **Type**, spécifiez si vous souhaitez créer un volume **Hiérarchisé** ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez **Volume attaché localement**. Pour toutes les autres données, sélectionnez le volume **hiérarchisé**.
+   * Dans le champ **Capacité**, spécifiez la taille du volume. Un volume hiérarchisé doit être compris entre 500 Go et 5 To, tandis qu’un volume attaché doit être compris entre 50 Go et 500 Go.
+   * * Cliquez sur **Hôtes connectés**, sélectionnez un enregistrement de contrôle d’accès correspondant à l’initiateur iSCSI que vous souhaitez connecter à ce volume, puis cliquez sur **Sélectionner**.
+3. Pour ajouter un hôte connecté, cliquez sur **Ajouter nouveau**, saisissez un nom pour l’hôte et son nom complet iSCSI, puis cliquez sur **Ajouter**.
    
     ![Capture d’écran montrant le volet Hôtes connectés dans lequel vous pouvez ajouter de nouveaux hôtes.](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. Lorsque vous avez terminé de configurer votre volume, cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés ; une notification s’affiche en cas de création similaire. Par défaut, la sauvegarde est activée pour le volume.
@@ -114,7 +114,7 @@ Vous devrez peut-être mettre un volume hors connexion si vous envisagez de le m
    * **Sélectionnez** le volume, puis cliquez sur **...** (sinon cliquez avec le bouton droit sur cette ligne), puis dans le menu contextuel, sélectionnez **Mettre hors connexion**.
      
         ![Volume hors connexion](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
-   * Passez en revue les informations du panneau **Mettre hors connexion** , puis confirmez votre acceptation de l’opération. Cliquez sur **Mettre hors connexion** afin de mettre le volume hors connexion. Une notification de l’opération en cours s’affiche.
+   * Passez en revue les informations du panneau **Mettre hors connexion**, puis confirmez votre acceptation de l’opération. Cliquez sur **Mettre hors connexion** afin de mettre le volume hors connexion. Une notification de l’opération en cours s’affiche.
    * Pour vérifier que le volume a été mis hors connexion, accédez au panneau **Volumes**. Le volume doit apparaître comme élément hors connexion.
      
        ![Confirmation du volume hors connexion](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
@@ -135,7 +135,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
    
     ![Supprimer un volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Vérifiez l’état du volume à supprimer. Si le volume que vous souhaitez supprimer n’est pas hors connexion, mettez-le d’abord hors connexion, en suivant la procédure [Mise hors connexion d’un volume](#take-a-volume-offline).
-4. Lorsque vous êtes invité à confirmer l’opération dans le panneau **Supprimer** , validez la confirmation, puis cliquez sur **Supprimer**. Le volume est supprimé, et le panneau **Volumes** représente la liste mise à jour des volumes au sein du tableau virtuel.
+4. Lorsque vous êtes invité à confirmer l’opération dans le panneau **Supprimer**, validez la confirmation, puis cliquez sur **Supprimer**. Le volume est supprimé, et le panneau **Volumes** représente la liste mise à jour des volumes au sein du tableau virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

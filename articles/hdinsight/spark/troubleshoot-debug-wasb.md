@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545546"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014650"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Déboguer les opérations de fichiers WASB dans Azure HDInsight
 
-Vous souhaiterez parfois comprendre quelles opérations le pilote WASB a démarré avec Stockage Azure. Pour le côté client, le pilote WASB génère des journaux pour chaque opération de système de fichiers au niveau **DEBUG** . Le pilote WASB utilise log4j pour contrôler le niveau de journalisation, et la valeur par défaut est le niveau **INFO** . Pour les journaux d’analytique côté serveur de Stockage Azure, consultez [Journalisation Azure Storage Analytics](../../storage/common/storage-analytics-logging.md).
+Vous souhaiterez parfois comprendre quelles opérations le pilote WASB a démarré avec Stockage Azure. Pour le côté client, le pilote WASB génère des journaux pour chaque opération de système de fichiers au niveau **DEBUG**. Le pilote WASB utilise log4j pour contrôler le niveau de journalisation, et la valeur par défaut est le niveau **INFO**. Pour les journaux d’analytique côté serveur de Stockage Azure, consultez [Journalisation Azure Storage Analytics](../../storage/common/storage-analytics-logging.md).
 
 Un journal généré ressemble à ce qui suit :
 
@@ -28,13 +28,13 @@ Un journal généré ressemble à ce qui suit :
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, où `CLUSTERNAME` est le nom de votre cluster Spark.
 
-1. Accédez à **advanced spark2-log4j-properties** .
+1. Accédez à **advanced spark2-log4j-properties**.
 
     1. Remplacez `log4j.appender.console.Threshold=INFO` par `log4j.appender.console.Threshold=DEBUG`.
 
     1. Ajoutez `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
-1. Accédez à **Advanced livy2-log4j-properties** .
+1. Accédez à **Advanced livy2-log4j-properties**.
 
     Ajoutez `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
@@ -65,4 +65,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

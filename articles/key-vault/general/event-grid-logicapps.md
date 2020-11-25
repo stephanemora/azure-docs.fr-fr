@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284485"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013987"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Utilisez Logic Apps pour recevoir un e-mail sur les changements d’état des secrets du coffre de clés
 
@@ -36,7 +36,7 @@ Tout d’abord, créez une application logique avec un gestionnaire Event Grid e
 
 Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, accédez à votre coffre de clés, sélectionnez **Événements > Démarrer** , puis cliquez sur **Logic Apps**
+1. Dans le portail Azure, accédez à votre coffre de clés, sélectionnez **Événements > Démarrer**, puis cliquez sur **Logic Apps**
 
     
     ![Key Vault - Page des événements](../media/eventgrid-logicapps-kvsubs.png)
@@ -45,7 +45,7 @@ Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
  
     ![Concepteur d’application logique - Connexion](../media/eventgrid-logicappdesigner1.png)
 
-1. Dans l’écran **Quand un événement de ressource se produit** , effectuez ce qui suit :
+1. Dans l’écran **Quand un événement de ressource se produit**, effectuez ce qui suit :
     - Conservez les valeurs contenues dans **Abonnement** et **Nom de la ressource** en tant que valeurs par défaut.
     - Sélectionnez Select **Microsoft.KeyVault.vaults** pour **Type de ressource**.
     - Sélectionnez **Microsoft.KeyVault.SecretNewVersionCreated** pour **Élément de type d’événement - 1**.
@@ -77,11 +77,11 @@ Pour créer un abonnement Azure Event Grid, effectuez les étapes suivantes :
     
     ![Concepteur d’application logique – Tester et vérifier](../media/eventgrid-logicapps-kvnewsubs.png)
 
-1.  Accédez à votre coffre de clés, sélectionnez **Secrets** , puis **+ Générer/Importer**. Créez un secret à des fins de test, nommez la clé et conservez les autres paramètres avec leurs valeurs par défaut.
+1.  Accédez à votre coffre de clés, sélectionnez **Secrets**, puis **+ Générer/Importer**. Créez un secret à des fins de test, nommez la clé et conservez les autres paramètres avec leurs valeurs par défaut.
 
     ![Key Vault - Créer un secret](../media/eventgrid-logicapps-kv-create-secret.png)
 
-1. Dans l’écran **Créer un secret** , indiquez un nom, une valeur, puis sélectionnez **Créer**.
+1. Dans l’écran **Créer un secret**, indiquez un nom, une valeur, puis sélectionnez **Créer**.
 
 Une fois le secret créé, un e-mail est reçu aux adresses configurées.
 

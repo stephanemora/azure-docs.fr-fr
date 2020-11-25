@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013171"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutoriel : Configurer IDEO pour l’attribution automatique d’utilisateurs
 
@@ -53,7 +53,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 Avant de configurer IDEO pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez récupérer certaines informations d’attribution dans IDEO.
 
-* Pour obtenir un **jeton secret** , contactez l’équipe de support IDEO à l’adresse productsupport@ideo.com. Vous devrez entrer cette valeur dans le champ **Jeton secret** sous l’onglet Approvisionnement de votre application IDEO dans le portail Azure. 
+* Pour obtenir un **jeton secret**, contactez l’équipe de support IDEO à l’adresse productsupport@ideo.com. Vous devrez entrer cette valeur dans le champ **Jeton secret** sous l’onglet Approvisionnement de votre application IDEO dans le portail Azure. 
 
 ## <a name="step-3-add-ideo-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter IDEO à partir de la galerie d’applications Azure AD
 
@@ -74,7 +74,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour IDEO dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -90,19 +90,19 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** reçues précédemment de l’équipe de support d’IDEO respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à IDEO. Si la connexion échoue, vérifiez que votre compte IDEO dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** reçues précédemment de l’équipe de support d’IDEO respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à IDEO. Si la connexion échoue, vérifiez que votre compte IDEO dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec IDEO**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec IDEO**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et IDEO. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans IDEO pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et IDEO. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans IDEO pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -112,9 +112,9 @@ Cette section vous guide tout au long des étapes de configuration du service de
    |name.givenName|String|
    |name.familyName|String|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec IDEO**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec IDEO**.
    
-11. Dans la section **Mappage d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et IDEO. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans IDEO dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappage d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et IDEO. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans IDEO dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
