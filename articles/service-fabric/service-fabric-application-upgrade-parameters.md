@@ -4,11 +4,11 @@ description: Décrit les paramètres relatifs à la mise à niveau d'une applica
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247963"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018475"
 ---
 # <a name="application-upgrade-parameters"></a>Paramètres de mise à niveau d'application
 Cet article décrit les différents paramètres qui s’appliquent pendant la mise à niveau d’une application Azure Service Fabric. Les paramètres de mise à niveau d’application permettent de contrôler les délais d’attente et les vérifications d’intégrité appliqués au cours de la mise à niveau et de spécifier les stratégies à appliquer quand une mise à niveau échoue. Les paramètres de l’application s’appliquent aux mises à niveau à l’aide de :

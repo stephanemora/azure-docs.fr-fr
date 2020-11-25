@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658568"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96018050"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Créer un service Private Link à l’aide d’Azure CLI
 Cet article explique comment créer un service Private Link dans Azure à l’aide d’Azure CLI.
@@ -50,7 +50,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>Créer une sonde d’intégrité d’équilibreur de charge
 
-Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pour s’assurer qu’elles peuvent recevoir le trafic réseau. L’instance de machine virtuelle présentant des contrôles de sonde défaillants est supprimée de l’équilibrage de charge jusqu’à ce qu’elle revienne en ligne et que la sonde valide son intégrité. Créez une sonde d’intégrité à l’aide de la commande [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) pour surveiller l’intégrité des machines virtuelles. 
+Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pour s’assurer qu’elles peuvent recevoir le trafic réseau. L’instance de machine virtuelle présentant des contrôles de sonde défaillants est supprimée de l’équilibrage de charge jusqu’à ce qu’elle revienne en ligne et que la sonde valide son intégrité. Créez une sonde d’intégrité à l’aide de la commande [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) pour surveiller l’intégrité des machines virtuelles. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -63,7 +63,7 @@ Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pou
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
-Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myHTTPRule* à l’aide de la commande [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) pour écouter le port 80 dans le pool frontal *myFrontEnd* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également. 
+Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myHTTPRule* à l’aide de la commande [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) pour écouter le port 80 dans le pool frontal *myFrontEnd* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -79,7 +79,7 @@ Une règle d’équilibreur de charge définit la configuration IP frontale pour
 ```
 ### <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cet exemple, nous ne couvrons pas la création d’une machine virtuelle. Vous pouvez suivre les étapes décrites dans [Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) pour créer deux machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. 
+Dans cet exemple, nous ne couvrons pas la création d’une machine virtuelle. Vous pouvez suivre les étapes décrites dans [Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) pour créer deux machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Désactiver les stratégies réseau du service Private Link sur le sous-réseau 
@@ -163,4 +163,3 @@ az network private-link-service show --resource-group myResourceGroup --name myP
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Azure Private Link](private-link-service-overview.md)
- 

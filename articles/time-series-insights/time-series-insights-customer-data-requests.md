@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665903"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019070"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -34,7 +34,7 @@ Un administrateur de locataire peut supprimer des données client à l’aide du
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Toutefois, avant de supprimer des données client via le portail, vous devez supprimer les stratégies d’accès de l’utilisateur de l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](time-series-insights-data-access.md)
+Toutefois, avant de supprimer des données client via le portail, vous devez supprimer les stratégies d’accès de l’utilisateur de l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](./concepts-access-policies.md)
 
 Vous pouvez également effectuer des opérations de suppression sur des stratégies d’accès à l’aide de l’API REST. Pour plus d’informations, consultez [Stratégies d’accès - Supprimer](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ Comme la suppression de données, un administrateur de locataire peut afficher e
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Si vous êtes un administrateur de locataire, vous pouvez afficher les stratégies d’accès aux données dans l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](time-series-insights-data-access.md)
+Si vous êtes un administrateur de locataire, vous pouvez afficher les stratégies d’accès aux données dans l’environnement Time Series Insights dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès aux données à un environnement Time Series Insights en utilisant le portail Azure](./concepts-access-policies.md)
 
 Il est également possible d’effectuer des opérations d’exportation sur des stratégies d’accès à l’aide de l’opération « répertorier par environnement » dans l’API REST fournie. Pour plus d’informations, consultez [Stratégies d’accès - Lister par environnement](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Pour plus d’informations, consultez [Configuration de la conservation des donn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [l’octroi d'un accès aux données de votre environnement Azure Time Series Insights](./time-series-insights-data-access.md).
+* En savoir plus sur [l’octroi d'un accès aux données de votre environnement Azure Time Series Insights](./concepts-access-policies.md).
 
 * Affichez l’[explorateur Azure Time Series Insights](time-series-insights-explorer.md).
 

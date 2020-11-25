@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018220"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Utiliser un cache externe compatible Redis dans Gestion des API Azure
 
@@ -65,7 +65,7 @@ Suivez les étapes ci-dessous pour ajouter un Cache Azure pour Redis externe dan
 > [!NOTE]
 > Le paramètre **Utiliser à partir de** spécifie une région Azure ou un emplacement de passerelle auto-hébergée qui utilisera le cache configuré. Les caches configurés **par défaut** sont remplacés par des caches avec une valeur de région ou d’emplacement correspondante spécifique.
 >
-> Par exemple, si le service Gestion des API est hébergé dans les régions USA Est, Asie Sud-Est et Europe Ouest, et que deux caches sont configurés, l’un **Par défaut** et l’autre pour **Asie Sud-Est** , l’instance Gestion des API de la région **Asie Sud-Est** utilise son propre cache tandis que les deux autres régions utilisent l’entrée de cache **Par défaut**.
+> Par exemple, si le service Gestion des API est hébergé dans les régions USA Est, Asie Sud-Est et Europe Ouest, et que deux caches sont configurés, l’un **Par défaut** et l’autre pour **Asie Sud-Est**, l’instance Gestion des API de la région **Asie Sud-Est** utilise son propre cache tandis que les deux autres régions utilisent l’entrée de cache **Par défaut**.
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Ajouter un Cache Azure pour Redis à partir du même abonnement
 

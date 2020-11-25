@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019614"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 > [!NOTE]
@@ -59,7 +59,7 @@ Vous pouvez utiliser la vignette **Exemples de pipelines** figurant dans la page
 2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
     ![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
-3. Dans le panneau **Exemples de pipelines** , cliquez sur **l’exemple** que vous souhaitez déployer.
+3. Dans le panneau **Exemples de pipelines**, cliquez sur **l’exemple** que vous souhaitez déployer.
 
     ![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
 4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé de compte et votre nom de compte de stockage Azure, le nom du serveur SQL logique, la base de données, l’ID d’utilisateur, le mot de passe, etc.
@@ -70,7 +70,7 @@ Vous pouvez utiliser la vignette **Exemples de pipelines** figurant dans la page
 
     ![état du déploiement](./media/data-factory-samples/DeploymentStatus.png)
 7. Lorsque vous voyez le message **Déploiement réussi** sur la mosaïque de l’exemple, fermez le panneau **Exemples de pipelines**.  
-8. Dans le panneau **DATA FACTORY** , vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
+8. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
 
     ![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
@@ -83,43 +83,43 @@ Les composants suivants doivent être installés sur votre ordinateur :
 * Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in en effectuant les étapes suivantes : Dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
 
 ### <a name="use-data-factory-templates"></a>Utilisation de modèles de fabrique de données
-1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau** , puis cliquez sur **Projet**.
-2. Dans la boîte de dialogue **Nouveau projet** , procédez comme suit :
+1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau**, puis cliquez sur **Projet**.
+2. Dans la boîte de dialogue **Nouveau projet**, procédez comme suit :
 
-   1. Sous **Modèles** , sélectionnez **DataFactory**.
+   1. Sous **Modèles**, sélectionnez **DataFactory**.
    2. Dans le volet droit, sélectionnez **Modèles de fabrique de données** .
    3. Entrez un **nom** pour le projet.
    4. Sélectionnez un **emplacement** pour le projet.
    5. Cliquez sur **OK**.
 
       ![Boîte de dialogue Nouveau projet](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. Dans la boîte de dialogue **Modèles de fabrique de données** , sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation** , puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients** . Les étapes sont similaires pour les autres exemples.
+3. Dans la boîte de dialogue **Modèles de fabrique de données**, sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation**, puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients** . Les étapes sont similaires pour les autres exemples.
 
     ![Boîte de dialogue Modèles de fabrique de données](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
-4. Dans la boîte de dialogue **Configuration de Data Factory** , cliquez sur **Suivant** dans la page **Principes de base de Data Factory**.
-5. Dans la page **Configurer une fabrique de données** , procédez comme suit :
+4. Dans la boîte de dialogue **Configuration de Data Factory**, cliquez sur **Suivant** dans la page **Principes de base de Data Factory**.
+5. Dans la page **Configurer une fabrique de données**, procédez comme suit :
    1. Sélectionnez **Créer une fabrique de données** . Vous pouvez également sélectionner **Utiliser une fabrique de données existante**.
    2. Entrez un **nom** pour la fabrique de données.
    3. Sélectionnez l’ **abonnement Azure** dans lequel vous voulez créer la fabrique de données.
    4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
-   5. Sélectionnez **USA Ouest** , **USA Est** ou **Europe Nord** pour la **région**.
+   5. Sélectionnez **USA Ouest**, **USA Est** ou **Europe Nord** pour la **région**.
    6. Cliquez sur **Suivant**.
-6. Dans la page **Configurer des banques de données** , spécifiez une **base de données dans Azure SQL Database** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
-7. Dans la page **Configurer le calcul** , sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.
-8. Dans la page **Résumé** , passez en revue tous les paramètres, puis cliquez sur **Suivant**.
-9. Dans la page **État du déploiement** , patientez jusqu’à ce que le déploiement soit terminé, puis cliquez sur **Terminer**.
+6. Dans la page **Configurer des banques de données**, spécifiez une **base de données dans Azure SQL Database** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
+7. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.
+8. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**.
+9. Dans la page **État du déploiement**, patientez jusqu’à ce que le déploiement soit terminé, puis cliquez sur **Terminer**.
 10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 11. Si la boîte de dialogue **Connectez-vous à votre compte Microsoft** s’affiche, saisissez vos informations d’identification pour le compte associé à l’abonnement Azure, puis cliquez sur **Se connecter**.
 12. La boîte de dialogue suivante doit s’afficher :
 
     ![Boîte de dialogue Publier](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. Dans la page **Configurer une fabrique de données** , procédez comme suit :
+13. Dans la page **Configurer une fabrique de données**, procédez comme suit :
 
     1. Confirmez l’option **Utiliser une fabrique de données existante** .
     2. Sélectionnez la **fabrique de données** que vous aviez sélectionnée en utilisant le modèle.
     3. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (Utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.)
-14. Dans la page **Publier des éléments** , vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
-15. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’ **état du déploiement**.
+14. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
+15. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
 16. Dans la page **État du déploiement** , vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer.
 
 Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, consultez [Créer votre première fabrique de données (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) .

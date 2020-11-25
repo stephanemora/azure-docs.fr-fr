@@ -10,11 +10,11 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307471"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019223"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -28,14 +28,14 @@ Le plan des modèles ci-dessus met en évidence les relations entre les modèles
 Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’EGT.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé ( **PartitionKey** et **RowKey** ). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.
+Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé (**PartitionKey** et **RowKey**). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.
 
 ![Image06](media/storage-table-design-guide/storage-table-design-IMAGE06.png)
 
 Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey** .  
 
 ### <a name="solution"></a>Solution
-Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie en utilisant une autre valeur de **RowKey** . Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **RowKey** , « empid » et « email » permettent d’interroger un seul employé ou une plage d’employés à l’aide d’une plage d’adresses de messagerie ou d’ID d’employé.  
+Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie en utilisant une autre valeur de **RowKey** . Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **RowKey**, « empid » et « email » permettent d’interroger un seul employé ou une plage d’employés à l’aide d’une plage d’adresses de messagerie ou d’ID d’employé.  
 
 ![Entités d’employé](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -81,7 +81,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de **RowKey** dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé ( **PartitionKey** et **RowKey** ). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.  
+Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé (**PartitionKey** et **RowKey**). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.  
 
 ![ID d’employé](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
@@ -90,7 +90,7 @@ Si vous voulez également pouvoir trouver une entité d'employé en fonction de 
 Vous prévoyez un volume élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation de votre client par le service de Table.  
 
 ### <a name="solution"></a>Solution
-Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie à l’aide de différentes valeurs de **PartitionKey** et de **RowKey**. Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **PartitionKey** , « empid » et « email » permettent d’identifier l’index à utiliser pour une requête.  
+Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie à l’aide de différentes valeurs de **PartitionKey** et de **RowKey**. Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **PartitionKey**, « empid » et « email » permettent d’identifier l’index à utiliser pour une requête.  
 
 ![Index primaire et secondaire](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -102,7 +102,7 @@ Les deux critères de filtre suivants (l’un recherchant selon l’ID d’emplo
 
 Si vous interrogez un ensemble d’entités d’employé, vous pouvez spécifier une plage triée par ID d’employé ou une plage triée par adresse e-mail en recherchant les entités avec le préfixe approprié dans **RowKey**.  
 
-* Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre **000100** et **000199** , utilisez : $filter=(PartitionKey eq ’empid_Sales’) and (RowKey ge ’000100’) and (RowKey le ’000199’)  
+* Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre **000100** et **000199**, utilisez : $filter=(PartitionKey eq ’empid_Sales’) and (RowKey ge ’000100’) and (RowKey le ’000199’)  
 * Pour rechercher tous les employés du service des ventes ayant une adresse de messagerie qui commence par « a » triés dans l’ordre des adresses de messagerie, utilisez : $filter=(PartitionKey eq ’email_Sales’) and (RowKey ge ’a’) and (RowKey lt ’b’)  
 
 La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](/rest/api/storageservices/Query-Entities).  
@@ -145,25 +145,25 @@ Les EGT activent les transactions atomiques de plusieurs entités qui partagent 
 
 ### <a name="solution"></a>Solution
 À l'aide des files d'attente Azure, vous pouvez implémenter une solution cohérente entre plusieurs partitions ou systèmes de stockage.
-Pour illustrer cette approche, supposons que vous ayez besoin d'archiver d'anciennes entités d'employés. Les anciennes entités d'employés sont rarement interrogées et doivent être exclues de toutes les activités impliquant des employés actuels. Pour implémenter cette exigence, vous stockez des employés actifs dans la table **Current** et les anciens employés dans la table **Archive**. L’archivage d’un employé nécessite la suppression de son entité de la table **Current** et son ajout à la table **Archive** , mais vous ne pouvez pas utiliser une EGT pour effectuer ces deux opérations. Pour éviter le risque qu'une défaillance provoque l'apparition d'une entité dans les deux tables ou dans aucune d'elles, l'opération d'archivage doit être cohérente. Le diagramme de séquence suivant décrit les étapes de cette opération. Le texte suivant fournit plus de détails au sujet des chemins d'accès de l'exception.  
+Pour illustrer cette approche, supposons que vous ayez besoin d'archiver d'anciennes entités d'employés. Les anciennes entités d'employés sont rarement interrogées et doivent être exclues de toutes les activités impliquant des employés actuels. Pour implémenter cette exigence, vous stockez des employés actifs dans la table **Current** et les anciens employés dans la table **Archive**. L’archivage d’un employé nécessite la suppression de son entité de la table **Current** et son ajout à la table **Archive**, mais vous ne pouvez pas utiliser une EGT pour effectuer ces deux opérations. Pour éviter le risque qu'une défaillance provoque l'apparition d'une entité dans les deux tables ou dans aucune d'elles, l'opération d'archivage doit être cohérente. Le diagramme de séquence suivant décrit les étapes de cette opération. Le texte suivant fournit plus de détails au sujet des chemins d'accès de l'exception.  
 
 ![Solution de files d’attente Azure](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
-Un client lance l'opération d'archivage en plaçant un message dans une file d'attente Azure, dans cet exemple pour archiver l'employé #456. Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current** , insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.  
+Un client lance l'opération d'archivage en plaçant un message dans une file d'attente Azure, dans cet exemple pour archiver l'employé #456. Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current**, insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.  
 
 Dans cet exemple, l’étape 4 permet d’insérer l’employé dans la table **Archive** . L'employé peut être ajouté à un objet blob dans le service d'objets blob ou à un fichier dans un système de fichiers.  
 
 ### <a name="recovering-from-failures"></a>Récupération après échec
-Il est important que les opérations des étapes  **4** et  **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape  **4** , vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape  **5** , vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.  
+Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.  
 
-Si le rôle de travail ne termine jamais l’étape **6** , après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](/rest/api/storageservices/Get-Messages).  
+Si le rôle de travail ne termine jamais l’étape **6**, après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](/rest/api/storageservices/Get-Messages).  
 
 Certaines erreurs provenant des services de Table et de File d'attente sont des erreurs temporaires et votre application cliente doit inclure une logique de nouvelle tentative appropriée pour les gérer.  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
-* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes  **4** et  **5** , et voir des données incohérentes affichées. Les données seront cohérentes par la suite.  
+* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Les données seront cohérentes par la suite.  
 * Vous pouvez être amené à vérifier que les étapes 4 et 5 sont idempotent afin d'assurer la cohérence.  
 * Vous pouvez mettre à l'échelle la solution en utilisant plusieurs files d'attente et instances de rôle de travail.  
 
@@ -185,7 +185,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Permet de mettre à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide d'une requête de pointage. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut récupérer efficacement une entité d’employé individuelle en utilisant le nom du service et l’ID d’employé ( **PartitionKey** et **RowKey** ).  
+Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide d'une requête de pointage. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut récupérer efficacement une entité d’employé individuelle en utilisant le nom du service et l’ID d’employé (**PartitionKey** et **RowKey**).  
 
 ![Entité d’employé](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -316,7 +316,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
-* Vous devez utiliser un caractère de séparation approprié pour faciliter l’analyse des valeurs de **RowKey**  : par exemple, **000123_2012**.  
+* Vous devez utiliser un caractère de séparation approprié pour faciliter l’analyse des valeurs de **RowKey** : par exemple, **000123_2012**.  
 * Vous stockez également cette entité dans la même partition que les autres entités qui contiennent des données associées au même employé, ce qui signifie que vous pouvez utiliser des EGT pour maintenir une forte cohérence.
 * Vous devez prendre en compte la fréquence à laquelle vous interrogez les données afin de déterminer si ce modèle est approprié.  Par exemple, si vous accédez rarement aux données d'évaluation et souvent aux données principales de l'employé, vous devez les conserver en entités distinctes.  
 
@@ -372,7 +372,7 @@ Activez la suppression d'un volume élevé d'entités en stockant toutes les ent
 ### <a name="context-and-problem"></a>Contexte et problème
 De nombreuses applications suppriment les anciennes données qui n’ont plus besoin d’être disponibles pour une application cliente ou archivées par l’application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
 
-Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey** :  
+Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey**:  
 
 ![Date et heure de la tentative de connexion](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projection côté serveur
-Une seule entité peut avoir jusqu'à 255 propriétés et une taille allant jusqu'à 1 Mo. Lorsque vous interrogez la table et récupérez des entités, il est possible que vous n'ayez pas besoin de toutes les propriétés et que vous puissiez éviter de transférer des données sans que cela soit nécessaire (ce qui permet de réduire la latence et les coûts). Vous pouvez utiliser la projection côté serveur pour transférer uniquement les propriétés que vous avez besoin. L’exemple suivant extrait uniquement la propriété **Email** (avec les valeurs de **PartitionKey** , de **RowKey** , de **Timestamp** et d’ **ETag** ) à partir des entités sélectionnées par la requête.  
+Une seule entité peut avoir jusqu'à 255 propriétés et une taille allant jusqu'à 1 Mo. Lorsque vous interrogez la table et récupérez des entités, il est possible que vous n'ayez pas besoin de toutes les propriétés et que vous puissiez éviter de transférer des données sans que cela soit nécessaire (ce qui permet de réduire la latence et les coûts). Vous pouvez utiliser la projection côté serveur pour transférer uniquement les propriétés que vous avez besoin. L’exemple suivant extrait uniquement la propriété **Email** (avec les valeurs de **PartitionKey**, de **RowKey**, de **Timestamp** et d’**ETag**) à partir des entités sélectionnées par la requête.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -813,9 +813,9 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 </tr>
 </table>
 
-Chaque entité doit toujours avoir les valeurs **PartitionKey** , **RowKey** et **Timestamp** , mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
+Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et **Timestamp**, mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
 
-* Ajout d’un préfixe de type d’entité à la **RowKey** (ou éventuellement à la **PartitionKey** ). Par exemple, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** en tant que valeurs de **RowKey**.  
+* Ajout d’un préfixe de type d’entité à la **RowKey** (ou éventuellement à la **PartitionKey**). Par exemple, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** en tant que valeurs de **RowKey**.  
 * Utilisez une propriété distincte pour enregistrer le type d'entité comme indiqué dans le tableau ci-dessous.  
 
 <table>
@@ -913,7 +913,7 @@ Chaque entité doit toujours avoir les valeurs **PartitionKey** , **RowKey** et 
 </tr>
 </table>
 
-La première option, qui consiste à ajouter un préfixe de type d’entité à la **RowKey** , est utile au cas où deux entités de types différents se retrouvent avec la même valeur de clé. Il regroupe également les entités du même type dans la partition.  
+La première option, qui consiste à ajouter un préfixe de type d’entité à la **RowKey**, est utile au cas où deux entités de types différents se retrouvent avec la même valeur de clé. Il regroupe également les entités du même type dans la partition.  
 
 Les techniques présentées dans cette section sont particulièrement adaptées à la discussion [Relations d’héritage](table-storage-design-modeling.md#inheritance-relationships) plus haut dans ce guide, dans l’article [Modélisation des relations](table-storage-design-modeling.md).  
 
@@ -927,7 +927,7 @@ Le reste de cette section décrit certaines des fonctionnalités de la biblioth�
 ### <a name="retrieving-heterogeneous-entity-types"></a>Récupération de types d'entités hétérogènes
 Si vous utilisez la bibliothèque cliente de stockage, vous avez trois options pour travailler avec plusieurs types d'entité.  
 
-Si vous connaissez le type de l’entité stockée avec des valeurs **RowKey** et **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme le montrent les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity**  : [Exécuter une requête de pointage avec la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupérer plusieurs entités avec LINQ](#retrieving-multiple-entities-using-linq).  
+Si vous connaissez le type de l’entité stockée avec des valeurs **RowKey** et **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme le montrent les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity** : [Exécuter une requête de pointage avec la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupérer plusieurs entités avec LINQ](#retrieving-multiple-entities-using-linq).  
 
 La deuxième option consiste à utiliser le type **DynamicTableEntity** (un conteneur de propriétés) plutôt qu’un type d’entité POCO concret (cette option peut également améliorer les performances, car il n’est pas nécessaire de sérialiser et désérialiser l’entité en types .NET). Le code C# suivant récupère plusieurs entités de types différents à partir de la table, mais renvoie toutes les entités en tant qu’instances de **DynamicTableEntity** . Il utilise ensuite la propriété **EventType** pour déterminer le type de chaque entité :  
 
@@ -1035,7 +1035,7 @@ Pour plus d’informations sur l’utilisation de jetons SAP avec le service de 
 
 Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d'accéder aux entités du service de Table : vous devez le faire dans un environnement qui dispose d'un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
 
-Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemble d'entités dans une table. Par défaut, vous créez un jeton SAP pour une table entière, mais il est également possible d’indiquer que le jeton SAP accorde l’accès à une plage de valeurs de **PartitionKey** , ou de **PartitionKey** et de **RowKey**. Vous pouvez choisir de générer des jetons SAP pour des utilisateurs individuels de votre système, de sorte que chaque jeton SAP d’un utilisateur lui permet uniquement d’accéder à ses propres entités dans le service de Table.  
+Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemble d'entités dans une table. Par défaut, vous créez un jeton SAP pour une table entière, mais il est également possible d’indiquer que le jeton SAP accorde l’accès à une plage de valeurs de **PartitionKey**, ou de **PartitionKey** et de **RowKey**. Vous pouvez choisir de générer des jetons SAP pour des utilisateurs individuels de votre système, de sorte que chaque jeton SAP d’un utilisateur lui permet uniquement d’accéder à ses propres entités dans le service de Table.  
 
 ## <a name="asynchronous-and-parallel-operations"></a>Opérations asynchrones et parallèles
 Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles.
@@ -1092,7 +1092,7 @@ Dans cet exemple asynchrone, vous pouvez voir les modifications suivantes par ra
 
 L’application cliente peut appeler cette méthode plusieurs fois (avec des valeurs différentes pour le paramètre **department** ) et chaque requête s’exécute sur un thread distinct.  
 
-Il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery** , car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
+Il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery**, car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
 
 Vous pouvez également insérer, mettre à jour et supprimer des entités de façon asynchrone. L'exemple C# suivant indique une méthode simple et synchrone pour insérer ou remplacer une entité d'employé :  
 

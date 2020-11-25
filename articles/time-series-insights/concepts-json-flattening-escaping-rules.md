@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460864"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017965"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Mise à plat, échappement et gestion des tableaux JSON
 
@@ -22,18 +22,18 @@ Votre environnement Azure Time Series Insights Gen2 crée de manière dynamique 
 
 > [!IMPORTANT]
 >
-> * Passez en revue les règles ci-dessous avant de sélectionner une [propriété de l’ID de la série chronologique](time-series-insights-update-how-to-id.md) et/ou votre source d’événements de l’[horodateur](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Si votre ID TS ou horodateur se trouve dans un objet imbriqué ou contient un ou plusieurs caractères spéciaux ci-dessous, il est important de s’assurer que le nom de la propriété que vous fournissez correspond au nom de la colonne *après* que les règles d’ingestion ont été appliquées. Voir l’exemple [B](concepts-json-flattening-escaping-rules.md#example-b) ci-dessous.
+> * Passez en revue les règles ci-dessous avant de sélectionner une [propriété de l’ID de la série chronologique](./how-to-select-tsid.md) et/ou votre source d’événements de l’[horodateur](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Si votre ID TS ou horodateur se trouve dans un objet imbriqué ou contient un ou plusieurs caractères spéciaux ci-dessous, il est important de s’assurer que le nom de la propriété que vous fournissez correspond au nom de la colonne *après* que les règles d’ingestion ont été appliquées. Voir l’exemple [B](concepts-json-flattening-escaping-rules.md#example-b) ci-dessous.
 
-| Règle | Exemple JSON | [Syntaxe Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nom de la colonne de propriété dans Parquet
+| Règle | Exemple JSON | [Syntaxe Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nom de la colonne de propriété dans Parquet
 |---|---|---|---|
 | Le type de données Azure Time Series Insights Gen2 est ajouté à la fin de votre nom de colonne en tant que « _\<dataType\> ». | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | La [propriété d’horodatage](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de la source de l’événement sera enregistrée dans Azure Time Series Insights Gen2 sous « timestamp » dans le stockage, et la valeur stockée au format UTC. Vous pouvez personnaliser la propriété d’horodatage de la ou des sources d’événements pour répondre aux besoins de votre solution, mais le nom de la colonne dans stockage à chaud et à froid est « timestamp ». Les autres propriétés DateHeure JSON qui ne sont pas liées à l’horodatage de la source de l’événement sont enregistrées sous « _datetime » dans le nom de la colonne, comme indiqué dans la règle ci-dessus.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | Les noms des propriétés JSON qui incluent les caractères spéciaux. [  \ et ' sont placés dans une séquence d’échappement [' et ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | Dans ['et'], des guillemets simples et des barres obliques inverses supplémentaires sont inclus. Un guillemet simple est écrit sous la forme \ et une barre oblique inverse est écrite sous la forme \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Les objets JSON imbriqués sont aplatis à l’aide d’un point comme séparateur. L’imbrication jusqu’à 10 niveaux est prise en charge. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` ou `$event.series['value'].Long` |  `series.value_long` |
-| Les tableaux de types primitifs sont stockés en tant que type dynamique |  ```"values": [154, 149, 147]``` | Les types dynamiques peuvent uniquement être récupérés via l’API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents). | `values_dynamic` |
+| Les tableaux de types primitifs sont stockés en tant que type dynamique |  ```"values": [154, 149, 147]``` | Les types dynamiques peuvent uniquement être récupérés via l’API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents). | `values_dynamic` |
 | Les tableaux contenant des objets ont deux comportements en fonction du contenu de l’objet : Si les ID TS ou la/les propriété(s) d’horodatage se trouvent dans les objets d’un tableau, le tableau sera déroulé de sorte que la charge utile JSON initiale génère plusieurs événements. Cela vous permet de traiter par lot plusieurs événements dans une structure JSON. Toutes les propriétés de niveau supérieur qui sont des homologues du tableau seront enregistrées avec chaque objet non restauré. Si vos ID et horodateurs TS ne sont *pas* dans le tableau, ils sont enregistrés dans son intégralité en tant que type dynamique. | Consultez les exemples [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) et [C](concepts-json-flattening-escaping-rules.md#example-c) ci-dessous
-| Les tableaux contenant des éléments mixtes ne sont pas aplatis. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Les types dynamiques peuvent uniquement être récupérés via l’API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents). | `values_dynamic` |
+| Les tableaux contenant des éléments mixtes ne sont pas aplatis. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Les types dynamiques peuvent uniquement être récupérés via l’API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents). | `values_dynamic` |
 | 512 caractères correspond à la limite du nom de propriété JSON. Si le nom dépasse 512 caractères, il sera tronqué à 512 et '_<'code de hachage'>' sera ajouté. **Notez** que cela s’applique également aux noms de propriétés qui ont été concaténés à partir d’un objet aplati, désignant un chemin d’objet imbriqué. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Fonctionnement du double comportement pour les tableaux
@@ -44,7 +44,7 @@ Toutefois, dans certains cas, les tableaux contenant des objets ne sont signific
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Comment savoir si mon tableau d’objets produira plusieurs événements
 
-Si un ou plusieurs de vos ID de série chronologique sont imbriqués dans des objets d’un tableau *ou* si la propriété d’horodatage de la source de l’événement est imbriquée, le moteur d’ingestion le fractionne pour créer plusieurs événements. Les noms de propriétés que vous avez fournis pour votre/vos ID TS et/ou horodateur doivent suivre les règles d’aplatissement ci-dessus. Ils indiquent donc la forme de votre JSON. Consultez les exemples ci-dessous, et consultez le guide pour apprendre à [sélectionner une propriété d’ID de série chronologique.](time-series-insights-update-how-to-id.md)
+Si un ou plusieurs de vos ID de série chronologique sont imbriqués dans des objets d’un tableau *ou* si la propriété d’horodatage de la source de l’événement est imbriquée, le moteur d’ingestion le fractionne pour créer plusieurs événements. Les noms de propriétés que vous avez fournis pour votre/vos ID TS et/ou horodateur doivent suivre les règles d’aplatissement ci-dessus. Ils indiquent donc la forme de votre JSON. Consultez les exemples ci-dessous, et consultez le guide pour apprendre à [sélectionner une propriété d’ID de série chronologique.](./how-to-select-tsid.md)
 
 ### <a name="example-a"></a>Exemple A
 

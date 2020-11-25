@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018243"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Mettre à l’échelle automatiquement une instance du service Gestion des API Azure  
 
@@ -66,7 +66,7 @@ Suivez les étapes ci-dessous pour configurer la mise à l’échelle automatiqu
 
     ![Activer la mise à l’échelle automatique dans Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. Dans la section **Règles** , cliquez sur **+ Ajouter une règle**.
+6. Dans la section **Règles**, cliquez sur **+ Ajouter une règle**.
 
     ![Ajouter une règle de mise à l’échelle automatique dans Azure Monitor](media/api-management-howto-autoscale/04.png)
 

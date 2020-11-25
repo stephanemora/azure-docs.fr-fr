@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742245"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018288"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sauvegarde de partages ou de volumes sur votre StorSimple Virtual Array
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742245"
 
 StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Le tableau virtuel vous permet de créer des sauvegardes planifiées et manuelles de l’ensemble des partages ou des volumes sur l’appareil. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel vous explique comment créer des sauvegardes planifiées et manuelles et effectuer une récupération au niveau de l’élément pour restaurer un fichier supprimé sur votre tableau virtuel.
 
-Ce didacticiel s’applique uniquement aux instances StorSimple Virtual Array. Pour plus d’informations sur la gamme 8000, accédez à [Create a backup for 8000 series device](storsimple-manage-backup-policies-u2.md) (Créer une sauvegarde pour un appareil de la gamme 8000).
+Ce didacticiel s’applique uniquement aux instances StorSimple Virtual Array. Pour plus d’informations sur la gamme 8000, accédez à [Create a backup for 8000 series device](./storsimple-8000-manage-backup-policies-u2.md) (Créer une sauvegarde pour un appareil de la gamme 8000).
 
 ## <a name="back-up-shares-and-volumes"></a>Sauvegarder des partages et des volumes
 
@@ -115,4 +115,3 @@ Pour afficher les sauvegardes existantes, procédez comme suit dans le portail 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

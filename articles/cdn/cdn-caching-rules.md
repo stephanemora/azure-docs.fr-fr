@@ -14,16 +14,16 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778963"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018662"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache
 
 > [!NOTE] 
-> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai** . Pour des profils **Azure CDN de Microsoft** , vous devez utiliser le [moteur de règles standard](cdn-standard-rules-engine-reference.md) Pour les profils **Azure CDN Premium de Verizon** , vous devez utiliser le [moteur de règles Premium Verizon](./cdn-verizon-premium-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
+> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour des profils **Azure CDN de Microsoft**, vous devez utiliser le [moteur de règles standard](cdn-standard-rules-engine-reference.md) Pour les profils **Azure CDN Premium de Verizon**, vous devez utiliser le [moteur de règles Premium Verizon](./cdn-verizon-premium-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
  
 Azure Content Delivery Network (CDN) offre deux moyens de contrôler la façon dont les fichiers sont mis en cache : 
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur le comportement de mise en cache par défaut et s
 
 1. Ouvrez le portail Azure, sélectionnez un profil CDN, puis sélectionnez un point de terminaison.
 
-2. Dans le volet gauche, sous Paramètres, sélectionnez **Règles de mise en cache** .
+2. Dans le volet gauche, sous Paramètres, sélectionnez **Règles de mise en cache**.
 
    ![Bouton Règles de mise en cache CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
@@ -54,11 +54,11 @@ Pour plus d’informations sur le comportement de mise en cache par défaut et s
 ## <a name="caching-behavior-settings"></a>Paramètres du comportement de mise en cache
 Pour les règles de mise en cache globales et personnalisées, vous pouvez spécifier les paramètres de **Comportement de mise en cache** suivants :
 
-- **Ignorer le cache**  : ne pas mettre en cache et ignorer les en-têtes à directive de cache fournis à l’origine.
+- **Ignorer le cache** : ne pas mettre en cache et ignorer les en-têtes à directive de cache fournis à l’origine.
 
-- **Remplacer**  : ignorer la durée de cache fournie à l’origine ; utilisez la durée du cache fourni à la place. Cela ne remplace pas cache-control: no-cache.
+- **Remplacer** : ignorer la durée de cache fournie à l’origine ; utilisez la durée du cache fourni à la place. Cela ne remplace pas cache-control: no-cache.
 
-- **Définir en cas d’absence**  : respecter les en-têtes à directive de cache fournis à l’origine, s’ils existent ; sinon, utilisez la durée de cache fournie.
+- **Définir en cas d’absence** : respecter les en-têtes à directive de cache fournis à l’origine, s’ils existent ; sinon, utilisez la durée de cache fournie.
 
 ![Règles de mise en cache générales](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -67,17 +67,17 @@ Pour les règles de mise en cache globales et personnalisées, vous pouvez spéc
 ## <a name="cache-expiration-duration"></a>Durée d’expiration du cache
 Pour les règles de mise en cache globales et personnalisées, vous pouvez spécifier la durée d’expiration du cache en jours, heures, minutes et secondes :
 
-- Pour les paramètres de **Comportement de mise en cache** **Remplacer** et **Définir en cas d’absence** , les durées de cache valides sont comprises entre 0 et 366 jours. Pour une valeur de 0 seconde, le CDN met en cache le contenu, mais doit revalider chaque requête avec le serveur d’origine.
+- Pour les paramètres de **Comportement de mise en cache** **Remplacer** et **Définir en cas d’absence**, les durées de cache valides sont comprises entre 0 et 366 jours. Pour une valeur de 0 seconde, le CDN met en cache le contenu, mais doit revalider chaque requête avec le serveur d’origine.
 
-- Pour le paramètre **Ignorer le cache** , la durée du cache est automatiquement définie sur 0 seconde et ne peut pas être modifiée.
+- Pour le paramètre **Ignorer le cache**, la durée du cache est automatiquement définie sur 0 seconde et ne peut pas être modifiée.
 
 ## <a name="custom-caching-rules-match-conditions"></a>Conditions de correspondance des règles de mise en cache personnalisées
 
 Pour les règles de cache personnalisées, deux conditions de correspondance sont disponibles :
  
-- **Chemin d’accès**  : cette condition correspond au chemin de l’URL, à l’exclusion du nom de domaine, et prend en charge le caractère générique (\*). Par exemple, _/myfile.html_ , _/my/folder/*_ et _/my/images/*.jpg_ . La longueur maximale est de 260 caractères.
+- **Chemin d’accès** : cette condition correspond au chemin de l’URL, à l’exclusion du nom de domaine, et prend en charge le caractère générique (\*). Par exemple, _/myfile.html_, _/my/folder/*_ et _/my/images/*.jpg_. La longueur maximale est de 260 caractères.
 
-- **Extension**  : cette condition correspond à l’extension de fichier du fichier demandé. Vous pouvez fournir une liste d’extensions de fichier séparées par des virgules pour la correspondance. Par exemple, _.jpg_ , _.mp3_ ou _.png_ . Le nombre maximal d’extensions est de 50 et le nombre maximal de caractères par extension est de 16. 
+- **Extension** : cette condition correspond à l’extension de fichier du fichier demandé. Vous pouvez fournir une liste d’extensions de fichier séparées par des virgules pour la correspondance. Par exemple, _.jpg_, _.mp3_ ou _.png_. Le nombre maximal d’extensions est de 50 et le nombre maximal de caractères par extension est de 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Ordre de traitement des règles globales et personnalisées
 Les règles de mise en cache globales et personnalisées sont traitées dans l’ordre suivant :
@@ -86,7 +86,7 @@ Les règles de mise en cache globales et personnalisées sont traitées dans l�
 
 - Les règles de mise en cache personnalisées sont prioritaires sur les règles de mise en cache globales, où elles s’appliquent. Les règles de mise en cache personnalisées sont traitées de haut en bas. Autrement dit, si une requête remplie ces deux conditions, les règles situées au bas de la liste sont prioritaires sur celles qui sont situées en haut. Par conséquent, vous devez placer les règles vraiment spécifiques plus bas dans la liste.
 
-**Exemple**  :
+**Exemple** :
 - Règles de mise en cache générales : 
    - Comportement de mise en cache : **Remplacer**
    - Durée d’expiration du cache : 1 jour
@@ -109,8 +109,8 @@ Quand ces règles sont définies, une requête pour _&lt;nom_d’hôte_du_point_
 > Les fichiers qui sont mis en cache avant une modification de règle conservent leur paramètre de durée de cache d’origine. Pour réinitialiser leur durée de cache, vous devez [vider le fichier](cdn-purge-endpoint.md). 
 >
 > La propagation sur le réseau des changements de configuration d’Azure CDN peut prendre un certain temps : 
-> - Pour les profils du **CDN Azure Standard fourni par Akamai** , la propagation s’effectue généralement dans un délai d’une minute. 
-> - Pour les profils du **CDN Azure Standard fourni par Verizon** , la propagation s’effectue généralement dans un délai de 10 minutes.  
+> - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
+> - Pour les profils du **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.  
 >
 
 ## <a name="see-also"></a>Voir aussi

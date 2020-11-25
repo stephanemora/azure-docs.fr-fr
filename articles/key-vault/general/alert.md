@@ -12,11 +12,11 @@ ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427020"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018118"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -36,21 +36,21 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 + Nombre total d'accès à l'API de service (filtrer par type d'activité) 
 + Codes d'erreur (filtrer par code d'état) 
 
-**Disponibilité du coffre**  : cette métrique doit toujours être de 100 %. Elle doit impérativement être surveillée car elle peut rapidement vous indiquer si votre coffre de clés a subi une interruption. 
+**Disponibilité du coffre** : cette métrique doit toujours être de 100 %. Elle doit impérativement être surveillée car elle peut rapidement vous indiquer si votre coffre de clés a subi une interruption. 
 
-**Saturation du coffre**  : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
+**Saturation du coffre** : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
 
-**Latence de l'API de service**  : cette métrique indique la latence moyenne d'un appel au coffre de clés. Même si votre coffre de clés se trouve dans les limites de service, une utilisation intensive de celui-ci peut entraîner une latence qui fait échouer les applications situées en aval. 
+**Latence de l'API de service** : cette métrique indique la latence moyenne d'un appel au coffre de clés. Même si votre coffre de clés se trouve dans les limites de service, une utilisation intensive de celui-ci peut entraîner une latence qui fait échouer les applications situées en aval. 
 
-**Nombre total d'accès à l'API**  : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
+**Nombre total d'accès à l'API** : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
 
-**Codes d'erreur**  : cette métrique indique si votre coffre de clés rencontre un nombre inhabituel d'erreurs. Pour obtenir la liste complète des codes d'erreur et des conseils de dépannage, consultez le document suivant. [Codes d'erreur de l'API REST Azure Key Vault](rest-error-codes.md)
+**Codes d'erreur** : cette métrique indique si votre coffre de clés rencontre un nombre inhabituel d'erreurs. Pour obtenir la liste complète des codes d'erreur et des conseils de dépannage, consultez le document suivant. [Codes d'erreur de l'API REST Azure Key Vault](rest-error-codes.md)
 
 ## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configurer les métriques et créer un tableau de bord
 
 1. Connectez-vous au portail Azure.
 2. Accédez à votre coffre de clés.
-3. Sous **Supervision** , sélectionnez **Métriques**. 
+3. Sous **Supervision**, sélectionnez **Métriques**. 
 
 > [!div class="mx-imgBorder"]
 > ![Capture d'écran mettant en évidence l'option Métriques dans la section Surveillance.](../media/alert-1.png)
@@ -73,7 +73,7 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 > [!div class="mx-imgBorder"]
 > ![Capture d'écran représentant le bouton Appliquer le fractionnement.](../media/alert-3.png)
 
-10. Pour surveiller les codes d'erreur sur le coffre de clés, utilisez la métrique **Résultats totaux de l'API de service** , puis sélectionnez **Appliquer le fractionnement par type d'activité**.
+10. Pour surveiller les codes d'erreur sur le coffre de clés, utilisez la métrique **Résultats totaux de l'API de service**, puis sélectionnez **Appliquer le fractionnement par type d'activité**.
 
 > [!div class="mx-imgBorder"]
 > ![Capture d'écran dans laquelle la métrique Résultats totaux de l'API de service est sélectionnée.](../media/alert-4.png)

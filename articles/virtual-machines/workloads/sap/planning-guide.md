@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894098"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019393"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -339,7 +340,7 @@ Les termes suivants sont utilisés dans le document :
 * Paysage SAP : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP comprend tous les environnements de production et les autres types d’environnements.
 * Système SAP : ensemble couche SGBD/couche Application, tel que celui d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de répartir ces deux couches entre des sites locaux et Azure. Cela signifie qu’un système SAP est déployé localement ou dans Azure. Toutefois, vous pouvez déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
 * Intersite ou hybride : décrit un scénario dans lequel les machines virtuelles sont déployées sur un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites ou hybrides. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le cas le plus courant, et presque le seul, de déploiement de ressources SAP dans Azure. Pour plus d’informations, consultez [cet article][vpn-gateway-cross-premises-options] et [celui-ci][vpn-gateway-site-to-site-create].
-* Extension de la supervision Azure, Supervision améliorée et Extension Azure pour SAP : ces termes désignent tous la même chose. Ils désignent une extension de machine virtuelle que vous devez déployer pour fournir des données sur l’infrastructure Azure à SAP Host Agent. Dans les notes SAP, vous pouvez trouver des références à « Extension de la supervision » ou à « Supervision améliorée ». Dans Azure, nous utilisons le terme «  **Extension Azure pour SAP**  ».
+* Extension de la supervision Azure, Supervision améliorée et Extension Azure pour SAP : ces termes désignent tous la même chose. Ils désignent une extension de machine virtuelle que vous devez déployer pour fournir des données sur l’infrastructure Azure à SAP Host Agent. Dans les notes SAP, vous pouvez trouver des références à « Extension de la supervision » ou à « Supervision améliorée ». Dans Azure, nous utilisons le terme « **Extension Azure pour SAP** ».
 
 > [!NOTE]
 > Les déploiements intersites ou hybrides de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations hybrides ou intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et de l’annuaire ADS/OpenLDAP locaux même quand l’intégralité du paysage SAP est exécutée dans Azure.
@@ -1178,7 +1179,7 @@ Pour plus de suggestions et de détails, en particulier pour les machines virtue
 
 Dans la plupart des scénarios, vous devez créer des disques supplémentaires pour déployer la base de données SAP sur la machine virtuelle. Nous avons abordé les éléments à prendre en compte pour un certain nombre de disques dans le chapitre [Structure de machine virtuelle/disque pour les déploiements SAP][planning-guide-5.5.1] dans ce document. Le portail Azure permet d’attacher et de détacher des disques de données une fois qu’une machine virtuelle de base est déployée. Les disques peuvent être attachés/détachés lorsque la machine virtuelle est en cours d’exécution, ainsi que lorsque celle-ci est arrêtée. Quand vous attachez un disque, le portail Azure propose d’attacher un disque vide ou un disque existant qui n’est pas encore attaché à une autre machine virtuelle.
 
-**Remarque**  : Les disques peuvent être attachés à une seule machine virtuelle à la fois.
+**Remarque** : Les disques peuvent être attachés à une seule machine virtuelle à la fois.
 
 ![Attacher/Détacher des disques avec le stockage Azure standard][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ Pendant le déploiement d’une nouvelle machine virtuelle, vous pouvez décider
 
 Ensuite, vous devez décider si vous souhaitez créer un disque vide ou si vous souhaitez sélectionner un disque existant qui a été chargé plus tôt et doit désormais être attaché à la machine virtuelle.
 
-**IMPORTANT**  : Vous **NE DEVEZ PAS** utiliser la mise en cache de l’hôte avec un stockage Standard Azure. Vous devez conserver les préférences de Cache hôte sur Aucun par défaut. Avec le stockage Azure Premium, vous devez activer la Mise en cache en lecture si les caractéristiques d’E/S se lisent principalement comme du trafic d’E/S standard sur des fichiers de données de base de données. En cas de fichier journal des transactions de base de données, la mise en cache n’est pas recommandée.
+**IMPORTANT** : Vous **NE DEVEZ PAS** utiliser la mise en cache de l’hôte avec un stockage Standard Azure. Vous devez conserver les préférences de Cache hôte sur Aucun par défaut. Avec le stockage Azure Premium, vous devez activer la Mise en cache en lecture si les caractéristiques d’E/S se lisent principalement comme du trafic d’E/S standard sur des fichiers de données de base de données. En cas de fichier journal des transactions de base de données, la mise en cache n’est pas recommandée.
 
 ---
 > ![Logo Windows.][Logo_Windows] Windows
@@ -1776,8 +1777,8 @@ La **récupération d’urgence (DR)** vise également à réduire l’interrupt
 
 Nous pouvons séparer la discussion concernant la haute disponibilité SAP dans Azure en deux parties :
 
-* La **haute disponibilité de l’infrastructure Azure** , par exemple, celle du calcul (machines virtuelles), du réseau, du stockage, etc., et ses avantages en termes d’augmentation de la disponibilité des applications SAP.
-* La **haute disponibilité des applications SAP** , par exemple, celle des composants logiciels SAP :
+* La **haute disponibilité de l’infrastructure Azure**, par exemple, celle du calcul (machines virtuelles), du réseau, du stockage, etc., et ses avantages en termes d’augmentation de la disponibilité des applications SAP.
+* La **haute disponibilité des applications SAP**, par exemple, celle des composants logiciels SAP :
   * Serveurs d’application SAP
   * Instance SAP ASCS/SCS
   * Serveur de base de données
@@ -1950,7 +1951,7 @@ La sauvegarde hors connexion nécessite essentiellement l’arrêt de la machine
 
 
 Une restauration de cet état consisterait en la suppression de la machine virtuelle de base, ainsi que de ses disques d’origine et des disques montés, la copie des disques enregistrés dans le compte de stockage d’origine ou le groupe de ressources pour les disques managés, puis le redéploiement du système.
-Cet article montre comment rédiger le script de ce processus dans PowerShell : <http://www.westerndevs.com/azure-snapshots/>
+Cet article montre comment rédiger le script de ce processus dans PowerShell : <https://www.westerndevs.com/_/azure-snapshots/>
 
 Veillez à installer une nouvelle licence SAP, dans la mesure où la restauration d’une sauvegarde de machine virtuelle selon les modalités ci-dessus entraîne la création d’une clé matérielle.
 
