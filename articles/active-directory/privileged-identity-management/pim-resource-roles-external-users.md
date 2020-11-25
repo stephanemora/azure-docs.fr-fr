@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365525"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010637"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Inviter des utilisateurs invités et attribuer des rôles de ressources Azure dans Privileged Identity Management
 
@@ -55,13 +55,13 @@ Pour vous assurer que vous pouvez convier des invités dans votre organisation, 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Sélectionnez **Azure Active Directory** > **Paramètres utilisateur** .
+1. Sélectionnez **Azure Active Directory** > **Paramètres utilisateur**.
 
-1. Sélectionnez **Gérer les paramètres de collaboration externe** .
+1. Sélectionnez **Gérer les paramètres de collaboration externe**.
 
     ![Page des paramètres de collaboration externe montrant les paramètres de restriction d’autorisation, d’invitation et de collaboration](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
-1. Vérifiez que le commutateur **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** a la valeur **Oui** .
+1. Vérifiez que le commutateur **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** a la valeur **Oui**.
 
 ## <a name="invite-a-guest-and-assign-a-role"></a>Convier un invité et attribuer un rôle
 
@@ -69,9 +69,9 @@ Privileged Identity Management vous permet de convier un invité et de le rendre
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un utilisateur membre du rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator) ou [Administrateur d’utilisateurs](../roles/permissions-reference.md#user-administrator).
 
-1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Sélectionnez **Ressources Azure** .
+1. Sélectionnez **Ressources Azure**.
 
 1. Utilisez le **filtre de ressources** pour filtrer la liste des ressources managées.
 
@@ -89,25 +89,25 @@ Privileged Identity Management vous permet de convier un invité et de le rendre
 
 1. Dans la page de rôle, sélectionnez **Ajouter un membre** pour ouvrir le volet Nouvelle affectation.
 
-1. Cliquez sur **Sélectionner un membre ou un groupe** .
+1. Cliquez sur **Sélectionner un membre ou un groupe**.
 
     ![Nouvelle affectation – Sélectionnez un volet de membre ou de groupes répertoriant des utilisateurs et des groupes avec une option Inviter](./media/pim-resource-roles-external-users/select-member-group.png)
 
-1. Pour convier un invité, cliquez sur **Inviter** .
+1. Pour convier un invité, cliquez sur **Inviter**.
 
     ![Page Convier un invité avec des zones pour entrer une adresse e-mail et spécifier un message personnel](./media/pim-resource-roles-external-users/invite-guest.png)
 
-1. Après avoir sélectionné un invité, cliquez sur **inviter** .
+1. Après avoir sélectionné un invité, cliquez sur **inviter**.
 
     L’invité doit être ajouté en tant que membre sélectionné.
 
-1. Dans le volet **Sélectionner un membre ou un groupe** , cliquez sur **Sélectionner** .
+1. Dans le volet **Sélectionner un membre ou un groupe**, cliquez sur **Sélectionner**.
 
-1. Dans le volet **Paramètres d’appartenance** , sélectionnez le type et la durée de l’affectation.
+1. Dans le volet **Paramètres d’appartenance**, sélectionnez le type et la durée de l’affectation.
 
     ![Nouvelle affectation – Page de paramètres d’appartenance contenant des options pour spécifier le type d’affectation, ainsi que les dates de début et de fin de celle-ci](./media/pim-resource-roles-external-users/membership-settings.png)
 
-1. Pour terminer l’attribution, sélectionnez **Terminé** , puis **Ajouter** .
+1. Pour terminer l’attribution, sélectionnez **Terminé**, puis **Ajouter**.
 
     L’attribution de rôle d’invité s’affiche dans votre liste de rôles.
 
@@ -123,7 +123,7 @@ Si vous êtes utilisateur externe, vous devez accepter l’invitation d’invit�
 
 1. Sélectionnez le lien **Bien démarrer** dans l’e-mail.
 
-1. Après avoir passé en revue les autorisations, cliquez sur **Accepter** .
+1. Après avoir passé en revue les autorisations, cliquez sur **Accepter**.
 
     ![Examinez dans un navigateur la page des autorisations contenant une liste d’autorisations que l’organisation aimerait que vous passiez en revue](./media/pim-resource-roles-external-users/invite-accept.png)
 
@@ -137,7 +137,7 @@ Si vous êtes utilisateur externe, vous devez accepter l’invitation d’invit�
 
     ![Page Mes rôles dans Privileged Identity Management listant vos rôles éligibles](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
-1. Sous Action, sélectionnez le lien **Activer** .
+1. Sous Action, sélectionnez le lien **Activer**.
 
     En fonction des paramètres du rôle, vous devez spécifier certaines informations pour activer le rôle.
 
@@ -157,7 +157,7 @@ Vous pouvez afficher des journaux d’audit pour effectuer le suivi de l’activ
 
     ![Ressources Azure – Page Audit des ressources indiquant le temps, le demandeur et l’action](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Pour afficher l’activité de l’invité, sélectionnez **Azure Active Directory** > **Utilisateurs** > *nom de l’invité* .
+1. Pour afficher l’activité de l’invité, sélectionnez **Azure Active Directory** > **Utilisateurs** > *nom de l’invité*.
 
 1. Sélectionnez **Journaux d’audit** pour afficher les journaux d’audit pour l’organisation. Si nécessaire, vous pouvez spécifier des filtres.
 

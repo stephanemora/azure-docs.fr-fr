@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334342"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010552"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 
@@ -67,7 +67,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="avro-as-source"></a>Avro en tant que source
 
-Les propriétés prises en charge dans la section ***\*source\**** de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section **_\_source\*** * de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,7 +76,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 ### <a name="avro-as-sink"></a>Avro en tant que récepteur
 
-Les propriétés prises en charge dans la section ***\*récepteur\**** de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section **_\_récepteur\*** * de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |

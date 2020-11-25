@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739796"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010195"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -31,7 +31,7 @@ La configuration du portail n’offre pas de solution clé en main pour présent
 
 Tout d’abord, sur la page **Authentification / Autorisation** du portail Azure, configurez chaque fournisseur d’identité que vous souhaitez activer.
 
-Sous **Mesure à prendre quand une demande n’est pas authentifiée** , sélectionnez **Autoriser les requêtes anonymes (aucune action)** .
+Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Autoriser les requêtes anonymes (aucune action)** .
 
 Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple :
 
@@ -170,21 +170,21 @@ Si le [magasin de jetons](overview-authentication-authorization.md#token-store) 
 
 Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#extend-session-token-expiration-grace-period)) expire, vous devez réauthentifier l’utilisateur avant de réutiliser ce jeton. Vous pouvez éviter l’expiration du jeton en effectuant un appel `GET` au point de terminaison `/.auth/refresh` de votre application. Lorsqu’il est appelé, App Service actualise automatiquement les jetons d’accès dans le [magasin de jetons](overview-authentication-authorization.md#token-store) pour l’utilisateur authentifié. Les demandes de jeton suivantes effectuées via le code de votre application permettent d’obtenir les jetons actualisés. Toutefois, pour que l’actualisation des jetons soit effective, le magasin de jetons doit contenir les [jetons d’actualisation](https://auth0.com/learn/refresh-tokens/) pour votre fournisseur. La procédure pour obtenir des jetons d’actualisation est fournie par chaque fournisseur. La liste suivante en fournit toutefois un bref résumé :
 
-- **Google**  : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
-- **Facebook**  : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
-- **Twitter**  : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Compte Microsoft**  : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
-- **Azure Active Directory**  : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
-    1. En haut de la page, sélectionnez **Lecture/écriture** .
-    2. Dans le navigateur de gauche, accédez à **subscriptions**  > ** _\<subscription\_name_** > **resourceGroups**  > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites**  > **_ \<app\_name>_** > **config** > **authsettings** . 
-    3. Cliquez sur **Modifier** .
+- **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
+- **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
+- **Twitter** : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
+- **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
+    1. En haut de la page, sélectionnez **Lecture/écriture**.
+    2. Dans le navigateur de gauche, accédez à **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings**. 
+    3. Cliquez sur **Modifier**.
     4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous voulez accéder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Cliquez sur **Put** . 
+    5. Cliquez sur **Put**. 
 
 Une fois que votre fournisseur est configuré, vous pouvez [rechercher le jeton d’actualisation et l’heure d’expiration pour le jeton d’accès](#retrieve-tokens-in-app-code) dans le magasin de jetons. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Restreindre le domaine des comptes de connexion
 
-Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_ , _live.com_ et _hotmail.com_ . Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Toutefois, vous pouvez accélérer l’accès de vos utilisateurs directement à votre propre page de connexion Azure AD (par exemple, `contoso.com`). Pour suggérer le nom de domaine des comptes de connexion, procédez comme suit.
+Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_, _live.com_ et _hotmail.com_. Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Toutefois, vous pouvez accélérer l’accès de vos utilisateurs directement à votre propre page de connexion Azure AD (par exemple, `contoso.com`). Pour suggérer le nom de domaine des comptes de connexion, procédez comme suit.
 
-Dans [https://resources.azure.com](https://resources.azure.com), accédez à **subscriptions** > ** _\<subscription\_name_** > **resourceGroups**  > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites**  > **_ \<app\_name> _** > **config** > **authsettings** . 
+Dans [https://resources.azure.com](https://resources.azure.com), accédez à **subscriptions**> ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name> _** > **config** > **authsettings**. 
 
-Cliquez sur **Modifier** , modifiez la propriété suivante, puis cliquez sur **Put** . Veillez à remplacer la valeur _\<domain\_name>_ par le domaine souhaité.
+Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **Put**. Veillez à remplacer la valeur _\<domain\_name>_ par le domaine souhaité.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Bien que App Service se charge du cas d’autorisation le plus simple (c’est-�
 
 ### <a name="server-level-windows-apps-only"></a>Au niveau du serveur (applications Windows uniquement)
 
-Pour toute application Windows, vous pouvez définir le comportement d’autorisation du serveur web IIS en modifiant le fichier *Web.config* . Les applications Linux n’utilisent pas IIS et ne peuvent pas être configurées à l’aide du fichier *Web.config* .
+Pour toute application Windows, vous pouvez définir le comportement d’autorisation du serveur web IIS en modifiant le fichier *Web.config*. Les applications Linux n’utilisent pas IIS et ne peuvent pas être configurées à l’aide du fichier *Web.config*.
 
 1. Accédez à `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
 
-1. Dans l’explorateur de navigateur de vos fichiers App Service, accédez à *site/wwwroot* . S’il n’existe pas de fichier *Web.config* , créez-en un en sélectionnant **+**  > **Nouveau fichier** . 
+1. Dans l’explorateur de navigateur de vos fichiers App Service, accédez à *site/wwwroot*. S’il n’existe pas de fichier *Web.config*, créez-en un en sélectionnant **+**  > **Nouveau fichier**. 
 
-1. Sélectionnez le crayon correspondant à *Web. config* pour le modifier. Ajoutez le code de configuration suivant, puis cliquez sur **Enregistrer** . Si le fichier *Web.config* existe, ajoutez simplement l’élément `<authorization>` avec tout ce qui se trouve dans celui-ci. Ajoutez les comptes que vous souhaitez autoriser dans l’élément `<allow>`.
+1. Sélectionnez le crayon correspondant à *Web. config* pour le modifier. Ajoutez le code de configuration suivant, puis cliquez sur **Enregistrer**. Si le fichier *Web.config* existe, ajoutez simplement l’élément `<authorization>` avec tout ce qui se trouve dans celui-ci. Ajoutez les comptes que vous souhaitez autoriser dans l’élément `<allow>`.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

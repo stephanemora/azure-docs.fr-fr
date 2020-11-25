@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010110"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
@@ -86,7 +86,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter
     |Emplacement|sélectionnez l’emplacement du cluster HDInsight existant.|
     |Nom du cluster|entrez le nom d’un cluster HDInsight existant.|
 
-1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus** , puis sélectionnez **Acheter** pour créer le nœud de périphérie.
+1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis sélectionnez **Acheter** pour créer le nœud de périphérie.
 
 > [!IMPORTANT]  
 > Veillez à sélectionner le groupe de ressources Azure utilisé pour le cluster HDInsight existant.  Dans le cas contraire, vous obtenez le message d’erreur « Can not perform requested operation on nested resource. Parent resource '&lt;ClusterName>' not found » (Impossible d’effectuer l’opération demandée sur la ressource imbriquée. Ressource parente <Nom du cluster> introuvable).
@@ -117,7 +117,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 
     Certaines propriétés ont été codées en dur dans le modèle : type de cluster, nombre de nœuds de travail de cluster, taille de nœud de périphérie et nom de nœud de périphérie.
 
-1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus** , puis sélectionnez **Acheter** pour créer le cluster avec le nœud de périphérie.
+1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis sélectionnez **Acheter** pour créer le cluster avec le nœud de périphérie.
 
 ## <a name="add-multiple-edge-nodes"></a>Ajouter plusieurs nœuds de périphérie
 
