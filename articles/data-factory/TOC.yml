@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flux de données
           href: data-flow-troubleshoot-guide.md
+        - name: Sécurité et contrôle d'accès
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Runtimes d’intégration auto-hébergés
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Runtime d’intégration Azure SSIS

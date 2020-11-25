@@ -125,12 +125,12 @@
       items:
         - name: Planifier une offre de conteneur Azure
           href: marketplace-containers.md
+        - name: Préparer des ressources techniques
+          href: create-azure-container-technical-assets.md
         - name: Créer et publier une offre de conteneur Azure
           items:
-            - name: Préparer des ressources techniques
-              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Créer une offre de conteneur Azure
-              href: partner-center-portal/create-azure-container-offer.md
+              href: create-azure-container-offer.md
     - name: Offres de machines virtuelles Azure
       items:
         - name: Planifier une offre de machine virtuelle
