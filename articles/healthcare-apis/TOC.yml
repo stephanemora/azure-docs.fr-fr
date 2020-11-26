@@ -90,12 +90,13 @@
           href: de-identified-export.md
     - name: Rechercher des ID d’objet d’identité
       href: find-identity-object-ids.md
-    - name: Activer la journalisation des diagnostics dans l’API Azure pour FHIR®
-      href: enable-diagnostic-logging.md
-    - name: Exporter les métriques du connecteur Azure IoT pour FHIR (préversion) via les paramètres de diagnostic
-      href: iot-metrics-diagnostics-export.md
-    - name: Afficher et configurer les métriques du connecteur Azure IoT pour FHIR (préversion)
-      href: iot-metrics-display.md
+    - name: Journalisation et métriques des diagnostics
+      expanded: false
+      items:
+        - name: Activer la journalisation des diagnostics dans l’API Azure pour FHIR
+          href: enable-diagnostic-logging.md
+        - name: Afficher et configurer les métriques du connecteur Azure IoT pour FHIR (préversion)
+          href: iot-metrics-display.md
     - name: Obtenir un jeton pour l’API Azure pour FHIR - CLI
       href: get-healthcare-apis-access-token-cli.md
     - name: Résoudre les problèmes d’échec dans le connecteur Azure IoT pour FHIR (préversion)
