@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010480"
 ---
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -46,13 +46,13 @@ Ces paramètres sont pris en charge lorsque vous exécutez des projets localemen
 | **`LocalHttpPort`** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). `--port`L’option de ligne de commande est prioritaire sur ce paramètre. |
 | **`CORS`** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (\*) est prise en charge, ce qui autorise les demandes à partir de toute origine. |
 | **`CORSCredentials`** |  Lorsque qu’il est défini sur `true`, autorise `withCredentials` les requêtes. |
-| **`ConnectionStrings`** | Une collection. N’utilisez pas cette collection pour les chaînes de connexion utilisées par vos liaisons de fonction. Cette collection est utilisée seulement par les infrastructures qui obtiennent généralement les chaînes de connexion à partir de la `ConnectionStrings`section d’un fichier de configuration, comme [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Les chaînes de connexion dans cet objet sont ajoutées à l’environnement avec le type de fournisseur [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Les éléments de cette collection ne sont pas publiés sur Azure avec d’autres paramètres d’application. Vous devez explicitement ajouter ces valeurs à la collection `Connection strings` des paramètres de Function App. Si vous créez un [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) dans votre code de fonction, vous devez stocker la valeur de la chaîne de connexion et vos autres connexions dans **Paramètres d’application** dans le portail. |
+| **`ConnectionStrings`** | Une collection. N’utilisez pas cette collection pour les chaînes de connexion utilisées par vos liaisons de fonction. Cette collection est utilisée seulement par les infrastructures qui obtiennent généralement les chaînes de connexion à partir de la `ConnectionStrings`section d’un fichier de configuration, comme [Entity Framework](/ef/ef6/). Les chaînes de connexion dans cet objet sont ajoutées à l’environnement avec le type de fournisseur [System.Data.SqlClient](/dotnet/api/system.data.sqlclient). Les éléments de cette collection ne sont pas publiés sur Azure avec d’autres paramètres d’application. Vous devez explicitement ajouter ces valeurs à la collection `Connection strings` des paramètres de Function App. Si vous créez un [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) dans votre code de fonction, vous devez stocker la valeur de la chaîne de connexion et vos autres connexions dans **Paramètres d’application** dans le portail. |
 
 Les paramètres d’application suivants peuvent être inclus dans le tableau **`Values`** lors d’une exécution locale :
 
 | Paramètre | Valeurs | Description |
 |-----|-----|-----|
-|**`AzureWebJobsStorage`**| Chaîne de connexion de compte de stockage ou<br/>`UseDevelopmentStorage=true`| Contient la chaîne de connexion pour un compte de stockage Azure. Obligatoire lors de l’utilisation de déclencheurs autres que HTTP. Pour plus d’informations, consultez les informations de référence sur [`AzureWebJobsStorage`].<br/>Lorsque vous installez [l’émulateur de stockage Azure](../articles/storage/common/storage-use-emulator.md) localement et définissez [`AzureWebJobsStorage`] sur `UseDevelopmentStorage=true`, et Core Tools utilise l’émulateur. L’émulateur est utile lors du développement, mais vous devez le tester avec une connexion de stockage réelle avant le déploiement.| 
+|**`AzureWebJobsStorage`**| Chaîne de connexion de compte de stockage ou<br/>`UseDevelopmentStorage=true`| Contient la chaîne de connexion pour un compte de stockage Azure. Obligatoire lors de l’utilisation de déclencheurs autres que HTTP. Pour plus d’informations, consultez les informations de référence sur [`AzureWebJobsStorage`].<br/>Lorsque vous installez l’[émulateur de stockage Azure](../articles/storage/common/storage-use-emulator.md) localement et définissez [`AzureWebJobsStorage`] sur `UseDevelopmentStorage=true`, Core Tools utilise l’émulateur. L’émulateur est utile lors du développement, mais vous devez le tester avec une connexion de stockage réelle avant le déploiement.| 
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | Pour désactiver une fonction qui s’exécute localement, ajoutez `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` à la collection, où `<FUNCTION_NAME>` est le nom de la fonction. Pour en savoir plus, consultez [Guide pratique pour désactiver des fonctions dans Azure Functions](../articles/azure-functions/disable-function.md#localsettingsjson) |
 |**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indique le langage ciblé du runtime Functions. Obligatoire pour la version 2.x et ultérieure du runtime Functions. Ce paramètre est généré pour votre projet par Core Tools. Pour plus d’informations, consultez les informations de référence sur [`FUNCTIONS_WORKER_RUNTIME`](../articles/azure-functions/functions-app-settings.md#functions_worker_runtime).|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indique que PowerShell 7 doit être utilisé lors d’une exécution locale. S’il n’est pas défini, PowerShell Core 6 est utilisé. Ce paramètre est utilisé seulement lors d’une exécution locale. Lors d’une exécution dans Azure, la version du runtime PowerShell est déterminée par le paramètre de configuration du site `powerShellVersion`, qui peut être [défini dans le portail](../articles/azure-functions/functions-reference-powershell.md#changing-the-powershell-version). | 
