@@ -32,7 +32,7 @@
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: quickstart-v2-javascript.md
-    - name: Applications web
+    - name: les applications web
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
@@ -83,7 +83,7 @@
           href: tutorial-v2-javascript-auth-code.md
         - name: JavaScript - Flux implicite
           href: tutorial-v2-javascript-spa.md
-    - name: Applications web
+    - name: les applications web
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
@@ -490,7 +490,7 @@
         - name: Scénarios courants de provisionnement
           href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatiser la configuration avec MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+          href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
     - name: Articles d’aide sur le portail Azure
       items:
         - name: Valeurs par défaut de la durée de vie des jetons pour une application personnalisée
