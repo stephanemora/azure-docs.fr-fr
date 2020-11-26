@@ -11,7 +11,7 @@
     - name: Rôles que vous ne pouvez pas gérer avec PIM
       href: pim-roles.md
     - name: Sécuriser l’accès privilégié
-      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+      href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: Authentification multifacteur et gestion des informations personnelles
       href: pim-how-to-require-mfa.md
     - name: Tableaux de bord de vue d’ensemble
