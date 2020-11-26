@@ -9,7 +9,7 @@
     - name: Ajouter des utilisateurs dans Azure AD
       href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Attribuer des licences à des utilisateurs
-      href: /azure/active-directory/fundamentals/license-users-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+      href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Définir l’expiration de groupes
       href: groups-quickstart-expiration.md
     - name: Définir la stratégie de noms de groupes
@@ -57,13 +57,13 @@
         - name: Fermer un compte dans un répertoire non managé
           href: users-close-account.md
         - name: Ajouter des utilisateurs invités
-          href: /azure/active-directory/b2b/what-is-b2b?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Attribuer un rôle à un utilisateur invité
-          href: /azure/active-directory/b2b/add-guest-to-role?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Limiter l’accès des utilisateurs invités
           href: users-restrict-guest-permissions.md
         - name: Groupes dynamiques et invités
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=%2fazure/active-directory/enterprise-users/context/ugr-context
+          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Gérer votre organisation
       items:
         - name: Organisations Azure AD

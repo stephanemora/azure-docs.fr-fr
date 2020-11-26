@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093066"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009481"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
 
@@ -54,7 +54,7 @@ Utilisez la procédure suivante pour mettre en œuvre ce scénario.
 
 1. Pour chaque emplacement, créez un paramètre d’application, par exemple, `DurableManagementStorage`. Définissez sa valeur en fonction de la chaîne de connexion de différents comptes de stockage. Ces comptes de stockage sont utilisés par l’extension Durable Functions pour l’[exécution fiable](./durable-functions-orchestrations.md). Utilisez un compte de stockage distinct pour chaque emplacement. Ne marquez pas ce paramètre en tant que paramètre d’emplacement de déploiement.
 
-1. Dans la [section durableTask du fichier host.json](durable-functions-bindings.md#hostjson-settings) de votre application de fonction, spécifiez `azureStorageConnectionStringName` en tant que nom du paramètre d’application créé à l’étape 3.
+1. Dans la [section durableTask du fichier host.json](durable-functions-bindings.md#hostjson-settings) de votre application de fonction, spécifiez `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) en tant que nom du paramètre d’application créé à l’étape 3.
 
 Le diagramme suivant illustre la configuration décrite pour les emplacements de déploiement et les comptes de stockage. Dans ce scénario de prédéploiement potentiel, la version 2 d’une application de fonction s’exécute dans l’emplacement de production, alors que la version 1 reste dans l’emplacement de préproduction.
 
@@ -71,7 +71,10 @@ Les fragments JSON suivants sont des exemples de paramètres de chaîne de conne
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

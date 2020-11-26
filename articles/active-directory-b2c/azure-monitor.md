@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992831"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -25,7 +25,7 @@ Utilisez Azure Monitor pour router les journaux de connexion et d’[audit](view
 Vous pouvez router des événements de journal vers :
 
 * Un [compte de stockage](../storage/blobs/storage-blobs-introduction.md) Azure.
-* Un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
+* Un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
 * Un [hub d’événements](../event-hubs/event-hubs-about.md) Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)

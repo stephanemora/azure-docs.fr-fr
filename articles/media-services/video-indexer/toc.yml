@@ -54,6 +54,7 @@
     - name: Examiner une sortie Video Indexer
       href: video-indexer-output-json-v2.md
     - name: Rechercher des instants précis dans les vidéos
+      displayName: search
       href: video-indexer-search.md
     - name: 'Détecter des scènes, des plans et des images clés'
       href: scenes-shots-keyframes.md

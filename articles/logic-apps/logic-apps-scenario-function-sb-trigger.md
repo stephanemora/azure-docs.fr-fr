@@ -1,22 +1,22 @@
 ---
 title: Appeler des applications logiques avec Azure Functions
-description: Créer des fonctions Azure qui appellent ou déclenchent des applications logiques en écoutant Azure Service Bus
+description: Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000332"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 
-Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md) afin de déclencher une application logique quand vous devez déployer un écouteur ou une tâche de longue durée. Par exemple, vous pouvez créer une fonction Azure qui écoute sur une file d’attente [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et qui déclenche immédiatement une application logique en tant que déclencheur d’émission.
+Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md) afin de déclencher une application logique quand vous devez déployer un écouteur ou une tâche de longue durée. Par exemple, vous pouvez créer une fonction qui écoute sur une file d’attente [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et qui déclenche immédiatement une application logique en tant que déclencheur d’émission.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md)
 
 * Un espace de noms Azure Service Bus. Si vous n’avez pas d’espace de noms, [créez d’abord votre espace de noms](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Une application de fonction Azure, qui est un conteneur pour les fonctions Azure. Si vous n’avez pas d’application de fonction, [créez d’abord votre application de fonction](../azure-functions/functions-create-first-azure-function.md), puis veillez à sélectionner .NET comme pile d’exécution.
+* Une application de fonction Azure, qui est un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, [créez d’abord votre application de fonction](../azure-functions/functions-create-first-azure-function.md), puis veillez à sélectionner .NET comme pile d’exécution.
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,7 +94,7 @@ Pour ce scénario, vous disposez d’une fonction exécutant chaque application 
 
    ![URL de rappel générée pour le déclencheur](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Créer une fonction Azure
+## <a name="create-a-function"></a>Créer une fonction
 
 Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d’attente.
 

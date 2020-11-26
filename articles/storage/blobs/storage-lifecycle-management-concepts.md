@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579309"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005280"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 
@@ -39,7 +39,7 @@ Considérez un scénario où des données sont sollicitées fréquemment durant 
 
 La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes v2 universels (GPv2), les comptes de stockage Blob, les comptes de stockage Blob de blocs Premium et les comptes Azure Data Lake Storage Gen2. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
-La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
+La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie
 
@@ -47,13 +47,13 @@ Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide de l’une
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [API REST](/rest/api/storagerp/managementpolicies)
 
 Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jour partielles ne sont pas prises en charge. 
 
 > [!NOTE]
-> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions pour les services Microsoft approuvés. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions pour les services Microsoft approuvés. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](../common/storage-network-security.md#exceptions).
 
 Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.
 
@@ -450,7 +450,7 @@ Chaque mise à jour de l’heure du dernier accès est considérée comme une [o
 D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. La stratégie du cycle de vie suivante est configurée pour archiver les données peu après leur ingestion. Cet exemple déplace les objets blob de blocs du compte de stockage au sein du conteneur `archivecontainer` dans un niveau archive. Le déplacement est accompli en agissant sur les objets blob 0 jour après l’heure de dernière modification :
 
 > [!NOTE] 
-> Il est recommandé de charger vos objets BLOB directement au niveau Archive pour gagner en efficacité. Vous pouvez utiliser l’en-tête x-ms-access-tier pour [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) avec REST 2018-11-09 et les versions ultérieures ou nos dernières bibliothèques clientes de stockage d’objets BLOB. 
+> Il est recommandé de charger vos objets BLOB directement au niveau Archive pour gagner en efficacité. Vous pouvez utiliser l’en-tête x-ms-access-tier pour [PutBlob](/rest/api/storageservices/put-blob) ou [PutBlockList](/rest/api/storageservices/put-block-list) avec REST 2018-11-09 et les versions ultérieures ou nos dernières bibliothèques clientes de stockage d’objets BLOB. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’he
 
 Découvrez comment récupérer des données après une suppression accidentelle :
 
-- [Suppression réversible pour les objets blob de Stockage Azure](../blobs/storage-blob-soft-delete.md)
+- [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md)
 
 Apprenez à gérer et à rechercher des données avec un index d’objets blob :
 

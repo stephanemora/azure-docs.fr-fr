@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082259"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999429"
 ---
 L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
 
@@ -42,10 +42,10 @@ Par défaut, votre application route seulement le trafic RFC1918 vers votre rés
 Il existe certaines limitations concernant l’utilisation de l’intégration au réseau virtuel avec les réseaux virtuels d’une même région :
 
 * Vous ne pouvez pas accéder à des ressources via des connexions d’appairage mondiales.
-* La fonctionnalité est disponible seulement à partir des unités d’échelle Azure App Service récentes qui prennent en charge les plans App Service PremiumV2. Notez que *cela ne signifie pas que votre application doive s’exécuter sur un niveau tarifaire PremiumV2*, mais seulement qu’elle doit s’exécuter sur un plan App Service pour lequel l’option PremiumV2 est disponible (ce qui signifie qu’il s’agit d’une unité d’échelle plus récente où cette fonctionnalité d’intégration au réseau virtuel est également disponible).
+* Cette fonctionnalité est disponible à partir de toutes les unités d’échelle App Service dans Premium v2 et Premium v3. Elle est également disponible dans Standard, mais uniquement à partir d’unités d’échelle App Service plus récentes. Si vous utilisez une unité d’échelle plus ancienne, vous ne pouvez utiliser la fonctionnalité qu’à partir d’un plan App Service Premium v2. Si vous souhaitez être certain de pouvoir utiliser la fonctionnalité dans un plan App Service Standard, créez votre application dans un plan App Service Premium v3. Ces plans ne sont pris en charge que sur les unités d’échelle les plus récentes. Vous pouvez effectuer un scale-down par la suite si vous le souhaitez.  
 * Le sous-réseau d’intégration peut être utilisé par un seul plan App Service.
 * La fonctionnalité ne peut pas être utilisée par des applications de plan Isolé qui se trouvent dans un environnement App Service.
-* La fonctionnalité nécessite un sous-réseau inutilisé /27 avec 32 adresses ou d’une taille supérieure, dans un réseau virtuel Azure Resource Manager.
+* La fonctionnalité nécessite un sous-réseau inutilisé /28 ou d’une taille supérieure dans un réseau virtuel Azure Resource Manager.
 * L’application et le réseau virtuel doivent être dans la même région.
 * Vous ne pouvez pas supprimer un réseau virtuel avec une application intégrée. Supprimez l’intégration avant de supprimer le réseau virtuel.
 * L’intégration ne peut se faire qu’avec des réseaux virtuels figurant dans le même abonnement que l’application.
@@ -53,7 +53,21 @@ Il existe certaines limitations concernant l’utilisation de l’intégration a
 * Vous ne pouvez pas changer l’abonnement d’une application ou d’un plan quand une application utilise l’intégration au réseau virtuel régional.
 * Votre application ne peut pas résoudre les adresses dans Azure DNS Private Zones sans modification de la configuration.
 
-Une adresse est utilisée pour chaque instance du plan. Si vous mettez votre application à l’échelle vers cinq instances, cinq adresses sont utilisées. Comme la taille du sous-réseau ne peut pas être modifiée après l’affectation, vous devez utiliser un sous-réseau suffisamment grand pour s’adapter à la taille que votre application est susceptible d’atteindre. Une taille de /26 avec 64 adresses est recommandée. Un sous-réseau /26 avec 64 adresses contient un plan Premium avec 30 instances. Lorsque vous modifiez un plan à la hausse ou à la baisse, vous avez brièvement besoin de deux fois plus d’adresses.
+L’intégration au réseau virtuel dépend de l’utilisation d’un sous-réseau dédié.  Lorsque vous approvisionnez un sous-réseau, le sous-réseau Azure perd cinq adresses IP dès le début. Une seule adresse du sous-réseau d’intégration est utilisée pour chaque instance de plan. Si vous définissez l’échelle de votre application sur quatre instances, quatre adresses sont utilisées. Le débit de cinq adresses de la taille du sous-réseau signifie que le nombre maximal d’adresses disponibles par bloc CIDR est le suivant :
+
+- /28 a 11 adresses
+- /27 a 27 adresses
+- /26 a 59 adresses
+
+Si vous effectuez un scale-up ou un scale-down en taille, vous devez doubler votre besoin en adresses pendant une courte période de temps. Les limites de taille signifient que le nombre réel d’instances prises en charge par taille de sous-réseau sont, si votre sous-réseau est un :
+
+- /28, votre échelle horizontale maximale est de 5 instances
+- /27, votre échelle horizontale maximale est de 13 instances
+- /26, votre échelle horizontale maximale est de 29 instances
+
+Les limites indiquées sur l’échelle horizontale maximale partent du principe que vous devez effectuer un scale-up ou un scale-down à un moment donné. 
+
+Comme la taille du sous-réseau ne peut pas être modifiée après l’affectation, utilisez un sous-réseau suffisamment grand pour s’adapter à l’échelle que votre application est susceptible d’atteindre. Pour éviter tout problème de capacité du sous-réseau, un sous-réseau /26 avec 64 adresses est la taille recommandée.  
 
 Si vous voulez que vos applications d’un autre plan atteignent un réseau virtuel auquel sont déjà connectées des applications d’un autre plan, sélectionnez un sous-réseau différent de celui utilisé par l’intégration au réseau virtuel préexistante.
 
@@ -82,20 +96,19 @@ Les routes BGP (Border Gateway Protocol) affectent également le trafic de votre
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Une fois que votre application est intégrée à votre réseau virtuel, elle utilise le même serveur DNS que celui avec lequel votre réseau virtuel est configuré. Par défaut, votre application ne fonctionnera pas avec Azure DNS Private Zones. Pour qu’elle fonctionne avec Azure DNS Private Zones, vous devez ajouter les paramètres d’application suivants :
-
-1. WEBSITE_DNS_SERVER avec la valeur 168.63.129.16 
-1. WEBSITE_VNET_ROUTE_ALL avec la valeur 1
-
-Ces paramètres envoient l’ensemble de vos appels sortants de votre application vers votre réseau virtuel, en plus de permettre à votre application d’utiliser Azure DNS Private Zones.
+Une fois que votre application est intégrée à votre réseau virtuel, elle utilise le même serveur DNS que celui avec lequel votre réseau virtuel est configuré. Vous pouvez remplacer ce comportement dans votre application en configurant le paramètre d’application WEBSITE_DNS_SERVER avec l’adresse du serveur DNS de votre choix. Si vous avez un serveur DNS personnalisé configuré avec votre réseau virtuel, mais que vous souhaitez que votre application utilise Azure DNS Private Zones, vous devez définir WEBSITE_DNS_SERVER sur la valeur 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Instances Private Endpoint
 
-Si vous souhaitez effectuer des appels à des [points de terminaison privés][privateendpoints], vous devez soit les intégrer à Azure DNS Private Zones, soit gérer le point de terminaison privé dans le serveur DNS utilisé par votre application. 
+Si vous souhaitez effectuer des appels vers des [points de terminaison privés][privateendpoints], vous devez vous assurer que vos recherches DNS seront résolues sur le point de terminaison privé. Pour vous assurer que les recherches DNS à partir de votre application pointeront vers vos points de terminaison privés, vous pouvez :
+
+* l’intégrer à Azure DNS Private Zones. Si votre réseau virtuel n’a pas de serveur DNS personnalisé, cela sera automatique.
+* gérer le point de terminaison privé dans le serveur DNS utilisé par votre application. Pour ce faire, vous devez connaître l’adresse du point de terminaison privé, puis pointer le point de terminaison que vous essayez d’atteindre vers cette adresse avec un enregistrement A.
+* configurer votre propre serveur DNS pour le transfert vers Azure DNS Private Zones.
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

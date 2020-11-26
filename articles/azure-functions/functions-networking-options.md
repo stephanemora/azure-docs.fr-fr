@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413086"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020986"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -30,18 +30,36 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
+## <a name="inbound-access-restrictions"></a>Restrictions d’accès entrant
 
-Vous pouvez utiliser des restrictions d’adresse IP pour définir la liste des adresses IP classées par ordre de priorité qui sont autorisées ou non à accéder à votre application. La liste peut inclure des adresses IPv4 et IPv6. Lorsqu’il y a une ou plusieurs entrées, une règle implicite « Tout refuser » se trouve à la fin de la liste. Les restrictions d’adresse IP fonctionnent avec toutes les options d’hébergement de fonction.
+Vous pouvez utiliser des restrictions d’accès pour définir la liste des adresses IP classées par ordre de priorité qui sont autorisées ou non à accéder à votre application. La liste peut inclure des adresses IPv4 et IPv6 ou des sous-réseaux spécifiques de réseau virtuel utilisant des [points de terminaison de service](#use-service-endpoints). Lorsqu’il y a une ou plusieurs entrées, une règle implicite « Tout refuser » se trouve à la fin de la liste. Les restrictions d’adresse IP fonctionnent avec toutes les options d’hébergement de fonction.
+
+Les restrictions d’accès sont disponibles dans les niveaux [Premium](functions-premium-plan.md), [Consommation](functions-scale.md#consumption-plan) et [App service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> Une fois les restrictions réseau en place, vous ne pouvez utiliser l'éditeur du portail qu'à partir de votre réseau virtuel ou après avoir ajouté l'adresse IP de la machine que vous utilisez pour accéder au Portail Azure sur la liste des destinataires approuvés. Néanmoins, vous pouvez aussi accéder aux fonctionnalités à partir de l'onglet **Fonctionnalités de la plateforme** de n'importe quel ordinateur.
+> Une fois les restrictions réseau en place, vous pouvez uniquement déployer à partir de votre réseau virtuel ou après avoir ajouté l’adresse IP de la machine que vous utilisez pour accéder au portail Azure sur la liste des destinataires approuvés. Toutefois, vous pouvez toujours gérer la fonction à l’aide du portail.
 
 Pour en savoir plus, consultez [Restrictions d’accès statique Azure App Service](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>Accès aux sites privés
+### <a name="use-service-endpoints"></a>Utiliser des points de terminaison de service
+
+Grâce aux points de terminaison de service, vous pouvez restreindre l’accès à une sélection de sous-réseaux de réseau virtuel Azure. Pour restreindre l’accès à un sous-réseau spécifique, créez une règle de restriction avec le type **Réseau virtuel**. Vous pouvez ensuite sélectionner l’abonnement, le réseau virtuel et le sous-réseau auxquels vous souhaitez accorder ou refuser l’accès. 
+
+Si les points de terminaison de service ne sont pas encore activés avec Microsoft.Web pour le sous-réseau que vous avez sélectionné, ils seront automatiquement activés, sauf si vous cochez la case **Ignorer les points de terminaison de service Microsoft.Web manquants**. Le scénario dans lequel vous voudriez activer des points de terminaison de service sur l’application, mais pas sur le sous-réseau, dépend principalement du fait que vous disposiez ou non des autorisations pour les activer sur le sous-réseau. 
+
+Si vous avez besoin que quelqu’un d’autre active les points de terminaison de service sur le sous-réseau, cochez la case **Ignorer les points de terminaison de service Microsoft.Web manquants**. Votre application sera configurée pour les points de terminaison de service en prévision de leur activation ultérieure sur le sous-réseau. 
+
+![Capture d’écran du volet « Ajouter une restriction d’adresse IP » avec le type Réseau virtuel sélectionné.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Vous ne pouvez pas utiliser des points de terminaison de service pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service Environment. Si votre application se trouve dans un environnement App Service Environment, vous pouvez contrôler l’accès à celle-ci avec des règles d’accès IP. 
+
+Pour apprendre à configurer des points de terminaison de service, consultez [Établir l’accès privé aux sites avec Azure Functions](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Connexions des points de terminaison privés
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Pour appeler d’autres services qui disposent d’une connexion de point de terminaison privé, par exemple Stockage ou Service Bus, veillez à configurer votre application pour effectuer des [appels sortants vers des points de terminaison privés](#private-endpoints).
 
 ## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
 
@@ -79,8 +97,8 @@ Quand vous créez une application de fonction, vous devez créer un compte de st
 1. Créez ou configurez un autre compte de stockage.  Il s’agit du compte de stockage que nous sécurisons avec les points de terminaison de service et auquel nous connectons notre fonction.
 1. [Créez un partage de fichiers](../storage/files/storage-how-to-create-file-share.md#create-file-share) dans le compte de stockage sécurisé.
 1. Activez les points de terminaison de service ou le point de terminaison privé pour le compte de stockage.  
-    * Veillez à activer le sous-réseau dédié à vos applications de fonction si vous utilisez un point de terminaison de service.
-    * Veillez à créer un enregistrement DNS et à configurer votre application de manière à ce qu’elle [fonctionne avec des points de terminaison de point de terminaison privé](#azure-dns-private-zones) si vous utilisez un point de terminaison privé.  Le compte de stockage a besoin d’un point de terminaison privé pour les sous-ressources `file` et `blob`.  Si vous utilisez certaines fonctionnalités, telles que Durable Functions, `queue` et `table` doivent également être accessibles par le biais d’une connexion à un point de terminaison privé.
+    * Si vous utilisez des connexions de point de terminaison privé, le compte de stockage a besoin d’un point de terminaison privé pour les sous-ressources `file` et `blob`.  Si vous utilisez certaines capacités, telles que Durable Functions, `queue` et `table` doivent également être accessibles par le biais d’une connexion de point de terminaison privé.
+    * Si vous utilisez des points de terminaison de service, activez le sous-réseau dédié à vos applications de fonction pour les comptes de stockage.
 1. (Facultatif) Copiez le fichier et le contenu de l’objet blob à partir du compte de stockage de l’application de fonction vers le compte de stockage sécurisé et le partage de fichiers.
 1. Copiez la chaîne de connexion pour ce compte de stockage.
 1. Mettez à jour les **Paramètres de l’application** sous **Configuration** pour l’application de fonction comme suit :
@@ -88,6 +106,9 @@ Quand vous créez une application de fonction, vous devez créer un compte de st
     - Remplacez `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` par la chaîne de connexion du compte de stockage sécurisé.
     - Remplacez `WEBSITE_CONTENTSHARE` par le nom du partage de fichiers créé dans le compte de stockage sécurisé.
     - Créez un nouveau paramètre portant le nom `WEBSITE_CONTENTOVERVNET` et défini sur la valeur `1`.
+    - Si le compte de stockage utilise des connexions de point de terminaison privé, vérifiez ou ajoutez les paramètres suivants :
+        - `WEBSITE_VNET_ROUTE_ALL` avec la valeur `1`.
+        - `WEBSITE_DNS_SERVER` avec la valeur `168.63.129.16`. 
 1. Enregistrez les paramètres de l’application.  
 
 L’application de fonction redémarre et est maintenant connectée à un compte de stockage sécurisé.
@@ -159,7 +180,7 @@ Lorsque vous intégrez une application de fonction à un réseau virtuel dans le
 ## <a name="automation"></a>Automatisation
 Les API suivantes vous permettent de gérer par programmation les intégrations de réseaux virtuels régionaux :
 
-+ **Azure CLI** : utilisez les commandes [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) pour ajouter, répertorier ou supprimer des intégrations de réseaux virtuels régionaux.  
++ **Azure CLI** : utilisez les commandes [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) pour ajouter, répertorier ou supprimer une intégration de réseau virtuel régional.  
 + **Modèles ARM** : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Dépannage

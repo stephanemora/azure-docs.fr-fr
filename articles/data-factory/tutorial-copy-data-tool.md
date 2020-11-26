@@ -1,6 +1,6 @@
 ---
 title: Copier des données du stockage Blob Azure dans SQL à l’aide de l’outil Copier des données
-description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données du stockage Blob Azure vers une base de données SQL Database.
+description: Créez une fabrique de données Azure Data Factory, puis utilisez l’outil Copier les données pour copier des données du stockage Blob Azure vers une base de données SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008342"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données du stockage Blob Azure vers une base de données SQL Database en utilisant l’outil Copier les données
 
@@ -80,7 +80,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** :
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
     ![Création d’une fabrique de données](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.

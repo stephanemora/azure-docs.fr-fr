@@ -1,6 +1,6 @@
 ---
 title: Copier des données dans Stockage Blob en utilisant Azure Data Factory
-description: Créez une fabrique de données Azure à l’aide de PowerShell pour copier les données d’un emplacement du stockage Blob Azure vers un autre emplacement.
+description: Créez une fabrique de données Azure avec PowerShell pour copier les données d’un emplacement du Stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637579"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013351"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Démarrage rapide : Créer une fabrique de données Azure à l’aide de PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Démarrage rapide : Créer une fabrique de données Azure avec PowerShell
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -90,7 +90,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. Pour créer la fabrique de données, exécutez l’applet de commande suivante **Set-AzDataFactoryV2** , à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp :
+4. Pour créer la fabrique de données, exécutez l’applet de commande suivante **Set-AzDataFactoryV2**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp :
 
     ```powershell
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
@@ -105,9 +105,9 @@ Notez les points suivants :
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire** , ou un **administrateur** de l’abonnement Azure.
+* Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
 
-* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory**  : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 
 
 ## <a name="create-a-linked-service"></a>Créer un service lié
@@ -115,7 +115,7 @@ Notez les points suivants :
 Créez des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce guide de démarrage rapide, vous allez créer un service lié Stockage Azure qui sera utilisé à la fois comme banque de données source et réceptrice. Le service lié comporte les informations de connexion utilisées par le service Data Factory lors de l’exécution pour s’y connecter.
 
 >[!TIP]
->Dans ce guide de démarrage rapide, vous utilisez une *clé de compte* comme type d’authentification pour votre magasin de données, mais vous pouvez choisir d’autres méthodes d’authentification prises en charge : un *URI SAS* , un *principal de service* et une *identité managée* , si nécessaire. Pour plus d’informations, reportez-vous aux sections correspondantes de [cet article](./connector-azure-blob-storage.md#linked-service-properties).
+>Dans ce guide de démarrage rapide, vous utilisez une *clé de compte* comme type d’authentification pour votre magasin de données, mais vous pouvez choisir d’autres méthodes d’authentification prises en charge : un *URI SAS*, un *principal de service* et une *identité managée*, si nécessaire. Pour plus d’informations, reportez-vous aux sections correspondantes de [cet article](./connector-azure-blob-storage.md#linked-service-properties).
 >Pour stocker de manière sécurisée des secrets de magasins de données, il est également recommandé d’utiliser un coffre de clés Azure. Pour obtenir des illustrations détaillées, reportez-vous à [cet article](./store-credentials-in-key-vault.md).
 
 1. Créez un fichier JSON nommé **AzureStorageLinkedService.json** dans le dossier **C:\ADFv2QuickStartPSH** avec le contenu suivant : (S’il n’existe pas déjà, créez le dossier ADFv2QuickStartPSH.)
@@ -136,15 +136,15 @@ Créez des services liés dans une fabrique de données pour lier vos magasins d
     }
     ```
 
-    Si vous utilisez Notepad, sélectionnez **Tous les fichiers** comme **Type d’enregistrement sous** renseigné dans la boîte de dialogue **Enregistrer sous** . Sinon, l’extension `.txt` pourrait être ajoutée au fichier. Par exemple : `AzureStorageLinkedService.json.txt`. Si vous créez le fichier dans l’Explorateur de fichiers avant de l’ouvrir dans Notepad, il se peut que l’extension `.txt` ne s’affiche pas car l’option **Masquer les extensions des types de fichiers connus** est définie par défaut. Supprimez l’extension `.txt` avant de passer à l’étape suivante.
+    Si vous utilisez Notepad, sélectionnez **Tous les fichiers** comme **Type d’enregistrement sous** renseigné dans la boîte de dialogue **Enregistrer sous**. Sinon, l’extension `.txt` pourrait être ajoutée au fichier. Par exemple : `AzureStorageLinkedService.json.txt`. Si vous créez le fichier dans l’Explorateur de fichiers avant de l’ouvrir dans Notepad, il se peut que l’extension `.txt` ne s’affiche pas car l’option **Masquer les extensions des types de fichiers connus** est définie par défaut. Supprimez l’extension `.txt` avant de passer à l’étape suivante.
 
-2. Dans **PowerShell** , basculez vers le dossier **ADFv2QuickStartPSH** .
+2. Dans **PowerShell**, basculez vers le dossier **ADFv2QuickStartPSH**.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié : **AzureStorageLinkedService** .
+3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié : **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,9 +163,9 @@ Créez des services liés dans une fabrique de données pour lier vos magasins d
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 
-Dans cette procédure, vous créez deux jeux de données : **InputDataset** et **OutputDataset** . Ces jeux de données sont de type **Binaire** . Ils font référence au service lié Stockage Azure que vous avez créé dans la section précédente.
-Le jeu de données d’entrée représente les données sources dans le dossier d’entrée. Dans la définition du jeu de données d’entrée, vous spécifiez le conteneur d’objets Blob ( **adftutorial** ), le dossier ( **input** ) et le fichier ( **emp.txt** ) qui contient la source de données.
-Le jeu de données de sortie représente les données qui sont copiées vers la destination. Dans la définition du jeu de données de sortie, vous spécifiez le conteneur d’objets Blob ( **adftutorial** ), le dossier ( **output** ) et le fichier dans lequel les données sont copiées. 
+Dans cette procédure, vous créez deux jeux de données : **InputDataset** et **OutputDataset**. Ces jeux de données sont de type **Binaire**. Ils font référence au service lié Stockage Azure que vous avez créé dans la section précédente.
+Le jeu de données d’entrée représente les données sources dans le dossier d’entrée. Dans la définition du jeu de données d’entrée, vous spécifiez le conteneur d’objets Blob (**adftutorial**), le dossier (**input**) et le fichier (**emp.txt**) qui contient la source de données.
+Le jeu de données de sortie représente les données qui sont copiées vers la destination. Dans la définition du jeu de données de sortie, vous spécifiez le conteneur d’objets Blob (**adftutorial**), le dossier (**output**) et le fichier dans lequel les données sont copiées. 
 1. Créez un fichier JSON nommé **InputDataset.json** dans le dossier **C:\ADFv2QuickStartPSH** avec le contenu suivant :
 
     ```json
@@ -190,7 +190,7 @@ Le jeu de données de sortie représente les données qui sont copiées vers la 
     }
     ```
 
-2. Pour créer le jeu de données : **InputDataset** , exécutez l’applet de commande **Set-AzDataFactoryV2Dataset** .
+2. Pour créer le jeu de données : **InputDataset**, exécutez l’applet de commande **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -231,7 +231,7 @@ Le jeu de données de sortie représente les données qui sont copiées vers la 
     }
     ```
 
-4. Exécutez l’applet de commande **Set-AzDataFactoryV2Dataset** pour créer **OutDataset** .
+4. Exécutez l’applet de commande **Set-AzDataFactoryV2Dataset** pour créer **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ Dans cette procédure, vous allez créer un pipeline avec une activité de copie
     }
     ```
 
-2. Pour créer le pipeline : **Adfv2QuickStartPipeline** , exécutez la cmdlet **Set-AzDataFactoryV2Pipeline** .
+2. Pour créer le pipeline : **Adfv2QuickStartPipeline**, exécutez la cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

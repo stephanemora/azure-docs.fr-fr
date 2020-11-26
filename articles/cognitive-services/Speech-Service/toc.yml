@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Utiliser l’API de transcription Batch
           href: batch-transcription.md
+        - name: Évaluer la prononciation
+          href: how-to-pronunciation-assessment.md
     - name: Tutoriels
       items:
         - name: Améliorer la précision avec des modèles de locataire
