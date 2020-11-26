@@ -90,6 +90,10 @@
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Calendrier de maintenance
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Contrôle de code source
+          href: ./cicd/source-control.md
+        - name: Intégration et livraison continues
+          href: ./cicd/continuous-integration-deployment.md
         - name: Sécurité
           items:
             - name: Base de référence de la sécurité
@@ -990,7 +994,7 @@
       items:
         - name: Entraîner des modèles
           href: ./spark/apache-spark-machine-learning-training.md
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Visualiser les données avec Apache Spark
           href: ./spark/apache-spark-data-visualization-tutorial.md
@@ -1068,7 +1072,5 @@
           href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Intégration du système
           href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Partenaires de la préversion publique
-          href: ./sql-data-warehouse/sql-data-warehouse-partner-launch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Problèmes de compatibilité avec des applications tierces
           href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

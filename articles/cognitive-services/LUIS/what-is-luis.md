@@ -5,14 +5,14 @@ keywords: Azure, intelligence artificielle, ia, traitement en langage naturel, t
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334648"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539258"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -50,7 +50,7 @@ L’application LUIS offre l’intelligence nécessaire pour permettre à l’ap
 
 Votre application LUIS contient un modèle de langage naturel propre à un domaine. Vous pouvez démarrer l’application LUIS avec un modèle de domaine prédéfini, créer votre propre modèle ou fusionner les éléments d’un domaine prédéfini avec vos propres informations personnalisées.
 
-* **Modèle prédéfini** LUIS dispose de nombreux modèles de domaine prédéfinis, incluant des intentions, des énoncés et des entités prédéfinies. Vous pouvez utiliser les entités prédéfinies sans avoir à utiliser les intentions ni les énoncés du modèle prédéfini. Les [modèles de domaines prédéfinis](luis-how-to-use-prebuilt-domains.md "Modèles de domaine prédéfinis") intègrent l’ensemble de la conception à votre intention et constituent un excellent moyen de commencer à utiliser LUIS rapidement.
+* **Modèle prédéfini** LUIS dispose de nombreux modèles de domaine prédéfinis, incluant des intentions, des énoncés et des entités prédéfinies. Vous pouvez utiliser les entités prédéfinies sans avoir à utiliser les intentions ni les énoncés du modèle prédéfini. Les [modèles de domaines prédéfinis](./howto-add-prebuilt-models.md "Modèles de domaine prédéfinis") intègrent l’ensemble de la conception à votre intention et constituent un excellent moyen de commencer à utiliser LUIS rapidement.
 
 * Le **modèle personnalisé** LUIS vous offre plusieurs façons d’identifier vos propres modèles personnalisés, notamment les intentions et les entités. Les entités incluent des entités issues du machine learning, des entités spécifiques ou littérales et une combinaison des deux.
 
@@ -116,7 +116,7 @@ Outils simplifiant et accélérant l’utilisation de LUIS avec un bot :
 
 ## <a name="integrate-with-a-bot"></a>Intégration à un bot
 
-Utilisez [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Azure Bot Service") avec [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") pour créer et déployer un chatbot. Concevez et développez des applications avec l’outil d’interface graphique [Composer](https://docs.microsoft.com/composer/ "Composer") ou avec des [exemples de bots fonctionnels](https://github.com/microsoft/BotBuilder-Samples "exemples de bots fonctionnels") conçus pour les principaux scénarios de bot.
+Utilisez [Azure Bot Service](/azure/bot-service/ "Azure Bot Service") avec [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") pour créer et déployer un chatbot. Concevez et développez des applications avec l’outil d’interface graphique [Composer](/composer/ "Composer") ou avec des [exemples de bots fonctionnels](https://github.com/microsoft/BotBuilder-Samples "exemples de bots fonctionnels") conçus pour les principaux scénarios de bot.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Intégration à d’autres services Cognitive Services
 
@@ -131,6 +131,10 @@ LUIS fournit des fonctionnalités tirées de l’analyse de texte pour vos resso
 En savoir plus sur LUIS grâce aux guides de démarrage rapide via le [portail](get-started-portal-build-app.md "portail") et les [bibliothèques de client SDK](azure-sdk-quickstart.md "Bibliothèques clientes du SDK").
 
 
+## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
+
+[Utilisez des conteneurs LUIS](luis-container-howto.md) pour déployer localement des fonctionnalités d’API. Ces conteneurs Docker vous donnent la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Nouveautés](whats-new.md "Nouveautés") du service et documentation
@@ -138,8 +142,8 @@ En savoir plus sur LUIS grâce aux guides de démarrage rapide via le [portail](
 * [Interroger le point de terminaison de prédiction](luis-get-started-get-intent-from-browser.md "Interroger le point de terminaison de prédiction")
 * [Ressources pour les développeurs](developer-reference-resource.md "Ressources pour les développeurs") pour LUIS.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

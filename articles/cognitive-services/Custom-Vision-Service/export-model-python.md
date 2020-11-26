@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616040"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736423"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : exécuter le modèle TensorFlow dans Python
 
@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous devez procéder comme suit :
 
 Ensuite, vous devez installer les packages suivants :
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Charger votre modèle et vos étiquettes
 
-Le fichier zip téléchargé contient un fichier model.pb et un fichier labels.txt. Ces fichiers représentent le modèle formé et les étiquettes de classification. La première étape consiste à charger le modèle dans votre projet.
+Le fichier .zip téléchargé contient un fichier _model.pb_ et un fichier _labels.txt_. Ces fichiers représentent le modèle formé et les étiquettes de classification. La première étape consiste à charger le modèle dans votre projet. Ajoutez le code suivant à un nouveau script Python.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Ajouter des fonctions d’assistance
+
 Les étapes ci-dessus utilisent les fonctions d’assistance suivantes :
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>View the results
+## <a name="display-the-results"></a>Afficher les résultats
 
 Les résultats de l’exécution du tenseur d’image dans le modèle doivent ensuite être mappés aux étiquettes.
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365293"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519402"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -47,9 +47,18 @@ La détection de la langue peut [détecter la langue dans laquelle un texte d’
 
 La reconnaissance d’entités nommées (NER) peut [identifier et classer les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, quantités ; les entités bien connues sont également reconnues et liées à des informations supplémentaires sur le web.
 
-## <a name="use-containers"></a>Utiliser des conteneurs
+## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
 
-[Utilisez les conteneurs Analyse de texte](how-tos/text-analytics-how-to-install-containers.md) en tant que solution locale pour l’exploration de texte et l’utilisation de l’API. Ces conteneurs Docker vous permettent d’extraire des expressions clés, de détecter la langue et d’analyser les sentiments plus près de vos données.
+[Utilisez des conteneurs Analyse de texte](how-tos/text-analytics-how-to-install-containers.md) pour déployer localement des fonctionnalités d’API. Ces conteneurs Docker vous donnent la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles. Analyse de texte offre les conteneurs suivants :
+
+* analyse des sentiments
+* Extraction de phrases clés (préversion)
+* Détection de langue (préversion)
+* Analyse de texte pour la santé (préversion)
+
+## <a name="asynchronous-operations"></a>Opérations asynchrones
+
+Le point de terminaison `/analyze` vous permet d’utiliser des fonctionnalités sélectionnées de l’API Analyse de texte [de façon asynchrone](how-tos/text-analytics-how-to-call-api.md), comme la reconnaissance d’entités nommées et l’extraction de phrases clés.
 
 ## <a name="typical-workflow"></a>Flux de travail classique
 

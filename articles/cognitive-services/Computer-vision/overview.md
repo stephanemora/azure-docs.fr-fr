@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629748"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532288"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -64,7 +64,7 @@ Générer une description de l’intégralité d’une image dans un langage lis
 
 ### <a name="detect-faces"></a>Détecter des visages
 
-Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Le service Vision par ordinateur fournit un sous-ensemble des fonctionnalités du service [Visage](/azure/cognitive-services/face/). Utilisez le service Visage pour effectuer une analyse plus détaillée (reconnaissance faciale, détection de la posture, etc.). [Détecter des visages](concept-detecting-faces.md)
+Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Le service Vision par ordinateur fournit un sous-ensemble des fonctionnalités du service [Visage](../face/index.yml). Utilisez le service Visage pour effectuer une analyse plus détaillée (reconnaissance faciale, détection de la posture, etc.). [Détecter des visages](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Détecter les types d’images
 
@@ -90,13 +90,12 @@ Analyser le contenu d’une image pour retourner les coordonnées de la *zone d�
 
 Vous pouvez utiliser Vision par ordinateur pour [détecter des contenus pour adultes](concept-detecting-adult-content.md) dans une image et retourner des scores de confiance pour différentes classifications. Le seuil de marquage du contenu peut être défini sur une échelle pour prendre en compte vos préférences.
 
-## <a name="use-containers"></a>Utiliser des conteneurs
+## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
 
-Utilisez des conteneurs Docker de Vision par ordinateur pour utiliser localement le service. Deux conteneurs sont actuellement disponibles :
+Utilisez des conteneurs Vision par ordinateur pour déployer localement des fonctionnalités d’API. Ces conteneurs Docker vous donnent la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles. Vision par ordinateur offre les conteneurs suivants :
 
-* Le [conteneur de lecture de Vision par ordinateur](computer-vision-how-to-install-containers.md) vous permet de reconnaître du texte imprimé et manuscrit dans les images.
-
-* Le [conteneur d’analyse spatiale de Vision par ordinateur](spatial-analysis-container.md) vous permet d’analyser les vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques.
+* Le [conteneur OCR de lecture de Vision par ordinateur (préversion)](computer-vision-how-to-install-containers.md) vous permet de reconnaître du texte imprimé et manuscrit dans les images.
+* Le [conteneur d’analyse spatiale de Vision par ordinateur (préversion)](spatial-analysis-container.md) vous permet d’analyser les vidéos en streaming temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques.
 
 ## <a name="image-requirements"></a>Exigences des images
 
