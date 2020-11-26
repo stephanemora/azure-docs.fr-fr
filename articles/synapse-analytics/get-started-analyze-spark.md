@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 07537e26b169414e3f8ec35cc32945c20f7eb7ce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d7b198790b1ecc884321ad42c97eb5cf0c239b7e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843279"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241979"
 ---
 # <a name="analyze-with-apache-spark"></a>Analyser avec Apache Spark
 
@@ -93,22 +93,7 @@ Des données sont disponibles dans une table dans **SQLPOOL1**. Chargez-les dans
 
 1. Dans les résultats de la cellule, sélectionnez **Graphique** pour afficher les données visualisées.
 
-## <a name="customize-data-visualization-with-spark-and-notebooks"></a>Personnaliser la visualisation des données avec Spark et des notebooks
 
-Vous pouvez contrôler le rendu des graphiques à l’aide de notebooks. Le code suivant présente un exemple simple. Il utilise les bibliothèques populaires **matplotlib** et **seaborn**. Le code effectue le rendu dans le même type de graphique en courbes que les requêtes SQL que nous avons exécutées précédemment.
-
-```py
-%%pyspark
-import matplotlib.pyplot
-import seaborn
-
-seaborn.set(style = "whitegrid")
-df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.toPandas()
-seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
-seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
-matplotlib.pyplot.show()
-```
 
 
 

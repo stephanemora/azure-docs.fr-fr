@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 3c03bb91320e79d5ea54ad43802073795bfbd4cb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896484"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-springer-link"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Springer Link
 
@@ -45,9 +45,9 @@ Pour configurer l’intégration de Springer Link avec Azure AD, vous devez ajou
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Springer Link** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Springer Link** dans la zone de recherche.
 1. Sélectionnez **Springer Link** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
@@ -66,30 +66,30 @@ Pour configurer et tester l’authentification unique Azure AD avec Springer Li
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans la page d’intégration de l’application **Springer Link** du portail Azure, recherchez la section **Gérer** , puis sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page d’intégration de l’application **Springer Link** du portail Azure, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité** , entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur** , tapez une l’URL : `https://fsso.springer.com`
+    a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://fsso.springer.com`
 
-    b. Dans la zone **URL de réponse** , tapez l’URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
     c. Cliquez sur **Définir des URL supplémentaires**.
 
-    d. Dans la zone de texte **État de relais** , tapez l’URL : `https://link.springer.com`
+    d. Dans la zone de texte **État de relais**, tapez l’URL : `https://link.springer.com`
 
-5. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** , procédez comme suit :
+5. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
     > [!NOTE]
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. `<entityID>` est l’identificateur Azure AD copié à partir de la section **Configurer Springer Link** , plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. `<entityID>` est l’identificateur Azure AD copié à partir de la section **Configurer Springer Link**, plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur l’icône Copier pour copier l’ **URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
 
     ![Lien de téléchargement des métadonnées](common/copy_metadataurl.png)
 
@@ -97,29 +97,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant un accès à Springer Link.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Springer Link**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-springer-link-sso"></a>Configurer l’authentification unique Springer Link
 
-Pour configurer l’authentification unique côté **Springer Link** , vous devez envoyer l’ **’URL des métadonnées de fédération de l’application** copiée à l’ [’équipe du support technique Springer Link](mailto:onlineservice@springernature.com). L’équipe de support technique Springer Link utilise cette URL pour configurer correctement la connexion SSO SAML des deux côtés.
+Pour configurer l’authentification unique côté **Springer Link**, vous devez envoyer l’ **’URL des métadonnées de fédération de l’application** copiée à l’[’équipe du support technique Springer Link](mailto:onlineservice@springernature.com). L’équipe de support technique Springer Link utilise cette URL pour configurer correctement la connexion SSO SAML des deux côtés.
 
 ### <a name="create-springer-link-test-user"></a>Créer un utilisateur de test Springer Link
 

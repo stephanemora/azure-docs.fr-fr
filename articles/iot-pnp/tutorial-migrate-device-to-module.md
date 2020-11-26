@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421462"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500269"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutoriel : Connecter un module IoT Plug-and-Play (C#)
 
 Ce tutoriel vous montre comment connecter un [module](../iot-hub/iot-hub-devguide-module-twins.md) IoT Plug-and-Play générique.
 
-Un appareil est un appareil IoT Plug-and-Play s’il publie son ID de modèle lorsqu’il se connecte à un hub IoT et implémente les propriétés et méthodes décrites dans le modèle DTDL (Digital Twins Definition Language) identifié par l’ID de modèle. Pour en savoir plus sur la façon dont les appareils utilisent un DTDL et un ID de modèle, consultez [Guide du développeur IoT Plug-and-Play](./concepts-developer-guide-device-csharp.md). Les modules utilisent des ID de modèle et des modèles DTDL de la même manière.
+Un appareil est un appareil IoT Plug-and-Play s’il publie son ID de modèle lorsqu’il se connecte à un hub IoT et implémente les propriétés et méthodes décrites dans le modèle DTDL (Digital Twins Definition Language) identifié par l’ID de modèle. Pour en savoir plus sur la façon dont les appareils utilisent un DTDL et un ID de modèle, consultez [Guide du développeur IoT Plug-and-Play](./concepts-developer-guide-device.md). Les modules utilisent des ID de modèle et des modèles DTDL de la même manière.
 
 Pour illustrer la façon d’implémenter un module IoT Plug-and-Play, ce tutoriel vous montre comment convertir l'exemple d’appareil C# thermostat en module générique.
 
@@ -238,4 +238,4 @@ Vous pouvez utiliser l’explorateur Azure IoT pour voir ce qui suit :
 Dans ce tutoriel, vous avez découvert comment connecter un appareil IoT Plug-and-Play avec des modules à un hub IoT. Pour découvrir plus d’informations sur les modèles d’appareils IoT Plug-and-Play, consultez :
 
 > [!div class="nextstepaction"]
-> [Guide du développeur pour la modélisation d’IoT Plug-and-Play](./concepts-developer-guide-device-csharp.md)
+> [Guide du développeur pour la modélisation d’IoT Plug-and-Play](./concepts-developer-guide-device.md)

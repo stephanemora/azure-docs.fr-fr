@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061600"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542811"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutoriel : Déplacer des ressources Azure SQL Database dans une autre région
 
@@ -43,22 +43,22 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 -  Veillez à disposer d’un accès *Propriétaire* sur l’abonnement contenant les ressources que vous souhaitez déplacer.
     - La première fois que vous ajoutez une ressource pour une paire source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement.
     - Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-- L’abonnement a besoin d’un quota suffisant pour créer les ressources que vous déplacez dans la région cible. S’il n’a pas le quota, [demandez des limites supplémentaires](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- L’abonnement a besoin d’un quota suffisant pour créer les ressources que vous déplacez dans la région cible. S’il n’a pas le quota, [demandez des limites supplémentaires](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des ressources. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
     
 
 ## <a name="check-sql-requirements"></a>Vérifier la configuration SQL exigée
 
 1. [Vérifiez](support-matrix-move-region-sql.md) quelles fonctionnalités de pool élastique et de base de données sont prises en charge pour le déplacement dans une autre région.
-2. Dans la région cible, créez un serveur cible pour chaque serveur source. [Plus d’informations](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users)
+2. Dans la région cible, créez un serveur cible pour chaque serveur source. [Plus d’informations](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users)
 4. Si les bases de données sont chiffrées avec Transparent Data Encryption (TDE), et que vous utilisez votre propre clé de chiffrement dans Azure Key Vault, [apprenez à](../key-vault/general/move-region.md) déplacer des coffres de clés dans une autre région.
 5. Si la fonctionnalité SQL Data Sync est activée, le déplacement des bases de données membres est pris en charge. Après le déplacement, vous devez configurer SQL Data Sync dans la nouvelle base de données cible.
-6. Supprimez les paramètres Advanced Data Security avant le déplacement. Après le déplacement, [configurez les paramètres](/azure/sql-database/sql-database-advanced-data-security) au niveau du serveur SQL Server dans la région cible.
-7. Si l’option d’audit est activée, les stratégies sont réinitialisées à la valeur par défaut après le déplacement. [Configurez l’audit](/azure/sql-database/sql-database-auditing) de nouveau, après le déplacement.
-7. Les stratégies de rétention des sauvegardes de la base de données source sont transférées à la base de données cible. [Apprenez-en davantage](/azure/sql-database/sql-database-long-term-backup-retention-configure ) sur la modification des paramètres après le déplacement.
-8. Supprimez les règles de pare-feu au niveau du serveur avant le déplacement. Les règles de pare-feu au niveau de la base de données sont copiées du serveur source vers le serveur cible, pendant le déplacement. Après le déplacement, [configurez des règles de pare-feu](/azure/sql-database/sql-database-server-level-firewall-rule) pour SQL Server dans la région cible.
-9. Supprimez les paramètres de réglage automatique avant le déplacement. [Configurez le réglage automatique](/azure/sql-database/sql-database-automatic-tuning-enable) de nouveau après le déplacement.
-10. Supprimez les paramètres d’alerte de base de données avant le déplacement. [Réinitialisez](/azure/sql-database/sql-database-insights-alerts-portal) après le déplacement.
+6. Supprimez les paramètres Advanced Data Security avant le déplacement. Après le déplacement, [configurez les paramètres](../azure-sql/database/azure-defender-for-sql.md) au niveau du serveur SQL Server dans la région cible.
+7. Si l’option d’audit est activée, les stratégies sont réinitialisées à la valeur par défaut après le déplacement. [Configurez l’audit](../azure-sql/database/auditing-overview.md) de nouveau, après le déplacement.
+7. Les stratégies de rétention des sauvegardes de la base de données source sont transférées à la base de données cible. [Apprenez-en davantage](../azure-sql/database/long-term-backup-retention-configure.md) sur la modification des paramètres après le déplacement.
+8. Supprimez les règles de pare-feu au niveau du serveur avant le déplacement. Les règles de pare-feu au niveau de la base de données sont copiées du serveur source vers le serveur cible, pendant le déplacement. Après le déplacement, [configurez des règles de pare-feu](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) pour SQL Server dans la région cible.
+9. Supprimez les paramètres de réglage automatique avant le déplacement. [Configurez le réglage automatique](../azure-sql/database/automatic-tuning-enable.md) de nouveau après le déplacement.
+10. Supprimez les paramètres d’alerte de base de données avant le déplacement. [Réinitialisez](../azure-sql/database/alerts-insights-configure-portal.md) après le déplacement.
     
 ## <a name="select-resources"></a>Sélection des ressources
 

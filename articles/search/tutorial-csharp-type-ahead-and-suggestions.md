@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013834"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutoriel : Ajouter l’autocomplétion et les suggestions à l’aide du SDK .NET
 
@@ -151,7 +151,7 @@ Nous allons commencer par le cas le plus simple de proposition de choix à l’u
 
 4. Dans le script de la vue, définissez **&fuzzy** sur true et réexécutez l’application. À présent, entrez « po ». Comme vous pouvez le constater, la recherche part du principe qu’une des lettres tapées peut être incorrecte.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="L’entrée de *po* révèle deux suggestions" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Entrée de *pa* avec fuzzy défini sur true" border="false":::
 
     Si cela vous intéresse, la [Syntaxe des requêtes Lucene dans Recherche cognitive Azure](./query-lucene-syntax.md) décrit la logique utilisée dans les recherches approximatives.
 
@@ -196,7 +196,7 @@ Nous pouvons améliorer l’apparence des suggestions proposées à l’utilisat
 
 1. Réexécutez l’application ; le texte que vous avez entré doit apparaître en gras dans les suggestions. Essayez de taper « pa ».
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="L’entrée de *po* révèle deux suggestions" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Entrée de *pa* avec mise en évidence" border="false":::
 
    La logique utilisée dans le script de mise en évidence ci-dessus n’est pas infaillible. Si vous entrez un terme qui apparaît deux fois dans le même nom, les résultats en gras ne sont pas tout à fait ce que vous souhaiteriez. Essayez de taper « mo ».
 
@@ -255,7 +255,7 @@ Une autre variante, qui diffère légèrement des suggestions, est l’autocompl
 
 1. Exécutez l'application. Notez que la plage d’options affichées dans la liste déroulante est constituée de mots uniques. Essayez de taper des mots commençant par « re ». Comme vous pouvez le constater, le nombre d’options diminue à mesure que vous tapez des lettres.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="L’entrée de *po* révèle deux suggestions" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Entrée avec auto-complétion de base" border="false":::
 
     Tel quel, le script de suggestions que vous avez exécuté est probablement plus utile que ce script d’auto-complétion. Pour rendre l’autocomplétion plus conviviale, envisagez de l’utiliser avec des résultats suggérés.
 
@@ -451,7 +451,7 @@ Il existe des bibliothèques qui offrent cette fonctionnalité, souvent appelée
 
 1. À présent, exécutez l’application. Entrez « pa » dans la zone de recherche. Obtenez-vous « palace » en tant que suggestion d’auto-complétion ainsi que deux noms d’hôtels contenant « pa » ?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="L’entrée de *po* révèle deux suggestions" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Entrée avec auto-complétion et suggestions" border="false":::
 
 1. Essayez d’accepter la suggestion d’auto-complétion à l’aide de la touche Tab et de sélectionner des suggestions à l’aide des touches de direction et de la touche Tab. Renouvelez l’opération à l’aide de la souris et d’un simple clic. Vérifiez que le script gère parfaitement toutes ces situations.
 

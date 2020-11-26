@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 36b952131c2050230de89064adc586c5a2851b65
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147626"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544086"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutoriel - Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Azure PowerShell
 
@@ -295,7 +295,7 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
     Une adresse IP privée **10.0.0.5** est retournée pour le nom du serveur SQL.  Cette adresse se trouve dans le sous-réseau du réseau virtuel que vous avez créé précédemment.
 
 
-10. Installez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) sur **myVM**.
+10. Installez [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) sur **myVM**.
 
 11. Ouvrez **SQL Server Management Studio**.
 

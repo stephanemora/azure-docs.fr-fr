@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564563"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026622"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Utilisez une seule carte réseau (NIC) par serveur (nœud de cluster) et un seul
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Réglage des seuils réseau de cluster de basculement
 
-Quand vous exécutez des nœuds de cluster de basculement Windows dans des machines virtuelles Azure avec SQL Server AlwaysOn, il est recommandé de remplacer le paramètre de cluster par un état d’analyse plus souple.  Cela rend le cluster bien plus stable et fiable.  Pour plus de détails, consultez [IaaS avec SQL AlwaysOn – Réglage des seuils réseau de cluster de basculement](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+Quand vous exécutez des nœuds de cluster de basculement Windows dans des machines virtuelles Azure avec SQL Server AlwaysOn, il est recommandé de remplacer le paramètre de cluster par un état d’analyse plus souple.  Cela rend le cluster bien plus stable et fiable.  Pour plus de détails, consultez [IaaS avec SQL AlwaysOn – Réglage des seuils réseau de cluster de basculement](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Quorum
 

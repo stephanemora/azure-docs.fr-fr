@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 21562bc17d4bfd4913c9085755d962382d207c79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566790"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961887"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutoriel : Prérequis de la création de groupes de disponibilité sur SQL Server sur des machines virtuelles Azure
 
@@ -538,7 +538,7 @@ Répétez les étapes sur l’autre machine virtuelle SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Réglage des seuils réseau de cluster de basculement
 
-Quand vous exécutez des nœuds de cluster de basculement Windows dans des machines virtuelles Azure avec SQL Server AlwaysOn, il est recommandé de remplacer le paramètre de cluster par un état d’analyse plus souple.  Cela rend le cluster bien plus stable et fiable.  Pour plus de détails, consultez [IaaS avec SQL AlwaysOn – Réglage des seuils réseau de cluster de basculement](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+Quand vous exécutez des nœuds de cluster de basculement Windows dans des machines virtuelles Azure avec SQL Server AlwaysOn, il est recommandé de remplacer le paramètre de cluster par un état d’analyse plus souple.  Cela rend le cluster bien plus stable et fiable.  Pour plus de détails, consultez [IaaS avec SQL AlwaysOn – Réglage des seuils réseau de cluster de basculement](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configurer le pare-feu sur chaque machine virtuelle SQL Server

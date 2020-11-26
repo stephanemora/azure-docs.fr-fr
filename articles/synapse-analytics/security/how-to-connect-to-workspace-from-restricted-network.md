@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637130"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024463"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Se connecter aux ressources de l’espace de travail à partir d’un réseau restreint
 
@@ -40,7 +40,7 @@ La capture d’écran suivante montre les détails de la règle de trafic sortan
 
 Lorsque vous créez les trois autres règles, remplacez la valeur de **Destination service tag** par **AzureFrontDoor.Frontend**, **AzureActiveDirectory** ou **AzureMonitor** dans la liste.
 
-Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de service Azure](/azure/virtual-network/service-tags-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de service Azure](/azure/virtual-network/service-tags-overview).
 
 ## <a name="step-2-create-private-link-hubs"></a>Étape 2 : Créer des hubs de liaison privée
 

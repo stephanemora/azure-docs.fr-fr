@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968075"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
@@ -36,13 +36,13 @@ Si vous ne connaissez pas le processus de provisionnement automatique, révisez 
 Cette étape implique l’ajout des artefacts de sécurité uniques de l’appareil au service Device Provisioning. Ces artefacts de sécurité sont basés sur le [mécanisme d’attestation](concepts-service.md#attestation-mechanism) de l’appareil, comme suit :
 
 - Pour les appareils TPM, vous avez besoin des éléments suivants :
-    - La *paire de clés de type EK* qui est unique à chaque simulation ou processeur TPM, obtenue auprès du fournisseur de processeurs TPM.  Pour plus d’informations, consultez [Comprendre la paire de clés de type EK (Endorsement Key) du module de plateforme sécurisée](https://technet.microsoft.com/library/cc770443.aspx).
+    - La *paire de clés de type EK* qui est unique à chaque simulation ou processeur TPM, obtenue auprès du fournisseur de processeurs TPM.  Pour plus d’informations, consultez [Comprendre la paire de clés de type EK (Endorsement Key) du module de plateforme sécurisée](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)).
     - *L’ID d’enregistrement* qui est utilisé pour identifier un appareil dans l’espace de noms ou l’étendue. Cet ID peut ou non être le même que l’ID de l’appareil. L’ID est obligatoire pour chaque appareil. Pour les appareils basés sur TPM, l’ID d’enregistrement peut être dérivé du module TPM lui-même, par exemple un hachage SHA-256 de la paire de clés de type EK TPM.
 
       [![Informations d’inscription pour le module TPM dans le portail](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Pour les appareils X.509, vous avez besoin des éléments suivants :
-    - Le [certificat délivré à X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) (processeur ou simulation), sous la forme d’un fichier *.pem* ou *.cer*. Pour les inscriptions individuelles, vous devez utiliser le *certificat signé* de chaque appareil de votre système X.509. Pour les groupes d’inscriptions, vous devez utiliser le *certificat racine*. 
+    - Le [certificat délivré à X.509](/windows/win32/seccertenroll/about-x-509-public-key-certificates) (processeur ou simulation), sous la forme d’un fichier *.pem* ou *.cer*. Pour les inscriptions individuelles, vous devez utiliser le *certificat signé* de chaque appareil de votre système X.509. Pour les groupes d’inscriptions, vous devez utiliser le *certificat racine*. 
 
       [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -88,7 +88,7 @@ Une fois que votre appareil démarre, voici les actions qui doivent se produire�
 
     ![Connexion réussie au hub dans le portail](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnementd’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) et [Clé symétrique](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key).
+Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnementd’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md) et [Clé symétrique](./quick-create-simulated-device-symm-key.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737513"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832376"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données
 
@@ -50,6 +50,7 @@ Le flux de données de mappage suit une approche basée sur l’extraction, le c
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Managed Instance (préversion)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Les paramètres propres à ces connecteurs se trouvent sous l’onglet **Options de la source**. Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs.
@@ -64,13 +65,13 @@ Les valeurs de développement des paramètres de jeux de données peuvent être 
 
 ![Capture d’écran montrant l’onglet Paramètres de la source](media/data-flow/source1.png "Capture d’écran montrant l’onglet Paramètres de la source")
 
-**Nom du flux de sortie**  : nom de la transformation de source.
+**Nom du flux de sortie** : nom de la transformation de source.
 
-**Type de source**  : permet de choisir entre un jeu de données inline et un objet DataSet existant.
+**Type de source** : permet de choisir entre un jeu de données inline et un objet DataSet existant.
 
-**Tester la connexion**  : Faites un test pour déterminer si le service Spark du flux de données peut se connecter au service lié utilisé dans votre jeu de données source. Le mode de débogage doit être activé pour que cette fonctionnalité soit activée.
+**Tester la connexion** : Faites un test pour déterminer si le service Spark du flux de données peut se connecter au service lié utilisé dans votre jeu de données source. Le mode de débogage doit être activé pour que cette fonctionnalité soit activée.
 
-**Dérive de schéma**  : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de Data Factory à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.
+**Dérive de schéma** : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de Data Factory à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.
 
 * Cochez la case **Autoriser la dérive de schéma** si les colonnes sources sont amenées à changer souvent. Ce paramètre autorise tous les champs sources entrants à circuler jusqu’au récepteur, par le biais des transformations.
 
@@ -78,7 +79,7 @@ Les valeurs de développement des paramètres de jeux de données peuvent être 
 
 **Valider le schéma :** Quand la case **Valider le schéma** est cochée, l’exécution du flux de données échoue si les données sources entrantes ne correspondent pas au schéma défini du jeu de données.
 
-**Nombre de lignes à ignorer**  : Ce champ spécifie le nombre de lignes à ignorer au début du jeu de données.
+**Nombre de lignes à ignorer** : Ce champ spécifie le nombre de lignes à ignorer au début du jeu de données.
 
 **Échantillonnage** : Activez **Échantillonnage** pour limiter le nombre de lignes provenant de la source. Utilisez ce paramètre quand vous testez ou échantillonnez des données à partir de votre source à des fins de débogage.
 

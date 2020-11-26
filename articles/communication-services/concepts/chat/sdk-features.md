@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666141"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885986"
 ---
 # <a name="chat-client-library-overview"></a>Vue d’ensemble de la bibliothèque de client Chat
 
@@ -52,7 +52,7 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 | Événements             | Utiliser Event Grid pour vous abonner à une activité utilisateur se produisant dans des fils de conversation et intégrer des services de notification personnalisés ou une logique métier     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Surveillance        | Superviser l’utilisation (nombre de messages envoyés)                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Superviser la qualité et l’état des requêtes d’API envoyées par votre application et configurer des alertes via le portail                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Fonctionnalités supplémentaires | Utilisez les [API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) avec la bibliothèque de client Chat pour activer les fonctionnalités intelligentes : *traduction et analyse des sentiments du message entrant sur un client, conversion de la parole en texte pour composer un message pendant que le membre parle, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Fonctionnalités supplémentaires | Utilisez les [API Cognitive Services](../../../cognitive-services/index.yml) avec la bibliothèque de client Chat pour activer les fonctionnalités intelligentes : *traduction et analyse des sentiments du message entrant sur un client, conversion de la parole en texte pour composer un message pendant que le membre parle, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

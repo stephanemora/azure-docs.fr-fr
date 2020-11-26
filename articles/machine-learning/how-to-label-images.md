@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542182"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984445"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -133,7 +133,7 @@ Si votre projet est de type « Segmentation d’instance (polygone) », vous d
 
 1. Sélectionnez une étiquette pour le polygone que vous prévoyez de créer.
 1. Sélectionnez l’outil **Dessiner une région de polygone** ![Outil Dessiner une région de polygone](./media/how-to-label-images/polygon-tool.png) ou sélectionnez « P ».
-3. Cliquez pour chaque point du polygone.  Lorsque vous avez terminé la forme, double-cliquez pour la valider.
+1. Cliquez pour chaque point du polygone.  Lorsque vous avez terminé la forme, double-cliquez pour la valider.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Créer des polygones pour le chat et le chien":::
 
@@ -158,3 +158,5 @@ Une fois l’étiquetage terminé, sélectionnez votre nom dans le coin supérie
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez à [effectuer l’apprentissage de modèles de classification d’image dans Azure](./tutorial-train-models-with-aml.md)
+
+

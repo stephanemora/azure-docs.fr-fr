@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperfq1
-ms.openlocfilehash: 1a83385c7f384f7727a0fd10e238c6511950abfe
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 31dd33bd8805ffcc677d5f0e98e81f2fa9e91ee2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612658"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537048"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -132,7 +132,7 @@ Les journaux Azure Application Insights utilisent un langage de requête riche p
 ## <a name="share-dashboard"></a>Partager le tableau de bord
 
 1. En haut du tableau de bord, sélectionnez **Partager** pour publier vos modifications.
-2. Vous pouvez éventuellement définir des utilisateurs spécifiques pouvant accéder au tableau de bord. Pour plus d’informations, consultez [Partager des tableaux de bord Azure en utilisant le contrôle d’accès en fonction du rôle](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. Vous pouvez éventuellement définir des utilisateurs spécifiques pouvant accéder au tableau de bord. Pour plus d’informations, consultez [Partager des tableaux de bord Azure en utilisant le contrôle d’accès en fonction du rôle Azure](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Sélectionnez **Publier**.
 
 ## <a name="next-steps"></a>Étapes suivantes

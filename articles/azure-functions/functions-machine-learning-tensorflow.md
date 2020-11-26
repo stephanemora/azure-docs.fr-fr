@@ -7,11 +7,11 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994602"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutoriel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
 
@@ -56,7 +56,7 @@ Dans cet article, vous allez découvrir comment utiliser Python, TensorFlow et A
     
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Créer et activer un environnement virtuel Python
 
-Accédez au dossier *start* , et exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`. Veillez à utiliser Python 3.7, qui est pris en charge par Azure Functions.
+Accédez au dossier *start*, et exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`. Veillez à utiliser Python 3.7, qui est pris en charge par Azure Functions.
 
 
 # <a name="bash"></a>[bash](#tab/bash)
@@ -116,7 +116,7 @@ Vous devez exécuter toutes les commandes suivantes dans cet environnement virtu
 
 Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieurs fonctions individuelles qui répond chacune à un déclencheur spécifique. Toutes les fonctions d’un projet partagent les mêmes configurations locales et d’hébergement. Dans cette section, vous créez un projet de fonction qui contient une seule fonction réutilisable nommée `classify`, qui fournit un point de terminaison HTTP. Vous y ajoutez du code spécifique dans une section ultérieure.
 
-1. Dans le dossier *start* , utilisez Azure Functions Core Tools pour initialiser une application de fonction Python :
+1. Dans le dossier *start*, utilisez Azure Functions Core Tools pour initialiser une application de fonction Python :
 
     ```
     func init --worker-runtime python
@@ -133,12 +133,12 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Cette commande crée un dossier correspondant au nom de la fonction, *classify*. Dans ce dossier se trouvent deux fichiers : *\_\_init\_\_.py* , qui contient le code de la fonction, et *function.json* , qui décrit le déclencheur de la fonction, et ses liaisons d’entrée et de sortie. Pour plus d’informations sur le contenu de ces fichiers, consultez la section [Examiner le contenu du fichier](./create-first-function-cli-python.md#optional-examine-the-file-contents) du guide de démarrage rapide Python.
+    Cette commande crée un dossier correspondant au nom de la fonction, *classify*. Dans ce dossier se trouvent deux fichiers : *\_\_init\_\_.py*, qui contient le code de la fonction, et *function.json*, qui décrit le déclencheur de la fonction, et ses liaisons d’entrée et de sortie. Pour plus d’informations sur le contenu de ces fichiers, consultez la section [Examiner le contenu du fichier](./create-first-function-cli-python.md#optional-examine-the-file-contents) du guide de démarrage rapide Python.
 
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
-1. Démarrez la fonction en démarrant l’hôte du runtime Azure Functions local dans le dossier *start*  :
+1. Démarrez la fonction en démarrant l’hôte du runtime Azure Functions local dans le dossier *start* :
 
     ```
     func start
@@ -158,7 +158,7 @@ Pour générer votre propre modèle en utilisant le niveau gratuit du service Cu
 > [!TIP]
 > Si vous voulez héberger votre modèle TensorFlow indépendant de l’application de fonction, vous pouvez monter à la place un partage de fichiers contenant votre modèle dans votre application de fonction Linux. Pour en savoir plus, consultez [Monter un partage de fichiers dans une application de fonction Python à l’aide d’Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
 
-1. Dans le dossier *start* , exécutez la commande suivante pour copier les fichiers modèle dans le dossier *classify*. Veillez à inclure `\*` dans la commande. 
+1. Dans le dossier *start*, exécutez la commande suivante pour copier les fichiers modèle dans le dossier *classify*. Veillez à inclure `\*` dans la commande. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -182,7 +182,7 @@ Pour générer votre propre modèle en utilisant le niveau gratuit du service Cu
     
 1. Vérifiez que le dossier *classify* contient les fichiers nommés *model.pb* et *labels.txt*. Si ce n’est pas le cas, vérifiez que vous avez exécuté la commande dans le dossier *start*.
 
-1. Dans le dossier *start* , exécutez la commande suivante pour copier un fichier avec le code helper dans le dossier *classify*  :
+1. Dans le dossier *start*, exécutez la commande suivante pour copier un fichier avec le code helper dans le dossier *classify* :
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -229,7 +229,7 @@ Pour générer votre propre modèle en utilisant le niveau gratuit du service Cu
 
 ## <a name="update-the-function-to-run-predictions"></a>Mettre à jour la fonction pour effectuer des prédictions
 
-1. Ouvrez *classify/\_\_init\_\_.py* dans un éditeur de texte et ajoutez les lignes suivantes après les instructions `import` existantes pour importer la bibliothèque JSON standard et les helpers *predict*  :
+1. Ouvrez *classify/\_\_init\_\_.py* dans un éditeur de texte et ajoutez les lignes suivantes après les instructions `import` existantes pour importer la bibliothèque JSON standard et les helpers *predict* :
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

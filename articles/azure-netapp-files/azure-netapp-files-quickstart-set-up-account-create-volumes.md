@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336441"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888808"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS
 
@@ -32,8 +32,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 > [!IMPORTANT]
 > Vous devez avoir accès au service Azure NetApp Files. Pour demander l’accès au service, consultez la [page de soumission d’une liste d’attente Azure NetApp Files](https://aka.ms/azurenetappfiles).  Vous devez attendre un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant de continuer.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
@@ -65,6 +63,10 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Préparez votre environnement pour l’interface Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
 # <a name="template"></a>[Modèle](#tab/template)
@@ -81,7 +83,7 @@ Pour plus d’informations, consultez [S’inscrire à Azure NetApp Files](azure
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans la zone de recherche du portail Azure, entrez **Azure NetApp Files** , puis sélectionnez **Azure NetApp Files** dans la liste qui s’affiche.
+1. Dans la zone de recherche du portail Azure, entrez **Azure NetApp Files**, puis sélectionnez **Azure NetApp Files** dans la liste qui s’affiche.
 
       ![Sélectionner Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -176,7 +178,7 @@ L’extrait de code suivant montre comment créer un compte NetApp dans un modè
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans le panneau de gestion Azure NetApp Files, sélectionnez votre compte NetApp ( **myaccount1** ).
+1. Dans le panneau de gestion Azure NetApp Files, sélectionnez votre compte NetApp (**myaccount1**).
 
     ![Sélectionner le compte NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -260,7 +262,7 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
 
 3. Dans la fenêtre Créer un volume, spécifiez les informations concernant le nouveau volume :
    1. Entrez **myvol1** comme nom du volume.
-   2. Sélectionnez votre pool de capacités ( **mypool1** ).
+   2. Sélectionnez votre pool de capacités (**mypool1**).
    3. Utilisez la valeur par défaut du quota.
    4. Sous Réseau virtuel, cliquez sur **Créer** pour créer un réseau virtuel Azure.  Ensuite, renseignez les informations suivantes :
        * Entrez **myvnet1** comme nom du réseau virtuel.
@@ -269,16 +271,16 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
        * Spécifiez la plage d’adresses du sous-réseau, par exemple, 10.7.0.0/24. Vous ne pouvez pas partager le sous-réseau dédié avec d’autres ressources.
        * Sélectionnez **Microsoft.NetApp/volumes** pour la délégation de sous-réseau.
        * Cliquez sur **OK** pour créer le réseau virtuel.
-   5. Dans le sous-réseau, sélectionnez le réseau virtuel qui vient d’être créé ( **myvnet1** ) comme sous-réseau délégué.
+   5. Dans le sous-réseau, sélectionnez le réseau virtuel qui vient d’être créé (**myvnet1**) comme sous-réseau délégué.
 
       ![Fenêtre Créer un volume](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
       ![Fenêtre Créer un réseau virtuel](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)
 
-4. Cliquez sur **Protocole** , puis effectuez les actions suivantes :
+4. Cliquez sur **Protocole**, puis effectuez les actions suivantes :
     * Sélectionnez **NFS** comme type de protocole pour le volume.
     * Entrez **myfilepath1** comme chemin de fichier à utiliser pour créer le chemin d’exportation du nouveau volume.
-    * Sélectionnez la version de NFS ( **NFSv3** ou **NFSv4.1** ) du volume.
+    * Sélectionnez la version de NFS (**NFSv3** ou **NFSv4.1**) du volume.
       Consultez les [Considérations](azure-netapp-files-create-volumes.md#considerations) et les [Bonnes pratiques](azure-netapp-files-create-volumes.md#best-practice) relatives aux versions NFS.
 
     ![Spécifiez le protocole NFS pour le démarrage rapide](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
@@ -408,7 +410,7 @@ Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le gro
 > [!IMPORTANT]
 > Toutes les ressources dans les groupes de ressources vont être définitivement supprimés et une annulation n’est pas possible.
 
-1. Dans la zone de recherche du portail Azure, entrez **Azure NetApp Files** , puis sélectionnez **Azure NetApp Files** dans la liste qui s’affiche.
+1. Dans la zone de recherche du portail Azure, entrez **Azure NetApp Files**, puis sélectionnez **Azure NetApp Files** dans la liste qui s’affiche.
 
 2. Dans la liste des abonnements, cliquez sur le groupe de ressources (myRG1) que vous souhaitez supprimer.
 

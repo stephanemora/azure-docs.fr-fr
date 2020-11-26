@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298843"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953149"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Pour appeler une API web protégée à partir d’une application client native,
 
 Dans le didacticiel des conditions requises, vous avez inscrit une application cliente native appelée *nativeapp1*. Les étapes suivantes configurent l’inscription de cette application native avec les étendues d’API que vous avez exposées pour *webapi1* dans la section précédente. Cela permet à l’application de bureau d’obtenir un jeton d’accès de la part d’Azure AD B2C que l’API web peut utiliser pour vérifier et fournir un accès délimité à ses ressources. Vous configurez et exécutez les exemples de code de l’application de bureau et de l’API web plus loin dans le didacticiel.
 
-Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 

@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045599"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968058"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer des modules Java IoT Edge pour les appareils Linux
 
@@ -34,9 +34,9 @@ Le module IoT Edge que vous créez dans ce didacticiel filtre les données de te
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Étendue de la solution
+## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel montre comment développer un module dans **Java** à l’aide de **Visual Studio Code**et comment le déployer dans un **appareil Linux**. IoT Edge ne prend pas en charge les modules Java pour appareils Windows.
+Ce tutoriel montre comment développer un module dans **Java** à l’aide de **Visual Studio Code** et comment le déployer dans un **appareil Linux**. IoT Edge ne prend pas en charge les modules Java pour appareils Windows.
 
 Utilisez le tableau suivant pour comprendre les options dont vous disposez pour développer et déployer des modules Java :
 
@@ -44,8 +44,6 @@ Utilisez le tableau suivant pour comprendre les options dont vous disposez pour 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilisez VS Code pour modules Java sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Java sur Linux AMD32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). Si vous avez suivi l’un ou l’autre de ces tutoriels, la configuration requise doit être la suivante :
 

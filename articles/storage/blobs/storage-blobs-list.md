@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701311"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543066"
 ---
 # <a name="list-blobs-with-net"></a>Lister les objets blob avec .NET
 
@@ -61,7 +61,7 @@ Pour filtrer la liste de blobs, spécifiez une chaîne pour le paramètre `prefi
 
 Vous pouvez retourner des métadonnées d’objet blob avec les résultats.
 
-- Si vous utilisez le Kit de développement logiciel (SDK) .NET v12, spécifiez la valeur **Metadata** pour l’énumération [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits).
+- Si vous utilisez le Kit de développement logiciel (SDK) .NET v12, spécifiez la valeur **Metadata** pour l’énumération [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits).
 
 - Si vous utilisez le Kit de développement logiciel (SDK) .NET v11, spécifiez la valeur **Metadata** pour l’énumération [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Le stockage Azure inclut des métadonnées avec chaque objet blob retourné. Vous n’avez donc pas besoin d’appeler l’une des méthodes **FetchAttributes** dans ce contexte pour récupérer les métadonnées des objets blob.
 

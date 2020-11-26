@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986312"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966528"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -111,7 +111,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 9. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
    > [!NOTE]
-   > Les journaux de flux NSG ne sont pas disponibles pour les comptes de stockage qui ont l’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) activé.
+   > Les journaux de flux NSG ne sont pas disponibles pour les comptes de stockage qui ont l’[espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) activé.
 1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 

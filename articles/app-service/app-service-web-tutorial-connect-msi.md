@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737889"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004923"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -75,9 +75,9 @@ Pour plus d’informations sur l’ajout d’un administrateur Active Directory,
 ## <a name="set-up-visual-studio"></a>Configuration de Visual Studio
 
 ### <a name="windows-client"></a>Client Windows
-Visual Studio pour Windows est intégré avec l’authentification Azure AD. Pour activer le développement et le débogage dans Visual Studio, ajoutez votre utilisateur Azure AD dans Visual Studio en sélectionnant **Fichier** > **Paramètres du compte** à partir du menu, puis cliquez sur **Ajouter un compte** .
+Visual Studio pour Windows est intégré avec l’authentification Azure AD. Pour activer le développement et le débogage dans Visual Studio, ajoutez votre utilisateur Azure AD dans Visual Studio en sélectionnant **Fichier** > **Paramètres du compte** à partir du menu, puis cliquez sur **Ajouter un compte**.
 
-Pour définir l’utilisateur Azure AD pour l’authentification de service Azure, sélectionnez **Outils** > **Options** dans le menu, puis sélectionnez **Authentification du service Azure** > **Sélection du compte** . Sélectionnez l’utilisateur Azure AD que vous avez ajouté, puis cliquez sur **OK** .
+Pour définir l’utilisateur Azure AD pour l’authentification de service Azure, sélectionnez **Outils** > **Options** dans le menu, puis sélectionnez **Authentification du service Azure** > **Sélection du compte**. Sélectionnez l’utilisateur Azure AD que vous avez ajouté, puis cliquez sur **OK**.
 
 Vous êtes maintenant prêt à développer et déboguer votre application avec SQL Database en tant que back-end, à l’aide de l’authentification Azure AD.
 
@@ -107,7 +107,7 @@ Dans Visual Studio, ouvrez la Console du gestionnaire de package et ajoutez le p
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-Dans *Web.config* , depuis le début du fichier, apportez les modifications suivantes :
+Dans *Web.config*, depuis le début du fichier, apportez les modifications suivantes :
 
 - Dans `<configSections>`, ajoutez la déclaration de section suivante :
 
@@ -142,17 +142,17 @@ Dans Visual Studio, ouvrez la Console du gestionnaire de package et ajoutez le p
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-Dans le [tutoriel ASP.NET Core et SQL Database](tutorial-dotnetcore-sqldb-app.md), la chaîne de connexion `MyDbConnection` n’est pas du tout utilisée, car l’environnement de développement local utilise un fichier de base de données SQLite, et l’environnement de production Azure, une chaîne de connexion depuis App Service. Avec l’authentification Active Directory, vous voulez que les deux environnements utilisent la même chaîne de connexion. Dans le fichier *appsettings. json* , remplacez la valeur de la chaîne de connexion `MyDbConnection` par :
+Dans le [tutoriel ASP.NET Core et SQL Database](tutorial-dotnetcore-sqldb-app.md), la chaîne de connexion `MyDbConnection` n’est pas du tout utilisée, car l’environnement de développement local utilise un fichier de base de données SQLite, et l’environnement de production Azure, une chaîne de connexion depuis App Service. Avec l’authentification Active Directory, vous voulez que les deux environnements utilisent la même chaîne de connexion. Dans le fichier *appsettings. json*, remplacez la valeur de la chaîne de connexion `MyDbConnection` par :
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-Ensuite, vous fournissez le contexte de base de données Entity Framework avec le jeton d’accès pour l’instance SQL Database. Dans *Data\MyDatabaseContext.cs* , ajoutez le code suivant à l’intérieur des accolades du constructeur `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vide :
+Ensuite, vous fournissez le contexte de base de données Entity Framework avec le jeton d’accès pour l’instance SQL Database. Dans *Data\MyDatabaseContext.cs*, ajoutez le code suivant à l’intérieur des accolades du constructeur `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vide :
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Voici un exemple de sortie :
 ### <a name="grant-permissions-to-managed-identity"></a>Accorder des autorisations à une identité managée
 
 > [!NOTE]
-> Si vous le souhaitez, vous pouvez ajouter l’identité à un [groupe Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md), puis accorder l’accès à SQL Database au groupe Azure AD et non à l’identité. Par exemple, les commandes suivantes ajoutent l’identité managée de l’étape précédente à un nouveau groupe appelé _myAzureSQLDBAccessGroup_  :
+> Si vous le souhaitez, vous pouvez ajouter l’identité à un [groupe Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md), puis accorder l’accès à SQL Database au groupe Azure AD et non à l’identité. Par exemple, les commandes suivantes ajoutent l’identité managée de l’étape précédente à un nouveau groupe appelé _myAzureSQLDBAccessGroup_ :
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -220,7 +220,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* est le nom de l’identité managée dans Azure AD. Si l’identité est affectée par le système, le nom sera toujours identique à celui de votre application App Service. Pour accorder des autorisations pour un groupe Azure AD, utilisez à la place le nom d’affichage du groupe (par exemple, *myAzureSQLDBAccessGroup* ).
+*\<identity-name>* est le nom de l’identité managée dans Azure AD. Si l’identité est affectée par le système, le nom sera toujours identique à celui de votre application App Service. Pour accorder des autorisations pour un groupe Azure AD, utilisez à la place le nom d’affichage du groupe (par exemple, *myAzureSQLDBAccessGroup*).
 
 Tapez `EXIT` pour revenir à l’invite Cloud Shell.
 
@@ -239,11 +239,11 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Il ne vous reste plus qu’à publier vos modifications sur Azure.
 
-**Si vous êtes parti du [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)** , publiez vos modifications dans Visual Studio. Dans **l’Explorateur de solutions** , cliquez avec le bouton droit sur le projet **DotNetAppSqlDb** , puis sélectionnez **Publier** .
+**Si vous êtes parti du [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)** , publiez vos modifications dans Visual Studio. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **DotNetAppSqlDb**, puis sélectionnez **Publier**.
 
 ![Publier à partir de l’Explorateur de solutions](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Dans la page de publication, cliquez sur **Publier** . 
+Dans la page de publication, cliquez sur **Publier**. 
 
 **Si vous êtes parti du [Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service](tutorial-dotnetcore-sqldb-app.md)** , publiez vos modifications avec Git, au moyen des commandes suivantes :
 

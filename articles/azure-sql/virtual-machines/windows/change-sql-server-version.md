@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556452"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025376"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Modification sur place de la version de SQL Server sur une machine virtuelle Azure
 
@@ -66,7 +66,7 @@ Pour mettre à niveau la version de SQL Server, procurez-vous le support d’ins
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Sélection pour la mise à niveau de la version de SQL Server":::
 
-1. Dans la page **Clé de produit**, cliquez sur une option pour indiquer si vous effectuez une mise à niveau vers une édition gratuite de SQL Server ou si vous disposez d'une clé PID pour une version de production du produit. Pour plus d’informations, consultez [Éditions et composants de SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) et [Mises à niveau de version et d’édition prises en charge (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. Dans la page **Clé de produit**, cliquez sur une option pour indiquer si vous effectuez une mise à niveau vers une édition gratuite de SQL Server ou si vous disposez d'une clé PID pour une version de production du produit. Pour plus d’informations, consultez [Éditions et composants de SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) et [Mises à niveau de version et d’édition prises en charge (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
 1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut cesser de répondre pendant quelques minutes, le temps que la modification prenne effet. Une page **Terminé** confirme que la mise à niveau est terminée. Pour obtenir une procédure pas à pas de mise à niveau, consultez [la procédure complète](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Terminer la page":::

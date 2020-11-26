@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0391102683ebafba63c429072c8afa9f24223955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66617afee11b02eae0ba5e36d9ff91cbdf21911f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009424"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023103"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutoriel : Configurer des alertes de service
 
@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créez et configurez des alertes de service.
 
-Pour en savoir plus sur Azure Service Health, consultez la [Documentation Azure Health](https://docs.microsoft.com/azure/service-health/).
+Pour en savoir plus sur Azure Service Health, consultez la [Documentation Azure Health](../service-health/index.yml).
 
 ## <a name="create-service-alerts"></a>Créer des alertes de service
 
@@ -46,7 +46,7 @@ Pour configurer des alertes de service :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Service Health.**
-3. Suivez les instructions fournies dans [Créer des alertes de journal d’activité sur les notifications de service](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) pour configurer vos alertes et notifications.
+3. Suivez les instructions fournies dans [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) pour configurer vos alertes et notifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

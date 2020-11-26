@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699370"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545718"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Créer un moniteur dans Moniteur de connexion à l’aide du portail Azure
 
 Découvrez comment utiliser Moniteur de connexion pour surveiller la communication entre vos ressources. Cet article explique comment créer une analyse à l’aide du portail Azure. Le Moniteur de connexion prend en charge les déploiements cloud hybrides et Azure.
+
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
@@ -102,7 +103,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
 
 * **Désactiver le groupe de tests** : Vous pouvez cocher cette case pour désactiver la surveillance de toutes les sources et destinations spécifiées par le groupe de tests. Cette sélection est désactivée par défaut.
 * **Nom** : Donnez un nom à votre groupe de tests.
-* **Sources** Vous pouvez spécifier des machines virtuelles Azure et des machines locales en tant que sources si des agents y sont installés. Pour en savoir plus sur l’installation d’un agent pour votre source, consultez [Installer des agents de surveillance](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Sources** Vous pouvez spécifier des machines virtuelles Azure et des machines locales en tant que sources si des agents y sont installés. Pour en savoir plus sur l’installation d’un agent pour votre source, consultez [Installer des agents de surveillance](./connection-monitor-overview.md#install-monitoring-agents).
    * Pour choisir des agents Azure, sélectionnez l’onglet **Points de terminaison Azure**. Vous ne voyez ici que les machines virtuelles liées à la région que vous avez spécifiée lors de la création du moniteur de connexion. Par défaut, les machines virtuelles sont regroupées au sein de l'abonnement auquel elles appartiennent. Ces groupes sont réduits. 
    
        Vous pouvez passer du niveau **Abonnement** à d’autres niveaux de la hiérarchie :
@@ -117,7 +118,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
 
    * Pour choisir des agents locaux, sélectionnez l’onglet **Points de terminaison non Azure**. Par défaut, les agents sont regroupés par région dans les espaces de travail. Network Performance Monitor est configuré pour tous ces espaces de travail. 
    
-       Si nécessaire, procurez-vous Network Performance Monitor à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Si nécessaire, procurez-vous Network Performance Monitor à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        Sous **Créer un moniteur de connexion**, dans l’onglet **Informations de base**, la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé. Vous pouvez également modifier le sélecteur **Grouper par** pour regrouper par agents.
 
@@ -140,7 +141,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
     
     * Pour choisir des agents non Azure comme destinations, sélectionnez l’onglet **Points de terminaison non Azure**. Par défaut, les agents sont regroupés par région dans les espaces de travail. Network Performance Monitor est configuré pour tous ces espaces de travail. 
     
-      Si nécessaire, procurez-vous Network Performance Monitor à partir de la Place de marché Azure pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Si nécessaire, procurez-vous Network Performance Monitor à partir de la Place de marché Azure pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). 
 
       Sous  **Créer un moniteur de connexion**, dans l’onglet  **Informations de base** , la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé.  
 
@@ -182,7 +183,7 @@ Dans le portail Azure, pour créer des alertes pour un moniteur de connexion, vo
 
 - **Nom de la condition** : L’alerte est créée sur la métrique `Test Result(preview)`. Lorsque le résultat du test du moniteur de connexion, la règle d’alerte est déclenchée. 
 
-- **Nom du groupe d’actions** : Vous pouvez entrer votre adresse e-mail directement ou vous pouvez créer des alertes via des groupes d’actions. Si vous entrez votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé. L’ID d’e-mail est ajouté à ce groupe d’actions. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour en savoir plus sur la création d’un groupe d’actions, consultez [Créer des groupes d’actions dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Une fois l’alerte créée, vous pouvez [gérer vos alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nom du groupe d’actions** : Vous pouvez entrer votre adresse e-mail directement ou vous pouvez créer des alertes via des groupes d’actions. Si vous entrez votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé. L’ID d’e-mail est ajouté à ce groupe d’actions. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour en savoir plus sur la création d’un groupe d’actions, consultez [Créer des groupes d’actions dans le portail Azure](../azure-monitor/platform/action-groups.md). Une fois l’alerte créée, vous pouvez [gérer vos alertes](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nom de la règle d’alerte** : Nom du moniteur de connexion.
 
@@ -201,5 +202,5 @@ Les moniteurs de connexion présentent les limites de mise à l’échelle suiva
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez [comment analyser les données de surveillance et définir des alertes](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Découvrez [comment diagnostiquer les problèmes dans votre réseau](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Découvrez [comment analyser les données de surveillance et définir des alertes](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Découvrez [comment diagnostiquer les problèmes dans votre réseau](./connection-monitor-overview.md#diagnose-issues-in-your-network).
