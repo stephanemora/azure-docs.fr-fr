@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Base de référence de sécurité pour le Pare-feu Azure
       href: ../../firewall/security-baseline.md
+    - name: Base de référence de la sécurité Azure Firewall Manager
+      href: ../../firewall-manager/security-baseline.md
     - name: Base de référence de la sécurité Azure Front Door
       href: ../../frontdoor/security-baseline.md
     - name: Base de référence de sécurité pour Azure Functions
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Base de référence de sécurité Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: "Base de référence de la sécurité Power\_BI"
+      href: /power-bi/fundamentals/security-baseline
     - name: Base de référence Security Center
       href: ../../security-center/security-baseline.md
     - name: Base de référence Service Bus
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Base de référence de la sécurité des réseaux virtuels NAT
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Base de référence de la sécurité Virtual WAN
+      href: ../../virtual-wan/security-baseline.md
     - name: Base de référence de la sécurité pour la passerelle VPN
       href: ../../vpn-gateway/security-baseline.md

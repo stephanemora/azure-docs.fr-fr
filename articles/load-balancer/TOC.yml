@@ -33,6 +33,8 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurer le transfert de port dans l’équilibreur de charge
       href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: Créer un équilibreur de charge interrégions - Portail
+      href: tutorial-cross-region-portal.md
 - name: Exemples
   items:
     - name: Azure CLI

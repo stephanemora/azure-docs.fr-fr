@@ -98,6 +98,8 @@
           items:
             - name: Base de référence de la sécurité
               href: security-baseline.md
+            - name: Chiffrement
+              href: ./security/workspaces-encryption.md
             - name: Sécurité réseau
               items:
                 - name: Règles de pare-feu IP de l’espace de travail Synapse
@@ -220,7 +222,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -976,6 +978,8 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Résolution des problèmes du connecteur
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Intégration et déploiement continus
+              href: ../data-factory/ci-cd-github-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Sécurité et contrôle d'accès
               href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Résolution des problèmes des runtimes d’intégration auto-hébergés
@@ -1028,6 +1032,9 @@
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Vues système
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: T-SQL
       items:
         - name: Référence complète
