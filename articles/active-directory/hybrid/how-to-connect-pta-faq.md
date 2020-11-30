@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461272"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836323"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -37,7 +37,7 @@ L’authentification directe est une fonctionnalité gratuite. Il est inutile de
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L’accès conditionnel](../conditional-access/overview.md) fonctionne-t-il avec l’authentification directe ?
 
-Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
+Oui. Toutes les fonctionnalités, y compris Azure AD Multi-Factor Authentication, peuvent être utilisées avec l'authentification directe.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?
 Oui, la connexion avec une valeur autre qu’un UPN, telle qu’une autre adresse e-mail, est prise en charge pour l’authentification directe (PTA) et la synchronisation du hachage de mot de passe (PHS). Pour plus d’informations, consultez [ID de connexion de substitution](../authentication/howto-authentication-use-email-signin.md).

@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145367"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837666"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Comme expliqué dans l’article [Qu’est-ce que l’accès conditionnel ?](overview.md), une stratégie d'accès conditionnel est une instruction if-then d' **affectations** et de **contrôles d'accès** . Une stratégie d’accès conditionnel regroupe des signaux pour prendre des décisions et appliquer des stratégies organisationnelles.
+Comme expliqué dans l’article [Qu’est-ce que l’accès conditionnel ?](overview.md), une stratégie d'accès conditionnel est une instruction if-then d'**affectations** et de **contrôles d'accès**. Une stratégie d’accès conditionnel regroupe des signaux pour prendre des décisions et appliquer des stratégies organisationnelles.
 
 Comment une organisation crée-t-elle ces stratégies ? Qu’est-ce qui est requis ? Comment sont-elles appliquées ?
 
 ![Accès conditionnel (signaux + décisions + application = stratégies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification multifacteur (MFA) et qu’une autre demande un appareil conforme, vous devez procéder à la MFA et utiliser un appareil compatible. Toutes les attributions sont reliées par l’opérateur logique **AND** . Si vous configurez plusieurs affectations, ces dernières doivent toutes être satisfaites pour qu’une stratégie soit déclenchée.
+Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification multifacteur (MFA) et qu’une autre demande un appareil conforme, vous devez procéder à la MFA et utiliser un appareil compatible. Toutes les attributions sont reliées par l’opérateur logique **AND**. Si vous configurez plusieurs affectations, ces dernières doivent toutes être satisfaites pour qu’une stratégie soit déclenchée.
 
 Toutes les stratégies sont appliquées en deux phases :
 
@@ -101,7 +101,7 @@ Le blocage permet de bloquer l'accès d'affectations spécifiées. Le contrôle 
 
 Le contrôle d'octroi peut déclencher l’application d’un ou de plusieurs contrôles. 
 
-- Exiger une authentification multifacteur (Microsoft Azure Multi-Factor Authentication)
+- Exiger une authentification multifacteur (Azure AD Multi-Factor Authentication)
 - Exiger que l'appareil soit marqué comme conforme (Intune)
 - Exiger un appareil joint Azure AD Hybride
 - Demander une application cliente approuvée
@@ -150,7 +150,7 @@ Dans l’article [Stratégies d’accès conditionnel courantes](concept-conditi
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
 
-[Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md)
+[Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md)
 
 [Gestion de la conformité des appareils avec Intune](/intune/device-compliance-get-started)
 

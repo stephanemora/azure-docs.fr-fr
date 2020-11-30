@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e22e4cdbfaf90eb9bba30fc26dc3495f767216f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c8c67f72a7f0d77284dbb34104754793b36bb8d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838142"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory
 
-Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR), mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages d’Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR).
+Avant l'inscription combinée, les utilisateurs s'inscrivaient séparément aux méthodes d'authentification Azure AD Multi-Factor Authentication (Azure AD MFA) et Réinitialisation de mot de passe en libre-service (SSPR). Certains se demandaient pourquoi ils devaient s'inscrire aux deux fonctionnalités alors que des méthodes similaires étaient utilisées pour l'authentification Azure AD MFA et la réinitialisation SSPR. Désormais, grâce à l'inscription combinée, les utilisateurs n'ont plus besoin de s'inscrire deux fois pour bénéficier des avantages de l'authentification Azure AD MFA et de la réinitialisation SSPR.
 
 > [!NOTE]
 > À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD.
@@ -40,7 +40,7 @@ Pour activer l’inscription combinée, procédez comme suit :
    ![Activer l’expérience combinée d’inscription des informations de sécurité pour des utilisateurs](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
 
 > [!NOTE]
-> Une fois que vous activez l’inscription combinée, les utilisateurs qui inscrivent ou confirment leur numéro de téléphone ou une application mobile via celle-ci ont la possibilité d’utiliser aussi bien le numéro que l’application pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR), si ces méthodes sont activées dans les stratégies Azure MFA et SSPR.
+> Une fois que vous activez l'inscription combinée, les utilisateurs qui s'inscrivent ou confirment leur numéro de téléphone ou une application mobile via la nouvelle expérience peuvent utiliser ceux-ci pour l'authentification Azure AD MFA et la réinitialisation SSPR, si ces méthodes sont activées dans les stratégies Azure AD Multi-Factor Authentication et SSPR.
 >
 > Si vous désactivez cette expérience par la suite, les utilisateurs qui accèdent à la précédente page d’inscription SSPR à l’adresse `https://aka.ms/ssprsetup` doivent effectuer une authentification multifacteur.
 
@@ -52,7 +52,7 @@ Si vous avez configuré la *Liste des attributions de sites aux zones* dans Inte
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Stratégies d’accès conditionnel pour l’inscription combinée
 
-Pour sécuriser quand et comment les utilisateurs s’inscrivent à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service, vous pouvez utiliser les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité peut être activée dans les organisations qui souhaitent que les utilisateurs s’inscrivent à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service depuis un emplacement central, tel qu’un emplacement réseau approuvé pendant l’accueil et l’intégration des nouveaux employés.
+Pour déterminer quand et comment les utilisateurs s'inscrivent à l'authentification Azure AD MFA et à la réinitialisation SSPR, vous pouvez utiliser les actions utilisateur de la stratégie d'accès conditionnel. Cette fonctionnalité peut être activée dans les organisations qui souhaitent que les utilisateurs s'inscrivent à l'authentification Azure AD MFA et à la réinitialisation SSPR à partir d'un emplacement central, tel qu'un emplacement réseau approuvé lors de l'intégration des nouveaux employés.
 
 > [!NOTE]
 > Cette stratégie s’applique uniquement lorsqu’un utilisateur accède à une page d’inscription combinée. Cette stratégie n’applique pas l’inscription MFA lorsqu’un utilisateur accède à d’autres applications.
@@ -90,6 +90,6 @@ Effectuez les étapes suivantes pour créer une stratégie qui s’applique à t
 
 Si vous avez besoin d’aide, consultez [Résolution des problèmes liés à l’inscription combinée des informations de sécurité](howto-registration-mfa-sspr-combined-troubleshoot.md) ou [Présentation de la condition d’emplacement dans l’accès conditionnel Azure AD](../conditional-access/location-condition.md).
 
-Une fois que l’inscription combinée est activée pour les utilisateurs, vous pouvez [activer la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et [activer l’authentification multifacteur](tutorial-enable-azure-mfa.md).
+Une fois que l'inscription combinée est activée pour les utilisateurs, vous pouvez [activer la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et [activer l'authentification Azure AD MFA](tutorial-enable-azure-mfa.md).
 
 Si nécessaire, découvrez comment [obliger les utilisateurs à réinscrire les méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options).

@@ -1,6 +1,6 @@
 ---
-title: Inscription combinée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion) – Azure Active Directory
-description: Apprenez-en davantage sur l’expérience d’inscription combinée pour Azure Active Directory, qui permet aux utilisateurs de s’inscrire à la fois pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service.
+title: Inscription combinée pour la réinitialisation de mot de passe en libre-service et Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Familiarisez-vous avec l'expérience d'inscription combinée d'Azure Active Directory qui permet aux utilisateurs de s'inscrire à la fois à l'authentification Azure AD MFA et à la réinitialisation de mot de passe en libre-service (SSPR)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839792"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Vue d’ensemble de l’inscription combinée d’informations de sécurité pour Azure Active Directory
 
-Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
+Avant l'inscription combinée, les utilisateurs s'inscrivaient séparément aux méthodes d'authentification Azure AD Multi-Factor Authentication (Azure AD MFA) et Réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
 
 > [!NOTE]
 > À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD.
@@ -142,8 +142,8 @@ Un utilisateur qui a configuré précédemment au moins une méthode pouvant êt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, consultez les didacticiels pour [activer la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et [activer Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Pour commencer, consultez les tutoriels consacrés à l'[activation de la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et à l'[activation d'Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 Découvrez comment [activer l’inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md) ou [obliger les utilisateurs à se réinscrire à certaines méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Vous pouvez également consulter les [méthodes disponibles pour Azure Multi-Factor Authentication et SSPR](concept-authentication-methods.md).
+Vous pouvez également consulter les [méthodes disponibles pour Azure AD Multi-Factor Authentication et SSPR](concept-authentication-methods.md).

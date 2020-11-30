@@ -4,12 +4,12 @@ description: Automatiser des rapports quotidients/hebdomadaires/mensuels personn
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010603"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -31,7 +31,7 @@ Chaque entreprise a des besoins uniques en termes de rapports, notamment :
 
 Vous pouvez [interroger par programmation des données Application Insights](https://dev.applicationinsights.io/) pour générer des rapports personnalisés selon une planification. Les options suivantes peuvent vous aider à démarrer rapidement :
 
-* [Automatiser des rapports avec Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatiser des rapports avec Power Automate](../platform/logicapp-flow-connector.md)
 * [Automatiser des rapports avec Logic Apps](automate-with-logic-apps.md)
 * Utilisez le modèle de [fonction Azure](../../azure-functions/functions-create-first-azure-function.md) « synthèse planifiée Application Insights » dans le scénario de surveillance. Cette fonction utilise SendGrid pour remettre l’e-mail. 
 
@@ -83,7 +83,7 @@ availabilityResults
 4. Sélectionnez le **_modèle de synthèse planifié Application Insights_** .
 
      > [!NOTE]
-     > Par défaut, les applications de fonction sont créées avec la version 3.x du runtime. Vous devez [cibler la version ](../../azure-functions/set-runtime-version.md)1.x **du runtime d'Azure Functions** pour utiliser le modèle de synthèse planifié Application Insights. Accédez à Configuration > Paramètres du runtime de fonction pour modifier la version du Runtime. ![Capture d’écran du runtime](./media/automate-custom-reports/change-runtime-v.png)
+     > Par défaut, les applications de fonction sont créées avec la version 3.x du runtime. Vous devez [cibler la version](../../azure-functions/set-runtime-version.md)1.x **du runtime d'Azure Functions** pour utiliser le modèle de synthèse planifié Application Insights. Accédez à Configuration > Paramètres du runtime de fonction pour modifier la version du Runtime. ![Capture d’écran du runtime](./media/automate-custom-reports/change-runtime-v.png)
 
    ![Capture d’écran Nouvelle fonction - Application Insights - Modèle](./media/automate-custom-reports/function-app-04.png)
 

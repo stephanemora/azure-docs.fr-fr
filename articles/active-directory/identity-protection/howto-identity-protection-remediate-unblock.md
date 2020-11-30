@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776100"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835796"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Atténuer les risques et débloquer les utilisateurs
 
@@ -37,7 +37,7 @@ Pour corriger, les administrateurs disposent des options suivantes :
 
 ### <a name="self-remediation-with-risk-policy"></a>Correction automatique avec une stratégie de gestion des risques
 
-Si vous autorisez des utilisateurs à effectuer une correction automatique, avec l’authentification multifacteur (MFA) et la réinitialisation de mot de passe en libre-service (SSPR) dans vos stratégies de gestion des risques, ils peuvent se débloquer eux-même quand un risque est détecté. Ces détections sont alors considérées comme fermées. Les utilisateurs doivent avoir déjà été préalablement inscrits pour Azure MFA et SSPR afin de pouvoir les utiliser quand un risque est détecté.
+Si vous autorisez des utilisateurs à effectuer une correction automatique, avec Azure AD Multi-Factor Authentication (MFA) et la réinitialisation de mot de passe en libre-service (SSPR) dans vos stratégies de gestion des risques, ils peuvent se débloquer lorsqu'un risque est détecté. Ces détections sont alors considérées comme fermées. Les utilisateurs doivent s'être préalablement inscrits à Azure MFA et SSPR afin de pouvoir les utiliser lorsqu'un risque est détecté.
 
 Si certaines détections peuvent ne pas augmenter de risque jusqu’au niveau où une correction automatique de l’utilisateur serait requise, les administrateurs doivent toujours évaluer ces détections. Les administrateurs peuvent juger que des mesures supplémentaires sont nécessaires, comme [bloquer l’accès à partir de certains emplacements](../conditional-access/howto-conditional-access-policy-location.md) ou abaisser le niveau de risque acceptable dans leurs stratégies.
 
@@ -49,7 +49,7 @@ Pour réinitialiser un mot de passe pour leurs utilisateurs, les administrateurs
 
 - **Générer un mot de passe temporaire** : la génération d’un mot de passe temporaire vous permet de rétablir immédiatement la sécurité d’une identité. Cette méthode nécessite de contacter les utilisateurs affectés, car ceux-ci ont besoin de connaître le mot de passe temporaire. Étant donné que le mot de passe est temporaire, l’utilisateur est invité à le modifier lors de sa prochaine connexion.
 
-- **Obliger l’utilisateur à réinitialiser le mot de passe** : le fait de contraindre les utilisateurs à réinitialiser les mots de passe entraîne une récupération automatique qui ne nécessite aucun contact avec le support technique ou un administrateur. Cette méthode s’applique uniquement aux utilisateurs inscrits pour Azure MFA et SSPR. Pour les utilisateurs non inscrits, cette option n’est pas disponible.
+- **Obliger l’utilisateur à réinitialiser le mot de passe** : le fait de contraindre les utilisateurs à réinitialiser les mots de passe entraîne une récupération automatique qui ne nécessite aucun contact avec le support technique ou un administrateur. Cette méthode s'applique uniquement aux utilisateurs inscrits à Azure AD MFA et SSPR. Pour les utilisateurs non inscrits, cette option n’est pas disponible.
 
 ### <a name="dismiss-user-risk"></a>Ignorer le risque lié à l’utilisateur
 

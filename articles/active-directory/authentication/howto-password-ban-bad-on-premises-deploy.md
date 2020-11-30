@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077725"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838210"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -142,8 +142,8 @@ Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect 
 
 Il existe deux programmes d’installation requis pour un déploiement local de la protection par mot de passe Azure AD :
 
-* Agent DC de protection de mot de passe Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Proxy de protection par mot de passe Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agent DC de protection de mot de passe Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Proxy de protection par mot de passe Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
 
 Téléchargez les deux programmes d’installation à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,15 +193,15 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Le résultat doit afficher l’ **État** *En cours d’exécution*.
+    Le résultat doit afficher l’**État** *En cours d’exécution*.
 
 1. Le service proxy est en cours d’exécution sur la machine, mais ne dispose pas des informations d’identification nécessaires pour communiquer avec Azure AD. Inscrivez le serveur proxy de protection de mot de passe Azure AD auprès d’Azure AD en utilisant la cmdlet `Register-AzureADPasswordProtectionProxy`.
 
-    Cette cmdlet exige les informations d’identification de l’ *administrateur général* ou de l’ *Administrateur de la sécurité* pour votre locataire Azure. Cette cmdlet doit également être exécutée à l'aide d'un compte disposant de privilèges d'administrateur local.
+    Cette cmdlet exige les informations d’identification de l’*administrateur général* ou de l’*Administrateur de la sécurité* pour votre locataire Azure. Cette cmdlet doit également être exécutée à l'aide d'un compte disposant de privilèges d'administrateur local.
 
     Une fois que cette commande a réussi pour un service proxy de protection par mot de passe Azure AD, des appels supplémentaires de celle-ci réussissent mais ne sont pas nécessaires.
 
-    L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, mais pas le troisième.
+    L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure AD Multi-Factor Authentication, mais pas le troisième.
 
     > [!TIP]
     > Il peut y avoir un retard notable avant la fin, la première fois que vous exécutez cette applet de commande pour un locataire Azure spécifique. À moins qu’une erreur soit signalée, ne vous inquiétez pas de ce retard.
@@ -231,7 +231,7 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
         ```
 
         > [!NOTE]
-        > Ce mode échoue si l’authentification multifacteur Azure est requise pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
+        > Ce mode échoue si Azure AD Multi-Factor Authentication est requis pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
         >
         > L’authentification multifacteur peut également être requise si l’inscription de l’appareil Azure (qui est utilisée en arrière-plan par la protection de mot de passe Azure AD) a été configurée pour exiger globalement une authentification multifacteur. Pour contourner cette exigence, vous pouvez utiliser un autre compte prenant en charge l’authentification multifacteur avec l’un des deux modes d’authentification précédents, ou vous pouvez également assouplir temporairement l’exigence d’authentification multifacteur pour l’inscription d’un appareil Azure.
         >
@@ -239,7 +239,7 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
         >
         > Nous vous recommandons de contourner les exigences de l’authentification multifacteur à des fins de test uniquement.
 
-    Vous n’êtes pas tenu actuellement de spécifier le paramètre *-ForestCredential* , qui est réservé pour de futures fonctionnalités.
+    Vous n’êtes pas tenu actuellement de spécifier le paramètre *-ForestCredential*, qui est réservé pour de futures fonctionnalités.
 
     L’inscription du service proxy de protection par mot de passe Azure AD est requise une seule fois au cours de la durée de vie du service. Après cela, le service proxy de protection par mot de passe Azure AD effectuera automatiquement toutes les autres tâches de maintenance nécessaires.
 
@@ -248,11 +248,11 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
     > [!NOTE]
     > Si plusieurs serveurs proxy de protection par mot de passe Azure AD sont installés dans votre environnement, peu importe le serveur proxy que vous utilisez pour inscrire la forêt.
 
-    La cmdlet exige les informations d’identification de l’ *administrateur général* ou de l’ *Administrateur de la sécurité* pour votre locataire Azure. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local. Le compte Azure utilisé pour inscrire la forêt peut être différent du compte Windows Server AD.
+    La cmdlet exige les informations d’identification de l’*administrateur général* ou de l’*Administrateur de la sécurité* pour votre locataire Azure. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local. Le compte Azure utilisé pour inscrire la forêt peut être différent du compte Windows Server AD.
     
     Cette étape est exécutée une seule fois par forêt.
 
-    L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, mais pas le troisième.
+    L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure AD Multi-Factor Authentication, mais pas le troisième.
 
     > [!TIP]
     > Il peut y avoir un retard notable avant la fin, la première fois que vous exécutez cette applet de commande pour un locataire Azure spécifique. À moins qu’une erreur soit signalée, ne vous inquiétez pas de ce retard.
@@ -282,7 +282,7 @@ Pour installer le service proxy de protection par mot de passe Azure AD, procéd
         ```
 
         > [!NOTE]
-        > Ce mode échoue si l’authentification multifacteur Azure est requise pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
+        > Ce mode échoue si Azure AD Multi-Factor Authentication est requis pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
         >
         > L’authentification multifacteur peut également être requise si l’inscription de l’appareil Azure (qui est utilisée en arrière-plan par la protection de mot de passe Azure AD) a été configurée pour exiger globalement une authentification multifacteur. Pour contourner cette exigence, vous pouvez utiliser un autre compte prenant en charge l’authentification multifacteur avec l’un des deux modes d’authentification précédents, ou vous pouvez également assouplir temporairement l’exigence d’authentification multifacteur pour l’inscription d’un appareil Azure.
         >
@@ -313,7 +313,7 @@ Créez un fichier *AzureADPasswordProtectionProxy.exe.config* dans le dossier `%
    </configuration>
    ```
 
-Si votre proxy HTTP exige une authentification, ajoutez la balise *useDefaultCredentials*  :
+Si votre proxy HTTP exige une authentification, ajoutez la balise *useDefaultCredentials* :
 
    ```xml
    <configuration>

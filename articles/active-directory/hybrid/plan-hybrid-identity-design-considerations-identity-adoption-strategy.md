@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294861"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836187"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -176,7 +176,7 @@ Les éléments ci-après ne sont pas pris en charge et ne doivent pas être choi
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Définir la stratégie d’authentification multifacteur
-Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser.  Azure Multi-Factor Authentication existe en deux versions distinctes.  L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure.  En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie.  Utilisez le tableau ci-après pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
+Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser.  Deux versions distinctes d'Azure AD Multi-Factor Authentication sont disponibles.  L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure.  En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie.  Utilisez le tableau ci-après pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
 
 Options de conception multifacteur :
 

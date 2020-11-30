@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368534"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835388"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurer les paramètres de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -32,7 +32,7 @@ Procédez comme suit pour ouvrir les paramètres d’un rôle de groupe d’acc�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
 1. Sélectionnez **Accès privilégié (préversion)** .
 
@@ -40,15 +40,15 @@ Procédez comme suit pour ouvrir les paramètres d’un rôle de groupe d’acc�
 
     ![Groupes d’accès privilégié filtrés par un nom de groupe](./media/groups-role-settings/group-select.png)
 
-1. Sélectionnez **Paramètres** .
+1. Sélectionnez **Paramètres**.
 
     ![Page Paramètres répertoriant les paramètres de groupe pour le groupe sélectionné](./media/groups-role-settings/group-settings-select-role.png)
 
-1. Sélectionnez le rôle Propriétaire ou Membre dont vous souhaitez consulter ou modifier les paramètres. Vous pouvez afficher les paramètres actuels du rôle dans la page **Détails des paramètres de rôle** .
+1. Sélectionnez le rôle Propriétaire ou Membre dont vous souhaitez consulter ou modifier les paramètres. Vous pouvez afficher les paramètres actuels du rôle dans la page **Détails des paramètres de rôle**.
 
     ![Page Détails des paramètres de rôle répertoriant plusieurs paramètres d’affectation et d’activation](./media/groups-role-settings/group-role-setting-details.png)
 
-1. Sélectionnez **Modifier** pour ouvrir la page **Modifier les paramètres de rôle** . L’onglet **Activation** vous permet de modifier les paramètres d’activation de rôle, notamment d’autoriser ou non les attributions actives et éligibles permanentes.
+1. Sélectionnez **Modifier** pour ouvrir la page **Modifier les paramètres de rôle**. L’onglet **Activation** vous permet de modifier les paramètres d’activation de rôle, notamment d’autoriser ou non les attributions actives et éligibles permanentes.
 
     ![Page Modifier les paramètres de rôle avec l’onglet Activation ouvert](./media/groups-role-settings/role-settings-activation-tab.png)
 
@@ -73,14 +73,14 @@ Sous l’onglet **Notifications** dans la page des paramètres de rôle, l’opt
 
 Vous pouvez choisir entre deux options de durée d’attribution pour chaque type d’attribution (éligible et actif) lorsque vous configurez les paramètres d’un rôle. Ces options deviennent la durée maximale par défaut lorsqu’un utilisateur est attribué au rôle dans Privileged Identity Management.
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **éligible**  :
+Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
 
 | | |
 | --- | --- |
 | **Autoriser une attribution éligible permanente** | Les administrateurs de ressources peuvent accorder une attribution éligible permanente. |
 | **Faire expirer les attributions éligibles après** | Les administrateurs de ressources peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **active**  :
+Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
 
 | | |
 | --- | --- |
@@ -92,19 +92,19 @@ Vous pouvez choisir l’une de ces options de durée d’attribution **active** 
 
 ## <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
 
-Privileged Identity Management permet également l’implémentation facultative d’Azure Multi-Factor Authentication dans deux scénarios distincts.
+Privileged Identity Management permet également l'implémentation facultative d'Azure AD Multi-Factor Authentication dans deux scénarios distincts.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
 
 Dans certains cas, vous pouvez attribuer un utilisateur ou un groupe à un rôle pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
-Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active** .
+Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active**.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exiger Multi-Factor Authentication lors de l’activation
 
-Vous pouvez exiger des utilisateurs éligibles à un rôle qu’ils s’authentifient à l’aide d’Azure Multi-Factor Authentication pour effectuer l’activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
+Vous pouvez exiger des utilisateurs éligibles à un rôle qu'ils s'authentifient à l'aide d'Azure AD Multi-Factor Authentication pour effectuer l'activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
 
-Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation** .
+Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation**.
 
 Pour plus d’informations, consultez [Authentification multifacteur et Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -114,19 +114,19 @@ Utilisez le curseur **Durée maximum d’activation** pour définir la durée ma
 
 ## <a name="require-justification"></a>Demander une justification
 
-Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation** .
+Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation**.
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
 Si vous souhaitez exiger l’approbation pour activer un rôle, suivez ces étapes.
 
-1. Cochez la case **Exiger une approbation pour activer** .
+1. Cochez la case **Exiger une approbation pour activer**.
 
-1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir la page **Sélectionner un membre ou un groupe** .
+1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir la page **Sélectionner un membre ou un groupe**.
 
     ![Sélectionner un volet d’utilisateur ou de groupe pour sélectionner les approbateurs](./media/groups-role-settings/group-settings-select-approvers.png)
 
-1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner** . Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
+1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
     Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
 

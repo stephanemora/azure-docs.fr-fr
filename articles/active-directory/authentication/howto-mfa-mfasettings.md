@@ -1,6 +1,6 @@
 ---
-title: Configurer Microsoft Azure Multi-Factor Authentication - Azure Active Directory
-description: Découvrez comment configurer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure
+title: Configurer Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Apprenez à configurer les paramètres d'Azure AD Multi-Factor Authentication sur le portail Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964433"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839197"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
-Pour personnaliser l’expérience de l’utilisateur final avec Azure Multi-Factor Authentication (MFA), vous pouvez configurer des options pour les paramètres tels que les seuils de verrouillage de compte, les alertes de fraude et les notifications. Certains paramètres se trouvent dans le portail Azure pour Azure Active Directory (Azure AD), et d’autres dans un portail Azure Multi-Factor Authentication distinct.
+Pour personnaliser l'expérience de l'utilisateur final avec Azure AD Multi-Factor Authentication (MFA), vous pouvez configurer des options pour les paramètres tels que les seuils de verrouillage de compte ou les alertes et notifications de fraude. Certains paramètres se trouvent sur le portail Azure d'Azure Active Directory (Azure AD), et d'autres sur un portail Azure AD Multi-Factor Authentication distinct.
 
-Les paramètres d’Azure Multi-Factor Authentication suivants sont disponibles dans le portail Azure :
+Les paramètres Azure AD Multi-Factor Authentication suivants sont disponibles sur le portail Azure :
 
 | Fonctionnalité | Description |
 | ------- | ----------- |
-| [Verrouillage de compte](#account-lockout) | Verrouillez temporairement des comptes pour les empêcher d’utiliser Azure Multi-Factor Authentication si de trop nombreuses tentatives d’authentification sont refusées à la suite. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
-| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Empêchez des utilisateurs spécifiques de recevoir des demandes Azure Multi-Factor Authentication. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. Ces utilisateurs restent bloqués pendant 90 jours à partir de leur blocage ou jusqu’à ce qu’ils soient débloqués manuellement. |
+| [Verrouillage de compte](#account-lockout) | Verrouillez temporairement des comptes pour les empêcher d'utiliser Azure AD Multi-Factor Authentication si un trop grand nombre de tentatives d'authentification successives sont refusées. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
+| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Empêchez des utilisateurs spécifiques de recevoir des demandes d'Azure AD Multi-Factor Authentication. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. Ces utilisateurs restent bloqués pendant 90 jours à partir de leur blocage ou jusqu’à ce qu’ils soient débloqués manuellement. |
 | [Alerte de fraude](#fraud-alert) | Configurez les paramètres qui permettent aux utilisateurs de signaler les demandes de vérification frauduleuses. |
 | [Notifications](#notifications) | Activez les notifications des événements provenant de MFA Server. |
-| [Jetons OATH](concept-authentication-oath-tokens.md) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
+| [Jetons OATH](concept-authentication-oath-tokens.md) | Fonctionnalité utilisée dans les environnements Azure AD MFA basés sur le cloud afin de gérer les jetons OATH des utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
 | Fournisseurs | Ceci montre tous les fournisseurs d’authentification existants que vous avez associés à votre compte. À compter du 1er septembre 2018, vous ne pouvez plus créer des fournisseurs d’authentification |
 
@@ -57,7 +57,7 @@ Pour configurer les paramètres de verrouillage de compte, renseignez les param�
 
 ## <a name="block-and-unblock-users"></a>Bloquer et débloquer des utilisateurs
 
-Si l’appareil d’un utilisateur a été perdu ou volé, vous pouvez bloquer les tentatives Azure Multi-Factor Authentication pour le compte associé. Toutes les tentatives Azure Multi-Factor Authentication des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
+En cas de perte ou de vol de l'appareil d'un utilisateur, vous pouvez bloquer les tentatives Azure AD Multi-Factor Authentication pour le compte associé. Toutes les tentatives Azure AD Multi-Factor Authentication des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
 
 ### <a name="block-a-user"></a>Bloquer un utilisateur
 
@@ -85,7 +85,7 @@ La fonctionnalité d’alerte de fraude permet aux utilisateurs de signaler les 
 
 Les options de configuration des alertes de fraude suivantes sont disponibles :
 
-* **Bloquer automatiquement les utilisateurs qui signalent une fraude** : Si un utilisateur signale une fraude, les tentatives d’authentification Azure MFA pour le compte d’utilisateur sont bloquées pendant 90 jours ou jusqu’à ce qu’un administrateur débloque son compte. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
+* **Bloquer automatiquement les utilisateurs qui signalent une fraude** : Si un utilisateur signale une fraude, les tentatives d'authentification Azure AD MFA du compte d'utilisateur sont bloquées pendant 90 jours ou jusqu'à ce qu'un administrateur débloque le compte. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
 * **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique pour effectuer l’authentification multifacteur, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#** . Ce code est **0** par défaut, mais vous pouvez le personnaliser.
 
    > [!NOTE]
@@ -156,7 +156,7 @@ Aux États-Unis, si vous n’avez pas configuré l’ID de l’appelant MFA, les
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Lorsque des appels Azure Multi-Factor Authentication sont transmis sur le réseau téléphonique public, ils sont parfois acheminés par le biais d’un opérateur qui ne prend pas en charge les ID d’appelant. Pour cette raison, l’ID de l’appelant n’est pas garanti, même si Azure Multi-Factor Authentication l’envoie toujours. Cela s’applique à la fois aux appels téléphoniques et aux SMS fournis par Azure Multi-Factor Authentication. Si vous devez valider le fait qu’un SMS provient d’Azure Multi-Factor Authentication, consultez [Quels sont les codes courts SMS utilisés pour envoyer des SMS ?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> Lorsque des appels Azure AD Multi-Factor Authentication sont passés sur le réseau téléphonique public, ceux-ci sont parfois acheminés par le biais d'un opérateur qui ne prend pas en charge les ID d'appelant. C'est la raison pour laquelle l'ID de l'appelant n'est pas garanti, même si Azure AD Multi-Factor Authentication l'envoie toujours. Cela s'applique à la fois aux appels téléphoniques et aux SMS fournis par Azure AD Multi-Factor Authentication. Si vous devez confirmer qu'un SMS provient d'Azure AD Multi-Factor Authentication, consultez [Quels sont les codes courts SMS utilisés pour envoyer des SMS ?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Pour configurer votre propre numéro d’ID d’appelant, effectuez les étapes suivantes :
 
@@ -166,7 +166,7 @@ Pour configurer votre propre numéro d’ID d’appelant, effectuez les étapes 
 
 ### <a name="custom-voice-messages"></a>Messages vocaux personnalisés
 
-Vous pouvez utiliser vos propres enregistrements ou messages d’accueil pour Azure Multi-Factor Authentication grâce à la fonctionnalité des messages vocaux personnalisés. Ces messages peuvent servir à compléter ou à remplacer les enregistrements Microsoft par défaut.
+Vous pouvez utiliser vos propres enregistrements ou messages d'accueil pour Azure AD Multi-Factor Authentication grâce à la fonctionnalité des messages vocaux personnalisés. Ces messages peuvent servir à compléter ou à remplacer les enregistrements Microsoft par défaut.
 
 Avant de commencer, tenez compte des restrictions suivantes :
 
@@ -227,16 +227,16 @@ Pour utiliser vos propres messages personnalisés, effectuez les étapes suivant
 
 ## <a name="mfa-service-settings"></a>Paramètres du service MFA
 
-Les paramètres pour les mots de passe des applications, les adresses IP approuvées, les options de vérification et la mémorisation de l’authentification multifacteur pour Azure Multi-Factor Authentication se trouvent dans les paramètres du service. Il s’agit d’un portail hérité, qui ne fait pas partie du portail Azure AD standard.
+Les paramètres relatifs aux mots de passe des applications, aux adresses IP approuvées, aux options de vérification et à la mémorisation de l'authentification multifacteur pour Azure AD Multi-Factor Authentication se trouvent dans les paramètres de service. Il s’agit d’un portail hérité, qui ne fait pas partie du portail Azure AD standard.
 
 Vous pouvez accéder aux paramètres du service à partir du portail Azure via **Azure Active Directory** > **Sécurité** > **MFA** > **Mise en route** > **Configurer** > **Paramètres de MFA basé dans le cloud supplémentaires**. Une nouvelle fenêtre ou un nouvel onglet s’ouvre avec des options supplémentaires pour les *paramètres de service*.
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
 
-La fonctionnalité _Adresses IP approuvées_ d’Azure Multi-Factor Authentication contourne les invites d’authentification multifacteur pour les utilisateurs qui se connectent à partir d’une plage d’adresses IP définie. Vous pouvez définir des plages d’adresses IP approuvées pour vos environnements locaux afin qu’il n’y ait pas d’invites Azure Multi-Factor Authentication présentées aux utilisateurs qui se trouvent à l’un de ces emplacements.
+La fonctionnalité _Adresses IP approuvées_ d'Azure AD Multi-Factor Authentication contourne les invites d'authentification multifacteur pour les utilisateurs qui se connectent à partir d'une plage d'adresses IP définie. Vous pouvez définir des plages d'adresses IP approuvées pour vos environnements locaux afin qu'aucune invite Azure AD Multi-Factor Authentication ne soit présentée aux utilisateurs qui se trouvent à l'un de ces emplacements.
 
 > [!NOTE]
-> Les adresses IP approuvées peuvent inclure des plages d’adresses IP privées uniquement si vous utilisez le serveur MFA. Dans un environnement Azure Multi-Factor Authentication basé sur le cloud, vous pouvez uniquement utiliser des plages d’adresses IP publiques.
+> Les adresses IP approuvées peuvent inclure des plages d’adresses IP privées uniquement si vous utilisez le serveur MFA. Dans un environnement Azure AD Multi-Factor Authentication basé sur le cloud, vous pouvez uniquement utiliser des plages d'adresses IP publiques.
 >
 > Les plages d’adresses IPv6 sont uniquement prises en charge dans l’interface [Emplacement nommé (préversion)](../conditional-access/location-condition.md#preview-features).
 
@@ -291,7 +291,7 @@ Pour activer les adresses IP approuvées à l’aide de stratégies d’accès c
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Activer la fonctionnalité Adresses IP approuvées à l’aide des paramètres du service
 
-Si vous ne souhaitez pas utiliser de stratégies d’accès conditionnel pour activer les adresses IP approuvées, configurez les *paramètres de service* pour Azure Multi-Factor Authentication de cette façon :
+Si vous ne souhaitez pas utiliser de stratégies d'accès conditionnel pour activer les adresses IP approuvées, configurez les *paramètres de service* d'Azure AD Multi-Factor Authentication comme suit :
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure Active Directory**, puis choisissez **Utilisateurs**.
 1. Sélectionnez **Multi-Factor Authentication**.
@@ -311,7 +311,7 @@ Si vous ne souhaitez pas utiliser de stratégies d’accès conditionnel pour ac
 
 ## <a name="verification-methods"></a>Méthodes de vérification
 
-Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-first-time.md).
+Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Azure AD Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Les méthodes de vérification disponibles sont les suivantes :
 
@@ -376,4 +376,4 @@ Après avoir activé la fonctionnalité de mémorisation de Multi-Factor Authent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les méthodes à votre disposition dans Azure Multi-Factor Authentication, consultez [Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?](concept-authentication-methods.md)
+Pour en savoir plus sur les méthodes disponibles dans Azure AD Multi-Factor Authentication, consultez [Quelles sont les méthodes d'authentification et de vérification disponibles dans Azure Active Directory ?](concept-authentication-methods.md)

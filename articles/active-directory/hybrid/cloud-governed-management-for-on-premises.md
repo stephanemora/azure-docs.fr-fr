@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413443"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836459"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Comment Azure AD permet une gestion gouvernée par le cloud pour les charges de travail locales
 
@@ -39,7 +39,7 @@ Ce document décrit la stratégie de Microsoft concernant l’IDaaS hybride et e
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Approche Azure AD concernant la gestion des identités gouvernée par le cloud
 
-Lorsque les organisations effectuent leur transition vers le cloud, elles veulent être sûres de garder le contrôle sur l’intégralité de leur environnement. Elles veulent également plus de sécurité et plus de visibilité sur les activités, ce qui est facilité par l’automatisation et les insights proactifs. La «  **gestion gouvernée par le cloud**  » désigne la façon dont les organisations gèrent et gouvernent les utilisateurs, les applications, les groupes et les appareils à partir du cloud.
+Lorsque les organisations effectuent leur transition vers le cloud, elles veulent être sûres de garder le contrôle sur l’intégralité de leur environnement. Elles veulent également plus de sécurité et plus de visibilité sur les activités, ce qui est facilité par l’automatisation et les insights proactifs. La « **gestion gouvernée par le cloud** » désigne la façon dont les organisations gèrent et gouvernent les utilisateurs, les applications, les groupes et les appareils à partir du cloud.
 
 En raison de la prolifération des applications SaaS et du rôle grandissant que jouent la collaboration et les identités externes, les organisations doivent pouvoir gérer efficacement à grande échelle. Le nouveau paysage des risques liés au cloud nécessite que les organisations soient plus réactives. Un acteur malveillant qui compromet un utilisateur cloud risque d’affecter aussi bien les applications cloud que les applications locales.
 
@@ -89,7 +89,7 @@ Lorsqu’une entreprise s’apprête à déplacer une application intégrée à 
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gestion gouvernée par le cloud pour les applications locales basées sur la fédération
 
-Si l’organisation utilise déjà un fournisseur d’identité local, le déplacement des applications vers Azure AD permet un accès plus sécurisé et une gestion facilitée de la fédération. Azure AD permet de configurer un contrôle d’accès granulaire par application, incluant l’authentification multifacteur Azure, avec l’accès conditionnel Azure AD. Azure AD prend en charge davantage de fonctionnalités, y compris les certificats de signature de jeton propres à l’application et les dates d’expiration de certificat configurables. Ces fonctionnalités, outils et conseils permettent aux organisations de mettre hors service leurs fournisseurs d’identité locaux. Pour vous donner un exemple, le service informatique de Microsoft a déplacé vers Azure AD 17 987 applications qui étaient situées sur son instance interne des services de fédération Active Directory (ADFS).
+Si l’organisation utilise déjà un fournisseur d’identité local, le déplacement des applications vers Azure AD permet un accès plus sécurisé et une gestion facilitée de la fédération. Azure AD permet de configurer un contrôle d'accès granulaire par application, incluant Azure AD Multi-Factor Authentication, à l'aide de la fonctionnalité d'accès conditionnel Azure AD. Azure AD prend en charge davantage de fonctionnalités, y compris les certificats de signature de jeton propres à l’application et les dates d’expiration de certificat configurables. Ces fonctionnalités, outils et conseils permettent aux organisations de mettre hors service leurs fournisseurs d’identité locaux. Pour vous donner un exemple, le service informatique de Microsoft a déplacé vers Azure AD 17 987 applications qui étaient situées sur son instance interne des services de fédération Active Directory (ADFS).
 
 ![Évolution d’AD Azure](media/cloud-governed-management-for-on-premises/image5.png)
 

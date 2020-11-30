@@ -1,6 +1,6 @@
 ---
-title: Configurer les mots de passe d’application pour Azure Multi-Factor Authentication - Azure Active Directory
-description: Découvrir comment configurer et utiliser les mots de passe d’application pour les applications héritées dans Azure Multi-Factor Authentication
+title: Configurer les mots de passe d'application pour Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Apprenez à configurer et utiliser les mots de passe des applications héritées dans Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964500"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839265"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure Multi-Factor Authentication avec des applications héritées à l’aide de mots de passe d’application
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure AD Multi-Factor Authentication avec des applications héritées à l'aide de mots de passe d'application
 
-Certaines applications plus anciennes qui n’utilisent pas de navigateur, comme Office 2010 ou une version antérieure et Apple Mail avant iOS 11, ne comprennent pas les pauses ou les interruptions dans le processus d’authentification. Si un utilisateur a activé Azure Multi-Factor Authentication et tente d’utiliser l’une de ces anciennes applications sans navigateur, il ne peut pas s’authentifier correctement. Pour utiliser ces applications de façon sécurisée avec Azure Multi-Factor Authentication activée pour les comptes d’utilisateur, vous pouvez utiliser des mots de passe d’application. Ces mots de passe d’application ont remplacé votre mot de passe traditionnel pour permettre à une application de contourner l’authentification multifacteur et de fonctionner correctement.
+Certaines applications plus anciennes qui n’utilisent pas de navigateur, comme Office 2010 ou une version antérieure et Apple Mail avant iOS 11, ne comprennent pas les pauses ou les interruptions dans le processus d’authentification. Si un utilisateur a activé Azure AD Multi-Factor Authentication et qu'il tente d'utiliser l'une de ces anciennes applications sans navigateur, il ne peut pas s'authentifier. Pour utiliser ces applications de façon sécurisée lorsqu'Azure AD Multi-Factor Authentication est activé pour les comptes d'utilisateur, vous pouvez utiliser des mots de passe d'application. Ces mots de passe d’application ont remplacé votre mot de passe traditionnel pour permettre à une application de contourner l’authentification multifacteur et de fonctionner correctement.
 
 L’authentification moderne est prise en charge pour les clients Microsoft Office 2013 et versions ultérieures. Les clients Office 2013, y compris Outlook, prennent en charge des protocoles d’authentification moderne et peuvent être activés pour fonctionner dans le cadre de la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client.
 
@@ -31,7 +31,7 @@ Cet article explique comment activer et utiliser les mots de passe d’applicati
 
 ## <a name="overview-and-considerations"></a>Vue d’ensemble et considérations
 
-Lorsqu’un compte d’utilisateur est activé pour Azure Multi-Factor Authentication, l’invite de connexion standard est interrompue par une requête de vérification supplémentaire. Certaines applications plus anciennes ne comprennent pas cette interruption dans le processus de connexion, donc l’authentification échoue. Pour maintenir la sécurité du compte d’utilisateur et laissez Azure Multi-Factor Authentication activée, les mots de passe d’application peuvent être utilisés à la place du nom d’utilisateur et du mot de passe habituels de l’utilisateur. Lorsqu’un mot de passe d’application est utilisé lors de la connexion, il n’y a aucune invite de vérification supplémentaire pour que l’authentification soit réussie.
+Lorsqu'Azure AD Multi-Factor Authentication est activé pour un compte d'utilisateur, l'invite de connexion standard est interrompue par une requête de vérification supplémentaire. Certaines applications plus anciennes ne comprennent pas cette interruption dans le processus de connexion, donc l’authentification échoue. Pour assurer la sécurité du compte d'utilisateur tout en maintenant Azure AD Multi-Factor Authentication activé, des mots de passe d'application peuvent être utilisés à la place du nom d'utilisateur et du mot de passe habituels. Lorsqu’un mot de passe d’application est utilisé lors de la connexion, il n’y a aucune invite de vérification supplémentaire pour que l’authentification soit réussie.
 
 Les mots de passe d’application sont générés automatiquement, il ne sont pas spécifiés par l’utilisateur. Le mot de passe généré automatiquement est beaucoup plus difficile à pirater, il est donc bien mieux sécurisé. Les utilisateurs n’ont pas besoin d’effectuer le suivi des mots de passe ou de les entrer à chaque fois, car les mots de passe d’application ne sont entrés qu’une seule fois par application.
 
@@ -39,7 +39,7 @@ Lorsque vous utilisez des mots de passe d’application, tenez compte des consid
 
 * Un utilisateur peut posséder jusqu’à 40 mots de passe d’application.
 * Les applications qui mettent en cache les mots de passe et les utilisent dans les scénarios locaux peuvent se bloquer, car le mot de passe d’application n’est pas connu à l’extérieur du compte professionnel ou scolaire. Par exemple, les courriers électroniques Exchange sont, par exemple, stockés localement, mais la messagerie archivée se trouve dans le cloud. Ainsi, le même mot de passe ne peut pas fonctionner.
-* Dès qu’Azure MFA est activé sur le compte d’un utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur comme Outlook et Microsoft Skype Entreprise. Cependant, les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application, dans des applications sans navigateur comme Windows PowerShell. Les actions sont impossibles, même quand l’utilisateur a un compte d’administrateur.
+* Dès qu'Azure AD Multi-Factor Authentication est activé sur le compte d'un utilisateur, des mots de passe d'application peuvent être utilisés avec la plupart des clients sans navigateur, comme Outlook et Microsoft Skype Entreprise. Cependant, les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application, dans des applications sans navigateur comme Windows PowerShell. Les actions sont impossibles, même quand l’utilisateur a un compte d’administrateur.
     * Pour exécuter des scripts PowerShell, créez un compte de service avec un mot de passe fort et n’activez pas la vérification en deux étapes sur ce compte.
 * Si vous soupçonnez qu’un compte d’utilisateur est compromis et que vous révoquez/réinitialisez le mot de passe du compte, les mots de passe d’application doivent également être mis à jour. Les mots de passe d’application ne sont pas révoqués automatiquement lorsqu’un mot de passe de compte d’utilisateur est révoqué/réinitialisé. L’utilisateur doit supprimer les mots de passe d’application existants et en créer de nouveaux.
    * Pour plus d’informations, consultez [Créer et supprimer des mots de passe d’application à partir de la page Vérification de sécurité supplémentaire](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Nous vous recommandons de créer un mot de passe d’application par appareil, a
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Mots de passe d’application pour authentification unique ou fédérée
 
-Azure AD prend en charge la fédération, ou l’authentification unique (SSO) avec les services locaux Active Directory Domain Services (AD DS). Si votre organisation est fédérée à Azure AD et que vous utilisez Azure MFA, gardez en tête les points suivants sur les mots de passe d’application :
+Azure AD prend en charge la fédération, ou l’authentification unique (SSO) avec les services locaux Active Directory Domain Services (AD DS). Si votre organisation est fédérée à Azure AD et que vous utilisez Azure AD Multi-Factor Authentication, gardez en tête les points suivants sur les mots de passe d'application :
 
 >[!NOTE]
 > Les points suivants ne concernent que les clients fédérés (SSO).
@@ -72,7 +72,7 @@ Par exemple, supposons que vous ayez l’architecture suivante :
 * Votre instance locale d’Active Directory est fédérée à Azure AD.
 * Vous utilisez Exchange Online.
 * Vous utilisez Skype Entreprise localement.
-* Vous utilisez Azure MFA.
+* Vous utilisez Azure AD Multi-Factor Authentication.
 
 Dans ce scénario, vous utilisez les informations d’identification suivantes :
 
@@ -99,10 +99,10 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 
 ## <a name="create-an-app-password"></a>Créer un mot de passe d’application
 
-Lorsque les utilisateurs terminent leur inscription initiale pour Azure MFA, vous avez la possibilité de créer des mots de passe d’application à la fin du processus d’inscription.
+Lorsque les utilisateurs procèdent à leur inscription initiale à Azure AD Multi-Factor Authentication, vous avez la possibilité de créer des mots de passe d'application à la fin du processus d'inscription.
 
-Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md).
+Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour plus d'informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d'application dans Azure AD Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la façon de permettre aux utilisateurs de s’inscrire rapidement à Azure MFA, consultez [Vue d’ensemble de l’inscription des informations de sécurité combinées](concept-registration-mfa-sspr-combined.md).
+Pour permettre aux utilisateurs de s'inscrire rapidement à Azure AD Multi-Factor Authentication, consultez [Présentation de l'inscription combinée des informations de sécurité](concept-registration-mfa-sspr-combined.md).

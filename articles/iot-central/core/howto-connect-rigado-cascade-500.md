@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014760"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connecter un appareil de passerelle Rigado Cascade 500 à votre application IoT Central
 
@@ -41,15 +41,15 @@ Pour intégrer un appareil de passerelle Cascade 500 à votre instance d’appli
 
 Pour ajouter un modèle d’appareil Cascade 500 : 
 
-1. Accédez à l’onglet ***Modèles d’appareil*** dans le volet gauche, sélectionnez **+ Nouveau** : ![Créer un nouveau modèle d’appareil](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. La page vous donne la possibilité de ***créer un modèle personnalisé*** ou ***d’utiliser un modèle d’appareil préconfiguré***
+1. Accédez à l’onglet ***Modèles d’appareil** _ dans le volet gauche, sélectionnez _*+ Nouveau** : ![Créer un nouveau modèle d’appareil](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. La page vous donne la possibilité de **_Créer un modèle personnalisé_* ou d’_*_Utiliser un modèle d’appareil préconfiguré_*_
 1. Sélectionnez le modèle d’appareil C500 dans la liste des modèles d’appareil préconfigurés, comme indiqué ci-dessous : ![Sélectionner un modèle d’appareil C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Sélectionnez ***Suivant : Personnaliser*** pour passer à l'étape suivante. 
-1. Dans l'écran suivant, sélectionnez ***Créer*** pour intégrer le modèle d'appareil C500 à votre application IoT Central.
+1. Sélectionnez _*_Suivant : Personnaliser_*_ pour passer à l'étape suivante. 
+1. Dans l'écran suivant, sélectionnez _*_Créer_*_ pour intégrer le modèle d'appareil C500 à votre application IoT Central.
 
 ## <a name="retrieve-application-connection-details"></a>Récupérer les détails de connexion de l’application
 
-Vous devez maintenant récupérer **l’ID d’étendue** et la **clé primaire** pour votre application Azure IoT Central afin de connecter l’appareil Cascade 500. 
+Vous devez maintenant récupérer _ *l’ID d’étendue** et la **clé primaire** pour votre application Azure IoT Central afin de connecter l’appareil Cascade 500. 
 
 1. Accédez à **Administration** dans le volet gauche, puis cliquez sur **Connexion de l’appareil**. 
 2. Prenez note de l’**ID d’étendue** pour votre application IoT Central.

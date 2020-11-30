@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393453"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012712"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
 
@@ -65,7 +65,7 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 | :--                    | :--           | :--                 | :--                 |
 | Journaux d’audit             | 7 jours        | 30 jours             | 30 jours             |
 | Connexions               | 7 jours        | 30 jours             | 30 jours             |
-| Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
+| Utilisation d’Azure AD MFA        | 30 jours       | 30 jours             | 30 jours             |
 
 Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

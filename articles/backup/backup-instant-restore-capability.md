@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173930"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014446"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -117,3 +117,8 @@ Si le point de récupération dispose d’une capture instantanée et qu’il s�
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Je n’ai pas besoin de la fonctionnalité de restauration instantanée. Peut-elle être désactivée ?
 
 La fonctionnalité de restauration instantanée est activée pour tout le monde et ne peut pas être désactivée. Vous pouvez réduire la rétention des instantanés à un minimum d’une journée.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>Est-il sans risque de redémarrer la machine virtuelle pendant le processus de transfert (qui peut prendre de nombreuses heures) ? Le redémarrage de la machine virtuelle va-t-il interrompre ou ralentir le transfert ?
+
+Oui, c’est sans risque et sans le moindre impact sur la vitesse de transfert des données.
+

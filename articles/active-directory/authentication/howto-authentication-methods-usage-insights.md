@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964908"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839588"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
-L’utilisation et les informations vous permet de comprendre comment les méthodes d’authentification pour des fonctionnalités comme l’authentification multi-facteurs Azure et la réinitialisation des mots de passe en libre-service fonctionnent dans votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation de comprendre quelles méthodes sont enregistrées et comment elles sont utilisées.
+Ce service vous permet d'en savoir plus sur le fonctionnement des méthodes d'authentification de fonctionnalités telles qu'Azure AD Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service au sein de votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation de comprendre quelles méthodes sont enregistrées et comment elles sont utilisées.
 
 ## <a name="permissions-and-licenses"></a>Autorisations et licences
 
@@ -31,7 +31,7 @@ Les rôles suivants peuvent accéder à l’utilisation et aux informations :
 - Security Administrator
 - Lecteur de rapports
 
-Aucune licence supplémentaire n’est nécessaire pour l’utilisation de l’utilisation et des informations. Les informations de licence Azure Multi-Factor Authentication et de réinitialisation de mot de passe en libre-service sont disponibles sur le [Site de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Aucune licence supplémentaire n’est nécessaire pour l’utilisation de l’utilisation et des informations. Les informations de licence relatives à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service sont disponibles sur le [Site de tarification d'Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -92,7 +92,7 @@ En utilisant les contrôles en haut de la liste, vous pouvez rechercher un utili
 
 Les données présentées dans ces rapports seront différées jusqu’à 60 minutes. Le portail Azure contient un champ « Dernière actualisation » qui permet d’identifier à quel point vos données sont récentes.
 
-Les données d’utilisation et les informations ne remplacent pas les rapports d’activité Azure Multi-Factor Authentication ni les informations contenues dans le rapport d’ouverture de session d’Azure AD.
+Les données relatives à l'utilisation et aux insights ne remplacent pas les rapports d'activité Azure AD Multi-Factor Authentication ni les informations contenues dans le rapport sur les connexions d'Azure AD.
 
 Actuellement , le rapport ne peut pas être filtré de manière à exclure les utilisateurs externes.
 

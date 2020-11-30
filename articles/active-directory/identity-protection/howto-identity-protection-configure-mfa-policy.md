@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464332"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835864"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription de l’authentification multifacteur Azure
+# <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d'inscription Azure AD Multi-Factor Authentication
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie d’accès conditionnel dans le but de demander une inscription MFA, quelle que soit l’application avec authentification moderne à laquelle vous vous connectez.
+Azure AD Identity Protection vous permet de gérer le déploiement de l'inscription Azure AD Multi-Factor Authentication (MFA) en configurant une stratégie d'accès conditionnel pour exiger l'inscription MFA, quelle que soit l'application d'authentification moderne à laquelle vous vous connectez.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Qu’est-ce qu’une stratégie d’inscription d’authentification multifacteur ?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Qu'est-ce qu'une stratégie d'inscription Azure AD Multi-Factor Authentication ?
 
-L’authentification multifacteur Azure permet de vérifier votre identité, à l’aide d’une méthode plus sécurisée que la simple fourniture d’un nom d’utilisateur et d’un mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions utilisateur. Pour que les utilisateurs puissent répondre aux invites de l’authentification multifacteur, ils doivent s’inscrire pour l’authentification multifacteur Azure.
+Azure AD Multi-Factor Authentication permet de vérifier votre identité, à l'aide d'une méthode plus sécurisée que la simple fourniture d'un nom d'utilisateur et d'un mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions utilisateur. Pour que les utilisateurs puissent répondre aux invites d'authentification multifacteur, ils doivent d'abord s'inscrire à Azure AD Multi-Factor Authentication.
 
-Voici les raisons pour lesquelles il est conseillé d’exiger l’authentification multifacteur d’Azure pour les connexions utilisateur :
+Voici les raisons pour lesquelles il est conseillé d'exiger une authentification Azure AD MFA pour les connexions utilisateur :
 
 - Elle fournit une authentification renforcée avec un éventail d’options de vérification.
 - Elle joue un rôle clé dans la correction automatique en cas de détections de risques dans Identity Protection.
 
-Pour plus d’informations sur Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
+Pour plus d'informations sur Azure AD Multi-Factor Authentication, consultez [Présentation d'Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
 
 ## <a name="policy-configuration"></a>Configuration de la stratégie
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur Azure Multi-Factor Authentication, consultez [Pr�
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
    1. Sous **Contrôles**
-      1. Assurez-vous que la case à cocher **Exiger l’inscription Azure MFA** est cochée, puis choisissez **Sélectionner**.
+      1. Assurez-vous que la case **Exiger l'inscription Azure AD MFA** est cochée, puis choisissez **Sélectionner**.
    1. **Appliquer la stratégie** - **Activé**
    1. **Save**
 
@@ -59,4 +59,4 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 - [Activer la réinitialisation de mot de passe en libre-service Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Activation d’Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Activer l’authentification multifacteur Azure AD](../authentication/howto-mfa-getstarted.md)
