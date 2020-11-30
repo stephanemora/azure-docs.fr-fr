@@ -3,18 +3,18 @@ title: Intégrer et gérer des opérations de sécurité et Microsoft Graph Secu
 description: Améliorer la protection de votre application contre les menaces et la façon dont elle détecte les menaces et y répond avec Microsoft Graph Security et Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677502"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888536"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Améliorer la protection contre les menaces en intégrant des opérations de sécurité avec Microsoft Graph Security et Azure Logic Apps
 
@@ -30,7 +30,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur [
 
 Le workflow de votre application logique peut utiliser des actions visant à obtenir des réponses du connecteur Microsoft Graph Security et à rendre cette sortie disponible pour d’autres actions de votre workflow. Il est également possible que d’autres actions de votre workflow utilisent la sortie des actions du connecteur Microsoft Graph Security. Par exemple, si vous obtenez des alertes d’un niveau de gravité élevé par le biais du connecteur Microsoft Graph Security, vous pouvez envoyer ces alertes dans un e-mail à l’aide du connecteur Outlook. 
 
-Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble de l’API Microsoft Graph Security](/graph/security-concept-overview). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Si vous recherchez Microsoft Flow ou PowerApps, consultez [Qu’est-ce que Flow ?](https://flow.microsoft.com/) ou [Qu'est-ce que PowerApps ?](https://powerapps.microsoft.com/)
+Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble de l’API Microsoft Graph Security](/graph/security-concept-overview). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Si vous recherchez Power Automate ou PowerApps, consultez [Présentation de Power Automate](https://flow.microsoft.com/) ou [Présentation de Power Apps](https://powerapps.microsoft.com/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,11 +64,11 @@ Pour en savoir plus sur Microsoft Graph Security, consultez la [vue d’ensemble
 
    -ou-
 
-   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action Microsoft Graph Security, sélectionnez **Nouvelle étape** .
+   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action Microsoft Graph Security, sélectionnez **Nouvelle étape**.
 
    -ou-
 
-   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Sélectionnez le signe plus (+) qui s’affiche, puis sélectionnez **Ajouter une action** .
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Sélectionnez le signe plus (+) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Dans la zone de recherche, entrez « microsoft graph security » comme filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
 
@@ -89,17 +89,17 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
 1.  Dans la zone de recherche du concepteur, entrez « microsoft graph security » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Sur toutes les nouvelles alertes**
 
-1.  Dans le déclencheur, fournissez des informations sur les alertes que vous souhaitez surveiller. Pour plus de propriétés, ouvrez la liste **Ajouter un nouveau paramètre** , puis sélectionnez un paramètre afin d'ajouter cette propriété au déclencheur.
+1.  Dans le déclencheur, fournissez des informations sur les alertes que vous souhaitez surveiller. Pour plus de propriétés, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez un paramètre afin d'ajouter cette propriété au déclencheur.
 
    | Propriété | Propriété (JSON) | Obligatoire | Type | Description |
    |----------|-----------------|----------|------|-------------|
    | **Intervalle** | `interval` | Oui | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p><p>- Mois : 1-16 mois <br>Jour : 1-500 jours <br>- Heure : 1-12 000 heures <br>- Minute : 1-72 000 minutes <br>- Seconde : 1-9 999 999 secondes <p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. |
-   | **Fréquence** | `frequency` | Oui | String | Unité de temps à utiliser pour la récurrence : **Seconde** , **Minute** , **Heure** , **Jour** , **Semaine** ou **Mois** |
+   | **Fréquence** | `frequency` | Oui | String | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois** |
    | **Fuseau horaire** | `timeZone` | Non | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. |
    | **Heure de début** | `startTime` | Non | String | Indiquez une date et une heure de début au format suivant : <p><p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, alors spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que Heure standard du Pacifique. Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début ne peut pas dépasser 49 ans dans le futur, et doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer** .
+1.  Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 1.  Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur.
 

@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) – FAQ
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172509"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917356"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Foire aux questions : agent Microsoft Azure Recovery Services (MARS)
 
@@ -71,6 +71,10 @@ Oui. Cet agent convertit les données dédupliquées en données normales lorsqu
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Ai-je besoin d’autorisations d’administrateur pour installer et configurer l’agent MARS ?
 
 Oui, l’installation de l’agent MARS et la configuration des sauvegardes à l’aide de la console MARS impliquent que l’utilisateur soit administrateur local sur le serveur protégé.
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Lorsque l'abonnement au coffre est transféré vers une autre instance d'Azure AD Directory, quel est l'impact sur les sauvegardes de l'agent MARS ?
+
+Le changement d'instance d'Azure AD Directory n'a aucun impact sur les sauvegardes de l'agent MARS. 
 
 ## <a name="manage-backups"></a>Gestion des sauvegardes
 

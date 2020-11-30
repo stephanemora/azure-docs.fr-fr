@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503808"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837462"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -90,7 +90,7 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
 > [!WARNING]
 > Si vous utilisez la fonctionnalité de [durée de vie de jeton configurable](../develop/active-directory-configurable-token-lifetimes.md) actuellement en préversion publique, veuillez noter que nous ne prenons pas en charge la création de deux stratégies différentes pour la même combinaison d’utilisateur ou d’application : une avec cette fonctionnalité, l’autre avec une fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service la fonctionnalité de durée de vie de jeton configurable pour les jetons d’actualisation et de session le 30 janvier 2021, et de la remplacer par la fonctionnalité de gestion de session d’authentification par accès conditionnel.  
 >
-> Avant d’activer la fréquence de connexion, assurez-vous que les autres paramètres de réauthentification sont désactivés dans votre locataire. Si l’option « Se souvenir de l’authentification multifacteur sur les appareils de confiance » est activée, veillez à la désactiver avant d’utiliser la fréquence de connexion, car l’utilisation conjointe de ces deux paramètres peut entraîner des messages d’invite inattendus pour les utilisateurs. Pour en savoir plus sur les invites de réauthentification et la durée de vie d’une session, consultez l’article [Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Avant d’activer la fréquence de connexion, assurez-vous que les autres paramètres de réauthentification sont désactivés dans votre locataire. Si l’option « Se souvenir de l’authentification multifacteur sur les appareils de confiance » est activée, veillez à la désactiver avant d’utiliser la fréquence de connexion, car l’utilisation conjointe de ces deux paramètres peut entraîner des messages d’invite inattendus pour les utilisateurs. Pour en savoir plus sur les invites de réauthentification et la durée de vie d'une session, consultez l’article [Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Stratégie 1 : Contrôle de la fréquence de connexion
 
@@ -100,9 +100,9 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
    > [!NOTE]
    > Il est recommandé de définir une fréquence d’invite d’authentification égale pour les applications Microsoft Office clés, comme Exchange Online et SharePoint Online, afin d’offrir une meilleure expérience utilisateur.
 
-1. Accédez à **Contrôles d’accès** > **Session** et cliquez sur **Fréquence de connexion** .
+1. Accédez à **Contrôles d’accès** > **Session** et cliquez sur **Fréquence de connexion**.
 1. Entrez la valeur voulue de jours et d’heures dans la première zone de texte.
-1. Sélectionnez une valeur d’ **Heures** ou de **Jours** à partir de la liste déroulante.
+1. Sélectionnez une valeur d’**Heures** ou de **Jours** à partir de la liste déroulante.
 1. Enregistrez votre stratégie.
 
 ![Stratégie d’accès conditionnel configurée pour la fréquence de connexion](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)

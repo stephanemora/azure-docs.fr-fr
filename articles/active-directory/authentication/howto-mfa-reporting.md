@@ -1,6 +1,6 @@
 ---
-title: Détails des événements de connexions pour Azure Multi-Factor Authentication - Azure Active Directory
-description: Découvrez comment afficher l’activité de connexion pour les événements Azure Multi-Factor Authentication et les messages d’état.
+title: Détails des événements de connexion relatifs à Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Apprenez à consulter l'activité de connexion relative aux événements Azure AD Multi-Factor Authentication et les messages d'état.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6a103f1f518a838e0746d363ee613dd1625b0bd4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964143"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838976"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utiliser le rapport de connexions pour examiner les événements Azure MFA
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Utiliser le rapport des connexions pour examiner les événements Azure AD Multi-Factor Authentication
 
-Pour examiner et comprendre les événements Azure Multi-Factor Authentication, vous pouvez utiliser le rapport de connexion Azure Active Directory (Azure AD). Ce rapport affiche les détails d’authentification des événements lorsqu’un utilisateur est invité à utiliser l’authentification multifacteur et dans le cas où des stratégies d’accès conditionnel seraient en cours d’utilisation. Pour plus d’informations sur le rapport de connexions, consultez la [présentation des rapports d’activité de connexion dans Azure AD](../reports-monitoring/concept-sign-ins.md).
+Pour examiner et comprendre les événements Azure AD Multi-Factor Authentication, vous pouvez utiliser le rapport des connexions d'Azure Active Directory (Azure AD). Ce rapport affiche les détails d’authentification des événements lorsqu’un utilisateur est invité à utiliser l’authentification multifacteur et dans le cas où des stratégies d’accès conditionnel seraient en cours d’utilisation. Pour plus d’informations sur le rapport de connexions, consultez la [présentation des rapports d’activité de connexion dans Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 Cet article explique comment afficher le rapport de connexions Azure AD dans le portail Azure, puis dans le module PowerShell MSOnline v1.
 
@@ -121,34 +121,34 @@ Le tableau suivant peut vous aider à détecter les problèmes liés aux événe
 
 | Résultat de l’appel | Description | Description générale |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | Code PIN entré | L’utilisateur a entré un code PIN.  Si l’authentification a réussi, alors le code PIN entré est correct.  Si l’authentification est refusée, cela signifie que l’utilisateur a entré un code PIN ou que l’utilisateur est défini en mode Standard. |
+| SUCCESS_WITH_PIN | Code PIN entré | L’utilisateur a entré un code PIN.   Si l’authentification a réussi, alors le code PIN entré est correct.   Si l’authentification est refusée, cela signifie que l’utilisateur a entré un code PIN ou que l’utilisateur est défini en mode Standard. |
 | SUCCESS_NO_PIN | Uniquement # entré | Si l’utilisateur est défini en mode Code PIN et que l’authentification est refusée, cela signifie que l’utilisateur n’a pas entré son code PIN et qu’il a uniquement entré #.  Si l’utilisateur est défini en mode Standard et que l’authentification réussit, cela signifie que l’utilisateur a uniquement entré #, ce qu’il faut exactement faire en mode Standard. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # non appuyé après l’entrée | L’utilisateur n’a pas envoyé de chiffres DTMF, car # n’a pas été entré.  Les autres chiffres entrés ne sont pas envoyés, sauf si # est entré, indiquant la validation de l’entrée. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Aucune entrée téléphone - expiration du délai d’attente | L’appel a été reçu, mais aucune réponse.  Cela indique généralement que l’appel a été récupéré par la messagerie vocale. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # non appuyé après l’entrée | L’utilisateur n’a pas envoyé de chiffres DTMF, car # n’a pas été entré.   Les autres chiffres entrés ne sont pas envoyés, sauf si # est entré, indiquant la validation de l’entrée. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Aucune entrée téléphone - expiration du délai d’attente | L’appel a été reçu, mais aucune réponse.   Cela indique généralement que l’appel a été récupéré par la messagerie vocale. |
 | SUCCESS_PIN_EXPIRED | Code PIN expiré et non modifié | Le code PIN de l’utilisateur a expiré et il a été invité à le modifier, mais la modification du code PIN n’a pas totalement abouti. |
 | SUCCESS_USED_CACHE | Cache utilisé | L’authentification a réussi sans appel Multi-Factor Authentication, car une authentification ayant abouti précédemment pour le même nom d’utilisateur s’est produite pendant la plage de temps du cache configurée. |
-| SUCCESS_BYPASSED_AUTH | Authentification contournée | L’authentification a réussi à l’aide d’un contournement à usage unique initié pour l’utilisateur.  Consultez le rapport de l’historique de l’utilisateur contourné pour plus d’informations sur le contournement. |
+| SUCCESS_BYPASSED_AUTH | Authentification contournée | L’authentification a réussi à l’aide d’un contournement à usage unique initié pour l’utilisateur.  Pour plus d'informations sur le contournement, voir Rapport Historique de l'utilisateur contourné. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache basé sur l’adresse IP utilisée | L’authentification a réussi sans appel Multi-Factor Authentication, car une authentification ayant abouti précédemment pour le même nom d’utilisateur, type d’authentification, nom d’application et adresse IP s’est produite pendant la plage de temps du cache configurée. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache basé sur l’application utilisée | L’authentification a réussi sans appel Multi-Factor Authentication, car une authentification ayant abouti précédemment pour le même nom d’utilisateur, type d’authentification et nom d’application s’est produite pendant la plage de temps du cache configurée. |
-| SUCCESS_INVALID_INPUT | Entrée téléphone non valide | La réponse envoyée à partir du téléphone n’est pas valide.  Cela peut provenir d’un télécopieur ou d’un modem, ou s’expliquer par le fait que l’utilisateur a entré * dans son code PIN. |
-| SUCCESS_USER_BLOCKED | L’utilisateur est bloqué | Le numéro de téléphone de l’utilisateur est bloqué.  Un numéro bloqué peut être initié par l’utilisateur lors d’un appel d’authentification ou par un administrateur utilisant le portail Microsoft Azure. <br> REMARQUE :   Un numéro bloqué est également une conséquence d’une alerte de fraude. |
+| SUCCESS_INVALID_INPUT | Entrée téléphone non valide | La réponse envoyée à partir du téléphone n’est pas valide.   Cela peut provenir d’un télécopieur ou d’un modem, ou s’expliquer par le fait que l’utilisateur a entré * dans son code PIN. |
+| SUCCESS_USER_BLOCKED | L’utilisateur est bloqué | Le numéro de téléphone de l’utilisateur est bloqué.   Un numéro bloqué peut être initié par l’utilisateur lors d’un appel d’authentification ou par un administrateur utilisant le portail Microsoft Azure. <br> REMARQUE :   Un numéro bloqué est également une conséquence d’une alerte de fraude. |
 | SUCCESS_SMS_AUTHENTICATED | SMS authentifié | Pour un SMS bidirectionnel, l’utilisateur a répondu correctement avec son code secret à usage unique ou son code secret à usage unique + son code PIN. |
-| SUCCESS_SMS_SENT | SMS envoyé | Le SMS contenant le code secret à usage unique a été correctement envoyé.  L’utilisateur entre le code secret à usage unique ou le code secret à usage unique + le code PIN dans l’application pour effectuer l’authentification. |
+| SUCCESS_SMS_SENT | SMS envoyé | Le SMS contenant le code secret à usage unique a été correctement envoyé.   L’utilisateur entre le code secret à usage unique ou le code secret à usage unique + le code PIN dans l’application pour effectuer l’authentification. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | Application mobile authentifiée | L’utilisateur est authentifié correctement via l’application mobile. |
 | SUCCESS_OATH_CODE_PENDING | Code OATH en attente | L’utilisateur a été invité à entrer son code OATH, mais n’a pas répondu. |
 | SUCCESS_OATH_CODE_VERIFIED | Code OATH vérifié | L’utilisateur a entré un code OATH valide lorsqu’il y a été invité. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Code OATH de secours vérifié | L’authentification de l’utilisateur a été refusée à l’aide de sa principale méthode Multi-Factor Authentication, puis un code OATH valide de secours a été fourni. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Les questions de sécurité de secours ont obtenu des réponses | L’authentification de l’utilisateur a été refusée à l’aide de sa principale méthode Multi-Factor Authentication, puis ses questions de sécurité de secours ont obtenu une réponse. |
-| FAILED_PHONE_BUSY | Authentification déjà en cours | Multi-Factor Authentication traite déjà une authentification pour cet utilisateur.  Cela est souvent dû à des clients RADIUS qui envoient plusieurs demandes d’authentification lorsqu’ils sont connectés à la même session. |
-| CONFIG_ISSUE | Téléphone inaccessible | Une tentative d’appel a eu lieu, mais il n’a pas pu être passé ou n’a pas reçu de réponse.  Cela inclut le signal occupé, le signal occupé rapide (déconnecté), la triple tonalité (le numéro n’est plus en service), l’expiration du délai de sonnerie, etc. |
-| FAILED_INVALID_PHONENUMBER | Format de numéro de téléphone non valide | Le numéro de téléphone est dans un format non valide.  Les numéros de téléphone doivent être numériques et comporter 10 chiffres pour le code de pays + 1 (États-Unis et Canada). |
+| FAILED_PHONE_BUSY | Authentification déjà en cours | Multi-Factor Authentication traite déjà une authentification pour cet utilisateur.   Cela est souvent dû à des clients RADIUS qui envoient plusieurs demandes d’authentification lorsqu’ils sont connectés à la même session. |
+| CONFIG_ISSUE | Téléphone inaccessible | Une tentative d’appel a eu lieu, mais il n’a pas pu être passé ou n’a pas reçu de réponse.   Cela inclut le signal occupé, le signal occupé rapide (déconnecté), la triple tonalité (le numéro n’est plus en service), l’expiration du délai de sonnerie, etc. |
+| FAILED_INVALID_PHONENUMBER | Format de numéro de téléphone non valide | Le numéro de téléphone est dans un format non valide.   Les numéros de téléphone doivent être numériques et comporter 10 chiffres pour le code de pays + 1 (États-Unis et Canada). |
 | FAILED_USER_HUNGUP_ON_US | L’utilisateur a raccroché le téléphone | L’utilisateur a répondu au téléphone, mais a raccroché sans appuyer sur un bouton. |
-| FAILED_INVALID_EXTENSION | Extension non valide | L’extension contient des caractères non valides.  Seuls les chiffres, les virgules, * et # sont autorisés.  Un préfixe @ peut également être utilisé. |
+| FAILED_INVALID_EXTENSION | Extension non valide | L’extension contient des caractères non valides.   Seuls les chiffres, les virgules, * et # sont autorisés.   Un préfixe @ peut également être utilisé. |
 | FAILED_FRAUD_CODE_ENTERED | Code fraude entré | L’utilisateur a choisi de signaler une fraude lors de l’appel, ce qui entraîne un refus d’authentification et le blocage du numéro de téléphone.| 
 | FAILED_SERVER_ERROR | Impossible de passer un appel | Le service Multi-Factor Authentication n’a pas pu effectuer l’appel. |
-| FAILED_SMS_NOT_SENT | Le SMS n’a pas pu être envoyé | Le SMS n’a pas pu être envoyé.  L’authentification est refusée. |
-| FAILED_SMS_OTP_INCORRECT | Le code secret à usage unique du SMS est incorrect | L’utilisateur a entré un code secret à usage unique incorrect à partir du message texte qu’il a reçu.  L’authentification est refusée. |
-| FAILED_SMS_OTP_PIN_INCORRECT | Le code secret à usage unique du SMS + le code PIN sont incorrects | L’utilisateur a entré un code secret à usage unique incorrect et/ou un code PIN utilisateur incorrect.  L’authentification est refusée. |
+| FAILED_SMS_NOT_SENT | Le SMS n’a pas pu être envoyé | Le SMS n’a pas pu être envoyé.   L’authentification est refusée. |
+| FAILED_SMS_OTP_INCORRECT | Le code secret à usage unique du SMS est incorrect | L’utilisateur a entré un code secret à usage unique incorrect à partir du message texte qu’il a reçu.   L’authentification est refusée. |
+| FAILED_SMS_OTP_PIN_INCORRECT | Le code secret à usage unique du SMS + le code PIN sont incorrects | L’utilisateur a entré un code secret à usage unique incorrect et/ou un code PIN utilisateur incorrect.   L’authentification est refusée. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | A dépassé les tentatives de saisie maximum de code secret à usage unique de SMS | L’utilisateur a dépassé le nombre maximal de tentatives de saisie de code secret à usage unique. |
 | FAILED_PHONE_APP_DENIED | Application mobile refusée | L’utilisateur a refusé l’authentification dans l’application mobile en appuyant sur le bouton Refuser. |
 | FAILED_PHONE_APP_INVALID_PIN | Code PIN d’application mobile non valide | L’utilisateur a entré un code PIN non valide lors de l’authentification dans l’application mobile. |

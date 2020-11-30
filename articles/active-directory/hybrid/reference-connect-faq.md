@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836068"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -261,7 +261,7 @@ Si vous avez besoin d’aide pour passer à une version plus récente d’Azure 
 ## <a name="operational-best-practice"></a>Bonnes pratiques opérationnelles    
 Vous trouverez ci-dessous quelques bonnes pratiques à appliquer lors de la synchronisation entre Windows Server Active Directory et Azure Active Directory.
 
-**Appliquez Multi-Factor Authentication sur tous les comptes synchronisés** Azure Multi-Factor Authentication contribue à la sécurisation de l'accès aux données et aux applications tout en maintenant une simplicité de gestion pour les utilisateurs. MFA fournit une sécurité supplémentaire en exigeant une deuxième forme d'authentification, et procure une authentification renforcée par le biais d'un éventail de méthodes d'authentification faciles à utiliser. Les utilisateurs peuvent devoir s'authentifier via MFA selon les choix de configuration de l'administrateur. Pour plus d'informations sur MFA, cliquez ici : https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Appliquez Multi-Factor Authentication sur tous les comptes synchronisés** Azure AD Multi-Factor Authentication permet de sécuriser l'accès aux données et aux applications tout en offrant une simplicité de gestion aux utilisateurs. MFA fournit une sécurité supplémentaire en exigeant une deuxième forme d'authentification, et procure une authentification renforcée par le biais d'un éventail de méthodes d'authentification faciles à utiliser. Les utilisateurs peuvent devoir s'authentifier via MFA selon les choix de configuration de l'administrateur. Pour plus d'informations sur MFA, cliquez ici : https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Suivez les consignes de sécurité relatives au serveur Azure AD Connect** Le serveur Azure AD Connect contient des données d'identité critiques et doit être traité comme un composant de niveau 0, comme expliqué dans le [modèle de niveau administratif Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Consultez également les [consignes de sécurisation de votre serveur AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 

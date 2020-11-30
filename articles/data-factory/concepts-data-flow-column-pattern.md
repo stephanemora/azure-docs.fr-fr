@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845002"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilisation de modèles de colonne dans les flux de données de mappage
 
@@ -23,7 +23,7 @@ Plusieurs transformations de flux de données de mappage vous permettent de réf
 * Si les champs source entrants sont souvent modifiés, comme dans le cas de modifications de colonnes dans les fichiers texte ou les bases de données NoSQL. Ce scénario est appelé [dérive de schéma](concepts-data-flow-schema-drift.md).
 * Si vous souhaitez effectuer une opération commune sur un grand groupe de colonnes. Par exemple, si vous voulez caster en double chaque colonne contenant « total » dans son nom de colonne.
 
-Les modèles de colonne sont actuellement disponibles dans les transformations de colonne dérivée, d’agrégation, de sélection et de récepteur.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modèles de colonne dans une colonne dérivée et une agrégation
 
@@ -39,9 +39,15 @@ Les deux zones d’expression sous la condition de correspondance indiquent les 
 
 Le modèle de colonne ci-dessus associe chaque colonne de type double et crée une colonne dérivée par correspondance. En indiquant `$$` comme champ de nom de colonne, chaque colonne correspondante est mise à jour avec le même nom. La valeur de chaque colonne correspond à la valeur existante arrondie à deux décimales.
 
-Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter** , ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
+Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter**, ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
 
 ![Capture d’écran montrant l’onglet Schéma de sortie.](media/data-flow/columnpattern3.png "Modèles de colonne")
+
+### <a name="hierarchical-pattern-matching"></a>Critères spéciaux hiérarchiques
+
+Vous pouvez également créer des critères spéciaux au sein de structures hiérarchiques complexes. Développez la section `Each MoviesStruct that matches` où vous serez invité à spécifier chacune des hiérarchies de votre flux de données. Vous pourrez ensuite générer des critères spéciaux pour les propriétés au sein de la hiérarchie choisie.
+
+![Capture d'écran d'un modèle de colonne hiérarchique.](media/data-flow/patterns-hierarchy.png "Modèles de colonne dans les hiérarchies")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mappage basé sur les règles dans la sélection et le récepteur
 
@@ -77,7 +83,7 @@ L’exemple ci-dessus correspond à toutes les sous-colonnes de la colonne compl
 
 ## <a name="pattern-matching-expression-values"></a>Valeurs des expressions de critères spéciaux
 
-* `$$` correspond au nom ou à la valeur de chaque correspondance au moment de l’exécution
+* `$$` correspond au nom ou à la valeur de chaque correspondance au moment de l'exécution Considérez `$$` comme l'équivalent de `this`.
 * `name` représente le nom de chaque colonne entrante
 * `type` représente le type de données de chaque colonne entrante
 * `stream` représente le nom associé à chaque flux ou transformation dans votre flux

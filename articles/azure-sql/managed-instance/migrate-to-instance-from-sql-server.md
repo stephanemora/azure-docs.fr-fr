@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788548"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917798"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 ou ultérieure vers [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Pour obtenir des informations sur la migration vers une base de données unique ou un pool élastique, consultez [Migration vers SQL Database](../database/migrate-to-database-from-sql-server.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 ou ultérieure vers [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Pour plus d'informations sur la migration vers une base de données unique ou un pool élastique, consultez [Présentation de la migration de SQL Server vers SQL Database](../migration-guides/database/sql-server-to-sql-database-overview.md). Pour obtenir des informations sur la migration à partir d'autres plateformes ainsi que des conseils sur les outils et options, consultez [Migrer vers Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Si vous souhaitez démarrer rapidement et essayer Azure SQL Managed Instance, vous souhaiterez peut-être accéder au [guide de démarrage rapide](quickstart-content-reference-guide.md) plutôt qu’à cette page.

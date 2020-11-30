@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412763"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844861"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -112,7 +112,7 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 * Associez la passerelle des services Bureau à distance au même [domaine de gestion](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) que les stations de travail d’administration. Cette opération est indispensable lorsque vous utilisez une connexion VPN IPsec de site à site ou ExpressRoute au sein d’un domaine offrant une approbation à sens unique vers Azure AD, ou lorsque vous fédérez des informations d’identification entre votre instance AD DS locale et Azure AD.
 * Configurez une [stratégie d’autorisation de connexion client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) pour permettre à la passerelle des services Bureau à distance de vérifier que le nom de l’ordinateur client est valide (joint au domaine) et que l’ordinateur est autorisé à accéder au portail Azure.
 * Utilisez IPsec pour [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) afin de protéger le trafic de gestion contre les écoutes clandestines et les vols de jeton, ou vérifiez un lien Internet isolé par le biais d’[Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Activez l’authentification multifacteur (grâce à [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) ou l’authentification par carte à puce pour les administrateurs qui se connectent au moyen de la passerelle des services Bureau à distance.
+* Activez l'authentification multifacteur (via [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) ou l'authentification par carte à puce pour les administrateurs qui se connectent au moyen de la passerelle des services Bureau à distance.
 * Configurez les [restrictions d’adresse IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) sources ou les [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md) dans Azure afin de limiter le nombre de points de terminaison de gestion autorisés.
 
 ## <a name="security-guidelines"></a>Conseils de sécurité

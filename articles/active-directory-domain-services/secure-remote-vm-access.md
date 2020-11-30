@@ -1,6 +1,6 @@
 ---
 title: Sécuriser l’accès aux machines virtuelles distantes dans Azure AD Domain Services | Microsoft Docs
-description: Apprenez à sécuriser l’accès à distance aux machines virtuelles à l’aide du serveur NPS (Network Policy Server) et d’Azure Multi-Factor Authentication avec un déploiement des services Bureau à distance dans un domaine managé Azure Active Directory Domain Services.
+description: Apprenez à sécuriser l'accès à distance aux machines virtuelles à l'aide du serveur NPS (Network Policy Server) et d'Azure AD Multi-Factor Authentication avec un déploiement des services Bureau à distance dans un domaine managé Azure Active Directory Domain Services.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967781"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840234"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Sécuriser l’accès à distance aux machines virtuelles dans Azure Active Directory Domain Services
 
-Pour sécuriser l’accès à distance aux machines virtuelles qui s’exécutent dans un domaine managé Azure Active Directory Domain Services (Azure AD DS), vous pouvez utiliser les services Bureau à distance (RDS) et le serveur NPS (Network Policy Server). Azure AD DS authentifie les utilisateurs quand ils demandent l’accès par le biais de l’environnement des services Bureau à distance. Pour renforcer la sécurité, vous pouvez intégrer Azure Multi-Factor Authentication pour fournir une invite d’authentification supplémentaire pendant les événements de connexion. Pour fournir cette fonctionnalité, Azure Multi-Factor Authentication utilise une extension pour NPS.
+Pour sécuriser l’accès à distance aux machines virtuelles qui s’exécutent dans un domaine managé Azure Active Directory Domain Services (Azure AD DS), vous pouvez utiliser les services Bureau à distance (RDS) et le serveur NPS (Network Policy Server). Azure AD DS authentifie les utilisateurs quand ils demandent l’accès par le biais de l’environnement des services Bureau à distance. Pour renforcer la sécurité, vous pouvez intégrer Azure AD Multi-Factor Authentication afin de fournir une invite d'authentification supplémentaire pendant les événements de connexion. Pour fournir cette fonctionnalité, Azure AD Multi-Factor Authentication utilise une extension NPS.
 
 > [!IMPORTANT]
 > La méthode recommandée pour se connecter en toute sécurité à vos machines virtuelles dans un domaine managé Azure AD DS consiste à utiliser Azure Bastion, un service PaaS complètement managé par la plateforme, que vous approvisionnez à l’intérieur de votre réseau virtuel. Un hôte bastion offre une connectivité sécurisée et transparente suivant le protocole RDP (Remote Desktop Protocol) à vos machines virtuelles directement dans le portail Azure via le protocole SSL. Lorsque vous vous connectez via un hôte bastion, vos machines virtuelles n’ont pas besoin d’adresse IP publique, et vous n’avez pas besoin d’utiliser des groupes de sécurité réseau pour exposer l’accès au protocole RDP sur le port TCP 3389.
@@ -28,7 +28,7 @@ Pour sécuriser l’accès à distance aux machines virtuelles qui s’exécuten
 >
 > Pour plus d’informations, consultez [Présentation d’Azure Bastion][bastion-overview].
 
-Cet article explique comment configurer les services Bureau à distance dans Azure AD DS et éventuellement utiliser l’extension Azure Multi-Factor Authentication NPS.
+Cet article explique comment configurer les services Bureau à distance dans Azure AD DS et comment utiliser l'extension NPS d'Azure AD Multi-Factor Authentication.
 
 ![Vue d’ensemble des services Bureau à distance](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ Le déploiement de l’environnement de Bureau à distance contient un certain n
 
 Avec le Bureau à distance déployé dans le domaine managé, vous pouvez gérer et utiliser le service comme vous le feriez avec un domaine AD DS local.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Déployer et configurer le serveur NPS (Network Policy Server) et l’extension Azure MFA NPS
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Déployer et configurer le serveur NPS (Network Policy Server) et l'extension NPS d'Azure AD MFA
 
-Si vous souhaitez renforcer la sécurité de l’expérience de connexion de l’utilisateur, vous pouvez éventuellement intégrer l’environnement de Bureau à distance avec Azure Multi-Factor Authentication. Avec cette configuration, les utilisateurs reçoivent une invite supplémentaire pendant la connexion pour confirmer leur identité.
+Si vous le souhaitez, vous pouvez renforcer la sécurité de l'expérience de connexion utilisateur en intégrant l'environnement de Bureau à distance à Azure AD Multi-Factor Authentication. Avec cette configuration, les utilisateurs reçoivent une invite supplémentaire pendant la connexion pour confirmer leur identité.
 
-Pour fournir cette fonctionnalité, un serveur NPS (Network Policy Server) supplémentaire est installé dans votre environnement avec l’extension Azure Multi-Factor Authentication NPS. Cette extension s’intègre avec Azure AD pour demander et retourner l’état des invites d’authentification multifacteur.
+Pour fournir cette fonctionnalité, un serveur NPS (Network Policy Server) supplémentaire est installé dans votre environnement avec l'extension NPS d'Azure AD Multi-Factor Authentication. Cette extension s’intègre avec Azure AD pour demander et retourner l’état des invites d’authentification multifacteur.
 
-Les utilisateurs doivent être [inscrits pour utiliser Azure Multi-Factor Authentication][user-mfa-registration], ce qui peut nécessiter des licences Azure AD supplémentaires.
+Les utilisateurs doivent être [inscrits pour utiliser Azure AD Multi-Factor Authentication][user-mfa-registration], ce qui peut nécessiter des licences Azure AD supplémentaires.
 
-Pour intégrer Azure Multi-Factor Authentication dans votre environnement de Bureau à distance Azure AD DS, créez un serveur NPS et installez l’extension :
+Pour intégrer Azure AD Multi-Factor Authentication dans votre environnement de Bureau à distance Azure AD DS, créez un serveur NPS et installez l'extension :
 
 1. Créez une machine virtuelle Windows Server 2016 ou 2019 supplémentaire, par exemple, *NPSVM01*, qui est connectée à un sous-réseau de *charges de travail* dans votre réseau virtuel Azure AD DS. Joignez la machine virtuelle au domaine managé.
 1. Connectez-vous à la machine virtuelle NPS en tant que compte faisant partie du groupe *Administrateurs Azure AD DC*, par exemple, *contosoadmin*.
 1. Dans le **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**, puis installez le rôle *Services de stratégie et d’accès réseau*.
-1. Consultez l’article de procédure existant pour [installer et configurer l’extension Azure MFA NPS][nps-extension].
+1. Consultez l'article de procédure existant pour [installer et configurer l'extension NPS d'Azure AD MFA][nps-extension].
 
-Une fois le serveur NPS et l’extension Azure Multi-Factor Authentication NPS installés, consultez la section suivante pour les configurer en vue de leur utilisation avec l’environnement de Bureau à distance.
+Une fois le serveur NPS et l'extension NPS d'Azure AD Multi-Factor Authentication installés, consultez la section suivante pour les configurer en vue de leur utilisation avec l'environnement de Bureau à distance.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Intégrer la Passerelle des services Bureau à distance et Azure Multi-Factor Authentication
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Intégrer la Passerelle des services Bureau à distance et Azure AD Multi-Factor Authentication
 
-Pour intégrer l’extension Azure Multi-Factor Authentication NPS, consultez l’article de procédure existant pour [intégrer votre infrastructure de Passerelle des services Bureau à distance à l’aide de l’extension de serveur NPS (Network Policy Server) et d’Azure AD][azure-mfa-nps-integration].
+Pour intégrer l'extension NPS d'Azure AD Multi-Factor Authentication, consultez l'article de procédure expliquant comment [intégrer votre infrastructure de Passerelle des services Bureau à distance à l'aide de l'extension NPS (Network Policy Server) et d'Azure AD][azure-mfa-nps-integration].
 
 Les options de configuration supplémentaires suivantes sont nécessaires pour l’intégration avec un domaine managé :
 
 1. N’[Enregistrez pas le serveur NPS dans Active Directory][register-nps-ad]. Cette étape échoue dans un domaine managé.
 1. À l’[étape 4 pour configurer la stratégie réseau][create-nps-policy], activez également la case à cocher **Ignorer les propriétés de numérotation des comptes d’utilisateurs**.
-1. Si vous utilisez Windows Server 2019 pour le serveur NPS et l’extension Azure Multi-Factor Authentication NPS, exécutez la commande suivante pour mettre à jour le canal sécurisé afin de permettre au serveur NPS de communiquer correctement :
+1. Si vous utilisez Windows Server 2019 pour le serveur NPS et l'extension NPS d'Azure AD Multi-Factor Authentication, exécutez la commande suivante pour mettre à jour le canal sécurisé afin de permettre au serveur NPS de communiquer correctement :
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Les utilisateurs sont désormais invités à entrer un facteur d’authentificat
 
 Pour plus d’informations sur l’amélioration de la résilience de votre déploiement, consultez [Services Bureau à distance – Haute disponibilité][rds-high-availability].
 
-Pour plus d’informations sur la sécurisation de la connexion utilisateurs, consultez [Fonctionnement : Azure Multi-Factor Authentication][concepts-mfa].
+Pour plus d’informations sur la sécurisation de la connexion utilisateurs, consultez [Fonctionnement : Azure AD Multi-Factor Authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

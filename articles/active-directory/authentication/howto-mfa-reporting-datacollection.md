@@ -1,6 +1,6 @@
 ---
-title: Collecte de données utilisateur Azure MFA – Azure Active Directory
-description: Quelles informations sont utilisées pour permettre l’authentification des utilisateurs par Microsoft Azure Multi-Factor Authentication ?
+title: Collecte de données utilisateur via Azure AD MFA - Azure Active Directory
+description: Quelles sont les informations utilisées pour authentifier des utilisateurs via Azure AD Multi-Factor Authentication ?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964194"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839010"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Collecte de données utilisateur de Microsoft Azure Multi-Factor Authentication
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Collecte de données utilisateur via Azure AD Multi-Factor Authentication
 
-Ce document explique comment rechercher les informations utilisateur collectées par le serveur Microsoft Azure Multi-Factor Authentication (serveur MFA) et Azure MFA (dans le cloud) si vous souhaitez les supprimer.
+Ce document explique comment rechercher les informations utilisateur collectées par le serveur Azure Multi-Factor Authentication (serveur MFA) et Azure AD MFA (dans le cloud) dans le cas où vous souhaiteriez les supprimer.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>Informations collectées
 
-Le serveur MFA, l’extension de serveur NPS et l’adaptateur Windows Server 2016 Azure MFA AD FS collectent et stockent les informations suivantes pendant 90 jours.
+Le serveur MFA, l'extension NPS et l'adaptateur Windows Server 2016 Azure AD MFA AD FS collectent et stockent les informations suivantes pendant 90 jours.
 
 Tentatives d’authentification (utilisées pour la création de rapports et la résolution des problèmes) :
 
@@ -163,26 +163,26 @@ Utilisez le [Portail de confidentialité de Microsoft](https://portal.azure.com/
 
 - La suppression totale de toutes les données peut prendre jusqu’à 30 jours.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Collecter des données à partir de l’adaptateur Windows Server 2016 Azure MFA AD FS
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Collecter des données à partir de l'adaptateur Windows Server 2016 Azure AD MFA AD FS
 
 Utilisez le [Portail de confidentialité de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) pour effectuer une demande d’exportation. 
 
 - Les informations MFA sont incluses dans l’exportation qui peut donc prendre des heures ou des jours.
 - Les occurrences du nom d’utilisateur dans les journaux d’événements AD FS Tracing/Debug (s’ils sont activés) sont considérées comme des données opérationnelles et répétées pour les informations fournies dans l’exportation.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Supprimer des données à partir de l’adaptateur Windows Server 2016 Azure MFA AD FS
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Supprimer des données à partir de l'adaptateur Windows Server 2016 Azure AD MFA AD FS
 
 Utilisez le [Portail de confidentialité de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) pour effectuer une demande de fermeture de compte afin de supprimer toutes les informations du service cloud MFA collectées pour cet utilisateur.
 
 - La suppression totale de toutes les données peut prendre jusqu’à 30 jours.
 
-## <a name="gather-data-for-azure-mfa"></a>Collecter des données pour Microsoft Azure Multi-Factor Authentication
+## <a name="gather-data-for-azure-ad-mfa"></a>Collecter des données pour Azure AD Multi-Factor Authentication
 
 Utilisez le [Portail de confidentialité de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) pour effectuer une demande d’exportation.
 
 - Les informations MFA sont incluses dans l’exportation qui peut donc prendre des heures ou des jours.
 
-## <a name="delete-data-for-azure-mfa"></a>Supprimer des données pour Microsoft Azure Multi-Factor Authentication
+## <a name="delete-data-for-azure-ad-mfa"></a>Supprimer des données pour Azure AD Multi-Factor Authentication
 
 Utilisez le [Portail de confidentialité de Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) pour effectuer une demande de fermeture de compte afin de supprimer toutes les informations du service cloud MFA collectées pour cet utilisateur.
 

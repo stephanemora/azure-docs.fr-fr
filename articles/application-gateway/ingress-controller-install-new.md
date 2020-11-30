@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397380"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874625"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Comment installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une nouvelle instance Application Gateway
 
@@ -40,7 +40,7 @@ Votre [Azure Cloud Shell](https://shell.azure.com/) contient déjà tous les out
 
 Suivez les étapes ci-dessous pour créer un [objet principal du service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) Azure Active Directory (AAD). Enregistrez les valeurs `appId`, `password` et `objectId`,-celles-ci seront utilisées dans les étapes suivantes.
 
-1. Créer un principal de service AD ([en savoir plus sur RBAC](../role-based-access-control/overview.md)) :
+1. Créer un principal de service AD ([En savoir plus sur Azure RBAC](../role-based-access-control/overview.md)) :
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,7 +66,7 @@ Suivez les étapes ci-dessous pour créer un [objet principal du service](../act
     }
     EOF
     ```
-    Pour déployer un cluster **RBAC** activé, définissez le champ `aksEnableRBAC` sur `true`
+    Pour déployer un cluster sur lequel **Kubernetes RBAC** est activé, définissez le champ `aksEnableRBAC` sur `true`.
 
 ## <a name="deploy-components"></a>Déployer des composants
 Cette étape permet d’ajouter les composants suivants à votre abonnement :
@@ -131,13 +131,13 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 Pour installer AAD Pod Identity sur votre cluster :
 
-   - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) activé*
+   - Cluster AKS sur lequel *Kubernetes RBAC* est activé
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) désactivé*
+   - Cluster AKS sur lequel *Kubernetes RBAC* est désactivé
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -148,7 +148,7 @@ Pour installer AAD Pod Identity sur votre cluster :
 
 1. Installez [Helm](../aks/kubernetes-helm.md) et exécutez la commande suivante pour ajouter le package Helm `application-gateway-kubernetes-ingress` :
 
-    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) activé*
+    - Cluster AKS sur lequel *Kubernetes RBAC* est activé
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ Pour installer AAD Pod Identity sur votre cluster :
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) désactivé*
+    - Cluster AKS sur lequel *Kubernetes RBAC* est désactivé
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ Pour installer AAD Pod Identity sur votre cluster :
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

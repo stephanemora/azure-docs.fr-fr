@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445521"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843449"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Ligne de base de sécurité Azure pour Key Vault
 
@@ -382,7 +382,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Conseils** : Activez Azure Active Directory Multi-Factor Authentication et suivez Azure Security Center les recommandations relatives à la gestion des identités et des accès (actuellement en préversion) pour protéger vos ressources Event Hub.
 
-Planification d’un déploiement d’Azure Multi-Factor Authentication basé sur le cloud :
+Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication :
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -397,11 +397,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Conseils** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure Multi-Factor Authentication (MFA) configuré pour se connecter aux ressources Key Vault activées et les configurer. 
+**Conseils** : Utilisez une station de travail à accès privilégié sur laquelle le service Azure AD Multi-Factor Authentication (MFA) est configuré pour vous connecter aux ressources Key Vault activées et les configurer. 
 
 Stations de travail disposant d’un accès privilégié : https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-Planification d’un déploiement d’Azure Multi-Factor Authentication basé sur le cloud : https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication : https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
@@ -715,7 +715,7 @@ Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure)�
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1083,7 +1083,7 @@ Comprendre Microsoft Antimalware pour Azure Cloud Services et les machines virtu
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul. Microsoft gère les logiciels anti-programme malveillant pour la plateforme sous-jacente.
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

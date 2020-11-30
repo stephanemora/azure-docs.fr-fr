@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174130"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842156"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
@@ -298,11 +298,11 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Conseils** : Lorsque vous effectuez des opérations critiques dans Sauvegarde Azure, vous devez entrer un code PIN de sécurité, disponible sur le Portail Azure. L’activation de la fonctionnalité Azure Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
+**Conseils** : Lorsque vous effectuez des opérations critiques dans Sauvegarde Azure, vous devez entrer un code PIN de sécurité, disponible sur le Portail Azure. L'activation de la fonctionnalité Azure AD Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
 
 - [Multi-Factor Authentication dans Sauvegarde Azure](./backup-azure-security-feature.md)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -310,11 +310,11 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Conseils** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure Multi-Factor Authentication (MFA) configuré pour vous connecter à vos ressources compatibles avec Sauvegarde Azure et les configurer.
+**Conseils** : Utilisez une station de travail à accès privilégié sur laquelle le service Azure AD Multi-Factor Authentication (MFA) est configuré pour vous connecter à vos ressources compatibles avec Sauvegarde Azure et les configurer.
 
 - [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -542,7 +542,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -558,7 +558,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -660,7 +660,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -698,7 +698,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -878,7 +878,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

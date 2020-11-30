@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a2c39d9809204328a6eba30c073b1fa81795924a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575949"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840285"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
@@ -200,7 +200,7 @@ Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d
 
 ## <a name="supported-languages"></a>Langues prises en charge
 
-Azure AD B2C inclut la prise en charge des langues suivantes. Les langues de flux utilisateur sont fournies par Azure AD B2C. Les langues de notification d’authentification multifacteur (MFA) sont fournies par [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C inclut la prise en charge des langues suivantes. Les langues de flux utilisateur sont fournies par Azure AD B2C. Les langues de notification d'authentification multifacteur (MFA) sont fournies par [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Langage              | Code langue | Flux d’utilisateurs         | Notifications MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

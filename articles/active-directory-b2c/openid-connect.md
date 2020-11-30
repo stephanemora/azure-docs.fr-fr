@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961219"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840404"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Vous devez également effectuer plusieurs autres validations. Ces validations so
 
 - Vérifier que l’utilisateur/l’organisation s’est inscrit pour l’application.
 - Vérifier que l’utilisateur dispose de l’autorisation/des privilèges appropriés.
-- S’assurer de l’utilisation d’une force certaine d’authentification, comme Azure Multi-Factor Authentication.
+- Vérifier qu'un certain niveau d'authentification a été atteint, par exemple en utilisant Azure AD Multi-Factor Authentication.
 
 Une fois que vous avez validé le jeton d’ID, vous pouvez commencer une session avec l’utilisateur. Vous pouvez utiliser les revendications figurant dans le jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Les utilisations de ces informations sont notamment l’affichage, les enregistrements et les autorisations.
 

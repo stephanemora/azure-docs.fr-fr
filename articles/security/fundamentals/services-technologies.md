@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700757"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842734"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -71,7 +71,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Référentiel d’authentification cloud qui prend en charge un annuaire multilocataire dans le cloud et plusieurs services de gestion des identités dans Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Service de gestion des identités qui permet de contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils quand ils utilisent vos applications basées sur Azure.   |
 | [Services de domaine Azure Active Directory](../../active-directory-domain-services/overview.md)| Version cloud et managée d’Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| Provision de sécurité qui utilise plusieurs formulaires d’authentification et de vérification avant d’autoriser l’accès à des informations sécurisées. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| Provision de sécurité qui utilise plusieurs formulaires d’authentification et de vérification avant d’autoriser l’accès à des informations sécurisées. |
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d'urgence
 |Service|Description|

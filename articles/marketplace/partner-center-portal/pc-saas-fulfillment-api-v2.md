@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130032"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874421"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -28,7 +28,7 @@ Les états d’un abonnement SaaS et les actions applicables s’affichent.
 
 ![Cycle de vie d’un abonnement SaaS dans la Place de marché](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acheté mais pas encore activé ( *PendingFulfillmentStart* )
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acheté mais pas encore activé (*PendingFulfillmentStart*)
 
 Lorsqu’un client final (ou CSP) a acheté une offre SaaS sur la Place de marché, l’éditeur doit être informé de l’achat afin de pouvoir créer et configurer un nouveau compte SaaS pour le client final côté éditeur.
 
@@ -44,7 +44,7 @@ Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, t
 
 L’URL de la page d’accueil doit être disponible 24 h/24 et 7 j/7 et prête à recevoir à tout moment de nouveaux appels de Microsoft. Si la page d’accueil n’est plus disponible, les clients ne pourront pas s’inscrire au service SaaS et commencer à l’utiliser.
 
-Le *jeton* doit ensuite être renvoyé à Microsoft à partir de l’éditeur en appelant l’ [API de résolution SaaS](#resolve-a-purchased-subscription), en tant que valeur du paramètre d’en-tête `x-ms-marketplace-token header`.  Après l’appel de l’API de résolution, le jeton est échangé pour recevoir les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée, l’ID du plan acheté, etc.
+Le *jeton* doit ensuite être renvoyé à Microsoft à partir de l’éditeur en appelant l’[API de résolution SaaS](#resolve-a-purchased-subscription), en tant que valeur du paramètre d’en-tête `x-ms-marketplace-token header`.  Après l’appel de l’API de résolution, le jeton est échangé pour recevoir les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée, l’ID du plan acheté, etc.
 
 Dans la page d’accueil, le client doit être connecté au compte SaaS nouveau ou existant par le biais de l’authentification unique Azure Active Directory (Azure AD).
 
@@ -63,7 +63,7 @@ Cette étape démarre le cycle de facturation du client. Si l’appel de l’API
 
 Cet état est l’état stable d’un abonnement SaaS provisionné. Une fois l'appel de l’[API Activer l’abonnement](#activate-a-subscription) traité côté Microsoft, l’abonnement SaaS est marqué comme étant Abonné. Le service SaaS est maintenant prêt à être utilisé par le client côté éditeur, et le client est alors facturé.
 
-Si l’abonnement SaaS est déjà actif et que le client choisit de **gérer** l’expérience SaaS à partir du portail Azure ou du centre d’administration M365, l’ **URL de la page d’accueil** est de nouveau appelée par Microsoft avec le paramètre de *jeton* , comme dans le processus d’activation.  L’éditeur doit faire la distinction entre les nouveaux achats et la gestion de comptes SaaS existants, et gérer cet appel d’URL de page d’accueil en conséquence.
+Si l’abonnement SaaS est déjà actif et que le client choisit de **gérer** l’expérience SaaS à partir du portail Azure ou du centre d’administration M365, l’**URL de la page d’accueil** est de nouveau appelée par Microsoft avec le paramètre de *jeton*, comme dans le processus d’activation.  L’éditeur doit faire la distinction entre les nouveaux achats et la gestion de comptes SaaS existants, et gérer cet appel d’URL de page d’accueil en conséquence.
 
 #### <a name="being-updated-subscribed"></a>En cours de mise à jour (abonné)
 
@@ -82,11 +82,14 @@ Un seul abonnement actif peut être mis à jour. Pendant la mise à jour de l’
 
 ##### <a name="update-initiated-from-the-marketplace"></a>Mise à jour lancée à partir de la Place de marché
 
-Dans ce processus, le client modifie le plan d’abonnement ou le nombre de postes à partir du centre d’administration M365.  
+Dans ce processus, le client modifie le plan d'abonnement ou le nombre de postes à partir du portail Azure ou du centre d'administration M365.  
 
-1. Lorsqu’une mise à jour est entrée, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de l’Espace partenaires, avec une valeur appropriée pour l’ *action* et d’autres paramètres pertinents.  
+1. Lorsqu’une mise à jour est entrée, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de l’Espace partenaires, avec une valeur appropriée pour l’*action* et d’autres paramètres pertinents.  
 1. Le côté éditeur doit apporter les modifications requises au service SaaS et notifier Microsoft lorsque la modification est terminée en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
 1. Si le correctif est envoyé avec l’état d’échec, le processus de mise à jour ne sera pas effectué côté Microsoft.  L’abonnement SaaS conservera le plan et la quantité de postes existants.
+
+> [!NOTE]
+> L'éditeur doit appeler le correctif PATCH pour [mettre à jour l'état de l'opération](#update-the-status-of-an-operation) avec une réponse Échec/Réussite *dans un délai de 10 secondes* après la réception de la notification du webhook. Si le correctif PATCH de l'état de l'opération n'est pas reçu dans les 10 secondes, une réponse *Réussite est automatiquement appliquée*. 
 
 La séquence d’appels d’API pour un scénario de mise à jour initié par la Place de marché est illustrée ci-dessous.
 
@@ -106,7 +109,7 @@ Séquence des appels d’API pour le scénario de mise à jour initié côté é
 
 ![Appels d’API pour une mise à jour initiée par l’éditeur](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Interrompu ( *Interrompu* )
+#### <a name="suspended-suspended"></a>Interrompu (*Interrompu*)
 
 Cet état indique que le paiement d’un client n’a pas été reçu pour le service SaaS. L’éditeur sera informé du changement de l’état de l’abonnement SaaS par Microsoft. La notification est effectuée via un appel au webhook avec le paramètre *action* défini sur *Interrompu*.
 
@@ -119,7 +122,7 @@ Microsoft accorde au client une période de grâce de 30 jours avant l’annula
 
 L’état de l’abonnement affiche Interrompu côté Microsoft tant que l’éditeur n’a pas effectué une action. Seuls les abonnements actifs peuvent être interrompus.
 
-#### <a name="reinstated-suspended"></a>Réactivé ( *Interrompu* )
+#### <a name="reinstated-suspended"></a>Réactivé (*Interrompu*)
 
 L’abonnement est en cours de réactivation.
 
@@ -135,7 +138,7 @@ Si le correctif est envoyé avec l’état d’échec, le processus de réactiva
 
 Seul un abonnement Interrompu peut être réactivé.  Lorsqu’un abonnement SaaS est réactivé, son état affiche toujours Interrompu.  Une fois cette opération terminée, l’état de l’abonnement affiche Active.
 
-#### <a name="renewed-subscribed"></a>Renouvelé ( *Abonné* )
+#### <a name="renewed-subscribed"></a>Renouvelé (*Abonné*)
 
 À la fin de la période d’abonnement (après un mois ou une année), l’abonnement SaaS est automatiquement renouvelé par Microsoft.  La valeur par défaut du paramètre de renouvellement automatique est *true* pour tous les abonnements SaaS. Les abonnements SaaS actifs continuent d’être renouvelés à un rythme régulier. Microsoft n’informe pas l’éditeur lorsqu’un abonnement est en cours de renouvellement. Un client peut désactiver le renouvellement automatique d’un abonnement SaaS via le portail d’administration M365 ou le portail Azure.  Dans ce cas, l’abonnement SaaS sera automatiquement annulé à la fin de la période de facturation actuelle.  Les clients peuvent également annuler l’abonnement SaaS à tout moment.
 
@@ -143,7 +146,7 @@ Seuls les abonnements actifs sont automatiquement renouvelés.  Les abonnements 
 
 Si un renouvellement automatique échoue en raison d’un problème de paiement, l’abonnement affiche l’état Interrompu.  L’éditeur en sera averti.
 
-#### <a name="canceled-unsubscribed"></a>Annulé ( *Désabonné* ) 
+#### <a name="canceled-unsubscribed"></a>Annulé (*Désabonné*) 
 
 Les abonnements atteignent cet état en réponse à une action explicite de la part du client ou CSP par annulation d’un abonnement depuis le site de l’éditeur, le portail Azure ou le centre d’administration M365.  Un abonnement peut également être annulé implicitement en raison d’un défaut de paiement de la cotisation, après avoir été à l’état Interrompu pendant 30 jours.
 
@@ -573,7 +576,7 @@ Cette API peut être uniquement appelée pour des abonnements à l’état Actif
 
 *Codes de réponse :*
 
-Code : 202 La demande de modification du plan a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’ **URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de plan.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de modification du plan a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de plan.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
 Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier le plan côté éditeur.
 
@@ -638,7 +641,7 @@ La quantité de postes ne peut pas être supérieure à ce qui est autorisé dan
 
 *Codes de réponse :*
 
-Code : 202 La demande de modification de la quantité a été acceptée et traitée de façon asynchrone. Le partenaire doit interroger l’ **URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de quantité.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de modification de la quantité a été acceptée et traitée de façon asynchrone. Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de quantité.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
 Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier la quantité côté éditeur.
 
@@ -703,7 +706,7 @@ Le client est facturé si un abonnement est annulé après les périodes de grâ
 
 *Codes de réponse :*
 
-Code : 202 La demande de désabonnement a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’ **URL Operation-Location** pour déterminer la réussite ou l’échec de cette demande.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de désabonnement a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de cette demande.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
 Le partenaire recevra également une notification de webhook lorsque l’action sera terminée sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra annuler l’abonnement côté éditeur.
 
@@ -788,9 +791,9 @@ Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’err
 
 #### <a name="get-operation-status"></a>Obtenir l’état d’une opération
 
-Permet à l’éditeur de suivre l’état de l’opération asynchrone spécifiée :  **Unsubscribe** , **ChangePlan** ou **ChangeQuantity**.
+Permet à l’éditeur de suivre l’état de l’opération asynchrone spécifiée :  **Unsubscribe**, **ChangePlan** ou **ChangeQuantity**.
 
-La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location** , l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
+La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location**, l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +853,7 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 Mettre à jour l’état d’une opération en attente pour indiquer la réussite ou l’échec de l’opération côté éditeur.
 
-La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location** , l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
+La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location**, l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +965,7 @@ Lorsque l’éditeur est prêt pour le test de bout en bout :
 
 Un flux d’achat peut être déclenché à partir du portail Azure ou de Microsoft AppSource, selon l’endroit où l’offre est publiée.
 
-Les actions de *modification du plan* , *modification de quantité* et de *désabonnement* sont testées côté éditeur.  Côté Microsoft, l’opération de *désabonnement* peut être déclenchée à partir du portail Azure ou centre d’administration (le portail où les achats Microsoft AppSource sont gérés).  Les opérations de *modification de quantité et de plan* peuvent uniquement être déclenchées à partir du centre d’administration.
+Les actions de *modification du plan*, *modification de quantité* et de *désabonnement* sont testées côté éditeur.  Côté Microsoft, l’opération de *désabonnement* peut être déclenchée à partir du portail Azure ou centre d’administration (le portail où les achats Microsoft AppSource sont gérés).  Les opérations de *modification de quantité et de plan* peuvent uniquement être déclenchées à partir du centre d’administration.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

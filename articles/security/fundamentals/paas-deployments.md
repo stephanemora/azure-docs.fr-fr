@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695331"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841986"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -82,14 +82,14 @@ Voici les bonnes pratiques en matière de gestion du périmètre d’identité.
 **Bonne pratique** : protégez vos interfaces de gestion de machine virtuelle sur les services hybrides PaaS et IaaS à l’aide d’une interface de gestion qui vous permet de gérer directement à distance ces machines virtuelles.   
 **Détail** : des protocoles de gestion à distance tels que [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) et [communication à distance PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) peuvent être utilisés. En règle générale, nous vous recommandons de ne pas activer l’accès à distance direct aux machines virtuelles à partir d’Internet.
 
-Si possible, utilisez d’autres approches, comme les réseaux privés virtuels dans un réseau virtuel Azure. Si aucune autre approche n‘est disponible, assurez-vous d’utiliser des phrases secrètes complexes et l’authentification à deux facteurs (notamment [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
+Si possible, utilisez d’autres approches, comme les réseaux privés virtuels dans un réseau virtuel Azure. Si aucune autre approche n'est disponible, utilisez des phrases secrètes complexes et une authentification à deux facteurs (comme [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Bonne pratique** : utilisez une authentification forte et des plateformes d’autorisation.   
 **Détail** : Utilisez des identités fédérées dans Azure AD au lieu des magasins d’utilisateurs personnalisés. Lorsque vous utilisez des identités fédérées, vous tirez parti d'une approche basée sur une plateforme et vous déléguez la gestion des identités autorisées à vos partenaires. Une approche d’identité fédérée est particulièrement importante quand le contrat de certains employés prend fin et que des informations doivent être répercutées sur plusieurs systèmes d’identité et d’autorisation.
 
 Utilisez les mécanismes d‘authentification et d‘autorisation fournis par les plateformes au lieu d‘un code personnalisé. La raison est que le développement d'un code d’authentification personnalisé peut être sujet aux erreurs. La plupart de vos développeurs ne sont pas des experts en sécurité et ont peu de chance d’être conscients des subtilités et des derniers développements dans les domaines de l’authentification et l’autorisation. Le code commercial (par exemple, de Microsoft) est souvent très contrôlé en ce qui concerne la sécurité.
 
-Utilisez une authentification à deux facteurs. L’authentification à deux facteurs est la norme actuelle pour l’authentification et l’autorisation, car elle évite les failles de sécurité inhérentes aux types d’authentification par nom d’utilisateur et mot de passe. L‘accès aux interfaces de gestion Azure (portail / PowerShell à distance) et aux services destinés aux clients doit être conçu et configuré pour utiliser [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Utilisez une authentification à deux facteurs. L’authentification à deux facteurs est la norme actuelle pour l’authentification et l’autorisation, car elle évite les failles de sécurité inhérentes aux types d’authentification par nom d’utilisateur et mot de passe. L'accès aux interfaces de gestion Azure (portail / PowerShell à distance) et aux services destinés aux clients doit être conçu et configuré pour utiliser [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Utilisez des protocoles d’authentification standard, tels qu'OAuth2 et Kerberos. Ces protocoles ont été largement contrôlés et sont probablement implémentés dans le cadre de vos bibliothèques de plateforme pour l’authentification et l’autorisation.
 

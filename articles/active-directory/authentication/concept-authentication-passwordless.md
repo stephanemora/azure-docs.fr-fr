@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992826"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840081"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -62,7 +62,7 @@ Vous pouvez également autoriser le téléphone de votre employé à devenir une
 
 L’application Authenticator transforme n’importe quel téléphone iOS ou Android en informations d’identification fortes et sans mot de passe. Les utilisateurs peuvent se connecter à toute plateforme ou tout navigateur en obtenant une notification sur leur téléphone, en faisant correspondre un numéro affiché sur l’écran à celui affiché sur leur téléphone, puis en utilisant leur leurs données biométriques (toucher ou visage) ou un code confidentiel pour confirmer. Pour plus d’informations sur l’installation, consultez [Télécharger et installer l’application Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md).
 
-La connexion sans mot de passe avec l’application Microsoft Authenticator sur Azure AD est actuellement disponible en préversion. L’utilisation de l’application Microsoft Authenticator pour l’authentification secondaire pour des jetons Multi-Factor Authentication, réinitialisation de mot de passe en libre-service (SSPR) ou logiciels OATH est en GA. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+La connexion sans mot de passe avec l’application Microsoft Authenticator sur Azure AD est actuellement disponible en préversion. L'utilisation de l'application Microsoft Authenticator comme méthode d'authentification secondaire pour Azure AD Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) ou les jetons logiciels OATH est en GA. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L’authentification sans mot de passe à l’aide de l’application Authenticator suit le même modèle de base que Windows Hello Entreprise. C’est un peu plus compliqué lorsque l’utilisateur a besoin d’être identifié afin qu’Azure AD puisse trouver la version de l’application Microsoft Authenticator en cours d’utilisation :
 

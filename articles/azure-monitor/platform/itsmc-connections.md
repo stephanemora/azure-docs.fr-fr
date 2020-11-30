@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682416"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842292"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](./itsmc-overview.md).
@@ -41,6 +41,7 @@ Vérifiez que les prérequis suivants sont remplis :
 - Connexion hybride créée et configurée. Plus d’informations : [Configurez la connexion hybride](#configure-the-hybrid-connection).
 - Versions prises en charge de Service Manager :  2012 R2 ou 2016.
 - Rôle utilisateur :  [Opérateur avancé](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Actuellement, les alertes envoyées à partir d'Azure Monitor peuvent créer des incidents dans System Center Service Manager.
 
 > [!NOTE]
 > 
@@ -186,7 +187,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](./itsmc-overview.md#add-it-service-management-connector).
 - Versions prises en charge par ServiceNow : Orlando, New York, Madrid, Londres, Kingston, Jakarta, Istanbul, Helsinki, Genève.
-- Actuellement, les alertes envoyées depuis Azure Monitor peuvent créer dans ServiceNow l’un des éléments suivants : Événements, incidents ou alertes.
+- Actuellement, les alertes envoyées depuis Azure Monitor peuvent créer l'un des éléments suivants dans ServiceNow : Événements, incidents ou alertes.
 > [!NOTE]
 > Le connecteur ITSM prend en charge uniquement l’offre SaaS officielle de Service Now. Les déploiements privés de Service Now ne sont pas pris en charge. 
 

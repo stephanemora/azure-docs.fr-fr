@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656732"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835660"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planifier le déploiement de Mes applications Azure Active Directory
 
@@ -26,7 +26,7 @@ Mes applications Azure Active Directory (Azure AD) est un portail basé sur le 
 * Détecter et accéder à toutes les ressources Azure AD connectées de l’entreprise, telles que les applications
 * Demander l’accès aux nouvelles applications et aux nouveaux groupes
 * Gérer l’accès à ces ressources pour les autres personnes
-* Gérer les réinitialisations de mot de passe en libre-service et les paramètres d’Azure Multi-Factor Authentication
+* Gérer les paramètres des réinitialisations de mot de passe en libre-service et des authentifications Azure AD MFA
 * Gérer les appareils
 
 Il permet également aux administrateurs de gérer les éléments suivants :
@@ -54,7 +54,7 @@ Mes applications Azure AD offre aux entreprises les avantages suivants :
 
 Mes applications est gratuit et ne nécessite aucune licence pour une utilisation de base. Toutefois, le nombre d’objets contenus dans votre répertoire et les fonctionnalités supplémentaires que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Les scénarios Azure AD ayant des exigences en matière de licences incluent les fonctionnalités de sécurité suivantes :
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Appartenance basée sur des groupes](../fundamentals/active-directory-manage-groups.md)
 * [Réinitialisation de mot de passe en libre service](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
@@ -312,4 +312,4 @@ Utilisez le rôle le moins privilégié pour accomplir une tâche requise dans A
 Vous pouvez utiliser [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Planifier un déploiement d’Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Planifier un déploiement d'Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

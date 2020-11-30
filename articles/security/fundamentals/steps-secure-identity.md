@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410060"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842020"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -48,7 +48,7 @@ Les suggestions faites dans ce document sont alignées sur [Identity Secure Scor
 
 Avant de commencer, assurez-vous de ne pas être compromis pendant que vous lisez cette liste de vérification. Vous devez d’abord protéger vos comptes privilégiés.
 
-Les attaquants qui prennent le contrôle de comptes privilégiés peuvent causer des dégâts considérables. Il est donc essentiel de protéger d’abord ces comptes. Activez et exigez l’utilisation d’[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) pour tous les administrateurs de votre organisation, avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou un [accès conditionnel](../../active-directory/conditional-access/plan-conditional-access.md). Si vous n’avez pas encore implémenté l’authentification MFA, faites-le maintenant ! C’est particulièrement important.
+Les attaquants qui prennent le contrôle de comptes privilégiés peuvent causer des dégâts considérables. Il est donc essentiel de protéger d’abord ces comptes. Activez et exigez l'utilisation d'[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) pour tous les administrateurs de votre organisation, avec les [paramètres de sécurité par défaut d'Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou un [accès conditionnel](../../active-directory/conditional-access/plan-conditional-access.md). Si vous n’avez pas encore implémenté l’authentification MFA, faites-le maintenant ! C’est particulièrement important.
 
 Vous êtes prêt ? Nous pouvons commencer la liste de vérification.
 
@@ -59,9 +59,9 @@ La plupart des failles de sécurité en entreprise proviennent d’un compte com
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Vérifier que votre organisation utilise une authentification forte
 
-Étant donné la fréquence à laquelle les mots de passe sont devinés, hameçonnés, volés par un logiciel malveillant ou réutilisés, il est essentiel de renforcer le mot de passe à l’aide d’une certaine forme d’informations d’identification fortes : en savoir plus sur [Azure multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Étant donné la fréquence à laquelle les mots de passe sont devinés, hameçonnés, volés par un programme malveillant ou réutilisés, il est essentiel de renforcer le mot de passe à l'aide d'une certaine forme d'informations d'identification fortes - Découvrez-en plus sur [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Pour activer facilement le niveau de base de sécurité des identités, vous pouvez utiliser l’activation en un clic avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Les paramètres par défaut de sécurité appliquent Azure MFA pour tous les utilisateurs d’un locataire, et bloquent les connexions à partir des protocoles hérités à l’échelle du locataire.
+Pour activer facilement le niveau de base de sécurité des identités, vous pouvez utiliser l’activation en un clic avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Les paramètres de sécurité par défaut appliquent Azure AD MFA à tous les utilisateurs d'un locataire, et bloquent les connexions liées aux protocoles hérités à l'échelle du locataire.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Commencer à interdire des mots de passe couramment attaqués et à désactiver la complexité traditionnelle et les règles d’expiration.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356584"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839826"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Éliminer les mauvais mots de passe à l’aide de Protection de mots de passe d’Azure Active Directory
 
@@ -24,7 +24,7 @@ De nombreux conseils de sécurité recommandent de ne pas utiliser le même mot 
 
 Grâce à Protection de mots de passe d’Azure AD, les listes globales de mots de passe interdits par défaut sont automatiquement appliquées à tous les utilisateurs dans un locataire Azure AD. Pour répondre aux besoins de votre entreprise et de votre sécurité, vous pouvez définir des entrées dans une liste personnalisée de mots de passe interdits. Lorsque les utilisateurs modifient ou réinitialisent leurs mots de passe, ces listes de mots de passe interdits sont vérifiées pour imposer l’utilisation de mots de passe forts.
 
-Vous devez utiliser des fonctionnalités supplémentaires telles que [Microsoft Azure Multi-Factor Authentication](concept-mfa-howitworks.md), et non pas seulement vous fier à des mots de passe forts imposés par Protection de mots de passe d’Azure AD. Pour plus d’informations sur l’utilisation de plusieurs couches de sécurité pour vos événements de connexion, consultez [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Vous devez utiliser des fonctionnalités supplémentaires comme [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md), et éviter de vous fier uniquement aux mots de passe forts imposés par Azure AD Password Protection. Pour plus d’informations sur l’utilisation de plusieurs couches de sécurité pour vos événements de connexion, consultez [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Cet article conceptuel explique à un administrateur le fonctionnement de Protection de mots de passe d’Azure AD. Si vous êtes un utilisateur final déjà inscrit pour la réinitialisation de mot de passe en libre-service, et si vous devez récupérer votre compte, accédez à [https://aka.ms/sspr](https://aka.ms/sspr).

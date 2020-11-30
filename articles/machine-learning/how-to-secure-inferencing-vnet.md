@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361163"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873809"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -68,16 +68,16 @@ Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez le
 
 1. Sélectionnez __Clusters d'inférence__ à partir du centre, puis sélectionnez __+__ .
 
-1. Dans la boîte de dialogue __Nouveau cluster d'inférence__ , sélectionnez __Avancé__ sous __Configuration réseau__.
+1. Dans la boîte de dialogue __Nouveau cluster d'inférence__, sélectionnez __Avancé__ sous __Configuration réseau__.
 
 1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, procédez comme suit :
 
-    1. Dans la liste déroulante __Groupe de ressources__ , sélectionnez le groupe de ressources qui contient le réseau virtuel.
-    1. Dans la liste déroulante __Réseau virtuel__ , sélectionnez le réseau virtuel qui contient le sous-réseau.
-    1. Dans la liste déroulante __Sous-réseau__ , sélectionnez le sous-réseau.
-    1. Dans la __plage d’adresses de service Kubernetes__ , entrez la plage d’adresses du service Kubernetes. Cette plage d’adresses utilise une plage d’adresses IP de notation CIDR (Classless Inter-Domain Routing) pour définir les adresses IP disponibles pour le cluster. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau (par exemple, 10.0.0.0/16).
-    1. Dans la zone __plage d’adresses IP du service DNS Kubernetes__ , entrez l’adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes (par exemple, 10.0.0.10).
-    1. Dans la zone __adresse du pont Docker__ , entrez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes (par exemple, 172.17.0.1/16).
+    1. Dans la liste déroulante __Groupe de ressources__, sélectionnez le groupe de ressources qui contient le réseau virtuel.
+    1. Dans la liste déroulante __Réseau virtuel__, sélectionnez le réseau virtuel qui contient le sous-réseau.
+    1. Dans la liste déroulante __Sous-réseau__, sélectionnez le sous-réseau.
+    1. Dans la __plage d’adresses de service Kubernetes__, entrez la plage d’adresses du service Kubernetes. Cette plage d’adresses utilise une plage d’adresses IP de notation CIDR (Classless Inter-Domain Routing) pour définir les adresses IP disponibles pour le cluster. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau (par exemple, 10.0.0.0/16).
+    1. Dans la zone __plage d’adresses IP du service DNS Kubernetes__, entrez l’adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes (par exemple, 10.0.0.10).
+    1. Dans la zone __adresse du pont Docker__, entrez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes (par exemple, 172.17.0.1/16).
 
    ![Azure Machine Learning : Paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Une fois le processus de création terminé, vous pouvez effectuer une inférence, ou un scoring de modèle, sur un cluster AKS derrière un réseau virtuel. Pour plus d’informations, consultez [Guide pratique pour déployer sur AKS](how-to-deploy-and-where.md).
 
+Pour plus d'informations sur l'utilisation du contrôle d'accès en fonction du rôle avec Kubernetes, consultez [Utiliser Azure RBAC pour l'autorisation Kubernetes](../aks/manage-azure-rbac.md).
+
 ## <a name="network-contributor-role"></a>Rôle du contributeur de réseau
 
 > [!IMPORTANT]
@@ -122,7 +124,7 @@ Une fois le processus de création terminé, vous pouvez effectuer une inférenc
 >
 > Pour ajouter l’identité en tant que contributeur de réseau, procédez comme suit :
 
-1. Pour rechercher le principal de service ou l’ID d’identité managée pour AKS, utilisez les commandes Azure CLI suivantes. Remplacez `<aks-cluster-name>` par le nom du cluster. Remplacez `<resource-group-name>` par le nom du groupe de ressources _contenant le cluster AKS_  :
+1. Pour rechercher le principal de service ou l’ID d’identité managée pour AKS, utilisez les commandes Azure CLI suivantes. Remplacez `<aks-cluster-name>` par le nom du cluster. Remplacez `<resource-group-name>` par le nom du groupe de ressources _contenant le cluster AKS_ :
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -134,7 +136,7 @@ Une fois le processus de création terminé, vous pouvez effectuer une inférenc
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Pour rechercher l’ID du groupe de ressources contenant votre réseau virtuel, utilisez la commande suivante. Remplacez `<resource-group-name>` par le nom du groupe de ressources _contenant le réseau virtuel_  :
+1. Pour rechercher l’ID du groupe de ressources contenant votre réseau virtuel, utilisez la commande suivante. Remplacez `<resource-group-name>` par le nom du groupe de ressources _contenant le réseau virtuel_ :
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -151,8 +153,8 @@ Pour plus d’informations sur l’utilisation de l’équilibreur de charge int
 
 Il existe deux approches pour isoler le trafic vers et depuis le cluster AKS en direction du réseau virtuel :
 
-* __Cluster AKS privé__  : Cette approche utilise Azure Private Link pour sécuriser les communications avec le cluster pour les opérations de déploiement et de gestion.
-* __Équilibreur de charge AKS interne__  : Cette approche configure le point de terminaison de vos déploiements sur AKS pour utiliser une adresse IP privée dans le réseau virtuel.
+* __Cluster AKS privé__ : Cette approche utilise Azure Private Link pour sécuriser les communications avec le cluster pour les opérations de déploiement et de gestion.
+* __Équilibreur de charge AKS interne__ : Cette approche configure le point de terminaison de vos déploiements sur AKS pour utiliser une adresse IP privée dans le réseau virtuel.
 
 > [!WARNING]
 > L’équilibreur de charge interne ne fonctionne pas avec un cluster AKS qui utilise kubenet. Si vous souhaitez utiliser un équilibreur de charge interne et un cluster AKS privé en même temps, configurez votre cluster AKS privé avec Azure Container Networking Interface (CNI). Pour plus d’informations, consultez [Configurer la mise en réseau d’Azure CNI dans Azure Kubernetes Service](../aks/configure-azure-cni.md).
@@ -265,7 +267,7 @@ Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez l
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitez la connectivité sortante à partir du réseau virtuel
 
-Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, vous devez autoriser l’accès à Azure Container Registry. Par exemple, assurez-vous que vos groupes de sécurité réseau (NSG) contiennent une règle qui autorise l’accès à l’étiquette de service __AzureContainerRegistry.RegionName__ , où {RegionName} correspond au nom d’une région Azure.
+Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, vous devez autoriser l’accès à Azure Container Registry. Par exemple, assurez-vous que vos groupes de sécurité réseau (NSG) contiennent une règle qui autorise l’accès à l’étiquette de service __AzureContainerRegistry.RegionName__, où {RegionName} correspond au nom d’une région Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789571"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841221"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nouvel administrateur de base de données dans le cloud - Gérer Azure SQL Database après la migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,18 +38,18 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Sur le [portail Azure](https://portal.azure.com/), vous pouvez superviser l'utilisation d'une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision** . Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique** . Ajoutez les mesures suivantes :
+Sur le [portail Azure](https://portal.azure.com/), vous pouvez superviser l'utilisation d'une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
 - Pourcentage E/S des données
 - Pourcentage de la taille de la base de données
 
-Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique** . Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](service-tiers-dtu.md) et [Modèle d’achat vCore](service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
+Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](service-tiers-dtu.md) et [Modèle d’achat vCore](service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
 
 ![Surveillance des niveaux de service des performances de la base de données.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique** . Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
+Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique**. Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
 
 Par exemple, si vous pensez que la charge de travail dans votre base de données va augmenter, vous pouvez choisir de configurer une alerte par courrier électronique chaque fois que votre base de données atteint 80 % de n'importe quelle mesure de performances. Vous pouvez l’utiliser comme un avertissement anticipé pour déterminer le moment auquel vous devez passer à la taille de calcul supérieure.
 
@@ -106,7 +106,7 @@ SQL Database propose deux méthodes d’authentification :
 
 L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (Azure AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. 
 
-Azure AD prend en charge [Microsoft Azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) de proposer une authentification multifacteur et des comptes d’utilisateur invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
+Azure AD prend en charge [Azure AD Multi-Factor Authentication](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) de proposer une authentification multifacteur et des comptes d’utilisateur invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
 |**Si vous…**|**SQL Database / Azure Synapse Analytics**|
 |---|---|

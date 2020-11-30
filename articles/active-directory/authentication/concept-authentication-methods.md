@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840015"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
@@ -26,13 +26,13 @@ Dans le cadre de l’expérience de connexion pour les comptes Microsoft Azure A
 
 Les méthodes d’authentification sans mot de passe telles que Windows Hello, les clés de sécurité FIDO2 et l’application Microsoft Authenticator permettent les événements de connexion les plus sécurisés.
 
-Azure Multi-Factor Authentication renforce la sécurité lorsqu’un utilisateur utilise un seul mot de passe pour se connecter. L’utilisateur peut être invité à fournir des formes d’authentification supplémentaires, par exemple répondre à une notification push, entrer un code à partir d’un jeton logiciel ou matériel, ou répondre à un SMS ou à un appel téléphonique.
+Azure AD Multi-Factor Authentication renforce la sécurité par rapport à l'utilisation d'un simple mot de passe lors de la connexion. L’utilisateur peut être invité à fournir des formes d’authentification supplémentaires, par exemple répondre à une notification push, entrer un code à partir d’un jeton logiciel ou matériel, ou répondre à un SMS ou à un appel téléphonique.
 
 Pour simplifier l’expérience d’intégration des utilisateurs et s’inscrire pour MFA et SSPR, nous vous recommandons d'[activer l’inscription d’informations de sécurité combinée](howto-registration-mfa-sspr-combined.md). À des fins de résilience, nous vous recommandons de demander aux utilisateurs d’enregistrer plusieurs méthodes d’authentification. Lorsqu’une méthode n’est pas disponible pour un utilisateur lors d’une connexion ou SSPR, il peut choisir de s’authentifier avec une autre méthode. Pour plus d’informations, consultez [Créer une stratégie de gestion du contrôle d’accès résiliente dans Azure AD](concept-resilient-controls.md).
 
 ## <a name="authentication-method-strength-and-security"></a>Robustesse et sécurité des méthodes d’authentification
 
-Lorsque vous déployez des fonctionnalités telles qu’Azure Multi-Factor Authentication au sein de votre organisation, passez en revue les méthodes d’authentification disponibles. Optez pour des méthodes qui remplissent ou dépassent vos exigences en termes de sécurité, de facilité d’utilisation et de disponibilité. Dans la mesure du possible, utilisez des méthodes d’authentification avec le niveau de sécurité le plus élevé.
+Lorsque vous déployez des fonctionnalités telles qu'Azure AD Multi-Factor Authentication au sein de votre organisation, passez en revue les méthodes d'authentification disponibles. Optez pour des méthodes qui remplissent ou dépassent vos exigences en termes de sécurité, de facilité d’utilisation et de disponibilité. Dans la mesure du possible, utilisez des méthodes d’authentification avec le niveau de sécurité le plus élevé.
 
 Le tableau suivant décrit les considérations relatives à la sécurité pour les méthodes d’authentification disponibles. La disponibilité indique que l’utilisateur est en mesure d’utiliser la méthode d’authentification, et ne se réfère pas à la disponibilité du service dans Azure AD :
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur la sécurité, consultez [Vulnérabilités d’au
 
 ## <a name="how-each-authentication-method-works"></a>Fonctionnement de chaque méthode d’authentification
 
-Certaines méthodes d’authentification peuvent être utilisées en tant que facteur principal lorsque vous vous connectez à une application ou un appareil, par exemple à l’aide d’une clé de sécurité FIDO2 ou d’un mot de passe. D’autres méthodes d’authentification sont uniquement disponibles en tant que facteur secondaire lorsque vous utilisez Azure Multi-Factor Authentication ou SSPR.
+Certaines méthodes d’authentification peuvent être utilisées en tant que facteur principal lorsque vous vous connectez à une application ou un appareil, par exemple à l’aide d’une clé de sécurité FIDO2 ou d’un mot de passe. Les autres méthodes d'authentification sont uniquement disponibles en tant que facteur secondaire lorsque vous utilisez Azure AD Multi-Factor Authentication ou SSPR.
 
 Le tableau suivant décrit quand une méthode d’authentification peut être utilisée lors d’un événement de connexion :
 
@@ -83,25 +83,25 @@ Pour en savoir plus sur le fonctionnement de chaque méthode d’authentificatio
 * Mot de passe
 
 > [!NOTE]
-> Dans Azure AD, un mot de passe constitue souvent l’une des méthodes d’authentification principales. Vous ne pouvez pas désactiver la méthode d’authentification par mot de passe. Si vous utilisez un mot de passe en tant que facteur d’authentification principal, renforcez la sécurité des événements de connexion à l’aide d’Azure Multi-Factor Authentication.
+> Dans Azure AD, un mot de passe constitue souvent l’une des méthodes d’authentification principales. Vous ne pouvez pas désactiver la méthode d’authentification par mot de passe. Si vous utilisez un mot de passe en tant que facteur d'authentification principal, renforcez la sécurité des événements de connexion à l'aide d'Azure AD Multi-Factor Authentication.
 
 Les méthodes de vérification supplémentaires suivantes peuvent être utilisées dans certains scénarios :
 
-* [Mots de passe d’application](howto-mfa-app-passwords.md) : utilisés pour les anciennes applications qui ne prennent pas en charge l’authentification moderne et peuvent être configurés pour Azure Multi-Factor Authentication par l’utilisateur.
+* [Mots de passe d'application](howto-mfa-app-passwords.md) : utilisés pour les anciennes applications qui ne prennent pas en charge l'authentification moderne et peuvent être configurés pour Azure AD Multi-Factor Authentication par utilisateur.
 * [Questions de sécurité](concept-authentication-security-questions.md) : utilisées uniquement pour SSPR
 * [Adresse e-mail](concept-sspr-howitworks.md#authentication-methods) : utilisée uniquement pour SSPR
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe en libre-service][tutorial-sspr] et [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe en libre-service][tutorial-sspr] et l’[authentification multifacteur Azure AD][tutorial-azure-mfa].
 
 Pour en savoir plus sur les concepts de SSPR, consultez [Fonctionnement de la réinitialisation de mot de passe en libre-service dans Azure AD][concept-sspr].
 
-Pour plus d’informations sur les concepts MFA, consultez [Azure Multi-Factor Authentication : fonctionnement][concept-mfa].
+Pour plus d'informations sur les concepts MFA, consultez [Fonctionnement d'Azure AD Multi-Factor Authentication][concept-mfa].
 
 Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-Pour connaître les méthodes d’authentification en cours d’utilisation, consultez [Analyse de la méthode d’authentification Azure Multi-Factor Authentication avec PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+Pour connaître les méthodes d'authentification utilisées, consultez [Analyse de la méthode d'authentification Azure AD Multi-Factor Authentication avec PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

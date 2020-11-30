@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 788c52490a97bb5d5aee0656bbdd09731d767d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058698"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842598"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Base de référence de sécurité Azure pour les adresses IP publiques Azure
 
@@ -148,11 +148,11 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Aide** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure Multi-Factor Authentication (MFA) activé pour vous connecter à vos ressources compatibles avec Azure Sentinel et les configurer.
+**Conseils** : Utilisez une station de travail à accès privilégié sur laquelle Azure AD Multi-Factor Authentication (MFA) est activé pour vous connecter à vos ressources liées à Azure Sentinel et les configurer.
 
 - [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision Azure Security Center** : Non applicable
 

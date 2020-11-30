@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410366"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843687"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -79,13 +79,13 @@ En savoir plus :
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Azure Multi-Factor Authentication contribue à sécuriser l’accès aux données et aux applications, tout en proposant un processus d’authentification simple et conforme à la demande des utilisateurs. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appels téléphoniques, SMS, notifications par application mobile ou codes de vérification et jetons OAuth tiers.
+Azure AD Multi-Factor Authentication est une méthode d'authentification qui nécessite l'utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Azure Multi-Factor Authentication contribue à sécuriser l’accès aux données et aux applications, tout en proposant un processus d’authentification simple et conforme à la demande des utilisateurs. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appels téléphoniques, SMS, notifications par application mobile ou codes de vérification et jetons OAuth tiers.
 
 En savoir plus :
 
 * [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Présentation d'Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Azure Multi-Factor Authentication : fonctionnement](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Présentation d'Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Comment fonctionne l’authentification multifacteur Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
@@ -107,10 +107,10 @@ Vous pouvez protéger votre entreprise grâce à la surveillance de la sécurit�
 
 Dans le portail Azure, les rapports sont classés dans les catégories suivantes :
 
-* **Rapports d’anomalies**  : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
-* **Rapports d’application intégrée**  : fournissent des insights sur l’utilisation des applications cloud dans votre organisation. Azure AD permet d’intégrer des milliers d'applications du cloud.
-* **Rapports d’erreurs**  : indiquent les erreurs qui peuvent survenir quand vous provisionnez des comptes sur des applications externes.
-* **Rapports spécifiques à l’utilisateur**  : affichent les données d’activité relatives aux connexions de l’appareil d’un utilisateur spécifique.
+* **Rapports d’anomalies** : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
+* **Rapports d’application intégrée** : fournissent des insights sur l’utilisation des applications cloud dans votre organisation. Azure AD permet d’intégrer des milliers d'applications du cloud.
+* **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir quand vous provisionnez des comptes sur des applications externes.
+* **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux connexions de l’appareil d’un utilisateur spécifique.
 * **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
 En savoir plus :

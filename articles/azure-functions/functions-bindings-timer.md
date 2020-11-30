@@ -4,15 +4,15 @@ description: Découvrez comment utiliser des déclencheurs de minuteur dans Azur
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025899"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874081"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée. L’objet [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) est transmis à la fonction.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée. L’[objet de minuteur](#usage) est transmis à la fonction.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -165,7 +165,7 @@ Une instance de l’[objet de minuteur](#usage) est transmise comme premier argu
 
 L’exemple suivant utilise une liaison de déclencheur de minuteur dont la configuration est décrite dans le fichier *function.json*. La véritable [fonction Python](functions-reference-python.md) qui utilise la liaison est décrite dans le fichier *__init__.py*. L’objet transmis à la fonction est de type [Objet azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logique de fonction écrit dans les journaux indiquant si l’appel est dû à une occurrence de planification manquée.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -299,11 +299,11 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 |Type  |Exemple  |En cas de déclenchement  |
 |---------|---------|---------|
-|Une valeur spécifique |<nobr>"0 5 * * * *"</nobr>|à hh:05:00 où hh correspond à toutes les heures (une fois par heure)|
-|Toutes les valeurs (`*`)|<nobr>"0 * 5 * * *"</nobr>|à 5:mm:00 chaque jour, où mm correspond à toutes les minutes de l’heure (60 fois par jour)|
-|Une plage (opérateur `-`)|<nobr>"5-7 * * * * *"</nobr>|à hh:mm:05, hh:mm:06 et hh:mm:07 où hh:mm correspond à toutes les minutes de toutes les heures (3 fois par minute)|
-|Un ensemble de valeurs (opérateur `,`)|<nobr>"5,8,10 * * * * *"</nobr>|à hh:mm:05, hh:mm:08 et hh:mm:10 où hh:mm correspond à toutes les minutes de toutes les heures (3 fois par minute)|
-|Une valeur d’intervalle (opérateur `/`)|<nobr>"0 */5 * * * *"</nobr>|à hh:00:00, hh:05:00, hh:10:00 et ainsi de suite jusqu’à hh:55:00, où hh correspond à toutes les heures (12 fois par heure)|
+|Une valeur spécifique |<nobr>`0 5 * * * *`</nobr>| Une fois par heure du jour, à la 5e minute de chaque heure |
+|Toutes les valeurs (`*`)|<nobr>`0 * 5 * * *`</nobr>| Une fois par minute, à partir de la 5e heure |
+|Une plage (opérateur `-`)|<nobr>`5-7 * * * * *`</nobr>| Trois fois par minute - aux secondes 5 à 7 de chaque minute de chaque heure de chaque jour |
+|Un ensemble de valeurs (opérateur `,`)|<nobr>`5,8,10 * * * * *`</nobr>| Trois fois par minute - aux secondes 5, 8 et 10 de chaque minute de chaque heure de chaque jour |
+|Une valeur d’intervalle (opérateur `/`)|<nobr>`0 */5 * * * *`</nobr>| 12 fois par heure - à la seconde 0 de la 5e minute de chaque heure de chaque jour |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour le déclencheur de minuteur dans Azure Functions.
 
-|Exemple|En cas de déclenchement  |
-|---------|---------|
-|`"0 */5 * * * *"`|une fois toutes les cinq minutes|
-|`"0 0 * * * *"`|une fois toutes les heures|
-|`"0 0 */2 * * *"`|une fois toutes les deux heures|
-|`"0 0 9-17 * * *"`|une fois toutes les heures entre 9h et 17h|
-|`"0 30 9 * * *"`|à 9h30 tous les jours|
-|`"0 30 9 * * 1-5"`|à 9h30 tous les jours de la semaine|
-|`"0 30 9 * Jan Mon"`|à 9h30 tous les lundis en janvier|
+| Exemple            | En cas de déclenchement                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | une fois toutes les cinq minutes            |
+| `0 0 * * * *`      | une fois toutes les heures      |
+| `0 0 */2 * * *`    | une fois toutes les deux heures               |
+| `0 0 9-17 * * *`   | une fois toutes les heures entre 9h et 17h  |
+| `0 30 9 * * *`     | à 9h30 tous les jours               |
+| `0 30 9 * * 1-5`   | à 9h30 tous les jours de la semaine           |
+| `0 30 9 * Jan Mon` | à 9h30 tous les lundis en janvier |
 
 > [!NOTE]
-> L’expression NCRONTAB nécessite le format à **six champs**. Les expressions cron à cinq champs ne sont pas prises en charge dans Azure.
+> L'expression NCRONTAB nécessite le format à **six champs**. Le sixième champ comprend une valeur correspondant aux secondes qui est placée au début de l'expression. Les expressions cron à cinq champs ne sont pas prises en charge dans Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fuseaux horaires NCRONTAB
 

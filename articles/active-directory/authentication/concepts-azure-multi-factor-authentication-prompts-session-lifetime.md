@@ -1,6 +1,6 @@
 ---
-title: Invites et durée de vie des sessions dans Azure Multi-Factor Authentication
-description: Découvrez la configuration recommandée pour les invites de réauthentification avec Azure Multi-Factor Authentication et la façon dont s’applique la durée de vie des sessions.
+title: Invites et durée de vie des sessions Azure AD Multi-Factor Authentication
+description: Familiarisez-vous avec la configuration recommandée pour les invites de réauthentification auprès d'Azure AD Multi-Factor Authentication et sur la façon dont s'applique la durée de vie des sessions.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964942"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839673"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions Azure AD Multi-Factor Authentication
 
 Azure AD (Azure Active Directory) utilise plusieurs paramètres qui déterminent la fréquence à laquelle les utilisateurs doivent se réauthentifier. Cette réauthentification peut se faire avec un premier facteur de type mot de passe, FIDO ou Microsoft Authenticator sans mot de passe, ou en utilisant l’authentification multifacteur (MFA). Vous pouvez configurer ces paramètres de réauthentification en fonction des exigences de votre environnement et de l’expérience utilisateur que vous souhaitez offrir.
 
@@ -136,4 +136,4 @@ Le tableau suivant récapitule les recommandations par licence :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, suivez le tutoriel [Sécuriser les événements de connexion utilisateur avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) ou [Utiliser les détections de risques pour les connexions utilisateur pour déclencher l’authentification multifacteur Azure](tutorial-risk-based-sspr-mfa.md).
+Pour commencer, suivez le tutoriel [Sécuriser les événements de connexion utilisateur avec Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md) ou [Utiliser les détections de risques liés aux connexions utilisateur pour déclencher Azure AD Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).

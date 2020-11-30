@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660285"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916489"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -196,7 +196,7 @@ Modifications récentes apportées aux paramètres de configuration de la foncti
 
 ### <a name="cause"></a>Cause  
 
-Un nombre élevé de notifications de modification de fichier sur des partages de fichiers peut entraîner des latences importantes. Cela se produit généralement avec des sites web hébergés sur des partages de fichiers avec une structure de répertoires imbriqués profonde. Un scénario classique est l’application web hébergée par IIS où la notification de modification de fichier est configurée pour chaque répertoire dans la configuration par défaut. Chaque modification (ReadDirectoryChangesW) sur le partage pour lequel le client SMB est inscrit envoie une notification de modification du service de fichiers au client, qui mobilise des ressources du système, et le problème empire avec le nombre de modifications. Cela peut entraîner une limitation du partage et, par conséquent, une latence plus élevée côté client. 
+Un nombre élevé de notifications de modification de fichier sur des partages de fichiers peut entraîner des latences importantes. Cela se produit généralement avec des sites web hébergés sur des partages de fichiers avec une structure de répertoires imbriqués profonde. Un scénario classique est l’application web hébergée par IIS où la notification de modification de fichier est configurée pour chaque répertoire dans la configuration par défaut. Chaque modification ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) sur le partage pour lequel le client SMB est inscrit envoie une notification de modification du service de fichiers au client, ce qui mobilise des ressources du système, et le problème empire avec le nombre de modifications. Cela peut entraîner une limitation du partage et, par conséquent, une latence plus élevée côté client. 
 
 Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail : 
 
@@ -213,10 +213,8 @@ Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail 
     - Mettez à jour l’intervalle d’interrogation du processus Worker IIS (W3WP) à 0 en définissant `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` dans votre registre, puis redémarrez le processus W3WP. Pour en savoir plus sur ce paramètre, consultez [Clés de Registre qui s’appliquent au processus de travail IIS (W3WP)](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Augmentez la fréquence de l’intervalle d’interrogation de notification de modification de fichier pour réduire le volume.
     - Mettez à jour l’intervalle d’interrogation du processus Worker W3WP en le définissant sur une valeur plus élevée (par exemple, 10 ou 30 minutes) en fonction de vos besoins. Définissez `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [dans votre registre](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp), puis redémarrez le processus W3WP.
-- Si le répertoire physique mappé de votre site web comporte une structure de répertoires imbriqués, vous pouvez essayer de limiter l’étendue de la notification de modification de fichier pour réduire le volume des notifications.
-    - Par défaut, IIS utilise la configuration des fichiers Web.config dans le répertoire physique auquel le répertoire virtuel est mappé, ainsi que dans tous les répertoires enfants de ce répertoire physique. Si vous ne souhaitez pas utiliser de fichiers Web.config dans les répertoires enfants, spécifiez la valeur false pour l’attribut allowSubDirConfig sur le répertoire virtuel. Pour plus d’informations, cliquez [ici](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Définissez le paramètre « allowSubDirConfig » du répertoire virtuel IIS dans Web.config sur la valeur false afin d’exclure les répertoires enfants physiques mappés de l’étendue.  
+- Si le répertoire physique mappé de votre site web comporte une structure de répertoires imbriqués, vous pouvez essayer de limiter l’étendue de la notification de modification de fichier pour réduire le volume des notifications. Par défaut, IIS utilise la configuration des fichiers Web.config dans le répertoire physique auquel le répertoire virtuel est mappé, ainsi que dans tous les répertoires enfants de ce répertoire physique. Si vous ne souhaitez pas utiliser de fichiers Web.config dans les répertoires enfants, spécifiez la valeur false pour l’attribut allowSubDirConfig sur le répertoire virtuel. Pour plus d’informations, cliquez [ici](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Définissez le paramètre « allowSubDirConfig » du répertoire virtuel IIS dans Web.config sur la valeur *false* afin d'exclure de l'étendue les répertoires enfants physiques mappés.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Comment créer une alerte en cas de limitation d’un partage de fichiers
 

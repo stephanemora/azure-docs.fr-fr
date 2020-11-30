@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61471e07dda8fcf0c715dcffe85ad3e39ed8ac3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562874"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840370"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Un profil technique permet les types de scénarios suivants :
 
 - [Application Insights](application-insights-technical-profile.md) - Envoi de données d’événement à [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) : fournit une assistance pour la gestion des utilisateurs Azure Active Directory B2C.
-- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) : gère la vérification d’un numéro de téléphone à l’aide d’Azure Multi-Factor Authentication (MFA). 
+- [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md) : permet de vérifier un numéro de téléphone à l'aide d'Azure AD Multi-Factor Authentication (MFA). 
 - [Transformation de revendications](claims-transformation-technical-profile.md) : appelle les transformations de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
 - [Indicateur de jeton d’ID](id-token-hint.md) : valide la signature de jeton JWT `id_token_hint`, le nom de l’émetteur et l’audience du jeton, puis extrait la revendication du jeton entrant.
 - [Émetteur de jeton JWT](jwt-issuer-technical-profile.md) : émet un jeton JWT qui est retourné à l’application par partie de confiance.

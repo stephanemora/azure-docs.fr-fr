@@ -1,6 +1,6 @@
 ---
-title: Gérer les méthodes d’authentification pour Azure Multi-Factor Authentication – Azure Active Directory
-description: Découvrir comment configurer les paramètres utilisateur Azure Active Directory pour Azure Multi-Factor Authentication
+title: Gérer les méthodes d'authentification d'Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Apprenez à configurer les paramètres utilisateur d'Azure Active Directory pour Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378043"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838925"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gérer les méthodes d’authentification utilisateur pour Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gérer les méthodes d'authentification utilisateur d'Azure AD Multi-Factor Authentication
 
 Les utilisateurs d’Azure AD ont deux ensembles distincts de coordonnées :  
 
 - Les coordonnées du profil public, qui sont gérées dans le profil utilisateur et visibles par les membres de votre organisation. Pour les utilisateurs synchronisés depuis Windows Server Active Directory, ces informations sont gérées localement dans Windows Server Active Directory Domain Services.
 - Les méthodes d’authentification, qui sont toujours privées et utilisées uniquement pour l’authentification, notamment l’authentification multifacteur (MFA). Les administrateurs peuvent gérer ces méthodes dans le panneau de méthode d’authentification d’un utilisateur, et les utilisateurs peuvent gérer leurs méthodes dans la page Informations de sécurité de Mon compte.
 
-Lors de la gestion des méthodes Azure Multi-Factor Authentication pour vos utilisateurs, les Administrateurs d’authentification peuvent : 
+Lors de la gestion des méthodes Azure AD Multi-Factor Authentication de vos utilisateurs, les Administrateurs d'authentification peuvent : 
 
 1. Ajouter des méthodes d’authentification pour un utilisateur spécifique, notamment des numéros de téléphone utilisés pour l’authentification multifacteur.
 1. Réinitialisez le mot de passe d’un utilisateur.
@@ -116,6 +116,6 @@ Pour supprimer les mots de passe d’application d’un utilisateur, effectuez l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a montré comment configurer des paramètres utilisateur individuels. Pour configurer l’ensemble des paramètres du service Azure Multi-Factor Authentication, consultez [Configurer les paramètres d’Azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
+Cet article vous a montré comment configurer des paramètres utilisateur individuels. Pour configurer l'ensemble des paramètres du service Azure AD Multi-Factor Authentication, consultez [Configurer les paramètres d'Azure AD Multi-Factor Authentication](howto-mfa-mfasettings.md).
 
-Si vos utilisateurs ont besoin d’aide, consultez le [Guide de l’utilisateur pour Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+Si vos utilisateurs ont besoin d'aide, consultez le [Guide de l'utilisateur d'Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

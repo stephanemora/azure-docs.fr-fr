@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 3be1d404d0cac7f9e5c9b1c2f7350cf05c5fe794
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358114"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887397"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -31,7 +31,7 @@ Pour cela, vous devez :
 
 Pour une expérience avec peu de code, consultez le [tutoriel : Prévoir la demande à l’aide du Machine Learning automatisé](tutorial-automated-ml-forecast.md) pour un exemple de prévision de série chronologique utilisant le Machine Learning automatisé dans [Azure Machine Learning Studio](https://ml.azure.com/).
 
-Contrairement aux méthodes classiques de séries chronologiques, dans Machine Learning automatisé, les valeurs des séries chronologiques sont ajoutées à un tableau croisé dynamique pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Cette approche intègre plusieurs variables contextuelles et les relations qu’elles entretiennent au cours de l’apprentissage. Dans la mesure où plusieurs facteurs peuvent influencer une prévision, cette méthode s’aligne bien sur les scénarios de prévision du monde réel. Par exemple, lors de la prévision des ventes, les interactions des tendances historiques, des taux de change et des prix déterminent conjointement le résultat de ventes. 
+Contrairement aux méthodes classiques de séries chronologiques, dans Machine Learning automatisé, les valeurs des séries chronologiques sont ajoutées à un tableau croisé dynamique pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Cette approche intègre plusieurs variables contextuelles et les relations qu’elles entretiennent au cours de l’apprentissage. Dans la mesure où plusieurs facteurs peuvent influencer une prévision, cette méthode s’aligne bien sur les scénarios de prévision du monde réel. Par exemple, lors de la prévision des ventes, les interactions entre les tendances historiques, les taux de change et les prix déterminent conjointement le résultat des ventes. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +46,7 @@ Pour cet article, vous avez besoin des éléments suivants :
 La principale différence entre un type de tâche de régression de prévisions et un type de tâche de régression au sein d’AutoML consiste à intégrer une fonctionnalité dans vos données qui représente une série chronologique valide. Une série chronologique normale a une fréquence cohérente et bien définie et a une valeur à chaque point de l’exemple dans un intervalle de temps continu. 
 
 Examinons la capture instantanée suivante d’un fichier `sample.csv`.
-Ce jeu de données provient de données de ventes quotidiennes pour une société qui a deux banques différentes, A et B. 
+Ce jeu de données provient de données de ventes quotidiennes d'une entreprise qui possède deux magasins différents, A et B. 
 
 En outre, il existe des fonctionnalités pour
 
@@ -131,14 +131,14 @@ Le Machine Learning automatisé essaie automatiquement différents modèles et a
 Modèles| Description | Avantages
 ----|----|---
 Prophet (préversion)|Prophet fonctionne mieux avec les séries chronologiques ayant des effets saisonniers forts et plusieurs saisons de données historiques. Pour tirer parti de ce modèle, installez-le en local à l’aide de `pip install fbprophet`. | Précis, rapide et robuste aux valeurs hors norme, aux données manquantes et aux évolutions profondes des séries chronologiques.
-Auto-ARIMA (préversion)|La moyenne mobile intégrée auto-régressive (ARIMA) est idéale pour les données fixes, c’est-à-dire les données dont les propriétés statistiques, comme la moyenne et la variance, sont constantes sur la totalité du jeu. Par exemple, si l’on lance une pièce de monnaie, la probabilité d’obtenir face est de 50 %, que ce soit aujourd’hui, demain ou l’année prochaine.| Idéal pour les séries univariées, car les valeurs passées sont utilisées pour prédire les valeurs futures.
+Auto-ARIMA (préversion)|La moyenne mobile intégrée auto-régressive (ARIMA) est idéale pour les données fixes, c’est-à-dire les données dont les propriétés statistiques, comme la moyenne et la variance, sont constantes sur la totalité du jeu. Par exemple, quand on lance une pièce de monnaie, la probabilité d'obtenir face est de 50 %, que ce soit aujourd'hui, demain ou l'année prochaine.| Idéal pour les séries univariées, car les valeurs passées sont utilisées pour prédire les valeurs futures.
 ForecastTCN (préversion)| ForecastTCN est un modèle de réseau neuronal conçu pour traiter les tâches de prévision les plus exigeantes, capturant les tendances non linéaires locales et globales dans les données, ainsi que les relations entre les séries chronologiques.|Capable de mobiliser des tendances complexes dans les données et de s’adapter facilement aux jeux de données les plus volumineux.
 
 ### <a name="configuration-settings"></a>Paramètres de configuration
 
 Comme pour un problème de régression, vous définissez les paramètres d’entraînement standard comme type de tâche, le nombre d’itérations, les données d’apprentissage et le nombre de validations croisées. Pour les tâches de prévision, il existe des paramètres supplémentaires qui doivent être définis et qui affectent l’expérience. 
 
-Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) pour obtenir des modèles de conception de la syntaxe.
+Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consultez la [documentation de référence de la classe ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour obtenir des modèles de conception de la syntaxe.
 
 | Nom du&nbsp;paramètre | Description | Obligatoire |
 |-------|-------|-------|
@@ -149,11 +149,11 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 |`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Le décalage est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. ||
 |`feature_lags`| Les fonctionnalités à décaler seront automatiquement déterminées par Machine Learning automatisé lorsque `target_lags` sont définis et `feature_lags` est défini sur `auto`. L’activation des décalages de fonctionnalités peut contribuer à améliorer l’exactitude. Les décalages de fonctionnalités sont désactivés par défaut. ||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle. En savoir plus sur l’[agrégation de fenêtres dynamiques cibles](#target-rolling-window-aggregation).||
-|`short_series_handling`| Permet une gestion courte des séries chronologiques pour éviter toute défaillance due à des données insuffisantes au cours de l’apprentissage. Ce paramètre est défini sur True par défaut.|
+|`short_series_handling_config`| Permet une gestion courte des séries chronologiques pour éviter toute défaillance due à des données insuffisantes au cours de l’apprentissage. Le paramètre de gestion des séries courtes est défini sur `auto` par défaut. Découvrez-en plus sur la [gestion des séries courtes](#short-series-handling).|
 
 
 Le code suivant, 
-* Tire parti de la classe `ForecastingParameters` pour définir les paramètres de prévisions associés à l’entraînement de l’expérience.
+* Tire parti de la classe [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour définir les paramètres de prévisions associés à l'apprentissage de l'expérience.
 * Définit le `time_column_name` sur le champ `day_datetime` dans le jeu de données. 
 * Définit le paramètre `time_series_id_column_names` sur `"store"`. Cela permet de s’assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; une pour les banques A et B.
 * Définit le `forecast_horizon` sur 50 afin de prédire pour l’ensemble du jeu de tests. 
@@ -164,13 +164,12 @@ Le code suivant,
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
-forecasting_parameters = ForecastingParameters(
-    time_column_name='day_datetime', 
-    forecast_horizon=50,
-    time_series_id_column_names=["store"],
-    target_lags='auto',
-    target_rolling_window_size=10
-)
+forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                               forecast_horizon=50,
+                                               time_series_id_column_names=["store"],
+                                               target_lags='auto',
+                                               target_rolling_window_size=10)
+                                              
 ```
 
 Ces `forecasting_parameters` sont ensuite transmises à votre objet `AutoMLConfig` standard, ainsi que le type de tâche `forecasting`, la métrique principale, les critères de sortie et les données de formation. 
@@ -190,7 +189,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 
 ### <a name="featurization-steps"></a>Étapes de caractérisation
@@ -226,12 +225,16 @@ Pour personnaliser les caractérisations avec le kit de développement logiciel 
 
 ```python
 featurization_config = FeaturizationConfig()
+
 # `logQuantity` is a leaky feature, so we remove it.
 featurization_config.drop_columns = ['logQuantitity']
+
 # Force the CPWVOL5 feature to be of numeric type.
 featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+
 # Fill missing values in the target column, Quantity, with zeroes.
 featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+
 # Fill mising values in the `INCOME` column with median value.
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
@@ -260,7 +263,7 @@ Pour activer le Deep Learning, définissez la `enable_dnn=True` dans l’objet `
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 > [!Warning]
 > Lorsque vous activez DNN pour les expériences créées avec le Kit de développement logiciel (SDK), les [meilleures explications des modèles](how-to-machine-learning-interpretability-automl.md) sont désactivées.
@@ -279,6 +282,35 @@ Le tableau montre l’ingénierie de caractéristiques obtenue qui se produit lo
 ![Fenêtre dynamique cible](./media/how-to-auto-train-forecast/target-roll.svg)
 
 Consultez un exemple de code Python tirant parti de la [caractéristique d’agrégation de fenêtres dynamiques cibles](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+
+### <a name="short-series-handling"></a>Gestion des séries courtes
+
+Le ML automatisé considère une série chronologique comme une **série courte** si le nombre de points de données est insuffisant pour mener les phases d'apprentissage et de validation du développement du modèle. Le nombre de points de données varie d'une expérience à l'autre et dépend du paramètre max_horizon, du nombre de divisions pour la validation croisée et de la longueur de la recherche arrière du modèle, c'est-à-dire le maximum d'historique nécessaire pour construire les caractéristiques de la série chronologique. Pour connaître le calcul exact, consultez la [documentation de référence de short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+
+Le ML automatisé permet par défaut une gestion des séries courtes avec le paramètre `short_series_handling_config` de l'objet `ForecastingParameters`. 
+
+Pour activer la gestion des séries courtes, le paramètre `freq` doit également être défini. Pour modifier le comportement par défaut, `short_series_handling_config = auto`, mettez à jour le paramètre `short_series_handling_config` dans votre objet `ForecastingParameter`.  
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                            forecast_horizon=50,
+                                            short_series_handling_config='auto',
+                                            freq = 50
+                                            target_lags='auto')
+```
+Le tableau suivant récapitule les paramètres disponibles pour `short_series_handling_config`.
+ 
+|Paramètre|Description
+|---|---
+|`auto`| Le comportement par défaut en matière de gestion des séries courtes est le suivant : <li> *Si toutes les séries sont courtes*, remplissez les données. <br> <li> *Si toutes les séries ne sont pas courtes*, supprimez-les. 
+|`pad`| Si `short_series_handling_config = pad`, le ML automatisé ajoute des valeurs factices à chaque série courte trouvée. Vous trouverez ci-dessous la liste des types de colonnes et de leur contenu : <li>Colonnes d'objets avec « n'est pas un nombre » (NAN) <li> Colonnes numériques avec 0 <li> Colonnes booléennes/logiques avec False <li> La colonne cible est remplie avec des valeurs aléatoires, avec une moyenne de zéro et un écart type de 1. 
+|`drop`| Si `short_series_handling_config = drop`, le ML automatisé supprime la série courte ; celle-ci ne sera donc pas utilisée pour l'apprentissage ou la prédiction. Les prédictions de ces séries renverront NAN.
+|`None`| Aucune série n'est remplie ou supprimée
+
+>[!WARNING]
+>Le remplissage peut avoir un impact sur la précision du modèle qui en résulte, car nous introduisons des données artificielles dans le seul but de terminer l'apprentissage sans rencontrer d'échecs. <br> <br> Si la plupart des séries sont courtes, vous pouvez également constater un impact sur les résultats de l'explicabilité.
 
 ## <a name="run-the-experiment"></a>Exécuter l’expérience 
 

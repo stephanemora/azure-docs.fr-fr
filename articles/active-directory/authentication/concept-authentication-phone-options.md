@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4510dac833d0576273472b6f925d546b55257614
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628116"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886802"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
 Pour une authentification directe à l’aide d’un message texte, vous pouvez [Configurer et activer des utilisateurs pour l’authentification par SMS (préversion)](howto-authentication-sms-signin.md). La connexion par SMS est idéale pour les travailleurs de première ligne. Avec la connexion par SMS, les utilisateurs n’ont pas besoin de connaître le nom d’utilisateur et le mot de passe pour accéder aux applications et aux services. L’utilisateur entre son numéro de téléphone mobile enregistré, reçoit un SMS contenant un code de vérification et l’entre dans l’interface de connexion.
 
-Les utilisateurs peuvent également s’authentifier à l’aide d’un téléphone mobile ou d’un téléphone de bureau comme forme secondaire d’authentification utilisée lors de l’authentification multifacteur Azure ou de la réinitialisation de mot de passe en libre-service (SSPR).
+Les utilisateurs peuvent également s'authentifier en utilisant un téléphone mobile ou un téléphone de bureau comme forme secondaire d'authentification lors de l’authentification Azure AD MFA ou de la réinitialisation de mot de passe en libre-service (SSPR).
 
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : *+1 4251234567*.
 
@@ -32,32 +32,32 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 
 ## <a name="mobile-phone-verification"></a>Vérification du téléphone mobile
 
-Pour Azure MFA ou SSPR, les utilisateurs peuvent choisir de recevoir un SMS contenant un code de vérification à entrer dans l’interface de connexion ou de recevoir un appel téléphonique.
+Pour Azure AD MFA ou SSPR, les utilisateurs peuvent choisir de recevoir un SMS contenant un code de vérification à entrer dans l'interface de connexion ou de recevoir un appel téléphonique.
 
 Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, tout en ayant la possibilité de l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas renseigner le numéro de téléphone dans le répertoire. Au lieu de cela, les utilisateurs doivent renseigner leur attribut de **téléphone d’authentification** via l’inscription d’informations de sécurité combinée sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Capture d’écran du Portail Azure affichant les méthodes d’authentification avec un numéro de téléphone renseigné":::
 
-Microsoft ne garantit pas que les notifications Microsoft Azure Multi-Factor Authentication envoyées par SMS ou message vocal proviennent systématiquement du même numéro. Dans l’intérêt de nos utilisateurs, nous pouvons à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires et améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
+Microsoft ne garantit pas que les notifications Azure AD Multi-Factor Authentication envoyées par SMS ou message vocal proviennent systématiquement du même numéro. Dans l’intérêt de nos utilisateurs, nous pouvons à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires et améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
 
 ### <a name="text-message-verification"></a>Vérification des SMS
 
-Avec la vérification des SMS dans le cadre de Microsoft Azure Multi-Factor Authentication et de SSPR, un SMS contenant un code de vérification est envoyé au numéro de téléphone mobile. Pour terminer le processus de connexion, le code de vérification fourni est entré dans l’interface de connexion.
+Avec la vérification par SMS dans le cadre de l'authentification Azure AD MFA et de la réinitialisation SSPR, un SMS contenant un code de vérification est envoyé au numéro de téléphone mobile. Pour terminer le processus de connexion, le code de vérification fourni est entré dans l’interface de connexion.
 
 ### <a name="phone-call-verification"></a>Vérification de l’appel téléphonique
 
-Avec la vérification de l’appel téléphonique dans le cadre de Microsoft Azure Multi-Factor Authentication et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
+Avec la vérification par appel téléphonique dans le cadre de l'authentification Azure AD MFA et de la réinitialisation SSPR, un appel vocal automatique est passé au numéro de téléphone enregistré par l'utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
 
 ## <a name="office-phone-verification"></a>Vérification du téléphone de bureau
 
-Avec la vérification de l’appel téléphonique dans le cadre d’Azure MFA et de SSPR, un appel vocal automatique est effectué sur le numéro de téléphone enregistré par l’utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
+Avec la vérification par appel téléphonique dans le cadre de l'authentification Azure AD MFA et de la réinitialisation SSPR, un appel vocal automatique est passé au numéro de téléphone enregistré par l'utilisateur. Pour terminer le processus de connexion, l’utilisateur est invité à saisir le symbole # à l’aide du clavier.
 
 ## <a name="troubleshooting-phone-options"></a>Résolution des problèmes liés aux options du téléphone
 
 Si vous rencontrez des problèmes avec l’authentification par téléphone pour Azure AD, passez en revue les étapes de dépannage suivantes :
 
 * Message d'erreur « Vous avez atteint notre limite pour les appels de vérification » ou « Vous avez atteint notre limite pour les codes de vérification par SMS » lors de la connexion
-   * Utilisez l’application d’authentification Microsoft ou le code de vérification pour terminer l’authentification, ou réessayez plus tard.
+   * Microsoft peut limiter les tentatives d'authentification répétées effectuées par le même utilisateur sur une courte période. Cette limitation ne s'applique pas à Microsoft Authenticator ou au code de vérification. Si vous avez atteint ces limites, vous pouvez utiliser l'application Authenticator, le code de vérification ou essayer de vous reconnecter quelques minutes plus tard.
 * ID de l’appelant bloqué sur un seul appareil.
    * Examinez les numéros bloqués configurés sur l’appareil.
 * Numéro de téléphone erroné ou code de pays/région incorrect, ou confusion entre le numéro de téléphone personnel et le numéro de téléphone professionnel.
@@ -75,11 +75,11 @@ Si vous rencontrez des problèmes avec l’authentification par téléphone pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe en libre-service][tutorial-sspr] et [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe en libre-service][tutorial-sspr] et l’[authentification multifacteur Azure AD][tutorial-azure-mfa].
 
 Pour en savoir plus sur les concepts de SSPR, consultez [Fonctionnement de la réinitialisation de mot de passe en libre-service dans Azure AD][concept-sspr].
 
-Pour plus d’informations sur les concepts MFA, consultez [Azure Multi-Factor Authentication : fonctionnement][concept-mfa].
+Pour plus d'informations sur les concepts MFA, consultez [Fonctionnement d'Azure AD Multi-Factor Authentication][concept-mfa].
 
 Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965554"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840098"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Foire aux questions concernant la réinitialisation du mot de passe en libre-service
 
@@ -38,7 +38,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
   > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe (https://aka.ms/ssprsetup) pour inscrire leurs informations d’authentification. Ils peuvent également s’inscrire par le biais du volet d’accès (https://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
   >
-  > Si vous activez l’[inscription combinée](concept-registration-mfa-sspr-combined.md), les utilisateurs peuvent s’inscrire en même temps pour SSPR et Azure Multi-Factor Authentication.
+  > Si vous activez l'[inscription combinée](concept-registration-mfa-sspr-combined.md), les utilisateurs peuvent s'inscrire en même temps à SSPR et Azure AD Multi-Factor Authentication.
 * **Q :  Si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
 
   > **R :** Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.

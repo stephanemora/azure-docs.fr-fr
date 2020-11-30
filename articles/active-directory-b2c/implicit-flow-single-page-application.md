@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215482"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840608"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
@@ -141,7 +141,7 @@ Plusieurs autres validations à effectuer sont décrites en détail dans les [sp
 
 * Vérifier que l’utilisateur ou l’organisation s’est inscrit pour l’application.
 * Vérifier que l’utilisateur dispose de l’autorisation et des privilèges appropriés.
-* Vérifier qu’une certaine force d’authentification a été appliquée, comme Azure Multi-Factor Authentication.
+* Vérifier qu'un certain niveau d'authentification a été atteint, par exemple en utilisant Azure AD Multi-Factor Authentication.
 
 Pour plus d’informations sur les revendications dans un jeton d’ID, consultez les [Informations de référence sur les jetons Azure AD B2C](tokens-overview.md).
 

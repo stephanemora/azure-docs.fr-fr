@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646574"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836391"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
-Le lancement intermédiaire vous permet de tester de manière sélective des groupes d’utilisateurs avec des fonctionnalités d’authentification cloud comme Azure MFA (Multi-Factor Authentication), l’accès conditionnel, Identity Protection pour les informations d’identification divulguées, Identity Governance, etc. avant le basculement de domaines.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
+Le lancement intermédiaire vous permet de tester des groupes d'utilisateurs de manière sélective avec des fonctionnalités d'authentification cloud comme Azure AD Multi-Factor Authentication (MFA), l'accès conditionnel, Identity Protection pour les informations d'identification divulguées ou Identity Governance avant le basculement de vos domaines.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
     
 -  Vous utilisez actuellement un serveur Multi-Factor Authentication local. 
 -  Vous utilisez des cartes à puce pour l’authentification. 
@@ -45,7 +45,7 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 
 -   Vous avez configuré toutes les stratégies appropriées d’accès conditionnel et de marque de locataire dont vous avez besoin pour les utilisateurs migrés vers l’authentification cloud.
 
--   Si vous envisagez d’utiliser Azure Multi-Factor Authentication, nous vous recommandons d’utiliser une [inscription combinée pour la réinitialisation de mot de passe en libre-service (SSPR) et l’authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d’inscrire leurs méthodes d’authentification une seule fois. Remarque : Lors de l’utilisation de SSPR pour réinitialiser le mot de passe ou changer le mot de passe en utilisant la page MyProfile dans la phase de déploiement intermédiaire, Azure AD Connect doit synchroniser le hachage du nouveau mot de passe, ce qui peut prendre jusqu’à 2 minutes après la réinitialisation.
+-   Si vous envisagez d'utiliser Azure AD Multi-Factor Authentication, nous vous recommandons une [inscription combinée à la réinitialisation de mot de passe en libre-service (SSPR) et à l'authentification multifacteur](../authentication/concept-registration-mfa-sspr-combined.md) pour permettre à vos utilisateurs d'inscrire leurs méthodes d'authentification en une seule fois. Remarque : Lors de l’utilisation de SSPR pour réinitialiser le mot de passe ou changer le mot de passe en utilisant la page MyProfile dans la phase de déploiement intermédiaire, Azure AD Connect doit synchroniser le hachage du nouveau mot de passe, ce qui peut prendre jusqu’à 2 minutes après la réinitialisation.
 
 -   Pour utiliser la fonctionnalité de lancement intermédiaire, vous devez être l’administrateur général de votre locataire.
 

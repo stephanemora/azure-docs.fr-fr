@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734393"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917543"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -104,7 +104,26 @@ Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou apr�
 
 ## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
 
-Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Pour plus d’informations sur les options de référencement prises en charge par les magasins en ligne, consultez [Options de référencement et de tarification par magasin en ligne](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Pour plus d’informations sur les catégories et les sous-catégories, consultez [Catégories et sous-catégories dans le marketplace commercial](categories.md).
+Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. 
+
+Si votre offre Saas est *à la fois* une solution informatique (Place de marché Azure) et une solution commerciale (AppSource), sélectionnez une catégorie et une sous-catégorie applicable à chaque magasin en ligne. Les offres publiées sur les deux magasins en ligne doivent avoir une proposition de valeur à la fois en tant que solution informatique *et* solution d’entreprise.
+
+> [!IMPORTANT]
+> Les offres SaaS avec [facturation à l’usage](partner-center-portal/saas-metered-billing.md) sont disponibles sur Place de marché Azure et le portail Azure. Les offres SaaS avec des plans privés uniquement sont disponibles sur le portail Azure.
+
+| Facturation à l’usage | Plan public | Plan privé | Disponible sur : |
+|---|---|---|---|
+| Oui             | Oui         | Non           | Place de marché Azure et Portail Azure |
+| Oui             | Oui         | Oui          | Place de marché Azure et portail Azure * |
+| Oui             | Non          | Oui          | Portail Azure uniquement |
+| Non              | Non          | Oui          | Portail Azure uniquement |
+|||||
+
+&#42; Le plan privé de l’offre est disponible uniquement via le portail Azure.
+
+Par exemple, une offre avec facturation à l’usage et un plan privé uniquement (aucun plan public) est achetée par les clients du portail Azure. En savoir plus sur les [offres privées dans le marketplace commercial de Microsoft](private-offers.md).
+
+Pour plus d’informations sur les options de référencement prises en charge par les magasins en ligne, consultez [Options de référencement et de tarification par magasin en ligne](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Pour plus d’informations sur les catégories et les sous-catégories, consultez [Catégories et sous-catégories dans le marketplace commercial](categories.md).
 
 ## <a name="legal-contracts"></a>Contrats juridiques
 

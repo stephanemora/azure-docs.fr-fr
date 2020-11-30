@@ -3,12 +3,12 @@ title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez Azure Lighthouse, il est important de prendre en compte la sécurité et le contrôle d’accès.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399378"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843721"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
@@ -17,11 +17,11 @@ Lorsque vous utilisez [Azure Lighthouse](../overview.md), il est important de pr
 > [!TIP]
 > Ces recommandations s’appliquent également aux [entreprises qui gèrent plusieurs locataires](enterprise.md) avec Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exiger l’utilisation d’Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Demander l’authentification multifacteur Azure AD
 
-La solution [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (également appelée vérification en deux étapes) aide à empêcher des attaquants d’accéder à un compte en exigeant plusieurs étapes d’authentification. Vous devez exiger l’application de la solution Microsoft Azure Multi-Factor Authentication à tous les utilisateurs de votre locataire gérant, notamment aux utilisateurs qui auront accès aux ressources déléguées du client.
+La fonctionnalité [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (également appelée vérification en deux étapes) permet d'empêcher des attaquants d'accéder à un compte en exigeant plusieurs étapes d'authentification. Vous devez exiger l’application de la solution Microsoft Azure Multi-Factor Authentication à tous les utilisateurs de votre locataire gérant, notamment aux utilisateurs qui auront accès aux ressources déléguées du client.
 
-Nous vous suggérons de demander à vos clients d’implémenter également Microsoft Azure Multi-Factor Authentication dans leurs locataires.
+Nous vous suggérons de demander à vos clients d'implémenter également Azure AD Multi-Factor Authentication dans leurs locataires.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Affecter des autorisations à des groupes selon le principe de privilège minimum
 
@@ -47,5 +47,5 @@ N’oubliez pas que, lorsque vous [intégrez des clients via une offre de servic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer Microsoft Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Déployer Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Découvrez les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462579"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842649"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion Windows Virtual Desktop (classique) à l’aide d’un modèle Azure Resource Manager
 
@@ -36,7 +36,7 @@ Les navigateurs suivants sont compatibles avec l’outil de gestion :
 
 Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azure Active Directory (Azure AD) pour créer une inscription d’application et déployer l’interface utilisateur de gestion. Cet utilisateur doit remplir les conditions suivantes :
 
-- Azure Multi-Factor Authentication (MFA) doit être désactivé.
+- Azure AD Multi-Factor Authentication (MFA) doit être désactivé.
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
 - Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

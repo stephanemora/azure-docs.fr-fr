@@ -2,13 +2,13 @@
 title: Métriques d’Azure Service Bus dans Azure Monitor | Microsoft Docs
 description: Cet article explique comment utiliser Azure Monitor pour surveiller les entités Service Bus (files d'attente, rubriques et abonnements).
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598123"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916880"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métriques Azure Service Bus dans Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme les journaux Azure Monitor et Event Hubs. Pour plus d’informations, consultez [Mesures dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans Azure Monitor.
+Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données plus longtemps, vous pouvez archiver les données métriques sur un compte Stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Accéder aux métriques dans le portail
 
@@ -31,7 +31,7 @@ Vous pouvez surveiller les mesures au fil du temps dans le [portail Azure](https
 
 ![Capture d’écran de la page Surveiller - Métriques (préversion) dans le portail Azure.][1]
 
-Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis cliquez sur **Métriques**. Pour afficher les métriques filtrées à l’étendue de l’entité, sélectionnez l’entité, puis cliquez sur **Métriques**.
+Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis **Métriques**. Pour afficher les métriques filtrées en fonction de l'étendue de l'entité, sélectionnez l'entité, puis **Métriques**.
 
 ![Capture d’écran de la page Surveiller - Métriques (préversion) filtrée sur l’étendue de l’entité.][2]
 
@@ -39,9 +39,9 @@ Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la va
 
 ## <a name="billing"></a>Facturation
 
-Les métriques et alertes Azure Monitor sont facturés par alerte. Ces frais sont disponibles sur le portail lorsque l’alerte est configurée et avant de l’enregistrer. 
+Les métriques et alertes Azure Monitor sont facturés par alerte. Ces frais sont disponibles sur le portail lorsque l'alerte est configurée et avant de l'enregistrer. 
 
-Les solutions supplémentaires ingèrent les données de métriques sont facturées directement par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques vers Log Analytics pour une analyse avancée.
+Les solutions supplémentaires ingèrent les données de métriques sont facturées directement par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données métriques sur un compte Stockage Azure. Vous êtes également facturé par Log Analytics si vous transmettez des données métriques à Log Analytics pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 
@@ -58,8 +58,8 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 | ------------------- | ----------------- |
 | Demandes entrantes| Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 |Requêtes ayant réussi|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
-|Erreurs de serveur|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
-|Erreurs d’utilisateur (voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
+|Erreurs de serveur|Nombre de requêtes non traitées en raison d'une erreur dans Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
+|Erreurs d’utilisateur (voir la sous-section suivante)|Nombre de requêtes non traitées en raison d'erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 |Requêtes limitées|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 
 ### <a name="user-errors"></a>Erreurs d’utilisateur
@@ -80,20 +80,18 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 | Messages actifs| Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Dimension : Nom de l’entité |
 | Messages de lettres mortes| Nombre de messages de lettres mortes dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/>Dimension : Nom de l’entité |
 | Messages planifiés| Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average  <br/> Dimension : Nom de l’entité |
+| Messages terminés| Nombre de messages terminés dans une file d'attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Dimension : Nom de l’entité |
+| Messages abandonnés| Nombre de messages abandonnés dans une file d'attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Dimension : Nom de l’entité |
 | Taille | Taille d’une entité (file d’attente ou rubrique) en octets. <br/><br/>Unité : Count <br/>Type d’agrégation : Average <br/>Dimension : Nom de l’entité | 
 
 > [!NOTE]
-> Les valeurs des métriques suivantes sont des valeurs à un moment donné. Les messages entrants consommés immédiatement après ce moment peuvent ne pas apparaître dans ces métriques. 
-> - Messages
-> - Messages actifs 
-> - Messages de lettres mortes 
-> - Messages planifiés 
+> Valeurs des messages ; les messages actifs, de lettres mortes, planifiés, terminés et abandonnés possèdent des valeurs ponctuelles. Les messages entrants consommés immédiatement après ce moment peuvent ne pas apparaître dans ces métriques. 
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Connexions actives|Nombre de connexions actives sur un espace de noms, ainsi que sur une entité dans l’espace de noms. La valeur de cette métrique est un instant dans le passé. Les connexions actives immédiatement après ce moment peuvent ne pas apparaître dans la métrique.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
+|Connexions actives|Nombre de connexions actives sur un espace de noms, ainsi que sur une entité de l'espace de noms. La valeur de cette métrique est un instant dans le passé. Les connexions actives immédiatement après ce moment peuvent ne pas apparaître dans la métrique.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 |Connexions ouvertes |Le nombre de connexions ouvertes.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 |Connexions fermées |Le nombre de connexions fermées.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 
@@ -113,7 +111,7 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 
-Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans Azure Monitor. L’ajout de dimensions à vos métriques est facultatif. Si vous n’ajoutez pas de dimensions, les métriques sont spécifiées au niveau de l’espace de noms. 
+Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans Azure Monitor. L’ajout de dimensions à vos métriques est facultatif. Si vous n'ajoutez pas de dimensions, les métriques sont spécifiées au niveau de l'espace de noms. 
 
 |Nom de la dimension|Description|
 | ------------------- | ----------------- |

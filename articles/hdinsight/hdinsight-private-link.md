@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 66c9a3afb91aaff448d6eadc86175d8515be766c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422295"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889080"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Sécuriser et isoler les clusters Azure HDInsight avec Azure Private Link (préversion)
 
@@ -86,7 +86,8 @@ L’illustration suivante montre un exemple des entrées DNS privées requises p
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramme de l’architecture de liaison privée":::
 
-## <a name="arm-template-properties"></a>Propriétés du modèle Resource Manager
+## <a name="how-to-create-clusters"></a>Comment créer des clusters ?
+### <a name="use-arm-template-properties"></a>Utiliser les propriétés du modèle Resource Manager
 
 L’extrait de code JSON suivant comprend les deux propriétés réseau que vous devez configurer dans votre modèle Resource Manager pour créer un cluster HDInsight privé.
 
@@ -98,6 +99,13 @@ networkProperties: {
 ```
 
 Pour obtenir un modèle complet avec de nombreuses fonctionnalités de sécurité d’entreprise HDInsight, notamment Azure Private Link, consultez [Modèle de sécurité d’entreprise HDInsight](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+### <a name="use-azure-powershell"></a>Utiliser Azure PowerShell
+
+Pour utiliser PowerShell, consultez l'exemple disponible [ici](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+
+### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+Pour utiliser l'interface de ligne de commande Azure, consultez l'exemple disponible [ici](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

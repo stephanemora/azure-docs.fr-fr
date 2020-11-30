@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783774"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843364"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export
 
@@ -33,7 +33,7 @@ Avant de commencer, vérifiez les points suivants :
     - [Création d’une tâche d’importation pour les fichiers](storage-import-export-data-to-files.md).
     - [Création d’une tâche d’exportation pour les objets BLOB](storage-import-export-data-from-blobs.md)
 
-2. Vous disposez d’une instance Azure Key Vault existante avec une clé que vous pouvez utiliser pour protéger votre clé BitLocker. Pour savoir comment créer un coffre de clés à l’aide du portail Azure, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../../key-vault/secrets/quick-create-portal.md).
+2. Vous disposez d’une instance Azure Key Vault existante avec une clé que vous pouvez utiliser pour protéger votre clé BitLocker. Pour savoir comment créer un coffre de clés à l’aide du portail Azure, consultez [Démarrage rapide : Créer un coffre de clés Azure Key Vault à l'aide du portail Azure](../../key-vault/general/quick-create-portal.md).
 
     - Les options **Suppression réversible** et **Ne pas vider** sont définies sur votre instance Key Vault existante. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans l’un des articles suivants :
 
@@ -52,7 +52,7 @@ La configuration de la clé gérée par le client pour votre service Import/Expo
 
     ![Choisir l’option de chiffrement](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
-3. Dans le panneau **Chiffrement** , vous pouvez afficher et copier la clé BitLocker de l’appareil. Sous **Type de chiffrement** , vous pouvez choisir la façon dont vous souhaitez protéger votre clé BitLocker. Par défaut, une clé gérée par Microsoft est utilisée.
+3. Dans le panneau **Chiffrement**, vous pouvez afficher et copier la clé BitLocker de l’appareil. Sous **Type de chiffrement**, vous pouvez choisir la façon dont vous souhaitez protéger votre clé BitLocker. Par défaut, une clé gérée par Microsoft est utilisée.
 
     ![Afficher la clé BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
@@ -60,11 +60,11 @@ La configuration de la clé gérée par le client pour votre service Import/Expo
 
     ![Sélectionner la clé gérée par le client](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
-5. Dans le panneau **Sélectionner une clé dans Azure Key Vault** , l’abonnement est automatiquement renseigné. Pour **Coffre de clés** , vous pouvez sélectionner un coffre de clés existant dans la liste déroulante.
+5. Dans le panneau **Sélectionner une clé dans Azure Key Vault**, l’abonnement est automatiquement renseigné. Pour **Coffre de clés**, vous pouvez sélectionner un coffre de clés existant dans la liste déroulante.
 
     ![Sélectionner ou créer un Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans le panneau **Créer un coffre de clés** , saisissez le groupe de ressources et le nom du coffre de clés. Acceptez toutes les autres valeurs par défaut. Sélectionnez **Vérifier + créer**.
+6. Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans le panneau **Créer un coffre de clés**, saisissez le groupe de ressources et le nom du coffre de clés. Acceptez toutes les autres valeurs par défaut. Sélectionnez **Vérifier + créer**.
 
     ![Créer un coffre Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
@@ -72,7 +72,7 @@ La configuration de la clé gérée par le client pour votre service Import/Expo
 
     ![Créer un Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. Dans **Sélectionner une clé dans Azure Key Vault** , vous pouvez sélectionner une clé dans le coffre de clés existant.
+8. Dans **Sélectionner une clé dans Azure Key Vault**, vous pouvez sélectionner une clé dans le coffre de clés existant.
 
 9. Si vous avez créé un coffre de clés, sélectionnez **Créer** pour créer une clé. La taille de la clé RSA peut être supérieure ou égale à 2048.
 
@@ -84,11 +84,11 @@ La configuration de la clé gérée par le client pour votre service Import/Expo
 
     ![Créer une nouvelle clé](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Sélectionnez la **Version** , puis choisissez **Sélectionner**. Vous êtes averti qu’une clé est créée dans votre coffre de clés.
+11. Sélectionnez la **Version**, puis choisissez **Sélectionner**. Vous êtes averti qu’une clé est créée dans votre coffre de clés.
 
     ![Nouvelle clé créée dans le coffre de clés](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-Dans le panneau **Chiffrement** , vous pouvez voir le coffre de clés et la clé sélectionnée pour votre clé gérée par le client.
+Dans le panneau **Chiffrement**, vous pouvez voir le coffre de clés et la clé sélectionnée pour votre clé gérée par le client.
 
 > [!IMPORTANT]
 > Vous pouvez uniquement désactiver les clés gérées par Microsoft et passer à des clés gérées par le client à n’importe quel moment de la tâche d’importation/exportation. Toutefois, vous ne pouvez pas désactiver la clé gérée par le client une fois que vous l’avez créée.

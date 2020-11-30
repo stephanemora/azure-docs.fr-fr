@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 97017e104ecff38ebf4e475fb5f6ae42707ef10e
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331156"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919588"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 
@@ -86,6 +86,9 @@ Lorsque vous déployez sur AKS, vous pouvez créer un cluster AKS ou attacher un
 - Si vous attachez un cluster existant, vous utilisez **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Tous deux renvoient un objet de configuration présentant une méthode **enable_ssl**.
 
 La méthode **enable_ssl** peut utiliser un certificat fourni par Microsoft ou un certificat que vous achetez.
+
+> [!WARNING]
+> Si votre cluster AKS est configuré avec un équilibreur de charge interne, l'utilisation d'un certificat fourni par Microsoft n'est __pas prise en charge__. L'utilisation d'un certificat fourni par Microsoft nécessite une ressource IP publique dans Azure, qui n'est pas disponible si votre cluster AKS est configuré avec un équilibreur de charge interne.
 
   * Lorsque vous utilisez un certificat fourni par Microsoft, vous devez utiliser le paramètre *leaf_domain_label*. Ce paramètre génère le nom DNS du service. Par exemple, une valeur « contoso » crée un nom de domaine « contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com », où \<azureregion> correspond à la région contenant le service. Vous pouvez également utiliser le paramètre *overwrite_existing_domain* pour remplacer le paramètre *leaf_domain_label* existant.
 
@@ -159,7 +162,8 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
 
   > [!WARNING]
   > Si vous avez utilisé *leaf_domain_label* pour créer le service à l’aide d’un certificat fourni par Microsoft, ne mettez pas à jour manuellement la valeur DNS du cluster. Cette valeur doit être définie automatiquement.
-
+  >
+  > Si votre cluster AKS est configuré avec un équilibreur de charge interne, l'utilisation d'un certificat fourni par Microsoft (en définissant *leaf_domain_label*) n'est __pas prise en charge__. L'utilisation d'un certificat fourni par Microsoft nécessite une ressource IP publique dans Azure, qui n'est pas disponible si votre cluster AKS est configuré avec un équilibreur de charge interne.
   Mettez à jour le DNS de l’adresse IP publique du cluster AKS sur l’onglet **Configuration**, sous **Paramètres** dans le volet de gauche. (Consultez l'image suivante.) L’adresse IP publique est un type de ressource créé sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
 
   [![Azure Machine Learning : Sécurisation des services web avec TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

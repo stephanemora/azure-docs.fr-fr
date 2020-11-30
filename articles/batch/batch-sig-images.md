@@ -2,14 +2,14 @@
 title: Création d’un pool d’images personnalisées avec Shared Image Gallery
 description: Les pools d’images personnalisées représentent un moyen efficace de configurer les nœuds de calcul pour exécuter des charges de travail Batch.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745516"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917781"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
@@ -40,7 +40,7 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 
 - **Un compte Azure Batch.** Pour créer un compte Batch, consultez les démarrages rapides Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
-- **Une image Shared Image Gallery** . Pour créer une image partagée, vous devez disposer d'une image managée ou en créer une. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés.
+- **Une image Shared Image Gallery**. Pour créer une image partagée, vous devez disposer d'une image managée ou en créer une. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés.
 
 > [!NOTE]
 > Si l’image partagée n’est pas dans le même abonnement que le compte Batch, vous devez [inscrire le fournisseur de ressources Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) pour cet abonnement. Les deux abonnements doivent se trouver dans le même locataire Azure AD.
@@ -73,6 +73,7 @@ Si vous créez une machine virtuelle pour l'image, utilisez une image propriéta
 - N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.
 - Lorsque vous utilisez des disques de données attachés, vous devez monter et formater les disques à partir d'une machine virtuelle pour les utiliser.
 - Vérifiez que l’image du système d’exploitation de base que vous fournissez utilise le lecteur temporaire par défaut. L’agent de nœud Batch s’attend actuellement à ce que le lecteur temporaire par défaut soit utilisé.
+- Assurez-vous que le disque du système d'exploitation n'est pas chiffré.
 - Une fois que la machine virtuelle s’exécute, connectez-la via le protocole RDP (pour Windows) ou SSH (pour Linux). Le cas échéant, installez les logiciels nécessaires ou copiez les données souhaitées.  
 
 ### <a name="create-a-vm-snapshot"></a>Créer un instantané de la machine virtuelle
@@ -207,10 +208,10 @@ Effectuez les étapes suivantes pour créer un pool à partir d’une image part
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 1. Accédez à **Comptes Batch** et sélectionnez votre compte.
-1. Sélectionnez **Pools** , puis **Ajouter** pour créer un pool.
-1. Dans la section **Type d’image** , sélectionnez **Galerie d’images partagées** .
+1. Sélectionnez **Pools**, puis **Ajouter** pour créer un pool.
+1. Dans la section **Type d’image**, sélectionnez **Galerie d’images partagées**.
 1. Complétez les sections restantes avec les informations relatives à votre image managée.
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
 ![Créez un pool à partir d’une image partagée avec le portail.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +219,7 @@ Effectuez les étapes suivantes pour créer un pool à partir d’une image part
 
 Si vous envisagez de créer un pool avec des centaines ou des milliers de machines virtuelles ou plus à l’aide d’une image partagée, suivez les instructions ci-dessous.
 
-- **Nombre de réplicas de la galerie Shared Image Gallery.**  Pour chaque pool avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Par exemple, si vous créez un pool de 3 000 machines virtuelles, vous devez conserver au moins 5 réplicas de votre image. Nous suggérons toujours de conserver plus de réplicas que le minimum exigé pour de meilleures performances.
+- **Nombre de réplicas de la galerie Shared Image Gallery.**  Pour chaque pool de 300 instances maximum, nous vous recommandons de conserver au moins un réplica. Par exemple, si vous créez un pool de 3 000 machines virtuelles, vous devez conserver au moins 10 réplicas de votre image. Nous suggérons toujours de conserver plus de réplicas que le minimum exigé pour de meilleures performances.
 
 - **Délai d'expiration du redimensionnement.** Si votre pool contient un nombre de nœuds fixe (pas de mise à l'échelle automatique), augmentez la propriété `resizeTimeout` du pool en fonction de la taille de celui-ci. Le délai d’attente de redimensionnement recommandé est d’au moins 15 minutes pour 1 000 machines. Par exemple, le délai d’expiration de redimensionnement recommandé pour un pool de 2 000 machines virtuelles est d’au moins 30 minutes.
 

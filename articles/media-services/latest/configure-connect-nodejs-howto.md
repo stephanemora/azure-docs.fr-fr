@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: d32f39daeb66990d99915e8bbcca5dd637d4f914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ea238edd68413646dda59b22d1c0dc2557d57e
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296261"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916829"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
@@ -40,6 +40,8 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 1. Créez un fichier package.json dans votre éditeur favori.
 1. Ouvrez le fichier et collez-y le code suivant :
 
+   Procurez-vous la dernière version du [kit de développement logiciel (SDK) AzureMediaServices pour JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
+
 ```json
 {
   "name": "media-services-node-sample",
@@ -47,7 +49,7 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
   "description": "",
   "main": "./index.js",
   "dependencies": {
-    "azure-arm-mediaservices": "^4.1.0",
+    "azure-arm-mediaservices": "^8.0.0",
     "azure-storage": "^2.8.0",
     "ms-rest": "^2.3.3",
     "ms-rest-azure": "^2.5.5"
@@ -117,7 +119,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 });
 ```
 
-## <a name="run-your-app"></a>Exécutez l'application.
+## <a name="run-your-app"></a>Exécuter l’application
 
 Ouvrez une invite de commandes. Accédez au répertoire de l’exemple et exécutez les commandes suivantes :
 

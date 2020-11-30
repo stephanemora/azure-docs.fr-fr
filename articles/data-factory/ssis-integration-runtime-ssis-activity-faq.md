@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632207"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844180"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -38,7 +38,7 @@ Voici des causes possibles et les actions recommandées :
 * La source ou la destination de données est surchargée. Vérifiez la charge sur votre source ou votre destination de données et si elle dispose d’une capacité suffisante. Par exemple, si vous avez utilisé Azure SQL Database, envisagez d’effectuer un scale-up si la base de données est susceptible d’expirer.
 * Le réseau entre le runtime d’intégration SSIS et la source ou la destination de données est instable, en particulier quand la connexion est inter-régions ou entre un emplacement local et Azure. Appliquez le modèle de nouvelle tentative dans le package SSIS en effectuant les étapes suivantes :
   * Vérifiez que vos packages SSIS peuvent se réexécuter en cas d’échec sans effets secondaires (par exemple, une perte de données ou une duplication des données).
-  * Configurez **Nouvelle tentative** et **Intervalle avant nouvelle tentative** de l’activité **Exécuter le package SSIS** sous l’onglet **Général** . ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Configurez **Nouvelle tentative** et **Intervalle avant nouvelle tentative** de l’activité **Exécuter le package SSIS** sous l’onglet **Général**. ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * Pour un composant source ou de destination ADO.NET et OLE DB, définissez **ConnectRetryCount** et **ConnectRetryInterval** dans le Gestionnaire de connexions dans le package SSIS ou l’activité SSIS.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Message d’erreur : « La source ADO NET n’a pas pu acquérir la connexion '...' » avec « Une erreur liée au réseau ou spécifique à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. »
@@ -108,7 +108,7 @@ Si de nombreux packages s’exécutent en parallèle dans le runtime d’intégr
 L’erreur est principalement due à un problème temporaire. Par conséquent, tentez de réexécuter le package. Appliquez le modèle de nouvelle tentative dans le package SSIS en effectuant les étapes suivantes :
 
 * Vérifiez que vos packages SSIS peuvent se réexécuter en cas d’échec sans effets secondaires (par exemple, une perte de données ou une duplication des données).
-* Configurez **Nouvelle tentative** et **Intervalle avant nouvelle tentative** de l’activité **Exécuter le package SSIS** sous l’onglet **Général** . ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Configurez **Nouvelle tentative** et **Intervalle avant nouvelle tentative** de l’activité **Exécuter le package SSIS** sous l’onglet **Général**. ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * Pour un composant source ou de destination ADO.NET et OLE DB, définissez **ConnectRetryCount** et **ConnectRetryInterval** dans le Gestionnaire de connexions dans le package SSIS ou l’activité SSIS.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Message d’erreur : « Il n’y a aucun Worker Agent actif. »
@@ -121,14 +121,14 @@ Cette erreur se produit quand le runtime d’intégration SSIS ne peut pas accé
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Message d’erreur : « Fournisseur Microsoft OLE DB pour Analysis Services. 'Hresult : 0x80004005 Description :' Erreur COM : Erreur COM : mscorlib ; Une exception a été levée par la cible d’un appel »
 
-Le fait que le nom d’utilisateur ou le mot de passe avec Azure Multi-Factor Authentication activé est configuré pour l’authentification Azure Analysis Services constitue une cause possible. Cette authentification n’est pas prise en charge dans le runtime d’intégration SSIS. Essayez d’utiliser un principal de service pour l’authentification Azure Analysis Services :
+Le fait que le nom d'utilisateur ou le mot de passe soit configuré pour l'authentification Azure Analysis Services alors que la fonctionnalité Azure AD Multi-Factor Authentication est activée constitue une cause possible. Cette authentification n’est pas prise en charge dans le runtime d’intégration SSIS. Essayez d’utiliser un principal de service pour l’authentification Azure Analysis Services :
 
 1. Préparez un principal de service comme décrit dans [Automatisation à l’aide de principaux de service](../analysis-services/analysis-services-service-principal.md).
-2. Dans le Gestionnaire de connexions, configurez **Utiliser un nom d'utilisateur et un mot de passe spécifiques**  : définissez **AppID** comme nom d’utilisateur et **clientSecret** comme mot de passe.
+2. Dans le Gestionnaire de connexions, configurez **Utiliser un nom d'utilisateur et un mot de passe spécifiques** : définissez **AppID** comme nom d’utilisateur et **clientSecret** comme mot de passe.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Message d’erreur : « La source ADO NET Source n’a pas pu acquérir la connexion la connexion {GUID}. Message d’erreur : Échec de la connexion pour l’utilisateur 'NT AUTHORITY\ANONYMOUS LOGON' » lors de l’utilisation d’une identité managée
 
-Vérifiez que vous ne configurez pas **Authentification par mot de passe Active Directory** comme méthode d’authentification du Gestionnaire de connexions quand le paramètre *ConnectUsingManagedIdentity* a la valeur **True** . Vous pouvez le configurer plutôt sur **Authentification SQL** , qui est ignoré si *ConnectUsingManagedIdentity* est défini.
+Vérifiez que vous ne configurez pas **Authentification par mot de passe Active Directory** comme méthode d’authentification du Gestionnaire de connexions quand le paramètre *ConnectUsingManagedIdentity* a la valeur **True** . Vous pouvez le configurer plutôt sur **Authentification SQL**, qui est ignoré si *ConnectUsingManagedIdentity* est défini.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Message d’erreur : « 0xC020801F at ..., OData Source [...] : Impossible d’acquérir une connexion gérée depuis le gestionnaire de connexions en cours d’exécution »
 
@@ -179,7 +179,7 @@ Voici des causes possibles et les actions recommandées :
   * Pour savoir comment définir le nombre de nœuds et le nombre maximal d’exécutions en parallèle par nœud, consultez [Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * Le runtime d’intégration SSIS est arrêté ou a un état défectueux. Pour savoir comment vérifier l’état du runtime d’intégration SSIS et les erreurs, consultez [Runtime d’intégration Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
-Nous vous recommandons également de définir un délai d’expiration sous l’onglet **Général**  : ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
+Nous vous recommandons également de définir un délai d’expiration sous l’onglet **Général** : ![Définir des propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
 
 ### <a name="poor-performance-in-package-execution"></a>Problèmes de performances dans l’exécution des packages
 

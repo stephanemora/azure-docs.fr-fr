@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592955"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839520"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -36,7 +36,7 @@ Les personnes qui ont activé la connexion par téléphone à partir de l’appl
 
 Pour utiliser la connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator, les prérequis suivants doivent être satisfaits :
 
-- Azure Multi-Factor Authentication, avec notifications push autorisées en tant que méthode de vérification
+- Azure AD Multi-Factor Authentication, avec notifications Push autorisées en tant que méthode de vérification.
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.
 
 > [!NOTE]
@@ -141,4 +141,4 @@ Pour en savoir plus sur l’authentification Azure AD et les méthodes sans mot 
 
 - [En savoir plus sur le fonctionnement de l’authentification par mot de passe](concept-authentication-passwordless.md)
 - [En savoir plus sur l’inscription des appareils](../devices/overview.md#getting-devices-in-azure-ad)
-- [En savoir plus sur Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [En savoir plus sur Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

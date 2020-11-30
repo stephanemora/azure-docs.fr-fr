@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327967"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842309"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Activer Azure Monitor pour une machine virtuelle ou un groupe de machines virtuelles identiques dans le portail Azure
 Cet article explique comment activer Azure Monitor pour machines virtuelles pour une machine virtuelle ou un groupe de machines virtuelles identiques à l’aide du portail Azure. Cette procédure peut être utilisée pour les éléments suivants :
@@ -27,7 +27,7 @@ Cet article explique comment activer Azure Monitor pour machines virtuelles pour
 
 ## <a name="enable-azure-monitor-for-vms"></a>Activer Azure Monitor pour machines virtuelles
 
-Dans le portail Azure, sélectionnez **Machines virtuelles**, **Machines virtuelles identiques** ou **Machines - Azure Arc** et sélectionnez une ressource dans la liste. Dans la section **Supervision** du menu, sélectionnez **Insights**, puis **Activer**. L’exemple suivant montre une machine virtuelle Azure, mais le menu est similaire pour un groupe de machines virtuelles identiques ou Azure Arc.
+Sur le portail Azure, sélectionnez **Machines virtuelles**, **Groupes de machines virtuelles identiques** ou **Serveurs - Azure Arc** et sélectionnez une ressource dans la liste. Dans la section **Supervision** du menu, sélectionnez **Insights**, puis **Activer**. L’exemple suivant montre une machine virtuelle Azure, mais le menu est similaire pour un groupe de machines virtuelles identiques ou Azure Arc.
 
 ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

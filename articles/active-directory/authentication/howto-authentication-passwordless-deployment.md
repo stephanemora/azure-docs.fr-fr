@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964874"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839571"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -67,9 +67,9 @@ Les organisations doivent respecter les prérequis suivants avant d’initier un
 
 | Configuration requise | Application Authenticator | Clés de sécurité FIDO2 |
 | --- | --- | --- |
-| [L’inscription combinée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR)](howto-registration-mfa-sspr-combined.md) est activée | √ | √ |
-| [Les utilisateurs peuvent exécuter Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
-| [Les utilisateurs se sont inscrits à Azure Multi-Factor Authentication et SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [L'inscription combinée d'Azure AD Multi-Factor Authentication et de la réinitialisation de mot de passe en libre-service (SSPR)](howto-registration-mfa-sspr-combined.md) est activée | √ | √ |
+| [Les utilisateurs peuvent exécuter Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
+| [Les utilisateurs se sont inscrits à Azure AD Multi-Factor Authentication et SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Les utilisateurs ont inscrit leurs appareils mobiles sur Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 version 1809 ou supérieure, utilisant un navigateur pris en charge, comme Microsoft Edge ou Mozilla Firefox <br> (version 67 ou supérieure). <br> *Microsoft recommande la version 1903 ou supérieure pour la prise en charge native*. |   | √ |
 | Des clés de sécurité FIDO2 compatibles. Vérifiez que vous utilisez un appareil de sécurité FIDO2 [vérifié et testé Microsoft](./concept-authentication-passwordless.md), ou un autre appareil de sécurité FIDO2 compatible. |   | √ |
@@ -78,9 +78,9 @@ Les organisations doivent respecter les prérequis suivants avant d’initier un
 
 Les prérequis pour Windows Hello dépendent étroitement de la configuration, locale, hybride ou cloud uniquement, dans laquelle vous déployez. Pour plus d’informations, consultez la [liste complète des prérequis pour Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Authentification multifacteur Azure AD
 
-Les utilisateurs inscrivent leur méthode sans mot de passe dans le cadre du processus d’inscription Azure Multi-Factor Authentication. L’authentification multifacteur avec un nom d’utilisateur et un mot de passe, associée à une autre méthode inscrite, peut être utilisée comme solution de secours, au cas où ils ne peuvent pas utiliser leur téléphone ou leur clé de sécurité dans certains scénarios.
+Les utilisateurs inscrivent leur méthode sans mot de passe dans le cadre du processus d'inscription Azure AD Multi-Factor Authentication. L’authentification multifacteur avec un nom d’utilisateur et un mot de passe, associée à une autre méthode inscrite, peut être utilisée comme solution de secours, au cas où ils ne peuvent pas utiliser leur téléphone ou leur clé de sécurité dans certains scénarios.
 
 ### <a name="licensing"></a>Licence 
 Il n’y a aucun coût supplémentaire pour l’authentification sans mot de passe ; en revanche, certains prérequis peuvent nécessiter un abonnement Premium. Pour obtenir des informations détaillées sur les fonctionnalités et les licences, consultez la page [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -140,7 +140,7 @@ L’application transforme n’importe quel téléphone iOS ou Android en inform
 
 **Intégration AD FS** - Lorsqu’un utilisateur active l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique par défaut l’envoi d’une notification pour approbation. Les utilisateurs d’un locataire hybride ne peuvent pas être dirigés vers ADFS pour se connecter, sauf s’ils sélectionnent « Utiliser votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Toutefois, si un paramètre *login_hint* est spécifié, l’utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser l’information d’identification sans mot de passe.
 
-**Serveur Azure Multi-Factor Authentication** - Les utilisateurs finaux activés pour Multi-Factor Authentication via le serveur Azure MFA local d’une organisation peuvent créer et utiliser une information d’identification de connexion unique par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.
+**Serveur Azure AD Multi-Factor Authentication** - Les utilisateurs finaux activés pour une authentification multifacteur via le serveur Azure MFA local d'une organisation peuvent créer et utiliser une information d'identification unique de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.
 
 **Inscription de l’appareil** - Pour utiliser l’application Authenticator dans l’authentification sans mot de passe, l’appareil doit être inscrit dans le locataire Azure AD et ne pas être un appareil partagé. Un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie que seulement un compte professionnel ou scolaire est pris en charge pour la connexion par téléphone avec l’application Authenticator.
 

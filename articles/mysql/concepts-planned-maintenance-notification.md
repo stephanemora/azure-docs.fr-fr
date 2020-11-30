@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417586"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919622"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notification de maintenance planifiée dans Azure Database pour MySQL - Serveur unique
 
@@ -78,7 +78,7 @@ Une erreur temporaire, aussi connue sous le nom de défaut temporaire, est une e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour toute question ou suggestion au sujet de l’utilisation d’Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL à l’adresse *AskAzureDBforMySQL@service.microsoft.com* .
+- Pour toute question ou suggestion sur l'utilisation d'Azure Database pour MySQL, envoyez un e-mail à l'équipe Azure Database pour MySQL à l'adresse AskAzureDBforMySQL@service.microsoft.com
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
 - [Résoudre les problèmes de connexion à Azure Database pour MySQL - Serveur unique](howto-troubleshoot-common-connection-issues.md)
 - [Gérer les erreurs temporaires et se connecter efficacement à Azure Database pour MySQL - Serveur unique](concepts-connectivity.md)

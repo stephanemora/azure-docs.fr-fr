@@ -3,12 +3,12 @@ title: Déployer Traffic Manager pour équilibrer les charges de travail de la s
 description: Découvrez comment intégrer Traffic Manager avec la solution VMware Azure (AVS) pour équilibrer les charges de travail d’application sur plusieurs points de terminaison dans différentes régions.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ed74bb0dfc533abadd50af32afc06c9cb4106193
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593116"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874280"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Déployer Traffic Manager pour équilibrer les charges de travail de la solution VMware Azure (AVS)
 
@@ -30,7 +30,7 @@ Comme le montre l’illustration suivante, Azure Traffic Manager fournit un équ
 
 La connexion sur le réseau virtuel entre les deux régions de cloud privé AVS, USA Ouest et Europe Ouest, et un serveur local dans la région USA Est, utilise une passerelle ExpressRoute.   
 
-![Diagramme de l’architecture de l’intégration de Traffic Manager à Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagramme de l'architecture de l'intégration de Traffic Manager à Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
  
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +75,7 @@ Dans notre scénario, un segment NSX-T est configuré dans l’environnement AVS
 
 1. Sélectionnez **Segments** pour afficher vos segments configurés. Dans ce cas, nous voyons que le segment Contoso-segment1 est connecté à la passerelle Contoso-T01, un routeur flexible de niveau 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Capture d’écran montrant des profils de segment dans NSX-T Manager.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Capture d’écran montrant des profils de segment dans NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
 2. Sélectionnez **Passerelles de niveau 1** pour afficher la liste de vos passerelles de niveau 1 avec le nombre de segments liés. Sélectionnez le segment lié à Contoso-T01. Une fenêtre s’ouvre, qui affiche l’interface logique configurée sur le routeur de niveau 01. Celui-ci sert de passerelle vers la machine virtuelle du membre du pool principal connecté au segment.
 
@@ -83,7 +83,7 @@ Dans notre scénario, un segment NSX-T est configuré dans l’environnement AVS
 
 3. Dans le client vSphere de machine virtuelle, sélectionnez la machine virtuelle pour afficher ses détails. Notez que son adresse IP correspond à ce que nous avons vu à l’étape 3 de la section précédente : 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Capture d’écran montrant les détails de la machine virtuelle dans le client VSphere.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Capture d’écran montrant les détails de la machine virtuelle dans le client VSphere." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
 4. Sélectionnez la machine virtuelle, puis cliquez sur **ACTIONS > Modifier les paramètres** pour vérifier la connexion au segment NSX-T.
 
@@ -103,7 +103,7 @@ Dans notre scénario, un segment NSX-T est configuré dans l’environnement AVS
 
 3. Sélectionnez **Vue d’ensemble**. Copiez l’URL sous **Nom du DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Capture d’écran montrant une vue d’ensemble de point de terminaison Traffic Manager avec le nom DNS mis en surbrillance."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Capture d’écran montrant une vue d’ensemble de point de terminaison Traffic Manager avec le nom DNS mis en surbrillance." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
 4. Collez l’URL du nom DNS dans un navigateur. La capture d’écran suivante montre le trafic dirigé vers la région Europe Ouest.
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532475"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840727"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notes développeur pour les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Les fonctionnalités de stratégie personnalisée/Identity Experience Framework 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Authentification par facteur téléphonique](phone-factor-technical-profile.md) |  |  | X |  |
-| [Authentification Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Authentification Azure AD MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Mot de passe à usage unique](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) comme répertoire local |  |  | X |  |
 | Sous-système de messagerie Azure pour la vérification par e-mail |  |  | X |  |

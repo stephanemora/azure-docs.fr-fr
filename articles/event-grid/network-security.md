@@ -5,25 +5,25 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148936"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917526"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
 
 - Étiquettes de service en sortie
-- Règles de pare-feu IP en entrée (préversion)
+- Règles de pare-feu IP en entrée
 - Points de terminaison privés pour l’entrée
 
 
 ## <a name="service-tags"></a>Balises de service
-Une étiquette de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les balises de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
+Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
 
-Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur les [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **AzureEventGrid**) dans le champ *Source* ou *Destination*  approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l'étiquette de service (par exemple, **AzureEventGrid**) dans le champ *source* ou *destination* approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|
@@ -45,7 +45,7 @@ Vous pouvez utiliser des [points de terminaison privés](../private-link/private
 L’utilisation de points de terminaison privés pour ressource Event Grid vous permet d’effectuer les opérations suivantes :
 
 - Sécuriser l’accès à votre rubrique ou domaine à partir d’un réseau virtuel via un réseau principal Microsoft, par opposition au réseau Internet public.
-- Se connecter en toute sécurité à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide de VPN ou d’ExpressRoutes avec le peering privé.
+- Se connecter en toute sécurité à partir de réseaux locaux qui se connectent au réseau virtuel à l'aide d'un VPN ou d'itinéraires ExpressRoute avec le peering privé.
 
 Quand vous créez un point de terminaison privé pour une rubrique ou un domaine dans votre réseau virtuel, une demande de consentement est envoyée pour approbation au propriétaire de la ressource. Si l’utilisateur qui demande la création du point de terminaison privé est également propriétaire de la ressource, cette demande de consentement est automatiquement approuvée. Sinon, la connexion affiche l’état **En attente** jusqu’à ce qu’elle soit approuvée. Les applications du réseau virtuel peuvent se connecter en toute transparence au service Event Grid sur le point de terminaison privé, à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utiliseraient dans tous les cas. Les propriétaires de la ressource peuvent gérer les demandes de consentement et les points de terminaison privés, via l’onglet **Points de terminaison privés** de la ressource dans le portail Azure.
 

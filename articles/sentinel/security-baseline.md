@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab28c7c592c270cb7b5ba6afa6145bdcfed89099
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bf249046a30e023a2d7b596fb6424c7005c2a875
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658925"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841935"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Base de référence de sécurité Azure pour Azure Sentinel
 
@@ -163,11 +163,11 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6 : Utiliser des stations de travail sécurisées et gérées par Azure pour les tâches administratives
 
-**Aide** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure Multi-Factor Authentication (MFA) activé pour vous connecter à vos ressources compatibles avec Azure Sentinel et les configurer. 
+**Conseils** : Utilisez une station de travail à accès privilégié sur laquelle Azure AD Multi-Factor Authentication (MFA) est activé pour vous connecter à vos ressources liées à Azure Sentinel et les configurer. 
 
 - [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -303,7 +303,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
@@ -424,7 +424,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 - Types de ressources non autorisés
 - Types de ressources autorisés

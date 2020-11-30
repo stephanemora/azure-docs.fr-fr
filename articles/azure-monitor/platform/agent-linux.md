@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332499"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886836"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -30,13 +30,17 @@ Pour obtenir la liste des distributions Linux que l’agent Log Analytics prend 
 
 >[!NOTE]
 >OpenSSL 1.1.0 est uniquement pris en charge sur les plateformes x86_x64 (64 bits), tandis qu’OpenSSL antérieur à 1.x n’est pris en charge sur aucune plateforme.
->
+
+>[!NOTE]
+>L'exécution de l'agent Log Analytics pour Linux n'est pas prise en charge dans les conteneurs. Si vous devez surveiller des conteneurs, utilisez la [solution Container Monitoring](../insights/containers.md) pour les hôtes Docker ou [Azure Monitor pour conteneurs](../insights/container-insights-overview.md) pour Kubernetes.
+
 À partir des versions publiées après août 2018, nous apportons les changements suivants à notre modèle de prise en charge :  
 
 * Seules les versions serveur sont prises en charge, pas les versions client.  
 * Nous concentrons la prise en charge sur les [distributions approuvées Azure Linux](../../virtual-machines/linux/endorsed-distros.md). Notez qu’il peut y avoir un certain délai entre la sortie d’une nouvelle distribution ou version approuvée par Azure Linux, et sa prise en charge pour l’agent Log Analytics Linux.
 * Toutes les versions mineures de chaque version majeure listée sont prises en charge.
-* Les versions qui ont dépassé la date de fin de support de leur fabricant ne sont pas prises en charge.  
+* Les versions qui ont dépassé la date de fin de support de leur fabricant ne sont pas prises en charge.
+* Seules les images de machine virtuelle sont prises en charge ; les conteneurs, même ceux dérivés des images des éditeurs distributeurs officiels, ne sont pas pris en charge.
 * Les nouvelles versions d’AMI ne sont pas prises en charge.  
 * Seules les versions qui exécutent SSL 1.x par défaut sont prises en charge.
 

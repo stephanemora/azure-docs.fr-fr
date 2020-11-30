@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la gestion d’une appl
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681684"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888825"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
@@ -91,6 +91,7 @@ L’exemple d’application contient des [modèles Azure Resource Manager](https
 >
 >
 
+
 | Paramètre              | Description                                 | Exemple                                                      | Commentaires                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Le nom du cluster de déploiement | sf-cluster123                                                |                                                              |
@@ -137,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Mettre à niveau l’application Service Fabric à l’aide de Resource Manager
+
+
+> [!IMPORTANT]
+> Tout service déployé via la définition JSON ARM doit être supprimé de la section DefaultServices du fichier ApplicationManifest.xml correspondant.
+
 
 Vous pouvez mettre à niveau une application qui est déjà déployée sur un cluster Service Fabric pour l’une des raisons suivantes :
 

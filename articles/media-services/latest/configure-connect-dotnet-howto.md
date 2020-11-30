@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297397"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844316"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API Media Services v3 - .NET
 
@@ -43,7 +43,7 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 
 L’exemple d’application de cette rubrique cible `netcoreapp2.0`. Le code utilise « async main », qui est disponible à partir de C# 7.1. Voir le [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) pour plus de détails.
 
-## <a name="add-required-nuget-packages"></a>Ajouter les packages NuGet exigés
+## <a name="add-required-nuget-packagesassemblies"></a>Ajouter les packages/assemblys NuGet exigés
 
 1. Dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package NuGet**.
 2. Dans la fenêtre de la **console du Gestionnaire de package**, exécutez la commande `Install-Package` pour ajouter les packages NuGet suivants. Par exemple : `Install-Package Microsoft.Azure.Management.Media`.
@@ -51,10 +51,14 @@ L’exemple d’application de cette rubrique cible `netcoreapp2.0`. Le code uti
 |Package|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Kit SDK Azure Media Services. <br/>Pour vérifier que vous utilisez le dernier package Azure Media Services, exécutez [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Bibliothèque d’authentification ADAL pour le kit de développement logiciel Azure SDK pour .NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Lire les valeurs de configuration issues des variables d’environnement et des fichiers JSON locaux|
-|`Microsoft.Extensions.Configuration.Json`|Lire les valeurs de configuration issues des variables d’environnement et des fichiers JSON locaux
-|`WindowsAzure.Storage`|Kit de développement logiciel (SDK) de stockage|
+
+### <a name="other-required-assemblies"></a>Autres assemblys requis
+
+- Azure.Storage.Blobs
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Créer et configurer le fichier des paramètres de l’application
 
@@ -136,9 +140,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -245,5 +249,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Information de référence sur .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Information de référence sur .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * Pour obtenir plus d’exemples de code, consultez le dépôt d’[exemples du Kit SDK .NET](https://github.com/Azure-Samples/media-services-v3-dotnet).

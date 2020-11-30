@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356805"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917169"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Utilisation d’Azure.Search.Documents dans une application .NET C#
 
@@ -231,6 +231,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
 }
 ```
 
+Une autre approche consiste à ajouter directement des champs à un index. L'exemple suivant ne montre que quelques champs.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
+
 ### <a name="field-definitions"></a>Définitions de champs
 
 Votre modèle de données dans .NET et le schéma d’index qui lui correspond doivent prendre en charge l’expérience de recherche que vous souhaitez offrir à vos utilisateurs finaux. Chaque objet de niveau supérieur dans .NET, comme la recherche de document dans un index de recherche, correspond à un résultat de recherche qui sera présenté dans votre interface utilisateur. Par exemple, dans une application de recherche d’hôtel, vos utilisateurs peuvent rechercher par nom d’hôtel, caractéristiques d’hôtel, ou caractéristiques de chambres spécifiques. 
@@ -436,7 +452,7 @@ UploadDocuments(searchClient);
 
 ## <a name="run-queries"></a>Exécuter des requêtes
 
-Premièrement, configurez un `SearchClient` qui lit le point de terminaison de recherche et la clé API de requête à partir de **appsettings.json**  :
+Premièrement, configurez un `SearchClient` qui lit le point de terminaison de recherche et la clé API de requête à partir de **appsettings.json** :
 
 ```csharp
 private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)

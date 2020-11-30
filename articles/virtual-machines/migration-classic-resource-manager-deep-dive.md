@@ -8,22 +8,20 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d73ad3235e5ff2c9dbf0cca546308469ef6b5ac0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970008"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887037"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
 
 > [!IMPORTANT]
 > Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette dépréciation et [son impact sur vous](./classic-vm-deprecation.md#how-does-this-affect-me).
 
-Examinons en détail la migration à partir du modèle de déploiement Azure classique vers le modèle de déploiement Azure Resource Manager. Nous examinons les ressources au niveau des fonctionnalités et des ressources pour vous aider à comprendre comment la plateforme Azure migre les ressources entre les deux modèles de déploiement. Pour plus d’informations, lisez l’article annonçant le service :
+Examinons en détail la migration à partir du modèle de déploiement Azure classique vers le modèle de déploiement Azure Resource Manager. Nous examinons les ressources au niveau des fonctionnalités et des ressources pour vous aider à comprendre comment la plateforme Azure migre les ressources entre les deux modèles de déploiement. Pour plus d’informations, lisez l’article annonçant le service : [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md).
 
-* Pour Linux : [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Pour Windows :  [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
 Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).
@@ -33,7 +31,7 @@ Tout d’abord, il est important de comprendre la différence entre les opérati
 
 Le plan de données est le même entre le modèle de déploiement classique et les piles Resource Manager. La différence tient au fait que durant le processus de migration, Microsoft convertit la représentation des ressources depuis un modèle de déploiement classique vers celui de la pile Resource Manager. Par conséquent, vous devez utiliser de nouveaux outils, API et Kits de développement logiciel (SDK) pour gérer vos ressources dans la pile Resource Manager.
 
-![Diagramme illustrant la différence entre un plan de contrôle/gestion et le plan de données](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagramme illustrant la différence entre un plan de contrôle/gestion et le plan de données](./media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -48,11 +46,11 @@ Avant de commencer la migration :
 * Planifiez votre migration en dehors des heures d’ouverture afin de tenir compte des erreurs inattendues susceptibles de survenir au cours du processus.
 * Téléchargez la configuration actuelle de vos machines virtuelles à l’aide de PowerShell, de commandes de l’interface de ligne de commande ou d’API REST, afin d’en faciliter la vérification après l’étape de préparation.
 * Mettez à jour vos scripts d’automatisation/d’opérationnalisation pour gérer le modèle de déploiement Resource Manager avant de commencer la migration. Vous pouvez également effectuer des opérations GET lorsque les ressources se trouvent à l’état Préparé.
-* Évaluez les stratégies de Contrôle d’accès en fonction du rôle (RBAC) qui sont configurées sur les ressources IaaS dans le modèle de déploiement classique et planifiez la suite, pour après la fin de la migration.
+* Évaluez les stratégies de contrôle d'accès en fonction du rôle Azure (Azure RBAC) qui sont configurées sur les ressources IaaS dans le modèle de déploiement classique, et planifiez ce qui se passera une fois la migration terminée.
 
 Le workflow de migration se présente comme suit :
 
-![Diagramme illustrant le workflow de migration](windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagramme illustrant le workflow de migration](./media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > Toutes les opérations décrites dans les sections suivantes sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, ré-exécutez la procédure de préparation, d’abandon ou de validation. Azure tente à nouveau l’action.
@@ -98,13 +96,13 @@ Une fois l’opération de préparation terminée, vous avez la possibilité de 
 
 Les deux captures d’écran suivantes affichent le résultat après la réussite d’une opération de préparation. La première affiche un groupe de ressources contenant le service cloud d’origine. La deuxième affiche le nouveau groupe de ressources « -Migré » contenant les ressources Azure Resource Manager équivalentes.
 
-![Capture d’écran affichant le service cloud d’origine](windows/media/migration-classic-resource-manager/portal-classic.png)
+![Capture d’écran affichant le service cloud d’origine](./media/migration-classic-resource-manager/portal-classic.png)
 
-![Capture d’écran affichant les ressources Azure Resource Manager lors de l’opération de préparation](windows/media/migration-classic-resource-manager/portal-arm.png)
+![Capture d’écran affichant les ressources Azure Resource Manager lors de l’opération de préparation](./media/migration-classic-resource-manager/portal-arm.png)
 
 Voici un aperçu des coulisses de vos ressources à l’issue de la phase de préparation. Notez que la ressource dans le plan de données est la même. Elle est représentée dans le plan de gestion (modèle de déploiement classique) et dans le plan de contrôle (Resource Manager).
 
-![Diagramme de la phase de préparation](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagramme de la phase de préparation](./media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Les machines virtuelles ne faisant pas partie d’un réseau virtuel dans le modèle de déploiement classique sont arrêtées et désallouées dans cette phase de migration.
@@ -124,7 +122,7 @@ Si vous constatez certains problèmes, vous pouvez toujours abandonner la migrat
 ### <a name="abort"></a>Abandon
 Il s’agit d’une étape facultative si vous souhaitez annuler vos modifications, rétablir le modèle de déploiement classique et arrêter la migration. Cette opération supprime les métadonnées de Resource Manager (créées à l’étape de préparation) pour vos ressources. 
 
-![Diagramme de l’étape d’abandon](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagramme de l’étape d’abandon](media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +137,13 @@ Après avoir terminé la validation, vous pouvez valider la migration. Les resso
 >
 >
 
-![Diagramme de l’étape de validation](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagramme de l’étape de validation](media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Organigramme de la migration
 
 Cet organigramme montre comment procéder à la migration :
 
-![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Traduction du modèle de déploiement classique vers les ressources Resource Manager
 Les représentations des ressources du modèle de déploiement classique et de Resource Manager sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.
@@ -183,24 +181,12 @@ Dans le cadre de la migration de vos ressources depuis le modèle de déploiemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour Linux :
-
-* [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Passer en revue les erreurs courantes de migration](./linux/migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json)
-* [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-Pour Windows :
-
-* [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](migration-classic-resource-manager-ps.md)
+* [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](migration-classic-resource-manager-cli.md)
 * [Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager](../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
 * [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md)
-* [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Passer en revue les erreurs courantes de migration](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Passer en revue les erreurs courantes de migration](migration-classic-resource-manager-errors.md)
+* [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md)
