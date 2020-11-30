@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135461"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984919"
 ---
 # <a name="pronunciation-assessment"></a>Évaluation de la prononciation
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Ce tableau liste les paramètres de configuration pour l’évaluation de la prononciation.
 
-| Paramètre | Description | Obligatoire/facultatif |
+| Paramètre | Description | Requis ? |
 |-----------|-------------|---------------------|
 | ReferenceText | Texte duquel la prononciation est évaluée. | Obligatoire |
-| GradingSystem | Système de points pour la calibration du score. Les valeurs acceptées sont `FivePoint` et `HundredMark`. La valeur par défaut est `FivePoint`. | Facultatif |
-| Granularité | Granularité de l’évaluation. Les valeurs acceptées sont `Phoneme`, qui affiche le score au niveau du texte intégral, du mot et du phonème, `Word`, qui affiche le score au niveau du texte intégral et du mot, `FullText`, qui affiche le score au niveau du texte intégral uniquement. La valeur par défaut est `Phoneme`. | Facultatif |
-| EnableMiscue | Active le calcul de faute de langue. Quand cette option est activée, les mots prononcés sont comparés au texte de référence et sont marqués comme omission/insertion en fonction de la comparaison. Les valeurs acceptées sont `False` et `True`. La valeur par défaut est `False`. | Facultatif |
+| GradingSystem | Système de points pour la calibration du score. Le système `FivePoint` donne un score à virgule flottante de 0 à 5 et `HundredMark` donne un score à virgule flottante de 0 à 100. Par défaut : `FivePoint`. | Facultatif |
+| Granularité | Granularité de l’évaluation. Les valeurs acceptées sont `Phoneme`, qui affiche le score au niveau du texte intégral, du mot et du phonème, `Word`, qui affiche le score au niveau du texte intégral et du mot, `FullText`, qui affiche le score au niveau du texte intégral uniquement. Par défaut : `Phoneme`. | Facultatif |
+| EnableMiscue | Active le calcul de faute de langue. Quand cette option est activée, les mots prononcés sont comparés au texte de référence et sont marqués comme omission/insertion en fonction de la comparaison. Les valeurs acceptées sont `False` et `True`. Par défaut : `False`. | Facultatif |
 | ScenarioId | GUID indiquant un système de points personnalisé. | Facultatif |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Paramètres de résultat de l’évaluation de la prononciation

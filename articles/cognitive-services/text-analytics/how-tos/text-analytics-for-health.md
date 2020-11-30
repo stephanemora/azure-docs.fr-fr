@@ -8,38 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952758"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
-
-> [!NOTE]
-> L’Analyse de texte pour le conteneur d’intégrité a récemment été mis à jour. Pour plus d’informations sur les modifications récentes, consultez les [Nouveautés](../whats-new.md). N’oubliez pas d’extraire le conteneur le plus récent pour utiliser les mises à jour listées.
 
 > [!IMPORTANT] 
 > L’Analyse de texte pour l’intégrité est une fonctionnalité en version préliminaire fournie « en l’état » et « avec toutes les erreurs ». Par conséquent, **l’Analyse de texte pour l’intégrité (préversion) ne doit pas être implémentée ou déployée dans le cadre d’une utilisation en production.** L’Analyse de texte pour l’intégrité n’est pas destinée à être utilisée en tant que dispositif médical, support clinique, outil de diagnostic ou autre technologie destinée à être utilisée dans le diagnostic, la guérison, l’atténuation, le traitement ou la prévention de maladies ou d’autres conditions, et aucune licence ou droit n’est accordé par Microsoft pour utiliser cette fonctionnalité à ces fins. Cette fonctionnalité n’est pas conçue ou destinée à être mise en œuvre ou déployée en remplacement de conseils médicaux professionnels ou d’avis de santé, de diagnostic, de traitement ou de jugement clinique d’un professionnel de la santé, et ne doit pas être utilisé en tant que tel. Le client est seul responsable de l’utilisation de l’Analyse de texte pour l’intégrité. Microsoft ne garantit pas que l’Analyse de texte pour l’intégrité ou les ressources fournies dans le cadre de la fonctionnalité sont suffisantes pour des raisons médicales ou répondent aux exigences médicales de toute personne. 
 
 
-L’Analyse de texte pour la santé est un service en conteneur qui extrait et étiquette les informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les enregistrements d’intégrité électroniques.  
+Analyse de texte pour la santé est une fonctionnalité du service de l’API Analyse de texte qui extrait et étiquette des informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les dossiers médicaux électroniques.  Il existe deux façons d’utiliser ce service : 
+
+* API web (asynchrone) 
+* Conteneur Docker (synchrone)   
 
 ## <a name="features"></a>Fonctionnalités
 
-Le conteneur d’Analyse de texte pour la santé effectue actuellement la Reconnaissance d’entité nommée (NER), l’extraction de relations, la négation d’entité et la liaison d’entités pour le texte en anglais, dans votre propre environnement de développement qui répond à vos exigences spécifiques en matière de sécurité et de gouvernance des données.
+Analyse de texte pour la santé effectue une reconnaissance d’entité nommée (NER), une extraction de relations, une négation d’entité et une liaison d’entité sur du texte en anglais pour découvrir des insights dans du texte clinique et biomédical non structuré.
 
-#### <a name="named-entity-recognition"></a>[Reconnaissance d’entité nommée](#tab/ner)
+### <a name="named-entity-recognition"></a>[Reconnaissance d’entité nommée](#tab/ner)
 
 La Reconnaissance d’entité nommée détecte les mots et les expressions mentionnés dans du texte non structuré qui peuvent être associés à un ou plusieurs types sémantiques, tels que le diagnostic, le nom de médicaments, le symptôme/le signe ou l’âge.
 
 > [!div class="mx-imgBorder"]
 > ![NER d’intégrité](../media/ta-for-health/health-named-entity-recognition.png)
 
-#### <a name="relation-extraction"></a>[Extraction de relations](#tab/relation-extraction)
+### <a name="relation-extraction"></a>[Extraction de relations](#tab/relation-extraction)
 
 L’extraction de relations identifie les connexions pertinentes entre les concepts mentionnés dans le texte. Par exemple, une relation « heure de maladie » est trouvée en associant un nom de pathologie à une indication temporelle. 
 
@@ -47,7 +48,7 @@ L’extraction de relations identifie les connexions pertinentes entre les conce
 > ![RE d’intégrité](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
+### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
 
 La liaison d’entités distingue des entités distinctes en associant des entités nommées mentionnées dans du texte à des concepts trouvés dans une base de données de concepts prédéfinie. Par exemple, le système de langage médical unifié (UMLS).
 
@@ -56,7 +57,7 @@ La liaison d’entités distingue des entités distinctes en associant des entit
 
 L’Analyse de texte pour la santé prend en charge la liaison avec le vocabulaire médical et biomédical figurant dans la source de connaissances Metathesaurus de l’[UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) (Unified Medical Language System).
 
-#### <a name="negation-detection"></a>[Détection de négation](#tab/negation-detection) 
+### <a name="negation-detection"></a>[Détection de négation](#tab/negation-detection) 
 
 La signification du contenu médical est fortement affectée par les modificateurs, tels que la négation, qui peuvent avoir une incidence critique en cas de mauvais diagnostic. L’Analyse de texte pour la santé prend en charge la détection de négation pour les différentes entités mentionnées dans le texte. 
 
@@ -67,173 +68,189 @@ La signification du contenu médical est fortement affectée par les modificateu
 
 Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour la santé pour obtenir un liste complète des entités prises en charge.
 
-## <a name="supported-languages"></a>Langues prises en charge
+### <a name="supported-languages-and-regions"></a>Langues et régions prises en charge
 
-L’Analyse de texte pour la santé prend uniquement en charge les documents en langue anglaise.
+L’Analyse de texte pour la santé prend uniquement en charge les documents en langue anglaise. 
 
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
+L’API web hébergée Analyse de texte pour la santé est actuellement disponible uniquement dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
 
-Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services](https://aka.ms/csgate) pour demander l’accès au conteneur. Actuellement, vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
+## <a name="request-access-to-the-public-preview"></a>Demander accès à la préversion publique
 
-[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+Renseignez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander l’accès à la préversion publique d’Analyse de texte pour la santé. Vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
 
-[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
+Le formulaire demande des informations sur vous, votre entreprise et le scénario d’utilisateur pour lequel vous allez utiliser le conteneur. Une fois le formulaire envoyé, l’équipe Azure Cognitive Services Azure l’examinera et vous informera de sa décision par courrier électronique.
 
-## <a name="install-the-container"></a>Installer le conteneur
+> [!IMPORTANT]
+> * Dans le formulaire, vous devez utiliser une adresse e-mail associée à un ID d’abonnement Azure.
+> * La ressource Azure que vous utilisez doit avoir été créée avec l’ID d’abonnement Azure approuvé. 
+> * Vérifiez votre adresse e-mail (boîtes de réception et dossiers de courrier indésirable) pour obtenir des mises à jour sur l’état de votre application auprès de Microsoft.
 
-Il existe plusieurs façons d’installer et d’exécuter le conteneur. 
+## <a name="using-the-docker-container"></a>Utilisation du conteneur Docker 
 
-- Utilisez le [Portail Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) pour créer une ressource d’Analyse de texte, et utilisez Docker pour obtenir votre conteneur.
-- Utilisez les scripts PowerShell et [Azure CLI](/cli/azure/?view=azure-cli-latest) suivants pour automatiser la configuration du conteneur de déploiement de ressources.
+Pour exécuter le conteneur Analyse de texte pour la santé dans votre propre environnement, suivez ces [instructions pour télécharger et installer le conteneur](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
 
-### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installer le conteneur à l’aide d’Azure Web App pour conteneurs
+## <a name="using-the-client-library"></a>Utilisation de la bibliothèque de client
 
-Azure [Web App pour conteneurs](https://azure.microsoft.com/services/app-service/containers/) est une ressource Azure dédiée à l’exécution de conteneurs dans le Cloud. Il offre des fonctionnalités prêtes à l’emploi, telles que la mise à l’échelle automatique, la prise en charge des conteneurs Docker et la composition Docker, la prise en charge de HTTPS et bien plus encore.
-
-> [!NOTE]
-> À l’aide d’Azure Web App, vous obtiendrez automatiquement un domaine sous la forme `<appservice_name>.azurewebsites.net`
-
-Exécutez ce script PowerShell au moyen de la Azure CLI pour créer un Web App pour conteneurs, à l’aide de votre abonnement et de l’image de conteneur sur HTTPS. Attendez la fin du script (environ 25 à 30 minutes) avant d’envoyer la première requête.
-
-```bash
-$subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           #    and AppSerivce to be attached to.
-$resources_location = ""                   # This is the location you wish the AppServicePlan to be deployed to.
-                                           #    You can use the "az account list-locations -o table" command to
-                                           #    get the list of available locations and location code names.
-$appservice_plan_name = ""                 # This is the AppServicePlan name you wish to have.
-$appservice_name = ""                      # This is the AppService resource name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az appservice plan create -n $appservice_plan_name -g $resource_group_name --is-linux -l $resources_location --sku P3V2
-az webapp create -g $resource_group_name -p $appservice_plan_name -n $appservice_name -i $DOCKER_IMAGE_NAME -s $DOCKER_REGISTRY_SERVER_USERNAME -w $DOCKER_REGISTRY_SERVER_PASSWORD
-az webapp config appsettings set -g $resource_group_name -n $appservice_name --settings Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
-```
-
-### <a name="install-the-container-using-azure-container-instance"></a>Installer le conteneur à l’aide d’Azure Container Instance
-
-Vous pouvez également utiliser Azure Container Instance (ACI) pour faciliter le déploiement. ACI est une ressource qui vous permet d’exécuter des conteneurs Docker à la demande dans un environnement Azure serverless géré. 
-
-Consultez [Comment utiliser Azure Container Instances](text-analytics-how-to-use-container-instances.md) pour connaître les étapes de déploiement d’une ressource ACI à l’aide du Portail Azure. Vous pouvez également utiliser le script PowerShell ci-dessous avec Azure CLI, ce qui crée une ACI sur votre abonnement à l’aide de l’image conteneur.  Attendez la fin du script (environ 25 à 30 minutes) avant d’envoyer la première requête.  En raison de la limite du nombre maximal de processeurs par ressource ACI, ne sélectionnez pas cette option si vous envisagez de soumettre plus de 5 documents volumineux (environ 5 000 caractères chacun) par requête.
-Pour plus d’informations sur la disponibilité, consultez l’article [Support régional ACI](../../../container-instances/container-instances-region-availability.md). 
-
-> [!NOTE] 
-> Azure Container Instances n’inclue pas la prise en charge HTTPS pour les domaines intégrés. Si vous avez besoin de HTTPS, vous devez le configurer manuellement, y compris créer un certificat et l’inscription d’un domaine. Vous trouverez des instructions pour effectuer cette opération avec NGINX ci-dessous.
-
-```bash
-$subscription_name = ""                    # The name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           # and AppService to be attached to.
-$resources_location = ""                   # This is the location you wish the web app to be deployed to.
-                                           # You can use the "az account list-locations -o table" command to
-                                           # Get the list of available locations and location code names.
-$azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
-$DOCKER_REGISTRY_LOGIN_SERVER = "containerpreview.azurecr.io"
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
-```
-
-### <a name="secure-aci-connectivity"></a>Sécuriser la connectivité ACI
-
-Par défaut, aucune sécurité n’est fournie lors de l’utilisation d’ACI avec l’API de conteneur. Cela est dû au fait que les conteneurs s’exécute généralement dans le cadre d’un pod qui est protégé de l’extérieur par un pont réseau. Vous pouvez toutefois modifier un conteneur avec un composant frontal, en gardant le point de terminaison de conteneur privé. Les exemples suivants utilisent [NGINX](https://www.nginx.com) en tant que passerelle d’entrée pour prendre en charge le protocole HTTPS/SSL et l’authentification client-certificat.
-
-> [!NOTE]
-> NGINX est un serveur et un proxy HTTP open source à hautes performances. Un conteneur NGINX peut être utilisé pour mettre fin à une connexion TLS pour un seul conteneur. Des solutions de terminaison TLS basées sur l’entrée NGINX plus complexes sont également possibles.
-
-#### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurer NGINX en tant que passerelle d’entrée
-
-NGINX utilise des [fichiers config](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) pour activer les fonctionnalités lors du runtime. Pour activer la terminaison TLS pour un autre service, vous devez spécifier un certificat SSL pour mettre fin à la connexion TLS et `proxy_pass` pour spécifier une adresse pour le service. Un exemple est fourni ci-dessous.
+La dernière préversion de la bibliothèque de client Analyse de texte vous permet d’appeler Analyse de texte pour la santé en utilisant un objet client. Reportez-vous à la documentation de référence et consultez les exemples sur GitHub :
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 
-> [!NOTE]
-> `ssl_certificate` attend la spécification d’un chemin d’accès dans le système de fichiers local du conteneur NGINX. L’adresse spécifiée pour `proxy_pass` doit être disponible dans le réseau du conteneur NGINX.
 
-Le conteneur NGINX chargera tous les fichiers dans `_.conf_` qui sont montés sous `/etc/nginx/conf.d/` dans le chemin de configuration HTTP.
+## <a name="sending-a-rest-api-request"></a>Envoie d’une requête d’API REST 
 
-```nginx
-server {
-  listen              80;
-  return 301 https://$host$request_uri;
-}
-server {
-  listen              443 ssl;
-  # replace with .crt and .key paths
-  ssl_certificate     /cert/Local.crt;
-  ssl_certificate_key /cert/Local.key;
+### <a name="preparation"></a>Préparation
 
-  location / {
-    proxy_pass http://cognitive-service:5000;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP  $remote_addr;
-  }
+La qualité des résultats de la fonctionnalité Analyse de texte pour la santé est d’autant meilleure que vous lui donnez de petites quantités de texte à analyser. C’est l’inverse de certaines autres fonctionnalités Analyse de texte comme l’extraction d’expressions clés qui donne de meilleurs résultats avec des blocs de texte plus volumineux. Pour obtenir des résultats optimaux pour ces opérations, envisagez de restructurer les entrées en conséquence.
+
+Vous devez disposer des documents JSON dans ce format : ID, texte et langue. 
+
+La taille du document doit être inférieure à 5 120 caractères par document. Pour connaître le nombre maximal de documents autorisés dans une collection, consultez l’article [Limites de données](../concepts/data-limits.md?tabs=version-3) sous Concepts. La collection est soumise dans le corps de la demande.
+
+### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Structurer la requête d’API pour l’API web asynchrone hébergée
+
+Pour le conteneur et l’API web hébergée, vous devez créer une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md), une commande cURL ou la **console de test d’API** indiquée dans les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) pour créer et envoyer rapidement une requête POST à l’API web hébergée dans la région de votre choix. 
+
+Voici un exemple de fichier JSON joint au corps POST de la requête d’API Analyse de texte pour la santé :
+
+```json
+example.json
+
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
+    }
+  ]
 }
 ```
 
-#### <a name="example-docker-compose-file"></a>Exemple de fichier Docker Compose
+### <a name="hosted-asynchronous-web-api-response"></a>Réponse de l’API web asynchrone hébergée 
 
-L’exemple ci-dessous montre comment créer un fichier [Docker Compose](https://docs.docker.com/compose/reference/overview) pour déployer les conteneurs NGINX et d’Analyse de texte pour la santé :
+Étant donné que cette requête POST est utilisée pour envoyer un travail pour l’opération asynchrone, il n’y a pas de texte dans l’objet de la réponse.  Toutefois, vous avez besoin de la valeur operation-location KEY dans les en-têtes de réponse pour effectuer une requête GET afin de vérifier l’état du travail et de la sortie.  Voici un exemple de valeur operation-location KEY dans l’en-tête de réponse de la requête POST :
 
-```yaml
-version: "3.7"
-services:
-  cognitive-service:
-    image: {IMAGE_ID}
-    ports:
-      - 5000:5000
-    environment:
-      - eula=accept
-      - billing={ENDPOINT_URI}
-      - apikey={API_KEY}
-      - Logging:Disk:Format=json
-    volumes:
-        # replace with path to logs folder
-      - <path-to-logs-folder>:/output
-  nginx:
-    image: nginx
-    ports:
-      - 443:443
-    volumes:
-        # replace with paths for certs and conf folders
-      - <path-to-certs-folder>:/cert
-      - <path-to-conf-folder>:/etc/nginx/conf.d/
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
+
+Pour vérifier l’état du travail, faites une requête GET à l’URL dans la valeur de l’en-tête operation-location KEY de la réponse POST.  Les états suivants sont utilisés pour refléter l’état d’un travail : `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` et `cancelled`.  
+
+Vous pouvez annuler un travail dont l’état est `NotStarted` ou `running` avec un appel DELETE HTTP à la même URL que la requête GET.  Pour plus d’informations sur l’appel DELETE, consultez les [informations de référence sur l’API hébergée Analyse de texte pour la santé](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
+
+Voici un exemple de réponse d’une requête GET.  Notez que la sortie est disponible et récupérable jusqu’à ce que le délai `expirationDateTime` (24 heures à partir de l’heure de création du travail) soit écoulé, après quoi la sortie est purgée.
+
+```json
+{
+    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
+    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
+    "createdDateTime": "2020-11-18T01:44:55Z",
+    "expirationDateTime": "2020-11-19T01:44:55Z",
+    "status": "succeeded",
+    "errors": [],
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "entities": [
+                    {
+                        "offset": 25,
+                        "length": 5,
+                        "text": "100mg",
+                        "category": "Dosage",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 31,
+                        "length": 10,
+                        "text": "remdesivir",
+                        "category": "MedicationName",
+                        "confidenceScore": 1.0,
+                        "isNegated": false,
+                        "links": [
+                            {
+                                "dataSource": "UMLS",
+                                "id": "C4726677"
+                            },
+                            {
+                                "dataSource": "MSH",
+                                "id": "C000606551"
+                            },
+                            {
+                                "dataSource": "NCI",
+                                "id": "C152185"
+                            },
+                            {
+                                "dataSource": "NCI_FDA",
+                                "id": "3QKI37EEHE"
+                            }
+                        ]
+                    },
+                    {
+                        "offset": 42,
+                        "length": 13,
+                        "text": "intravenously",
+                        "category": "MedicationRoute",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 56,
+                        "length": 4,
+                        "text": "over",
+                        "category": "Time",
+                        "confidenceScore": 0.87,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 73,
+                        "length": 7,
+                        "text": "120 min",
+                        "category": "Time",
+                        "confidenceScore": 0.99,
+                        "isNegated": false
+                    }
+                ],
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/0",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/2",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/3",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/4",
+                        "target": "#/results/documents/0/entities/1"
+                    }
+                ],
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2020-09-03"
+    }
+}
 ```
 
-Pour initier ce fichier Docker Compose, exécutez la commande suivante à partir d’une console au niveau racine du fichier :
 
-```bash
-docker-compose up
-```
+### <a name="structure-the-api-request-for-the-container"></a>Structurer la requête d’API pour le conteneur
 
-Pour plus d’informations, consultez la documentation de NGINX sur la [terminaison SSL NGINX](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-
-
-## <a name="example-api-request"></a>Exemple de demande API
-Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST.  Nous avons également fourni un outil de visualisation dans le conteneur qui est accessible en ajoutant la **version de démonstration** au point de terminaison du conteneur, par exemple :
-
-```bash
-http://<serverURL>:5000/demo
-```
-
-Utilisez l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé en remplaçant la variable `serverURL` par la valeur appropriée.
+Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé, en remplaçant la variable `serverURL` par la valeur appropriée.  Notez que la version de l’API dans l’URL du conteneur est différente de celle de l’API hébergée.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
@@ -261,9 +278,9 @@ example.json
 }
 ```
 
-## <a name="api-response-body"></a>Corps de la réponse API
+### <a name="container-response-body"></a>Corps de la réponse du conteneur
 
-Le code JSON suivant est un exemple corps de réponse API de l’Analyse de texte pour la santé :
+Le code JSON suivant est un exemple de corps de la réponse de l’API Analyse de texte pour la santé à l’issue de l’appel synchrone conteneurisé :
 
 ```json
 {
@@ -273,81 +290,65 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
             "entities": [
                 {
                     "id": "0",
-                    "offset": 17,
-                    "length": 11,
-                    "text": "itchy sores",
-                    "category": "SymptomOrSign",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "entities": [
-                {
-                    "id": "0",
-                    "offset": 11,
-                    "length": 4,
-                    "text": "50mg",
+                    "offset": 25,
+                    "length": 5,
+                    "text": "100mg",
                     "category": "Dosage",
                     "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 16,
-                    "length": 8,
-                    "text": "benadryl",
+                    "offset": 31,
+                    "length": 10,
+                    "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
                             "dataSource": "UMLS",
-                            "id": "C0700899"
-                        },
-                        {
-                            "dataSource": "CHV",
-                            "id": "0000044903"
-                        },
-                        {
-                            "dataSource": "MMSL",
-                            "id": "899"
+                            "id": "C4726677"
                         },
                         {
                             "dataSource": "MSH",
-                            "id": "D004155"
+                            "id": "C000606551"
                         },
                         {
                             "dataSource": "NCI",
-                            "id": "C300"
+                            "id": "C152185"
                         },
                         {
-                            "dataSource": "NCI_DTP",
-                            "id": "NSC0033299"
-                        },
-                        {
-                            "dataSource": "PDQ",
-                            "id": "CDR0000039163"
-                        },
-                        {
-                            "dataSource": "PSY",
-                            "id": "05760"
-                        },
-                        {
-                            "dataSource": "RXNORM",
-                            "id": "203457"
+                            "dataSource": "NCI_FDA",
+                            "id": "3QKI37EEHE"
                         }
                     ]
                 },
                 {
                     "id": "2",
-                    "offset": 32,
-                    "length": 11,
-                    "text": "twice daily",
-                    "category": "Frequency",
+                    "offset": 42,
+                    "length": 13,
+                    "text": "intravenously",
+                    "category": "MedicationRoute",
                     "confidenceScore": 1.0,
+                    "isNegated": false
+                },
+                {
+                    "id": "3",
+                    "offset": 56,
+                    "length": 4,
+                    "text": "over",
+                    "category": "Time",
+                    "confidenceScore": 0.87,
+                    "isNegated": false
+                },
+                {
+                    "id": "4",
+                    "offset": 73,
+                    "length": 7,
+                    "text": "120 min",
+                    "category": "Time",
+                    "confidenceScore": 0.99,
                     "isNegated": false
                 }
             ],
@@ -355,26 +356,38 @@ Le code JSON suivant est un exemple corps de réponse API de l’Analyse de text
                 {
                     "relationType": "DosageOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/0",
+                    "target": "#/documents/0/entities/1"
                 },
                 {
-                    "relationType": "FrequencyOfMedication",
+                    "relationType": "RouteOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/2",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/3",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/4",
+                    "target": "#/documents/0/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-07-24"
+    "modelVersion": "2020-09-03"
 }
 ```
 
 ### <a name="negation-detection-output"></a>Sortie de détection de négation
 
-Fans certains cas, en utilisant la détection de négation, un terme de négation unique peut traiter plusieurs termes à la fois. La négation d’une entité reconnue est représentée dans la sortie JSON par la valeur booléenne de l’indicateur `isNegated` :
+Fans certains cas, en utilisant la détection de négation, un terme de négation unique peut traiter plusieurs termes à la fois. La négation d’une entité reconnue est représentée dans la sortie JSON par la valeur booléenne de l’indicateur `isNegated`, par exemple :
 
 ```json
 {

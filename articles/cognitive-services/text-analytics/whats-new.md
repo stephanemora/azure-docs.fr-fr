@@ -8,23 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369458"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966885"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
 
+## <a name="november-2020"></a>Novembre 2020
+
+* [Nouveau point de terminaison](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) avec l’API Analyse de texte v3.1-preview.3 pour la nouvelle [API d’analyse asynchrone](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), qui prend en charge le traitement par lots des opérations NER, PII et d’extraction d’expressions clés.
+* [Nouveau point de terminaison](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) avec l’API Analyse de texte v3.1-preview.3 pour la nouvelle API hébergée [Analyse de texte pour la santé](how-tos/text-analytics-for-health.md) asynchrone avec prise en charge du traitement par lots.
+* Les deux nouvelles fonctionnalités listées ci-dessus sont disponibles uniquement dans les régions suivantes : `West US 2`, `East US 2`, `Central US`, `North Europe` et `West Europe`.
+* Le portugais brésilien `pt-BR` est maintenant pris en charge dans [Analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, à partir de la version de modèle `2020-04-01`. Il s’ajoute à la prise en charge existante de `pt-PT` pour le portugais.
+* Bibliothèques de client mises à jour, qui incluent les opérations d’analyse asynchrone et d’analyse de texte pour la santé. Vous trouverez des exemples sur GitHub :
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’API Analyse de texte v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## <a name="october-2020"></a>Octobre 2020
 
 * Prise en charge de la langue Hindi pour la fonctionnalité Analyse des sentiments v3.x, à partir de la version `2020-04-01` du modèle. 
-* La version `2020-09-01` du modèle pour le point de terminaison /languages de la v3 améliore la détection de la langue et renforce la précision.
+* La version de modèle `2020-09-01` pour le point de terminaison /languages de la v3 améliore la détection de la langue et renforce la précision.
 * Disponibilité de la v3 dans les régions Inde Centre et Émirats arabes unis Nord.
 
 ## <a name="september-2020"></a>Septembre 2020
@@ -147,7 +164,7 @@ Les noms des propriétés suivantes dans la réponse JSON ont été changés, le
 
 ### <a name="text-analytics-api-v31-public-preview"></a>Préversion publique de l’API Analyse de texte v3.1
    * Nouvelle fonctionnalité Analyse des sentiments - [Exploration des opinions](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * Nouveau [filtre de domaine (`PII`) Personnel](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) pour les informations médicales protégées (`PHI`).
+   * Nouveau filtre de domaine (`PII`) Personnel pour les informations médicales protégées (`PHI`).
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la préversion de l’API Analyse de texte v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -162,7 +179,7 @@ Dans le cadre de la [version unifiée du Kit de développement logiciel (SDK) Az
    * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [En savoir plus sur le Kit de développement logiciel (SDK) de l’API Analyse de texte v3](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Préversion publique de la reconnaissance d’entité nommée v3
@@ -185,9 +202,6 @@ D’autres types d’entités sont désormais disponibles dans le service Reconn
     * Phone Number (États-Unis uniquement)
     * URL
     * Adresse IP
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur la reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### <a name="october-2019"></a>2 octobre 2019
 

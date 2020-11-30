@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337931"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955325"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -224,7 +224,11 @@ Une fois l’héritage appliqué, l’interface d’extension expose toutes les 
 
 L’interface d’extension ne peut pas modifier les définitions des interfaces parentes, mais simplement y faire des ajouts. Elle ne peut pas non plus redéfinir une fonctionnalité déjà définie dans ses interfaces parentes (même si les fonctionnalités sont définies pour être identiques). Par exemple, si une interface parente définit une propriété `double` *mass*, l’interface d’extension ne peut pas contenir une déclaration de *mass*, même s’il s’agit également d’un `double`.
 
-## <a name="validating-models"></a>Validation des modèles
+## <a name="best-practices-for-designing-models"></a>Bonnes pratiques en matière de conception de modèles
+
+Lors de la conception de modèles pour refléter les entités dans votre environnement, il peut s’avérer utile d’examiner les implications des [requêtes](concepts-query-language.md) dans votre conception. Vous avez peut-être envie de concevoir des propriétés de manière à éviter les grands jeux de résultats provenant de la traversée de graphe. Vous pouvez également modéliser les relations qui doivent être traitées dans une seule requête en tant que relations à un seul niveau.
+
+### <a name="validating-models"></a>Validation des modèles
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
@@ -232,7 +236,7 @@ L’interface d’extension ne peut pas modifier les définitions des interfaces
 
 L’utilisation de modèles basés sur des normes du secteur ou d’une représentation d’ontologie standard, comme RDF ou OWL, constitue un point de départ intéressant quand vous concevez vos modèles Azure Digital Twins. L’utilisation de modèles sectoriels facilite également la normalisation et le partage d’informations.
 
-Pour être utilisé avec Azure Digital Twins, un modèle doit être représenté à l’aide du [**langage DTDL (Digital Twins Definition Language)** ](concepts-models.md) basé sur JSON-LD. Par conséquent, cet article décrit comment représenter vos modèles standard du secteur en DTDL, en intégrant les concepts existants à la sémantique DTDL, de sorte qu’Azure Digital Twins puissent les utiliser. Le modèle DTDL sert alors de source de vérité pour le modèle dans Azure Digital Twins.
+Pour être utilisé avec Azure Digital Twins, un modèle doit être représenté à l’aide du [**langage DTDL (Digital Twins Definition Language)**](concepts-models.md) basé sur JSON-LD. Par conséquent, cet article décrit comment représenter vos modèles standard du secteur en DTDL, en intégrant les concepts existants à la sémantique DTDL, de sorte qu’Azure Digital Twins puissent les utiliser. Le modèle DTDL sert alors de source de vérité pour le modèle dans Azure Digital Twins.
 
 Deux démarches existent pour intégrer des modèles aux normes du secteur avec DTDL, selon votre situation :
 * Si vous n’avez pas encore créé vos modèles, vous pouvez les concevoir autour d’**ontologies DTDL de démarrage existantes** qui contiennent la langue propre à votre secteur d’activité.

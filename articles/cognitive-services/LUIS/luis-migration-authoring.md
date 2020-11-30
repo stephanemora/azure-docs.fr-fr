@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536039"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018835"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Effectuer une migration vers une clé de ressource de création Azure
 
@@ -40,7 +40,7 @@ La migration doit être effectuée à partir du portail LUIS. Si vous créez les
 * Les propriétaires sont invités à envoyer des e-mails aux collaborateurs pour les informer de la migration.
 * Si vous êtes un collaborateur associé à une application, celle-ci ne migre pas avec vous.
 * Il n’existe aucun moyen pour un propriétaire d’une application de savoir si des collaborateurs ont migré.
-* La migration ne collecte pas automatiquement les collaborateurs pour les déplacer vers la ressource de création Azure ou les ajouter à celle-ci. Il incombe au propriétaire de l’application d’effectuer cette étape après la migration. Cette étape nécessite de disposer d’autorisations [sur la ressource de création Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* La migration ne collecte pas automatiquement les collaborateurs pour les déplacer vers la ressource de création Azure ou les ajouter à celle-ci. Il incombe au propriétaire de l’application d’effectuer cette étape après la migration. Cette étape nécessite de disposer d’autorisations [sur la ressource de création Azure](./luis-how-to-collaborate.md).
 * Une fois affectés à la ressource Azure, les collaborateurs doivent effectuer la migration pour accéder aux applications. Autrement, ils n’auront pas accès à la création des applications.
 * Il n’est pas possible d’ajouter un utilisateur migré en tant que collaborateur de l’application.
 * Si vous possédez des clés de prédiction attribuées à des applications appartenant à un autre utilisateur, cela a pour effet de bloquer la migration pour le propriétaire et les collaborateurs. Consultez les recommandations plus loin dans cet article.
@@ -174,7 +174,7 @@ Si vous prévoyez de modifier vos applications par programmation, vous aurez bes
 
 Découvrez [comment ajouter des contributeurs](luis-how-to-collaborate.md) à votre ressource de création. Les contributeurs ont accès à toutes les applications associées à cette ressource.
 
-Vous pouvez ajouter des contributeurs à la ressource de création à partir du portail Azure, dans la page **Contrôle d’accès (IAM)** de cette ressource. Pour plus d’informations, consultez [Ajouter un accès contributeur](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+Vous pouvez ajouter des contributeurs à la ressource de création à partir du portail Azure, dans la page **Contrôle d’accès (IAM)** de cette ressource. Pour plus d’informations, consultez [Ajouter des contributeurs à votre application](luis-how-to-collaborate.md).
 
 > [!Note]
 > Si le propriétaire de l’application LUIS a migré et ajouté le collaborateur en tant que contributeur sur la ressource Azure, le collaborateur n’aura toujours pas accès à l’application, sauf s’il migre également.
@@ -229,7 +229,7 @@ Lorsque vous tentez d’effectuer une migration mais ne trouvez pas votre abonne
 * Assurez-vous que vous êtes dans le locataire approprié associé à votre abonnement valide. Vous pouvez modifier des locataires à partir de l’avatar à gauche de vos initiales dans cette barre d’outils : ![Barre d’outils dans laquelle vous pouvez modifier des locataires](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Si vous disposez d’une ressource de création existante, mais ne la trouvez pas lors de la sélection de l’option **Use Existing Authoring resource** (Utiliser une ressource de création existante) :
-* Votre ressource a probablement été créée dans un emplacement différent du portail auquel vous êtes connecté. Consultez [Régions de création LUIS et portails](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* Votre ressource a probablement été créée dans un emplacement différent du portail auquel vous êtes connecté. Consultez [Régions de création LUIS et portails](./luis-reference-regions.md#luis-authoring-regions).
 * Créez plutôt une ressource à partir du portail LUIS.
 
 Si vous sélectionnez l’option **Create New Authoring Resource** (Créer une ressource de création) et que la migration a échoué avec le message d’erreur « Failed retrieving user’s Azure information, retry again later » (Échec de la récupération des informations Azure de l’utilisateur, réessayez plus tard) :

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913192"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492208"
 ---
 # <a name="receipt-concepts"></a>Concepts relatifs aux reçus
 
@@ -57,6 +57,13 @@ L’API Receipt renvoie également les informations suivantes :
 * Texte brut OCR (sortie texte extraite par OCR pour l’intégralité du ticket de caisse)
 * Cadre englobant pour chaque valeur, ligne et mot
 
+## <a name="try-it-out"></a>Faire un essai
+
+Pour tester le service de ticket de caisse de Form Recognizer, accédez à l’outil d’exemple d’interface utilisateur en ligne :
+
+> [!div class="nextstepaction"]
+> [Essayer des modèles prédéfinis](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Critères des entrées
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ L’API Receipt renvoie également les informations suivantes :
 ## <a name="supported-locales"></a>Paramètres régionaux pris en charge 
 
 * **Receipt v2.0 intégré** (GA) prend en charge les tickets de caisse de ventes dans les paramètres régionaux EN-US
-* **Receipt v2.1-preview.1 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse suivants : 
+* **Receipt v2.1-preview.2 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse suivants : 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -73,12 +80,12 @@ L’API Receipt renvoie également les informations suivantes :
   > [!NOTE]
   > Entrée de langue 
   >
-  > Receipt v2.1-preview.1 intégré possède un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.1, le modèle utilise par défaut est le modèle EN-US.
+  > Receipt v2.1-preview.2 intégré compte un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.2, le modèle utilise par défaut est le modèle EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Opération Analyser le ticket de caisse
 
-L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et en extrait les valeurs d’intérêt et le texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et en extrait les valeurs d’intérêt et le texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
@@ -86,7 +93,7 @@ L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Opération obtenir le résultat de l’analyse du ticket de caisse
 
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -95,7 +102,7 @@ La seconde étape consiste à appeler l’opération d’[obtention du résultat
 | |  | failed : L’opération d’analyse a échoué. |
 | |  | succeeded : L’opération d’analyse a réussi. |
 
-Quand le champ d’ **état** a la valeur de **réussite** , la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de compréhension de ticket de caisse est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
+Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de compréhension de ticket de caisse est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
 
 ![exemples de résultats de ticket de caisse](./media/contoso-receipt-2-information.png)
 

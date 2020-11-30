@@ -1,7 +1,7 @@
 ---
 title: Mettre à jour une commande à partir d’un point de terminaison web
 titleSuffix: Azure Cognitive Services
-description: mettre à jour une commande à partir d’un point de terminaison web
+description: Découvrez comment mettre à jour l’état d’une commande à l’aide d’un appel à un point de terminaison web.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 4432843ac93002bc92068db191706352234d76e6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94572635"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963604"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Mettre à jour une commande à partir d’un point de terminaison web
 
-Si votre application cliente doit mettre à jour l’état d’une commande en cours sans entrée vocale, vous pouvez utiliser un appel à un point de terminaison web pour mettre à jour la commande.
+Si votre application cliente a besoin de mettre à jour l’état d’une commande en cours sans entrée vocale, vous pouvez utiliser un appel à un point de terminaison web pour mettre à jour la commande.
 
 Dans cet article, vous allez découvrir comment mettre à jour une commande en cours à partir d’un point de terminaison web.
 
@@ -29,7 +29,7 @@ Dans cet article, vous allez découvrir comment mettre à jour une commande en c
 
 ## <a name="create-an-azure-function"></a>Création d’une fonction Azure 
 
-Pour cet exemple, nous avons besoin d’une [fonction Azure](https://docs.microsoft.com/azure/azure-functions/) déclenchée par HTTP, qui prend en charge l’entrée suivante (ou un sous-ensemble de cette entrée).
+Pour cet exemple, vous avez besoin d’une [fonction Azure](https://docs.microsoft.com/azure/azure-functions/) déclenchée par HTTP, qui prend en charge l’entrée suivante (ou un sous-ensemble de cette entrée) :
 
 ```JSON
 {
@@ -48,16 +48,16 @@ Pour cet exemple, nous avons besoin d’une [fonction Azure](https://docs.micros
 }
 ```
 
-Passons en revue les attributs clés de cette entrée.
+Passons en revue les attributs clés de cette entrée :
 
 | Attribut | Explication |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **conversationId** | « conversationId » est l’identificateur unique de la conversation. Notez que cet ID peut être généré à partir de l’application cliente. |
-| **currentCommand** | « currentCommand » est la commande active dans la conversation. |
-| **name** | « name » correspond au nom de la commande, et « parameters » représente un mappage avec les valeurs actuelles des paramètres. |
-| **currentGlobalParameters** | « currentGlobalParameters » est également un mappage tout comme « parameters », mais il est utilisé pour les paramètres globaux. |
+| **conversationId** | Identificateur unique de la conversation. Notez que cet ID peut être généré à partir de l’application cliente. |
+| **currentCommand** | Commande actuellement active dans la conversation. |
+| **name** | Nom de la commande. L’attribut `parameters` est un mappage avec les valeurs actuelles des paramètres. |
+| **currentGlobalParameters** | Mappage similaire à `parameters`, mais utilisé pour les paramètres globaux. |
 
-La sortie de la fonction Azure doit prendre en charge le format suivant.
+La sortie de la fonction Azure doit prendre en charge le format suivant :
 
 ```JSON
 {
@@ -74,9 +74,9 @@ La sortie de la fonction Azure doit prendre en charge le format suivant.
 }
 ```
 
-Vous pouvez reconnaître ce format, car il est identique à celui utilisé durant la [mise à jour d’une commande à partir du client](./how-to-custom-commands-update-command-from-client.md). 
+Vous pouvez reconnaître ce format, car il est identique à celui que vous avez utilisé durant la [mise à jour d’une commande à partir du client](./how-to-custom-commands-update-command-from-client.md). 
 
-À présent, créez une fonction Azure basée sur NodeJS, puis copiez et collez ce code
+À présent, créez une fonction Azure basée sur Node.js. Copiez/collez ce code :
 
 ```nodejs
 module.exports = async function (context, req) {
@@ -94,35 +94,35 @@ module.exports = async function (context, req) {
 }
 ```
 
-Quand nous appelons cette fonction Azure à partir de Commandes personnalisées, nous envoyons les valeurs actuelles de la conversation, puis nous retournons les paramètres souhaités pour une mise à jour ou une annulation de la commande actuelle.
+Quand vous appelez cette fonction Azure à partir de commandes personnalisées, vous envoyez les valeurs actuelles de la conversation. Vous retournez les paramètres que vous voulez mettre à jour ou vous voulez annuler la commande actuelle.
 
 ## <a name="update-the-existing-custom-commands-app"></a>Mettre à jour l’application Commandes personnalisées existante
 
-À présent, connectons la fonction Azure à l’application Commandes personnalisées existante.
+Connectons la fonction Azure à l’application Commandes personnalisées existante :
 
-1. Ajoutez une nouvelle commande nommée IncrementCounter.
-1. Ajoutez simplement un exemple de phrase avec la valeur « increment ».
-1. Ajoutez un nouveau paramètre appelé Counter (le même nom que celui spécifié dans la fonction Azure ci-dessus) de type Number avec la valeur par défaut 0.
-1. Ajoutez un nouveau point de terminaison web appelé IncrementEndpoint en indiquant l’URL de votre fonction Azure et en activant les mises à jour distantes.
+1. Ajoutez une nouvelle commande nommée `IncrementCounter`.
+1. Ajoutez un seul exemple de phrase avec la valeur `increment`.
+1. Ajoutez un nouveau paramètre appelé `Counter` (même nom que celui spécifié dans la fonction Azure) de type `Number` avec la valeur par défaut `0`.
+1. Ajoutez un nouveau point de terminaison web appelé `IncrementEndpoint` en indiquant l’URL de votre fonction Azure et avec l’option **Mises à jour distantes** définie sur **Activées**.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Définir le point de terminaison web avec des mises à jour distantes":::
-1. Créez une règle d’interaction appelée « IncrementRule », puis ajoutez une action Appeler un point de terminaison web.
+    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Capture d’écran qui montre la définition d’un point de terminaison web avec des mises à jour distantes.":::
+1. Créez une règle d’interaction appelée **IncrementRule**, puis ajoutez une action **Appeler un point de terminaison web**.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Règle d’incrémentation":::
-1. Dans la configuration de l’action, sélectionnez IncrementEndpoint, configurez En cas de réussite pour envoyer une réponse vocale avec la valeur de Counter, puis configurez En cas d’échec en indiquant un message d’erreur.
+    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Capture d’écran montrant la création d’une règle d’interaction.":::
+1. Dans la configuration de l’action, sélectionnez `IncrementEndpoint`. Configurez **En cas de réussite** sur **Envoyer une réponse vocale** avec la valeur `Counter` et configurez **En cas d’échec** avec un message d’erreur.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Définir le point de terminaison d’appel du compteur d’incrémentation":::
-1. Définissez l’état postexécution de la règle à Attendre l’entrée de l’utilisateur
+    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Capture d’écran qui montre la définition d’un compteur d’incréments pour l’appel d’un point de terminaison web.":::
+1. Définissez l’état post-exécution de la règle sur **Attendre l’entrée de l’utilisateur**.
 
 ## <a name="test-it"></a>Testez-le
 
-1. Enregistrez et entraînez votre application
-1. Cliquez sur Tester
-1. Envoyez plusieurs fois « increment » (qui est l’exemple de phrase de la commande IncrementCounter)
+1. Enregistrez et entraînez votre application.
+1. Sélectionnez **Test**.
+1. Envoyez `increment` plusieurs fois (il s’agit de l’exemple de phrase pour la commande `IncrementCounter`).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Exemple de compteur d’incrémentation":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Capture d’écran montrant un exemple de compteur d’incréments.":::
 
-Notez que la valeur du paramètre Counter est incrémentée à chaque passage par la fonction Azure.
+Notez que la fonction Azure incrémente la valeur du paramètre `Counter` à chaque passage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

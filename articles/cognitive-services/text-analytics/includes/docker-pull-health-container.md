@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 519625f6468372ec7ace523dae7648212f4f3203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779722"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965163"
 ---
-Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services](https://aka.ms/csgate) pour demander l’accès au conteneur.
+Renseignez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander accès à la préversion publique d’Analyse de texte pour la santé.  Cette application s’utilise à la fois avec le conteneur et l’API web hébergée en préversion publique.
 Le formulaire demande des informations sur vous, votre entreprise et le scénario d’utilisateur pour lequel vous allez utiliser le conteneur. Une fois que vous avez envoyé le formulaire, l’équipe Azure Cognitive Services vérifie que vous remplissez bien les critères d’accès au registre de conteneurs privé.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ Le formulaire demande des informations sur vous, votre entreprise et le scénari
 > * La ressource Azure que vous utilisez pour exécuter le conteneur doit avoir été créée avec l’ID d’abonnement Azure approuvé. 
 > * Vérifiez votre adresse e-mail (boîtes de réception et dossiers de courrier indésirable) pour obtenir des mises à jour sur l’état de votre application auprès de Microsoft.
 
-Utilisez la commande docker login avec les informations d’identification fournies dans votre e-mail d’accueil afin de vous connecter à notre registre de conteneurs privé pour les conteneurs Cognitive Services.
+Après l’approbation, vous allez recevoir un e-mail contenant les informations d’identification permettant d’accéder au registre de conteneurs privé.  Utilisez la commande docker login avec les informations d’identification fournies dans votre e-mail d’accueil afin de vous connecter à notre registre de conteneurs privé pour les conteneurs Cognitive Services.
 
 
 ```Docker

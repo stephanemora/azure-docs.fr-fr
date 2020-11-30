@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532515"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015356"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -30,7 +30,7 @@ Avant d’utiliser l’API REST de reconnaissance vocale, prenez en compte les a
 Si vous devez envoyer un contenu audio plus long pour votre application, vous pouvez utiliser le [SDK Speech](speech-sdk.md) ou une API REST basée sur un fichier, comme une [transcription par lot](batch-transcription.md).
 
 > [!TIP]
-> Consultez la [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) Azure Government pour les points de terminaison Government Cloud (FairFax).
+> Consultez la [documentation](../../azure-government/compare-azure-government-global-azure.md) Azure Government pour les points de terminaison Government Cloud (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -90,10 +90,10 @@ L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être da
 
 Ce tableau liste les paramètres obligatoires et facultatifs pour l’évaluation de la prononciation.
 
-| Paramètre | Description | Obligatoire/facultatif |
+| Paramètre | Description | Requis ? |
 |-----------|-------------|---------------------|
 | ReferenceText | Texte duquel la prononciation est évaluée. | Obligatoire |
-| GradingSystem | Système de points pour la calibration du score. Les valeurs acceptées sont `FivePoint` et `HundredMark`. La valeur par défaut est `FivePoint`. | Facultatif |
+| GradingSystem | Système de points pour la calibration du score. Le système `FivePoint` donne un score à virgule flottante de 0 à 5 et `HundredMark` donne un score à virgule flottante de 0 à 100. Par défaut : `FivePoint`. | Facultatif |
 | Granularité | Granularité de l’évaluation. Les valeurs acceptées sont `Phoneme`, qui affiche le score au niveau du texte intégral, du mot et du phonème, `Word`, qui affiche le score au niveau du texte intégral et du mot, `FullText`, qui affiche le score au niveau du texte intégral uniquement. La valeur par défaut est `Phoneme`. | Facultatif |
 | Dimension | Définit les critères de sortie. Les valeurs acceptées sont `Basic`, qui affiche uniquement le score de justesse, `Comprehensive` affiche des scores sur davantage de dimensions (par exemple, le score d’aisance et le score d’exhaustivité au niveau du texte intégral, du type d’erreur et du mot). Consultez les [paramètres de réponse](#response-parameters) pour voir les définitions des différentes dimensions de score et des types d’erreur de mot. La valeur par défaut est `Basic`. | Facultatif |
 | EnableMiscue | Active le calcul de faute de langue. Quand cette option est activée, les mots prononcés sont comparés au texte de référence et sont marqués comme omission/insertion en fonction de la comparaison. Les valeurs acceptées sont `False` et `True`. La valeur par défaut est `False`. | Facultatif |
@@ -307,5 +307,5 @@ Réponse classique pour la reconnaissance avec évaluation de la prononciation 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
-- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
-- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+- [Personnaliser les modèles acoustiques](./how-to-custom-speech-train-model.md)
+- [Personnaliser les modèles de langage](./how-to-custom-speech-train-model.md)

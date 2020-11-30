@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311628"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894012"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -200,25 +200,46 @@ Actuellement, des ajustements de style oral sont pris en charge pour ces voix ne
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural` (version préliminaire)
+* `zh-CN-XiaohanNeural` (version préliminaire)
+* `zh-CN-XiaomoNeural` (version préliminaire)
+* `zh-CN-XiaoxuanNeural` (version préliminaire)
+* `zh-CN-XiaoruiNeural` (version préliminaire)
 
-Des modifications sont appliquées au niveau de la phrase, et les styles varient selon la voix. Si un style n’est pas pris en charge, le service renvoie la voix dans le style oral neutre par défaut. Vous pouvez interroger les styles pris en charge pour chaque voix par le biais de l’[API Voice List](rest-text-to-speech.md#get-a-list-of-voices).
+L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée. 
 
-Pour la voix chinoise XiaoxiaoNeural, l’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée.
+Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
+* `zh-CN-XiaoxiaoNeural`
+
+En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine.
+
+Actuellement, les ajustements de jeux de rôle sont pris en charge pour ces voix neuronales :
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+Les modifications ci-dessus sont appliquées au niveau de la phrase, et les styles et jeux de rôle varient selon la voix. Si un style ou jeu de rôle n’est pas pris en charge, le service retourne la voix dans le style d’élocution neutre par défaut. Vous pouvez voir les styles et jeux de rôle pris en charge pour chaque voix par le biais de l’[API Voice List](rest-text-to-speech.md#get-a-list-of-voices) ou celui de la plateforme de [création de contenu audio ](https://aka.ms/audiocontentcreation) sans code.
 
 **Syntaxe**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> Pour le moment, `styledegree` prend uniquement en charge XiaoxiaoNeural. 
+> Pour le moment, `styledegree` prend uniquement en charge zh-CN-XiaoxiaoNeural. `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.
 
 **Attributs**
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `style` | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques à la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le style doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
-| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées**  : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (Pour le moment, `styledegree` prend uniquement en charge XiaoxiaoNeural.)|
+| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées** : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (Pour le moment, `styledegree` prend uniquement en charge zh-CN-XiaoxiaoNeural.)|
+| `role` | Spécifie le jeu de rôle. La voix correspond à un âge et un sexe différents.  | Facultatif (Pour le moment, `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.)|
 
 Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pour chaque voix neuronale.
 
@@ -250,6 +271,52 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |   
 |                         | `style="lyrical"`         | Exprime les émotions d’une manière mélodique et sentimentale         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|                         | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="depressed"`       | Exprime un ton mélancolique et découragé avec une hauteur de voix plus basse et moins d’énergie    |
+|                         | `style="embarrassed"`     | Exprime un ton incertain et hésitant quand l’orateur se sent mal à l’aise   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|                         | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="embarrassed"`     | Exprime un ton incertain et hésitant quand l’orateur se sent mal à l’aise   |
+|                         | `style="affectionate"`    | Exprime un ton chaleureux et affectueux, avec une hauteur de voix et une énergie vocale plus grandes. L’orateur attire l’attention de celui qui écoute. La « personnalité » de l’orateur est souvent d’une nature attachante.          |     
+|                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="depressed"`       | Exprime un ton mélancolique et découragé avec une hauteur de voix plus basse et moins d’énergie    |
+|                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="depressed"`       | Exprime un ton mélancolique et découragé avec une hauteur de voix plus basse et moins d’énergie    |
+|                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+
+Reportez-vous à ce tableau pour déterminer les rôles pris en charge pour chaque voix neuronale.
+
+| Voix                   | Role                       | Description                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | La voix imite celle d’une jeune femme adulte.                 |
+|                         | `role="OlderAdultMale"`    | La voix imite celle d’un homme adulte plus âgé.                   |
+|                         | `role="Girl"`              | La voix imite celle d’une petite fille.                               |
+|                         | `role="Boy"`               | La voix imite celle d’un petit garçon.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | La voix imite celle d’une jeune femme adulte.                 |
+|                         | `role="OlderAdultFemale"`  | La voix imite celle d’une femme adulte plus âgée.                 |
+|                         | `role="OlderAdultMale"`    | La voix imite celle d’un homme adulte plus âgé.                   |
 
 **Exemple**
 
@@ -278,6 +345,23 @@ Cet extrait de code SSML illustre la manière dont l’attribut `styledegree` es
 </speak>
 ```
 
+Cet extrait de code SSML illustre la manière dont l’attribut `role` est utilisé pour changer le jeu de rôle pour XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
 ## <a name="add-or-remove-a-breakpause"></a>Ajouter ou supprimer une interruption/pause
 
 Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) entre des mots ou empêcher l’ajout automatique de pauses par le service de synthèse vocale.
@@ -297,7 +381,7 @@ Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) e
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `strength` | Spécifie la durée relative d’une pause à l’aide de l’une des valeurs suivantes :<ul><li>Aucun</li><li>x-weak</li><li>weak</li><li>medium (par défaut)</li><li>strong</li><li>x-strong</li></ul> | Facultatif |
-| `time` | Spécifie la durée absolue d’une pause en secondes ou millisecondes. Exemples de valeurs valides : `2s` et `500` | Facultatif |
+| `time` | Spécifie la durée absolue d’une pause en secondes ou en millisecondes. Cette valeur doit être inférieure à 5 000 ms. Exemples de valeurs valides : `2s` et `500ms` | Facultatif |
 
 | Puissance                      | Description |
 |-------------------------------|-------------|
@@ -316,6 +400,37 @@ Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) e
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## <a name="add-silence"></a>Ajouter un silence
+
+Utilisez l’élément `mstts:silence` pour insérer des pauses avant ou après le texte, ou entre 2 phrases adjacentes. 
+
+> [!NOTE]
+>La différence entre `mstts:silence` et `break` est que `break` peut être ajouté à n’importe quel endroit dans le texte, alors qu’un silence fonctionne uniquement au début ou à la fin du texte d’entrée, ou encore entre 2 phrases adjacentes.  
+
+
+**Syntaxe**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Attributs**
+
+| Attribut | Description | Obligatoire/facultatif |
+|-----------|-------------|---------------------|
+| `type` | Spécifie l’emplacement auquel ajouter le silence : <ul><li>Leading (Début) : au début du texte </li><li>Tailing (Fin) : à la fin du texte </li><li>Sentenceboundary : entre des phrases adjacentes </li></ul> | Obligatoire |
+| `Value` | Spécifie la durée absolue d’une pause en secondes ou en millisecondes. Cette valeur doit être inférieure à 5 000 ms. Exemples de valeurs valides : `2s` et `500ms` | Obligatoire |
+
+**Exemple** : Dans cet exemple, `mtts:silence` est utilisé pour ajouter 200 ms de silence entre deux phrases.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>Spécifier des paragraphes et des phrases
@@ -355,6 +470,9 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 L’élément `ph` est utilisé pour la prononciation phonétique dans des documents SSML. L’élément `ph` ne peut rien contenir d’autre que du texte. Fournissez toujours un discours contrôlable de visu comme solution de secours.
 
 Les alphabets phonétiques sont constitués de phonèmes composés de lettres, de chiffres ou de caractères parfois combinés. Chaque phonème décrit un son vocal unique. Cela contraste avec l’alphabet latin où chaque lettre peut représenter plusieurs sons parlés. Considérez les différentes prononciations de la lettre « c » dans les mots « casser » et « cesser », ou les différentes prononciations de la combinaison de lettres « ch » dans les mots « chose » et « almanach ».
+
+> [!NOTE]
+> Actuellement, les étiquettes de phonèmes ne sont pas prises en charge pour ces 5 voix (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural et mt-MT-GarceNeural).
 
 **Syntaxe**
 
@@ -401,6 +519,10 @@ Parfois, le service de synthèse vocale ne peut pas prononcer un mot de façon c
 
 > [!NOTE]
 > Le lexique personnalisé prend actuellement en charge l’encodage UTF-8. 
+
+> [!NOTE]
+> Actuellement, le lexique personnalisé n’est pas pris en charge pour ces 5 voix (t-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural et mt-MT-GarceNeural).
+
 
 **Syntaxe**
 
@@ -465,7 +587,7 @@ Vous pouvez également fournir directement l’`alias` attendu pour l’acronyme
 
 Pour plus d’informations sur le fichier de lexique personnalisé, consultez [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Ensuite, publiez votre fichier de lexique personnalisé. Bien qu’il n’y ait aucune restriction sur l’emplacement de ce fichier, nous vous recommandons d’utiliser le [Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Ensuite, publiez votre fichier de lexique personnalisé. Bien qu’il n’y ait aucune restriction sur l’emplacement de ce fichier, nous vous recommandons d’utiliser le [Stockage Blob Azure](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Une fois que vous avez publié votre lexique personnalisé, vous pouvez le référencer à partir de votre SSML.
 
@@ -631,7 +753,7 @@ Les types de contenu suivants sont pris en charge pour les attributs `interpret-
 | `address` | | Le texte est prononcé sous forme d'adresse. Le moteur de synthèse vocale prononce :<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Par exemple, « Je suis au 150e court nord est redmond washington. » |
 | `cardinal`, `number` | | Le texte est prononcé sous forme de nombre cardinal. Le moteur de synthèse vocale prononce :<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Par exemple, « Il existe trois alternatives ». |
 | `characters`, `spell-out` | | Le texte est prononcé sous forme de lettres individuelles (épelées). Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Par exemple, « T E S T ». |
-| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date ( *j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
 | `digits`, `number_digit` | | Le texte est prononcé sous forme de séquence de chiffres individuels. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Par exemple, « 1 2 3 4 5 6 7 8 9 ». |
 | `fraction` | | Le texte est prononcé sous forme de nombre fractionnaire. Le moteur de synthèse vocale prononce :<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Par exemple, « Trois huitièmes de pouce ». |
 | `ordinal` | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |

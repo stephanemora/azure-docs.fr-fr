@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: speaker recognition, voice biometry
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397257"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015322"
 ---
-# <a name="what-is-speaker-recognition"></a>Qu’est-ce que la reconnaissance de l’orateur ?
+# <a name="what-is-speaker-recognition-preview"></a>Qu’est-ce que le service Reconnaissance de l’orateur (préversion) ?
 
 Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres en utilisant la biométrie vocale. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». Vous fournissez des données d’entraînement audio pour un seul orateur, ce qui crée un profil d’inscription basé sur les caractéristiques uniques de la voix de l’orateur. Vous pouvez ensuite effectuer une vérification croisée des échantillons audio de la voix par rapport à ce profil pour vérifier que l’orateur est la même personne (vérification de l’orateur) ou par rapport à un *groupe* de profils d’orateur inscrits, pour voir s’ils correspondent à un profil du groupe (identification de l’orateur). En revanche, la [diarisation des orateurs](batch-transcription.md#speaker-separation-diarization) regroupe des segments audio par orateur dans une opération de traitement par lot.
 
@@ -70,10 +70,10 @@ Comme avec toutes les ressources Cognitive Services, les développeurs utilisant
 | Quels formats audio sont pris en charge ? | WAV mono 16 bits, 16 kHz encodé en PCM |
 | Les fonctionnalités **Accepter** et **Rejeter** les réponses ne sont pas précises, comment ajuster le seuil ? | Étant donné que le seuil optimal varie fortement selon les scénarios, l’API décide s’il faut « Accepter » ou « Rejeter » simplement en fonction du seuil par défaut, soit 0,5. Il est recommandé aux utilisateurs expérimentés de remplacer la décision par défaut et d’affiner le résultat en fonction de votre propre scénario. |
 | Pouvez-vous inscrire plusieurs fois un orateur ? | Oui, pour la vérification dépendante du texte, vous pouvez inscrire un orateur jusqu’à 50 fois. Pour une vérification indépendante du texte ou une identification de l’orateur, vous pouvez vous inscrire avec un maximum de 300 secondes d’audio. |
-| Quelles données sont stockées dans Azure ? | L’audio des inscriptions est stocké dans le service jusqu’à ce que le profil vocal soit [supprimé](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Les échantillons audio de reconnaissance ne sont pas conservés ou stockés. |
+| Quelles données sont stockées dans Azure ? | L’audio des inscriptions est stocké dans le service jusqu’à ce que le profil vocal soit [supprimé](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Les échantillons audio de reconnaissance ne sont pas conservés ou stockés. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> * Consultez l'[article sur les bases](speaker-recognition-basics.md) de la reconnaissance de l’orateur pour obtenir un aperçu des modèles de conception courants que vous pouvez utiliser dans vos applications.
+> * Consultez l'[article sur les bases](./get-started-speaker-recognition.md) de la reconnaissance de l’orateur pour obtenir un aperçu des modèles de conception courants que vous pouvez utiliser dans vos applications.
 > * Consultez le [tutoriel vidéo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) sur la vérification de l’orateur indépendante du texte.
