@@ -47,6 +47,8 @@
           href: how-to-legacy-device-symm-key.md
         - name: Utiliser des stratégies d’allocation personnalisées
           href: tutorial-custom-allocation-policies.md
+        - name: "Provisionner plusieurs appareils\_X.509"
+          href: tutorial-custom-hsm-enrollment-group-x509.md
     - name: 2 - Provisionner les appareils sur plusieurs hubs
       items:
         - name: Lier plusieurs hubs à DPS

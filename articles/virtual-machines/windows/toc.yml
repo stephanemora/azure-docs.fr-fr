@@ -453,7 +453,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-powershell.md
-                    - name: Migrer à partir d’une image managée
+                    - name: Cloner une image managée
                       href: ../image-version-managed-image-powershell.md
                     - name: Copier à partir d’une autre galerie
                       href: ../image-version-another-gallery-powershell.md
@@ -475,7 +475,7 @@
                       href: ../image-version-vm-cli.md
                     - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-cli.md
-                    - name: Migrer à partir d’une image managée
+                    - name: Cloner une image managée
                       href: ../image-version-managed-image-cli.md
                     - name: Copier à partir d’une autre galerie
                       href: ../image-version-another-gallery-cli.md

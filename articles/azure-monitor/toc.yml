@@ -676,6 +676,8 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: Configuration d’arguments JVM
                       href: app/java-standalone-arguments.md
+                    - name: "Mettre à niveau à partir de la version\_2.x"
+                      href: app/java-standalone-upgrade-from-2x.md
             - name: Serveurs locaux
               items:
                 - name: ASP.NET

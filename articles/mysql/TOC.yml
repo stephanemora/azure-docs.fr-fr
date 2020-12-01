@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Limites
           href: concepts-limits.md
+        - name: Bonnes pratiques opérationnelles
+          href: concept-operation-excellence-best-practices.md
         - name: Niveaux tarifaires
           items:
             - name: Niveaux de tarification
@@ -195,6 +197,10 @@
             - name: Recommandations en matière de performances
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Meilleures pratiques de surveillance
+              href: concept-monitoring-best-practices.md
+            - name: Meilleures pratiques relatives aux performances
+              href: concept-performance-best-practices.md
         - name: Développement d’applications
           items:
             - name: Vue d’ensemble du développement d’applications
@@ -202,7 +208,7 @@
             - name: Compatibilité des pilotes et des outils
               href: concepts-compatibility.md
               displayName: 'drivers, tools'
-            - name: Bonnes pratiques pour les applications
+            - name: Bonnes pratiques relatives aux applications
               href: app-development-best-practices.md
               displayName: application
             - name: Résilience de connexion

@@ -192,8 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Configurer un domaine personnalisé
           href: application-proxy-configure-custom-domain.md
-        - name: Sécuriser les applications héritées avec des réseaux ou des contrôleurs de livraison d’applications
-          href: secure-hybrid-access.md
+        - name: Sécuriser les applications existantes
+          items:
+            - name: "Sécuriser l’accès hybride avec Azure\_AD"
+              href: secure-hybrid-access.md
+            - name: "F5 et l’intégration Azure\_AD"
+              href: f5-aad-integration.md
+            - name: Déploiement F5 BIG-IP VE dans Azure IaaS
+              href: f5-bigip-deployment-guide.md
+            - name: "F5 BIG-IP avec Azure\_AD pour un VPN sans mot de passe"
+              href: f5-aad-password-less-vpn.md
         - name: Publication de procédures pas à pas
           items:
             - name: "Intégration au proxy d’application sur un serveur\_NDES"
