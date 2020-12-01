@@ -426,9 +426,9 @@
                         - name: ST_ISVALIDDETAILED
                           displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                           href: sql-query-st-isvaliddetailed.md
-                    - name: Fonctions de chaînes
+                    - name: Fonctions de chaîne
                       items:
-                        - name: Fonctions de chaînes
+                        - name: Fonctions de chaîne
                           displayName: 'string functions, string, system functions, built-in functions'
                           href: sql-query-string-functions.md
                         - name: CONCAT
@@ -1329,7 +1329,7 @@
         - name: Configurer l’accès depuis des points de terminaison privés
           href: how-to-configure-private-endpoints.md
         - name: Se connecter en privé à un compte Cosmos DB
-          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Utiliser Azure Key Vault pour accéder aux données
           href: access-secrets-from-keyvault.md
         - name: Restreindre l’accès des utilisateurs aux opérations de données uniquement
