@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458492"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
 Cet article explique l’apprentissage profond et l’apprentissage automatique, ainsi que la façon dont ils s’intègrent dans la catégorie plus large de l’intelligence artificielle. Découvrez les solutions d’apprentissage profond que vous pouvez créer sur Azure Machine Learning, par exemple, pour la détection des fraudes, la reconnaissance vocale et faciale, l’analyse des sentiments et la prévision de séries chronologiques.
 
-Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consultez l’[Aide-mémoire de l’algorithme Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
+Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consultez l’[Aide-mémoire de l’algorithme Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning et intelligence artificielle
 
@@ -29,7 +29,7 @@ Pour obtenir des conseils sur le choix des algorithmes pour vos solutions, consu
 
 Consultez les définitions suivantes pour comprendre la différence entre le deep learning, le machine learning et l’IA :
 
-- Le **Deep Learning** , ou apprentissage profond, est un sous-ensemble du Machine Learning, ou apprentissage automatique, basé sur des réseaux neuronaux artificiels. Le _processus d’apprentissage_ est qualifié de _profond_ parce que la structure des réseaux neuronaux artificiels se compose de plusieurs couches d’entrée, de sortie et masquées. Chaque couche contient des unités qui transforment les données d’entrée en informations que la couche suivante peut utiliser une tâche prédictive spécifique. Grâce à cette structure, une machine est capable d’apprendre au travers de son propre traitement de données.
+- Le **Deep Learning**, ou apprentissage profond, est un sous-ensemble du Machine Learning, ou apprentissage automatique, basé sur des réseaux neuronaux artificiels. Le _processus d’apprentissage_ est qualifié de _profond_ parce que la structure des réseaux neuronaux artificiels se compose de plusieurs couches d’entrée, de sortie et masquées. Chaque couche contient des unités qui transforment les données d’entrée en informations que la couche suivante peut utiliser une tâche prédictive spécifique. Grâce à cette structure, une machine est capable d’apprendre au travers de son propre traitement de données.
 
 - Le **Machine Learning** est un sous-ensemble de l’intelligence artificielle utilisant des techniques (telles que le Deep Learning), qui permettent aux machines de tirer des enseignements de leur expérience pour améliorer la manière dont elles exécutent leur tâches. Le _processus d’apprentissage_ repose sur les étapes suivantes :
 
@@ -38,7 +38,7 @@ Consultez les définitions suivantes pour comprendre la différence entre le dee
    1. Tester et déployer le modèle.
    1. Utiliser le modèle déployé pour effectuer une tâche prédictive automatisée (en d’autres termes, appeler et utiliser le modèle déployé pour recevoir les prédictions retournées par le modèle).
 
-- L’ **intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
+- L’**intelligence artificielle** est une technique qui permet aux ordinateurs d’imiter l’intelligence humaine. Cette technique inclut le Machine Learning. 
  
 Les techniques de Machine Learning et de Deep Learning vous permettent de créer des systèmes informatiques et des applications qui effectuent des tâches généralement associées à l’intelligence humaine. Ces tâches incluent la reconnaissance d’images, la reconnaissance vocale et la traduction linguistique.
 

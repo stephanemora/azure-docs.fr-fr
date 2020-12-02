@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736671"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458400"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API Invoice permet aux clients d’accepter des factures dans une multitude de formats et de retourner des données structurées pour automatiser le traitement des factures. Elle combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Elle extrait le texte, les tables et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
+Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API Invoice permet aux clients d’accepter des factures dans une multitude de formats et de retourner des données structurées pour automatiser le traitement des factures. Elle combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Elle extrait le texte, les tables et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>Comment le service Invoice fonctionne-t-il ?
 
@@ -45,7 +45,7 @@ Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://a
 
 ## <a name="the-analyze-invoice-operation"></a>Opération d’analyse d’une facture
 
-L’opération d’[analyse d’une facture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync) prend une image ou un fichier PDF d’une facture en entrée, puis en extrait les valeurs intéressantes. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’opération d’[analyse d’une facture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291) prend une image ou un fichier PDF d’une facture en entrée, puis en extrait les valeurs intéressantes. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
@@ -53,7 +53,7 @@ L’opération d’[analyse d’une facture](https://westcentralus.dev.cognitive
 
 ## <a name="the-get-analyze-invoice-result-operation"></a>Opération d’obtention du résultat de l’analyse de la facture
 
-La deuxième étape consiste à appeler l’opération d’[obtention du résultat de l’analyse de la facture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeInvoiceResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse de la facture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La deuxième étape consiste à appeler l’opération d’[obtention du résultat de l’analyse de la facture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse de la facture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -113,4 +113,3 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 
 * [Qu’est-ce que Form Recognizer ?](./overview.md)
 * [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

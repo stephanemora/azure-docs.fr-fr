@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457612"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recommandations de sécurité pour le déploiement d’Azure IoT
 
@@ -63,8 +63,8 @@ Certaines recommandations contenues dans cet article peuvent être supervisées 
 | Recommandation | Commentaires | Pris en charge par ASC |
 |-|----|--|
 | Surveiller l’accès non autorisé à vos appareils |  Utiliser la fonctionnalité de journalisation du système d’exploitation de votre appareil pour surveiller les failles de sécurité ou les altérations physiques de l’appareil ou de ses ports. | - |
-| Surveiller votre solution IoT à partir du cloud | Surveillez l’intégrité globale de votre solution IoT Hub à l’aide des [métriques dans Azure Monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Configurer les diagnostics | Regardez attentivement vos opérations en consignant les événements dans votre solution, puis en envoyant les journaux de diagnostic à Azure Monitor pour obtenir une visibilité sur les performances. Pour plus d’informations, lisez [Surveiller et diagnostiquer les problèmes dans votre hub IoT](../iot-hub/iot-hub-monitor-resource-health.md). | - |
+| Surveiller votre solution IoT à partir du cloud | Surveillez l’intégrité globale de votre solution IoT Hub à l’aide des [métriques dans Azure Monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Configurer les diagnostics | Regardez attentivement vos opérations en consignant les événements dans votre solution, puis en envoyant les journaux de diagnostic à Azure Monitor pour obtenir une visibilité sur les performances. Pour plus d’informations, lisez [Surveiller et diagnostiquer les problèmes dans votre hub IoT](../iot-hub/monitor-iot-hub.md). | - |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

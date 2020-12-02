@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 003bf5241611df450fa6d0ecadff264c4d5de243
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 891366060cddaf2a046de36fa9300432977ec903
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842853"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457737"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Base de référence de sécurité Azure pour Azure IoT Hub
 
@@ -33,11 +33,11 @@ Recommandez la restriction de la connectivité à vos ressources Azure (y compri
 Maintenez le nombre de ports physiques ouverts au strict minimum sur vos appareils pour éviter les accès indésirables. De plus, générez des mécanismes pour prévenir ou détecter toute falsification physique de l’appareil.
 
 - [Prise en charge des réseaux virtuels IoT](virtual-network-support.md)
-- [Meilleure pratique de mise en réseau IoT](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
+- [Meilleure pratique de mise en réseau IoT](../iot-fundamentals/security-recommendations.md?context=azure%2fiot-hub%2frc%2frc#networking)
 - [Vue d’ensemble d’Azure Private Link](../private-link/private-link-overview.md)
 - [Groupe de sécurité réseau Azure](../virtual-network/network-security-groups-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -73,7 +73,7 @@ Azure DDoS Protection Basic est déjà activé et disponible sans frais supplém
 
 - [Communication d’adresses IP suspectes - Azure Security Center pour IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Gérer Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
+- [Gérer Azure DDoS Protection Basic](../ddos-protection/ddos-protection-overview.md)
 
 - [Protection contre les menaces dans Azure Security Center](../security-center/azure-defender.md)
 
@@ -175,7 +175,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 - [Configurer les journaux Azure IoT](monitor-iot-hub-reference.md#resource-logs)
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -220,7 +220,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 - [Surveiller l’intégrité d’Azure IoT](monitor-iot-hub.md)
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
    
 - [Effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -320,7 +320,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -343,7 +343,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 - [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](../active-directory/identity-protection/overview-identity-protection.md)
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -571,7 +571,7 @@ Azure IoT Hub fournit un chiffrement des données au repos et en transit, à mes
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -739,7 +739,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -759,7 +759,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -778,7 +778,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -797,7 +797,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -815,7 +815,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
