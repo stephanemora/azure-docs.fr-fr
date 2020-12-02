@@ -4,16 +4,16 @@ description: Explique comment déplacer une ressource Azure Analysis Services ve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018192"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497926"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Déplacer Analysis Services vers une autre région
 
@@ -88,7 +88,7 @@ Pour exporter un modèle à l’aide du portail Azure :
 
 Pour exporter un modèle à l’aide de PowerShell :
 
-1. Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) et suivez les instructions qui s'affichent à l’écran :
+1. Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) et suivez les instructions qui s'affichent à l’écran :
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Pour modifier le modèle :
 
 #### <a name="regions"></a>Régions
 
-Pour obtenir les régions Azure, voir [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/). Pour récupérer des régions à l’aide de PowerShell, exécutez la commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0).
+Pour obtenir les régions Azure, voir [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/). Pour récupérer des régions à l’aide de PowerShell, exécutez la commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -278,7 +278,7 @@ Facultatif : Après la restauration du modèle de base de données, traitez le m
 
 Facultatif : [ALM Toolkit](http://alm-toolkit.com/) est un outil *open source* permettant de comparer et de gérer des jeux de données Power BI *et* des modèles de bases de données tabulaires Analysis Services. Utilisez la boîte à outils pour vous connecter aux bases de données du serveur source et cible et les comparer. Si la migration de votre base de données réussit, les objets du modèle auront la même définition. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obtenir une SAP":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

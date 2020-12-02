@@ -80,6 +80,8 @@
       href: observability.md
     - name: CI/CD avec modèles ARM
       href: devops-api-development-templates.md
+    - name: Suppression réversible
+      href: soft-delete.md
 - name: Guides pratiques
   items:
     - name: Définir des API

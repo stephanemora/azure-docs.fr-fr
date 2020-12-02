@@ -2,59 +2,27 @@
 title: Plans de déploiement - Azure Active Directory | Microsoft Docs
 description: Conseils de bout en bout sur le déploiement d’un grand nombre de fonctionnalités Azure Active Directory.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836816"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498079"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
 
 À partir de l’une des pages de plan, utilisez la fonctionnalité Imprimer dans un fichier PDF de votre navigateur pour créer une version hors connexion de la documentation.
-## <a name="include-the-right-stakeholders"></a>Inclure les parties prenantes appropriées
-
-Lorsque vous commencez la planification du déploiement d’une nouvelle fonctionnalité, il est important d’inclure les parties prenantes clés au sein de votre organisation. Nous vous recommandons d’identifier et de documenter la ou les personnes qui occupent les rôles suivants et de travailler avec elles pour déterminer leur implication dans le projet.  
-
-Les rôles peuvent inclure : 
-
-|Role |Description |
-|-|-|
-|Utilisateur final|Groupe représentatif des utilisateurs pour lesquels la fonctionnalité sera implémentée. Visualise souvent la préversion des changements dans un programme pilote.
-|Responsable du support informatique|Représentant de l’organisation de support informatique qui peut fournir une entrée sur la capacité de prise en charge de ce changement du point de vue du support technique.  
-|Architecte de l’identité ou administrateur général Azure|Représentant de l’équipe de gestion des identités, responsable de la définition de l’alignement de ce changement sur l’infrastructure principale de gestion des identités dans votre organisation.|
-|Responsable d’entreprise de l’application |Dans l’entreprise, responsable général de la ou des applications affectées, qui peuvent inclure la gestion de l’accès.  Il peut également fournir une entrée sur l’expérience utilisateur et l’utilité de ce changement du point de vue d’un utilisateur final.
-|Responsable de la sécurité|Représentant de l’équipe de sécurité qui peut valider que le plan répondra aux exigences de sécurité de votre organisation.|
-|Compliance Manager|Personne responsable au sein de votre organisation de la conformité aux exigences de l’entreprise, du secteur et du gouvernement.|
-
-**Les niveaux d’implication peuvent inclure :**
-
-- **R** esponsable de la mise en œuvre du plan de projet et des résultats 
-
-- **A** pprobation du plan de projet et des résultats 
-
-- **C** ontributeur au plan de projet et aux résultats 
-
-- **I** nformé du plan de projet et des résultats
-
-
-## <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote
-Un pilote vous permet de tester sur un petit groupe avant d’activer une fonctionnalité pour tout le monde. Vérifiez que, dans le cadre de vos tests, chaque cas d’usage au sein de votre organisation est soigneusement testé. Il est préférable de cibler un groupe spécifique d’utilisateurs pilotes avant le déploiement sur l’ensemble de votre organisation.
-
-Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Ces commentaires doivent être utilisés pour développer davantage les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner des insights sur les types de problèmes que votre personnel de support technique peut voir. 
-
-L’extension du déploiement à des groupes d’utilisateurs plus importants doit être effectuée en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
 
 
 ## <a name="deploy-authentication"></a>Déployer l’authentification
@@ -98,3 +66,36 @@ L’extension du déploiement à des groupes d’utilisateurs plus importants do
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) vous aide à gérer les rôles d’administrateur privilégiés dans Azure AD, les ressources Azure et d’autres services Microsoft Online Services. PIM fournit des solutions telles que l’accès juste-à-temps, des workflows d’approbation de demande et des révisions d’accès entièrement intégrées pour que vous puissiez identifier, découvrir et empêcher les activités malveillantes de rôles privilégiés en temps réel. |
 | [Création de rapports et surveillance](../reports-monitoring/plan-monitoring-and-reporting.md)| La conception de votre solution de rapports et de surveillance Azure AD dépend de vos exigences légales, de sécurité et opérationnelles, ainsi que de votre environnement et de vos processus existants. Cet article présente les différentes options de conception et vous aide à choisir la stratégie de déploiement qui convient. |
 | [Révisions d’accès](../governance/deploy-access-reviews.md) | Les révisions d’accès constituent une partie importante de votre stratégie de gouvernance, car elles vous permettent de savoir et de gérer quels utilisateurs ont un accès, et à quoi ils ont accès. Cet article vous aide à planifier et à déployer des révisions d’accès pour atteindre les postures de sécurité et de collaboration souhaitées. |
+
+## <a name="include-the-right-stakeholders"></a>Inclure les parties prenantes appropriées
+
+Lorsque vous commencez la planification du déploiement d’une nouvelle fonctionnalité, il est important d’inclure les parties prenantes clés au sein de votre organisation. Nous vous recommandons d’identifier et de documenter la ou les personnes qui occupent les rôles suivants et de travailler avec elles pour déterminer leur implication dans le projet.  
+
+Les rôles peuvent inclure : 
+
+|Role |Description |
+|-|-|
+|Utilisateur final|Groupe représentatif des utilisateurs pour lesquels la fonctionnalité sera implémentée. Visualise souvent la préversion des changements dans un programme pilote.
+|Responsable du support informatique|Représentant de l’organisation de support informatique qui peut fournir une entrée sur la capacité de prise en charge de ce changement du point de vue du support technique.  
+|Architecte de l’identité ou administrateur général Azure|Représentant de l’équipe de gestion des identités, responsable de la définition de l’alignement de ce changement sur l’infrastructure principale de gestion des identités dans votre organisation.|
+|Responsable d’entreprise de l’application |Dans l’entreprise, responsable général de la ou des applications affectées, qui peuvent inclure la gestion de l’accès.  Il peut également fournir une entrée sur l’expérience utilisateur et l’utilité de ce changement du point de vue d’un utilisateur final.
+|Responsable de la sécurité|Représentant de l’équipe de sécurité qui peut valider que le plan répondra aux exigences de sécurité de votre organisation.|
+|Compliance Manager|Personne responsable au sein de votre organisation de la conformité aux exigences de l’entreprise, du secteur et du gouvernement.|
+
+**Les niveaux d’implication peuvent inclure :**
+
+- **R** esponsable de la mise en œuvre du plan de projet et des résultats 
+
+- **A** pprobation du plan de projet et des résultats 
+
+- **C** ontributeur au plan de projet et aux résultats 
+
+- **I** nformé du plan de projet et des résultats
+
+
+## <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote
+Un pilote vous permet de tester sur un petit groupe avant d’activer une fonctionnalité pour tout le monde. Vérifiez que, dans le cadre de vos tests, chaque cas d’usage au sein de votre organisation est soigneusement testé. Il est préférable de cibler un groupe spécifique d’utilisateurs pilotes avant le déploiement sur l’ensemble de votre organisation.
+
+Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Ces commentaires doivent être utilisés pour développer davantage les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner des insights sur les types de problèmes que votre personnel de support technique peut voir. 
+
+L’extension du déploiement à des groupes d’utilisateurs plus importants doit être effectuée en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.

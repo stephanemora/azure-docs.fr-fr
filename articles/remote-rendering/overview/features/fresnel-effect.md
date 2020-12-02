@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0596d118d1f3c09bc295891f023fe9990f3f1e05
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94558109"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498232"
 ---
 # <a name="fresnel-effect"></a>Effet Fresnel
 
@@ -21,7 +21,7 @@ L’effet Fresnel donne aux objets affectés une couleur brillante sur leurs bor
 
 ## <a name="enabling-the-fresnel-effect"></a>Activation de l’effet Fresnel
 
-Pour utiliser la fonctionnalité d’effet Fresnel, vous devez l’activer sur les matériaux en question. Pour l’activer, définissez le FresnelEffect de [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) sur le [matériau PBR](../../overview/features/pbr-materials.md). Le même modèle s’applique à [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) et au [matériau de couleur](../../overview/features/color-materials.md). Consultez la section des exemples de code pour une démonstration d’utilisation.
+Pour utiliser la fonctionnalité d’effet Fresnel, vous devez l’activer sur les matériaux en question. Pour l’activer, définissez le FresnelEffect de [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) sur le [matériau PBR](../../overview/features/pbr-materials.md). Le même modèle s’applique à [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) et au [matériau de couleur](../../overview/features/color-materials.md). Consultez la section des exemples de code pour une démonstration d’utilisation.
 
 Une fois activé, l’effet Fresnel est immédiatement visible. Par défaut, la brillance est blanche (1, 1, 1, 1) et a un exposant égal à 1. Vous pouvez personnaliser ces paramètres à l’aide des méthodes setter de paramètres ci-dessous.
 
@@ -93,10 +93,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [C# PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [C++ PbrMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [C# ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [C++ ColorMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [C# PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [C++ PbrMaterialFeatures](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [C# ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [C++ ColorMaterialFeatures](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

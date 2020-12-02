@@ -3,20 +3,20 @@ title: Surveiller les fabriques de données à l’aide d’Azure Monitor
 description: Apprenez à utiliser Azure Monitor pour surveiller les pipelines Azure Monitor en activant les journaux de diagnostic à partir des informations de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497892"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -34,9 +34,9 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Monitor](../az
 
 Data Factory ne stocke les données d’exécution du pipeline que pendant 45 jours. Utilisez Azure Monitor si vous souhaitez conserver ces données pendant une période plus longue. Monitor vous permet d’acheminer les journaux de diagnostic à des fins d’analyse pour multiplier les cibles.
 
-* **Compte de stockage**  : Enregistrez vos journaux de diagnostic dans un compte de stockage à des fins d’audit ou d’inspection manuelle. Vous pouvez utiliser les paramètres de diagnostic pour spécifier la durée de rétention en jours.
-* **Event Hub**  : Diffusez en continu les journaux vers Azure Event Hubs. Les journaux deviennent des entrées pour un service partenaire ou une solution d’analyse personnalisée telle que Power BI.
-* **Log Analytics**  : Analysez les journaux avec Log Analytics. L’intégration de Data Factory à Azure Monitor est utile dans les scénarios suivants :
+* **Compte de stockage** : Enregistrez vos journaux de diagnostic dans un compte de stockage à des fins d’audit ou d’inspection manuelle. Vous pouvez utiliser les paramètres de diagnostic pour spécifier la durée de rétention en jours.
+* **Event Hub** : Diffusez en continu les journaux vers Azure Event Hubs. Les journaux deviennent des entrées pour un service partenaire ou une solution d’analyse personnalisée telle que Power BI.
+* **Log Analytics** : Analysez les journaux avec Log Analytics. L’intégration de Data Factory à Azure Monitor est utile dans les scénarios suivants :
   * Vous souhaitez écrire des requêtes complexes sur un ensemble varié de mesures publiées par la Data Factory sur Monitor. Vous pouvez créer des alertes personnalisées sur ces requêtes via Monitor.
   * Vous souhaitez surveiller l’activité de toutes les fabriques de données. Vous pouvez acheminer les données de plusieurs fabriques de données vers un seul espace de travail Monitor.
 
@@ -46,23 +46,23 @@ Vous pouvez également utiliser un compte de stockage ou un espace de noms Event
 
 Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
 
-1. Dans le portail, accédez à Monitor. Sélectionnez **Paramètres** > **Paramètres de diagnostic** .
+1. Dans le portail, accédez à Monitor. Sélectionnez **Paramètres** > **Paramètres de diagnostic**.
 
 1. Sélectionnez la fabrique de données pour laquelle vous souhaitez définir un paramètre de diagnostic.
 
-1. S’il n’existe aucun paramètre sur la fabrique de données sélectionnée, vous êtes invité à en créer un. Sélectionnez **Activer les diagnostics** .
+1. S’il n’existe aucun paramètre sur la fabrique de données sélectionnée, vous êtes invité à en créer un. Sélectionnez **Activer les diagnostics**.
 
    ![Créer un paramètre de diagnostic s’il n’en existe pas](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   S’il existe des paramètres sur la fabrique de données, vous voyez une liste de paramètres déjà configurés sur cette fabrique de données. Sélectionnez **Ajouter le paramètre de diagnostic** .
+   S’il existe des paramètres sur la fabrique de données, vous voyez une liste de paramètres déjà configurés sur cette fabrique de données. Sélectionnez **Ajouter le paramètre de diagnostic**.
 
    ![Ajouter un paramètre de diagnostic s’il existe des paramètres](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Nommez votre paramètre, sélectionnez **Envoyer à log Analytics** , puis sélectionnez un espace de travail dans **Espace de travail Log Analytics** .
+1. Nommez votre paramètre, sélectionnez **Envoyer à log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
 
-    * En mode _Diagnostics Azure_ , les journaux de diagnostic circulent dans la table _AzureDiagnostics_ .
+    * En mode _Diagnostics Azure_, les journaux de diagnostic circulent dans la table _AzureDiagnostics_.
 
-    * En mode _Spécifique à la ressource_ , les journaux de diagnostic d’Azure Data Factory circulent dans les tables suivantes :
+    * En mode _Spécifique à la ressource_, les journaux de diagnostic d’Azure Data Factory circulent dans les tables suivantes :
       - _ADFActivityRun_
       - _ADFPipelineRun_
       - _ADFTriggerRun_
@@ -75,14 +75,14 @@ Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
 
       Vous pouvez sélectionner différents journaux pertinents pour vos charges de travail à envoyer vers les tableaux Log Analytics. Par exemple, si vous n’utilisez pas du tout SQL Server Integration Services (SSIS), vous n’avez pas besoin de sélectionner des journaux SSIS. Si vous souhaitez consigner les opérations de démarrage/arrêt et de maintenance du SSIS Integration Runtime (IR), vous pouvez sélectionner les journaux SSIS IR. Si vous appelez des exécutions de package SSIS via T-SQL sur SQL Server Management Studio (SSMS), SQL Server Agent ou d’autres outils désignés, vous pouvez sélectionner des journaux de packages SSIS. Si vous appelez des exécutions de package SSIS via des activités Exécuter le package SSIS dans des pipelines ADF, vous pouvez sélectionner tous les journaux.
 
-    * Si vous sélectionnez _AllMetrics_ , plusieurs métriques ADF sont mises à votre disposition pour surveiller ou déclencher des alertes, y compris les métriques pour l’activité ADF, le pipeline et les exécutions de déclencheur, ainsi que pour les opérations de runtime d’intégration de SSIS et les exécutions de packages SSIS.
+    * Si vous sélectionnez _AllMetrics_, plusieurs métriques ADF sont mises à votre disposition pour surveiller ou déclencher des alertes, y compris les métriques pour l’activité ADF, le pipeline et les exécutions de déclencheur, ainsi que pour les opérations de runtime d’intégration de SSIS et les exécutions de packages SSIS.
 
    ![Nommer vos paramètres et sélectionner un espace de travail Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_ . Pour plus d’informations, consultez [Limitations connues de Log Analytics](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Limitations connues de Log Analytics](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres pour cette fabrique de données. Les journaux de diagnostic sont diffusés en continu vers cet espace de travail dès que de nouvelles données d’événement sont générées. Jusqu’à 15 minutes peuvent s’écouler entre l’émission d’un événement et son affichage dans Log Analytics.
 
@@ -94,7 +94,7 @@ Cette solution fournit un résumé de l’intégrité globale de votre Data Fact
 * Une possibilité d’effectuer des recherches dans les exécutions d’activités Data Factory par type
 * Un résumé des erreurs d’activités rencontrées et du meilleur pipeline Data Factory
 
-1. Accédez à la **Place de marché Azure** , sélectionnez **Filtre Analytics** , puis cherchez **Azure Data Factory Analytics (préversion)**
+1. Accédez à la **Place de marché Azure**, sélectionnez **Filtre Analytics**, puis cherchez **Azure Data Factory Analytics (préversion)**
 
    ![Accédez à la « Place de marché Azure », entrez « Filtre Analytics », puis sélectionnez « Azure Data Factory Analytics (préversion) »](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
@@ -102,7 +102,7 @@ Cette solution fournit un résumé de l’intégrité globale de votre Data Fact
 
    ![Détails sur « Azure Data Factory Analytics (préversion) »](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Sélectionnez **Créer** , puis créez ou sélectionnez l’ **espace de travail Log Analytics** .
+1. Sélectionnez **Créer**, puis créez ou sélectionnez l’**espace de travail Log Analytics**.
 
    ![Création d’une solution](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derriè
 ![Représentation graphique des exécutions de pipeline par Data Factory](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> Azure Data Factory Analytics (préversion) envoie des journaux de diagnostic à des tables de destination _Spécifique de la ressource_ . Vous pouvez écrire des requêtes portant sur les tables suivantes : _ADFPipelineRun_ , _ADFTriggerRun_ et _ADFActivityRun_ .
+> Azure Data Factory Analytics (préversion) envoie des journaux de diagnostic à des tables de destination _Spécifique de la ressource_. Vous pouvez écrire des requêtes portant sur les tables suivantes : _ADFPipelineRun_, _ADFTriggerRun_ et _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Métriques de Data Factory
 
@@ -175,7 +175,7 @@ Connectez-vous au portail Azure, puis sélectionnez **Monitor** > **Alertes** po
 1. Définissez la condition de l’alerte.
 
     > [!NOTE]
-    > Veillez à sélectionner **Toutes** dans la liste déroulante **Filtrer par type de ressource** .
+    > Veillez à sélectionner **Toutes** dans la liste déroulante **Filtrer par type de ressource**.
 
     ![« Définir la condition d’alerte » > « Sélectionner la cible », pour ouvrir le volet « Sélectionner une ressource » ](media/monitor-using-azure-monitor/alerts_image5.png)
 
@@ -903,7 +903,7 @@ Lorsque vous interrogez des journaux des opérations de runtime d’intégration
 
 ![Interrogation des journaux des opérations de runtime d’intégration SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
 
-Lors de l’interrogation des journaux d’exécution des packages SSIS sur Logs Analytics, vous pouvez les joindre à l’aide des propriétés **OperationId**/**ExecutionId**/**CorrelationId** . Les propriétés **OperationId**/**ExecutionId** ont toujours la valeur `1` pour toutes les opérations/exécutions relatives à des packages **non** stockés dans SSISDB/invoqués via T-SQL.
+Lors de l’interrogation des journaux d’exécution des packages SSIS sur Logs Analytics, vous pouvez les joindre à l’aide des propriétés **OperationId**/**ExecutionId**/**CorrelationId**. Les propriétés **OperationId**/**ExecutionId** ont toujours la valeur `1` pour toutes les opérations/exécutions relatives à des packages **non** stockés dans SSISDB/invoqués via T-SQL.
 
 ![Interroger les journaux d’exécution des packages SSIS sur Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 

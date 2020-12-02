@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637154"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497943"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -72,7 +72,7 @@ Le tableau suivant fournit des descriptions des propriétés renvoyées par la c
 
 ### <a name="properties"></a>Propriétés
 
-Le tableau suivant fournit des descriptions des propriétés de surveillance pour **chaque nœud**  :
+Le tableau suivant fournit des descriptions des propriétés de surveillance pour **chaque nœud** :
 
 | Propriété | Description | 
 | -------- | ----------- | 
@@ -82,7 +82,7 @@ Le tableau suivant fournit des descriptions des propriétés de surveillance pou
 | Mémoire disponible | Mémoire disponible dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
 | Utilisation du processeur | Utilisation du processeur dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. |
 | Réseau (entrée/sortie) | Utilisation du réseau dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
-| Tâches simultanées (en cours d’exécution/limite) | **Exécution en cours** . Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. <br/><br/>**Limite** . La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, quand des activités expirent alors même que le processeur, la mémoire ou le réseau est sous-utilisé. Cette fonctionnalité est également disponible avec un runtime d’intégration d’auto-hébergé à nœud unique. |
+| Tâches simultanées (en cours d’exécution/limite) | **Exécution en cours**. Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. <br/><br/>**Limite**. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, quand des activités expirent alors même que le processeur, la mémoire ou le réseau est sous-utilisé. Cette fonctionnalité est également disponible avec un runtime d’intégration d’auto-hébergé à nœud unique. |
 | Role | Il existe deux types de rôles dans un runtime d’intégration auto-hébergé à nœuds multiples : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur. Il est utilisé pour extraire des tâches ou des travaux auprès de services cloud et pour les répartir entre différents nœuds rôles de travail. Le nœud répartiteur est également un nœud rôle de travail. |
 
 Certains paramètres de ces propriétés semblent plus logiques dans une configuration d’au moins deux nœuds dans le runtime d’intégration auto-hébergé (autrement dit, dans un scénario de scale-out).
@@ -120,7 +120,7 @@ Le tableau suivant indique les états possibles d’un runtime d’intégration 
 | Hors connexion | Aucun nœud n’est en ligne. |
 | Limité | L’état de tous les nœuds de ce runtime d’intégration auto-hébergé n’est pas sain. Cet état sert d’avertissement. Il peut indiquer que certains nœuds sont en panne. Cela peut être dû à un problème de synchronisation des informations d’identification sur le nœud répartiteur ou le nœud rôle de travail. |
 
-Utilisez la cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** . Il s’agit d’extraire la charge utile JSON qui contient les propriétés détaillées du runtime d’intégration auto-hébergé et les valeurs des instantanés pendant toute la durée d’exécution de la cmdlet.
+Utilisez la cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric**. Il s’agit d’extraire la charge utile JSON qui contient les propriétés détaillées du runtime d’intégration auto-hébergé et les valeurs des instantanés pendant toute la durée d’exécution de la cmdlet.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName | ConvertTo-Json 
@@ -234,7 +234,7 @@ Ensuite, sélectionnez le nom de votre runtime Azure-SSIS IR pour ouvrir sa page
 
 #### <a name="status-tile"></a>Vignette ÉTAT
 
-Sur la vignette **ÉTAT** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez voir son état global, par exemple, **En cours d’exécution** ou **Arrêté** . Si vous sélectionnez l’état **En cours d’exécution** , la fenêtre qui s’ouvre comporte un bouton **Arrêter** en direct permettant d’arrêter le runtime Azure-SSIS IR. Si vous sélectionnez l’état **Arrêté** , la fenêtre qui s’ouvre comporte un bouton **Démarrer** en direct permettant de démarrer le runtime Azure-SSIS IR. La fenêtre contextuelle comporte également un bouton **Exécuter le package SSIS** pour générer automatiquement un pipeline ADF avec l’activité Exécuter le package SSIS qui s’exécute sur votre Azure-SSIS IR (consultez [Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) et une zone de texte **ID de ressource** , à partir de laquelle vous pouvez copier votre ID de ressource Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). Le suffixe de votre ID de ressource Azure-SSIS IR qui contient vos noms ADF et Azure-SSIS IR forme un ID de cluster qui peut être utilisé pour acheter des composants SSIS/sous licence supplémentaires auprès d’éditeurs de logiciels indépendants (ISV) et les associer à votre Azure-SSIS IR (voir [Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+Sur la vignette **ÉTAT** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez voir son état global, par exemple, **En cours d’exécution** ou **Arrêté**. Si vous sélectionnez l’état **En cours d’exécution**, la fenêtre qui s’ouvre comporte un bouton **Arrêter** en direct permettant d’arrêter le runtime Azure-SSIS IR. Si vous sélectionnez l’état **Arrêté**, la fenêtre qui s’ouvre comporte un bouton **Démarrer** en direct permettant de démarrer le runtime Azure-SSIS IR. La fenêtre contextuelle comporte également un bouton **Exécuter le package SSIS** pour générer automatiquement un pipeline ADF avec l’activité Exécuter le package SSIS qui s’exécute sur votre Azure-SSIS IR (consultez [Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) et une zone de texte **ID de ressource**, à partir de laquelle vous pouvez copier votre ID de ressource Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). Le suffixe de votre ID de ressource Azure-SSIS IR qui contient vos noms ADF et Azure-SSIS IR forme un ID de cluster qui peut être utilisé pour acheter des composants SSIS/sous licence supplémentaires auprès d’éditeurs de logiciels indépendants (ISV) et les associer à votre Azure-SSIS IR (voir [Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Supervision du runtime Azure-SSIS IR – Vignette ÉTAT](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

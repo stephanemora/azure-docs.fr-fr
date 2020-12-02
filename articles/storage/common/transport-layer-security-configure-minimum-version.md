@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312026"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498130"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage
 
@@ -35,7 +35,7 @@ Quand vous appliquez une version TLS minimale pour votre compte de stockage, vou
 
 Pour journaliser les demandes dans votre compte de stockage Azure et déterminer la version TLS utilisée par le client, vous pouvez utiliser la journalisation du stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../blobs/monitor-blob-storage.md).
 
-La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Pour journaliser des données de stockage Azure avec Azure Monitor et les analyser avec Azure Log Analytics, vous devez d’abord créer un paramètre de diagnostic qui indique les types de demandes et les services de stockage pour lesquels vous souhaitez journaliser les données. Pour créer un paramètre de diagnostic dans le portail Azure, suivez ces étapes :
 
@@ -46,8 +46,8 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 1. Sélectionnez le service de stockage Azure pour lequel vous souhaitez journaliser les demandes. Par exemple, choisissez **Blob** pour journaliser les demandes dans le stockage Blob.
 1. Sélectionnez **Ajouter le paramètre de diagnostic**.
 1. Fournissez un nom pour le paramètre de diagnostic.
-1. Sous **Détails de la catégorie** , dans la section **Journal** , choisissez les types de demandes à journaliser. Vous pouvez journaliser les demandes de lecture, d’écriture et de suppression. Par exemple, si vous choisissez **StorageRead** et **StorageWrite** , les demandes de lecture et d’écriture sont journalisées sur le service sélectionné.
-1. Sous **Détails de la destination** , sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
+1. Sous **Détails de la catégorie**, dans la section **Journal**, choisissez les types de demandes à journaliser. Vous pouvez journaliser les demandes de lecture, d’écriture et de suppression. Par exemple, si vous choisissez **StorageRead** et **StorageWrite**, les demandes de lecture et d’écriture sont journalisées sur le service sélectionné.
+1. Sous **Détails de la destination**, sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment créer un paramètre de diagnostic pour la journalisation des demandes":::
 
@@ -91,7 +91,7 @@ Lorsque vous êtes certain que le trafic provenant de clients utilisant des vers
 
 Pour configurer la version minimale de TLS pour un compte de stockage, définissez la version **minimumTlsVersion** pour le compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations sur le modèle de déploiement Azure Resource Manager, consultez [Vue d’ensemble du compte de stockage](storage-account-overview.md).
 
-La propriété **MinimumTlsVersion** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement.  Si la valeur de la propriété est **null** , le compte de stockage autorise les demandes envoyées avec TLS version 1.0 ou ultérieure.
+La propriété **MinimumTlsVersion** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement.  Si la valeur de la propriété est **null**, le compte de stockage autorise les demandes envoyées avec TLS version 1.0 ou ultérieure.
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -101,7 +101,7 @@ Pour configurer la version TLS minimale pour un compte de stockage existant avec
 
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Sélectionnez le paramètre **Configuration**.
-1. Sous **Version TLS minimale** , utilisez la liste déroulante afin de sélectionner la version minimale de TLS nécessaire pour accéder aux données dans ce compte de stockage, comme illustré dans l’image suivante.
+1. Sous **Version TLS minimale**, utilisez la liste déroulante afin de sélectionner la version minimale de TLS nécessaire pour accéder aux données dans ce compte de stockage, comme illustré dans l’image suivante.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Capture d’écran montrant comment configurer la version minimale de TLS dans le portail Azure":::
 
@@ -172,8 +172,8 @@ az storage account show \
 Pour configurer la version minimale de TLS pour un compte de stockage avec un modèle, créez un modèle avec la propriété **MinimumTLSVersion** définie sur `TLS1_0`, `TLS1_1`ou `TLS1_2`. Les étapes suivantes montrent comment créer un modèle dans le Portail Azure.
 
 1. Dans le Portail Azure, choisissez **Créer une ressource**.
-1. Dans **Rechercher sur la Place de marché** , tapez **déploiement de modèle** , puis appuyez sur **Entrée**.
-1. Choisissez **Déploiement de modèle (déployer avec des modèles personnalisés) [préversion]** , **Créer** , puis **Créer votre propre modèle dans l’éditeur**.
+1. Dans **Rechercher sur la Place de marché**, tapez **déploiement de modèle**, puis appuyez sur **Entrée**.
+1. Choisissez **Déploiement de modèle (déployer avec des modèles personnalisés) [préversion]** , **Créer**, puis **Créer votre propre modèle dans l’éditeur**.
 1. Dans l’éditeur de modèle, collez le code JSON suivant pour créer un nouveau compte et définissez la version minimale de TLS sur TLS 1.2. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs.
 
     ```json
@@ -244,11 +244,11 @@ Azure Policy prend en charge les effets qui déterminent ce qui se produit quand
 Pour créer une stratégie avec un effet d’audit pour la version minimale de TLS avec le portail Azure, procédez comme suit :
 
 1. Dans le Portail Azure, accédez au service Azure Policy.
-1. Dans la section **Création** , sélectionnez **Définitions**.
+1. Dans la section **Création**, sélectionnez **Définitions**.
 1. Sélectionnez **Ajouter une définition de stratégie** pour créer une nouvelle définition de stratégie.
-1. Pour le champ **emplacement de la définition** , sélectionnez le bouton **Autres** pour spécifier l’emplacement de la ressource de stratégie d’audit.
+1. Pour le champ **emplacement de la définition**, sélectionnez le bouton **Autres** pour spécifier l’emplacement de la ressource de stratégie d’audit.
 1. Spécifiez un nom pour la stratégie. Vous pouvez éventuellement spécifier une description et une catégorie.
-1. Sous **Règle de stratégie** , ajoutez la définition de stratégie suivante à la section **policyrule**.
+1. Sous **Règle de stratégie**, ajoutez la définition de stratégie suivante à la section **policyrule**.
 
     ```json
     {
@@ -281,10 +281,10 @@ Ensuite, attribuez la stratégie à une ressource. L’étendue de la stratégie
 Pour attribuer la stratégie avec le portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, accédez au service Azure Policy.
-1. Dans la section **Création** , sélectionnez **Attributions**.
+1. Dans la section **Création**, sélectionnez **Attributions**.
 1. Sélectionnez **Attribuer une stratégie** pour créer une attribution de stratégie.
-1. Pour le champ **Étendue** , sélectionnez l’étendue de l’attribution de stratégie.
-1. Pour le champ **Définition de stratégie** , sélectionnez le bouton **Autres** , puis la stratégie que vous avez définie dans la section précédente dans la liste.
+1. Pour le champ **Étendue**, sélectionnez l’étendue de l’attribution de stratégie.
+1. Pour le champ **Définition de stratégie**, sélectionnez le bouton **Autres**, puis la stratégie que vous avez définie dans la section précédente dans la liste.
 1. Entrez un nom pour l’attribution de stratégie. La description est facultative.
 1. Laissez l’option **Application de stratégie** définie sur *Activée*. Ce paramètre n’a aucun effet sur la stratégie d’audit.
 1. Sélectionnez **Vérifier + créer** pour créer l’attribution.

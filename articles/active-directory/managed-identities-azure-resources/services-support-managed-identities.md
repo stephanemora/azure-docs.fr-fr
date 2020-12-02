@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555683"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498028"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -291,8 +291,8 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
-| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | ![Disponible][check] |
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | ![Disponible][check] |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des groupes Azure Virtual Machine Scale Sets (dans les régions où ils sont disponibles) :
 
@@ -308,8 +308,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
-| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | PRÉVERSION |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | ![Disponible][check] |
+| Attribuée par l'utilisateur | ![Disponible][check] | ![Disponible][check] | PRÉVERSION | ![Disponible][check] |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des machines virtuelles Azure (dans les régions où elles sont disponibles) :
 
