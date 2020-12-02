@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082105"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559026"
 ---
 | Ressource | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ ms.locfileid: "92082105"
 <sup>7</sup>Les certificats d’autorité de certification ne sont pas pris en charge dans le niveau Consommation.<br/>
 <sup>8</sup>Cette limite s’applique au niveau Consommation uniquement. Il n’existe aucune limite dans ces catégories pour les autres niveaux.<br/>
 <sup>9</sup> S’applique au niveau Consommation uniquement. Comprend une chaîne de requête longue allant jusqu’à 2048 octets.<br/>
-<sup>10</sup>Les passerelles auto-hébergées sont prises en charge uniquement dans les niveaux Développeur et Premium. Cette limite s’applique au nombre de [ressources des passerelles auto-hébergées](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Pour augmenter cette limite, contactez le [support](https://azure.microsoft.com/support/options/). Notez que le nombre de nœuds (ou réplicas) associés à une ressource de passerelle auto-hébergée est illimité dans le niveau Premium, mais limité à un seul nœud dans le niveau Développeur.
+<sup>10</sup>Les passerelles auto-hébergées sont prises en charge uniquement dans les niveaux Développeur et Premium. Cette limite s’applique au nombre de [ressources des passerelles auto-hébergées](/rest/api/apimanagement/2019-12-01/gateway). Pour augmenter cette limite, contactez le [support](https://azure.microsoft.com/support/options/). Notez que le nombre de nœuds (ou réplicas) associés à une ressource de passerelle auto-hébergée est illimité dans le niveau Premium, mais limité à un seul nœud dans le niveau Développeur.

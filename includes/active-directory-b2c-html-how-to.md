@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377464"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990877"
 ---
 ## <a name="use-custom-page-content"></a>Utiliser un contenu de page personnalisé
 
@@ -56,7 +56,7 @@ Le tableau suivant répertorie le contenu de page par défaut fourni par Azure A
 
 ## <a name="hosting-the-page-content"></a>Hébergement du contenu de la page
 
-Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’interface utilisateur, hébergez votre contenu d’interface utilisateur sur n’importe quel point de terminaison HTTPS disponible publiquement qui prend en charge CORS. Par exemple, [Stockage Blob Azure](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), serveurs web, réseaux de distribution de contenu, AWS S3 ou systèmes de partage de fichiers.
+Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’interface utilisateur, hébergez votre contenu d’interface utilisateur sur n’importe quel point de terminaison HTTPS disponible publiquement qui prend en charge CORS. Par exemple, [Stockage Blob Azure](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](../articles/app-service/index.yml), serveurs web, réseaux de distribution de contenu, AWS S3 ou systèmes de partage de fichiers.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Instructions pour l’utilisation de contenu de page personnalisé
 

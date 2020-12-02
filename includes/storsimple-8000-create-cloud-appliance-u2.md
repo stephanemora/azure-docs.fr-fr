@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376062"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562390"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Pour créer une appliance cloud
 
@@ -33,8 +33,7 @@ ms.locfileid: "93376062"
    7. Cochez la case pour indiquer que vous savez que les données stockées sur l’appliance cloud sont hébergées dans un centre de données Microsoft.
        * Lorsque vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer.
 
-       * Lorsque vous utilisez une appliance cloud, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez les [considérations de sécurité relatives à l’utilisation d’une appliance cloud](../articles/storsimple/storsimple-security.md).
+       * Lorsque vous utilisez une appliance cloud, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez les [considérations de sécurité relatives à l’utilisation d’une appliance cloud](../articles/storsimple/storsimple-8000-security.md).
    8. Cliquez sur **Créer** pour approvisionner l’appliance cloud. La mise en service de l'appareil peut prendre environ 30 minutes. Un message s’affiche une fois l’appliance cloud créée. Accédez au panneau Appareils, et la liste des appareils est actualisée pour afficher l’appliance cloud. L’état de l’appliance est défini sur **Prêt pour la configuration**.
       
       ![Appliance cloud StorSimple - Prêt pour la configuration](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

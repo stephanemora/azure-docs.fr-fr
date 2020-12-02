@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93029447"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556885"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
 Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuaire à demander ce package d’accès. Lors de la définition de la stratégie de demandes, vous pouvez spécifier des utilisateurs individuels ou plus souvent des groupes d’utilisateurs. Par exemple, votre organisation a peut-être déjà un groupe tel que **Tous les employés**.  Si ce groupe est ajouté dans la stratégie pour des utilisateurs qui peuvent demander l’accès, tout membre de ce groupe peut ensuite demander l’accès.
 
-1. Dans la section **Utilisateurs pouvant demander l’accès** , cliquez sur **Pour les utilisateurs dans votre annuaire**.
+1. Dans la section **Utilisateurs pouvant demander l’accès**, cliquez sur **Pour les utilisateurs dans votre annuaire**.
 
     Quand vous sélectionnez cette option, de nouvelles options s’affichent pour vous permettre de préciser qui dans votre annuaire peut demander ce package d’accès.
 
@@ -33,9 +33,9 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
     | **Tous les membres (à l’exclusion des invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres de votre annuaire puissent demander ce package d’accès. Cette option n’inclut pas les utilisateurs que vous avez invités dans votre annuaire. |
     | **Tous les utilisateurs (y compris les invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres et les utilisateurs invités de votre annuaire puissent demander ce package d’accès. |
 
-    Les utilisateurs invités font référence à des utilisateurs externes qui ont été invités dans votre annuaire avec [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Pour plus d’informations sur les différences entre les utilisateurs membres et les utilisateurs invités, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Les utilisateurs invités font référence à des utilisateurs externes qui ont été invités dans votre annuaire avec [Azure AD B2B](../articles/active-directory/external-identities/what-is-b2b.md). Pour plus d’informations sur les différences entre les utilisateurs membres et les utilisateurs invités, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. Si vous avez sélectionné **Utilisateurs et groupes spécifiques** , cliquez sur **Ajouter des utilisateurs et des groupes**.
+1. Si vous avez sélectionné **Utilisateurs et groupes spécifiques**, cliquez sur **Ajouter des utilisateurs et des groupes**.
 
 1. Dans le volet Sélectionnez des utilisateurs et des groupes, sélectionnez les utilisateurs et les groupes à ajouter.
 
@@ -47,14 +47,14 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
 
 ## <a name="for-users-not-in-your-directory"></a>Pour les utilisateurs qui ne sont pas dans votre répertoire
 
- **Les utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire ou domaine Azure AD. Ces utilisateurs n’ont peut-être pas encore été invités dans votre annuaire. Les annuaires Azure AD doivent être configurés pour autoriser les invitations dans **Restrictions de collaboration**. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../articles/active-directory/b2b/delegate-invitations.md).
+ **Les utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire ou domaine Azure AD. Ces utilisateurs n’ont peut-être pas encore été invités dans votre annuaire. Les annuaires Azure AD doivent être configurés pour autoriser les invitations dans **Restrictions de collaboration**. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../articles/active-directory/external-identities/delegate-invitations.md).
 
 > [!NOTE]
-> Un compte d’utilisateur invité sera créé pour un utilisateur qui n’est pas encore dans votre répertoire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, quand cet utilisateur invité n’a plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne peut plus se connecter et est supprimé par la suite. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation. Pour plus d’informations sur l’objet utilisateur invité, consultez [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../articles/active-directory/b2b/user-properties.md).
+> Un compte d’utilisateur invité sera créé pour un utilisateur qui n’est pas encore dans votre répertoire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, quand cet utilisateur invité n’a plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne peut plus se connecter et est supprimé par la suite. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation. Pour plus d’informations sur l’objet utilisateur invité, consultez [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../articles/active-directory/external-identities/user-properties.md).
 
 Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre annuaire à demander ce package d’accès :
 
-1. Dans la section **Utilisateurs pouvant demander l’accès** , cliquez sur **Pour les utilisateurs dans votre annuaire**.
+1. Dans la section **Utilisateurs pouvant demander l’accès**, cliquez sur **Pour les utilisateurs dans votre annuaire**.
 
     Quand vous sélectionnez cette option, de nouvelles options s’affichent.
 
@@ -70,7 +70,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 
     Une organisation connectée est un domaine ou un annuaire Azure AD externe avec lequel vous collaborez.
 
-1. Si vous avez sélectionné **Organisations connectées spécifiques** , cliquez sur **Ajouter des annuaires** pour effectuer une sélection parmi une liste d’organisations connectées que votre administrateur a ajoutées précédemment.
+1. Si vous avez sélectionné **Organisations connectées spécifiques**, cliquez sur **Ajouter des annuaires** pour effectuer une sélection parmi une liste d’organisations connectées que votre administrateur a ajoutées précédemment.
 
 1. Tapez le nom ou le nom de domaine pour rechercher une organisation précédemment connectée.
 
@@ -81,7 +81,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 1. Une fois que vous avez sélectionné toutes les organisations connectées, cliquez sur **Sélectionner**.
 
     > [!NOTE]
-    > Tous les utilisateurs des organisations connectées sélectionnées pourront demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’organisation, à moins que ces domaines soient bloqués par la liste d’autorisation ou de refus d’Azure B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../articles/active-directory/b2b/allow-deny-list.md).
+    > Tous les utilisateurs des organisations connectées sélectionnées pourront demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’organisation, à moins que ces domaines soient bloqués par la liste d’autorisation ou de refus d’Azure B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Passez à la section [Approbation](#approval) plus bas.
 
@@ -89,7 +89,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 
 Effectuez ces étapes si vous souhaitez contourner les demandes d’accès et autoriser les administrateurs à attribuer directement des utilisateurs spécifiques à ce package d’accès. Les utilisateurs n’auront pas à demander le package d’accès. Vous pouvez toujours définir des paramètres de cycle de vie, mais il n’y a aucun paramètre de demande.
 
-1. Dans la section **Utilisateurs pouvant demander l’accès** , cliquez sur **Aucune (attributions direct administrateur uniquement)** .
+1. Dans la section **Utilisateurs pouvant demander l’accès**, cliquez sur **Aucune (attributions direct administrateur uniquement)** .
 
     ![Package d’accès - Demandes - Aucun (attributions directes d’administrateur uniquement)](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -143,7 +143,7 @@ Suivez les étapes ci-dessous pour ajouter des approbateurs après avoir sélect
 
     La gestion des droits d’utilisation trouve le gestionnaire à l’aide de l’attribut **Manager**. L’attribut se trouve dans le profil de l’utilisateur dans Azure AD. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Si vous avez sélectionné **Choisir des approbateurs spécifiques** , cliquez sur **Ajouter des approbateurs** pour sélectionner dans votre annuaire un ou plusieurs utilisateurs ou groupes devant assumer la fonction d’approbateurs.
+1. Si vous avez sélectionné **Choisir des approbateurs spécifiques**, cliquez sur **Ajouter des approbateurs** pour sélectionner dans votre annuaire un ou plusieurs utilisateurs ou groupes devant assumer la fonction d’approbateurs.
 
 1. Dans la zone sous **La décision doit être prise dans combien de jours ?** , spécifiez le nombre de jours dont dispose un approbateur pour examiner une demande pour ce package d’accès.
 
@@ -188,7 +188,7 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 1. Définissez l’option **En l’absence d’action, transférer à d’autres approbateurs ?** sur **Oui**.
 
-1. Cliquez sur **Ajouter des approbateurs de substitution** , puis sélectionnez les approbateurs de substitution dans la liste.
+1. Cliquez sur **Ajouter des approbateurs de substitution**, puis sélectionnez les approbateurs de substitution dans la liste.
 
     ![Package d’accès – Stratégie – Ajouter des approbateurs de substitution](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
@@ -210,20 +210,20 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 ## <a name="add-requestor-information-preview-to-an-access-package"></a>Ajout d’informations sur le demandeur (préversion) à un package d'accès
 
-1. Accédez à l’onglet **Informations sur le demandeur** , puis cliquez sur le sous-onglet **Questions**.
+1. Accédez à l’onglet **Informations sur le demandeur**, puis cliquez sur le sous-onglet **Questions**.
  
 1. Tapez ce que vous souhaitez demander au demandeur, également appelé « chaîne d’affichage », pour la question dans la zone **Question**.
 
     ![Package d’accès – Stratégie – Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
 1. Si vous souhaitez ajouter vos propres options de localisation, cliquez sur **Ajouter une localisation**.
-    1. Une fois dans le volet **Ajouter des localisations pour les questions** , sélectionnez le **code de la langue** dans laquelle vous localisez la question.
+    1. Une fois dans le volet **Ajouter des localisations pour les questions**, sélectionnez le **code de la langue** dans laquelle vous localisez la question.
     1. Dans la langue que vous avez configurée, tapez la question dans la zone **Texte localisé**.
     1. Une fois que vous avez ajouté toutes les localisations nécessaires, cliquez sur **Enregistrer**.
 
     ![Package d’accès – Stratégie – Configuration du texte localisé](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. Sélectionnez le **Format de la réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court* , *choix multiples* et *texte long*.
+1. Sélectionnez le **Format de la réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court*, *choix multiples* et *texte long*.
  
     ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  

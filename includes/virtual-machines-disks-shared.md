@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684429"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563638"
 ---
 La fonctionnalité Disques partagés Azure est une nouvelle fonctionnalité pour disques managés Azure qui vous permet de connecter simultanément un disque managé à plusieurs machines virtuelles. Le fait d’attacher un disque managé à plusieurs machines virtuelles vous permet de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure.
 
@@ -41,7 +41,7 @@ Les disques partagés prennent en charge plusieurs systèmes d’exploitation. C
 
 ### <a name="windows"></a>Windows
 
-Les disques partagés Azure sont pris en charge sur Windows Server 2008 et versions ultérieures. Le clustering basé sur Windows repose essentiellement sur WSFC, qui gère toute l’infrastructure principale pour la communication des nœuds de cluster, ce qui permet à vos applications de tirer parti des modèles d’accès parallèle. WSFC active les options CSV et non CSV en fonction de votre version de Windows Server. Pour plus d’informations, consultez [Créer un cluster de basculement](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Les disques partagés Azure sont pris en charge sur Windows Server 2008 et versions ultérieures. Le clustering basé sur Windows repose essentiellement sur WSFC, qui gère toute l’infrastructure principale pour la communication des nœuds de cluster, ce qui permet à vos applications de tirer parti des modèles d’accès parallèle. WSFC active les options CSV et non CSV en fonction de votre version de Windows Server. Pour plus d’informations, consultez [Créer un cluster de basculement](/windows-server/failover-clustering/create-failover-cluster).
 
 Voici quelques exemples d’applications bien connues qui s’exécutent sur WSFC :
 
