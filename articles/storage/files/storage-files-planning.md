@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: a35c34a08dba625b16940d7ec5fb870952dba36b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011700"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -133,16 +133,16 @@ En général, les fonctionnalités d’Azure Files et l’interopérabilité ave
 Une fois qu’un partage de fichiers est créé, qu’il soit Premium ou Standard, vous ne pouvez pas le convertir automatiquement à l’autre niveau. Si vous souhaitez basculer vers l’autre niveau, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Nous vous recommandons d’utiliser `robocopy` pour Windows, `rsync` pour macOS et Linux afin d’effectuer cette copie.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Comprendre le provisionnement des partages de fichiers Premium
-Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
+Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Toutes les tailles de partages sont proposées à la ligne de base/au débit minimum avec possibilité de rafale. Pour chaque Gio approvisionné, le partage a des IOPS/un débit minimaux et un débit d’IOPS de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’IOPS par seconde/débit. 
 
-Dans la mesure du possible, tous les partages peuvent atteindre en rafale jusqu’à trois IOPS par Gio de stockage approvisionné pendant 60 minutes ou plus, selon la taille du partage. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
+Tous les partages Premium sont proposés avec rafale gratuite dans la mesure du possible. Toutes les tailles de partages peuvent atteindre des rafales allant jusqu’à 4 000 IOPS ou jusqu’à trois E/S par Gio approvisionné, ce qui offre un nombre d’IOPS en rafale plus important au partage. Tous les partages prennent en charge la rafale pour une durée maximale de 60 minutes avec une limite maximale pour la rafale. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
 
 Les partages doivent être provisionnés par incréments de 1 Gio. La taille minimale est de 100 Gio, la taille suivante de 101 Gio, et ainsi de suite.
 
 > [!TIP]
-> IOPS de base = 1 * par Gio provisionné. (Jusqu’à 100 000 IOPS maximum).
+> IOPS de base = 400 + 1 * par Gio provisionné. (Jusqu’à 100 000 IOPS maximum).
 >
-> Limite de rafale = 3 * IOPS de base. (Jusqu’à 100 000 IOPS maximum).
+> Limite de rafale = MAX (4 000, 3 * IOPS de base). (en fonction de la limite supérieure, jusqu’à un maximum de 100 000 IOPS).
 >
 > Débit de sortie = 60 Mio/s + 0,06 * Gio provisionnés
 >
@@ -156,33 +156,29 @@ Le tableau suivant illustre quelques exemples de ces formules pour les tailles d
 
 |Capacité (Gio) | IOPS de base | IOPS en rafale | Sortie (Mio/s) | Entrée (Mio/s) |
 |---------|---------|---------|---------|---------|
-|100         | 100     | Jusqu’à 300     | 66   | 44   |
-|500         | 500     | Jusqu’à 1 500   | 90   | 60   |
-|1 024       | 1 024   | Jusqu’à 3 072   | 122   | 81   |
-|5 120       | 5 120   | Jusqu’à 15 360  | 368   | 245   |
-|10 240      | 10 240  | Jusqu’à 30 720  | 675 | 450   |
-|33 792      | 33 792  | Jusqu’à 100 000 | 2 088 | 1 392   |
-|51 200      | 51 200  | Jusqu’à 100 000 | 3 132 | 2 088   |
+|100         | 500     | Jusqu’à 4 000     | 66   | 44   |
+|500         | 900     | Jusqu’à 4 000  | 90   | 60   |
+|1 024       | 1 424   | Jusqu’à 4 000   | 122   | 81   |
+|5 120       | 5 520   | Jusqu’à 15 360  | 368   | 245   |
+|10 240      | 10 640  | Jusqu’à 30 720  | 675   | 450   |
+|33 792      | 34 192  | Jusqu’à 100 000 | 2 088 | 1 392   |
+|51 200      | 51 600  | Jusqu’à 100 000 | 3 132 | 2 088   |
 |102 400     | 100 000 | Jusqu’à 100 000 | 6 204 | 4 136   |
 
-> [!NOTE]
-> Les performances des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Pour obtenir une mise à l’échelle des performances maximales, répartissez la charge entre plusieurs machines virtuelles. Reportez-vous au [guide de résolution des problèmes](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
+Il est essentiel de noter que les partages de fichiers efficaces sont soumis aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows sans SMB Multichannel activé, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Le même client peut atteindre des \~performances trois fois supérieures si SMB Multichannel est activé sur les partages Premium. Pour obtenir une mise à l’échelle des performances maximales, [activez SMB Multichannel](storage-files-enable-smb-multichannel.md) et répartissez la charge entre plusieurs machines virtuelles. Reportez-vous à [Performances de SMB Multichannel](storage-files-smb-multichannel-performance.md) et au [Guide de dépannage](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
 #### <a name="bursting"></a>Mode en rafales
-Les partages de fichiers Premium peuvent rapidement accroître leur IOPS jusqu’à multiplier leur nombre par trois. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite.
+Si votre charge de travail a besoin de performances supplémentaires pour répondre aux pics de demande, votre partage peut utiliser des crédits de rafale pour atteindre la limite d’IOPS de la ligne de base du partage pour offrir les performances de partage dont il a besoin pour répondre à la demande. Les partages de fichiers Premium peuvent prévoir des rafales de leurs IOPS jusqu’à 4 000 ou jusqu’à multiplier leur nombre par trois, selon la valeur la plus élevée. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite, pour une durée maximale de 60 minutes.
 
-Des crédits s’accumulent dans un compartiment à rafales chaque fois que le trafic de votre partage de fichiers se trouve en dessous des IOPS de base. Par exemple, un partage de 100 Gio dispose de 100 IOPS de base. Si le trafic réel sur le partage est de 40 IOPS pour un intervalle spécifique de 1 seconde, les 60 IOPS inutilisées sont créditées dans un compartiment à rafales. Ces crédits sont ensuite utilisés lorsque des opérations dépassent les IOPS de base.
+Des crédits s’accumulent dans un compartiment à rafales chaque fois que le trafic de votre partage de fichiers se trouve en dessous des IOPS de base. Par exemple, un partage de 100 Gio dispose de 500 IOPS de base. Si le trafic réel sur le partage est de 100 IOPS pour un intervalle spécifique de 1 seconde, les 400 IOPS inutilisées sont créditées dans un compartiment à rafales. De même, un partage inactif de 1 Tio accumule du crédit de rafale à 1 424 IOPS. Ces crédits sont ensuite utilisés lorsque des opérations dépassent les IOPS de base.
 
-> [!TIP]
-> Taille du compartiment à rafales = IOPS de base * 2 * 3600.
-
-Chaque fois qu’un partage dépasse les IOPS de base et qu’il dispose de crédits dans un compartiment à rafales, il est augmenté par rafales. Les partages peuvent continuer à croître tant qu’il reste des crédits, même si les partages inférieurs à 50 Tio ne demeureront à la limite de la rafale de croissance que sur une durée pouvant atteindre une heure. Les partages supérieurs à 50 Tio peuvent techniquement dépasser cette limite d’une heure, pour atteindre deux heures, mais cela dépend du nombre de crédits de rafale accumulés. Chaque e/s située au-delà des IOPS de base consomme un crédit ; une fois que tous les crédits sont consommés, le partage retourne aux IOPS de base.
+Chaque fois qu’un partage dépasse les IOPS de base et qu’il dispose de crédits dans un compartiment à rafales, il est augmenté par rafales pour atteindre le taux de rafales maximal autorisé. Les partages peuvent continuer de fonctionner en rafale tant qu’il reste des crédits, jusqu’à une durée maximale de 60 minutes, mais cela se base sur le nombre de crédits en rafale accumulés. Chaque e/s située au-delà des IOPS de base consomme un crédit ; une fois que tous les crédits sont consommés, le partage retourne aux IOPS de base.
 
 Les crédits de partage présentent trois états :
 
 - En hausse, lorsque le partage de fichiers utilise un nombre inférieur à celui des IOPS de base.
-- En baisse, lorsque le partage de fichiers s’accroît.
-- Constant, lorsqu’il n’y a aucun crédit ou IOPS de base en cours d’utilisation.
+- En baisse, lorsque le partage de fichiers utilise plus que les IOPS de la ligne de base et en mode de rafale.
+- Constant, lorsque le partage de fichiers utilise exactement les IOPS de la ligne de base, il n’y a aucun crédit accumulé ou utilisé.
 
 Au départ, les nouveaux partages de fichiers se voient attribuer un nombre total de crédits dans leur compartiment à rafales. Les crédits de rafale ne seront pas augmentés si les IOPS du partage chutent en dessous des IOPS de base, en raison de la limitation par le serveur.
 

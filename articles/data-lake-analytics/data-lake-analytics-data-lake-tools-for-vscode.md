@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221245"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019053"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -76,7 +76,7 @@ Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Open Sample Script*
                  D( DepID, DepName );
    ```
 
-   OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
+   OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
 
     Le script crée un fichier departments.csv avec des données dans le dossier /output.
 
@@ -237,7 +237,7 @@ Avant de pouvoir compiler et exécuter des scripts U-SQL dans Data Lake Analytic
 
    ![Notification relative à la connexion et à l'authentification](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
 
-3. Sélectionnez **Copier et ouvrir** pour ouvrir la [page web de connexion ](https://aka.ms/devicelogin). Collez le code dans la zone, puis sélectionnez **Continuer**.
+3. Sélectionnez **Copier et ouvrir** pour ouvrir la [page web de connexion](https://aka.ms/devicelogin). Collez le code dans la zone, puis sélectionnez **Continuer**.
 
     ![Page web de connexion](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png)  
 

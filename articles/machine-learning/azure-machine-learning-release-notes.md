@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012269"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -210,7 +210,7 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
     + Mise à jour de la documentation AzureML MLflow et des exemples de notebooks 
     + Nouvelle prise en charge des projets MLflow avec le backend AzureML
     + Prise en charge du registre de modèles MLflow
-    + Ajout de la prise en charge de RBAC pour les opérations AzureML-MLflow 
+    + Ajout de la prise en charge d’Azure RBAC pour les opérations AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + Amélioration de la documentation des méthodes PipelineOutputFileDataset.parse_*.

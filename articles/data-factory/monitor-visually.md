@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331469"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008767"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -62,7 +62,7 @@ Pour obtenir une vue détaillée des activités individuelles d’un pipeline sp
 
 La liste montre les exécutions d’activités correspondant à chaque exécution de pipeline. Pointez sur l’activité spécifique pour obtenir des informations spécifiques de son exécution, telles que l’entrée JSON, la sortie JSON et des expériences de surveillance détaillées spécifiques de l’activité.
 
-![Liste pour la supervision des exécutions d’activités](media/monitor-visually/activity-runs.png)
+![Il existe des informations sur SalesAnalyticsMLPipeline, suivies d’une liste d’exécutions d’activités.](media/monitor-visually/activity-runs.png)
 
 | **Nom de la colonne** | **Description** |
 | --- | --- |
@@ -79,7 +79,7 @@ La liste montre les exécutions d’activités correspondant à chaque exécutio
 
 En cas d’échec d’une activité, vous pouvez voir le message d’erreur détaillé en cliquant sur l’icône dans la colonne d’erreur. 
 
-![Liste pour la supervision des exécutions d’activités](media/monitor-visually/activity-run-error.png)
+![Une notification s’affiche avec les détails de l’erreur, notamment le code d’erreur, le type d’échec et les détails de l’erreur.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Promouvoir les propriétés de l’utilisateur à superviser
 

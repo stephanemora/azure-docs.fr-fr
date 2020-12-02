@@ -2,14 +2,14 @@
 title: Recevoir des événements d’Azure Event Grid sur un point de terminaison HTTP
 description: Décrit comment valider un point de terminaison HTTP, puis recevoir et désérialiser des événements d’Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326471"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023711"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
@@ -140,9 +140,11 @@ Testez la fonction de réponse de validation en collant l’exemple d’événem
 }]
 ```
 
-Lorsque vous cliquez sur Exécuter, la sortie doit être 200 OK et `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` dans le corps :
+Lorsque vous cliquez sur Exécuter, la sortie doit être 200 OK et `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` dans le corps :
 
-![réponse de validation](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Requête de validation":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Sortie de validation":::
 
 ## <a name="handle-blob-storage-events"></a>Traiter les événements de stockage Blob
 
@@ -394,6 +396,8 @@ Enfin, testez que votre fonction peut maintenant traiter votre type d’événem
 ```
 
 Vous pouvez également tester cette fonctionnalité en direct en [envoyant un événement personnalisé avec CURL à partir du portail](./custom-event-quickstart-portal.md) ou en [publiant vers une rubrique personnalisée](./post-to-custom-topic.md) à l’aide d’un service ou d’une application qui peut PUBLIER sur un point de terminaison tel que [Postman](https://www.getpostman.com/). Créez une rubrique personnalisée et un abonnement à des événements avec le point de terminaison défini en tant qu’URL de la fonction.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

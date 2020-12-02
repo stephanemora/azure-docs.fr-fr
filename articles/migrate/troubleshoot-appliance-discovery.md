@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315784"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494441"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -80,7 +80,7 @@ Si cette erreur de connexion s’affiche, il est possible que vous ne puissiez p
     - [Apprenez-en davantage](./migrate-appliance.md#appliance---vmware) sur les rôles et autorisations Azure requis.
 - L’erreur 60039 « L’appliance n’est peut-être pas inscrite correctement dans le projet Azure Migrate » peut se produire si l’inscription échoue car le projet Azure Migrate utilisé pour inscrire l’appliance est introuvable.
     - Dans le Portail Azure, vérifiez si le projet se trouve dans le groupe de ressources.
-    - Si le projet n’existe pas, créez un projet Azure Migrate dans votre groupe de ressources et réinscrivez l’appliance. [Découvrez comment](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) créer un nouveau projet.
+    - Si le projet n’existe pas, créez un projet Azure Migrate dans votre groupe de ressources et réinscrivez l’appliance. [Découvrez comment](./create-manage-projects.md#create-a-project-for-the-first-time) créer un nouveau projet.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Error 60030/60031 : Échec de l’opération de gestion de Key Vault
 

@@ -3,20 +3,20 @@ title: Appeler des programmes Spark à partir d’Azure Data Factory
 description: Apprenez à appeler des programmes Spark à partir d’une fabrique de données Azure à l’aide de l’activité MapReduce.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359949"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495070"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -67,12 +67,12 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
 
-1. Dans le panneau **Nouvelle fabrique de données** , entrez **SparkDF** dans le champ **Nom**.
+1. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
 
    > [!IMPORTANT]
    > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : règles de nommage](data-factory-naming-rules.md).
 
-1. Sous **Abonnement** , sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
+1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
 1. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
 
@@ -85,7 +85,7 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. La fabrique de données apparaît comme en cours de création dans le tableau de bord du portail Azure.
 
-1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu. Si vous ne voyez pas la page **Fabrique de données** , sélectionnez la vignette de votre fabrique de données sur le tableau de bord.
+1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu. Si vous ne voyez pas la page **Fabrique de données**, sélectionnez la vignette de votre fabrique de données sur le tableau de bord.
 
     ![Panneau Data Factory](./media/data-factory-spark/data-factory-blade.png)
 
@@ -95,7 +95,7 @@ Dans cette étape, vous créez deux services liés. Un service relie votre clust
 #### <a name="create-a-storage-linked-service"></a>Créer un service lié pour le stockage
 Dans cette étape, vous liez votre compte de stockage à votre fabrique de données. Un jeu de données que vous allez créer plus loin dans cette procédure fait référence à ce service lié. Le service lié HDInsight que vous définissez dans l’étape suivante fait également référence à ce service lié.
 
-1. Dans le panneau **Fabrique de données** , sélectionnez **Créer et déployer**. Le Data Factory Editor apparaît.
+1. Dans le panneau **Fabrique de données**, sélectionnez **Créer et déployer**. Le Data Factory Editor apparaît.
 
 1. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
 
@@ -217,11 +217,11 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     a. La propriété **type** est définie sur **HDInsightSpark**.
 
-    b. La propriété **rootPath** est définie sur **adfspark\\pyFiles** , où adfspark est le conteneur d’objets Blob et pyFiles est le dossier de fichiers dans ce conteneur. Dans cet exemple, le stockage Blob est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre compte de stockage. Si vous procédez ainsi, créez un service lié Stockage pour lier à la fabrique de données ce compte de stockage. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark, consultez [Propriétés de l’activité Spark](#spark-activity-properties).
+    b. La propriété **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob et pyFiles est le dossier de fichiers dans ce conteneur. Dans cet exemple, le stockage Blob est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre compte de stockage. Si vous procédez ainsi, créez un service lié Stockage pour lier à la fabrique de données ce compte de stockage. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark, consultez [Propriétés de l’activité Spark](#spark-activity-properties).
 
-    c. La propriété **entryFilePath** est définie sur **test.py** , c’est-à-dire le fichier Python.
+    c. La propriété **entryFilePath** est définie sur **test.py**, c’est-à-dire le fichier Python.
 
-    d. La propriété **getDebugInfo** est définie sur **Always** , ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
+    d. La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
 
     > [!IMPORTANT]
     > Nous vous recommandons de ne pas définir cette propriété sur `Always` dans un environnement de production, sauf si vous dépannez un problème.
@@ -233,17 +233,17 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 1. Pour déployer le pipeline, sélectionnez **Déployer** dans la barre de commandes.
 
 ### <a name="monitor-a-pipeline"></a>Surveiller un pipeline
-1. Dans le panneau **Fabrique de données** , sélectionnez **Surveiller et gérer** pour démarrer l’application de surveillance dans un autre onglet.
+1. Dans le panneau **Fabrique de données**, sélectionnez **Surveiller et gérer** pour démarrer l’application de surveillance dans un autre onglet.
 
     ![Vignette Surveiller et gérer](media/data-factory-spark/monitor-and-manage-tile.png)
 
-1. Modifiez le filtre de **début** en haut de la page sur **2/1/2017** , puis sélectionnez **Appliquer**.
+1. Modifiez le filtre de **début** en haut de la page sur **2/1/2017**, puis sélectionnez **Appliquer**.
 
 1. Une seule fenêtre d’activité apparaît puisqu’il n’y a qu’un seul jour entre le début (2017-02-01) et la fin (2017-02-02) du pipeline. Vérifiez que la tranche de données est à l’état **Prêt**.
 
     ![Surveiller le pipeline](media/data-factory-spark/monitor-and-manage-app.png)
 
-1. Dans la liste des **fenêtres d’activité** , sélectionnez une exécution d’activité pour en afficher les détails. S’il y a une erreur, vous pouvez en afficher les détails dans le volet droit.
+1. Dans la liste des **fenêtres d’activité**, sélectionnez une exécution d’activité pour en afficher les détails. S’il y a une erreur, vous pouvez en afficher les détails dans le volet droit.
 
 ### <a name="verify-the-results"></a>Vérifier les résultats
 
@@ -268,7 +268,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ### <a name="troubleshooting"></a>Dépannage
-Étant donné que vous définissez getDebugInfo sur **Toujours** , un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
+Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
 
 Pour résoudre des problèmes, procédez comme suit :
 

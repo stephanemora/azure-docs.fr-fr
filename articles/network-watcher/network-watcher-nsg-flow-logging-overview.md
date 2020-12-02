@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018101"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493982"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -59,7 +59,7 @@ Les journaux de flux sont la source fidèle pour toute activité réseau au sein
 **Concepts fondamentaux**
 
 - Des réseaux définis par logiciel sont organisés autour de réseaux virtuels et de sous-réseaux. La sécurité de ces réseaux virtuels et sous-réseaux peut être gérée à l’aide d’un groupe de sécurité réseau.
-- Un groupe de sécurité réseau contient une liste de _règles de sécurité_ qui autorisent ou refusent le trafic réseau dans les ressources auxquelles il est connecté. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- Un groupe de sécurité réseau contient une liste de _règles de sécurité_ qui autorisent ou refusent le trafic réseau dans les ressources auxquelles il est connecté. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Tous les flux de trafic au sein de votre réseau sont évalués à l’aide des règles dans le groupe de sécurité réseau applicable.
 - Le résultat de ces évaluations est recueilli dans des journaux de flux de groupe de sécurité réseau. Les journaux de flux sont collectés via la plateforme Azure et ne nécessitent aucune modification des ressources du client.
 - Remarque : Les règles sont de deux types : avec fin d’exécution et sans fin d’exécution, chacune avec des comportements de journalisation différents.

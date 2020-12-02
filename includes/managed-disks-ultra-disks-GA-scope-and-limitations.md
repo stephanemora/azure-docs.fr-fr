@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016628"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -67,7 +67,7 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions prises en charge avec des disques Ultra.
 - Ils sont disponibles uniquement comme disques de données. 
-- Ils prennent en charge la taille de secteur physique de 4k par défaut. La taille de secteur 512E est disponible en tant qu’offre généralement disponible mais vous devez [vous inscrire pour l’utiliser](https://aka.ms/ultradisk512e). La plupart des applications sont compatibles avec les tailles de secteur de 4k mais certaines nécessitent des tailles de secteur de 512 octets. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques natifs 4k. Pour les versions antérieures d’Oracle DB, la taille de secteur de 512 octets est requise.
+- Ils prennent en charge la taille de secteur physique de 4k par défaut. La taille du secteur 512E est disponible en tant qu’offre généralement disponible (aucun abonnement requis), mais elle n’est actuellement disponible qu’à l’aide de l’interface CLI ou de PowerShell. La plupart des applications sont compatibles avec les tailles de secteur de 4k mais certaines nécessitent des tailles de secteur de 512 octets. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques natifs 4k. Pour les versions antérieures d’Oracle DB, la taille de secteur de 512 octets est requise.
 - Ils peuvent être créés seulement comme des disques vides.
 - Ils ne prennent pas en charge les instantanés de disque, les images de machine virtuelle, les groupes à haute disponibilité, les hôtes dédiés Azure ou Azure Disk Encryption.
 - Ils ne prennent pas en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery.

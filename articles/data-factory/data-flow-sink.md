@@ -4,17 +4,16 @@ description: Apprenez à configurer une transformation de récepteur dans le flu
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023004"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -69,10 +68,6 @@ La vidéo suivant explique un certain nombre d’options de récepteur pour les 
 
 **Valider le schéma** : Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
 
-**Utiliser TempDB :** Par défaut, Data Factory utilise une table temporaire globale pour stocker des données dans le cadre du processus de chargement. Vous pouvez également désélectionner l’option « Utiliser TempDB » et demander à Data Factory de stocker la table d’hébergement temporaire dans une base de données utilisateur qui se trouve dans la base de données utilisée pour ce récepteur.
-
-![Utiliser la base de données temporaire](media/data-flow/tempdb.png "Utiliser la base de données temporaire")
-
 ## <a name="cache-sink"></a>Récepteur de cache
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
@@ -109,9 +104,18 @@ Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordr
 
 ![Ordre des récepteurs personnalisé](media/data-flow/cache-2.png "Ordre des récepteurs personnalisé")
 
+## <a name="error-row-handling"></a>Gestion des lignes d’erreur
+
+Lors de l’écriture dans des bases de données, certaines lignes de données peuvent échouer en raison de contraintes définies par la destination. Par défaut, l’exécution d’un flux de données échouera à la première erreur rencontrée. Dans certains connecteurs, vous pouvez choisir de **Continuer en cas d’erreur**, ce qui permet à votre flux de données de se terminer, même si des lignes individuelles comportent des erreurs. Actuellement, cette fonctionnalité n’est disponible que dans Azure SQL Database. Pour plus d’informations, consultez [Gestion des lignes d’erreurs dans Azure SQL Database](connector-azure-sql-database.md#error-row-handling).
+
+Vous trouverez ci-dessous un didacticiel vidéo sur l’utilisation automatique de la gestion des lignes d’erreur de base de données dans votre transformation du récepteur.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+
 ## <a name="data-preview-in-sink"></a>Aperçu des données dans le récepteur
 
 Lors de la récupération (fetch) d'un aperçu des données sur un cluster de débogage, aucune donnée n'est écrite dans votre récepteur. Une capture instantanée des données est renvoyée, mais rien n'est écrit à l'emplacement de destination. Pour tester l'écriture de données dans votre récepteur, exécutez un débogage de pipeline à partir du canevas du pipeline.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous avez créé votre flux de données, ajoutez une [activité de flux de données à votre pipeline](concepts-data-flow-overview.md).

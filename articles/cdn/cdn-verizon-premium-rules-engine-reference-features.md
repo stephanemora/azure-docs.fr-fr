@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020413"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
@@ -59,7 +59,7 @@ Ces fonctionnalités sont conçues pour personnaliser la mise en cache du conten
 | [Bandwidth Throttling](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Limite la bande passante pour la réponse fournie par nos serveurs Edge. |
 | [Bypass Cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Détermine si la requête peut exploiter notre technologie de mise en cache. |
 | [Cache-Control Header Treatment](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Contrôle la génération des en-têtes de contrôle de cache par le serveur Edge quand la fonctionnalité Âge maximal externe est active. |
-| [Cache-Key Query String](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Détermine si la **clé de cache*** inclut ou exclut les paramètres de chaîne de requête associés à une demande. <br> _* Chemin d’accès relatif qui identifie de façon unique un composant à des fins de mise en cache.  Nos serveurs Edge utilisent ce chemin d’accès relatif lors de la vérification du contenu mis en cache.  Par défaut, une clé de cache ne contient pas de paramètres de chaîne de requête._ |
+| [Cache-Key Query String](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Détermine si la **clé de cache** _ inclut ou exclut les paramètres de chaîne de requête associés à une demande. <br> __ Chemin d’accès relatif qui identifie de façon unique un composant à des fins de mise en cache.  Nos serveurs Edge utilisent ce chemin d’accès relatif lors de la vérification du contenu mis en cache.  Par défaut, une clé de cache ne contient pas de paramètres de chaîne de requête._ |
 | [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Réécrit la clé de cache associée à une requête. |
 | [Complete Cache Fill](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge. |
 | [Compress File Types](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Définit les formats de fichier à compresser sur le serveur. | 

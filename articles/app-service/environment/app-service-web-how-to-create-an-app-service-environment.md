@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220573"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005201"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Comment créer un environnement App Service Environment v1 
 
@@ -36,7 +36,7 @@ Il est important de connaître les choses que vous ne pouvez pas modifier. Voici
 Lors de la sélection d’un réseau virtuel et de la spécification d’un sous-réseau, assurez-vous qu’il est suffisamment grand pour contenir toute croissance future. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Création d’un environnement App Service Environment v1
-Pour créer un environnement App Service Environment v1, vous pouvez rechercher ***App Service Environment v1*** dans la Place de marché Azure ou sélectionner **Créer une ressource** -> **Web + Mobile** -> **Environnement App Service**. Pour créer un ASE v1 :
+Pour créer un environnement App Service Environment v1, vous pouvez rechercher ***App Service Environment v1** dans la Place de marché Azure ou sélectionner _ *Créer une ressource** -> **Web + Mobile** -> **Environnement App Service**. Pour créer un ASE v1 :
 
 1. Indiquez le nom de votre ASE. Le nom que vous spécifiez pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom du sous-domaine est : .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères majuscules dans le nom, le nom de domaine correspondra à la version complète de ce nom en minuscules. Si vous utilisez un équilibreur de charge interne (ILB), le nom de votre ASE n’est pas utilisé dans votre sous-domaine, mais il est explicitement indiqué lors de la création de l’ASE.
    

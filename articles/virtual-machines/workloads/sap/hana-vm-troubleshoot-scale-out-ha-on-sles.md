@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010025"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
 
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Une autre commande **crm** obtient la configuration complète du cluster dans un éditeur, afin que vous puissiez la modifier. Après avoir enregistré les changements, le cluster démarre les actions appropriées :
+Une autre commande _ *crm** obtient la configuration complète du cluster dans un éditeur, afin que vous puissiez la modifier. Après avoir enregistré les changements, le cluster démarre les actions appropriées :
 
 <pre><code>
 crm configure edit

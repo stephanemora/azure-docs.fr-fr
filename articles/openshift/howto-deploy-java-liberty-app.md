@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493937"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Déployer une application Java avec Open Liberty/WebSphere Liberty sur un cluster Azure Red Hat OpenShift 4
 
@@ -25,26 +25,26 @@ Ce guide montre comment exécuter votre application Java, Java EE, [Jakarta EE](
 Remplissez les prérequis suivants pour suivre ce guide.
 
 > [!NOTE]
-> Azure Red Hat OpenShift requiert a minimum de 40 cœurs pour créer et exécuter un cluster OpenShift. Le quota de ressources Azure par défaut pour un nouvel abonnement Azure ne répond pas à cette exigence. Pour demander une augmentation de votre limite de ressources, consultez [Quota standard : augmenter les limites par série de machines virtuelles](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Notez que l’abonnement d’essai gratuit n’est pas éligible à une augmentation de quota. [Passez à un abonnement Paiement à l’utilisation](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) avant de demander une augmentation de quota.
+> Azure Red Hat OpenShift requiert a minimum de 40 cœurs pour créer et exécuter un cluster OpenShift. Le quota de ressources Azure par défaut pour un nouvel abonnement Azure ne répond pas à cette exigence. Pour demander une augmentation de votre limite de ressources, consultez [Quota standard : augmenter les limites par série de machines virtuelles](../azure-portal/supportability/per-vm-quota-requests.md). Notez que l’abonnement d’essai gratuit n’est pas éligible à une augmentation de quota. [Passez à un abonnement Paiement à l’utilisation](../cost-management-billing/manage/upgrade-azure-subscription.md) avant de demander une augmentation de quota.
 
 1. Préparez un ordinateur local avec un système d’exploitation de type UNIX installé (par exemple, Ubuntu, macOS).
 1. Installez une implémentation de Java SE (par exemple, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Installez [Maven](https://maven.apache.org/download.cgi) 3.5.0 ou une version ultérieure.
 1. Installez [Docker](https://docs.docker.com/get-docker/) pour votre système d’exploitation.
-1. Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75 ou une version ultérieure.
+1. Installez [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 ou une version ultérieure.
 1. Vérifiez et installez [`envsubst`](https://command-not-found.com/envsubst) s’il n’est pas préinstallé sur votre système d’exploitation.
 1. Clonez le code de cet exemple sur votre système local. L’exemple se trouve sur [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Suivez les instructions de la section [Créer un cluster Azure Red Hat OpenShift 4](/azure/openshift/tutorial-create-cluster).
+1. Suivez les instructions de la section [Créer un cluster Azure Red Hat OpenShift 4](./tutorial-create-cluster.md).
 
    Bien que l’étape « Récupération d’un secret d’extraction Red Hat » soit étiquetée comme étant facultative, **elle est requise pour cet article**.  Le secret d’extraction permet à votre cluster Azure Red Hat OpenShift de trouver l’opérateur Open Liberty.
 
    Si vous envisagez d’exécuter des applications gourmandes en mémoire sur le cluster, spécifiez la taille de machine virtuelle appropriée pour les nœuds Worker à l’aide du paramètre `--worker-vm-size`. Par exemple, `Standard_E4s_v3` est la taille de machine virtuelle minimale pour installer l’opérateur Elasticsearch sur un cluster. Pour plus d'informations, consultez les pages suivantes :
 
-   * [Azure CLI pour créer un cluster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [Tailles de machines virtuelles prises en charge pour la mémoire optimisée](/azure/openshift/support-policies-v4#memory-optimized)
+   * [Azure CLI pour créer un cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Tailles de machines virtuelles prises en charge pour la mémoire optimisée](./support-policies-v4.md#memory-optimized)
    * [Conditions préalables à l’installation de l’opérateur Elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Connectez-vous au cluster en suivant les étapes décrites dans [Se connecter à un cluster Azure Red Hat OpenShift 4](/azure/openshift/tutorial-connect-cluster).
+1. Connectez-vous au cluster en suivant les étapes décrites dans [Se connecter à un cluster Azure Red Hat OpenShift 4](./tutorial-connect-cluster.md).
    * Veillez à suivre les étapes décrites dans la section « Installer l’interface CLI OpenShift », car nous allons utiliser la commande `oc` plus loin dans cet article.
    * Notez l’URL de la console de cluster qui ressemble à `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Notez les informations d’identification de `kubeadmin`.
@@ -314,7 +314,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer le cluster ARO, suivez les étapes décrites dans [Tutoriel : Supprimer un cluster Azure Red Hat OpenShift 4](/azure/openshift/tutorial-delete-cluster).
+Pour supprimer le cluster ARO, suivez les étapes décrites dans [Tutoriel : Supprimer un cluster Azure Red Hat OpenShift 4](./tutorial-delete-cluster.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

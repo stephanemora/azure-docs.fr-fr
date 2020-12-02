@@ -3,12 +3,12 @@ title: Questions fréquentes (FAQ) sur Azure Migrate
 description: Obtenez des réponses aux questions courantes au sujet du service Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0877ad0d36e131525a227050cf44321e39e8b30
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847463"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494611"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate : Questions courantes
 
@@ -41,7 +41,7 @@ Azure Migrate : Server Migration utilise des fonctionnalités Site Recovery de
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>J’ai un projet avec l’expérience classique précédente d’Azure Migrate. Comment faire commencer à utiliser la nouvelle version ?
 
-Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un projet Azure Migrate](create-manage-projects.md) et y [ajouter des outils d’évaluation et de migration](how-to-add-tool-first-time.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si un espace de travail Log Analytics est attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
+Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un projet Azure Migrate](create-manage-projects.md) et y [ajouter des outils d’évaluation et de migration](./create-manage-projects.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si un espace de travail Log Analytics est attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Quelle est la différence entre Azure Migrate: Server Assessment et Map Toolkit ?
 

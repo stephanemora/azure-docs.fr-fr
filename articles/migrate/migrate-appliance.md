@@ -4,11 +4,11 @@ description: Fournit un résumé de la prise en charge de l’appliance Azure Mi
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450036"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008699"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -69,8 +69,8 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 **Limites de la découverte** | Une appliance peut détecter jusqu’à 5 000 machines virtuelles Hyper-V.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
 **Modèle de disque dur virtuel** | Dossier compressé incluant le disque dur virtuel. Téléchargez-le sur le portail ou [ici](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> La taille du téléchargement est de 8,91 Go.<br/><br/> Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
 **Script PowerShell** | Consultez cet [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Logiciel/matériel***   |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l'appliance en tant que machine virtuelle Hyper-V, vous devez disposer de suffisamment de ressources sur l'hôte Hyper-V pour allouer la configuration matérielle requise.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise. 
-**Configuration requise pour Hyper-V** | Si vous déployez l’appliance avec le modèle de disque dur virtuel, la machine virtuelle de l’appliance fournie par Azure Migrate est une machine virtuelle Hyper-V version 5.0.<br/><br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure. 
+**Logiciel/matériel** _   |  L’appliance doit s’exécuter sur une machine avec Windows Server 2016, 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite une adresse IP statique ou dynamique et un accès à Internet, directement ou via un proxy.<br/><br/> Si vous exécutez l'appliance en tant que machine virtuelle Hyper-V, vous devez disposer de suffisamment de ressources sur l'hôte Hyper-V pour allouer la configuration matérielle requise.<br/><br/> Si vous exécutez l’appliance sur une machine physique, vérifiez qu’elle exécute Windows Server 2016 et qu’elle est conforme à la configuration matérielle requise. 
+_ *Configuration requise pour Hyper-V** | Si vous déployez l’appliance avec le modèle de disque dur virtuel, la machine virtuelle de l’appliance fournie par Azure Migrate est une machine virtuelle Hyper-V version 5.0.<br/><br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure. 
 **Valeur de hachage - Disque dur virtuel** | [Vérifiez](tutorial-discover-hyper-v.md#verify-security) les valeurs de hachage du modèle VHD.
 **Valeur de hachage - Script PowerShell** | [Vérifiez](deploy-appliance-script.md#verify-file-security) les valeurs de hachage du script PowerShell.
 

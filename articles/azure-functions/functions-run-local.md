@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3cf495ca0687e6fa37f619615fb1529659a462dc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422584"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020346"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Il existe trois versions d’Azure Functions Core Tools. La version que vous uti
 
 + [**Version 3.x/2.x**](#v2) : Prend en charge la [version 3.x ou 2.x du runtime Azure Functions](functions-versions.md). Ces versions prennent en charge [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) et [Linux](?tabs=linux#v2) et utilisent des gestionnaires de package spécifiques à la plateforme ou npm pour l’installation.
 
-+ **Version 1.x**  : Prend en charge la version 1.x du runtime Azure Functions. Cette version des outils est uniquement prise en charge sur les ordinateurs Windows et est installée à partir d’un [package npm](https://www.npmjs.com/package/azure-functions-core-tools).
++ **Version 1.x** : Prend en charge la version 1.x du runtime Azure Functions. Cette version des outils est uniquement prise en charge sur les ordinateurs Windows et est installée à partir d’un [package npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
 Vous ne pouvez installer qu’une seule version de Core Tools sur un ordinateur donné. Sauf indication contraire, les exemples de cet article concernent la version 3.x.
 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-Utilisez les touches de direction haut/bas pour choisir un langage, puis appuyez sur Entrée. Si vous envisagez de développer des fonctions JavaScript ou TypeScript, choisissez **nœud** , puis sélectionnez la langue. TypeScript comprend [des exigences supplémentaires](functions-reference-node.md#typescript). 
+Utilisez les touches de direction haut/bas pour choisir un langage, puis appuyez sur Entrée. Si vous envisagez de développer des fonctions JavaScript ou TypeScript, choisissez **nœud**, puis sélectionnez la langue. TypeScript comprend [des exigences supplémentaires](functions-reference-node.md#typescript). 
 
 Le résultat ressemble à l’exemple suivant pour un projet JavaScript :
 
@@ -250,10 +250,10 @@ Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le dével
 - Dans le [Azure portal], recherchez et sélectionnez **Comptes de stockage**. 
   ![Sélectionner des comptes de stockage à partir du Portail Azure](./media/functions-run-local/select-storage-accounts.png)
   
-  Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres** , puis copiez une des valeurs **Chaîne de connexion**.
+  Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres**, puis copiez une des valeurs **Chaîne de connexion**.
   ![Copier une chaîne de connexion à partir du portail Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’ **Explorateur** , développez votre abonnement et **Comptes de stockage** , sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire.
+- Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’**Explorateur**, développez votre abonnement et **Comptes de stockage**, sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire.
 
   ![Copier une chaîne de connexion à partir de l’Explorateur Stockage Azure](./media/functions-run-local/storage-explorer.png)
 
@@ -312,9 +312,9 @@ Vous pouvez également spécifier ces options dans la commande en utilisant les 
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2.x et versions ultérieures.) Génère les mêmes modèles de script C# (.csx) que ceux utilisés dans la version 1.x et dans le portail. |
-| **`--language`** , **`-l`**| Langage de programmation du modèle, tel que C#, F# ou JavaScript. Cette option est requise dans la version 1.x. Dans la version 2.x et les versions ultérieures, n’utilisez pas cette option ou choisissez un langage qui correspond au runtime worker. |
-| **`--name`** , **`-n`** | Nom de la fonction. |
-| **`--template`** , **`-t`** | Utilisez la commande `func templates list` pour afficher la liste complète des modèles disponibles pour chaque langage pris en charge.   |
+| **`--language`**, **`-l`**| Langage de programmation du modèle, tel que C#, F# ou JavaScript. Cette option est requise dans la version 1.x. Dans la version 2.x et les versions ultérieures, n’utilisez pas cette option ou choisissez un langage qui correspond au runtime worker. |
+| **`--name`**, **`-n`** | Nom de la fonction. |
+| **`--template`**, **`-t`** | Utilisez la commande `func templates list` pour afficher la liste complète des modèles disponibles pour chaque langage pris en charge.   |
 
 
 Par exemple, pour créer un déclencheur HTTP JavaScript dans une seule commande, exécutez :
@@ -385,10 +385,10 @@ npm start
 | **`--language-worker`** | Arguments pour configurer le travailleur de langage. Par exemple, vous pouvez activer le débogage pour le rôle de travail du langage en fournissant un [port de débogage et d’autres arguments requis](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Non pris en charge pour la version 1.x. |
 | **`--cert`** | Le chemin d’accès vers un fichier .pfx qui contient une clé privée. Utilisé uniquement avec `--useHttps`. Non pris en charge pour la version 1.x. |
 | **`--password`** | Le mot de passe ou un fichier qui contient le mot de passe pour un fichier .pfx. Utilisé uniquement avec `--cert`. Non pris en charge pour la version 1.x. |
-| **`--port`** , **`-p`** | Port local à écouter. Valeur par défaut : 7071. |
+| **`--port`**, **`-p`** | Port local à écouter. Valeur par défaut : 7071. |
 | **`--pause-on-error`** | Marquage d’une pause pour des entrées supplémentaires avant de quitter le processus. Uniquement utilisé lors du lancement des outils de base à partir d’un environnement de développement intégré (IDE).|
-| **`--script-root`** , **`--prefix`** | Utilisé pour spécifier le chemin d’accès à la racine de l’application de fonction qui doit être exécutée ou déployée. Il est utilisé pour les projets compilés qui génèrent des fichiers projet dans un sous-dossier. Par exemple, lorsque vous générez un projet de bibliothèque de classes C#, les host.json, local.settings.json et function.json sont générés dans un sous-dossier *racine* avec un chemin d’accès comme `MyProject/bin/Debug/netstandard2.0`. Dans ce cas, définissez le préfixe comme `--script-root MyProject/bin/Debug/netstandard2.0`. Il s’agit de la racine de l’application de fonction lors de l’exécution sur Azure. |
-| **`--timeout`** , **`-t`** | Délai d’expiration pour le démarrage de l’hôte Functions, en secondes. Valeur par défaut : 20 secondes.|
+| **`--script-root`**, **`--prefix`** | Utilisé pour spécifier le chemin d’accès à la racine de l’application de fonction qui doit être exécutée ou déployée. Il est utilisé pour les projets compilés qui génèrent des fichiers projet dans un sous-dossier. Par exemple, lorsque vous générez un projet de bibliothèque de classes C#, les host.json, local.settings.json et function.json sont générés dans un sous-dossier *racine* avec un chemin d’accès comme `MyProject/bin/Debug/netstandard2.0`. Dans ce cas, définissez le préfixe comme `--script-root MyProject/bin/Debug/netstandard2.0`. Il s’agit de la racine de l’application de fonction lors de l’exécution sur Azure. |
+| **`--timeout`**, **`-t`** | Délai d’expiration pour le démarrage de l’hôte Functions, en secondes. Valeur par défaut : 20 secondes.|
 | **`--useHttps`** | Liaison avec `https://localhost:{port}` plutôt que `http://localhost:{port}`. Par défaut, cette option crée un certificat de confiance sur votre ordinateur.|
 
 Quand l’hôte Functions démarre, il génère l’URL des fonctions déclenchées par HTTP :
@@ -488,10 +488,10 @@ Dans la version 1.x, vous pouvez également appeler une fonction directement à
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--content`** , **`-c`** | Contenu inclus. |
-| **`--debug`** , **`-d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
-| **`--timeout`** , **`-t`** | Délai d’attente (en secondes) jusqu’à ce que l’hôte Functions local soit prêt.|
-| **`--file`** , **`-f`** | Nom du fichier à utiliser en tant que contenu.|
+| **`--content`**, **`-c`** | Contenu inclus. |
+| **`--debug`**, **`-d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
+| **`--timeout`**, **`-t`** | Délai d’attente (en secondes) jusqu’à ce que l’hôte Functions local soit prêt.|
+| **`--file`**, **`-f`** | Nom du fichier à utiliser en tant que contenu.|
 | **`--no-interactive`** | Ne pas demander d’entrée. Utile pour les scénarios d’automatisation.|
 
 Par exemple, pour appeler une fonction déclenchée par HTTP et passer un corps de contenu, exécutez la commande suivante :
@@ -537,12 +537,12 @@ Les options de publication suivantes sont uniquement prises en charge dans la ve
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`** , **`-o`** |  Publiez les paramètres uniquement et ignorez le contenu. Par défaut, l’accord de l’utilisateur est sollicité. |
+| **`--publish-settings-only`**, **`-o`** |  Publiez les paramètres uniquement et ignorez le contenu. Par défaut, l’accord de l’utilisateur est sollicité. |
 |**`--list-ignored-files`** | Affiche une liste de fichiers ignorés lors de la publication basée sur le fichier .funcignore. |
 | **`--list-included-files`** | Affiche une liste de fichiers publiés basée sur le fichier .funcignore. |
 | **`--nozip`** | Désactive le mode par défaut `Run-From-Package`. |
 | **`--build-native-deps`** | Ignore la génération du dossier .wheels lors de la publication des applications de fonction Python. |
-| **`--build`** , **`-b`** | Exécute l’action de génération lors du déploiement dans une application de fonction Linux. Accepte : `remote` et `local`. |
+| **`--build`**, **`-b`** | Exécute l’action de génération lors du déploiement dans une application de fonction Linux. Accepte : `remote` et `local`. |
 | **`--additional-packages`** | Liste des packages à installer lors de la création des dépendances natives. Par exemple : `python3-dev libevent-dev`. |
 | **`--force`** | Ignorez la vérification de prépublication dans certains scénarios. |
 | **`--csx`** | Publiez un projet de Script C# (.csx). |

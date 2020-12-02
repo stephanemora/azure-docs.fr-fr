@@ -4,12 +4,12 @@ description: Cet article explique comment arrêter la surveillance de votre clus
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489484"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96011640"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Guide pratique pour arrêter la supervision de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour conteneurs
 
@@ -35,7 +35,7 @@ Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aid
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->Le modèle doit être déployé dans le même groupe de ressources du cluster. Si vous omettez d’autres propriétés ou modules complémentaires lors de l’utilisation de ce modèle, ils peuvent être supprimés du cluster. Par exemple, *enableRBAC* pour les stratégies RBAC implémentées dans votre cluster ou *aksResourceTagValues* si des balises sont spécifiées pour le cluster AKS.  
+>Le modèle doit être déployé dans le même groupe de ressources du cluster. Si vous omettez d’autres propriétés ou modules complémentaires lors de l’utilisation de ce modèle, ils peuvent être supprimés du cluster. Par exemple, *enableRBAC* pour les stratégies Kubernetes RBAC implémentées dans votre cluster ou *aksResourceTagValues* si des balises sont spécifiées pour le cluster AKS.  
 >
 
 Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).

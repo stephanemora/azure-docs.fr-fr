@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397397"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018696"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une instance Application Gateway existante
 
@@ -46,7 +46,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour installer Helm :
 
 1. Installez [Helm](../aks/kubernetes-helm.md) et exécutez la commande suivante pour ajouter le package Helm `application-gateway-kubernetes-ingress` :
 
-    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) activé*
+    - Cluster AKS sur lequel *Kubernetes RBAC* est activé
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -54,7 +54,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour installer Helm :
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - Cluster AKS *contrôle d’accès en fonction du rôle (RBAC) désactivé*
+    - Cluster AKS sur lequel *Kubernetes RBAC* est désactivé
 
     ```bash
     helm init
@@ -187,7 +187,7 @@ Les premières étapes consistent à installer Tiller de Helm sur votre cluster 
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

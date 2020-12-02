@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 1cb790bf15ba232b45fbf144c77ca177bab17b99
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: be74871b5669ee249fc06232d804b28c4446757b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968466"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494050"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide de l’API REST Azure.
 
@@ -37,7 +37,7 @@ Cet article part du principe que vous disposez des ressources suivantes :
 * Les machines virtuelles avec lesquelles résoudre les problèmes associés aux connexions.
 
 > [!IMPORTANT]
-> Pour résoudre les problèmes de connexion, la machine virtuelle à partir de laquelle vous procédez doit disposer de l’extension de machine virtuelle `AzureNetworkWatcherExtension` installée. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux). L’extension n’est pas nécessaire sur le point de terminaison de destination.
+> Pour résoudre les problèmes de connexion, la machine virtuelle à partir de laquelle vous procédez doit disposer de l’extension de machine virtuelle `AzureNetworkWatcherExtension` installée. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux). L’extension n’est pas nécessaire sur le point de terminaison de destination.
 
 ## <a name="log-in-with-armclient"></a>Se connecter à ARMClient
 

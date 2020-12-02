@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635770"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494305"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -44,7 +44,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 ``` 
 
 > [!NOTE]
-> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources, le même emplacement et le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur source.
+> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources, le même emplacement et le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur source.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source

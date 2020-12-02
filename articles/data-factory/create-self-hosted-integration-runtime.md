@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331717"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023349"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -150,7 +150,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
 - Utilisez un runtime d’intégration auto-hébergé prendre en charge l’intégration des données au sein d’un réseau virtuel Azure.
 - Considérez votre source de données comme une source de données locale qui se trouve derrière un pare-feu, même lorsque vous utilisez Azure ExpressRoute. Utilisez le runtime d’intégration auto-hébergé pour connecter le service à la source de données.
 - Utiliser le runtime d’intégration auto-hébergé même si le magasin de données se trouve dans le cloud sur une infrastructure en tant que service (IaaS) Azure.
-- Les tâches peuvent échouer dans un runtime d’intégration auto-hébergé que vous avez installé sur un serveur Windows pour lequel le chiffrement compatible FIPS est activé. Pour contourner ce problème, vous avez deux options : stocker les informations d’identification/valeurs secrètes dans un Azure Key Vault ou désactiver le chiffrement conforme aux normes FIPS sur le serveur. Pour désactiver le chiffrement compatible FIPS, modifiez la valeur de la sous-clé du registre suivante de 1 (activé) à 0 (désactivé) : `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- Les tâches peuvent échouer dans un runtime d’intégration auto-hébergé que vous avez installé sur un serveur Windows pour lequel le chiffrement compatible FIPS est activé. Pour contourner ce problème, vous avez deux options : stocker les informations d’identification/valeurs secrètes dans un Azure Key Vault ou désactiver le chiffrement conforme aux normes FIPS sur le serveur. Pour désactiver le chiffrement compatible FIPS, modifiez la valeur de la sous-clé du registre suivante de 1 (activé) à 0 (désactivé) : `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. Si vous utilisez le [runtime d’intégration auto-hébergé comme proxy pour le runtime d’intégration SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), le chiffrement conforme aux normes FIPS peut être activé et utilisé lors du déplacement de données de l’environnement local vers le stockage Blob Azure en tant que zone de transit.
 
 ## <a name="prerequisites"></a>Prérequis
 
