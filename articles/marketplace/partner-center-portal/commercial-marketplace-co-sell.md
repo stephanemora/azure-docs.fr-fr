@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 10/28/2020
-ms.openlocfilehash: 2a648b4f4c614fc64fa7817102215720e51abe7f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d303a5d5b9779a2003b12d063c97c36a90576dd3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095597"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456626"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -108,7 +108,7 @@ Le diagramme d’architecture de référence est un modèle qui représente l’
 
 Le document peut être créé à l’aide de plusieurs outils. Nous vous recommandons Microsoft Visio, car il contient plusieurs stencils qui représentent les modèles d’architecture Azure.
 
-Un point de départ utile pour créer des diagrammes d’architecture de référence consiste à tirer parti des [modèles d’architecture Azure](https://docs.microsoft.com/azure/architecture/browse/).
+Un point de départ utile pour créer des diagrammes d’architecture de référence consiste à tirer parti des [modèles d’architecture Azure](/azure/architecture/browse/).
 
 ### <a name="typical-components-of-a-reference-architecture-diagram"></a>Composants types d’un diagramme d’architecture de référence
 - Les services cloud qui hébergent votre offre et interagissent avec elle, y compris ceux qui génèrent une consommation Azure

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ed1c183281aea830e9cd61c1d95c6c092adbe05c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6ad91b7cf8cd8a79654774b1b5463bc661a981d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348175"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Base de référence de sécurité Azure pour Azure DNS
 
@@ -64,7 +64,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -132,7 +132,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -158,7 +158,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -182,7 +182,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -280,7 +280,7 @@ Dans Azure DNS, il existe le rôle Contributeur de zone DNS, ainsi qu’Azure RB
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -308,7 +308,7 @@ Même si les ressources Azure classiques peuvent être découvertes via l’Expl
 
 **Conseils** : Utilisez les paramètres Nom de la stratégie, Description et Catégorie pour organiser logiquement les ressources en fonction d’une taxonomie.
 
-- [Pour plus d’informations sur l’étiquetage des ressources, consultez Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [Pour plus d’informations sur l’étiquetage des ressources, consultez Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -496,7 +496,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

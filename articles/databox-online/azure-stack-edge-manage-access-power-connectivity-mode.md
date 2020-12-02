@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9636c76caf2302b872a2ecbb8e2e4bacfc1408a6
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952129"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453079"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro
 
@@ -68,7 +68,7 @@ Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge P
 
 Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Azure Stack Edge Pro, la création d’un utilisateur, la configuration d’un rôle de calcul Edge et la réinitialisation du mot de passe de l’appareil sont toutes vouées à l’échec.
 
-Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
 

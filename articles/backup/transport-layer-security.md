@@ -3,12 +3,12 @@ title: Protocole TLS dans la sauvegarde Azure
 description: Découvrez comment activer la sauvegarde Azure pour utiliser le protocole de chiffrement TLS (Transport Layer Security) et sécuriser les données lors de leur transfert sur un réseau.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280649"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327115"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Protocole TLS dans la sauvegarde Azure
 
@@ -45,7 +45,7 @@ Les clés de Registre suivantes garantissent que le protocole TLS 1.2 est activ
 
 ### <a name="configuring-net-framework"></a>Configuration de .NET Framework
 
-Les clés de Registre suivantes configurent .NET Framework pour prendre en charge un chiffrement renforcé. Vous trouverez plus d’informations sur la [configuration de .NET Framework ici](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+Les clés de Registre suivantes configurent .NET Framework pour prendre en charge un chiffrement renforcé. Vous trouverez plus d’informations sur la [configuration de .NET Framework ici](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ Le protocole TLS 1.2 est plus sécurisé que les protocoles de chiffrement pré
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>Qu’est-ce qui détermine le protocole de chiffrement utilisé ?
 
-La version de protocole la plus élevée qui est prise en charge par le client et le serveur est négociée pour établir la conversation chiffrée. Pour plus d’informations sur le protocole de négociation TLS, consultez [Établissement d’une session sécurisée à l’aide du protocole TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+La version de protocole la plus élevée qui est prise en charge par le client et le serveur est négociée pour établir la conversation chiffrée. Pour plus d’informations sur le protocole de négociation TLS, consultez [Établissement d’une session sécurisée à l’aide du protocole TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>Quel est l’impact de la non-activation de TLS 1.2 ?
 
@@ -77,6 +77,6 @@ Pour améliorer la sécurité contre les attaques par passage à une version ant
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Protocole TLS](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Assurer la prise en charge de TLS 1.2 sur les systèmes d’exploitation déployés](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [Meilleures pratiques Transport Layer Security (TLS) avec .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [Protocole TLS](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Assurer la prise en charge de TLS 1.2 sur les systèmes d’exploitation déployés](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [Meilleures pratiques Transport Layer Security (TLS) avec .NET Framework](/dotnet/framework/network-programming/tls)

@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 910e68e5b8933875f252faf65fb58e514dee8254
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326588"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Comment trouver votre ID de locataire Azure Active Directory
 
@@ -77,4 +77,4 @@ Pour plus d’informations, consultez la référence de commande Microsoft 365 
 
 - Pour apprendre à associer ou à ajouter un abonnement à un locataire, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Pour apprendre à trouver l’ID d’objet, consultez [Rechercher l’ID d’objet utilisateur](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Pour apprendre à trouver l’ID d’objet, consultez [Rechercher l’ID d’objet utilisateur](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

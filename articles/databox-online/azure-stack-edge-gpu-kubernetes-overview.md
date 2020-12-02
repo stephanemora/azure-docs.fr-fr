@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636916"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448648"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -106,7 +106,7 @@ Pour plus d’informations sur le déploiement d’applications sur votre cluste
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes et Azure Arc
 
-Azure Arc est un outil de gestion hybride qui vous permet de déployer des applications sur vos clusters Kubernetes. Azure Arc vous permet également d’utiliser Azure Monitor pour conteneurs afin d’afficher et de surveiller vos clusters. Pour plus d’informations, consultez [Qu’est-ce que Kubernetes avec Azure Arc ?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Pour plus d’informations sur la tarification d’Azure Arc, consultez [Tarification d’Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc est un outil de gestion hybride qui vous permet de déployer des applications sur vos clusters Kubernetes. Azure Arc vous permet également d’utiliser Azure Monitor pour conteneurs afin d’afficher et de surveiller vos clusters. Pour plus d’informations, consultez [Qu’est-ce que Kubernetes avec Azure Arc ?](../azure-arc/kubernetes/overview.md). Pour plus d’informations sur la tarification d’Azure Arc, consultez [Tarification d’Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

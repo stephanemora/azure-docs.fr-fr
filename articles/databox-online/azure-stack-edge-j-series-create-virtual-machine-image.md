@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b49659f67e779b6eb8079492b47fef9419ca6b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890995"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447516"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Créer des images de machine virtuelle personnalisées pour votre appareil Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Effectuez les étapes suivantes pour créer une image de machine virtuelle Windo
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
    
-       Vous pouvez également consulter [Vue d’ensemble de Sysprep (préparation du système)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+       Vous pouvez également consulter [Vue d’ensemble de Sysprep (préparation du système)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Utilisez ce disque dur virtuel pour créer et déployer maintenant une machine virtuelle sur votre appareil Azure Stack Edge Pro.
 
@@ -76,7 +76,7 @@ Utilisez ce disque dur virtuel pour créer et déployer maintenant une machine v
 |[Serveur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server est le Linux le plus populaire au monde pour les environnements cloud.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux est l’une des distributions Linux les plus populaires.     |credativ|
 
-Pour obtenir la liste complète des images de la Place de Marché Azure qui peuvent fonctionner (non testées pour le moment), accédez à [Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Pour obtenir la liste complète des images de la Place de Marché Azure qui peuvent fonctionner (non testées pour le moment), accédez à [Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

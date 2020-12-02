@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779405"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352114"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Journaux de diagnostic – Azure Content Delivery Network
 
@@ -50,28 +50,28 @@ En suivant ces étapes, vous activez la journalisation pour votre point de termi
 
     :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
 
-3. Dans la section **Supervision** , sélectionnez **Journaux de diagnostic**  :
+3. Dans la section **Supervision**, sélectionnez **Journaux de diagnostic** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Sélectionner les journaux de diagnostics." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Activation de la journalisation avec Stockage Azure
 
 Pour utiliser un compte de stockage afin de stocker les journaux d’activité, effectuez les étapes suivantes :
 
  >[!NOTE] 
- >Un compte de stockage est nécessaire pour effectuer ces étapes. Consultez : **[Créer un compte Stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** pour plus d’informations.
+ >Un compte de stockage est nécessaire pour effectuer ces étapes. Consultez : **[Créer un compte Stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** pour plus d’informations.
     
-1. Pour **Nom des paramètres de diagnostic** , entrez un nom pour les paramètres du journal de diagnostic.
+1. Pour **Nom des paramètres de diagnostic**, entrez un nom pour les paramètres du journal de diagnostic.
  
-2. Sélectionnez **Archiver dans un compte de stockage** , puis **CoreAnalytics** . 
+2. Sélectionnez **Archiver dans un compte de stockage**, puis **CoreAnalytics**. 
 
 3. Dans le champ **Rétention (jours)** , choisissez le nombre de jours de rétention. Si la valeur zéro est appliquée à la rétention, les journaux d’activité sont stockés pour une durée indéfinie. 
 
 4. Sélectionnez l’abonnement et le compte de stockage pour les journaux.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Journaux de diagnostic – Stockage." border="true":::
 
-3. Sélectionnez **Enregistrer** .
+3. Sélectionnez **Enregistrer**.
 
 ### <a name="send-to-log-analytics"></a>Envoyer à Log Analytics
 
@@ -80,15 +80,15 @@ Pour utiliser Log Analytics pour les journaux, suivez ces étapes :
 >[!NOTE] 
 >Un espace de travail Log Analytics est nécessaire pour effectuer ces étapes. Consultez : **[Créer un espace de travail Log Analytics sur le portail Azure](../azure-monitor/learn/quick-create-workspace.md)** pour plus d’informations.
     
-1. Pour **Nom des paramètres de diagnostic** , entrez un nom pour les paramètres du journal de diagnostic.
+1. Pour **Nom des paramètres de diagnostic**, entrez un nom pour les paramètres du journal de diagnostic.
 
-2. Sélectionnez **Envoyer à Log Analytics** , puis **CoreAnalytics** . 
+2. Sélectionnez **Envoyer à Log Analytics**, puis **CoreAnalytics**. 
 
 3. Sélectionnez l’abonnement et l’espace de travail Log Analytics pour les journaux.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Journaux de diagnostic – Log Analytics." border="true":::
 
-4. Sélectionnez **Enregistrer** .
+4. Sélectionnez **Enregistrer**.
 
 ### <a name="stream-to-an-event-hub"></a>Diffuser vers un hub d’événements
 
@@ -97,15 +97,15 @@ Pour utiliser un hub d’événements pour les journaux, suivez ces étapes :
 >[!NOTE] 
 >Un hub d’événements est nécessaire pour effectuer ces étapes. Consultez : **[Démarrage rapide : Créer un hub d’événements avec le portail Azure](../event-hubs/event-hubs-create.md)** pour plus d’informations.
     
-1. Pour **Nom des paramètres de diagnostic** , entrez un nom pour les paramètres du journal de diagnostic.
+1. Pour **Nom des paramètres de diagnostic**, entrez un nom pour les paramètres du journal de diagnostic.
 
-2. Sélectionnez **Diffuser vers Event Hub** , puis **CoreAnalytics** . 
+2. Sélectionnez **Diffuser vers Event Hub**, puis **CoreAnalytics**. 
 
 3. Sélectionnez l’abonnement et l’espace de noms Event Hub pour les journaux.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Sélectionnez le point de terminaison CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Journaux de diagnostic – Hub d’événements." border="true":::
 
-4. Sélectionnez **Enregistrer** .
+4. Sélectionnez **Enregistrer**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Activer la journalisation avec PowerShell
@@ -190,8 +190,8 @@ Pour télécharger l’outil, consultez [Explorateur de stockage Azure](https://
 1.  Ouvrez **l’explorateur de stockage Microsoft Azure**
 2.  Localiser le compte de stockage
 3.  Développez le nœud **Conteneurs d’objets Blob** sous ce compte de stockage.
-4.  Sélectionnez le conteneur nommé *journaux-insights-coreanalytics* .
-5.  Les résultats s’affichent dans le volet droit, en commençant par le premier niveau, soir *resourceId=* . Continuez à sélectionner chaque niveau jusqu’à atteindre le fichier *PT1H.json* . Pour obtenir une explication sur le chemin, consultez [Format du chemin des objets blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Sélectionnez le conteneur nommé *journaux-insights-coreanalytics*.
+5.  Les résultats s’affichent dans le volet droit, en commençant par le premier niveau, soir *resourceId=* . Continuez à sélectionner chaque niveau jusqu’à atteindre le fichier *PT1H.json*. Pour obtenir une explication sur le chemin, consultez [Format du chemin des objets blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Chaque fichier d’objet blob *PT1H.json* représente les journaux d’activité d’analyse pendant une heure pour un point de terminaison CDN spécifique ou son domaine personnalisé.
 7.  Le schéma du contenu de ce fichier JSON est décrit dans la section Schéma des journaux d’activité Core Analytics.
 
@@ -229,7 +229,7 @@ Voici comment vous pouvez utiliser l’outil :
 
 ## <a name="log-data-delays"></a>Retards des données de journal
 
-Le tableau suivant présente les retards des données de journal pour **CDN Azure Standard fourni par Microsoft** , **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon** .
+Le tableau suivant présente les retards des données de journal pour **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon**.
 
 Retards des données de journal Microsoft | Retards des données de journal Verizon | Retards des données de journal Akamai
 --- | --- | ---

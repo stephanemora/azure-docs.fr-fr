@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a001f3a13daf40a1af712f09e35d93fd045ea133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629952"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350243"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -67,7 +67,7 @@ Créer ou avoir une base de données Azure SQL Database existante avant de confi
 
 Lors de la création du cluster, le service HDInsight doit se connecter au metastore externe et vérifier vos informations d'identification. Configurez des règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Activez cette option dans le Portail Azure en sélectionnant **Paramétrer le pare-feu du serveur**. Sélectionnez ensuite **Non** sous **Refuser l’accès au réseau public**, puis **Oui** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Les points de terminaison privés pour les magasins SQL sont uniquement pris en charge sur les clusters créés avec `outbound` ResourceProviderConnection. Pour en savoir plus, consultez cette [documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link).
+Les points de terminaison privés pour les magasins SQL sont uniquement pris en charge sur les clusters créés avec `outbound` ResourceProviderConnection. Pour en savoir plus, consultez cette [documentation](./hdinsight-private-link.md).
 
 ![bouton Définir le pare-feu du serveur](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

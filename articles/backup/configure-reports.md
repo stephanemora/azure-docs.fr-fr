@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172458"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325245"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -18,7 +18,7 @@ Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauveg
 - audit des sauvegardes et restaurations ;
 - identification des tendances clés à différents niveaux de granularité.
 
-Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](../azure-monitor/log-query/get-started-portal.md) et les [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
+Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 

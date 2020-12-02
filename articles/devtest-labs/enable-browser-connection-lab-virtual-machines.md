@@ -3,12 +3,12 @@ title: Activer la connexion du navigateur sur les machines virtuelles Azure Dev
 description: DevTest Labs s’intègre désormais à Azure Bastion. En tant que propriétaire du labo, vous pouvez activer l’accès à toutes les machines virtuelles du labo via un navigateur.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870491"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341170"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Activer la connexion du navigateur sur les machines virtuelles Azure DevTest Labs 
 DevTest Labs s’intègre à [Azure Bastion](../bastion/index.yml), ce qui vous permet de vous connecter à vos machines virtuelles via un navigateur. Vous devez tout d’abord activer la connexion du navigateur sur les machines virtuelles du labo.
@@ -20,7 +20,7 @@ Cet article vous indique comment activer la connexion du navigateur sur les mach
 
 ## <a name="prerequisites"></a>Prérequis 
 - Déployez un hôte bastion dans le réseau virtuel de votre labo existant **(OU)** connectez votre labo à un réseau virtuel configuré sur Bastion.
-Pour découvrir comment déployer un hôte bastion dans un réseau virtuel, consultez la page [Créer un hôte bastion Azure](../bastion/bastion-create-host-portal.md). Lorsque vous créez l’hôte Bastion, sélectionnez le réseau virtuel du labo. 
+Pour découvrir comment déployer un hôte bastion dans un réseau virtuel, consultez la page [Créer un hôte bastion Azure](../bastion/tutorial-create-host-portal.md). Lorsque vous créez l’hôte Bastion, sélectionnez le réseau virtuel du labo. 
 - L’utilisateur du labo doit disposer d’un rôle de **Lecteur** sur l’hôte Bastion et le réseau virtuel sur lequel Bastion a été configuré. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Créez un deuxième sous-réseau dans le réseau virtuel bastion

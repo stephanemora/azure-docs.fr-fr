@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 55ce3747aaf105c7e2cbb830b1175769a658fd72
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496190"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326979"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -176,7 +176,7 @@ L’approche de test pour la migration de base de données comprend les activit�
 
 ## <a name="leverage-advanced-features"></a>Tirer profit des fonctionnalités avancées 
 
-Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Database, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/advanced-data-security.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
+Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Database, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 
 Certaines fonctionnalités SQL Server sont disponibles uniquement une fois que vous avez fait passer le [niveau de compatibilité de la base de données](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) au dernier niveau (150). 
 

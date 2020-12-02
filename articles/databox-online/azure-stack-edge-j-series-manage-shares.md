@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952265"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454114"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les partages sur votre instance Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 3. Sélectionnez un **type** de partage. Le type peut être **SMB** ou **NFS**, SMB étant la valeur par défaut. SMB est la norme pour les clients Windows, tandis que NFS est utilisé pour les clients Linux. Selon que vous choisissez un partage SMB ou NFS, les options proposées diffèrent légèrement.
 
    > [!IMPORTANT]
-   > Vérifiez que le compte de stockage Azure que vous utilisez ne présente pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Vérifiez que le compte de stockage Azure que vous utilisez ne présente pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 4. Pour accéder aisément aux partages à partir des modules de computing en périphérie, utilisez le point de montage local. Sélectionnez **Utiliser le partage avec le computing en périphérie** pour que le module en périphérie puisse utiliser le computing avec le point de montage local.
 
@@ -151,7 +151,7 @@ Pour supprimer un partage, procédez comme suit dans le Portail Azure.
 
     ![Clic sur Supprimer](media/azure-stack-edge-j-series-manage-shares/delete-share-2.png)
 
-3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
+3. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
     ![Confirmation de suppression](media/azure-stack-edge-j-series-manage-shares/delete-share-3.png)
 
@@ -175,7 +175,7 @@ Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
     ![Cliquer sur Actualiser](media/azure-stack-edge-j-series-manage-shares/refresh-share-2.png)
  
-3.  Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local.
+3.  Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local.
 
     ![Confirmer l’actualisation](media/azure-stack-edge-j-series-manage-shares/refresh-share-3.png)
  

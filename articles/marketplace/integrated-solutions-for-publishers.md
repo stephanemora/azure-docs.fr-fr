@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660902"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450119"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
-Cet article explique le processus global et les conditions requises pour la publication d’une solution intégrée sur la Place de marché commerciale. Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services référence l’offre dans Microsoft AppSource ou la Place de marché Azure en tant que [service de conseil](./consulting-services.md).
+Cet article explique le processus global et les conditions requises pour la publication d’une solution intégrée sur la Place de marché commerciale. Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services référence l’offre dans Microsoft AppSource ou la Place de marché Azure en tant que [service de conseil](./plan-consulting-service-offer.md).
 
 Les solutions intégrées visent à répondre à un scénario ou à un besoin spécifique du client. Les fournisseurs commencent par comprendre les points faibles du secteur ou le défi auquel il est confronté. Ils intègrent ensuite au moins deux technologies de pointe afin de créer une expérience de déploiement unifiée et reproductible pour les clients. Les fournisseurs permettent aux clients d’être rapidement opérationnels. Ils offrent un point de contact unique au client, en fournissant une personnalisation, des conseils et une prise en charge de solutions pertinents. Le résultat est une solution intégrée, incluant de la technologie et des services.
 
@@ -104,7 +104,7 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
 ## <a name="publish-your-integrated-solution"></a>Publier votre solution intégrée
 
-Une fois que vous avez terminé l’intégration technique et fourni les supports marketing, reportez-vous au guide de l’éditeur pour les [Services de conseil dans Microsoft AppSource et la Place de marché Azure](./consulting-services.md). Utilisez cette ressource pour déterminer si votre solution sera publiée dans Microsoft AppSource ou la Place de marché Azure. Utilisez également le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
+Une fois que vous avez terminé l’intégration technique et fourni les supports marketing, reportez-vous au guide de l’éditeur pour les [Services de conseil dans Microsoft AppSource et la Place de marché Azure](./plan-consulting-service-offer.md). Utilisez cette ressource pour déterminer si votre solution sera publiée dans Microsoft AppSource ou la Place de marché Azure. Utilisez également le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
 
 Bien que cinq types de services existent pour les offres de services de conseil, les solutions intégrées doivent être soit une preuve de concept, soit une implémentation complète.
 

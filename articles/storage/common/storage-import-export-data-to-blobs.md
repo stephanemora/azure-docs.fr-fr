@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490880"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326384"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -52,7 +52,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 1. Connectez vos lecteurs de disque au système Windows via des connecteurs SATA.
 2. Créez un seul volume NTFS sur chaque lecteur. Attribuez une lettre de lecteur au volume. N’utilisez pas de points de montage.
 3. Activez le chiffrement BitLocker sur le volume NTFS. Si vous utilisez un système Windows Server, suivez les instructions de [How to enable BitLocker sur Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Comment activer BitLocker sur Windows Server 2012 R2).
-4. Copiez des données sur le volume chiffré. Utilisez la fonction glisser-déplacer, Robocopy ou n’importe quel outil de copie de ce type. Un fichier journal ( *.jrn* ) est créé dans le même dossier où vous avez exécuté l’outil.
+4. Copiez des données sur le volume chiffré. Utilisez la fonction glisser-déplacer, Robocopy ou n’importe quel outil de copie de ce type. Un fichier journal ( *.jrn*) est créé dans le même dossier où vous avez exécuté l’outil.
 
    Si le lecteur est verrouillé et que vous devez le déverrouiller, les étapes de déverrouillage peuvent varier en fonction de votre cas d’utilisation.
 
@@ -120,7 +120,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
      ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. Dans **Détails de la tâche**  :
+5. Dans **Détails de la tâche** :
 
    * Chargez les fichiers journaux du lecteur que vous avez obtenus à l’étape de préparation de lecteur. Si vous avez utilisé `waimportexport.exe version1`, chargez un fichier pour chaque lecteur préparé. Si la taille du fichier journal dépasse 2 Mo, vous pouvez utiliser `<Journal file name>_DriveInfo_<Drive serial ID>.xml` également créé avec le fichier journal.
    * Sélectionnez le compte de stockage de destination des données.
@@ -128,7 +128,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
    ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. Dans **Informations de réexpédition**  :
+6. Dans **Informations de réexpédition** :
 
    * Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
    * Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).

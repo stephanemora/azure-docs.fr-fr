@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930260"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340048"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Module de sécurité pour Azure RTOS (préversion)
 
@@ -32,7 +32,7 @@ Le module de sécurité pour Azure RTOS s’exécute en arrière-plan et offre u
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure RTOS NetX Duo est une pile réseau TCP/IP avancée de niveau professionnel, conçue spécifiquement pour les applications IoT et en temps réel profondément intégrées. Azure RTOS NetX Duo est une pile réseau double IPv4 et IPv6 offrant un ensemble complet de protocoles, notamment la sécurité et le cloud. En savoir plus sur les solutions de [NetX Duo d’Azure RTOS](https://aka.ms/netxduo).
+Azure RTOS NetX Duo est une pile réseau TCP/IP avancée de niveau professionnel, conçue spécifiquement pour les applications IoT et en temps réel profondément intégrées. Azure RTOS NetX Duo est une pile réseau double IPv4 et IPv6 offrant un ensemble complet de protocoles, notamment la sécurité et le cloud. En savoir plus sur les solutions de [NetX Duo d’Azure RTOS](/azure/rtos/netx-duo/).
 
 Le module offre les fonctionnalités suivantes :
 
@@ -68,4 +68,3 @@ Le module de sécurité pour Azure RTOS est fourni en téléchargement gratuit 
 - Prise en main du module de sécurité pour Azure RTOS [prérequis et configuration](quickstart-azure-rtos-security-module.md).
 - En savoir plus sur les [alertes de sécurité et la prise en charge des suggestions](concept-rtos-security-alerts-recommendations.md) du module de sécurité pour Azure RTOS. 
 - [API de référence](azure-rtos-security-module-api.md) pour utiliser le module de sécurité pour Azure RTOS.
-

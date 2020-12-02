@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367599"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449514"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Intégration d’Azure Key Vault avec Azure Stack Edge 
 
@@ -31,7 +31,7 @@ Pour le service Azure Stack Edge, l’un des secrets utilisés est la clé d’i
 
 Un coffre de clés est créé pour la ressource Azure Stack Edge pendant le processus de génération de clé d’activation. 
 
-- Lorsque vous créez une ressource Azure Stack Edge, vous devez inscrire le fournisseur de ressources *Microsoft.KeyVault* . Le fournisseur de ressources est automatiquement inscrit si vous disposez d’un accès propriétaire ou contributeur à l’abonnement. Le coffre de clés est créé dans le même abonnement et le même groupe de ressources que la ressource Azure Stack Edge. 
+- Lorsque vous créez une ressource Azure Stack Edge, vous devez inscrire le fournisseur de ressources *Microsoft.KeyVault*. Le fournisseur de ressources est automatiquement inscrit si vous disposez d’un accès propriétaire ou contributeur à l’abonnement. Le coffre de clés est créé dans le même abonnement et le même groupe de ressources que la ressource Azure Stack Edge. 
 
 - Lorsque vous créez une ressource Azure Stack Edge, une identité du service géré Managed Service Identity (MSI) est également créé, qui persiste pendant la durée de vie de la ressource et communique avec le fournisseur de ressources sur le Cloud. 
 
@@ -49,7 +49,7 @@ Un coffre de clés est créé pour la ressource Azure Stack Edge pendant le proc
 
 - Pour éviter toute suppression accidentelle, un verrou de ressource est activé sur le coffre de clés. Une suppression réversible est également activée sur le coffre de clés, ce qui permet la restauration du coffre de clés dans un délai de 90 jours en cas de suppression accidentelle. Pour plus d’informations, consulter [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
-    Si le coffre de clés est supprimé par inadvertance et que la durée de la protection de purge de 90 jours n’est pas écoulée, procédez comme suit pour [récupérer votre de coffre de clés](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    Si le coffre de clés est supprimé par inadvertance et que la durée de la protection de purge de 90 jours n’est pas écoulée, procédez comme suit pour [récupérer votre de coffre de clés](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). 
 
 - Si vous disposiez d’une ressource Azure Stack Edge existante avant l’intégration d’Azure Key Vault à la ressource Azure Stack Edge, vous n’êtes pas affecté. Vous pouvez continuer à utiliser votre ressource Azure Stack Edge existante. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la façon de [Générer une clé d’activation](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-

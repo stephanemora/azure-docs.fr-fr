@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903630"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446375"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Résoudre vos problèmes de commandes liés à Azure Stack Edge Pro
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ![Abonnement ou région non pris en charge](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Solution suggérée :**  Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge. Pour plus d’informations, consultez les [Composants requis pour les ressources Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
+**Solution suggérée :**  Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge. Pour plus d’informations, consultez les [Composants requis pour les ressources Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Il est possible que Microsoft autorise la mise à niveau d’un type d’abonnement au cas par cas. Contactez [Support Microsoft](https://azure.microsoft.com/support/options/) afin qu’ils puissent comprendre vos besoins et ajuster ces limites en conséquence.
 

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: e9fb004df5fdf8a955312ebcf16b8b60fd7c9b6a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c47e4c1278f222feac35a2c6ab0b067c916c0217
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592190"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326843"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Performances en matière de migration : Analyse des performances de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,4 +86,4 @@ Pour plus d’informations sur l’optimisation de votre nouvel environnement Az
 - [How to identify why workload performance on Azure SQL Managed Instance is different than SQL Server? (Comment identifier les raisons pour lesquelles les performances de la charge de travail sur Azure SQL Managed Instance diffèrent de celles sur SQL Server ?)](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [Causes principales des différences de performances entre SQL Managed Instance et SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Meilleures pratiques et considérations relatives aux performances de stockage pour Azure SQL Managed Instance (Usage général)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Analyse des performances en temps réel pour Azure SQL Managed Instance (this is archived, is this the intended target?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Analyse des performances en temps réel pour Azure SQL Managed Instance (this is archived, is this the intended target?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

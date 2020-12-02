@@ -3,12 +3,12 @@ title: Gestion du cycle de vie des machines virtuelles du service Azure VMware S
 description: Découvrez comment gérer tous les aspects du cycle de vie des machines virtuelles de votre service Azure VMware Solution avec les outils natifs de Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545755"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326809"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
 
@@ -61,7 +61,7 @@ Le service Azure Update Management dans Azure Automation gère les mises à jour
 
 2. **Espace de travail Log Analytics** active la collecte des journaux et la collecte des compteurs de performances à l’aide de l’agent ou d’extensions Log Analytics. Pour créer votre espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md). Si vous préférez, vous pouvez également créer un espace de travail via [interface de ligne de commande](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md) ou [modèle Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. Pour activer la solution Azure Update Management pour vos machines virtuelles, consultez [Activer Update Management à partir d’un compte Automation](../automation/update-management/update-mgmt-enable-automation-account.md). Dans le processus, vous allez associer votre espace de travail Log Analytics à votre compte Automation. 
+3. Pour activer la solution Azure Update Management pour vos machines virtuelles, consultez [Activer Update Management à partir d’un compte Automation](../automation/update-management/enable-from-automation-account.md). Dans le processus, vous allez associer votre espace de travail Log Analytics à votre compte Automation. 
  
 4. Une fois que vous avez ajouté des machines virtuelles à Azure Update Management, vous pouvez [déployer des mises à jour sur des machines virtuelles et examiner les résultats](../automation/update-management/deploy-updates.md). 
 

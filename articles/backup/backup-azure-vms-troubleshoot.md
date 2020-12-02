@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840914"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325211"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -246,7 +246,7 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 
 **Étape 2** : Essayer de modifier la planification de la sauvegarde en la définissant sur une heure à laquelle la machine virtuelle est moins chargée (moins de charge pour le processeur ou moins d'IOPS)
 
-**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm), puis réessayez l’opération
+**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](../virtual-machines/windows/resize-vm.md), puis réessayez l’opération
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound – Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus / 400094, BCMV2VMNotFound – La machine virtuelle n’existe pas / Machine virtuelle Azure introuvable
 

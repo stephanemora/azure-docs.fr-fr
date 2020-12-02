@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282d60b1894ffa186a6b5b6b5630aefa9e961572
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388100"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345131"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant l�
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -175,7 +175,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Mettez à jour la valeur**TechnicalProfileReferenceId** pour qu’elle corresponde à la valeur `Id` de l’élément **TechnicalProfile** du fournisseur de revendications que vous avez ajouté précédemment. Par exemple : `MSA-OIDC`.
+    Mettez à jour la valeur **TechnicalProfileReferenceId** pour qu’elle corresponde à la valeur `Id` de l’élément **TechnicalProfile** du fournisseur de revendications que vous avez ajouté précédemment. Par exemple : `MSA-OIDC`.
 
 1. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
@@ -194,7 +194,7 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_msa`
 1. Mettez à jour la valeur de l’attribut **ReferenceId** dans **DefaultUserJourney** pour qu’elle corresponde à l’ID du parcours utilisateur que vous avez créé précédemment (SignUpSignInMSA).
 1. Enregistrez vos modifications, chargez le fichier, puis sélectionnez la nouvelle stratégie dans la liste.
-1. Assurez-vous que l’application Azure AD B2C que vous avez créée dans la section précédente (ou en remplissant les conditions préalables, par exemple *webapp1* ou*testapp1*) est sélectionnée dans le champ **Sélectionner l’application**, puis testez-la en cliquant sur **Exécuter maintenant**.
+1. Assurez-vous que l’application Azure AD B2C que vous avez créée dans la section précédente (ou en remplissant les conditions préalables, par exemple *webapp1* ou *testapp1*) est sélectionnée dans le champ **Sélectionner l’application**, puis testez-la en cliquant sur **Exécuter maintenant**.
 1. Sélectionnez le bouton **compte Microsoft** et connectez-vous.
 
     Si l’opération de connexion réussit, vous serez redirigé vers `jwt.ms` qui affiche le jeton décodé qui ressemble à ceci :

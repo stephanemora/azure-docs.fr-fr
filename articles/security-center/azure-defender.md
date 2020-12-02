@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436757"
 ---
 # <a name="introduction-to-azure-defender"></a>Présentation d’Azure Defender
 
@@ -20,7 +20,7 @@ Les fonctionnalités d’Azure Security Center couvrent les deux piliers de la s
 
 - **CSPM (gestion de la posture de sécurité cloud)** - Security Center est disponible **gratuitement** pour tous les utilisateurs Azure. L’expérience gratuite comprend des fonctionnalités CSPM telles que le degré de sécurisation, la détection des erreurs de configuration de sécurité dans vos machines Azure, l’inventaire des ressources et bien plus encore. Utilisez ces fonctionnalités CSPM pour renforcer la posture de votre cloud hybride et suivre la conformité avec les stratégies intégrées.
 
-- **Protection de charge de travail cloud (CWP)** - La plateforme de protection de charge de travail cloud (CWPP), **Azure Defender** , garantit une protection avancée et intelligente de vos ressources et charges de travail Azure et hybrides. L’activation d’Azure Defender offre un large éventail de fonctionnalités de sécurité supplémentaires, tel que décrit sur cette page. Outre les stratégies intégrées, lorsqu’un plan Azure Defender est activé, vous pouvez ajouter des stratégies et des initiatives personnalisées. Vous pouvez ajouter des normes réglementaires, telles que NIST et Azure CIS, ainsi que le benchmark de sécurité Azure pour un aperçu véritablement personnalisé de votre conformité.
+- **Protection de charge de travail cloud (CWP)** - La plateforme de protection de charge de travail cloud (CWPP), **Azure Defender**, garantit une protection avancée et intelligente de vos ressources et charges de travail Azure et hybrides. L’activation d’Azure Defender offre un large éventail de fonctionnalités de sécurité supplémentaires, tel que décrit sur cette page. Outre les stratégies intégrées, lorsqu’un plan Azure Defender est activé, vous pouvez ajouter des stratégies et des initiatives personnalisées. Vous pouvez ajouter des normes réglementaires, telles que NIST et Azure CIS, ainsi que le benchmark de sécurité Azure pour un aperçu véritablement personnalisé de votre conformité.
 
 Le tableau de bord Azure Defender de Security Center offre une visibilité et un contrôle des fonctionnalités CWP pour votre environnement :
 
@@ -61,7 +61,7 @@ Déployez [Azure Arc](https://azure.microsoft.com/services/azure-arc/) et active
 
 
 
-## <a name="azure-defender-alerts"></a>Alertes Azure Defender 
+## <a name="security-alerts"></a>Alertes de sécurité 
 
 Quand Azure Defender détecte une menace dans un des domaines de votre environnement, il génère une alerte. Ces alertes décrivent les détails des ressources affectées, les étapes de correction suggérées et, dans certains cas, l’option permettant de déclencher une application logique en réponse.
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790047"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324803"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 
@@ -64,7 +64,7 @@ L’[équilibreur de charge Azure](../../../load-balancer/load-balancer-overview
 Le [modèle Microsoft](./availability-group-quickstart-template-configure.md) actuel de groupe de disponibilité utilise un équilibreur de charge de base avec des adresses IP de base.
 
    > [!NOTE]
-   > Si vous utilisez un équilibreur de charge standard et Stockage Azure pour le témoin cloud, vous devez configurer un [point de terminaison de service](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network). 
+   > Si vous utilisez un équilibreur de charge standard et Stockage Azure pour le témoin cloud, vous devez configurer un [point de terminaison de service](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
    > 
 
 Les exemples présentés dans cet article spécifient un équilibreur de charge standard. Dans les exemples, le script inclut `-sku Standard`.
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Lancez SQL Server Management Studio et connectez-vous au réplica principal.
 
-1. Accédez à **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** > **Écouteurs de groupe de disponibilité** . 
+1. Accédez à **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** > **Écouteurs de groupe de disponibilité**. 
 
-1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur le nom de l’écouteur, puis sélectionnez **Propriétés** .
+1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur le nom de l’écouteur, puis sélectionnez **Propriétés**.
 
-1. Dans le champ **Port** , indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK** .
+1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Tester la connexion à l’écouteur
 
@@ -236,7 +236,7 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
   - Adresses IP flottantes de l’équilibreur de charge pour l’écouteur GA
   - Adresse IP principale du cluster, le cas échéant.
 
-* Créez un point de terminaison de service lorsque vous utilisez un équilibreur de charge standard avec Stockage Azure pour le témoin cloud. Pour plus d'informations, consultez [Accorder l'accès à partir d'un réseau virtuel](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Créez un point de terminaison de service lorsque vous utilisez un équilibreur de charge standard avec Stockage Azure pour le témoin cloud. Pour plus d'informations, consultez [Accorder l'accès à partir d'un réseau virtuel](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Informations supplémentaires
 

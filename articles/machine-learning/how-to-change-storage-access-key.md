@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357944"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450793"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 
@@ -27,7 +27,7 @@ Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’ac
 
 > [!IMPORTANT]
 
-> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure associé à l’espace de travail. Si la [suppression réversible](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) est activée pour votre coffre de clés, cet article fournit des instructions pour la mise à jour des informations d’identification. Si vous désinscrivez le magasin de données et essayez de le réinscrire sous le même nom, l’action échoue. Consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) pour savoir comment activer la suppression réversible dans ce scénario.
+> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure associé à l’espace de travail. Si la [suppression réversible](../key-vault/general/soft-delete-overview.md) est activée pour votre coffre de clés, cet article fournit des instructions pour la mise à jour des informations d’identification. Si vous désinscrivez le magasin de données et essayez de le réinscrire sous le même nom, l’action échoue. Consultez [Activer la suppression réversible pour un coffre de clés existant]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) pour savoir comment activer la suppression réversible dans ce scénario.
 
 ## <a name="prerequisites"></a>Prérequis
 

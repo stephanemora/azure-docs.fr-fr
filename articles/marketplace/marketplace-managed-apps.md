@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484237"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433543"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guide de publication pour les applications managées Azure
 
@@ -34,7 +34,7 @@ Utilisez le type d’offre d’application managée dans les conditions suivante
 |---------|---------|
 |Abonnement Azure | Les applications gérées doivent être déployées dans l’abonnement d’un client, mais elles peuvent être gérées par un tiers. |
 |Facturation et mesure    |  Les ressources sont fournies dans l’abonnement Azure d’un client. Les machines virtuelles qui utilisent le modèle de paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour les machines virtuelles BYOL (apportez votre propre licence), Microsoft facture tous les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuez la transaction de vos frais de licence logicielle directement avec le client.        |
-|Un disque dur virtuel (VHD) compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer une offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
+|Un disque dur virtuel (VHD) compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer une offre d’application Azure](./create-new-azure-apps-offer.md). |
 
 ---
 
@@ -51,4 +51,4 @@ Si vous ne l’avez pas déjà fait, découvrez comment [développer votre activ
 Pour vous inscrire à l’Espace partenaires et commencer à travailler dessus :
 
 - [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
-- Pour plus d’informations, consultez [Créer une offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+- Pour plus d’informations, consultez [Créer une offre d’application Azure](./create-new-azure-apps-offer.md).

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2716f037de533e14ae8e57706134c8a2b135b440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322384"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350192"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Vue d’ensemble d’Azure HDInsight 4.0
 
@@ -102,9 +102,9 @@ Il n’existe aucun chemin de mise à niveau des versions précédentes de HDIns
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Guide de migration HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-migrate-new-version)
-* [Guide de migration Hive](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads)
-* [Guide de migration Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/migrate-versions)
-* [Guide de migration Spark](https://docs.microsoft.com/azure/hdinsight/spark/migrate-versions)
+* [Guide de migration HBase](./hbase/apache-hbase-migrate-new-version.md)
+* [Guide de migration Hive](./interactive-query/apache-hive-migrate-workloads.md)
+* [Guide de migration Kafka](./kafka/migrate-versions.md)
+* [Guide de migration Spark](./spark/migrate-versions.md)
 * [Documentation Azure HDInsight](index.yml)
 * [Notes de publication](hdinsight-release-notes.md)

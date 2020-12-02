@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090061"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340014"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Bien démarrer avec Azure Defender pour IoT
 
@@ -30,9 +30,9 @@ Procédez comme suit pour qu’Azure Defender pour IoT soit opérationnel.
 
 ## <a name="1-set-up-azure"></a>1. Configurer Azure
 
-- Configurer un compte Azure. Pour plus d’informations, consultez [Créer un compte Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Configurer un compte Azure. Pour plus d’informations, consultez [Créer un compte Azure](/learn/modules/create-an-azure-account/).
 
-- Pare-feu ou proxy : Si vous avez un pare-feu ou un périphérique réseau intervenant similaire qui est configuré pour autoriser des connexions spécifiques, vérifiez que *.azure-devices.net:443 est ouvert sur le pare-feu ou le proxy. Si les caractères génériques ne sont pas pris en charge ou si vous souhaitez davantage de contrôle, le nom de domaine complet IoT Hub spécifique doit être ouvert dans votre pare-feu ou proxy. Pour plus d’informations, consultez l’article [Référence - Points de terminaison IoT Hub](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Pare-feu ou proxy : Si vous avez un pare-feu ou un périphérique réseau intervenant similaire qui est configuré pour autoriser des connexions spécifiques, vérifiez que *.azure-devices.net:443 est ouvert sur le pare-feu ou le proxy. Si les caractères génériques ne sont pas pris en charge ou si vous souhaitez davantage de contrôle, le nom de domaine complet IoT Hub spécifique doit être ouvert dans votre pare-feu ou proxy. Pour plus d’informations, consultez l’article [Référence - Points de terminaison IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Déployer du matériel, des logiciels et les intégrer au capteur
 

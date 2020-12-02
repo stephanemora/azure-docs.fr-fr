@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506394"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446411"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -58,7 +58,7 @@ Explorez les rubriques suivantes pour en savoir plus sur la surveillance des év
 
 * Pour consulter un tutoriel sur la commande des événements de connexion d’appareils, consultez [Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Pour consulter un tutoriel sur l’envoi de notifications par e-mail, consultez [Envoyer des notifications par e-mail concernant des événements Azure IoT Hub à l’aide d’Event Grid et de Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) dans la documentation Event Grid.
+* Pour consulter un tutoriel sur l’envoi de notifications par e-mail, consultez [Envoyer des notifications par e-mail concernant des événements Azure IoT Hub à l’aide d’Event Grid et de Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) dans la documentation Event Grid.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor : acheminer les événements de connexion vers les journaux
 
@@ -76,7 +76,7 @@ Pour en savoir plus sur le routage des journaux vers une destination, consultez 
 
 Vous pouvez configurer des alertes basées sur les métriques de plateforme émises par IoT Hub. Les alertes de métrique vous permettent d’avertir les utilisateurs qu’une condition importante s’est produite et de déclencher des actions pour répondre automatiquement à cette condition.
 
-La métrique [*Appareils connectés (préversion)* ](monitor-iot-hub-reference.md#device-metrics) vous indique le nombre d’appareils connectés à IoT Hub. Vous pouvez créer des alertes à déclencher si cette métrique descend en dessous d’une valeur de seuil :
+La métrique [*Appareils connectés (préversion)*](monitor-iot-hub-reference.md#device-metrics) vous indique le nombre d’appareils connectés à IoT Hub. Vous pouvez créer des alertes à déclencher si cette métrique descend en dessous d’une valeur de seuil :
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Paramètres de logique d’alerte pour la métrique des appareils connectés.":::
 

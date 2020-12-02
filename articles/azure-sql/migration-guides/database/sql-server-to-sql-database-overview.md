@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: cafb32e5bd91c6b7f3cfef4641828963e0731797
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 46216fe06e3d3425d5b237cdbb7326eed596945a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496300"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326928"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -183,7 +183,7 @@ Pour Azure SQL Database, les seules bases de données système applicables sont 
 
 Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Database. Par exemple, vous n’avez plus à vous soucier de la gestion des sauvegardes, car le service le fait à votre place. Vous pouvez effectuer une restauration à n’importe quel [point dans le temps inclus dans la période de rétention](../../database/recovery-using-backups.md#point-in-time-restore). 
 
-Pour renforcer la sécurité, envisagez d’utiliser l’ [authentification Azure Active Directory](../../database/authentication-aad-overview.md), l’[audit](../../database/auditing-overview.md), la  [détection des menaces](../../database/advanced-data-security.md), la  [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) et le  [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking).
+Pour renforcer la sécurité, envisagez d’utiliser l’ [authentification Azure Active Directory](../../database/authentication-aad-overview.md), l’[audit](../../database/auditing-overview.md), la  [détection des menaces](../../database/azure-defender-for-sql.md), la  [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) et le  [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking).
 
 En plus des fonctionnalités de gestion et de sécurité avancées, Azure SQL Database propose un ensemble d’outils avancés qui peuvent vous aider à [superviser et ajuster votre charge de travail](../../database/monitor-tune-overview.md). [Azure SQL Analytics (préversion)](../../../azure-monitor/insights/azure-sql.md) est une solution cloud avancée qui permet de superviser dans une même vue les performances de toutes vos bases de données dans Azure SQL Database à grande échelle et sur plusieurs abonnements. Azure SQL Analytics collecte et visualise des métriques de performances clés à l’aide d’une intelligence intégrée pour résoudre les problèmes de performances.
 

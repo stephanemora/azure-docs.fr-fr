@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325772"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -30,7 +30,7 @@ Toutes les régions publiques et souveraines sont prises en charge, à l’excep
 - Si une machine virtuelle n’est pas déplacée avec le coffre Recovery Services entre des abonnements ou vers un nouveau groupe de ressources, les points de récupération actuels de la machine virtuelle restent intacts dans le coffre jusqu’à leur expiration.
 - Que la machine virtuelle soit déplacée ou non avec le coffre, vous pouvez toujours la restaurer à partir de l’historique des sauvegardes conservé dans le coffre.
 - Azure Disk Encryption exige que le coffre de clés et les machines virtuelles se trouvent dans la même région et le même abonnement Azure.
-- Pour déplacer une machine virtuelle avec des disques managés, consultez cet [article](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Pour déplacer une machine virtuelle avec des disques managés, consultez cet [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Les options de déplacement des ressources déployées avec le modèle classique diffèrent selon que vous déplacez les ressources au sein d’un abonnement ou vers un nouvel abonnement. Pour plus d’informations, consultez cet [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Les stratégies de sauvegarde définies pour le coffre sont conservées après le déplacement du coffre entre des abonnements ou vers un groupe de ressources.
 - Vous pouvez uniquement déplacer un coffre contenant l’un des types d’éléments de sauvegarde suivants. Vous devez arrêter les éléments de sauvegarde de types non répertoriés ci-dessous et supprimer les données définitivement avant le déplacement du coffre.
@@ -42,7 +42,7 @@ Toutes les régions publiques et souveraines sont prises en charge, à l’excep
 
 > [!NOTE]
 > Le déplacement de coffres Recovery Services pour Sauvegarde Azure d’une région Azure à une autre n’est pas pris en charge.<br><br>
-> Si vous avez configuré des machines virtuelles (IaaS Azure, Hyper-V, VMware) ou des machines physiques pour la récupération d’urgence avec **Azure Site Recovery** , l’opération de déplacement est bloquée. Si vous souhaitez déplacer des coffres pour Azure Site Recovery, consultez [cet article](../site-recovery/move-vaults-across-regions.md) pour en savoir plus sur le déplacement manuel des coffres.
+> Si vous avez configuré des machines virtuelles (IaaS Azure, Hyper-V, VMware) ou des machines physiques pour la récupération d’urgence avec **Azure Site Recovery**, l’opération de déplacement est bloquée. Si vous souhaitez déplacer des coffres pour Azure Site Recovery, consultez [cet article](../site-recovery/move-vaults-across-regions.md) pour en savoir plus sur le déplacement manuel des coffres.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Utiliser le portail Azure pour déplacer un coffre Recovery Services vers un autre groupe de ressources
 
@@ -61,15 +61,15 @@ Pour déplacer un coffre Recovery Services et ses ressources associées vers un 
 
    ![Changer le groupe de ressources](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. Dans le volet **Déplacer des ressources** , pour le coffre sélectionné, il est recommandé de déplacer les ressources associées facultatives en cochant la case comme illustré dans l’image suivante.
+4. Dans le volet **Déplacer des ressources**, pour le coffre sélectionné, il est recommandé de déplacer les ressources associées facultatives en cochant la case comme illustré dans l’image suivante.
 
    ![Déplacer un abonnement](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
+5. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
 
    ![Créer une ressource](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. Après avoir ajouté le groupe de ressources, confirmez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource** , puis sélectionnez **OK** pour effectuer le déplacement du coffre.
+6. Après avoir ajouté le groupe de ressources, confirmez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource**, puis sélectionnez **OK** pour effectuer le déplacement du coffre.
 
    ![Message de confirmation](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,7 +86,7 @@ Vous pouvez déplacer un coffre Recovery Services et ses ressources associées v
 
     ![Onglet Informations Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Dans le menu Vue d’ensemble du coffre, sélectionnez **Modifier** à côté d’ **Abonnement**  pour ouvrir le volet **Déplacer des ressources**.
+3. Dans le menu Vue d’ensemble du coffre, sélectionnez **Modifier** à côté d’**Abonnement**  pour ouvrir le volet **Déplacer des ressources**.
 
    ![Changer l’abonnement](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -94,8 +94,8 @@ Vous pouvez déplacer un coffre Recovery Services et ses ressources associées v
 
    ![Déplacer une ressource](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
-5. Dans la liste déroulante **Abonnement** , sélectionnez l’abonnement cible où vous voulez déplacer le coffre.
-6. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
+5. Dans la liste déroulante **Abonnement**, sélectionnez l’abonnement cible où vous voulez déplacer le coffre.
+6. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
 
    ![Ajouter un abonnement](./media/backup-azure-move-recovery-services/add-subscription.png)
 

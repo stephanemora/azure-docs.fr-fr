@@ -3,12 +3,12 @@ title: Économiser grâce à l’instance réservée de Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578948"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327395"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -63,7 +63,7 @@ Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Acheter des instances réservées pour un abonnement CSP
 
-Les fournisseurs de solutions Cloud qui souhaitent acheter des instances réservées pour leurs clients doivent utiliser la procédure **Administrer au nom de** (AOBO) figurant dans la [documentation d’Espace partenaires](https://docs.microsoft.com/partner-center/azure-plan-manage). Pour plus d’informations, consultez la vidéo [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO).
+Les fournisseurs de solutions Cloud qui souhaitent acheter des instances réservées pour leurs clients doivent utiliser la procédure **Administrer au nom de** (AOBO) figurant dans la [documentation d’Espace partenaires](/partner-center/azure-plan-manage). Pour plus d’informations, consultez la vidéo [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO).
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com).
 
@@ -113,7 +113,7 @@ Vous pouvez apporter ces modifications à une réservation après achat :
 
 Vous pouvez également fractionner une réservation en blocs plus petits ou fusionner des réservations. Aucune des modifications n’entraîne de nouvelle transaction commerciale ou de changement de la date de fin de la réservation.
 
-Pour plus d’informations sur les réservations gérées par CSP, consultez [Vendre des réservations Microsoft Azure à des clients à l’aide d’Espace partenaires, du portail Azure ou d’API](https://docs.microsoft.com/partner-center/azure-reservations).
+Pour plus d’informations sur les réservations gérées par CSP, consultez [Vendre des réservations Microsoft Azure à des clients à l’aide d’Espace partenaires, du portail Azure ou d’API](/partner-center/azure-reservations).
 
 
 
@@ -131,4 +131,4 @@ Pour plus d’informations sur les réservations gérées par CSP, consultez [Ve
 
 Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-Les CSP peuvent annuler, échanger ou rembourser, avec certaines restrictions, les réservations achetées pour leur client. Pour plus d’informations, consultez [Gérer, annuler, échanger ou rembourser des réservations Microsoft Azure pour les clients](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+Les CSP peuvent annuler, échanger ou rembourser, avec certaines restrictions, les réservations achetées pour leur client. Pour plus d’informations, consultez [Gérer, annuler, échanger ou rembourser des réservations Microsoft Azure pour les clients](/partner-center/azure-reservations-manage).

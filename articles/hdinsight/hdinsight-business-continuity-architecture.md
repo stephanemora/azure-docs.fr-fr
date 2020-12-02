@@ -8,12 +8,12 @@ keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547025"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344111"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architectures de continuité de l’activité Azure HDInsight
 
@@ -48,15 +48,15 @@ Le cluster secondaire est généralement en lecture seule. Vous pouvez faire en 
 
 #### <a name="hive-active-primary-with-on-demand-secondary"></a>Région primaire active Hive et région secondaire à la demande
 
-Dans une architecture constituée d’une *région primaire active et d’une région secondaire à la demande* , les applications écrivent dans la région primaire active, alors qu’aucun cluster n’est provisionné dans la région secondaire pendant les opérations normales. Le metastore SQL et le stockage de la région secondaire sont persistants, tandis que le cluster HDInsight n’est scripté et déployé à la demande qu’avant les exécutions planifiées de la réplication Hive.
+Dans une architecture constituée d’une *région primaire active et d’une région secondaire à la demande*, les applications écrivent dans la région primaire active, alors qu’aucun cluster n’est provisionné dans la région secondaire pendant les opérations normales. Le metastore SQL et le stockage de la région secondaire sont persistants, tandis que le cluster HDInsight n’est scripté et déployé à la demande qu’avant les exécutions planifiées de la réplication Hive.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="région primaire active et région secondaire à la demande":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Région primaire active Hive et région secondaire de secours
 
-Dans une architecture constituée d’une *région primaire active et d’une région secondaire de secours* , les applications écrivent dans la région primaire active, tandis qu’un cluster secondaire de secours en mode lecture seule ayant fait l’objet d’un scale-down s’exécute pendant les opérations normales. Pendant les opérations normales, vous pouvez choisir de décharger certaines opérations de lecture sur la région secondaire.
+Dans une architecture constituée d’une *région primaire active et d’une région secondaire de secours*, les applications écrivent dans la région primaire active, tandis qu’un cluster secondaire de secours en mode lecture seule ayant fait l’objet d’un scale-down s’exécute pendant les opérations normales. Pendant les opérations normales, vous pouvez choisir de décharger certaines opérations de lecture sur la région secondaire.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="région primaire active et région secondaire de secours":::
 
 Pour plus d’informations sur la réplication Hive et des exemples de code, consultez [Réplication Apache Hive dans les clusters Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
@@ -85,13 +85,13 @@ S’il existe des bibliothèques propres aux clients qui vont au-delà de ce que
 
 Les applications lisent et écrivent sur les clusters Spark et Hive de la région primaire, alors qu’aucun cluster n’est provisionné dans la région secondaire pendant les opérations normales. Le metastore SQL, le stockage Hive et le stockage Spark sont persistants dans la région secondaire. Les clusters Spark et Hive sont scriptés et déployés à la demande. La réplication Hive est utilisée pour répliquer le stockage Hive et les metastores Hive, tandis que `DistCP` d’Azure Data Factory peut être utilisé pour copier le stockage Spark autonome. Les clusters Hive doivent être déployés avant chaque réplication Hive en raison du calcul `DistCp` de dépendance.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Architecture Apache Spark avec une région primaire active et une région secondaire à la demande":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>Région primaire active et région secondaire de secours Spark
 
 Les applications lisent et écrivent sur les clusters Spark et Hive de la région primaire, alors que les clusters Hive et Spark de secours en mode lecture seule ayant fait l’objet d’un scale-down s’exécutent dans la région secondaire pendant les opérations normales. Pendant les opérations normales, vous pouvez choisir de décharger des opérations de lecture Hive et Spark propres à une région sur une région secondaire.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Région primaire active et région secondaire Apache Spark":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -131,19 +131,19 @@ Dans cette configuration inter-région, la réplication est unidirectionnelle de
 
 Le cluster secondaire fonctionne comme un cluster HBase normal, pouvant héberger ses propres tables et traiter les lectures et les écritures des applications régionales. En revanche, les écritures dans les tables répliquées ou les tables natives du cluster secondaire ne sont pas répliquées sur le cluster principal.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Modèle Meneur – Suiveur HBase":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>Réplication HBase :  Modèle Meneur – Meneur
 
 Cette configuration inter-région est très similaire à la configuration unidirectionnelle, sauf que la réplication se produit de manière bidirectionnelle entre la région primaire et la région secondaire. Les applications peuvent utiliser les deux clusters dans les modes lecture-écriture et les mises à jour sont échangées de manière asynchrones entre elles.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Modèle Suiveur – Suiveur HBase":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>Réplication HBase : Multirégion ou Cyclique
 
 Le modèle de réplication Multirégion/Cyclique est une extension de la réplication HBase qui permet de créer une architecture HBase globalement redondante où plusieurs applications lisent et écrivent sur les clusters HBase spécifiques d’une région. Les clusters peuvent être configurés dans différentes combinaisons Meneur/Meneur ou Meneur/Suiveur selon les besoins métier.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Modèle cyclique HBase":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -151,7 +151,7 @@ Pour offrir une disponibilité inter-région, HDInsight 4.0 prend en charge Kaf
 
 Selon la durée de vie des rubriques au lancement de la réplication, la réplication de rubriques MirrorMaker peut entraîner différents décalages entre les rubriques source et réplica. Les clusters Kafka HDInsight prennent aussi en charge la réplication de partitions de rubriques, qui est une fonctionnalité de haute disponibilité au niveau du cluster individuel.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Réplication Apache Kafka":::
 
 ### <a name="apache-kafka-architectures"></a>Architectures Apache Kafka
 
@@ -172,7 +172,7 @@ Inconvénients :
 * Cohérence éventuelle entre les rubriques des clusters actif et passif.
 * Les restaurations sur le cluster principal peuvent entraîner une incohérence des messages dans les rubriques.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Modèle actif-passif Apache Kafka":::
 
 #### <a name="kafka-replication-active--active"></a>Réplication Apache Kafka : Actif – Actif
 
@@ -188,7 +188,7 @@ Inconvénients :
 * Le problème de la réplication circulaire doit être résolu.  
 * La réplication bidirectionnelle se traduit par des coûts de sortie des données régionales supérieurs.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Modèle actif-actif Apache Kafka":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>Pack Sécurité Entreprise HDInsight
 
@@ -198,11 +198,11 @@ Réplication du metastore Ranger :
 
 Le metastore Ranger sert à stocker de manière permanente les stratégies Ranger et à les mettre à disposition pour contrôler l’autorisation des données. Nous vous recommandons de conserver les stratégies Ranger indépendantes dans le cluster principal et le cluster secondaire et de maintenir le cluster secondaire comme réplica de lecture.
   
-Si les stratégies Ranger doivent rester synchronisées entre le cluster principal et le cluster secondaire, utilisez l’[importation/exportation Ranger](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) pour sauvegarder et importer périodiquement les stratégies Ranger du cluster principal vers le cluster secondaire.
+Si les stratégies Ranger doivent rester synchronisées entre le cluster principal et le cluster secondaire, utilisez l’[importation/exportation Ranger](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) pour sauvegarder et importer périodiquement les stratégies Ranger du cluster principal vers le cluster secondaire.
 
 Le risque d’une réplication des stratégies Ranger entre le cluster principal et le cluster secondaire est qu’il devienne possible d’écrire sur ce dernier, ce qui peut aboutir à des écritures involontaires sur le cluster secondaire et donc à des incohérences de données.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Architecture Hive et Interactive Query":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Architecture du Pack Sécurité Entreprise (ESP) HDInsight":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

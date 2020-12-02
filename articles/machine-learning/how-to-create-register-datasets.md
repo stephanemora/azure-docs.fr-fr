@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8388832985ca3b27baea008ff1a9bdd5df06964
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445113"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -124,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 Pour réutiliser et partager des jeux de données dans des expériences au sein de votre espace de travail, [inscrivez votre jeu de données](#register-datasets). 
 
 > [!TIP] 
-> Chargez des fichiers à partir d’un répertoire local et créez un FileDataset dans une méthode unique avec la méthode de préversion publique [upload_directory()](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods). Cette méthode est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) en préversion qui peut évoluer à tout moment. 
+> Chargez des fichiers à partir d’un répertoire local et créez un FileDataset dans une méthode unique avec la méthode de préversion publique [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Cette méthode est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) en préversion qui peut évoluer à tout moment. 
 > 
 >  Elle permet de charger des données dans votre stockage sous-jacent, ce qui entraîne la facturation de coûts de stockage. 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
@@ -208,7 +208,7 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> Créez et inscrivez un TabularDataset à partir d’un dataframe Spark ou Pandas en mémoire avec une méthode unique avec les méthodes de préversion publique [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) et [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods). Ces méthodes d’inscription sont des fonctionnalités d’évaluation [expérimentales](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) susceptibles d’évoluer à tout moment. 
+> Créez et inscrivez un TabularDataset à partir d’un dataframe Spark ou Pandas en mémoire avec une méthode unique avec les méthodes de préversion publique [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) et [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods). Ces méthodes d’inscription sont des fonctionnalités d’évaluation [expérimentales](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) susceptibles d’évoluer à tout moment. 
 > 
 >  Elles chargent les données dans votre stockage sous-jacent et entraînent la facturation de coûts de stockage. 
 

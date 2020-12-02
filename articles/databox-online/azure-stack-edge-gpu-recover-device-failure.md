@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205576"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448329"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Récupération après la défaillance d’un appareil Azure Stack Edge Pro GPU 
 
@@ -50,7 +50,7 @@ Vous êtes maintenant prêt à déployer les charges de travail que vous exécut
 
 Procédez comme suit pour restaurer les données sur les partages cloud Edge sur votre appareil :
 
-1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) portant les mêmes noms de partage que ceux créés précédemment sur l’appareil défaillant. Assurez-vous que, lors de la création des partages, la valeur du paramètre **Sélectionner le conteneur blob** est définie sur **Utilisez l’existant** , puis sélectionnez le conteneur utilisé avec l’appareil précédent.
+1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) portant les mêmes noms de partage que ceux créés précédemment sur l’appareil défaillant. Assurez-vous que, lors de la création des partages, la valeur du paramètre **Sélectionner le conteneur blob** est définie sur **Utilisez l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
 1. [Ajoutez des utilisateurs](azure-stack-edge-j-series-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
 1. [Ajoutez les comptes de stockage](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) associés aux partages précédemment sur l’appareil. Lors de la création de comptes de stockage Edge, faites votre sélection à partir d’un conteneur existant et pointez sur le conteneur qui a été mappé au compte de stockage Azure mappé sur l’appareil précédent. Toutes les données de l’appareil qui sont écrites dans le compte de stockage Edge de l’appareil précédent sont téléchargées vers le conteneur de stockage sélectionné dans le compte Stockage Azure mappé.
 1. [Actualisez le partage](azure-stack-edge-j-series-manage-shares.md#refresh-shares) de données à partir d’Azure. Cela devrait extraire toutes les données cloud du conteneur existant vers les partages.
@@ -81,7 +81,7 @@ Pour vous préparer à une défaillance potentielle de l’appareil, vous avez p
 
 | Solutions de sauvegarde        | Systèmes d’exploitation pris en charge   | Référence                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Agent Microsoft Azure Recovery Services (MARS) pour Sauvegarde Azure | Windows        | [À propos de l’agent MARS](/azure/backup/backup-azure-about-mars)    |
+| Agent Microsoft Azure Recovery Services (MARS) pour Sauvegarde Azure | Windows        | [À propos de l’agent MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Présentation de la solution d’intégration, de sauvegarde et de récupération Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Pour plus d’informations, contactez Cohesity.                          |
 | Commvault               | Windows, Linux | https://www.commvault.com/azure <br> Pour plus d’informations, contactez Commvault.
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> Pour plus d’informations, contactez Veritas.                    |

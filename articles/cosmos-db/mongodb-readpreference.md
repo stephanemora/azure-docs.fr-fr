@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096391"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349042"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Comment distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -146,7 +146,7 @@ Outre le mode de préférence de lecture, le protocole MongoDB autorise l’util
       }
 ```
 
-Ainsi, MongoClient peut utiliser la balise `region` en plus du nom de la région pour diriger les opérations de lecture vers des régions spécifiques. Pour les comptes Cosmos, les noms des régions figurent dans le portail Azure, à gauche sous **Paramètres -> Répliquer les données globalement**. Ce paramètre est utile pour bénéficier d’une **isolation de lecture** , cas dans lesquels une application cliente souhaite diriger les opérations de lecture uniquement vers une région spécifique. Ce paramètre est idéal pour les scénarios de type analytique/non-production, qui s’exécutent en arrière-plan et ne sont pas des services essentiels pour la production.
+Ainsi, MongoClient peut utiliser la balise `region` en plus du nom de la région pour diriger les opérations de lecture vers des régions spécifiques. Pour les comptes Cosmos, les noms des régions figurent dans le portail Azure, à gauche sous **Paramètres -> Répliquer les données globalement**. Ce paramètre est utile pour bénéficier d’une **isolation de lecture**, cas dans lesquels une application cliente souhaite diriger les opérations de lecture uniquement vers une région spécifique. Ce paramètre est idéal pour les scénarios de type analytique/non-production, qui s’exécutent en arrière-plan et ne sont pas des services essentiels pour la production.
 
 L’extrait de code suivant tiré de l’exemple d’application montre comment configurer la préférence de lecture avec des balises dans NodeJS :
 
@@ -167,11 +167,11 @@ Dans cet article, vous avez découvert comment distribuer à l’échelle mondia
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez toutes les ressources créées par cet article dans le portail Azure en effectuant les étapes suivantes :
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+* [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Configurer une base de données distribuée à l’échelle mondiale avec l’API Azure Cosmos DB pour MongoDB](tutorial-global-distribution-mongodb.md)
 * [Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)

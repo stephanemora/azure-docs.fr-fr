@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019447"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325913"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guide de migration : SQL Server vers SQL Server sur les machines virtuelles Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Pour plus d’informations sur les autres stratégies de migration, consultez la
 La migration vers SQL Server sur les machines virtuelles Azure nécessite les éléments suivants : 
 
 - [Assistant Migration de données Microsoft (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)
-- [Projet Azure Migrate](/azure/migrate/create-manage-projects)
-- [Instance cible préparée de SQL Server sur une machine virtuelle Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) dont la version est identique ou supérieure à celle du serveur SQL Server source
+- [Projet Azure Migrate](../../../migrate/create-manage-projects.md)
+- [Instance cible préparée de SQL Server sur une machine virtuelle Azure](../../virtual-machines/windows/create-sql-vm-portal.md) dont la version est identique ou supérieure à celle du serveur SQL Server source
 - [Connectivité entre Azure et l’environnement local](/azure/architecture/reference-architectures/hybrid-networking)
 - [Choix d’une stratégie de migration appropriée](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
@@ -157,8 +157,8 @@ Le tableau ci-dessous fournit une liste des composants de référence et des mé
 || Bases de données utilisateur avec Filestream |  Utilisez les méthodes de [sauvegarde et de restauration](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) pour la migration. L’outil DMA ne prend pas en charge les bases de données avec Filestream. |
 | **Sécurité** | Connexions SQL Server et Windows | Utilisez l’outil DMA pour [migrer les connexions utilisateur](/sql/dma/dma-migrateserverlogins). |
 || Rôles SQL Server | Script avec SQL Server Management Studio |
-|| Fournisseurs de chiffrement | Recommandez la [conversion pour utiliser le service Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Cette procédure utilise le [fournisseur de ressources de machines virtuelles SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Objets de serveur** | Unités de sauvegarde | Remplacez-les par une sauvegarde de base de données à l’aide du [service Sauvegarde Azure](../../../backup/backup-sql-server-database-azure-vms.md), ou écrivez les sauvegardes dans le [Stockage Azure](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Cette procédure utilise le [fournisseur de ressources de machines virtuelles SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Fournisseurs de chiffrement | Recommandez la [conversion pour utiliser le service Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Cette procédure utilise le [fournisseur de ressources de machines virtuelles SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Objets de serveur** | Unités de sauvegarde | Remplacez-les par une sauvegarde de base de données à l’aide du [service Sauvegarde Azure](../../../backup/backup-sql-server-database-azure-vms.md), ou écrivez les sauvegardes dans le [Stockage Azure](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Cette procédure utilise le [fournisseur de ressources de machines virtuelles SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Serveurs liés | Script avec SQL Server Management Studio. |
 || Déclencheurs de serveur | Script avec SQL Server Management Studio. |
 | **Réplication** | Publications locales | Script avec SQL Server Management Studio. |

@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 770b1076f1a711cd863c5d3d468a3ec87ea54e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746ec7aa3ee41204e051e843ff94ed0771a9d244
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212725"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326180"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
@@ -21,7 +21,7 @@ Utilisez l’un des liens suivants pour commencer à utiliser l’environnement 
 
 | Visual Studio Code | Terminal/invite de commandes | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Prise en main de C#](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Prise en main de Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Prise en main de JavaScript](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Bien démarrer avec PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Bien démarrer avec Python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Prise en main de C#](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Prise en main de Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Prise en main de JavaScript](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Bien démarrer avec PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Bien démarrer avec Python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Prise en main de C#](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Prise en main de C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Prise en main de Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Prise en main de JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Bien démarrer avec PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Bien démarrer avec Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Prise en main de C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Prise en main de Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Prise en main de JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Bien démarrer avec PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Bien démarrer avec Python](./create-first-function-cli-python.md) | [Prise en main de C#](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -80,4 +80,3 @@ Créez ensuite une fonction dans la nouvelle application de fonction.
 ## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046007"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435941"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Intégration continue et déploiement continu sur des appareils Azure IoT Edge (éditeur classique)
 
@@ -32,15 +32,15 @@ Dans cet article, vous allez apprendre à utiliser les [tâches Azure IoT Edge](
 
 Sauf indication contraire, les procédures décrites dans cet article n’explorent pas toutes les fonctionnalités disponibles par le biais des paramètres de tâche. Pour plus d’informations, consultez les rubriques suivantes :
 
-* [Version de la tâche](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Version de la tâche](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avancé** - Le cas échéant, spécifiez les modules que vous ne souhaitez pas générer.
-* [Options de contrôle](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Variables d’environnement](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Variables de sortie](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Options de contrôle](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Variables d’environnement](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Variables de sortie](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**.
+* Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](/azure/devops/repos/git/create-new-repo). Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**.
 * Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](./how-to-visual-studio-develop-module.md). Pour cet article, nous avons créé dans notre dépôt une solution nommée **IoTEdgeSolution** qui contient le code d’un module nommé **filtermodule**.
 
    Pour cet article, vous avez uniquement besoin du dossier de solution créé par les modèles IoT Edge dans Visual Studio Code ou Visual Studio. Vous n'avez pas à créer, envoyer (push), déployer ou déboguer ce code avant de continuer. Vous configurerez ces processus dans Azure Pipelines.
@@ -84,7 +84,7 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
 
    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **ubuntu-16.04**.
 
-   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 ou arm64 pour Linux, vous devez [configurer l'agent auto-hébergé sur Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -104,7 +104,7 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
     | --- | --- |
     | Nom complet | Le nom d’affichage est automatiquement mis à jour lorsque le champ Action change. |
     | Action | Sélectionnez **Générer les images de module**. |
-    | Fichier .template.json | Sélectionnez les points de suspension (**... **) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
+    | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
     | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
     | Variables de sortie | Fournissez un nom de référence à associer au chemin où le fichier deployment.json est généré, par exemple **edge**. |
 
@@ -123,7 +123,7 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
     | Type de registre de conteneurs | Utilisez le type par défaut : `Azure Container Registry`. |
     | Abonnement Azure | Choisissez votre abonnement. |
     | Azure Container Registry | Sélectionnez le type de registre de conteneurs que vous utilisez pour stocker vos images de module. Le formulaire change selon le type de registre que vous sélectionnez. Si vous choisissez **Azure Container Registry**, utilisez les listes déroulantes pour sélectionner l’abonnement Azure et le nom de votre registre de conteneurs. Si vous choisissez **Registre de conteneurs générique**, sélectionnez **Nouveau** pour créer une connexion de service de registre. |
-    | Fichier .template.json | Sélectionnez les points de suspension (**... **) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
+    | Fichier .template.json | Sélectionnez les points de suspension (**...**) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. |
     | Plateforme par défaut | Sélectionnez le système d’exploitation approprié pour vos modules en fonction de l’appareil IoT Edge ciblé. |
     | Ajouter les informations d’identification du registre au manifeste de déploiement | Spécifiez true pour ajouter les informations d’identification de registre pour l’envoi (push) d’images Docker au manifeste de déploiement. |
 
@@ -136,14 +136,14 @@ Dans cette section, vous créez un pipeline de build. Vous configurez le pipelin
     | Nom complet | Utiliser le nom par défaut ou personnaliser |
     | Dossier source | Dossier contenant les fichiers à copier. |
     | Contenu | Ajoutez deux lignes : `deployment.template.json` et `**/module.json`. Ces deux fichiers servent d’entrées pour générer le manifeste de déploiement IoT Edge. |
-    | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables). |
+    | Dossier cible | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour en savoir plus sur la description, consultez [Générer des variables](/azure/devops/pipelines/build/variables#build-variables). |
 
 10. Sélectionnez la tâche **Publier des artefacts de build** pour la modifier. Indiquez le chemin du répertoire intermédiaire des artefacts permettant d'accéder à la tâche afin que le chemin puisse être publié dans le pipeline de mise en production.
 
     | Paramètre | Description |
     | --- | --- |
     | Nom complet | Utilisez le nom par défaut ou personnalisez. |
-    | Chemin de publication | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour plus d’informations, consultez [Variables de build](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables). |
+    | Chemin de publication | Spécifiez la variable `$(Build.ArtifactStagingDirectory)`. Pour plus d’informations, consultez [Variables de build](/azure/devops/pipelines/build/variables#build-variables). |
     | Nom de l’artefact | Utiliser le nom par défaut : **drop** |
     | Emplacement de publication des artefacts | Utilisez l’emplacement par défaut : **Azure Pipelines** |
 

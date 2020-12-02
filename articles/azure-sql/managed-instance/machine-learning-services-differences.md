@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782465"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324531"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principales différences entre la version Azure SQL Managed Instance et la version SQL Server de Machine Learning Services
 
@@ -55,7 +55,7 @@ Les versions SQL Managed Instance et SQL Server de Machine Learning Services pre
 La gestion des packages Python et R fonctionne différemment dans SQL Managed Instance et SQL Server. :
 
 - Les packages qui dépendent de runtimes externes (comme Java) ou dont l’installation ou l’utilisation impliquent un accès à des API de système d’exploitation ne sont pas pris en charge.
-- Les packages peuvent effectuer des appels réseau sortants (modification apportée à la préversion). Vous pouvez définir les règles de sécurité de trafic sortant appropriées au niveau du [groupe de sécurité réseau](/azure/virtual-network/network-security-groups-overview) pour activer les appels réseau sortants.
+- Les packages peuvent effectuer des appels réseau sortants (modification apportée à la préversion). Vous pouvez définir les règles de sécurité de trafic sortant appropriées au niveau du [groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md) pour activer les appels réseau sortants.
 
 Pour plus d'informations sur la gestion des packages Python et R, consultez :
 

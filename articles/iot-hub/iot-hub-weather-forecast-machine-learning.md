@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145779"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452343"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prévision météo à l’aide des données de capteur d’un hub IoT Hub dans Azure Machine Learning studio (classique)
 
@@ -46,7 +46,7 @@ Vous allez apprendre à utiliser Azure Machine Learning studio (classique) pour 
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
 - Un compte [Azure Machine Learning Studio (classique)](https://studio.azureml.net/).
-- Un [compte de stockage Azure](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts). Un **compte universel v2** est idéal, mais n’importe quel compte de stockage Azure prenant en charge le Stockage Blob Azure fait également l’affaire.
+- Un [compte de stockage Azure](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts). Un **compte universel v2** est idéal, mais n’importe quel compte de stockage Azure prenant en charge le Stockage Blob Azure fait également l’affaire.
 
 > [!Note]
 > Cet article utilise Azure Stream Analytics et plusieurs autres services payants. Des frais supplémentaires sont occasionnés dans Azure Stream Analytics lorsque les données doivent être transférées entre différentes régions Azure. C’est pourquoi il est judicieux de s’assurer que votre groupe de ressources, votre hub IoT et votre compte de stockage Azure, ainsi que l’espace de travail Machine Learning studio (classique) et le travail Azure Stream Analytics ajoutés dans la suite de ce tutoriel, se trouvent tous dans la même région Azure. Pour connaître la prise en charge régionale d’Azure Machine Learning studio (classique) et d’autres services Azure, consultez la page [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -118,7 +118,7 @@ Dans cette section, vous validez le modèle, vous configurez un service web pré
 
 1. Sélectionnez **DÉPLOYER LE SERVICE WEB** pour déployer le modèle en tant que service web.
 
-1. Sur le tableau de bord du modèle, téléchargez le classeur **Excel 2010 ou version antérieure ** pour **DEMANDE/RÉPONSE**.
+1. Sur le tableau de bord du modèle, téléchargez le classeur **Excel 2010 ou version antérieure** pour **DEMANDE/RÉPONSE**.
 
    > [!Note]
    > Veillez à télécharger le **classeur Excel 2010 ou version antérieure**, même si vous exécutez une version ultérieure d’Excel sur votre ordinateur.

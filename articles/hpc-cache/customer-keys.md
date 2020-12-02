@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340527"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444579"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utiliser des clés de chiffrement gérées par le client pour Azure HPC Cache
 
@@ -20,7 +20,7 @@ Vous pouvez utiliser Azure Key Vault pour contrôler la propriété des clés ut
 > [!NOTE]
 > Toutes les données stockées dans Azure, y compris sur les caches de disque, sont chiffrées au repos à l’aide de clés gérées par Microsoft par défaut. Vous devez suivre les étapes de cet article uniquement si vous souhaitez gérer les clés utilisées pour chiffrer vos données.
 
-Azure HPC Cache est également protégé par le [chiffrement de l’hôte de machine virtuelle](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) sur les disques gérés qui contiennent vos données mises en cache, même si vous ajoutez une clé de client pour les caches de disque. L’ajout d’une clé gérée par le client pour le double chiffrement offre un niveau supplémentaire de sécurité aux clients ayant des besoins élevés en matière de sécurité. Pour plus d’informations, lisez [Chiffrement côté serveur de stockage sur disque Azure](../virtual-machines/linux/disk-encryption.md).
+Azure HPC Cache est également protégé par le [chiffrement de l’hôte de machine virtuelle](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) sur les disques gérés qui contiennent vos données mises en cache, même si vous ajoutez une clé de client pour les caches de disque. L’ajout d’une clé gérée par le client pour le double chiffrement offre un niveau supplémentaire de sécurité aux clients ayant des besoins élevés en matière de sécurité. Pour plus d’informations, lisez [Chiffrement côté serveur de stockage sur disque Azure](../virtual-machines/disk-encryption.md).
 
 Cette fonctionnalité est disponible uniquement dans certaines régions Azure où Azure HPC Cache est disponible. Pour plus d’informations, reportez-vous à la liste [Disponibilité des région](hpc-cache-overview.md#region-availability).
 
@@ -144,7 +144,7 @@ Une fois que vous avez choisi les nouvelles valeurs de clé de chiffrement, cliq
 Ces articles expliquent plus en détail l’utilisation d’Azure Key Vault et des clés gérées par le client pour chiffrer les données dans Azure :
 
 * [Vue d’ensemble du chiffrement du stockage Azure](../storage/common/storage-service-encryption.md)
-* [Chiffrement de disque avec des clés gérées par le client](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) : documentation pour l’utilisation d’Azure Key Vault avec de disques managés, qui est un scénario similaire à Azure HPC Cache
+* [Chiffrement de disque avec des clés gérées par le client](../virtual-machines/disk-encryption.md#customer-managed-keys) : documentation pour l’utilisation d’Azure Key Vault avec de disques managés, qui est un scénario similaire à Azure HPC Cache
 
 ## <a name="next-steps"></a>Étapes suivantes
 

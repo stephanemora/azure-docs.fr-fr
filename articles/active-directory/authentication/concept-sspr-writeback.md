@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9781196690c689036bfb69e1fa769112b5f69b2b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: af41f03a1ac0ea65d72d9af47b175bb78f9e1bc2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964976"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348777"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -90,7 +90,7 @@ La réécriture du mot de passe est un service hautement sécurisé. Pour garant
 * **Relais de Service Bus propre au client**
    * Lorsque vous configurez le service, un relais Service Bus spécifique au client est défini et protégé par un mot de passe fort généré de manière aléatoire, auquel Microsoft n’a jamais accès.
 * **Clé de chiffrement de mot de passe forte et verrouillée**
-   * Une fois l’instance de Service Bus Relay créée, une paire de clés symétriques fortes est créée, ce qui permet de chiffrer le mot de passe quand il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, lequel est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
+   * Une fois le relais Service Bus créé, une paire de clés symétriques fortes est créée, permettant de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, lequel est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
 * **Norme TLS (Transport Layer Security)**
    1. Lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, le mot de passe en clair est chiffré avec votre clé publique.
    1. Le mot de passe chiffré est placé dans un message HTTPS envoyé à votre instance de Service Bus Relay via un canal chiffré, à l’aide de certificats TLS/SSL Microsoft.

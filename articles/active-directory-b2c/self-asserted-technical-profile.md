@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e17c390dddcb2af9fdc83b45ae812ef1fff7f1c3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670121"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345080"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -101,7 +101,7 @@ Observez l’exemple suivant, dans lequel une revendication `age` est définie c
 </TechnicalProfile>
 ```
 
-Si une stratégie de nœud terminal qui hérite de cette base spécifie par la suite `officeNumber` comme une revendication d’ **affichage**  :
+Si une stratégie de nœud terminal qui hérite de cette base spécifie par la suite `officeNumber` comme une revendication d’**affichage** :
 
 ```xml
 <TechnicalProfile Id="id">
@@ -135,8 +135,8 @@ Utilisez les revendications de sortie dans les cas suivants :
 
 - **Génération de revendications par le biais d’une transformation des revendications de sortie**.
 - **Définition d’une valeur par défaut dans une revendication de sortie** sans recueillir de données de l’utilisateur ou retourner les données à partir du profil technique de validation. Le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` définit la revendication **executed-SelfAsserted-Input** sur `true`.
-- **Un profil technique de validation retourne les revendications de sortie**  : votre profil technique peut appeler un profil technique de validation qui retourne certaines revendications. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. Par exemple, quand vous vous connectez avec un compte local, le profil technique autodéclaré nommé `SelfAsserted-LocalAccountSignin-Email` appelle le profil technique de validation nommé `login-NonInteractive`. Ce profil technique valide les informations d’identification utilisateur et retourne également le profil utilisateur. Par exemple « userPrincipalName », « displayName », « givenName » et « surName ».
-- **Un contrôle d’affichage renvoie les revendications de sortie**  : votre profil technique peut comporter une référence à un [contrôle d’affichage](display-controls.md). Le contrôle d’affichage renvoie certaines revendications, telles que l’adresse e-mail vérifiée. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. La fonctionnalité Contrôle d’affichage est actuellement en **préversion**.
+- **Un profil technique de validation retourne les revendications de sortie** : votre profil technique peut appeler un profil technique de validation qui retourne certaines revendications. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. Par exemple, quand vous vous connectez avec un compte local, le profil technique autodéclaré nommé `SelfAsserted-LocalAccountSignin-Email` appelle le profil technique de validation nommé `login-NonInteractive`. Ce profil technique valide les informations d’identification utilisateur et retourne également le profil utilisateur. Par exemple « userPrincipalName », « displayName », « givenName » et « surName ».
+- **Un contrôle d’affichage renvoie les revendications de sortie** : votre profil technique peut comporter une référence à un [contrôle d’affichage](display-controls.md). Le contrôle d’affichage renvoie certaines revendications, telles que l’adresse e-mail vérifiée. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. La fonctionnalité Contrôle d’affichage est actuellement en **préversion**.
 
 Dans l’exemple suivant, le profil technique autodéclaré utilise à la fois des revendications d’affichage et des revendications de sortie.
 

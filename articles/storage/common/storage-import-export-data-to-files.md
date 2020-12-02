@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9d1d0f4b615bbf4cc7faf82d70a4de0b0157ed82
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491781"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326350"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -51,14 +51,14 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 2. Créez un seul volume NTFS sur chaque lecteur. Attribuez une lettre de lecteur au volume. N’utilisez pas de points de montage.
 3. Modifiez le fichier *dataset.csv* dans le dossier racine où réside l’outil. Selon que vous importez un fichier ou un dossier, ou les deux, ajoutez des entrées dans le fichier *dataset.csv* comme dans les exemples suivants.
 
-   - **Pour importer un fichier**  : Dans l’exemple suivant, les données à copier se trouvent sur le lecteur F:. Votre fichier *MyFile1.txt* est copié à la racine de *MyAzureFileshare1*. Si *MyAzureFileshare1* n’existe pas, il est créé dans le compte de stockage Azure. La structure de dossiers est conservée.
+   - **Pour importer un fichier** : Dans l’exemple suivant, les données à copier se trouvent sur le lecteur F:. Votre fichier *MyFile1.txt* est copié à la racine de *MyAzureFileshare1*. Si *MyAzureFileshare1* n’existe pas, il est créé dans le compte de stockage Azure. La structure de dossiers est conservée.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **Pour importer un dossier**  : Tous les fichiers et dossiers sous *MyFolder2* sont copiés de manière récursive dans le partage de fichiers. La structure de dossiers est conservée.
+   - **Pour importer un dossier** : Tous les fichiers et dossiers sous *MyFolder2* sont copiés de manière récursive dans le partage de fichiers. La structure de dossiers est conservée.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -78,14 +78,14 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 
     Cet exemple suppose que deux disques sont attachés et que les volumes NTFS de base G:\ et H:\ sont créés. H:\ n’est pas chiffré, contrairement à G: qui est déjà chiffré. L’outil formate et chiffre le disque qui héberge H:\ uniquement (et non G:\).
 
-   - **Pour un disque qui n’est pas chiffré**  : Spécifiez *Encrypt* pour activer le chiffrement BitLocker sur le disque.
+   - **Pour un disque qui n’est pas chiffré** : Spécifiez *Encrypt* pour activer le chiffrement BitLocker sur le disque.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
 
-   - **Pour un disque qui est déjà chiffré**  : Spécifiez *AlreadyEncrypted* et fournissez la clé BitLocker.
+   - **Pour un disque qui est déjà chiffré** : Spécifiez *AlreadyEncrypted* et fournissez la clé BitLocker.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -138,7 +138,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
         ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. Dans **Détails de la tâche**  :
+3. Dans **Détails de la tâche** :
 
     - Chargez les fichiers journaux que vous avez créés précédemment dans [Étape 1 : Préparer les lecteurs](#step-1-prepare-the-drives).
     - Sélectionnez le compte de stockage dans lequel les données doivent être importées.
@@ -146,7 +146,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
        ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. Dans **Informations de réexpédition**  :
+4. Dans **Informations de réexpédition** :
 
     - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée.
@@ -355,9 +355,9 @@ Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, 
 
 ## <a name="samples-for-journal-files"></a>Exemples de fichiers journaux
 
-Pour **ajouter des disques** , créez un fichier driveset et exécutez la commande indiquée ci-dessous.
+Pour **ajouter des disques**, créez un fichier driveset et exécutez la commande indiquée ci-dessous.
 
-Pour les sessions de copie suivantes sur d’autres disques non spécifiés dans le fichier *InitialDriveSet.csv* , spécifiez un nouveau fichier driveset *.csv* et indiquez-le comme valeur du paramètre `AdditionalDriveSet`. Utilisez le **même nom de fichier journal** et fournissez un **nouvel ID de session**. Le format du fichier CSV du paramètre AdditionalDriveSet est identique au format de celui du paramètre InitialDriveSet.
+Pour les sessions de copie suivantes sur d’autres disques non spécifiés dans le fichier *InitialDriveSet.csv*, spécifiez un nouveau fichier driveset *.csv* et indiquez-le comme valeur du paramètre `AdditionalDriveSet`. Utilisez le **même nom de fichier journal** et fournissez un **nouvel ID de session**. Le format du fichier CSV du paramètre AdditionalDriveSet est identique au format de celui du paramètre InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -372,7 +372,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 Pour ajouter des données au même ficher driveset, utilisez la commande PrepImport pour les sessions de copie suivantes de fichiers/répertoires supplémentaires.
 
-Pour les sessions de copie suivantes sur les mêmes disques durs spécifiés dans le fichier *InitialDriveset.csv* , spécifiez le **même nom de fichier journal** et indiquez un **nouvel ID de session**. Il n’est pas nécessaire d’indiquer la clé du compte de stockage.
+Pour les sessions de copie suivantes sur les mêmes disques durs spécifiés dans le fichier *InitialDriveset.csv*, spécifiez le **même nom de fichier journal** et indiquez un **nouvel ID de session**. Il n’est pas nécessaire d’indiquer la clé du compte de stockage.
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

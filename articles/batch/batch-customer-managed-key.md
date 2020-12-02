@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008877"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326010"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurer des clés managées par le client pour votre compte Azure Batch avec Azure Key Vault et l’identité managée
 
@@ -144,11 +144,10 @@ az batch account set \
   * **Les clés managées par le client sont-elles prises en charge pour les comptes Batch existants ?** Non. Les clés managées par le client sont uniquement prises en charge pour les nouveaux comptes Batch.
   * **Puis-je sélectionner des tailles de clé RSA supérieures à 2048 bits ?** Oui, les tailles de clé RSA de `3072` et `4096` bits sont également prises en charge.
   * **Quelles sont les opérations disponibles après la révocation d’une clé managée par le client ?** La seule opération autorisée est la suppression de compte si Batch perd l’accès à la clé managée par le client.
-  * **Comment puis-je restaurer l’accès à mon compte Batch si je supprime accidentellement la clé de Key Vault ?** Étant donné que la protection de purge et la suppression réversible sont activées, vous pouvez restaurer les clés existantes. Pour plus d’informations, consultez [Restaurer un Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
+  * **Comment puis-je restaurer l’accès à mon compte Batch si je supprime accidentellement la clé de Key Vault ?** Étant donné que la protection de purge et la suppression réversible sont activées, vous pouvez restaurer les clés existantes. Pour plus d’informations, consultez [Restaurer un Azure Key Vault](../key-vault/general/key-vault-recovery.md).
   * **Puis-je désactiver les clés managées par le client ?** Vous pouvez à tout moment définir le type de chiffrement du compte Batch sur « clé managée par Microsoft ». Ensuite, vous êtes libre de supprimer ou de modifier la clé.
   * **Comment faire pivoter mes clés ?** Les clés managées par le client ne pivotent pas automatiquement. Pour faire pivoter la clé, mettez à jour l’identificateur de clé auquel le compte est associé.
   * **Après la restauration de l’accès, combien de temps faut-il pour que le compte Batch fonctionne à nouveau ?** Cela peut prendre jusqu’à 10 minutes pour que le compte soit à nouveau accessible après la restauration.
   * **Qu’arrive-t-il à mes ressources lorsque le compte Batch est indisponible ?** Les pools en cours d’exécution continuent à s’exécuter lorsque l’accès Batch aux clés managées par le client est perdu. Toutefois, les nœuds passent à l’état indisponible et les tâches cessent de s’exécuter (elles sont replacées dans la file d’attente). Une fois l’accès restauré, les nœuds sont à nouveau disponibles et les tâches redémarrent.
   * **Ce mécanisme de chiffrement s’applique-t-il aux disques de machine virtuelle dans un pool Batch ?** Non. Pour les pools de configuration de service Cloud, aucun chiffrement n’est appliqué pour le système d’exploitation et le disque temporaire. Pour les pools de configuration de machine virtuelle, le système d’exploitation et les disques de données spécifiés sont chiffrés par défaut avec une clé managée par la plate-forme Microsoft. Actuellement, vous ne pouvez pas spécifier votre propre clé pour ces disques. Pour chiffrer le disque temporaire des machines virtuelles pour un pool Batch avec une clé managée par la plate-forme Microsoft, vous devez activer la propriété [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) dans votre pool de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration). Pour les environnements très sensibles, nous vous recommandons d’activer le chiffrement de disque temporaire et d’éviter de stocker des données sensibles sur le système d’exploitation et les disques de données. Pour plus d’informations, consultez [Créer un pool avec le chiffrement de disque activé](./disk-encryption.md).
   * **L’identité managée affectée par le système sur le compte Batch est-elle disponible sur les nœuds de calcul ?** Non. Cette identité managée est actuellement utilisée uniquement pour accéder au coffre de clés Azure pour la clé gérée par le client.
-  

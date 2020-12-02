@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 335dfc665cc7fb9727e4eff3e65a18a2aa5c3f94
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002985"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327183"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -203,7 +203,7 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 **Groupe de sécurité réseau sur une carte réseau/un sous-réseau.** | La sauvegarde des machines virtuelles Azure prend en charge les informations de sauvegarde et de restauration de groupe de sécurité réseau au niveau de la carte réseau, du sous-réseau et du réseau virtuel.
 **Machines virtuelles épinglées à des zones** | Si vous sauvegardez une machine virtuelle Azure qui est épinglée à une zone (avec Sauvegarde Azure), vous pouvez la restaurer dans la même zone où elle a été épinglée. [En savoir plus](../availability-zones/az-overview.md)
 **Restaurer une machine virtuelle dans un groupe à haute disponibilité** | Lorsqu’une machine virtuelle est restaurée à partir du portail, il n’est pas possible de choisir un groupe à haute disponibilité. Une machine virtuelle restaurée n’a pas de groupe à haute disponibilité. Si vous utilisez l’option de restauration de disque, vous pouvez [spécifier un groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) quand vous créez une machine virtuelle à partir du disque à l’aide du modèle fourni ou de PowerShell.
-**Restaurer les machines virtuelles spéciales telles que les machines virtuelles SQL** | Si vous sauvegardez une machine virtuelle SQL à l’aide de la sauvegarde de la machine virtuelle Azure et que vous utilisez ensuite l’option de restauration de la machine virtuelle ou que vous créez une machine virtuelle après avoir restauré des disques, la machine virtuelle créée doit être inscrite auprès du fournisseur SQL comme mentionné [ici](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash). Cette opération convertit la machine virtuelle restaurée en machine virtuelle SQL.
+**Restaurer les machines virtuelles spéciales telles que les machines virtuelles SQL** | Si vous sauvegardez une machine virtuelle SQL à l’aide de la sauvegarde de la machine virtuelle Azure et que vous utilisez ensuite l’option de restauration de la machine virtuelle ou que vous créez une machine virtuelle après avoir restauré des disques, la machine virtuelle créée doit être inscrite auprès du fournisseur SQL comme mentionné [ici](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash). Cette opération convertit la machine virtuelle restaurée en machine virtuelle SQL.
 
 ### <a name="restore-domain-controller-vms"></a>Restaurer les machines virtuelles d’un contrôleur de domaine
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413591"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350781"
 ---
 # <a name="ddos-protection-on-front-door"></a>Protection DDoS sur Front Door
 
@@ -36,7 +36,7 @@ Front Door est un service distribué à l’échelle mondiale et à très grande
 
 ## <a name="caching"></a>Mise en cache
 
-[Les fonctionnalités de mise en cache de Front Door](./front-door-caching.md) peuvent être utilisées pour protéger les back-ends des volumes de trafic importants générés par une attaque. Les ressources mises en cache sont retournées à partir des nœuds de périphérie Front Door, afin qu’elles ne soient pas transférées vers votre back-end. Même les temps d’expiration de cache courts (secondes ou minutes) sur des réponses dynamiques peuvent réduire de façon considérable la charge sur les services back-ends. Pour plus d’informations sur les concepts et les modèles de mise en cache, consultez [Considérations relatives à la mise en cache](https://docs.microsoft.com/azure/architecture/best-practices/caching) et [modèle de réserve de caches](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+[Les fonctionnalités de mise en cache de Front Door](./front-door-caching.md) peuvent être utilisées pour protéger les back-ends des volumes de trafic importants générés par une attaque. Les ressources mises en cache sont retournées à partir des nœuds de périphérie Front Door, afin qu’elles ne soient pas transférées vers votre back-end. Même les temps d’expiration de cache courts (secondes ou minutes) sur des réponses dynamiques peuvent réduire de façon considérable la charge sur les services back-ends. Pour plus d’informations sur les concepts et les modèles de mise en cache, consultez [Considérations relatives à la mise en cache](/azure/architecture/best-practices/caching) et [modèle de réserve de caches](/azure/architecture/patterns/cache-aside).
 
 ## <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 

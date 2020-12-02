@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234135"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326538"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 
@@ -62,7 +62,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
 
         ![Concepts de base](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-5. Dans **Détails de la tâche**  :
+5. Dans **Détails de la tâche** :
 
     - Sélectionnez le compte de stockage où se trouvent les données à exporter. Utilisez un compte de stockage proche de l’endroit où vous vous trouvez.
     - L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné.
@@ -84,7 +84,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
    > [!NOTE]
    > Si l’objet blob à exporter est utilisé pendant la copie de données, le service Azure Import/Export prend un instantané de l’objet blob, puis copie cet instantané.
 
-6. Dans **Informations de réexpédition**  :
+6. Dans **Informations de réexpédition** :
 
     - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’exportation terminée.
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
         > [!TIP]
         > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-7. Dans **Récapitulatif**  :
+7. Dans **Récapitulatif** :
 
     - Passez en revue les détails de la tâche.
     - Notez le nom de la tâche et l’adresse de livraison du centre de données Azure pour l’expédition des disques.
@@ -147,7 +147,7 @@ Suivez les étapes ci-dessous pour créer une tâche d’exportation dans le por
     > [!TIP]
     > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-   Ce travail exporte tous les objets blob dans votre compte de stockage. Vous pouvez spécifier un objet blob à exporter en remplaçant cette valeur par **--export**  :
+   Ce travail exporte tous les objets blob dans votre compte de stockage. Vous pouvez spécifier un objet blob à exporter en remplaçant cette valeur par **--export** :
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -155,7 +155,7 @@ Suivez les étapes ci-dessous pour créer une tâche d’exportation dans le por
 
    Cette valeur de paramètre exporte l’objet blob nommé *logo.bmp* dans le conteneur racine.
 
-   Vous pouvez également sélectionner tous les objets blob d’un conteneur à l’aide d’un préfixe. Remplacez cette valeur pour **--export**  :
+   Vous pouvez également sélectionner tous les objets blob d’un conteneur à l’aide d’un préfixe. Remplacez cette valeur pour **--export** :
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -234,7 +234,7 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-   Ce travail exporte tous les objets blob dans votre compte de stockage. Vous pouvez spécifier un blob à exporter en remplaçant cette valeur par **-ExportBlobListblobPath**  :
+   Ce travail exporte tous les objets blob dans votre compte de stockage. Vous pouvez spécifier un blob à exporter en remplaçant cette valeur par **-ExportBlobListblobPath** :
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp
@@ -242,7 +242,7 @@ Install-Module -Name Az.ImportExport
 
    Cette valeur de paramètre exporte l’objet blob nommé *logo.bmp* dans le conteneur racine.
 
-   Vous pouvez également sélectionner tous les objets blob d’un conteneur à l’aide d’un préfixe. Remplacez cette valeur par **-ExportBlobListblobPath**  :
+   Vous pouvez également sélectionner tous les objets blob d’un conteneur à l’aide d’un préfixe. Remplacez cette valeur par **-ExportBlobListblobPath** :
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath '/myiecontainer'
@@ -284,7 +284,7 @@ Si vous ignorez le nombre de disques dont vous avez besoin, accédez à l’éta
 Quand le tableau de bord indique que la tâche a été effectuée, les disques vous sont expédiés. Le numéro de suivi de l’envoi est disponible sur le portail.
 
 1. Une fois que vous avez reçu les disques contenant les données exportées, vous devez obtenir les clés BitLocker pour les déverrouiller. Accédez à la tâche d’exportation dans le Portail Azure. Cliquez sur l’onglet **Import/Export**.
-2. Dans la liste, sélectionnez votre tâche d’exportation, puis cliquez sur celle-ci. Accédez à **Chiffrement** , puis copiez les clés.
+2. Dans la liste, sélectionnez votre tâche d’exportation, puis cliquez sur celle-ci. Accédez à **Chiffrement**, puis copiez les clés.
 
    ![Afficher les clés BitLocker pour une tâche d'exportation](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
@@ -327,7 +327,7 @@ Cette étape *facultative* vous permet de déterminer le nombre de disques néce
     |**/sk:**|Obligatoire uniquement si aucun jeton SAP de conteneur n’est spécifié. Clé du compte de stockage du travail d’exportation.|
     |**/csas:**|Obligatoire uniquement si aucune clé de compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|
     |**/ExportBlobListFile:**|Obligatoire. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs) de l’API REST du service Import/Export.|
-    |**/DriveSize:**|Obligatoire. Taille des disques à utiliser pour une tâche d’exportation, *par exemple* , 500 Go, 1,5 To.|
+    |**/DriveSize:**|Obligatoire. Taille des disques à utiliser pour une tâche d’exportation, *par exemple*, 500 Go, 1,5 To.|
 
     Consultez un [exemple de commande PreviewExport](#example-of-previewexport-command).
 

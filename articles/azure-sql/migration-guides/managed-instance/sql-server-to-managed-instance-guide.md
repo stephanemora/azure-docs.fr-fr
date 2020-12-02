@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026042"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326894"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guide de migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Si vous avez besoin de comparer les performances de votre charge de travail s’
 
 ### <a name="create-sql-managed-instance"></a>Créer une instance SQL Database Managed Instance 
 
-En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](/azure/azure-sql/managed-instance/create-template-quickstart). 
+En vous basant sur les informations de la phase de découverte et d’évaluation, créez une cible SQL Managed Instance de taille appropriée. Pour ce faire, vous pouvez utiliser le [portail Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md) ou un modèle [ARM (Azure Resource Manager)](../../managed-instance/create-template-quickstart.md). 
 
 
 ## <a name="migrate"></a>Migrer
@@ -124,7 +124,7 @@ Pour effectuer des migrations à l’aide de DMS, suivez les étapes ci-dessous�
 1. Une fois la base de données restaurée, choisissez **Démarrer le basculement**. Le processus de migration copie la sauvegarde de la fin du journal, une fois qu’elle est disponible dans le partage réseau SMB, puis la restaure sur la cible. 
 1. Arrêtez tout trafic entrant à destination de votre base de données source, puis mettez à jour la chaîne de connexion vers la nouvelle base de données Azure SQL Managed Instance. 
 
-Pour accéder à un tutoriel étape par étape basé sur cette option de migration, consultez [Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l’aide de DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+Pour accéder à un tutoriel étape par étape basé sur cette option de migration, consultez [Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l’aide de DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -160,7 +160,7 @@ Pour effectuer une migration à l’aide de la fonctionnalité de sauvegarde et 
 
 1. Une fois la restauration effectuée, visualisez la base de données dans l’**Explorateur d’objets** de SQL Server Management Studio. 
 
-Pour en savoir plus sur cette option de migration, consultez [Restaurer une base de données dans Azure SQL Managed Instance avec SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Pour en savoir plus sur cette option de migration, consultez [Restaurer une base de données dans Azure SQL Managed Instance avec SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > Une opération de restauration de base de données est asynchrone et peut être retentée. SQL Server Management Studio peut générer une erreur en cas d’interruption de la connexion ou d’expiration d’un délai d’attente. Azure SQL Database continue d’essayer de restaurer la base de données en arrière-plan et vous pouvez suivre l’avancement de la restauration dans les vues [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
@@ -203,7 +203,7 @@ L’approche de test pour la migration de base de données comprend les activit�
 
 ## <a name="leverage-advanced-features"></a>Tirer profit des fonctionnalités avancées 
 
-Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Managed Instance, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/advanced-data-security.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
+Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Managed Instance, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 
 [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) vous permet de superviser un grand nombre d’instances managées de manière centralisée.
 

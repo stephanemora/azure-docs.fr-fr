@@ -3,12 +3,12 @@ title: Isolement réseau dans Azure DevTest Labs
 description: Découvrir l’isolement réseau dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149160"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352930"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolement réseau dans DevTest Labs
 
@@ -74,7 +74,7 @@ Avec cela, le stockage Azure autorise des connexions entrantes à partir du rés
 
 Vous pouvez également choisir d’automatiser ces étapes afin de configurer ce paramètre pour plusieurs laboratoires. 
 
-[En savoir plus sur la gestion des règles d’accès réseau par défaut pour le stockage Azure à l’aide de PowerShell et de l’interface CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[En savoir plus sur la gestion des règles d’accès réseau par défaut pour le stockage Azure à l’aide de PowerShell et de l’interface CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Points à retenir lors de l’utilisation d’un labo en mode isolé du réseau
 

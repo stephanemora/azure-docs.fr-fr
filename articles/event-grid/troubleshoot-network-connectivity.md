@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892313"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339743"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Résoudre les problèmes de connectivité - Azure Event Grid
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Lorsque vous utilisez Azure, vous devez parfois autoriser des plages d’adresses IP ou des URL spécifiques dans votre pare-feu ou proxy d’entreprise pour accéder à tous les services Azure que vous utilisez ou essayez d’utiliser. Vérifiez que le trafic est autorisé sur les adresses IP utilisées par Event Grid. Pour les adresses IP utilisées par Azure Event Grid : consultez [Plages d’adresses IP Azure et balises de service - Cloud public](https://www.microsoft.com/download/details.aspx?id=56519) et [Balise de service - AzureEventGrid](network-security.md#service-tags).
 
-Le document [Plages d’adresses IP Azure et balises de service](https://www.microsoft.com/download/details.aspx?id=56519) répertorie également les adresses IP **par région**. Vous pouvez autoriser des plages d’adresses pour la **région de la rubrique** et la **région jumelée** dans votre pare-feu ou votre proxy d’entreprise. Pour la région jumelée d’une région, consultez [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](/azure/best-practices-availability-paired-regions). 
+Le document [Plages d’adresses IP Azure et balises de service](https://www.microsoft.com/download/details.aspx?id=56519) répertorie également les adresses IP **par région**. Vous pouvez autoriser des plages d’adresses pour la **région de la rubrique** et la **région jumelée** dans votre pare-feu ou votre proxy d’entreprise. Pour la région jumelée d’une région, consultez [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > De nouvelles adresses IP peuvent être ajoutées à la balise de service AzureEventGrid, bien qu’il ne s’agisse pas d’une habitude. Il est donc préférable d’effectuer une vérification hebdomadaire sur les balises de service.

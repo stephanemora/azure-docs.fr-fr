@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538576"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452384"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -55,11 +55,11 @@ Dans cette section, vous allez configurer un hub IoT pour qu’il journalise le
 
 1. Accédez à votre hub IoT dans le [portail Azure](https://portal.azure.com/).
 
-1. Dans le volet gauche de votre hub IoT, faites défiler jusqu’à la section **Supervision** , puis cliquez sur **Paramètres de diagnostic**.
+1. Dans le volet gauche de votre hub IoT, faites défiler jusqu’à la section **Supervision**, puis cliquez sur **Paramètres de diagnostic**.
 
 1. Cliquez sur **Ajouter le paramètre de diagnostic**.
 
-1. Dans le champ **Nom** , entrez un nom pour le nouveau paramètre de diagnostic. Par exemple, **DistributedTracingSettings**.
+1. Dans le champ **Nom**, entrez un nom pour le nouveau paramètre de diagnostic. Par exemple, **DistributedTracingSettings**.
 
 1. Choisissez une ou plusieurs des options suivantes qui déterminent où les journaux doivent être envoyés :
 
@@ -67,9 +67,9 @@ Dans cette section, vous allez configurer un hub IoT pour qu’il journalise le
     - **Diffuser vers un hub d’événements** : configurez le hub d’événements qui doit contenir les informations de journalisation.
     - **Envoyer à Log Analytics** : configurez l’espace de travail Log Analytics qui doit contenir les informations de journalisation.
 
-1. Dans la section **Journal** , sélectionnez les opérations au sujet desquelles vous souhaitez obtenir des informations de journalisation.
+1. Dans la section **Journal**, sélectionnez les opérations au sujet desquelles vous souhaitez obtenir des informations de journalisation.
 
-    Veillez à inclure **DistributedTracing** , puis configurez une durée de **Conservation** pour les journaux. La conservation des journaux n’a pas d’impact sur les coûts de stockage.
+    Veillez à inclure **DistributedTracing**, puis configurez une durée de **Conservation** pour les journaux. La conservation des journaux n’a pas d’impact sur les coûts de stockage.
 
     ![Capture d’écran montrant où se trouve la catégorie DistributedTracing pour les paramètres de diagnostic IoT](./media/iot-hub-distributed-tracing/diag-logs.png)
 
@@ -226,7 +226,7 @@ Pour modifier le pourcentage de messages devant être suivis à partir du cloud,
 
     ![Activer le traçage distribué dans l’extension Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. Dans la fenêtre contextuelle, sélectionnez **Activer** , puis appuyez sur Entrée pour confirmer le taux d’échantillonnage de 100.
+1. Dans la fenêtre contextuelle, sélectionnez **Activer**, puis appuyez sur Entrée pour confirmer le taux d’échantillonnage de 100.
 
     ![Modifier le mode d’échantillonnage](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
@@ -295,7 +295,7 @@ L’image ci-dessous montre un traçage distribué dans Application Map, avec tr
 
 ### <a name="context"></a>Context
 
-De nombreuses solutions IoT, y compris notre propre [architecture de référence](https://aka.ms/iotrefarchitecture) (en anglais uniquement), suivent généralement une variante de l’[architecture des microservices](/azure/architecture/microservices/). Lorsque votre solution IoT gagne en complexité, vous vous retrouvez à utiliser une dizaine de microservices, voire davantage. Ces microservices peuvent ou non provenir d’Azure. Il peut être difficile de déterminer à quel endroit les messages IoT ralentissent. Par exemple, vous disposez d’une solution IoT qui utilise cinq services Azure différents et 1 500 appareils actifs. Chaque appareil envoie 10 messages appareil-à-cloud par seconde (pour un total de 15 000 messages/seconde), mais vous remarquez que votre application web ne voit que 10 000 messages par seconde. Où se situe le problème ? Comment trouver le responsable ?
+De nombreuses solutions IoT, y compris notre propre [architecture de référence](/azure/architecture/reference-architectures/iot) (en anglais uniquement), suivent généralement une variante de l’[architecture des microservices](/azure/architecture/microservices/). Lorsque votre solution IoT gagne en complexité, vous vous retrouvez à utiliser une dizaine de microservices, voire davantage. Ces microservices peuvent ou non provenir d’Azure. Il peut être difficile de déterminer à quel endroit les messages IoT ralentissent. Par exemple, vous disposez d’une solution IoT qui utilise cinq services Azure différents et 1 500 appareils actifs. Chaque appareil envoie 10 messages appareil-à-cloud par seconde (pour un total de 15 000 messages/seconde), mais vous remarquez que votre application web ne voit que 10 000 messages par seconde. Où se situe le problème ? Comment trouver le responsable ?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Modèle de traçage distribué dans l’architecture de microservice
 

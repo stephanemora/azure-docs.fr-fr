@@ -9,17 +9,17 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336586"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345727"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utiliser des identités managées affectées par le système pour accéder aux données Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Dans cet article, vous allez configurer une solution *robuste et indépendante de la rotation des clés* pour accéder aux clés d’Azure Cosmos DB à l’aide d’ [identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). L’exemple de cet article utilise Azure Functions, mais vous pouvez utiliser n’importe quel service qui prend en charge les identités managées. 
+Dans cet article, vous allez configurer une solution *robuste et indépendante de la rotation des clés* pour accéder aux clés d’Azure Cosmos DB à l’aide d’[identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). L’exemple de cet article utilise Azure Functions, mais vous pouvez utiliser n’importe quel service qui prend en charge les identités managées. 
 
 Vous allez apprendre à créer une application de fonction qui peut accéder aux données Azure Cosmos DB sans avoir à copier les clés d’Azure Cosmos DB. L’application de fonction s’activera toutes les minutes et enregistrera la température actuelle d’un aquarium. Pour savoir comment configurer une application de fonction déclenchée par un minuteur, consultez l’article [Créer une fonction dans Azure déclenchée par un minuteur](../azure-functions/functions-create-scheduled-function.md).
 
@@ -31,11 +31,11 @@ Dans cette étape, vous allez attribuer une identité managée affectée par le 
 
 1. Dans le [Portail Azure](https://portal.azure.com/), ouvrez le volet **Fonction Azure** et accédez à votre application de fonction. 
 
-1. Ouvrez l’onglet **Identité** >  **des fonctionnalités de plateforme**  : 
+1. Ouvrez l’onglet **Identité** >  **des fonctionnalités de plateforme** : 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Capture d’écran montrant les fonctionnalités de la plateforme et les options d’identité pour l’application de fonction.":::
 
-1. Sous l’onglet **Identité** , définissez l’ **état** de l’identité du système sur **Activé** et sélectionnez **Enregistrer**. Le volet **Identité** doit se présenter comme suit :  
+1. Sous l’onglet **Identité**, définissez l’**état** de l’identité du système sur **Activé** et sélectionnez **Enregistrer**. Le volet **Identité** doit se présenter comme suit :  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Capture d’écran montrant l’état de l’identité du système défini sur Activé.":::
 
@@ -58,7 +58,7 @@ Dans ce scénario, l’application de fonction lira la température de l’aquar
 
 ### <a name="assign-the-role-using-azure-portal"></a>Assigner le rôle à l’aide du Portail Azure
 
-1. Connectez-vous au Portail Azure et accédez à votre compte Azure Cosmos DB. Ouvrez le volet **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôle**  :
+1. Connectez-vous au Portail Azure et accédez à votre compte Azure Cosmos DB. Ouvrez le volet **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôle** :
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Capture d’écran montrant le volet Contrôle d’accès et l’onglet Attributions de rôles.":::
 
@@ -68,9 +68,9 @@ Dans ce scénario, l’application de fonction lira la température de l’aquar
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Capture d’écran montrant le volet Ajouter une attribution de rôle.":::
 
-   * **Rôle**  : sélectionnez **Contributeur de compte DocumentDB**.
-   * **Attribuer l’accès à**  : sous la sous-section **Sélectionner l’identité managée affectée par le système** , sélectionnez **Application de fonction**.
-   * **Select** : le volet sera rempli avec toutes les applications de fonction de votre abonnement qui ont une **Identité de système managée**. Dans ce cas, sélectionnez l’application de fonction **FishTankTemperatureService**  : 
+   * **Rôle** : sélectionnez **Contributeur de compte DocumentDB**.
+   * **Attribuer l’accès à** : sous la sous-section **Sélectionner l’identité managée affectée par le système**, sélectionnez **Application de fonction**.
+   * **Select** : le volet sera rempli avec toutes les applications de fonction de votre abonnement qui ont une **Identité de système managée**. Dans ce cas, sélectionnez l’application de fonction **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Capture d’écran montrant le volet Ajouter une attribution de rôle rempli avec des exemples.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Vous êtes maintenant prêt à [déployer votre application de fonction](../azure-functions/functions-create-first-function-vs-code.md).
+Vous êtes maintenant prêt à [déployer votre application de fonction](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

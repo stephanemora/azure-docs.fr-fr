@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 1933e60892430b907e070ea04f39d8acc86ddac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929943"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351637"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Module de sécurité Azure Defender pour IoT Edge
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) offre de puissantes fonctionnalités de gestion et d’exécution de flux de travail à la périphérie.
+[Azure IoT Edge](../iot-edge/index.yml) offre de puissantes fonctionnalités de gestion et d’exécution de flux de travail à la périphérie.
 Le rôle clé d’IoT Edge dans les environnements IoT le rend particulièrement séduisant pour les personnes malveillantes.
 
 Le module de sécurité Defender pour IoT constitue une solution de sécurité complète pour vos appareils IoT Edge.
@@ -39,7 +39,7 @@ Le module de sécurité Defender pour IoT pour IoT Edge offre les fonctionnalit�
 
 - Analyse des manifestes de déploiement IoT Edge.
 
-- Agrégation des événements de sécurité bruts dans des messages envoyés par un [hub IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Agrégation des événements de sécurité bruts dans des messages envoyés par un [hub IoT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).
 
 - Configuration à distance grâce au jumeau de module de sécurité.
 

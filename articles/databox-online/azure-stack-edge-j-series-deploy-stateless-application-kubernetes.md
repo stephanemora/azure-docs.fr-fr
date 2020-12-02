@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447381"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -25,7 +25,7 @@ Avant de pouvoir créer un cluster Kubernetes et d’utiliser l’outil de ligne
 
 - Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
 
-- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
 - Le calcul est activé sur l’appareil Azure Stack Edge Pro. Pour activer le calcul, accédez à la page **Calcul** de l’interface utilisateur locale de l’appareil. Puis sélectionnez une interface réseau que vous souhaitez activer pour le calcul. Sélectionnez **Activer**. L’activation du calcul entraîne la création d’un commutateur virtuel sur votre appareil sur cette interface réseau. Pour plus d’informations, consultez [Activer le réseau de calcul sur Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

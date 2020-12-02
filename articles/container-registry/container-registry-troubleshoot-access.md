@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148453"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351791"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -103,7 +103,7 @@ Liens connexes :
 
 ### <a name="configure-service-access"></a>Configurer l’accès au service
 
-Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
+Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
 
 * Azure DevOps Services 
 * Azure Container Instances

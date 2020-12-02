@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: a5382313c837482f116f498f3a05c36447062b0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33c456d47426a3721e8582f24ffd603db0429c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340031"
 ---
 # <a name="security-module"></a>Module de sécurité
 
@@ -30,7 +30,7 @@ Pour les solutions IoT intégrées à Azure, les jumeaux d’appareil jouent un 
 
 Defender pour IoT offre une intégration complète à votre plateforme de gestion d’appareils IoT existants, ce qui vous permet de gérer l’état de sécurité de vos appareils tout en utilisant les fonctionnalités existantes de contrôle des appareils. L’intégration est obtenue par l’utilisation du mécanisme de jumelage IoT Hub.
 
-En savoir plus sur le concept de [jumeaux d’appareils](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) dans Azure IoT Hub.
+En savoir plus sur le concept de [jumeaux d’appareils](../iot-hub/iot-hub-devguide-device-twins.md) dans Azure IoT Hub.
 
 ## <a name="security-module-twins"></a>Jumeaux de module de sécurité
 
@@ -38,7 +38,7 @@ Defender pour IoT conserve un jumeau de module de sécurité pour chaque apparei
 Le jumeau de module de sécurité contient toutes les informations relatives à la sécurité de l’appareil pour chaque appareil spécifique de votre solution.
 Les propriétés de sécurité d’appareil sont conservées dans un jumeau de module de sécurité dédié, pour une communication plus sûre et pour permettre des mises à jour et une maintenance nécessitant moins de ressources.
 
-Consultez [Créer un jumeau de module de sécurité](quickstart-create-security-twin.md) et [Configurer des agents de sécurité](how-to-agent-configuration.md) pour découvrir comment créer, personnaliser et configurer le jumeau. Consultez [Comprendre les jumeaux de module IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub.
+Consultez [Créer un jumeau de module de sécurité](quickstart-create-security-twin.md) et [Configurer des agents de sécurité](how-to-agent-configuration.md) pour découvrir comment créer, personnaliser et configurer le jumeau. Consultez [Comprendre les jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub.
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916778"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352216"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -70,7 +70,7 @@ Si ce n’est pas déjà fait, créez un service lié Stockage Blob Azure dans l
 - Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS**, **Principal du service** ou **Identité managée**.  
 
 >[!TIP]
->Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF des rôles appropriés pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF des rôles appropriés pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Vous pouvez également activer cette propriété quand vous exécutez des packag
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Déboguer les tâches intermédiaires locales et cloud
 
-Sur votre IR auto-hébergé, vous trouverez les journaux du runtime dans le dossier *C:\ProgramData\SSISTelemetry* et les journaux d’exécution des tâches intermédiaires locales dans le dossier *C:\ProgramData\SSISTelemetry\ExecutionLog*.  Vous trouverez les journaux d’exécution des tâches de préproduction cloud dans votre SSISDB, dans les chemins de journalisation spécifiés ou dans Azure Monitor, selon que vous stockez vos packages dans SSISDB, que vous activez l’[intégration d’Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor), etc. Vous trouverez également les ID uniques des tâches intermédiaires locales dans les journaux d’exécution des tâches intermédiaires dans le cloud. 
+Sur votre IR auto-hébergé, vous trouverez les journaux du runtime dans le dossier *C:\ProgramData\SSISTelemetry* et les journaux d’exécution des tâches intermédiaires locales dans le dossier *C:\ProgramData\SSISTelemetry\ExecutionLog*.  Vous trouverez les journaux d’exécution des tâches de préproduction cloud dans votre SSISDB, dans les chemins de journalisation spécifiés ou dans Azure Monitor, selon que vous stockez vos packages dans SSISDB, que vous activez l’[intégration d’Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. Vous trouverez également les ID uniques des tâches intermédiaires locales dans les journaux d’exécution des tâches intermédiaires dans le cloud. 
 
 ![ID unique de la première tâche intermédiaire](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ Les tâches intermédiaires dans le cloud qui s’exécutent sur votre instance 
 
 Pour permettre à vos composants personnalisés/tiers d’accéder aux données locales en utilisant le runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR, suivez ces instructions :
 
-1. Installez vos composants personnalisés/tiers ciblant SQL Server 2017 sur Azure-SSIS IR via des [configurations personnalisées standard/express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Installez vos composants personnalisés/tiers ciblant SQL Server 2017 sur Azure-SSIS IR via des [configurations personnalisées standard/express](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 1. Créez les clés de Registre DTSPath suivantes sur le runtime d'intégration auto-hébergé, si elles n'existent pas encore :
    1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` défini sur `C:\Program Files\Microsoft SQL Server\140\DTS\`
@@ -197,7 +197,7 @@ Si vous devez utiliser un chiffrement renforcé ou un protocole réseau plus sé
 
 ## <a name="current-limitations"></a>Limites actuelles
 
-- Seuls les composants de flux de données intégrés/préinstallés sur Azure-SSIS IR Édition Standard, à l’exception des composants Hadoop/HDFS/DQS, sont actuellement pris en charge ; consultez [tous les composants intégrés/préinstallés sur Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Seuls les composants de flux de données intégrés/préinstallés sur Azure-SSIS IR Édition Standard, à l’exception des composants Hadoop/HDFS/DQS, sont actuellement pris en charge ; consultez [tous les composants intégrés/préinstallés sur Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Seuls les composants de flux de données personnalisés/tiers écrits en code managé (.NET Framework) sont actuellement pris en charge ; ceux qui sont écrits en code natif (C++ ) ne sont actuellement pas pris en charge.
 - Le changement des valeurs des variables dans les tâches de préproduction locales et cloud n’est actuellement pas pris en charge.
 - Le changement des valeurs des variables de type « object » dans des tâches de préproduction locales ne sera pas reflété dans les autres tâches.

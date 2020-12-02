@@ -4,12 +4,12 @@ description: Configurez une action GitHub qui automatise les étapes de créatio
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0068b9869e5ef7a3b6c0fd21c1b69cdae1d4ab4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843653"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454819"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurer une action GitHub pour créer une instance de conteneur
 
@@ -56,7 +56,7 @@ Dans le workflow GitHub, vous devez fournir des informations d’identification 
 Tout d’abord, récupérez l’ID de ressource de votre groupe de ressources. Substituez le nom de votre groupe dans la commande [az group show][az-group-show] suivante :
 
 ```azurecli
-groupId=$(az group show \
+$groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```

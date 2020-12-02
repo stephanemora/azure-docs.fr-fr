@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891223"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447597"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge Pro
 
@@ -138,9 +138,9 @@ Votre client Windows doit remplir les conditions préalables suivantes :
 
     Comparez la version **Majeure** et assurez-vous qu’il s’agit de la version 5.0 ou d’une version ultérieure.
 
-    Si votre version est obsolète, consultez [Mise à niveau des instances Windows PowerShell existantes](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Si votre version est obsolète, consultez [Mise à niveau des instances Windows PowerShell existantes](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-    Si vous n\'avez pas PowerShell 5.0, suivez les instructions d’[Installation de PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Si vous n\'avez pas PowerShell 5.0, suivez les instructions d’[Installation de PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     Voici un exemple de sortie obtenue.
 
@@ -175,11 +175,11 @@ Votre client Windows doit remplir les conditions préalables suivantes :
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Si votre référentiel n’est pas approuvé ou si vous avez besoin d’informations supplémentaires, consultez [Vérifier l’accessibilité de PowerShell Gallery](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Si votre référentiel n’est pas approuvé ou si vous avez besoin d’informations supplémentaires, consultez [Vérifier l’accessibilité de PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Étape 4 : Configurer Azure PowerShell sur le client 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Vous allez installer sur votre client des modules Azure PowerShell qui fonctionneront avec votre appareil.
 
@@ -327,7 +327,7 @@ Définissez l’environnement Azure Resource Manager et vérifiez que la communi
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Pour plus d’informations, accédez à [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Pour plus d’informations, accédez à [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Définissez l’environnement inclus pour chaque cmdlet que vous exécutez. Cela permet de s’assurer que tous les appels d’API transitent par l’environnement approprié. Par défaut, les appels transitent par le cloud public Azure, mais vous souhaitez qu’ils transitent par l’environnement que vous avez défini pour l’appareil Azure Stack Edge Pro.
 

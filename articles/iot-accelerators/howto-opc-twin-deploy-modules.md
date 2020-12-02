@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015041"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445491"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
 
@@ -117,7 +117,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 1. Déployez les [dépendances](howto-opc-twin-deploy-dependencies.md) d’OPC Twin et obtenez le fichier `.env`. Notez le `hub name` déployé de la variable `PCS_IOTHUBREACT_HUB_NAME` dans le fichier `.env` obtenu.
 
-2. Inscrivez et démarrez une passerelle IoT Edge [Linux](../iot-edge/how-to-install-iot-edge-linux.md) ou [Windows](../iot-edge/how-to-install-iot-edge-windows.md) et notez son `device id`.
+2. Inscrivez et démarrez une passerelle IoT Edge [Linux](../iot-edge/how-to-install-iot-edge.md) ou [Windows](../iot-edge/how-to-install-iot-edge.md) et notez son `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Déployer sur un appareil Edge
 

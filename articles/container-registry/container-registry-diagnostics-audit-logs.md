@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Enregistrez et analysez les événements des journaux des ressources pour Azure Container Registry tels que l’authentification, l’envoi (push) d’images et le tirage (pull) d’images.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553374"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348583"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics
 
@@ -81,7 +81,7 @@ L’image suivante présente un exemple de sortie :
 
 ![Interroger des données de journal](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le Portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), ou essayez l’[Environnement de démonstration](https://portal.loganalytics.io/demo) Log Analytics. 
+Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le Portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), ou essayez l’[Environnement de démonstration](https://portal.loganalytics.io/demo) Log Analytics. 
 
 Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Vous pouvez également diffuser en continu les événements du journal de diagno
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/log-query/get-started-portal.md) et la création de [requêtes de journal](../azure-monitor/log-query/get-started-queries.md).
+* En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) et la création de [requêtes de journal](../azure-monitor/log-query/get-started-queries.md).
 * Consultez [vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md) pour en savoir plus sur les journaux de plateforme disponibles dans différentes couches d’Azure.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748195"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327030"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison.
 
-Voici les données de liaison dans le fichier *function.json*  :
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
@@ -305,7 +305,7 @@ L’annotation [EventGridTrigger](https://github.com/Azure/azure-functions-java-
 
 ## <a name="configuration"></a>Configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* . Il n’y a aucun paramètre de constructeur ni aucune propriété à définir dans l’attribut `EventGridTrigger`.
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Il n’y a aucun paramètre de constructeur ni aucune propriété à définir dans l’attribut `EventGridTrigger`.
 
 |Propriété function.json |Description|
 |---------|---------|
@@ -345,11 +345,11 @@ Dans Azure Functions 2.x et ultérieur, vous pouvez également utiliser le type 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json* .
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json* , typée en `func.EventGridEvent`.
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*, typée en `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -401,19 +401,19 @@ Pour pouvoir recevoir des requêtes HTTP Event Grid, créez un abonnement Event 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour les fonctions développées dans le portail Azure avec le déclencheur Event Grid, sélectionnez **Intégration** , puis choisissez **Event Grid Trigger** et sélectionnez **Créer un abonnement Event Grid** .
+Pour les fonctions développées dans le portail Azure avec le déclencheur Event Grid, sélectionnez **Intégration**, puis choisissez **Event Grid Trigger** et sélectionnez **Créer un abonnement Event Grid**.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connectez un nouvel abonnement aux événements à déclencher dans le portail.":::
 
 Ce lien ouvre la page **Créer un abonnement aux événements** dans le portail avec le point de terminaison du déclencheur actuel déjà défini.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Connectez un nouvel abonnement aux événements à déclencher dans le portail." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Créer un abonnement aux événements avec le point de terminaison de fonction déjà défini" :::
 
 Pour plus d’informations sur la création d’abonnements à l’aide du Portail Azure, consultez la section [Créer un événement personnalisé - Portail Azure](../event-grid/custom-event-quickstart-portal.md) dans la documentation Event Grid.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour créer un abonnement avec [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilisez la commande [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
+Pour créer un abonnement avec [Azure CLI](/cli/azure/get-started-with-azure-cli), utilisez la commande [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 La commande a besoin de l’URL de point de terminaison qui appelle la fonction. L’exemple suivant illustre le modèle d’URL spécifique à la version :
 
@@ -435,25 +435,55 @@ Voici un exemple d’abonnement à un compte de Stockage Blob (avec un espace r�
 
 #### <a name="version-2x-and-higher-runtime"></a>Runtime de la version 2.x (et ultérieure)
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>Runtime de la version 1.x
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Pour plus d’informations sur la création d’un abonnement, consultez la section [Guide de démarrage rapide sur le Stockage Blob](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou les autres guides de démarrage rapide Event Grid.
 
@@ -508,7 +538,7 @@ Pour qu’un déclencheur Event Grid soit testé en local, les requêtes HTTP Ev
 1. [Générez une requête](#generate-a-request) et copiez le corps de la requête à partir de l’application de visionneuse.
 1. [Publiez (POST) manuellement la requête](#manually-post-the-request) sur l’URL localhost de votre fonction de déclenchement Event Grid.
 
-À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
+À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update).
 
 ### <a name="create-a-viewer-web-app"></a>Créer une application web de visionneuse
 

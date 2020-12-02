@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c3c42146ba93115e257924c23dc34785c8258533
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340445"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353100"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Les clés uniques ne peuvent être définies qu'au moment de la création d'un c
 
 * Il n’est pas possible de mettre à jour un conteneur existant pour qu'il utilise une autre clé unique. Autrement dit, une fois qu'un conteneur a été créé avec une stratégie de clé unique, celle-ci n'est pas modifiable.
 
-* Pour définir la clé unique d’un conteneur existant, créez un nouveau conteneur avec la contrainte de clé unique. Utilisez un outil de migration des données adapté pour déplacer les données du conteneur existant vers le nouveau. Avec les conteneurs SQL, utilisez [l'Outil de migration de données ](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) pour déplacer des données.
+* Pour définir la clé unique d’un conteneur existant, créez un nouveau conteneur avec la contrainte de clé unique. Utilisez un outil de migration des données adapté pour déplacer les données du conteneur existant vers le nouveau. Avec les conteneurs SQL, utilisez [l'Outil de migration de données ](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) pour déplacer des données.
 
 * Une stratégie de clé unique peut comporter au maximum 16 valeurs de chemin d’accès, Par exemple, les valeurs peuvent être `/firstName`, `/lastName`, et `/address/zipCode`. Chaque stratégie de clé unique peut contenir un maximum de 10 combinaisons ou contraintes de clé unique. Les chemins d’accès combinés de chaque contrainte d’index unique ne doivent pas dépasser 60 octets. Dans l’exemple précédent, la combinaison du prénom, du nom et de l’adresse e-mail représente une seule contrainte, qui utilise 3 des 16 chemins possibles.
 

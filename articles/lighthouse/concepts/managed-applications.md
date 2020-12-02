@@ -3,12 +3,12 @@ title: Azure Lighthouse et applications managées Azure
 description: Découvrez comment les applications gérées par Azure Lighthouse et Azure peuvent vous aider à activer différents scénarios et comment elles peuvent être utilisées ensemble.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014985"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436519"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse et applications managées Azure
 
@@ -35,7 +35,7 @@ Dans une application managée, les ressources utilisées par l’application son
 
 Les applications managées prennent en charge les [expériences personnalisées dans le Portail Azure](../../azure-resource-manager/managed-applications/concepts-view-definition.md) et l’[intégration avec des fournisseurs personnalisés](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). Ces options permettent d’offrir une expérience encore plus personnalisée et intégrée, et rendre ainsi certaines tâches de gestion plus faciles à effectuer par les clients eux-mêmes.
 
-Les applications managées peuvent être [publiées sur la Place de marché Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), soit en tant qu’offre privée pour une utilisation particulière d’un client, soit en tant qu’offre publique que plusieurs clients peuvent acheter. Elles peuvent également être fournies aux utilisateurs dans votre organisation par la [publication d’applications managées dans votre catalogue de services](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Vous pouvez déployer des instances du catalogue de services et de la Place de marché à l’aide de modèles ARM, qui contiennent éventuellement l’identificateur unique du partenaire de la Place de marché commerciale pour suivre l’[attribution de l’utilisation de client](../../marketplace/azure-partner-customer-usage-attribution.md).
+Les applications managées peuvent être [publiées sur la Place de marché Azure](../../marketplace/create-new-azure-apps-offer.md), soit en tant qu’offre privée pour une utilisation particulière d’un client, soit en tant qu’offre publique que plusieurs clients peuvent acheter. Elles peuvent également être fournies aux utilisateurs dans votre organisation par la [publication d’applications managées dans votre catalogue de services](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Vous pouvez déployer des instances du catalogue de services et de la Place de marché à l’aide de modèles ARM, qui contiennent éventuellement l’identificateur unique du partenaire de la Place de marché commerciale pour suivre l’[attribution de l’utilisation de client](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Les applications managées Azure sont généralement utilisées quand il est possible de répondre à un besoin spécifique du client au moyen d’une solution clés en main entièrement managée par le fournisseur de services.
 

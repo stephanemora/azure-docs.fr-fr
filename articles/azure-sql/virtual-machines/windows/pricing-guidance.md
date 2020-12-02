@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c64ab815572af0f6c76a5076c9d4cf03586f242d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 57e9c82e5685171cff994aca7985f6a4211f00e7
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784998"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327285"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Guide des prix de SQL Server sur machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "92784998"
 Cet article fournit un guide des prix pour [SQL Server sur machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Plusieurs facteurs ont un impact sur le coût, et il est important de choisir le bon équilibre entre les coûts et les besoins de l’entreprise.
 
 > [!TIP]
-> Si vous cherchez seulement à obtenir une estimation de coût pour une combinaison spécifique d’édition de SQL Server et de taille de machine virtuelle, consultez la page de tarification pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Sélectionnez votre plateforme et l’édition de SQL Server dans la liste **Système d’exploitation/Logiciel** .
+> Si vous cherchez seulement à obtenir une estimation de coût pour une combinaison spécifique d’édition de SQL Server et de taille de machine virtuelle, consultez la page de tarification pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Sélectionnez votre plateforme et l’édition de SQL Server dans la liste **Système d’exploitation/Logiciel**.
 >
 > ![Interface utilisateur sur la page de tarification des machines virtuelles](./media/pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -65,15 +65,15 @@ Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux 
 
 ## <a name="pay-per-usage"></a>Paiement à l’utilisation
 
-**Le paiement d’une licence SQL Server à l’utilisation** (ou **paiement au fur et à mesure** ) signifie que le coût par seconde de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. Les tarifs des différentes éditions de SQL Server (Web, Standard, Entreprise) sont indiqués dans la page de tarification des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Le paiement d’une licence SQL Server à l’utilisation** (ou **paiement au fur et à mesure**) signifie que le coût par seconde de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. Les tarifs des différentes éditions de SQL Server (Web, Standard, Entreprise) sont indiqués dans la page de tarification des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2019). Le coût de licence par seconde varie selon le nombre de processeurs virtuels de machine virtuelle.
 
 Le paiement de la licence SQL Server à l’utilisation est recommandé pour :
 
-- **Les charges de travail temporaires ou périodiques** . Par exemple, une application qui doit soutenir un événement pendant quelques mois chaque année, ou une analyse métier réalisée tous les lundis.
+- **Les charges de travail temporaires ou périodiques**. Par exemple, une application qui doit soutenir un événement pendant quelques mois chaque année, ou une analyse métier réalisée tous les lundis.
 
-- **Les charges de travail dont la durée de vie ou la mise à l’échelle ne sont pas connues** . Par exemple, une application qui peut ne pas être requise dans quelques mois, ou qui peut nécessiter plus ou moins de puissance de calcul, en fonction de la demande.
+- **Les charges de travail dont la durée de vie ou la mise à l’échelle ne sont pas connues**. Par exemple, une application qui peut ne pas être requise dans quelques mois, ou qui peut nécessiter plus ou moins de puissance de calcul, en fonction de la demande.
 
 Pour créer une machine virtuelle Azure exécutant SQL Server 2017 avec l’une de ces images assorties d’un paiement à l’utilisation, consultez les liens suivants :
 
@@ -96,7 +96,7 @@ Pour créer une machine virtuelle Azure exécutant SQL Server 2017 avec l’une
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> BYOL (apportez votre propre licence)
 
-L’ **apport de votre propre licence SQL Server par le biais de License Mobility** , également appelé **BYOL** , implique l’utilisation d’une licence en volume SQL Server existante avec Software Assurance dans une machine virtuelle Azure. Une machine virtuelle SQL Server qui a recours à la méthode BYOL facture uniquement le coût d’exécution de la machine virtuelle, et non la licence SQL Server, étant donné que vous avez déjà acquis les licences et Software Assurance dans le cadre d’un programme de licence en volume.
+L’**apport de votre propre licence SQL Server par le biais de License Mobility**, également appelé **BYOL**, implique l’utilisation d’une licence en volume SQL Server existante avec Software Assurance dans une machine virtuelle Azure. Une machine virtuelle SQL Server qui a recours à la méthode BYOL facture uniquement le coût d’exécution de la machine virtuelle, et non la licence SQL Server, étant donné que vous avez déjà acquis les licences et Software Assurance dans le cadre d’un programme de licence en volume.
 
 > [!IMPORTANT]
 > Les images BYOL impliquent un contrat entreprise avec Software Assurance. Elles ne sont pas disponibles dans le cadre du partenariat Fournisseur de solutions Azure Cloud (CSP) pour l’instant. Les clients CSP peuvent utiliser leur propre licence en déployant une image avec paiement à l’utilisation, puis en activant [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md).
@@ -106,9 +106,9 @@ L’ **apport de votre propre licence SQL Server par le biais de License Mobilit
 
 L’apport de votre propre licence SQL au travers de la mobilité de licence est recommandé pour :
 
-- **Les charges de travail continues** . Par exemple, une application qui doit prendre en charge les opérations de l’entreprise 24 h/24, 7 j/7.
+- **Les charges de travail continues**. Par exemple, une application qui doit prendre en charge les opérations de l’entreprise 24 h/24, 7 j/7.
 
-- **Les charges de travail dont la durée de vie et la mise à l’échelle sont connues** . Par exemple, une application qui sera requise pendant toute l’année et dont la demande a été prévue.
+- **Les charges de travail dont la durée de vie et la mise à l’échelle sont connues**. Par exemple, une application qui sera requise pendant toute l’année et dont la demande a été prévue.
 
 Pour utiliser la méthode BYOL avec une machine virtuelle SQL Server, vous devez posséder une licence SQL Server Standard ou Enterprise ainsi que [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), qui est une option obligatoire pour certains programmes de licence en volume, et une option facultative pour d’autres. Le niveau de tarification fourni par les programmes de licence en volume varie selon le type de contrat et la quantité et/ou l’engagement vis-à-vis de SQL Server. Mais en règle générale, l’apport de votre propre licence pour les charges de travail continues présente les avantages suivants :
 
@@ -136,7 +136,7 @@ Pour éviter des coûts inutiles, choisissez une taille de machine virtuelle opt
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Dimensionner correctement votre machine virtuelle
 
-Le coût de la licence SQL Server est directement lié au nombre de processeurs virtuels. Choisissez une taille de machine virtuelle qui correspond à vos besoins en termes de processeur, mémoire, stockage et bande passante d’E/S. Pour obtenir la liste complète des options de taille de machine virtuelle, consultez [Tailles de machine virtuelle Windows](../../../virtual-machines/sizes.md) et [Tailles de machine virtuelle Linux](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
+Le coût de la licence SQL Server est directement lié au nombre de processeurs virtuels. Choisissez une taille de machine virtuelle qui correspond à vos besoins en termes de processeur, mémoire, stockage et bande passante d’E/S. Pour obtenir la liste complète des options de taille de machine virtuelle, consultez [Tailles de machine virtuelle Windows](../../../virtual-machines/sizes.md) et [Tailles de machine virtuelle Linux](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Il existe de nouvelles tailles de machine virtuelle qui fonctionnent correctement avec certains types de charges de travail SQL Server. Ces tailles de machine virtuelle ont des niveaux élevés de mémoire, de stockage et de bande passante d’E/S, mais elles possèdent un nombre de cœurs virtualisés inférieur. Considérez l’exemple suivant :
 

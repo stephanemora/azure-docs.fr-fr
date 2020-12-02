@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102273"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327472"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Dans l’image suivante, la configuration utilise SQL Server s’exécutant sur 
 
 Pour plus d’informations, consultez les [conditions de licence du produit](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Sélectionnez **Configurer** sous **Paramètres** , puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
+Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Sélectionnez **Configurer** sous **Paramètres**, puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
 
 ![Configurer un réplica de reprise d’activité dans Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +101,7 @@ Les machines virtuelles Azure, le stockage et le réseau ont des caractéristiqu
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nœuds haute disponibilité d’un groupe à haute disponibilité
 Les groupes à haute disponibilité dans Azure vous permettent de placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. La plateforme Azure attribue un domaine de mise à jour et un domaine d’erreur à chaque machine virtuelle de votre groupe à haute disponibilité. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. 
 
-Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nœuds haute disponibilité d’une zone de disponibilité
 Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. La séparation physique des zones de disponibilité dans une région contribue à protéger les applications et les données des défaillances dans le centre de données en veillant à ce qu’au moins une machine soit disponible et réponde au contrat de niveau de service Azure de 99,99 %. 
@@ -136,7 +136,7 @@ Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (com
 Vous pouvez encore vous connecter à chaque réplica de disponibilité séparément en vous connectant directement à l’instance de service. En outre, puisque les groupes de disponibilité sont à compatibilité descendante avec les clients de mise en miroir de bases de données, vous pouvez vous connecter aux réplicas de disponibilité comme les serveurs partenaires de mise en miroir de bases de données tant que les réplicas sont configurés de façon similaire à la mise en miroir de bases de données :
 
 * Il y a un réplica principal et un réplica secondaire.
-* Le réplica secondaire est configuré comme non lisible (option **Secondaire accessible en lecture** définie sur **Non** ).
+* Le réplica secondaire est configuré comme non lisible (option **Secondaire accessible en lecture** définie sur **Non**).
 
 Voici un exemple de chaîne de connexion cliente, qui correspond à cette configuration apparentée à une mise en miroir de bases de données, à l’aide d’ADO.NET ou de SQL Server Native Client :
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785066"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327268"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,11 +59,11 @@ Enfin, pensez à activer l’option de connexion chiffrée pour l’instance du 
 
 ## <a name="encryption"></a>Chiffrement
 
-Les disques managés offrent un chiffrement côté serveur et Azure Disk Encryption. Le [chiffrement côté serveur](../../../virtual-machines/windows/disk-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la technologie BitLocker ou DM-Crypt, et s’intègre à Azure Key Vault pour chiffrer les disques de données et de système d’exploitation. 
+Les disques managés offrent un chiffrement côté serveur et Azure Disk Encryption. Le [chiffrement côté serveur](../../../virtual-machines/disk-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la technologie BitLocker ou DM-Crypt, et s’intègre à Azure Key Vault pour chiffrer les disques de données et de système d’exploitation. 
 
 ## <a name="use-a-non-default-port"></a>Utiliser un port non défini par défaut
 
-Par défaut, SQL Server écoute un port bien connu, le port 1433. Pour une sécurité renforcée, configurez SQL Server de sorte que l’écoute se fasse sur un port non défini par défaut, comme le port 1401. Si vous approvisionnez une image de galerie SQL Server dans le portail Azure, vous pouvez spécifier ce port dans le panneau **Paramètres SQL Server** .
+Par défaut, SQL Server écoute un port bien connu, le port 1433. Pour une sécurité renforcée, configurez SQL Server de sorte que l’écoute se fasse sur un port non défini par défaut, comme le port 1401. Si vous approvisionnez une image de galerie SQL Server dans le portail Azure, vous pouvez spécifier ce port dans le panneau **Paramètres SQL Server**.
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -84,18 +84,18 @@ Lorsque SQL Server écoute un port non défini par défaut, vous devez spécifie
 
 Il n’est pas souhaitable que les intrus puissent deviner facilement les noms de compte ou les mots de passe. Suivez les conseils ci-après :
 
-- Créez un seul compte d’administrateur local avec un nom différent de **Administrator** .
+- Créez un seul compte d’administrateur local avec un nom différent de **Administrator**.
 
 - Utilisez des mots de passe forts complexes pour tous vos comptes. Pour plus d’informations sur la création d’un mot de passe sécurisé, consultez l’article [Créer un mot de passe sécurisé](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
 
 - Par défaut, Azure sélectionne l’authentification Windows pendant l’installation de la machine virtuelle SQL Server. Par conséquent, la connexion **SA** est désactivée et un mot de passe est affecté par l’installation. Nous recommandons que la connexion **SA** ne soit ni utilisée ni activée. Si vous devez avoir une connexion SQL, utilisez l’une des méthodes suivantes :
 
-  - Créez un compte SQL avec un nom unique et qui est membre de **sysadmin** . Vous pouvez le faire dans le portail en activant l’ **authentification SQL** lors de l’approvisionnement.
+  - Créez un compte SQL avec un nom unique et qui est membre de **sysadmin**. Vous pouvez le faire dans le portail en activant l’**authentification SQL** lors de l’approvisionnement.
 
     > [!TIP] 
-    > Si vous n’activez pas l’authentification SQL lors de l’approvisionnement, vous devez modifier manuellement le mode d’authentification pour définir le mode **Mode d’authentification SQL Server et Windows** . Pour plus d’informations, consultez [Modifier le mode d’authentification du serveur](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Si vous n’activez pas l’authentification SQL lors de l’approvisionnement, vous devez modifier manuellement le mode d’authentification pour définir le mode **Mode d’authentification SQL Server et Windows**. Pour plus d’informations, consultez [Modifier le mode d’authentification du serveur](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
-  - Si vous devez utiliser la connexion **SA** , activez la connexion après l’approvisionnement et assignez un nouveau mot de passe sécurisé.
+  - Si vous devez utiliser la connexion **SA**, activez la connexion après l’approvisionnement et assignez un nouveau mot de passe sécurisé.
 
 ## <a name="additional-best-practices"></a>Bonnes pratiques supplémentaires
 

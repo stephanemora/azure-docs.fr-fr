@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308327"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325194"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -56,11 +56,11 @@ Le TDE managé par le client offre les avantages suivants au client :
 
 Pour que le serveur puisse utiliser le protecteur TDE stocké dans AKV pour le chiffrement de la clé de chiffrement, l’administrateur du coffre de clés doit accorder les droits d’accès suivants au serveur à l’aide de son identité Azure Active Directory (Azure AD) unique :
 
-- **obtenir**  : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
+- **obtenir** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
 
-- **wrapKey**  : pour pouvoir protéger (chiffrer) la clé de chiffrement
+- **wrapKey** : pour pouvoir protéger (chiffrer) la clé de chiffrement
 
-- **unwrapKey**  : pour pouvoir ôter la protection (déchiffrer) la clé de chiffrement
+- **unwrapKey** : pour pouvoir ôter la protection (déchiffrer) la clé de chiffrement
 
 L’administrateur du coffre de clés peut également [activer la journalisation des événements d’audit de coffre de clés](../../azure-monitor/insights/key-vault-insights-overview.md), afin qu’ils puissent être audités ultérieurement.
 
@@ -78,7 +78,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Le coffre de clés et SQL Database/instance gérée doivent appartenir au même abonné Azure Active Directory. Les interactions entre un serveur et un coffre de clés inter-abonnés ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer TDE avec AKV. En savoir plus sur le [déplacement des ressources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La fonctionnalité [suppression réversible](../../key-vault/general/soft-delete-overview.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [la CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Elle ne peut pas être activée via le portail Azure.  
+- La fonctionnalité [suppression réversible](../../key-vault/general/soft-delete-overview.md) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) ou [la CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Elle ne peut pas être activée via le portail Azure.  
 
 - Accordez au serveur ou à l’instance gérée l’accès au coffre de clés (get, wrapKey, unwrapKey) à l’aide de son identité Azure Active Directory. Lors de l’utilisation du portail Azure, l’identité Azure AD est créée automatiquement. Lors de l’utilisation de PowerShell ou de la CLI, l’identité Azure AD doit être explicitement créée et sa saisie vérifiée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-configure.md) et [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Configurer TDE avec BYOK pour SQL Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 
@@ -146,7 +146,7 @@ Vous trouverez ci-dessous une vue des étapes supplémentaires requises sur le p
 
 Il peut arriver qu’une personne disposant de droits d’accès suffisants au coffre de clés désactive accidentellement l’accès du serveur à la clé en :
 
-- révoquant les autorisations *get* , *wrapKey* , *unwrapKey* du coffre de clés à partir du serveur
+- révoquant les autorisations *get*, *wrapKey*, *unwrapKey* du coffre de clés à partir du serveur
 
 - supprimant la clé
 

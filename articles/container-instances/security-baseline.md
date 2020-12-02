@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148622"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351808"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
 
@@ -39,7 +39,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 * [Guide pratique pour déployer et configurer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -79,7 +79,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Fonctionnalité de contrôle d’accès réseau juste-à-temps d’Azure Security Center](../security-center/security-center-just-in-time.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -111,7 +111,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -131,7 +131,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -263,7 +263,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 * [Groupe de conteneurs et journalisation des instances de conteneur avec les journaux Azure Monitor](./container-instances-log-analytics.md)
 
-* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -328,7 +328,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Compte administrateur Azure Container Registry](../container-registry/container-registry-authentication.md#admin-account)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -354,7 +354,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Compte administrateur Azure Container Registry](../container-registry/container-registry-authentication.md#admin-account)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -377,7 +377,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -401,7 +401,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -411,7 +411,7 @@ Si vous utilisez un registre de conteneurs Azure avec Azure Container Instances,
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -445,7 +445,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -510,7 +510,7 @@ Associez des étiquettes et des versions aux images conteneur pour simplifier le
 * [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](../firewall/threat-intel.md)
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -539,7 +539,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 * [Présentation du chiffrement en transit avec Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -615,7 +615,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -654,7 +654,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 * [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -666,7 +666,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 * [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -676,7 +676,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -726,7 +726,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements. Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
@@ -750,7 +750,7 @@ Supervisez les journaux Azure Container Instances pour détecter les comportemen
 
 * [Groupe de conteneurs et journalisation des instances de conteneur avec les journaux Azure Monitor](./container-instances-log-analytics.md)
 
-* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -876,7 +876,7 @@ Gérez et vérifiez l’accès aux ressources Azure Container Instances à l’a
 
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -905,7 +905,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -976,7 +976,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 * [Comprendre les recommandations concernant les conteneurs dans Azure Security Center](../security-center/container-security.md)
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -994,7 +994,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 * [Comment utiliser des identités managées avec Azure Container Instances](./container-instances-managed-identity.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1008,7 +1008,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1107,7 +1107,7 @@ Sauvegardez éventuellement les images conteneur en les important d’un registr
 
 * [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1140,7 +1140,7 @@ Le client peut également tirer parti du guide de gestion des incidents de sécu
 En outre, marquez clairement les abonnements (par exemple, production, non-production) et créez un système de nommage pour identifier et classer les ressources Azure de façon claire.
 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1156,7 +1156,7 @@ En outre, marquez clairement les abonnements (par exemple, production, non-produ
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 

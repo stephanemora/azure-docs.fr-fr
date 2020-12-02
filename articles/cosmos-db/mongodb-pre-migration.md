@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: chrande
-ms.openlocfilehash: 8ad164f79f150e0cd6ab4a083f21b22c59f7c729
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361583"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349416"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -31,13 +31,13 @@ Si vous avez déjà effectué les étapes prérequises ci-dessus pour la migrati
 
 Les caractéristiques spécifiques à l’API Azure Cosmos DB pour MongoDB sont les suivantes :
 
-- **Modèle de capacité**  : La capacité de base de données dans Azure Cosmos DB est basée sur un modèle basé sur le débit. Ce modèle est basé sur les [unités de requête par seconde](request-units.md) et constitue une unité qui représente le nombre d’opérations de base de données pouvant être exécutées par seconde sur une collection. Cette capacité peut être allouée [au niveau d’une collection ou d’une base de données](set-throughput.md), et elle peut être approvisionnée sur un modèle d’allocation ou à l’aide du [débit approvisionné en mode de mise à l’échelle automatique](provision-throughput-autoscale.md).
+- **Modèle de capacité** : La capacité de base de données dans Azure Cosmos DB est basée sur un modèle basé sur le débit. Ce modèle est basé sur les [unités de requête par seconde](request-units.md) et constitue une unité qui représente le nombre d’opérations de base de données pouvant être exécutées par seconde sur une collection. Cette capacité peut être allouée [au niveau d’une collection ou d’une base de données](set-throughput.md), et elle peut être approvisionnée sur un modèle d’allocation ou à l’aide du [débit approvisionné en mode de mise à l’échelle automatique](provision-throughput-autoscale.md).
 
-- **Unités de requête**  : Chaque opération de base de données a un coût d’unités de requête (RU) associé dans Azure Cosmos DB. Une fois l’opération exécutée, ce coût est soustrait du niveau d’unités de requête disponible à une seconde donnée. Si une demande nécessite plus d’unités de requête que le nombre d’unités de requête actuellement allouées/s, il existe deux options pour résoudre le problème : augmenter le nombre d’unités de requête ou attendre que la seconde suivante démarre, puis recommencer l’opération.
+- **Unités de requête** : Chaque opération de base de données a un coût d’unités de requête (RU) associé dans Azure Cosmos DB. Une fois l’opération exécutée, ce coût est soustrait du niveau d’unités de requête disponible à une seconde donnée. Si une demande nécessite plus d’unités de requête que le nombre d’unités de requête actuellement allouées/s, il existe deux options pour résoudre le problème : augmenter le nombre d’unités de requête ou attendre que la seconde suivante démarre, puis recommencer l’opération.
 
-- **Capacité élastique**  : La capacité d’une collection ou d’une base de données donnée peut changer à tout moment. Cela permet à la base de données de s’adapter de manière élastique aux exigences de débit de votre charge de travail.
+- **Capacité élastique** : La capacité d’une collection ou d’une base de données donnée peut changer à tout moment. Cela permet à la base de données de s’adapter de manière élastique aux exigences de débit de votre charge de travail.
 
-- **Partitionnement automatique**  : Azure Cosmos DB fournit un système de partitionnement automatique qui requiert un seul partitionnement (ou une clé de partition). Le [mécanisme de partitionnement automatique](partitioning-overview.md) est partagé entre toutes les API Azure Cosmos DB et permet une mise à l’échelle transparente des données et du débit via une distribution horizontale.
+- **Partitionnement automatique** : Azure Cosmos DB fournit un système de partitionnement automatique qui requiert un seul partitionnement (ou une clé de partition). Le [mécanisme de partitionnement automatique](partitioning-overview.md) est partagé entre toutes les API Azure Cosmos DB et permet une mise à l’échelle transparente des données et du débit via une distribution horizontale.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Options de migration pour l’API Azure Cosmos DB pour MongoDB
 
@@ -57,9 +57,9 @@ Dans Azure Cosmos DB, le débit est provisionné à l’avance et mesuré en uni
 Vous pouvez utiliser la [calculatrice de capacité Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) pour déterminer la quantité d’unités de requête en fonction de la configuration de votre compte de base de données, de la quantité de données, de la taille du document et des opérations de lecture et d’écriture requises par seconde.
 
 Les principaux facteurs qui affectent le nombre d’unités de requête nécessaires sont les suivants :
-- **Taille du document**  : plus la taille d’un élément/document augmente, plus le nombre d’unités de requête consommées pour le lire ou l’écrire augmente.
+- **Taille du document** : plus la taille d’un élément/document augmente, plus le nombre d’unités de requête consommées pour le lire ou l’écrire augmente.
 
-- **Nombre de propriétés de document**  : le nombre d’unités de requête consommées pour créer ou mettre à jour un document est lié au nombre, à la complexité et à la longueur de ses propriétés. Vous pouvez réduire la consommation d’unités de requête pour les opérations d’écriture en [limitant le nombre de propriétés indexées](mongodb-indexing.md).
+- **Nombre de propriétés de document** : le nombre d’unités de requête consommées pour créer ou mettre à jour un document est lié au nombre, à la complexité et à la longueur de ses propriétés. Vous pouvez réduire la consommation d’unités de requête pour les opérations d’écriture en [limitant le nombre de propriétés indexées](mongodb-indexing.md).
 
 - **Modèles de requête** : la complexité d’une requête a une incidence sur le nombre d’unités de requête qu’elle consomme. 
 
@@ -71,7 +71,7 @@ Cette commande génère un document JSON semblable au suivant :
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
+Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Choisir votre clé de partition
 Le partitionnement est un point clé à prendre en compte avant de migrer des données. Azure Cosmos DB utilise un partitionnement complètement managé pour augmenter la capacité d’une base de données à répondre aux exigences de stockage et de débit. Cette fonctionnalité n’a pas besoin de l’hébergement ni de la configuration des serveurs de routage.   

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849260"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350668"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Créer un pool avec le chiffrement de disque activé
 
@@ -25,8 +25,8 @@ Avec un pool Batch, vous pouvez accéder aux données et les stocker sur le syst
 
 Batch va appliquer l’une de ces technologies de chiffrement de disque sur les nœuds de calcul, en fonction de la configuration du pool et de la prise en charge régionale.
 
-- [Chiffrement de disque managé au repos avec des clés gérées par la plateforme](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Chiffrement sur l’hôte à l’aide d’une clé gérée par la plateforme](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Chiffrement de disque managé au repos avec des clés gérées par la plateforme](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Chiffrement sur l’hôte à l’aide d’une clé gérée par la plateforme](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Quand vous créez un pool Batch dans le portail Azure, sélectionnez **Temporary
 
 Une fois le pool créé, vous pouvez voir les cibles de configuration du chiffrement de disque dans la section **Propriétés** du pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Capture d’écran de l’option Configuration du chiffrement de disque dans le portail Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Capture d’écran montrant les cibles de configuration du chiffrement de disque dans le portail Azure.":::
 
 ## <a name="examples"></a>Exemples
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en plus sur le [chiffrement côté serveur de Stockage sur disque Azure](../virtual-machines/windows/disk-encryption.md).
+- Découvrez-en plus sur le [chiffrement côté serveur de Stockage sur disque Azure](../virtual-machines/disk-encryption.md).
 - Pour obtenir une vue d’ensemble détaillée de Batch, consultez [flux de travail et ressources du service Batch](batch-service-workflow-features.md).

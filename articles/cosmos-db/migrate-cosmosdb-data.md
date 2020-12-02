@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437148"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrer des centaines de téraoctets de données dans Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,11 +29,11 @@ Les stratégies de migration Azure Cosmos DB varient en fonction du choix de l'A
 
 Les outils existants pour procéder à la migration des données vers Azure Cosmos DB présentent certaines limites qui deviennent particulièrement évidentes à grande échelle :
 
- * **Fonctionnalités de scale-out limitées**  : pour migrer des téraoctets de données vers Azure Cosmos DB le plus rapidement possible, et utiliser efficacement l'intégralité du débit alloué, les clients de migration doivent avoir la possibilité d’effectuer un scale-out indéfiniment.  
+ * **Fonctionnalités de scale-out limitées** : pour migrer des téraoctets de données vers Azure Cosmos DB le plus rapidement possible, et utiliser efficacement l'intégralité du débit alloué, les clients de migration doivent avoir la possibilité d’effectuer un scale-out indéfiniment.  
 
-* **Absence de suivi de l'avancement et de pointage de contrôle**  : lors de la migration de jeux de données volumineux, il est important de suivre l'avancement de la migration et d'avoir recours au pointage de contrôle. À défaut, toute erreur survenant pendant la migration mettra fin à celle-ci, et vous devrez recommencer le processus à zéro. Il serait improductif de relancer l'intégralité du processus de migration alors que 99 % de celui-ci a déjà été effectué.  
+* **Absence de suivi de l'avancement et de pointage de contrôle** : lors de la migration de jeux de données volumineux, il est important de suivre l'avancement de la migration et d'avoir recours au pointage de contrôle. À défaut, toute erreur survenant pendant la migration mettra fin à celle-ci, et vous devrez recommencer le processus à zéro. Il serait improductif de relancer l'intégralité du processus de migration alors que 99 % de celui-ci a déjà été effectué.  
 
-* **Absence de file d'attente de lettres mortes**  : dans les jeux de données volumineux, certaines parties des données sources posent parfois des problèmes. En outre, des problèmes temporaires de client ou de réseau peuvent être rencontrés. Aucun de ces cas ne doit entraîner l'échec complet de la migration. Même si la plupart des outils de migration disposent de fonctionnalités robustes permettant d'effectuer de nouvelles tentatives et de prévenir les problèmes intermittents, celles-ci ne sont pas toujours suffisantes. Par exemple, si moins de 0,01 % des documents de données sources font plus de 2 Mo, leur écriture dans Azure Cosmos DB échouera. Idéalement, il est préférable que l'outil de migration conserve ces documents « en échec » dans une autre file d'attente de lettres mortes, qui pourra être traitée après la migration. 
+* **Absence de file d'attente de lettres mortes** : dans les jeux de données volumineux, certaines parties des données sources posent parfois des problèmes. En outre, des problèmes temporaires de client ou de réseau peuvent être rencontrés. Aucun de ces cas ne doit entraîner l'échec complet de la migration. Même si la plupart des outils de migration disposent de fonctionnalités robustes permettant d'effectuer de nouvelles tentatives et de prévenir les problèmes intermittents, celles-ci ne sont pas toujours suffisantes. Par exemple, si moins de 0,01 % des documents de données sources font plus de 2 Mo, leur écriture dans Azure Cosmos DB échouera. Idéalement, il est préférable que l'outil de migration conserve ces documents « en échec » dans une autre file d'attente de lettres mortes, qui pourra être traitée après la migration. 
 
 La plupart de ces limites sont en cours de correction pour les outils tels qu'Azure Data Factory et les services Azure Data Migration. 
 
@@ -142,12 +142,6 @@ Une fois les conditions préalables remplies, vous pouvez migrer les données en
 6. Certaines de ces erreurs peuvent être dues à des documents incorrects dans les données sources. Vous devez les identifier et les corriger. Ensuite, vous devez réexécuter l'étape d'importation sur les partitions défaillantes pour les réingérer. 
 
 Au terme de la migration, vous pouvez vérifier que le nombre de documents contenus dans Azure Cosmos DB et dans la base de données source est le même. Dans cet exemple, la taille totale des données contenues dans Azure Cosmos DB était de 65 téraoctets. Après la migration, l'indexation peut être activée de manière sélective et les RU peuvent être abaissées au niveau requis par les opérations de la charge de travail.
-
-## <a name="contact-the-azure-cosmos-db-team"></a>Sélectionner l’équipe Azure Cosmos DB
-Même si vous pouvez suivre les instructions de ce guide pour migrer correctement des jeux de données volumineux vers Azure Cosmos DB, pour des migrations à grande échelle, il est recommandé de contacter l’équipe produit d’Azure Cosmos DB pour valider la modélisation des données et une révision de l’architecture générale. En fonction de votre jeu de données et de votre charge de travail, l’équipe produit peut également suggérer d’autres optimisations des performances et des coûts qui peuvent s’appliquer à votre situation. Pour contacter l’équipe Azure Cosmos DB afin d’obtenir de l’aide concernant les migrations à grande échelle, vous pouvez ouvrir un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations », comme indiqué ci-dessous.
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Rubrique sur le support de la migration":::
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

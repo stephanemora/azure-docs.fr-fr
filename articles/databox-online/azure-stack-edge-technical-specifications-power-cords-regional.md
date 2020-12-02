@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903627"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446454"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Spécifications du cordon d’alimentation Azure Stack Edge Pro
 
@@ -158,4 +158,4 @@ Vous pouvez utiliser le tableau suivant pour rechercher les spécifications de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Spécifications techniques d’Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)
+[Spécifications techniques d’Azure Stack Edge Pro](./azure-stack-edge-technical-specifications-compliance.md)

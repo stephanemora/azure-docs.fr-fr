@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c6d03c896242d02e147e880a99eb9f1e7bb15da8
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793090"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326861"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure (Windows) ?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "92793090"
 
 Les machines virtuelles Azure sont exécutées dans différentes [régions géographiques](https://azure.microsoft.com/regions/) du monde entier. Elles offrent également un éventail de [tailles de machine](../../../virtual-machines/sizes.md). La galerie d’images de machine virtuelle vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Les machines virtuelles constituent ainsi une bonne solution pour différentes charges de travail SQL Server.
 
-Si vous ne connaissez pas SQL Server sur les machines virtuelles Azure, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure* , qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
+Si vous ne connaissez pas SQL Server sur les machines virtuelles Azure, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure*, qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="automated-updates"></a>Mises à jour automatisées
@@ -109,18 +109,18 @@ Si vous disposez d’une base de données existante, vous voudrez la déplacer v
 
 Le portail Azure fournit une page unique sur laquelle vous pouvez gérer [toutes vos ressources Azure SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), y compris vos machines virtuelles SQL.
 
-Pour accéder à la page **Ressources Azure SQL** , dans le menu du portail Azure, sélectionnez **Azure SQL** , ou recherchez et sélectionnez **Azure SQL** depuis n’importe quelle page.
+Pour accéder à la page **Ressources Azure SQL**, dans le menu du portail Azure, sélectionnez **Azure SQL**, ou recherchez et sélectionnez **Azure SQL** depuis n’importe quelle page.
 
 ![Rechercher Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > Azure SQL permet d’accéder rapidement et facilement à l’ensemble de vos bases de données Azure SQL, pools élastiques, serveurs logiques, instances managées et machines virtuelles. Azure SQL n'est pas un service ou une ressource. 
 
-Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter** . 
+Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter**. 
 
 ![Créer une ressource Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Après avoir sélectionné **+ Ajouter** , affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
+Après avoir sélectionné **+ Ajouter**, affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
 
 ![Détails de la vignette Bases de données](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -147,7 +147,7 @@ Le Programme d’amélioration du produit est activé par défaut. Il transmet r
 ### <a name="networking"></a>Mise en réseau
 * [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md)
 * [Adresses IP dans Azure](../../../virtual-network/public-ip-addresses.md)
-* [Créer un nom de domaine complet dans le portail Azure](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Créer un nom de domaine complet dans le portail Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentation SQL Server](/sql/index)

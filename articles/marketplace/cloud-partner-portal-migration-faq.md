@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455658"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -58,11 +58,11 @@ Voici les différences dans le rapport de revenu entre l’ancien Portail Cloud 
 
 | Portail des partenaires cloud | Espace partenaire |
 | --- | --- |
-| **Lien**  : https://cloudpartner.azure.com/ | **Lien**  : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**  : Rapports de paiement fournis dans le paiement des insights | **Navigation**  : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
-| **Étendue**  :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue**  :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
-| **Transaction non prête pour le paiement**  : Facturation en cours | **Transaction non prête pour le paiement**  : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
-| **Statut de paiement**  : n/a | **Statut de paiement**  :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
+| **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
+| **Étendue** :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue** :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
+| **Transaction non prête pour le paiement** : Facturation en cours | **Transaction non prête pour le paiement** : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
+| **Statut de paiement** : n/a | **Statut de paiement** :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Qu’en est-il des offres que j’ai publiées dans le portail Cloud Partner ?
@@ -79,14 +79,14 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 | --- | --- | --- |
 | SaaS | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). |
 | Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). |
-| Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](partner-center-portal/create-new-azure-apps-offer.md). |
+| Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Application Power BI | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une application Power BI pour AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Module IoT Edge | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](partner-center-portal/create-azure-container-offer.md). |
-| Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](partner-center-portal/create-consulting-service-offer.md). |
+| Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](./create-azure-container-offer.md). |
+| Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](./create-consulting-service-offer.md). |
 | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de service managé](partner-center-portal/create-new-managed-service-offer.md). |
 | Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Liste de vérification de la création d’offre SaaS dans l’Espace partenaires](./plan-saas-offer.md). |

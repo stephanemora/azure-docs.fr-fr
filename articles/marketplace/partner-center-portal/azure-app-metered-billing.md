@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896532"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436349"
 ---
 # <a name="managed-application-metered-billing"></a>Facturation des applications managées basée sur des mesures 
 
@@ -22,7 +22,7 @@ Le service de mesure de la Place de marché vous permet de créer des plans d’
 
 Pour qu’un plan d’application managée utilise la facturation basée sur des mesures, il doit remplir les critères suivants :
 
-* Respecter toutes les exigences d’offre décrites dans [Créer une offre d’application Azure](create-new-azure-apps-offer.md).
+* Respecter toutes les exigences d’offre décrites dans [Créer une offre d’application Azure](../create-new-azure-apps-offer.md).
 * Fixer une **Tarification** pour facturer aux clients le coût mensuel de votre service. Le prix peut être égal à zéro si vous ne souhaitez pas facturer des frais fixes mais plutôt vous appuyer entièrement sur la facturation basée sur des mesures.
 * Définir des **dimensions de facturation** pour les événements mesurés pour lesquels le client paiera en plus du tarif forfaitaire.
 * S’intégrer aux [API du service de mesure de la consommation de la Place de marché](./marketplace-metering-service-apis.md) pour informer Microsoft des événements facturables.
@@ -56,11 +56,11 @@ Un client Azure s’abonnant au service CoA peut analyser et générer des rappo
 
 Les dimensions de facturation sont utilisées pour indiquer au client comment il sera facturé pour l’utilisation du logiciel.  Ces dimensions sont également utilisées pour signaler des événements d’utilisation à Microsoft. Elles sont définies comme suit :
 
-* **Identificateur de dimension**  : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
-* **Nom de la dimension**  : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
-* **Unité de mesure**  : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
-* **Prix unitaire**  : prix pour une unité de la dimension.
-* **Quantité incluse pour l’échéance mensuelle**  : quantité de la dimension incluse par mois pour les clients qui paient les coûts mensuels récurrents ; il doit s’agir d’un entier.
+* **Identificateur de dimension** : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
+* **Nom de la dimension** : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
+* **Unité de mesure** : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
+* **Prix unitaire** : prix pour une unité de la dimension.
+* **Quantité incluse pour l’échéance mensuelle** : quantité de la dimension incluse par mois pour les clients qui paient les coûts mensuels récurrents ; il doit s’agir d’un entier.
 
 Les dimensions de facturation sont partagées entre tous les plans d’une offre. Certains attributs s’appliquent à la dimension dans tous les plans, et les autres attributs sont spécifiques à un plan.
 

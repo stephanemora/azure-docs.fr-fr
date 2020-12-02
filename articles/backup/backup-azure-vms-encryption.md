@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978112"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324922"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -16,13 +16,13 @@ Cet article explique comment sauvegarder et restaurer des machines virtuelles Az
 
 ## <a name="encryption-using-platform-managed-keys"></a>Chiffrement à l’aide de clés gérées par la plateforme
 
-Par défaut, tous les disques de vos machines virtuelles sont automatiquement chiffrés au repos à l’aide de clés PMK (Platform-Managed Keys) qui utilisent [Storage Service Encryption](../storage/common/storage-service-encryption.md). Vous pouvez sauvegarder ces machines virtuelles à l’aide de Sauvegarde Azure sans aucune action spécifique pour prendre en charge le chiffrement de votre côté. Pour plus d’informations sur le chiffrement avec des clés gérées par la plateforme, [consultez cet article](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
+Par défaut, tous les disques de vos machines virtuelles sont automatiquement chiffrés au repos à l’aide de clés PMK (Platform-Managed Keys) qui utilisent [Storage Service Encryption](../storage/common/storage-service-encryption.md). Vous pouvez sauvegarder ces machines virtuelles à l’aide de Sauvegarde Azure sans aucune action spécifique pour prendre en charge le chiffrement de votre côté. Pour plus d’informations sur le chiffrement avec des clés gérées par la plateforme, [consultez cet article](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Disques chiffrés](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Chiffrement à l’aide de clés gérées par le client
 
-Lorsque vous chiffrez des disques avec des clés gérées par le client (CMK), la clé utilisée pour chiffrer les disques est stockée dans Azure Key Vault et elle est gérée par vous. Le chiffrement Storage Service Encryption (SSE) avec CMK est différent du chiffrement Azure Disk Encryption (ADE). ADE utilise les outils de chiffrement du système d’exploitation. SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser le système d’exploitation ou l’image de votre choix pour vos machines virtuelles. Pour plus d’informations sur le chiffrement de disques managés avec des clés gérées par la plateforme, consultez [cet article](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
+Lorsque vous chiffrez des disques avec des clés gérées par le client (CMK), la clé utilisée pour chiffrer les disques est stockée dans Azure Key Vault et elle est gérée par vous. Le chiffrement Storage Service Encryption (SSE) avec CMK est différent du chiffrement Azure Disk Encryption (ADE). ADE utilise les outils de chiffrement du système d’exploitation. SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser le système d’exploitation ou l’image de votre choix pour vos machines virtuelles. Pour plus d’informations sur le chiffrement de disques managés avec des clés gérées par la plateforme, consultez [cet article](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Prise en charge du chiffrement avec ADE
 

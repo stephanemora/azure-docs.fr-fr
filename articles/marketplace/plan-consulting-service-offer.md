@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754205"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452114"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment planifier une offre de services de conseil dans le marketplace commercial
 
@@ -36,7 +36,7 @@ Pour en savoir plus sur les différences entre AppSource et Place de marché Azu
 
 ## <a name="eligibility-requirements"></a>Conditions d’éligibilité
 
-Pour démontrer aux clients votre expertise dans un domaine, vous devez remplir un ensemble de conditions d’éligibilité avant de publier une offre de service de conseil. Ces conditions dépendent du produit au cœur de votre offre. La liste complète des conditions d’éligibilité pour chaque produit principal est accessible dans les [stratégies de certification pour les services de conseil](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+Pour démontrer aux clients votre expertise dans un domaine, vous devez remplir un ensemble de conditions d’éligibilité avant de publier une offre de service de conseil. Ces conditions dépendent du produit au cœur de votre offre. La liste complète des conditions d’éligibilité pour chaque produit principal est accessible dans les [stratégies de certification pour les services de conseil](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > Pour certains produits principaux, vous devez disposer d’une compétence Microsoft Gold ou Silver dans votre domaine de solution. Pour plus d’informations, consultez [Compétences Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
@@ -45,11 +45,11 @@ Pour démontrer aux clients votre expertise dans un domaine, vous devez remplir 
 
 Le marketplace commercial prend en charge cinq types de service de conseil :
 
-* **Évaluation**  : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et estimer le coût et la chronologie de son implémentation.
-* **Réunion d’information**  : présentation d’une solution ou d’un service à l’aide d’infrastructures, de versions de démonstration et d’exemples de clients.
-* **Implémentation**  : installation complète qui résulte en une solution entièrement fonctionnelle.
-* **Preuve de concept**  : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client.
-* **Atelier**  : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client.
+* **Évaluation** : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et estimer le coût et la chronologie de son implémentation.
+* **Réunion d’information** : présentation d’une solution ou d’un service à l’aide d’infrastructures, de versions de démonstration et d’exemples de clients.
+* **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle.
+* **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client.
+* **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client.
 
 Votre service doit avoir une durée fixe et prédéterminée pouvant atteindre 10 semaines. La durée du service doit être rendue explicite dans la publication de l’offre.
 
@@ -84,7 +84,7 @@ Lorsque vous créez votre offre de service de conseil dans Espace partenaires, v
 
 Pour faciliter la création de votre offre, préparez certains de ces éléments à l’avance. Sauf indication contraire, les éléments suivants sont requis.
 
-**Name**  : ce nom apparaîtra en tant que titre du référencement de votre annonce dans la place de marché commerciale. Le nom peut être une marque. Il ne peut pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères. Le nom doit inclure la durée et le type de service de l’offre afin de favoriser l’optimisation du référencement d’un site auprès d’un moteur de recherche (SEO). Le format requis est *Nom : durée + type*. N’incluez pas le nom de votre société, sauf s’il s’agit également du nom du produit. Voici quelques exemples :
+**Name** : ce nom apparaîtra en tant que titre du référencement de votre annonce dans la place de marché commerciale. Le nom peut être une marque. Il ne peut pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères. Le nom doit inclure la durée et le type de service de l’offre afin de favoriser l’optimisation du référencement d’un site auprès d’un moteur de recherche (SEO). Le format requis est *Nom : durée + type*. N’incluez pas le nom de votre société, sauf s’il s’agit également du nom du produit. Voici quelques exemples :
 
 |Ne pas dire |Dire  |
 |---|---|
@@ -92,9 +92,9 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 |Atelier portant sur les grille-pain intelligents |Grille-pain intelligents : Atelier d’une semaine |
 |POC sur la migration de SQL Server par Contoso |Migration SQL : Preuve de concept de 3 semaines |
 
-**Résultats de recherche récapitulatifs**  : Décrivez l’objectif ou le but de votre offre en 200 caractères maximum. Ce résumé est utilisé dans les résultats de recherche de la publication sur le marketplace commercial. Il ne doit pas être identique au titre. Pensez à inclure vos principaux mots clés de SEO.
+**Résultats de recherche récapitulatifs** : Décrivez l’objectif ou le but de votre offre en 200 caractères maximum. Ce résumé est utilisé dans les résultats de recherche de la publication sur le marketplace commercial. Il ne doit pas être identique au titre. Pensez à inclure vos principaux mots clés de SEO.
 
-**Description**  : Cette description s’affichera dans la publication sur le marketplace commercial. Pensez à inclure une proposition de valeur, les principaux avantages, la base d’utilisateurs visée et toute catégorie ou association de secteur d’activité.
+**Description** : Cette description s’affichera dans la publication sur le marketplace commercial. Pensez à inclure une proposition de valeur, les principaux avantages, la base d’utilisateurs visée et toute catégorie ou association de secteur d’activité.
 
 Lors de la rédaction de la description, suivez ces critères, en fonction de votre type de service :
 
@@ -119,13 +119,13 @@ Vous pouvez également utiliser des balises HTML pour mettre en forme votre desc
 
 **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les magasins en ligne. Vous n’avez pas besoin d’inclure le **nom** et la **description** de l’offre.
 
-**Durée**  : Votre offre de service de conseil doit avoir une durée prédéterminée de 10 semaines maximum.
+**Durée** : Votre offre de service de conseil doit avoir une durée prédéterminée de 10 semaines maximum.
 
-**Coordonnées**  : Dans Espace partenaires, vous êtes invité à fournir le nom, l’adresse e-mail et le numéro de téléphone de deux personnes de votre entreprise (vous pouvez être l’un des deux contacts). Nous utiliserons ces informations pour communiquer avec vous concernant votre offre. Elles ne sont pas présentées aux clients, mais peuvent être communiquées à des partenaires fournisseurs de solutions cloud (CSP).
+**Coordonnées** : Dans Espace partenaires, vous êtes invité à fournir le nom, l’adresse e-mail et le numéro de téléphone de deux personnes de votre entreprise (vous pouvez être l’un des deux contacts). Nous utiliserons ces informations pour communiquer avec vous concernant votre offre. Elles ne sont pas présentées aux clients, mais peuvent être communiquées à des partenaires fournisseurs de solutions cloud (CSP).
 
-**Documents d’accompagnement**  : Chargez au moins un et jusqu’à trois documents PDF destinés aux clients qui fournissent des informations sur votre offre. Par exemple, il peut s’agir de livres blancs ou de brochures.
+**Documents d’accompagnement** : Chargez au moins un et jusqu’à trois documents PDF destinés aux clients qui fournissent des informations sur votre offre. Par exemple, il peut s’agir de livres blancs ou de brochures.
 
-**Médias de marketplace – logos**  : Fournissez un fichier PNG pour le logo de grande taille. Espace partenaires l’utilisera pour créer un petit logo. Si vous le souhaitez, vous pouvez remplacer le petit logo par une autre image ultérieurement.
+**Médias de marketplace – logos** : Fournissez un fichier PNG pour le logo de grande taille. Espace partenaires l’utilisera pour créer un petit logo. Si vous le souhaitez, vous pouvez remplacer le petit logo par une autre image ultérieurement.
 
 * Grande taille (de 216 x 216 à 350 x 350 px, obligatoire)
 * Petite taille (48 x 48 px, facultatif)
@@ -139,7 +139,7 @@ Suivez ces instructions pour vos logos:
 * Si vous utilisez un arrière-plan transparent, assurez-vous que le logo et le texte ne sont pas blancs, noirs ou bleus.
 * Évitez les dégradés dans le logo ou l’arrière-plan. Ne placez pas de texte sur le logo, pas même le nom de votre marque ou de votre entreprise.
 
-**Médias de marketplace – captures d’écran**  : Ajoutez entre une et cinq images qui illustrent votre offre. Chacune image doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
+**Médias de marketplace – captures d’écran** : Ajoutez entre une et cinq images qui illustrent votre offre. Chacune image doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
 
 **Médias de marketplace – vidéos** (facultatif) : Vous pouvez ajouter jusqu’à quatre vidéos qui illustrent votre offre. Les vidéos doivent être hébergées sur YouTube ou Vimeo et avoir une miniature (fichier PNG 1280 x 720).
 

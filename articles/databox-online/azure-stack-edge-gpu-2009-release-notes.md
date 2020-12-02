@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4aa25024273d62fe5b292d329f6470a828b952a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047299"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449541"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Notes de publication concernant la disponibilité générale d’Azure Stack Edge Pro avec GPU
 
@@ -38,7 +38,7 @@ Le tableau suivant fournit un résumé de problèmes connus de l’appareil Azur
 | Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
 |**1.**|Fonctionnalités de préversion |Pour cette mise en production de la disponibilité générale, les fonctionnalités suivantes : Infrastructure Azure Resource Manager locale, machines virtuelles, Kubernetes, Kubernetes activé par Azure Arc, service multiprocessus (MPS) pour GPU : toutes ces fonctionnalités sont disponibles en préversion pour votre appareil Azure Stack Edge Pro.  |Ces fonctionnalités seront généralement disponibles dans une mise en production ultérieure. |
-| **2.** |Azure Stack Edge Pro + Azure SQL | La création d’une base de données SQL nécessite un accès administrateur.   |Suivez les étapes suivantes au lieu des étapes 1-2 dans [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database). <ul><li>Dans l’interface utilisateur locale de votre appareil, activez l’interface de calcul. Sélectionnez **Compute > N° de port > Activer pour le calcul > Appliquer.**</li><li>Téléchargez `sqlcmd` sur votre ordinateur client à partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility. </li><li>Connectez-vous à l’adresse IP de votre interface de calcul (port activé), en ajoutant un « 1401 » à la fin de l’adresse.</li><li>La commande finale ressemble à ceci : sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd".</li>Ensuite, les étapes 3-4 de la documentation actuelle devraient être identiques. </li></ul> |
+| **2.** |Azure Stack Edge Pro + Azure SQL | La création d’une base de données SQL nécessite un accès administrateur.   |Suivez les étapes suivantes au lieu des étapes 1-2 dans [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database). <ul><li>Dans l’interface utilisateur locale de votre appareil, activez l’interface de calcul. Sélectionnez **Compute > N° de port > Activer pour le calcul > Appliquer.**</li><li>Téléchargez `sqlcmd` sur votre ordinateur client à partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility. </li><li>Connectez-vous à l’adresse IP de votre interface de calcul (port activé), en ajoutant un « 1401 » à la fin de l’adresse.</li><li>La commande finale ressemble à ceci : sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd".</li>Ensuite, les étapes 3-4 de la documentation actuelle devraient être identiques. </li></ul> |
 | **3.** |Actualiser| Les modifications incrémentielles d’objets blob restaurés via la fonctionnalité **Actualiser** ne sont pas prises en charge. |Pour les points de terminaison d’objet blob, des mises à jour partielles d’objets blob après une actualisation peuvent empêcher le chargement des mises à jour dans le cloud. Prenons l’exemple de la séquence d’actions suivante :<ul><li>Créer un objet blob dans le cloud. Ou supprimer un objet blob précédemment chargé à partir de l’appareil.</li><li>Actualiser l’objet blob à partir du cloud dans l’appliance à l’aide de la fonctionnalité d’actualisation.</li><li>Mettre à jour uniquement une partie de l’objet blob à l’aide des API REST du Kit de développement logiciel (SDK) Azure.</li></ul>Ces actions peuvent avoir pour effet que des sections mises à jour de l’objet blob ne sont pas mises à jour dans le cloud. <br>**Solution de contournement** : servez-vous d’outils tels que Robocopy ou d’une copie de fichiers normale via l’Explorateur ou la ligne de commande pour remplacer des objets blob entiers.|
 |**4.**|Limitation|Lors d’une limitation, si de nouvelles écritures dans l’appareil ne sont pas autorisées, les écritures effectuées par le client NFS échouent avec l’erreur « Autorisation refusée ».| L’erreur s’affiche comme ci-dessous :<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir : impossible de créer le répertoire ’test’ : Autorisation refusée|
 |**5.**|Ingestion du Stockage Blob|Lors de l’utilisation d’AzCopy version 10 pour l’ingestion du stockage d’objets blob, exécutez AzCopy avec l’argument suivant : `Azcopy <other arguments> --cap-mbps 2000`.| Si ces limites ne sont pas fournies pour AzCopy, cela risque d’entraîner l’envoi d’un grand nombre de demandes à l’appareil et d’occasionner des problèmes avec le service.|
@@ -66,4 +66,3 @@ Le tableau suivant fournit un résumé de problèmes connus de l’appareil Azur
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Préparer le déploiement d’un appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-prep.md)
-

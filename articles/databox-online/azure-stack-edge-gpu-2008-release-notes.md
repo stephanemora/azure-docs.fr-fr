@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: cfb20b3bf9db9e02ed9820232f1f252379660dca
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 25db4e7f3e4e1f7056979c4c40c6ffc61f340439
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345369"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Notes de publication d’Azure Stack Edge Pro avec GPU (préversion)
 
@@ -39,7 +39,7 @@ Le tableau suivant fournit un résumé de problèmes connus de l’appareil Azur
 
 | Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
-| **1.** |Azure Stack Edge Pro + SQL Azure | La création d’une base de données SQL nécessite un accès administrateur.   |Suivez les étapes suivantes au lieu des étapes 1-2 dans [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database). <ul><li>Dans l’interface utilisateur locale de votre appareil, activez l’interface de calcul. Sélectionnez **Compute > N° de port > Activer pour le calcul > Appliquer.**</li><li>Téléchargez `sqlcmd` sur votre ordinateur client à partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility. </li><li>Connectez-vous à l’adresse IP de votre interface de calcul (port activé), en ajoutant un « 1401 » à la fin de l’adresse.</li><li>La commande finale ressemble à ceci : sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd".</li>Ensuite, les étapes 3-4 de la documentation actuelle devraient être identiques. </li></ul> |
+| **1.** |Azure Stack Edge Pro + SQL Azure | La création d’une base de données SQL nécessite un accès administrateur.   |Suivez les étapes suivantes au lieu des étapes 1-2 dans [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database). <ul><li>Dans l’interface utilisateur locale de votre appareil, activez l’interface de calcul. Sélectionnez **Compute > N° de port > Activer pour le calcul > Appliquer.**</li><li>Téléchargez `sqlcmd` sur votre ordinateur client à partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility. </li><li>Connectez-vous à l’adresse IP de votre interface de calcul (port activé), en ajoutant un « 1401 » à la fin de l’adresse.</li><li>La commande finale ressemble à ceci : sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd".</li>Ensuite, les étapes 3-4 de la documentation actuelle devraient être identiques. </li></ul> |
 | **2.** |Actualiser| Les modifications incrémentielles d’objets blob restaurés via la fonctionnalité **Actualiser** ne sont pas prises en charge. |Pour les points de terminaison d’objet blob, des mises à jour partielles d’objets blob après une actualisation peuvent empêcher le chargement des mises à jour dans le cloud. Prenons l’exemple de la séquence d’actions suivante :<ul><li>Créer un objet blob dans le cloud. Ou supprimer un objet blob précédemment chargé à partir de l’appareil.</li><li>Actualiser l’objet blob à partir du cloud dans l’appliance à l’aide de la fonctionnalité d’actualisation.</li><li>Mettre à jour uniquement une partie de l’objet blob à l’aide des API REST du Kit de développement logiciel (SDK) Azure.</li></ul>Ces actions peuvent avoir pour effet que des sections mises à jour de l’objet blob ne sont pas mises à jour dans le cloud. <br>**Solution de contournement** : servez-vous d’outils tels que Robocopy ou d’une copie de fichiers normale via l’Explorateur ou la ligne de commande pour remplacer des objets blob entiers.|
 |**3.**|Limitation|Lors d’une limitation, si de nouvelles écritures dans l’appareil ne sont pas autorisées, les écritures effectuées par le client NFS échouent avec l’erreur « Autorisation refusée ».| L’erreur s’affiche comme ci-dessous :<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir : impossible de créer le répertoire ’test’ : Autorisation refusée|
 |**4.**|Ingestion du Stockage Blob|Lors de l’utilisation d’AzCopy version 10 pour l’ingestion du stockage d’objets blob, exécutez AzCopy avec l’argument suivant : `Azcopy <other arguments> --cap-mbps 2000`.| Si ces limites ne sont pas fournies pour AzCopy, cela risque d’entraîner l’envoi d’un grand nombre de demandes à l’appareil et d’occasionner des problèmes avec le service.|
@@ -58,4 +58,3 @@ Le tableau suivant fournit un résumé de problèmes connus de l’appareil Azur
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Préparer le déploiement d’un appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-prep.md)
-

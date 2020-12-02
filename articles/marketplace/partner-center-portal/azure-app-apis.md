@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127839"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455453"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de soumission de l’Espace partenaires pour l’intégration d’applications Azure dans l’Espace partenaires
 
@@ -42,7 +42,7 @@ Pour utiliser l’API de soumission au Microsoft Store, vous devez associer une 
 
 1. Dans l’Espace partenaires, [associez le compte Espace partenaires de votre organisation à l’annuaire Azure AD de votre organisation](/windows/uwp/publish/associate-azure-ad-with-partner-center).
 1. Ensuite, sur la page **Utilisateurs** de la section **Paramètres de compte** de l’Espace partenaires, [ajoutez l’application Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) représentant l’application ou le service que vous utiliserez pour accéder aux soumissions de votre compte Espace partenaires. Veillez à attribuer à cette application le rôle **Gestionnaire**. Si l’application n’existe pas encore dans votre annuaire Azure AD, vous pouvez [créer une application Azure AD dans l’Espace partenaires](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Revenez à la page **Utilisateurs** , cliquez sur le nom de votre application Azure AD pour accéder à ses paramètres, puis copiez les valeurs **ID tenant** et **ID client**.
+1. Revenez à la page **Utilisateurs**, cliquez sur le nom de votre application Azure AD pour accéder à ses paramètres, puis copiez les valeurs **ID tenant** et **ID client**.
 1. Cliquez sur **Ajouter une nouvelle clé**. Sur l’écran suivant, copiez la valeur **Clé**. Vous ne pourrez plus accéder à cette information une fois que vous aurez quitté cette page. Pour plus d’informations, voir [Gérer les clés pour une application Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Étape 2 : Obtenir un jeton d’accès Azure AD
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Pour la valeur *tenant_id* dans le `POST URI` et les paramètres *client_id* et *client_secret* , spécifiez l’ID tenant, l’ID client et la clé de votre application que vous avez récupérée dans l’Espace partenaires à la section précédente. Pour le paramètre *resource* , vous devez spécifier `https://api.partner.microsoft.com`.
+Pour la valeur *tenant_id* dans le `POST URI` et les paramètres *client_id* et *client_secret*, spécifiez l’ID tenant, l’ID client et la clé de votre application que vous avez récupérée dans l’Espace partenaires à la section précédente. Pour le paramètre *resource*, vous devez spécifier `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Étape 3 : Utiliser l’API de soumission au Microsoft Store
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [Créer une ressource technique de machine virtuelle Azure](create-azure-container-technical-assets.md)
-* Découvrez comment [Créer une offre de conteneur Azure](create-azure-container-offer.md)
+* Découvrez comment [Créer une ressource technique de machine virtuelle Azure](../create-azure-container-technical-assets.md)
+* Découvrez comment [Créer une offre de conteneur Azure](../create-azure-container-offer.md)

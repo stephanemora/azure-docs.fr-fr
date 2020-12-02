@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442053"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445200"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -39,6 +39,10 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
     Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Limites
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
 ## <a name="workspace-resource-manager-template"></a>Modèle Resource Manager de l’espace de travail
 
 Le modèle Azure Resource Manager utilisé tout au long de ce document est disponible dans le répertoire [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) du dépôt GitHub de modèles de démarrage rapide Azure.
@@ -53,13 +57,13 @@ Ce modèle crée les services Azure suivants :
 
 Le groupe de ressources est le conteneur des services. Les différents services sont requis par l’espace de travail Azure Machine Learning.
 
-L’exemple de modèle comprend deux paramètres **obligatoires**  :
+L’exemple de modèle comprend deux paramètres **obligatoires** :
 
-* L’emplacement ( **location** ) de création des ressources.
+* L’emplacement (**location**) de création des ressources.
 
     Le modèle utilise l’emplacement que vous sélectionnez pour la plupart des ressources. L’exception est le service Application Insights, qui n’est pas disponible dans tous les emplacements où les autres services le sont. Si vous sélectionnez un emplacement où il n’est pas disponible, le service est créé à l’emplacement USA Centre Sud.
 
-* Le nom de l’espace de travail ( **workspaceName** ), qui est le nom convivial de l’espace de travail Azure Machine Learning.
+* Le nom de l’espace de travail (**workspaceName**), qui est le nom convivial de l’espace de travail Azure Machine Learning.
 
     > [!NOTE]
     > Le nom de l’espace de travail n’est pas sensible à la casse.
@@ -124,7 +128,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing** , puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
+Par défaut, toutes les ressources créées dans le cadre du modèle sont nouvelles. Toutefois, vous avez également la possibilité d’utiliser des ressources existantes. En fournissant des paramètres supplémentaires au modèle, vous pouvez utiliser des ressources existantes. Par exemple, si vous voulez utiliser un compte de stockage existant, définissez la valeur **storageAccountOption** sur **existing**, puis indiquez le nom de votre compte de stockage dans le paramètre **storageAccountName**.
 
 > [!IMPORTANT]
 > Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge par le compte de stockage par défaut de l’espace de travail. Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge par le compte de stockage _par défaut_ de l'espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
@@ -541,7 +545,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
-1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__ , choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
+1. Suivez la procédure indiquée dans [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quand vous arrivez à l’écran __Sélectionnez un modèle__, choisissez le modèle **201-machine-learning-advanced** dans la liste déroulante.
 1. Sélectionnez __Sélectionner un modèle__ pour utiliser le modèle. Fournissez les informations nécessaires suivantes et tous les autres paramètres en fonction de votre scénario de déploiement.
 
    * Abonnement : Sélectionnez l’abonnement Azure à utiliser pour ces ressources.
@@ -550,7 +554,7 @@ New-AzResourceGroupDeployment `
    * Nom de l’espace de travail : Nom à utiliser pour l’espace de travail Azure Machine Learning qui va être créé. Le nom de l'espace de travail doit contenir entre 3 et 33 caractères. Il ne peut contenir que des caractères alphanumériques et « - ».
    * Localisation : Sélectionnez l’emplacement de création des ressources.
 1. Sélectionnez __Revoir + créer__.
-1. Dans l’écran __Vérifier + créer__ , acceptez les conditions générales mentionnées, puis sélectionnez __Créer__.
+1. Dans l’écran __Vérifier + créer__, acceptez les conditions générales mentionnées, puis sélectionnez __Créer__.
 
 Pour plus d’informations, consultez [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a65d8a499f6eba130dc9537de3cb2b3dc3abe8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447169"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446766"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Choix d’architecture de la surveillance à distance
 
@@ -23,7 +23,7 @@ L’accélérateur de solution de supervision à distance Azure IoT est un accé
 - Gestion des appareils
 - Traitement des flux de données
 
-La solution de supervision à distance suit l’[architecture de référence Azure IoT](https://aka.ms/iotrefarchitecture) recommandée.
+La solution de supervision à distance suit l’[architecture de référence Azure IoT](/azure/architecture/reference-architectures/iot) recommandée.
 
 Cet article décrit les principaux choix techniques et d’architecture effectués dans chaque sous-système de supervision à distance. Toutefois, les choix techniques effectués par Microsoft dans la solution de supervision à distance ne représentent pas la seule façon d’implémenter une solution IoT de supervision à distance. Vous devez considérer l’implémentation technique comme une base de référence pour la génération d’une application réussie et vous devez la modifier pour :
 
@@ -86,4 +86,4 @@ Les alternatives à Docker incluent l’hébergement de microservices dans les s
 
 * Déployer votre solution de supervision à distance [ici](https://www.azureiotsolutions.com/).
 * Explorer le code GitHub en [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) et [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* En savoir plus sur l’architecture de référence IoT [ici](https://aka.ms/iotrefarchitecture).
+* En savoir plus sur l’architecture de référence IoT [ici](/azure/architecture/reference-architectures/iot).

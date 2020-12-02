@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790132"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324616"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Présentation de SQL Server sur les machines virtuelles Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ SQL Server sur les machines virtuelles Azure vous permet d’utiliser des versio
 
 Les machines virtuelles Azure sont exécutées dans différentes [régions géographiques](https://azure.microsoft.com/regions/) du monde entier. Elles offrent également un éventail de [tailles de machine](../../../virtual-machines/sizes.md). La galerie d’images de machine virtuelle vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Les machines virtuelles constituent ainsi une bonne solution pour différentes charges de travail SQL Server. 
 
-Si vous ne connaissez pas Azure SQL, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure* , qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
+Si vous ne connaissez pas Azure SQL, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure*, qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Démarrer avec les machines virtuelles SQL Server
@@ -75,7 +75,7 @@ Quand vous configurez SQL Server sur Linux, vous installez le package Moteur de 
 
 * [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md)
 * [Adresses IP dans Azure](../../../virtual-network/public-ip-addresses.md)
-* [Créer un nom de domaine complet dans le portail Azure](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Créer un nom de domaine complet dans le portail Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 
