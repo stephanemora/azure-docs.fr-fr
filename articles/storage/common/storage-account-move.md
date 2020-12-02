@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "92792988"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Déplacer un compte Stockage Azure vers une autre région
@@ -53,11 +53,11 @@ Pour exporter un modèle à l’aide du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Choisissez **Toutes les ressources** , puis sélectionnez votre compte de stockage.
+2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
-3. Sélectionnez **Paramètres** > **Exporter le modèle** .
+3. Sélectionnez **Paramètres** > **Exporter le modèle**.
 
-4. Choisissez **Télécharger** dans le panneau **Exporter le modèle** .
+4. Choisissez **Télécharger** dans le panneau **Exporter le modèle**.
 
 5. Localisez le fichier .zip que vous avez téléchargé à partir du portail, puis décompressez-le dans le dossier de votre choix.
 
@@ -101,21 +101,21 @@ Modifiez le modèle en changeant le nom et la région du compte de stockage.
 
 Pour déployer le modèle à l’aide du portail Azure :
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** .
+1. Dans le portail Azure, sélectionnez **Créer une ressource**.
 
-2. Dans **Rechercher sur la Place de marché** , tapez **déploiement de modèle** , puis appuyez sur **Entrée** .
+2. Dans **Rechercher sur la Place de marché**, tapez **déploiement de modèle**, puis appuyez sur **Entrée**.
 
-3. Sélectionnez **Déploiement de modèle** .
+3. Sélectionnez **Déploiement de modèle**.
 
     ![Bibliothèque des modèles Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Sélectionnez **Create** (Créer).
 
-5. Sélectionnez **Générer votre propre modèle dans l’éditeur** .
+5. Sélectionnez **Générer votre propre modèle dans l’éditeur**.
 
-6. Sélectionnez **Charger le fichier** , puis suivez les instructions pour charger le fichier **template.json** que vous avez téléchargé dans la section précédente.
+6. Sélectionnez **Charger le fichier**, puis suivez les instructions pour charger le fichier **template.json** que vous avez téléchargé dans la section précédente.
 
-7. Dans le fichier **template.json** , définissez la valeur par défaut du nom du compte de stockage pour nommer le compte de stockage cible. Cet exemple définit `mytargetaccount` comme valeur par défaut du nom du compte de stockage.
+7. Dans le fichier **template.json**, définissez la valeur par défaut du nom du compte de stockage pour nommer le compte de stockage cible. Cet exemple définit `mytargetaccount` comme valeur par défaut du nom du compte de stockage.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Pour déployer le modèle à l’aide du portail Azure :
          "location": "centralus"
          }]          
     ```
-    Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus** .
+    Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour déployer le modèle à l’aide de PowerShell :
 
-1. Dans le fichier **template.json** , définissez la valeur par défaut du nom du compte de stockage pour nommer le compte de stockage cible. Cet exemple définit `mytargetaccount` comme valeur par défaut du nom du compte de stockage.
+1. Dans le fichier **template.json**, définissez la valeur par défaut du nom du compte de stockage pour nommer le compte de stockage cible. Cet exemple définit `mytargetaccount` comme valeur par défaut du nom du compte de stockage.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -182,17 +182,17 @@ Déployez le modèle pour créer un compte de stockage dans la région cible.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Enregistrez le fichier **template.json** .
+1. Enregistrez le fichier **template.json**.
 
 2. Entrez ou sélectionnez les valeurs de propriété :
 
-- **Abonnement** : Sélectionnez un abonnement Azure.
+- **Abonnement**: Sélectionnez un abonnement Azure.
 
-- **Groupe de ressources**  : Sélectionnez **Créer** et donnez un nom au groupe de ressources.
+- **Groupe de ressources** : Sélectionnez **Créer** et donnez un nom au groupe de ressources.
 
 - **Emplacement** : Sélectionnez un emplacement Azure.
 
-3. Cochez la case **J’accepte les termes et conditions mentionnés ci-dessus** , puis cliquez sur le bouton **Sélectionner un achat** .
+3. Cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur le bouton **Sélectionner un achat**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -257,7 +257,7 @@ Pour supprimer un compte de stockage à l’aide du Portail Azure :
 
 2. Recherchez le compte de stockage cible à supprimer, puis faites un clic droit sur le bouton **Plus** ( **...** ) se trouvant à droite de la liste.
 
-3. Sélectionnez **Supprimer** , puis confirmez.
+3. Sélectionnez **Supprimer**, puis confirmez.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
