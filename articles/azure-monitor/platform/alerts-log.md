@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018203"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186777"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/get-started-portal.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](alerts-unified-log.md).
+Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md). [En savoir plus sur les fonctionnalités et la terminologie des alertes de journal](alerts-unified-log.md).
 
 Cet article explique comment créer et gérer des alertes de journal à l’aide d’Azure Monitor. Les règles d’alerte sont définies par trois composants :
 - Cible : ressource Azure spécifique à surveiller.
@@ -27,7 +27,7 @@ Cet article explique comment créer et gérer des alertes de journal à l’aide
 Vous pouvez également créer des règles d’alerte de journal à l’aide de modèles Azure Resource Manager qui sont décrits dans un [autre article](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Les données de journal d’un [espace de travail Log Analytics](../log-query/get-started-portal.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
+> Les données de journal d’un [espace de travail Log Analytics](../log-query/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Créer une règle d’alerte de journal avec le portail Azure
 
@@ -35,7 +35,7 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
 
 1. Accédez à la ressource pour laquelle vous souhaitez créer une alerte.
 1. Sous **Surveiller**, sélectionnez **Journaux**.
-1. Interrogez les données de journal qui peuvent indiquer le problème. Pour savoir ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/get-started-portal.md), vous pouvez utiliser la [rubrique d’exemples de requêtes d’alerte](../log-query/saved-queries.md). En outre, [découvrez comment créer des requêtes d’alerte optimisées](alerts-log-query.md).
+1. Interrogez les données de journal qui peuvent indiquer le problème. Pour savoir ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/log-analytics-tutorial.md), vous pouvez utiliser la [rubrique d’exemples de requêtes d’alerte](../log-query/example-queries.md). En outre, [découvrez comment créer des requêtes d’alerte optimisées](alerts-log-query.md).
 1. Appuyez sur le bouton « + Nouvelle règle d’alerte » pour démarrer le flux de création d’alerte.
 
     ![Log Analytics - Définir l’alerte](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -327,4 +327,3 @@ En cas de réussite de la création, le code d’état 201 est retourné. En cas
 * Créer des alertes de journal à l’aide de [modèles Azure Resource Manager](./alerts-log-create-templates.md).
 * Comprendre les [actions webhook pour les alertes de journal](./alerts-log-webhook.md).
 * Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).
-

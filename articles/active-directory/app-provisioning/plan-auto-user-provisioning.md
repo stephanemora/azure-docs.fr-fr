@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041121"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174915"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -89,7 +89,7 @@ Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une base 
 
 1. Les utilisateurs/groupes sont créés dans une application ou un système RH local, tel que SAP. 
 
-1. L’ **agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
+1. L’**agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
 
 1. Le **service de provisionnement Azure AD** démarre un [cycle initial](../app-provisioning/user-provisioning.md) sur le système source et le système cible. 
 
@@ -157,7 +157,7 @@ Les étapes nécessaires pour activer et configurer l’approvisionnement automa
 
 Sinon, suivez ces étapes ci-dessous :
 
-1. [Créez une requête](../azuread-dev/howto-app-gallery-listing.md) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
+1. [Créez une requête](../develop/v2-howto-app-gallery-listing.md) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
 
 1. Utilisez la prise en charge de l’attribution d’utilisateurs générique [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) (Apportez votre propre application avec SCIM) pour l’application. Il s’agit d’une condition nécessaire à Azure AD pour attribuer des utilisateurs à l’application sans connecteur de provisionnement préintégré.
 
@@ -300,11 +300,11 @@ Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de s
 
 * [Synchroniser un attribut entre votre instance Active Directory local et Azure AD pour le provisionnement d’une application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](./user-provisioning.md)
 
 * [Aucun utilisateur n’est attribué à une application de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentation utile
 

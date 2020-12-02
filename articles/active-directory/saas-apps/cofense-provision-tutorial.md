@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 56b75d34bed65dae53c88eab6a16d848083ccc73
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836289"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179059"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cofense Recipient Sync pour l’approvisionnement automatique d’utilisateurs
 
@@ -38,7 +38,7 @@ Ce tutoriel décrit les étapes à suivre dans Cofense Recipient Sync et Azure A
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
 * Un compte d’opérateur standard dans Cofense PhishMe.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement

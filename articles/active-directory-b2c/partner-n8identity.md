@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376882"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170920"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutoriel pour la configuration de l’outil d’administration TheAccessHub avec Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 
-- Un [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Le locataire doit être lié à votre abonnement Azure.
+- Un [locataire Azure AD B2C](./tutorial-create-tenant.md). Le locataire doit être lié à votre abonnement Azure.
 
 - Un environnement d’outil d’administration TheAccessHub : contactez [N8 Identity](https://n8id.com/contact/) pour configurer un nouvel environnement.
 
 - [Facultatif] Informations de connexion et d’identification pour toutes les bases de données ou protocoles LDAP à partir desquels vous voulez migrer les données client.
 
-- [Facultatif] Un environnement Azure AD B2C configuré pour utiliser des [stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), si vous souhaitez intégrer l’outil d’administration TheAccessHub à votre flux de stratégie d’inscription.
+- [Facultatif] Un environnement Azure AD B2C configuré pour utiliser des [stratégies personnalisées](./custom-policy-get-started.md), si vous souhaitez intégrer l’outil d’administration TheAccessHub à votre flux de stratégie d’inscription.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -358,7 +358,7 @@ Pour synchroniser des données d’Azure AD B2C vers l’outil d’administratio
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configurer des stratégies Azure AD B2C
 
-La synchronisation occasionnelle de l’outil d’administration TheAccessHub est limitée dans sa capacité à conserver son état à jour avec Azure AD B2C. Nous pouvons tirer parti de l’API de l’outil d’administration TheAccessHub et des stratégies Azure AD B2C pour informer l’outil d’administration TheAccessHub des modifications en temps réel. Cette solution nécessite une connaissance technique des [stratégies personnalisées d’Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). Dans la section suivante, nous vous donnons un exemple de création de stratégie et un certificat sécurisé pour informer l’outil d’administration TheAccessHub de la création de nouveaux comptes dans vos stratégies personnalisées d’inscription.
+La synchronisation occasionnelle de l’outil d’administration TheAccessHub est limitée dans sa capacité à conserver son état à jour avec Azure AD B2C. Nous pouvons tirer parti de l’API de l’outil d’administration TheAccessHub et des stratégies Azure AD B2C pour informer l’outil d’administration TheAccessHub des modifications en temps réel. Cette solution nécessite une connaissance technique des [stratégies personnalisées d’Azure AD B2C](./custom-policy-get-started.md). Dans la section suivante, nous vous donnons un exemple de création de stratégie et un certificat sécurisé pour informer l’outil d’administration TheAccessHub de la création de nouveaux comptes dans vos stratégies personnalisées d’inscription.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Créer des informations d’identification sécurisées pour appeler l’API de l’outil d’administration TheAccessHub
 
@@ -372,7 +372,7 @@ La synchronisation occasionnelle de l’outil d’administration TheAccessHub es
 
 5. Sélectionnez **Télécharger** pour obtenir le certificat client.
 
-6. Suivez ce [tutoriel](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) pour ajouter le certificat client à Azure AD B2C.
+6. Suivez ce [tutoriel](./secure-rest-api.md#https-client-certificate-authentication ) pour ajouter le certificat client à Azure AD B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Récupérer vos exemples de stratégies personnalisées
 
@@ -386,12 +386,12 @@ La synchronisation occasionnelle de l’outil d’administration TheAccessHub es
 
 5. Sélectionnez **Télécharger** pour obtenir un fichier zip avec les stratégies de base qui ajoutent les clients à l’outil d’administration TheAccessHub lorsque ceux-ci s’inscrivent.
 
-6. Suivez ce [tutoriel](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) pour commencer à créer des stratégies personnalisées dans Azure AD B2C.
+6. Suivez ce [tutoriel](./custom-policy-get-started.md) pour commencer à créer des stratégies personnalisées dans Azure AD B2C.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

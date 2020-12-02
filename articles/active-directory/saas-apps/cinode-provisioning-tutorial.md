@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: 43b20f2b286bdadbee33555abc1a19845092c64b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dbed4eaabda34c1f35c21b8fe69db72c07f6d03f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357502"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180110"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cinode pour l’approvisionnement automatique d’utilisateurs
 
@@ -39,7 +39,7 @@ Ce tutoriel décrit les étapes à suivre dans Cinode et Azure Active Directory 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
 * Un compte d’utilisateur dans Cinode avec des droits d’administrateur.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -61,7 +61,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ![Créer un jeton](media/cinode-provisioning-tutorial/token.png)
 
-6. Copiez l’ **URL de locataire** et le **Jeton**. Vous devrez entrer ces valeurs dans l’onglet Approvisionnement de votre application Cinode sur le portail Azure.
+6. Copiez l’**URL de locataire** et le **Jeton**. Vous devrez entrer ces valeurs dans l’onglet Approvisionnement de votre application Cinode sur le portail Azure.
 
 ## <a name="step-3-add-cinode-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Cinode à partir de la galerie d’applications Azure AD
 
@@ -82,7 +82,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-cinode-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Cinode dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -98,19 +98,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
-5. Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’ **URL de base SCIM 2.0 et de Jeton d’authentification** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Cinode. Si la connexion échoue, vérifiez que votre compte Cinode dispose des autorisations d’administrateur et réessayez.
+5. Sous la section Informations d’identification de l’administrateur, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton d’authentification** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Cinode. Si la connexion échoue, vérifiez que votre compte Cinode dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Cinode**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Cinode**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Cinode. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Cinode en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Cinode prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Cinode. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Cinode en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Cinode prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -122,9 +122,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |title|String|
    |addresses[type eq "work"].locality|String|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Cinode**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Cinode**.
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Cinode. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Cinode dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Cinode. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Cinode dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|

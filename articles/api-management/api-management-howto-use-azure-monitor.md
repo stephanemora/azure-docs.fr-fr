@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997039"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183190"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutoriel : Surveiller les API publiées
 
@@ -149,7 +149,7 @@ Si vous activez la collecte du journal GatewayLogs ou des métriques dans un esp
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Capture d’écran de l’élément Journaux dans le menu Supervision":::
 
-Exécutez des requêtes pour afficher les données. Plusieurs [exemples de requêtes](../azure-monitor/log-query/saved-queries.md) sont fournis, ou exécutez les vôtres. Par exemple, la requête suivante récupère les 24 heures de données les plus récentes à partir de la table GatewayLogs :
+Exécutez des requêtes pour afficher les données. Plusieurs [exemples de requêtes](../azure-monitor/log-query/example-queries.md) sont fournis, ou exécutez les vôtres. Par exemple, la requête suivante récupère les 24 heures de données les plus récentes à partir de la table GatewayLogs :
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Pour plus d’informations sur l’utilisation des journaux de ressources pour Gestion des API, consultez :
 
-* [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) ou essayez l’[environnement de démonstration Log Analytics](https://portal.loganalytics.io/demo).
+* [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) ou essayez l’[environnement de démonstration Log Analytics](https://portal.loganalytics.io/demo).
 
 * [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

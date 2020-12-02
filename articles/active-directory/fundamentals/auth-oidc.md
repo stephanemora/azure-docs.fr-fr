@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 0e5bf7e51de38d42e64f6737e687c5946a464160
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576986"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168659"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Authentification OpenID Connect avec Azure Active Directory
 
@@ -48,14 +48,13 @@ Le consentement de l'utilisateur et la connexion web sont nécessaires.
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implémenter OIDC avec Azure AD
 
-* [Intégration des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Intégration des applications dans Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protocoles OAuth 2.0 et OpenID Connect sur la Plateforme d'identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocoles OAuth 2.0 et OpenID Connect sur la Plateforme d'identités Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Plateforme d’identités Microsoft et protocole OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Plateforme d’identités Microsoft et protocole OpenID Connect](../develop/v2-protocols-oidc.md) 
 
-* [Connexion web avec OpenID Connect dans Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Connexion web avec OpenID Connect dans Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Sécuriser votre application en utilisant OpenID Connect et Azure AD](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Sécuriser votre application en utilisant OpenID Connect et Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

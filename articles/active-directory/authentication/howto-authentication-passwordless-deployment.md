@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174134"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -126,7 +126,7 @@ Lorsque vous déployez l’authentification sans mot de passe, vous devez d’ab
 
 Les groupes peuvent être synchronisés à partir d’un annuaire local, ou à partir d’Azure AD. À partir du moment où vous êtes satisfait des résultats de votre pilote, vous pouvez activer l’authentification sans mot de passe pour tous les utilisateurs.
 
-Consultez les [Bonnes pratiques pour un pilote](https://aka.ms/deploymentplans) dans la page des plans de déploiement.
+Consultez les [Bonnes pratiques pour un pilote](../fundamentals/active-directory-deployment-plans.md) dans la page des plans de déploiement.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planifier l’authentification sans mot de passe avec l’application Microsoft Authenticator
 

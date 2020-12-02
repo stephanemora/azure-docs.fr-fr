@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: f060a6ee2b5968c1d1daf3c668b6e7009b6ccd69
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358131"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177886"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutoriel : Configurer Juno Journey pour l'approvisionnement automatique d'utilisateurs
 
@@ -35,7 +35,7 @@ Ce tutoriel décrit les étapes à suivre dans Juno Journey et Azure Active Dire
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 *  Un [locataire Juno Journey](https://www.junojourney.com/getstarted).
 *  Un compte d'utilisateur Juno Journey avec autorisations d'administrateur.
 
@@ -46,7 +46,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Juno Journey pour prendre en charge l'approvisionnement à l'aide d'Azure AD
 
-1. Pour obtenir le **Jeton secret**  et l' **URL du locataire** , contactez l'équipe de support de Juno Journey à l'adresse suivante : support@the-juno.com. Cette valeur sera entrée dans les champs **Jeton secret** et **URL du locataire** sous l'onglet Approvisionnement de votre application Juno Journey sur le portail Azure. 
+1. Pour obtenir le **Jeton secret**  et l'**URL du locataire**, contactez l'équipe de support de Juno Journey à l'adresse suivante : support@the-juno.com. Cette valeur sera entrée dans les champs **Jeton secret** et **URL du locataire** sous l'onglet Approvisionnement de votre application Juno Journey sur le portail Azure. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Juno Journey à partir de la galerie d'applications Azure AD
 
@@ -67,7 +67,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-juno-journey-in-azure-ad"></a>Pour configurer l'approvisionnement automatique d'utilisateurs de Juno Journey dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -83,19 +83,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification Administrateur** , entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Juno Journey. Si la connexion échoue, vérifiez que votre compte Juno Journey dispose des autorisations d'administrateur, puis réessayez.
+5. Dans la section **Informations d'identification Administrateur**, entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Juno Journey. Si la connexion échoue, vérifiez que votre compte Juno Journey dispose des autorisations d'administrateur, puis réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/juno-journey-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Juno Journey**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Juno Journey**.
 
-9. Dans la section **Mappage d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Juno Journey. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin d'établir une correspondance avec les comptes d'utilisateur Juno Journey pour les mises à jour ultérieures. Si vous choisissez de modifier l'[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l'API Juno Journey prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappage d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Juno Journey. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin d'établir une correspondance avec les comptes d'utilisateur Juno Journey pour les mises à jour ultérieures. Si vous choisissez de modifier l'[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l'API Juno Journey prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Variable|Type|
    |---|---|

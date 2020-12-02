@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376534"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186471"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connecter Azure aux outils ITSM en utilisant l’exportation sécurisée
 
@@ -60,8 +60,8 @@ Commencez par utiliser l’outil Connecteur ITSM en suivant ces étapes :
 3. Configurer votre environnement partenaire 
 
 Secure Export prend en charge les connexions avec les outils ITSM suivants :
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>S’inscrire auprès d’Azure Active Directory
 
@@ -90,7 +90,7 @@ Pour ajouter un Webhook à une action, suivez les instructions ci-dessous pour l
 5. Sélectionnez **Webhook sécurisé**.
 6. Sélectionnez les informations suivantes :
    1. Sélectionnez l’ID d’objet de l’instance Azure Active Directory que vous avez inscrite.
-   2. Pour l’URI, collez l’URL du webhook que vous avez copiée dans l’[environnement de l’outil ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. Pour l’URI, collez l’URL du webhook que vous avez copiée dans l’[environnement de l’outil ITSM](#configure-the-itsm-tool-environment).
    3. Définissez **Activer le schéma d’alerte commun** sur **Oui**. 
 
    L’illustration suivante montre la configuration d’un exemple d’action Webhook sécurisé :

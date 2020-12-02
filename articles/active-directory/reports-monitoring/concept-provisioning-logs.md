@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319724"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181201"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -211,7 +211,7 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-- Le Portail Azure stocke les données de provisionnement rapportées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux de provisionnement peuvent être publiés dans [Log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) pour être conservés au-delà de 30 jours. 
+- Le Portail Azure stocke les données de provisionnement rapportées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux de provisionnement peuvent être publiés dans [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) pour être conservés au-delà de 30 jours. 
 
 - Vous pouvez utiliser l’attribut Changer l’ID comme identificateur unique. C’est, par exemple, utile lors de l’interaction avec le support technique.
 

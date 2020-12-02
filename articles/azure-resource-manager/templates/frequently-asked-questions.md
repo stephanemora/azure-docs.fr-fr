@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744533"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184006"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Forum aux questions sur les modèles Resource Manager
 
@@ -68,7 +68,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **Puis-je créer un abonnement dans un modèle Resource Manager ?**
 
-  Oui. Pour plus d’informations, consultez [Créer des abonnements Azure programmatiquement avec les dernières API](../../cost-management-billing/manage/programmatically-create-subscription.md).
+  Oui. Pour plus d’informations, consultez [Créer des abonnements Azure programmatiquement avec les dernières API](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **Comment puis-je tester mon modèle avant de le déployer ?**
 

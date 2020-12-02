@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c1e1d52b8434db930fcdd05c5c5441ba027abc8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108845"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186012"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 
@@ -25,7 +25,7 @@ Vous pouvez utiliser des alertes de métrique sur des journaux d’activité Log
 
 - [Les compteurs de performance](./data-sources-performance-counters.md) pour les machines Windows et Linux
 - [Enregistrements de pulsations pour Agent Health](../insights/solution-agenthealth.md)
-- Enregistrements de la [gestion des mises à jour](../../automation/update-management/update-mgmt-overview.md)
+- Enregistrements de la [gestion des mises à jour](../../automation/update-management/overview.md)
 - Journaux d’activité sur les [données d’événement](./data-sources-windows-events.md)
 
 L’utilisation **d’alertes de métrique de journaux d’activité** présente de nombreux avantages par rapport à celle [d’alertes de journal](./alerts-log.md) basées sur une requête. Certains de ces avantages sont indiqués ci-dessous :
@@ -55,7 +55,7 @@ Avant que la métrique pour des journaux d’activité rassemblés sur des donn�
 
 1. **Espace de travail Log Analytics actif** : un espace de travail Log Analytics actif doit être présent. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../learn/quick-create-workspace.md).
 2. **Agent configuré pour l’espace de travail Log Analytics** : l’agent doit être configuré pour les machines virtuelles Azure et/ou les machines virtuelles locales, afin d’envoyer des données à l’espace de travail Log Analytics utilisé dans l’étape précédente. Pour plus d’informations, consultez [Présentation des agents Azure pour surveiller les machines virtuelles Azure](./agents-overview.md).
-3. **Solutions Log Analytics prises en charge installées** : Une solution Log Analytics doit être configurée et doit envoyer des données à l’espace de travail Log Analytics. Les solutions prises en charge sont les [compteurs de performances pour Windows et Linux](./data-sources-performance-counters.md), les [enregistrements de pulsation pour Agent Health](../insights/solution-agenthealth.md), la [gestion des mises à jour](../../automation/update-management/update-mgmt-overview.md) et les [données d’événement](./data-sources-windows-events.md).
+3. **Solutions Log Analytics prises en charge installées** : Une solution Log Analytics doit être configurée et doit envoyer des données à l’espace de travail Log Analytics. Les solutions prises en charge sont les [compteurs de performances pour Windows et Linux](./data-sources-performance-counters.md), les [enregistrements de pulsation pour Agent Health](../insights/solution-agenthealth.md), la [gestion des mises à jour](../../automation/update-management/overview.md) et les [données d’événement](./data-sources-windows-events.md).
 4. **Solutions Log Analytics configurées pour envoyer des journaux d’activité** : une solution Log Analytics doit avoir les journaux d’activité/données correspondant aux [métriques prises en charge pour les espaces de travail Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces) activés. Par exemple, le compteur *% Available Memory* (% de mémoire disponible) doit d’abord être configuré dans la solution [Compteurs de performances](./data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuration d’une alerte de métrique pour des journaux d’activité

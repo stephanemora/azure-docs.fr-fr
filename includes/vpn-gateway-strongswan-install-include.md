@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2d0e171807985deaebe8faa625d6b767c2a3efd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f02fa49b62a2e3d617617a20518810209d3879b7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86218230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027098"
 ---
 La configuration suivante a été utilisée pour les étapes ci-dessous :
 
@@ -41,4 +41,4 @@ Utilisez la commande suivante pour installer l’interface de ligne de commande 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Instructions supplémentaires sur l’installation de l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Instructions supplémentaires sur l’installation de l’interface Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

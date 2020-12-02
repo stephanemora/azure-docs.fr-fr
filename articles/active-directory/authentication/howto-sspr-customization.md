@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363706"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173992"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personnalisation de l’expérience utilisateur pour la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -56,8 +56,8 @@ Pour en savoir plus sur les différents rôles d’administrateur et sur la faç
 
 Si votre organisation ne souhaite pas notifier les administrateurs au sujet des demandes de réinitialisation de mot de passe, les options de configuration suivantes peuvent être utilisées :
 
-* Personnalisez le lien du support technique pour fournir une URL web ou un lien mailto: que les utilisateurs peuvent utiliser pour obtenir une assistance. Cette option se trouve sous **Réinitialisation de mot de passe** > **Personnalisation** > **Adresse e-mail ou URL du support technique** .
-* Activez la réinitialisation de mot de passe en libre-service pour tous les utilisateurs. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés** . Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
+* Personnalisez le lien du support technique pour fournir une URL web ou un lien mailto: que les utilisateurs peuvent utiliser pour obtenir une assistance. Cette option se trouve sous **Réinitialisation de mot de passe** > **Personnalisation** > **Adresse e-mail ou URL du support technique**.
+* Activez la réinitialisation de mot de passe en libre-service pour tous les utilisateurs. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés**. Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personnalisation de la page de connexion et du volet d’accès
 
@@ -72,7 +72,7 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 ### <a name="directory-name"></a>Nom de l’annuaire
 
-Si vous souhaitez rendre l’apparence plus conviviale, vous pouvez modifier le nom de l’organisation sur le portail et dans les communications automatisées. Pour changer l’attribut de nom de répertoire sur le Portail Azure, accédez à **Azure Active Directory** > **Propriétés** . Cette option de nom convivial de l’organisation est particulièrement visible dans les e-mails automatisés, comme dans les exemples suivants :
+Si vous souhaitez rendre l’apparence plus conviviale, vous pouvez modifier le nom de l’organisation sur le portail et dans les communications automatisées. Pour changer l’attribut de nom de répertoire sur le Portail Azure, accédez à **Azure Active Directory** > **Propriétés**. Cette option de nom convivial de l’organisation est particulièrement visible dans les e-mails automatisés, comme dans les exemples suivants :
 
 * Le nom convivial dans l’e-mail, par exemple « *Microsoft pour le compte de la démonstration CONTOSO* »
 * La ligne d’objet dans l’e-mail, par exemple « *Code de vérification d’e-mail du compte de démonstration CONTOSO* »
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Pour comprendre l’utilisation de la réinitialisation SSPR dans votre environnement, consultez [Options de reporting pour la gestion des mots de passe Azure AD](howto-sspr-reporting.md).
 
-Si vos utilisateurs ou vous-même rencontrez des problèmes de réinitialisation SSPR, consultez [Résolution des problèmes de réinitialisation de mot de passe en libre-service](active-directory-passwords-troubleshoot.md).
+Si vos utilisateurs ou vous-même rencontrez des problèmes de réinitialisation SSPR, consultez [Résolution des problèmes de réinitialisation de mot de passe en libre-service](./troubleshoot-sspr.md).

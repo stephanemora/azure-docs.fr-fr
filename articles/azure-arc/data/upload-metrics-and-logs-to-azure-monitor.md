@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: c333b95ed762c905511ab1d4a84050d50f0e023c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371322"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183428"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Charger les données d’utilisation, les métriques et les journaux sur Azure Monitor
 
@@ -63,7 +63,7 @@ Le principal du service permet de charger les données d’utilisation et des m�
 Suivez ces commandes pour créer le principal du service de chargement de vos métriques :
 
 > [!NOTE]
-> La création d’un principal de service nécessite [certaines autorisations dans Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> La création d’un principal de service nécessite [certaines autorisations dans Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Pour créer un principal de service, mettez à jour l’exemple de commande suivant. Remplacez `<ServicePrincipalName>` par le nom de votre principal de service et exécutez la commande :
 

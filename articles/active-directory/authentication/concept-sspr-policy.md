@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964993"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174379"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -180,4 +180,4 @@ Une fois le module installé, suivez les étapes ci-après pour effectuer chaque
 
 Pour bien démarrer avec SSPR, consultez [Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory](tutorial-enable-sspr.md).
 
-Si vos utilisateurs ou vous-même rencontrez des problèmes liés à SSPR, consultez [Résoudre les problèmes de réinitialisation de mot de passe en libre-service](active-directory-passwords-troubleshoot.md).
+Si vos utilisateurs ou vous-même rencontrez des problèmes liés à SSPR, consultez [Résoudre les problèmes de réinitialisation de mot de passe en libre-service](./troubleshoot-sspr.md).

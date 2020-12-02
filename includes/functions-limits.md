@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027927"
 ---
 | Ressource |[Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plan dédié](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "85391476"
 | Taille de requête max. (Mo)<sup>3</sup> | 100 | 100 | 100 | 100 | Dépend du cluster |
 | Longueur de chaîne de requête max.<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Dépend du cluster |
 | Longueur d’URL de requête max.<sup>3</sup> | 8 192 | 8 192 | 8 192 | 8 192 | Dépend du cluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) par instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Tarification d’AKS](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) par instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Tarification d’AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Mémoire max. (en Go par instance) | 1.5 | 3,5-14 | 1,75-14 | 3.5 - 14 | Tous les nœuds sont pris en charge |
 | Applications de fonction par plan |100 |100 |illimité<sup>4</sup> | illimité | illimité |
 | [Plans App Service](../articles/app-service/overview-hosting-plans.md) | 100 par [région](https://azure.microsoft.com/global-infrastructure/regions/) |100 par groupe de ressources |100 par groupe de ressources | - | - |

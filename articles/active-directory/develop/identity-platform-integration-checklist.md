@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116799"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173564"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft
 
@@ -32,7 +32,7 @@ Utilisez la check-list suivante pour vous assurer que votre application est int�
 
 ## <a name="basics"></a>Concepts de base
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Lisez et comprenez les [Stratégies de la plateforme Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Assurez-vous que votre application respecte les conditions décrites, car celles-ci sont conçues pour protéger les utilisateurs et la plateforme.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Lisez et comprenez les [Stratégies de la plateforme Microsoft](/legal/microsoft-identity-platform/terms-of-use). Assurez-vous que votre application respecte les conditions décrites, car celles-ci sont conçues pour protéger les utilisateurs et la plateforme.
 
 ## <a name="ownership"></a>Propriété
 

@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428025"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186488"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -145,7 +145,7 @@ Utilisez la procédure suivante pour créer des éléments de travail :
 
 7. Sélectionnez un type d’**Élément de travail**.
 
-8. Si vous voulez remplir des champs prêts à l’emploi avec des valeurs fixes, sélectionnez **Utiliser un modèle personnalisé**. Sinon, choisissez un [modèle](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existant dans la liste **Modèles**, puis entrez les valeurs fixes dans les champs du modèle.
+8. Si vous voulez remplir des champs prêts à l’emploi avec des valeurs fixes, sélectionnez **Utiliser un modèle personnalisé**. Sinon, choisissez un [modèle](#template-definitions) existant dans la liste **Modèles**, puis entrez les valeurs fixes dans les champs du modèle.
 
 9. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque élément de configuration dispose de son propre élément de travail. Il y a un élément de travail par élément de configuration. Il sera mis à jour en fonction des alertes qui seront créées.
 
@@ -329,4 +329,3 @@ Si vous avez des questions ou des commentaires concernant le connecteur de gesti
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Ajouter des produits/services ITSM au connecteur de gestion des services informatiques ](./itsmc-connections.md)
-

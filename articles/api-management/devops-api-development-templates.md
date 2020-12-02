@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088877"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183156"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD pour la gestion des API à l’aide de modèles de Azure Resource Manager
 
@@ -41,14 +41,14 @@ Dans cet exemple, il existe deux environnements de déploiement : *Développeme
 * Les développeurs d’API ont accès à l’instance de développement et peuvent l’utiliser pour développer et tester leurs API. 
 * Une équipe désignée appelée *Éditeurs d’API* gère l’instance de production.
 
-La clé de cette approche proposée consiste à conserver toutes les configurations de gestion des API dans les [modèles de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). L’organisation doit conserver ces modèles dans un système de contrôle de code source tel que Git. Comme illustré dans l’image, un référentiel de publication contient toutes les configurations de l’instance Gestion des API de production dans une collection de modèles :
+La clé de cette approche proposée consiste à conserver toutes les configurations de gestion des API dans les [modèles de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). L’organisation doit conserver ces modèles dans un système de contrôle de code source tel que Git. Comme illustré dans l’image, un référentiel de publication contient toutes les configurations de l’instance Gestion des API de production dans une collection de modèles :
 
 |Modèle  |Description  |
 |---------|---------|
 |Modèle de service     | Configurations au niveau du service de l’instance Gestion des API, telles que le niveau tarifaire et les domaines personnalisés.         |
 |Modèles partagés     |  Ressources partagées dans une instance Gestion des API, telles que des groupes, des produits et des enregistreurs d’événements.    |
 |Modèles d’API     |  Configurations des API et de leurs sous-ressources : opérations, stratégies, paramètres de diagnostic.        |
-|Modèle principal     |   Lie tout ensemble en [faisant le lien](../azure-resource-manager/resource-group-linked-templates.md) entre tous les modèles et leur déploiement dans l’ordre. Pour déployer toutes les configurations sur une instance de gestion des API, déployez le modèle principal. Vous pouvez également déployer chaque modèle individuellement.       |
+|Modèle principal     |   Lie tout ensemble en [faisant le lien](../azure-resource-manager/templates/linked-templates.md) entre tous les modèles et leur déploiement dans l’ordre. Pour déployer toutes les configurations sur une instance de gestion des API, déployez le modèle principal. Vous pouvez également déployer chaque modèle individuellement.       |
 
 Les développeurs d’API vont répliquer le référentiel de l’éditeur vers un référentiel de développement et travailler sur les modifications pour leurs API. Dans la plupart des cas, ils se concentrent sur les modèles d’API pour leurs API et n’ont pas besoin de modifier les modèles de service ou partagés.
 

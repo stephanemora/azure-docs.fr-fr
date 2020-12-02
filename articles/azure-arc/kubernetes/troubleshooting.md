@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Résolution des problèmes courants liés aux clusters Kubernetes avec Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540606"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302386"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Résolution des problèmes Kubernetes avec Azure Arc (préversion)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Tous les pods doivent indiquer la valeur `Running` pour `STATUS` et la valeur `3/3` ou `2/2` pour `READY`. Récupérez les journaux et décrivez les pods qui renvoient `Error` ou `CrashLoopBackOff`. Si l’un de ces pods est bloqué à l’état `Pending`, cela peut être dû à un manque de ressources sur des nœuds du cluster. [Un scale-up de votre cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) permettra à vos pods de passer à l’état `Running`.
+Tous les pods doivent indiquer la valeur `Running` pour `STATUS` et la valeur `3/3` ou `2/2` pour `READY`. Récupérez les journaux et décrivez les pods qui renvoient `Error` ou `CrashLoopBackOff`. Si l’un de ces pods est bloqué à l’état `Pending`, cela peut être dû à un manque de ressources sur des nœuds du cluster. [Un scale-up de votre cluster](https://kubernetes.io/docs/tasks/administer-cluster/) permettra à vos pods de passer à l’état `Running`.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Connexion de clusters Kubernetes à Azure Arc
 

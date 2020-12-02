@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576930"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172820"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Authentification par mot de passe avec Azure Active Directory
 
@@ -45,10 +45,9 @@ Vous devez assurer la protection avec une authentification préalable et fournir
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implémenter l’authentification unique basée sur un mot de passe avec Azure AD
 
-* [Présentation de l’authentification unique basée sur un mot de passe](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [Présentation de l’authentification unique basée sur un mot de passe](../manage-apps/what-is-single-sign-on.md) 
 
-* [Configurer l’authentification unique basée sur un mot de passe pour les applications Cloud ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Configurer l’authentification unique basée sur un mot de passe pour les applications Cloud ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configurer l’authentification unique basée sur un mot de passe pour les applications locales avec le proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Configurer l’authentification unique basée sur un mot de passe pour les applications locales avec le proxy d’application](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073731"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169169"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Résoudre les problèmes de vérification de l’éditeur
 Si vous ne parvenez pas à finaliser le processus ou si vous êtes confronté à un comportement inattendu lors de la [vérification de l’éditeur](publisher-verification-overview.md), procédez comme suit si voyez s’afficher des erreurs ou constatez un comportement inattendu : 
@@ -51,8 +51,8 @@ Vous trouverez ci-dessous quelques problèmes courants qui peuvent survenir au c
     1. Accédez à votre [profil de partenaire](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) et vérifiez que : 
         - L'ID MPN est correct. 
         - Aucune erreur ou « action en attente » n'est affichée. Assurez-vous également que l'état de vérification présenté sous Profil juridique de l'entreprise et Infos partenaire indique « autorisé » ou « réussite ».
-    1. Accédez à la [page de gestion des locataires MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement), puis confirmez que le locataire auprès duquel l'application est inscrite et à partir duquel vous vous connectez avec un compte d'utilisateur figure sur la liste des locataires associés. Si vous devez ajouter un locataire, suivez les instructions fournies [ici](https://docs.microsoft.com/partner-center/multi-tenant-account). N’oubliez pas que tous les administrateurs généraux de tous les locataires que vous ajoutez bénéficieront de privilèges Administrateur général sur votre compte Espace partenaires.
-    1. Accédez à la [page Gestion des utilisateurs MPN](https://partner.microsoft.com/pcv/users) et confirmez que l'utilisateur avec lequel vous vous connectez est administrateur général, administrateur MPN ou administrateur de comptes. Si vous devez ajouter un utilisateur à un rôle dans l’Espace partenaires, suivez les instructions fournies [ici](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
+    1. Accédez à la [page de gestion des locataires MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement), puis confirmez que le locataire auprès duquel l'application est inscrite et à partir duquel vous vous connectez avec un compte d'utilisateur figure sur la liste des locataires associés. Si vous devez ajouter un locataire, suivez les instructions fournies [ici](/partner-center/multi-tenant-account). N’oubliez pas que tous les administrateurs généraux de tous les locataires que vous ajoutez bénéficieront de privilèges Administrateur général sur votre compte Espace partenaires.
+    1. Accédez à la [page Gestion des utilisateurs MPN](https://partner.microsoft.com/pcv/users) et confirmez que l'utilisateur avec lequel vous vous connectez est administrateur général, administrateur MPN ou administrateur de comptes. Si vous devez ajouter un utilisateur à un rôle dans l’Espace partenaires, suivez les instructions fournies [ici](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Lorsque je me connecte au portail Azure AD, je ne vois aucune application inscrite. Pourquoi ?** 
     Vos inscriptions d’applications ont peut-être été créées à l’aide d’un autre compte d’utilisateur dans ce locataire, d’un compte personnel/client ou dans un autre locataire. Vérifiez que vous êtes connecté avec le compte approprié dans le locataire où les inscriptions d'applications ont été créées.

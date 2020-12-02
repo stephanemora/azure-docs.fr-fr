@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505310"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184567"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importation de données de journal Azure Monitor dans Power BI
 
@@ -28,7 +28,7 @@ Pour importer les données d’un [espace de travail Log Analytics](manage-acces
 ## <a name="export-query"></a>Exporter une requête
 Commencez par créer une [requête de journal](../log-query/log-query-overview.md) qui renvoie les données que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](/powerquery-m/power-query-m-language-specification) qui peut être utilisé par Power BI Desktop.
 
-1. [Créez la requête de journal Log Analytics](../log-query/get-started-portal.md) pour extraire les informations de votre jeu de données.
+1. [Créez la requête de journal Log Analytics](../log-query/log-analytics-tutorial.md) pour extraire les informations de votre jeu de données.
 2. Sélectionnez **Exporter** > **Requête Power BI (M)** .  Cela a pour effet d’exporter la requête vers un fichier texte intitulé **PowerBIQuery.txt**. 
 
     ![Exporter une recherche de journal](media/powerbi/export-analytics.png)

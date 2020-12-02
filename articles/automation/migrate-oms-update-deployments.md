@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987597"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183598"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Effectuer la migration des déploiements de mise à jour des journaux Azure Monitor vers le portail Azure
 
@@ -19,7 +19,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 ## <a name="key-information"></a>Informations essentielles
 
 * Les déploiements existants continueront de fonctionner. Une fois que vous avez recréé le déploiement dans Azure, vous pouvez supprimer l’ancien déploiement.
-* Toutes les fonctionnalités dont vous disposiez dans OMS sont disponibles dans Azure. Pour en savoir plus sur Update Management, consultez [Présentation d’Update Management](update-management/update-mgmt-overview.md).
+* Toutes les fonctionnalités dont vous disposiez dans OMS sont disponibles dans Azure. Pour en savoir plus sur Update Management, consultez [Présentation d’Update Management](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Accéder au portail Azure
 
@@ -43,7 +43,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 
 Tous les déploiements de mises à jour créés dans le portail OMS ont une [recherche enregistrée](../azure-monitor/platform/computer-groups.md), également appelée « groupe d’ordinateurs », avec le même nom que le déploiement de mises à jour existant. La recherche enregistrée contient la liste des ordinateurs pour lesquels le déploiement de mises à jour a été planifié.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Capture d'écran de la page Gestion des mises à jour.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Capture d'écran de la page Déploiements des mises à jour sur laquelle les champs Nom et Serveurs sont en surbrillance.":::
 
 Pour utiliser cette recherche enregistrée existante, suivez ces étapes :
 
@@ -74,4 +74,4 @@ Pour utiliser cette recherche enregistrée existante, suivez ces étapes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Update Management dans Azure Automation, consultez [Update Management](update-management/update-mgmt-overview.md).
+Pour plus d’informations sur Update Management dans Azure Automation, consultez [Update Management](./update-management/overview.md).

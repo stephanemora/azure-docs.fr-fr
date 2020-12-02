@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686447"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184550"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Résoudre les problèmes d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
 Cet article décrit les étapes de dépannage que vous pouvez prendre lorsque vous rencontrez des problèmes d’intégrité sur Azure Monitor pour machines virtuelles.
@@ -42,7 +42,7 @@ Vérifiez que l’identité affectée par le système est activée sur la machin
 Vérifiez que la règle de collecte de données spécifiant l’extension d’intégrité comme source de données est associée à la machine virtuelle.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Message d’erreur pour une demande incorrecte en raison d’autorisations insuffisantes
-Cette erreur indique que le fournisseur de ressources **Microsoft.WorkloadMonitor** n’a pas été inscrit dans l’abonnement. Pour plus d’informations sur l’inscription de ce fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). 
+Cette erreur indique que le fournisseur de ressources **Microsoft.WorkloadMonitor** n’a pas été inscrit dans l’abonnement. Pour plus d’informations sur l’inscription de ce fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). 
 
 ![Demande incorrecte](media/vminsights-health-troubleshoot/bad-request.png)
 

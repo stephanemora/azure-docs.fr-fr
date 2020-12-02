@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107944"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186522"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -164,7 +164,7 @@ Lorsque vous activez Application Insights pour une application en installant un 
 |            | Les données de l’instantané de débogage capturées pour un sous-ensemble d'exceptions sont stockées dans Stockage Azure. Utilisez Application Insights sur le portail Azure pour télécharger des analyses locales.  | [Fonctionnement des captures instantanées](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Solutions de supervision et Insights
-Les [solutions de supervision](../insights/solutions.md) et [Insights](../insights/insights-overview.md) collectent des données pour fournir des insights supplémentaires sur le fonctionnement d’un service ou d’une application particuliers. Elles peuvent traiter des ressources de différents niveaux d'application et même sur plusieurs niveaux.
+Les [solutions de supervision](../insights/solutions.md) et [Insights](../monitor-reference.md) collectent des données pour fournir des insights supplémentaires sur le fonctionnement d’un service ou d’une application particuliers. Elles peuvent traiter des ressources de différents niveaux d'application et même sur plusieurs niveaux.
 
 ### <a name="monitoring-solutions"></a>Solutions de supervision
 

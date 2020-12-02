@@ -13,16 +13,16 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166431"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173394"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
-Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs au moyen d’identités sociales avec [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C s’appuie sur la notion de stratégies. Dans MSAL.NET, la spécification d’une stratégie se traduit par la fourniture d’une autorité.
+Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs au moyen d’identités sociales avec [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C s’appuie sur la notion de stratégies. Dans MSAL.NET, la spécification d’une stratégie se traduit par la fourniture d’une autorité.
 
 - Lorsque vous instanciez l’application cliente publique, vous devez préciser la stratégie comme élément de cette autorité.
 - Lorsque vous souhaitez appliquer une stratégie, appelez un remplacement de `AcquireTokenInteractive` qui accepte le paramètre `authority`.

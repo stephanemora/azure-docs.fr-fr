@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992831"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170614"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -140,9 +140,9 @@ Une fois que vous avez déployé le modèle et patienté quelques minutes pour q
 
 Les paramètres de diagnostic définissent où les journaux et les métriques d’une ressource doivent être envoyés. Les destinations possibles sont les suivantes :
 
-- [Compte Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Solutions [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Compte Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Solutions [Event Hub](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [Espace de travail Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 Dans cet exemple, nous utilisons l’espace de travail Log Analytics pour créer un tableau de bord.
 
@@ -180,7 +180,7 @@ Vous pouvez maintenant configurer votre espace de travail Log Analytics pour vis
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête. Pour plus d’informations, voir [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. Dans l’**espace de travail Log Analytics**, sélectionnez **Journaux**.
-1. Dans l’éditeur de requête, collez la requête [Langage de requête Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) suivante. Cette requête affiche l’utilisation de la stratégie par opération au cours des x derniers jours. La durée par défaut est définie sur 90 jours (90j). Notez que la requête est axée uniquement sur l’opération dans laquelle un jeton/code est émis par la stratégie.
+1. Dans l’éditeur de requête, collez la requête [Langage de requête Kusto](/azure/data-explorer/kusto/query/) suivante. Cette requête affiche l’utilisation de la stratégie par opération au cours des x derniers jours. La durée par défaut est définie sur 90 jours (90j). Notez que la requête est axée uniquement sur l’opération dans laquelle un jeton/code est émis par la stratégie.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ Les requêtes de journal vous aident à tirer pleinement parti de la valeur des 
 
 1. Sélectionnez **Enregistrer**.
 
-Vous pouvez également modifier votre requête pour visualiser les données à l’aide de l’opérateur [render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor).
+Vous pouvez également modifier votre requête pour visualiser les données à l’aide de l’opérateur [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor).
 
 ```kusto
 AuditLogs

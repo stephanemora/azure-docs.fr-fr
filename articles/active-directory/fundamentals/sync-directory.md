@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578907"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172467"
 ---
 # <a name="directory-synchronization"></a>Synchronisation de répertoires
 
@@ -54,8 +54,8 @@ Vous devez synchroniser les données d’identité de vos environnements Active 
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implémenter la synchronisation d’annuaires avec Azure AD
 
-* [Qu’est-ce que le provisionnement d’identités ?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [Qu’est-ce que le provisionnement d’identités ?](../cloud-provisioning/what-is-provisioning.md) 
 
-* [Identité hybride : outils d’intégration d’annuaire](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Identité hybride : outils d’intégration d’annuaire](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Feuille de route d’installation d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Feuille de route d’installation d’Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md)

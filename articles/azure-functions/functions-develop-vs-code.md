@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010520"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168427"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -34,7 +34,7 @@ L’extension peut être utilisée avec les langages suivants, qui sont pris en 
 
 Dans cet article, des exemples sont disponibles uniquement pour les fonctions de bibliothèque de classes JavaScript (Node.js) et C#.  
 
-Cet article fournit des informations sur le développement et la publication sur Azure de fonctions, à l’aide de l’extension Azure Functions. Avant de lire cet article, vous devez [créer votre première fonction en utilisant Visual Studio Code](functions-create-first-function-vs-code.md).
+Cet article fournit des informations sur le développement et la publication sur Azure de fonctions, à l’aide de l’extension Azure Functions. Avant de lire cet article, vous devez [créer votre première fonction en utilisant Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail pour une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
@@ -233,7 +233,7 @@ En publiant à partir de Visual Studio code, vous bénéficiez de la technologie
 
 ### <a name="quick-function-app-create"></a>Création d’application de fonction rapide
 
-Quand vous choisissez **+ Créer une application de fonction dans Azure...** , l’extension génère automatiquement les valeurs des ressources Azure nécessaires à votre application de fonction. Ces valeurs sont basées sur le nom de l’application de fonction que vous choisissez. Vous obtenez un exemple d’utilisation des valeurs par défaut pour publier votre projet vers une nouvelle application de fonction dans Azure en consultant l’article sur le [démarrage rapide de Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+Quand vous choisissez **+ Créer une application de fonction dans Azure...** , l’extension génère automatiquement les valeurs des ressources Azure nécessaires à votre application de fonction. Ces valeurs sont basées sur le nom de l’application de fonction que vous choisissez. Vous obtenez un exemple d’utilisation des valeurs par défaut pour publier votre projet vers une nouvelle application de fonction dans Azure en consultant l’article sur le [démarrage rapide de Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Si vous souhaitez fournir des noms explicites pour les ressources créées, vous devez opter pour le chemin de création avancé.
 

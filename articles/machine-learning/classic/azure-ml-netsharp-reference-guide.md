@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311969"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302792"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Machine Learning Studio (classique)
 
@@ -44,7 +44,7 @@ Chaque couche apte à l’apprentissage (couche masquée ou de sortie) présente
 
 Net# prend en charge différents types de faisceau de connexions, qui vous permettent de personnaliser la façon dont les entrées sont mappées aux couches masquées et aux sorties.
 
-Le faisceau par défaut ou standard est un **faisceau complet** , dans lequel chaque nœud de la couche source est connecté à tous les nœuds de la couche de destination.
+Le faisceau par défaut ou standard est un **faisceau complet**, dans lequel chaque nœud de la couche source est connecté à tous les nœuds de la couche de destination.
 
 En outre, Net# prend en charge les quatre types de faisceaux de connexions avancés suivants :
 
@@ -80,7 +80,7 @@ Pour des exemples de définition de réseaux neuronaux pour certaines tâches st
 
 ## <a name="structure-specifications"></a>Spécifications de structures
 
-Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante** , la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage** , qui est facultative. Ces sections peuvent être définies dans n'importe quel ordre.
+Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante**, la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage**, qui est facultative. Ces sections peuvent être définies dans n'importe quel ordre.
 
 ## <a name="constant-declaration"></a>Déclaration de constante
 
@@ -150,11 +150,11 @@ Immédiatement après avoir défini la couche entraînable, vous devez déclarer
 
 À ce jour, cinq types de faisceau de connexions sont pris en charge :
 
-+ Faisceau **complet** , signalé par le mot clé `all`
-+ Faisceau **filtré** , signalé par le mot clé `where`, suivi par une expression de prédicat
-+ Faisceau **convolutionnel** , signalé par le mot clé `convolve`, suivi des attributs de convolution
-+ Faisceau de **regroupement** , signalé par les mots clés **max pool** ou **mean pool**
-+ Faisceau de **normalisation de réponse** , signalé par le mot clé **response norm**
++ Faisceau **complet**, signalé par le mot clé `all`
++ Faisceau **filtré**, signalé par le mot clé `where`, suivi par une expression de prédicat
++ Faisceau **convolutionnel**, signalé par le mot clé `convolve`, suivi des attributs de convolution
++ Faisceau de **regroupement**, signalé par les mots clés **max pool** ou **mean pool**
++ Faisceau de **normalisation de réponse**, signalé par le mot clé **response norm**
 
 ## <a name="full-bundles"></a>Faisceaux complets
 
@@ -192,7 +192,7 @@ Les faisceaux convolutionnels prennent en charge les attributs suivants :
 
 **InputShape** définit la dimensionnalité de la couche source pour ce faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs. Le produit de ces entiers doit être égal au nombre de nœuds de la couche source, mais ne doit pas forcément correspondre à la dimensionnalité déclarée pour celle-ci. La longueur de ce tuple devient la valeur **arity** (arité) du faisceau convolutionnel. En général, l’arité fait référence au nombre d’arguments ou d’opérandes qu’une fonction peut accepter.
 
-Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape** , **Stride** , **Padding** , **LowerPad** et **UpperPad** :
+Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :
 
 + **KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l’élément **InputShape**.
 
@@ -214,23 +214,23 @@ Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'exclu
 
     Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
 
-+ **UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n’est **_pas_ *_ définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de chaque dimension est déterminé respectivement par _* LowerPad** [i] et **UpperPad** [i].
++ **UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n’est **_pas_ *_ définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de chaque dimension est déterminé respectivement par _* LowerPad**[i] et **UpperPad**[i].
 
     Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
   - Chaque élément de **LowerPad** doit être strictement inférieur à `KernelShape[d]/2`.
   - Chaque élément de **UpperPad** ne doit pas être supérieur à `KernelShape[d]/2`.
   - La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0.
 
-    Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie *D* est calculée comme suit : `D = (I - K) / S + 1`, où `I` est la taille d’entrée, `K` est la taille du noyau, `S` est le stride, et `/` est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d’entrée `I` est effectivement 29 et, ainsi, `D = (29 - 5) / 2 + 1 = 13`. Toutefois, quand **Padding** = true, `I` est essentiellement augmenté de `K - 1` ; donc `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. En spécifiant des valeurs pour **UpperPad** et **LowerPad** , vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
+    Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie *D* est calculée comme suit : `D = (I - K) / S + 1`, où `I` est la taille d’entrée, `K` est la taille du noyau, `S` est le stride, et `/` est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d’entrée `I` est effectivement 29 et, ainsi, `D = (29 - 5) / 2 + 1 = 13`. Toutefois, quand **Padding** = true, `I` est essentiellement augmenté de `K - 1` ; donc `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. En spécifiant des valeurs pour **UpperPad** et **LowerPad**, vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
 
 Pour plus d’informations sur les réseaux convolutionnels et leurs applications, consultez les articles suivants :
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Faisceaux de regroupement
 
-Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing** , **MapCount** et **Weights**.
+Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
 
 En général, les noyaux résumés par des unités de regroupement adjacentes ne se chevauchent pas. Si Stride[d] est égal à KernelShape[d] dans chaque dimension, la couche obtenue est la couche de regroupement locale traditionnelle, qui est généralement employée dans les réseaux neuronaux convolutionnels. Chaque nœud de destination calcule le maximum ou la moyenne des activités de son noyau dans la couche source.
 
@@ -260,11 +260,11 @@ Pour plus d’informations sur les couches de regroupement, consultez les articl
 
 La **normalisation de réponse** est un schéma de normalisation local initialement proposé par Geoffrey Hinton et al. dans le document [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Cette opération s’effectue à l’aide de trois paramètres (`α`, `β` et `k`) et d’une structure convolutionnelle (ou forme de voisinage). Chaque neurone **y** de la couche de destination correspond à un neurone **x** de la couche source. Le niveau de l’activation de l’élément **y** est calculé via la formule suivante, où `f` correspond au niveau de l’activation d’un neurone et `Nx` au noyau (ou à l’ensemble qui contient les neurones dans le voisinage de l’élément **x** ), comme défini par la structure convolutionnelle suivante :
+La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Cette opération s’effectue à l’aide de trois paramètres (`α`, `β` et `k`) et d’une structure convolutionnelle (ou forme de voisinage). Chaque neurone **y** de la couche de destination correspond à un neurone **x** de la couche source. Le niveau de l’activation de l’élément **y** est calculé via la formule suivante, où `f` correspond au niveau de l’activation d’un neurone et `Nx` au noyau (ou à l’ensemble qui contient les neurones dans le voisinage de l’élément **x**), comme défini par la structure convolutionnelle suivante :
 
 ![formule de la structure convolutionnelle](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing** , **MapCount** et **Weights**.
+Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
 
 + Si le noyau contient des neurones de la même signature que **_x_ *_, le schéma de normalisation est appelé _* normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
 

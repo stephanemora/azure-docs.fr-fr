@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055951"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180453"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor
 
@@ -46,7 +46,7 @@ Vous pouvez acheminer les journaux d’activité d’audit et authentifier des j
 
 * **Journaux d’audit**: Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
 * **Journaux d’activité de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
-* **Journaux de provisionnement** : les [journaux de provisionnement](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) vous permettent de savoir quels utilisateurs ont été créés, mis à jour et supprimés dans toutes vos applications tierces. 
+* **Journaux de provisionnement** : les [journaux de provisionnement](../app-provisioning/application-provisioning-log-analytics.md) vous permettent de savoir quels utilisateurs ont été créés, mis à jour et supprimés dans toutes vos applications tierces. 
 
 > [!NOTE]
 > Les journaux d’activité d’audit et de connexions associés à B2C ne sont pas pris en charge pour le moment.

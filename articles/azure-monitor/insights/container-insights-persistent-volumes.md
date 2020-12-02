@@ -3,16 +3,16 @@ title: Configurer la supervision de volumes persistants avec Azure Monitor pour 
 description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de volumes persistants à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 30e99c2abbc66de257f9623dedc901fca51976c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492119"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186845"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de volumes persistants avec Azure Monitor pour conteneurs
 
-À partir de la version de l’agent *ciprod10052020* , l’agent intégré Azure Monitor pour conteneurs prend désormais en charge l’analyse des volumes persistants.
+À partir de la version de l’agent *ciprod10052020*, l’agent intégré Azure Monitor pour conteneurs prend désormais en charge l’analyse des volumes persistants.
 
 ## <a name="pv-metrics"></a>Métriques de volume persistant
 
@@ -30,4 +30,4 @@ Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour cette m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les métriques de volume persistant collectées [ici](https://aka.ms/ci/pvconfig).
+- En savoir plus sur les métriques de volume persistant collectées [ici](./container-insights-agent-config.md).

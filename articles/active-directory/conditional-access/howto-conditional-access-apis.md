@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992795"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173683"
 ---
 # <a name="conditional-access-programmatic-access"></a>Accès conditionnel : Accès par programme
 
@@ -78,7 +78,7 @@ Automatisez la sauvegarde et la restauration des stratégies d’accès conditio
 
 ### <a name="emergency-access-accounts"></a>Comptes d’accès d’urgence
 
-Plusieurs administrateurs peuvent créer des stratégies d’accès conditionnel, et parfois oublier d’ajouter vos [comptes d’accès d’urgence](../users-groups-roles/directory-emergency-access.md) en exclusion à ces stratégies. Cet exemple vérifie que toutes les stratégies sont mises à jour pour inclure vos comptes d’accès d’urgence désignés.
+Plusieurs administrateurs peuvent créer des stratégies d’accès conditionnel, et parfois oublier d’ajouter vos [comptes d’accès d’urgence](../roles/security-emergency-access.md) en exclusion à ces stratégies. Cet exemple vérifie que toutes les stratégies sont mises à jour pour inclure vos comptes d’accès d’urgence désignés.
 
 - [Gérer l’affectation de comptes d’accès d’urgence à des stratégies d’accès conditionnel à l’aide des appels d’API Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 280083ccbd732e95796013bf2b2c08e96564c24c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c87c3692d7e1106e0952b85791da663e03c6001d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020481"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182476"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zoom pour l’approvisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ Ce tutoriel décrit les étapes à effectuer dans Zoom et Azure Active Directory
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * [Un locataire Zoom](https://zoom.us/pricing).
 * Un compte d’utilisateur dans Zoom avec des autorisations d’administration.
 

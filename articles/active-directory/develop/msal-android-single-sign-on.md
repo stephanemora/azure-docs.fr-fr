@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209029"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169492"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Procédure : Activer l’authentification unique entre applications sur Android à l’aide de MSAL
 
 L’authentification unique (SSO) permet aux utilisateurs de ne saisir leurs informations d’identification qu’une seule fois et de faire en sorte que ces informations d’identification fonctionnent automatiquement entre les applications.
 
-La [Microsoft Identity Platform](/azure/active-directory/develop/) et la bibliothèque d’authentification Microsoft (MSAL) vous aident à activer l’authentification unique dans votre propre suite d’applications. Grâce aux applications de service Broker et Authenticator, vous pouvez étendre l’authentification unique sur l’ensemble de l’appareil.
+La [Microsoft Identity Platform](./index.yml) et la bibliothèque d’authentification Microsoft (MSAL) vous aident à activer l’authentification unique dans votre propre suite d’applications. Grâce aux applications de service Broker et Authenticator, vous pouvez étendre l’authentification unique sur l’ensemble de l’appareil.
 
 Dans cette procédure, vous allez apprendre à configurer les kits de développement logiciel (SDK) utilisés par votre application pour fournir une authentification unique à vos clients.
 
@@ -33,7 +33,7 @@ Dans cette procédure, vous allez apprendre à configurer les kits de développe
 
 Cette procédure suppose que vous savez :
 
-- Approvisionner votre application à l’aide du Portail Azure. Pour plus d’informations sur cette rubrique, consultez les instructions relatives à la création d’une application dans [le didacticiel Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Approvisionner votre application à l’aide du Portail Azure. Pour plus d’informations sur cette rubrique, consultez les instructions relatives à la création d’une application dans [le didacticiel Android](./tutorial-v2-android.md#create-a-project)
 - Intégrez votre application à la [bibliothèque d’authentification Microsoft pour Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Méthodes d’authentification unique
@@ -117,14 +117,14 @@ Windows :
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Une fois que vous avez généré un hachage de signature avec *keytool* , utilisez le Portail Azure pour générer l’URI de redirection :
+Une fois que vous avez généré un hachage de signature avec *keytool*, utilisez le Portail Azure pour générer l’URI de redirection :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et sélectionnez votre application Android dans **Inscriptions d’applications** .
-1. Sélectionnez **Authentification** > **Ajouter une plateforme** > **Android** .
-1. Dans le volet **Configurer votre application Android** qui s’ouvre, entrez le **hachage de Signature** que vous avez généré précédemment et un **nom de Package** .
-1. Sélectionnez le bouton **Configurer** .
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et sélectionnez votre application Android dans **Inscriptions d’applications**.
+1. Sélectionnez **Authentification** > **Ajouter une plateforme** > **Android**.
+1. Dans le volet **Configurer votre application Android** qui s’ouvre, entrez le **hachage de Signature** que vous avez généré précédemment et un **nom de Package**.
+1. Sélectionnez le bouton **Configurer**.
 
-Le Portail Azure génère automatiquement l’URI de redirection et l’affiche dans le champ **URI de redirection** du volet **Configuration Android** .
+Le Portail Azure génère automatiquement l’URI de redirection et l’affiche dans le champ **URI de redirection** du volet **Configuration Android**.
 
 Pour plus d’informations sur la signature de votre application, consultez [Signature de votre application](https://developer.android.com/studio/publish/app-signing) dans le Guide de l’utilisateur Android Studio.
 
@@ -159,7 +159,7 @@ Si vous recevez une exception `MsalClientException` accompagnée du code d’err
 Il n’est peut-être pas immédiatement clair que l’intégration du répartiteur fonctionne, mais vous pouvez suivre les étapes ci-dessous pour opérer une vérification :
 
 1. Sur votre appareil Android, remplissez une demande à l’aide du répartiteur.
-1. Dans les paramètres de votre appareil Android, recherchez un compte nouvellement créé correspondant au compte auprès duquel vous vous êtes authentifié. Le compte doit être de type *Compte professionnel* .
+1. Dans les paramètres de votre appareil Android, recherchez un compte nouvellement créé correspondant au compte auprès duquel vous vous êtes authentifié. Le compte doit être de type *Compte professionnel*.
 
 Vous pouvez supprimer le compte des paramètres si vous souhaitez répéter le test.
 

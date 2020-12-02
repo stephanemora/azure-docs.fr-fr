@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681837"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183700"
 ---
 # <a name="repair-an-automanage-account"></a>Réparer un compte Automanage
 Votre [compte Azure Automanage](./automanage-virtual-machines.md#automanage-account) est l’identité ou le contexte de sécurité où les opérations automatisées se produisent. Si vous avez récemment déplacé un abonnement qui contient un compte Automanage vers un nouveau locataire, vous devez reconfigurer le compte. Pour le reconfigurer, vous devez réinitialiser le type d’identité et attribuer les rôles appropriés pour le compte.
@@ -22,8 +22,8 @@ Votre [compte Azure Automanage](./automanage-virtual-machines.md#automanage-acco
 Réinitialisez le type d’identité du compte Automanage en utilisant le modèle ARM (Azure Resource Manager) suivant. Enregistrez le fichier localement sous le nom armdeploy.json ou un nom similaire. Notez le nom et l’emplacement de votre compte Automanage, car il s’agit de paramètres requis dans le modèle ARM.
 
 1. Créez un déploiement Resource Manager à l’aide du modèle suivant. Utiliser `identityType = None`.
-    * Vous pouvez créer le déploiement dans Azure CLI à l’aide de `az deployment sub create`. Pour plus d’informations, consultez [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Vous pouvez créer le déploiement dans PowerShell à l’aide du module `New-AzDeployment`. Pour plus d’informations, consultez [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Vous pouvez créer le déploiement dans Azure CLI à l’aide de `az deployment sub create`. Pour plus d’informations, consultez [az deployment sub](/cli/azure/deployment/sub).
+    * Vous pouvez créer le déploiement dans PowerShell à l’aide du module `New-AzDeployment`. Pour plus d’informations, consultez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Exécutez à nouveau le même modèle ARM avec `identityType = SystemAssigned`.
 
@@ -63,7 +63,7 @@ Le compte Automanage nécessite les rôles Contributeur et Contributeur de strat
 
 Si vous utilisez un modèle ARM ou Azure CLI, vous avez besoin de l’ID du principal (également appelé ID d’objet) de votre compte Automanage. (Vous n’avez pas besoin de l’ID si vous utilisez le portail Azure.) Vous pouvez trouver cet ID à l’aide des méthodes suivantes :
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp) : Utilisez la commande `az ad sp list --display-name <name of your Automanage Account>`.
+- [Azure CLI](/cli/azure/ad/sp) : Utilisez la commande `az ad sp list --display-name <name of your Automanage Account>`.
 
 - Portail Azure : Accédez à **Azure Active Directory** et recherchez votre compte Automanage par son nom. Sous **Applications d’entreprise**, sélectionnez le nom du compte Automanage lorsqu’il apparaît.
 

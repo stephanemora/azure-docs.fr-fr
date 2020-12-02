@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145595"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175098"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor
 
@@ -26,17 +26,17 @@ L’approvisionnement s’intègre aux journaux Azure Monitor et à Log Analytic
 
 Vous devez déjà avoir une connaissance de Log Analytics et de l’analyse Azure. Si ce n’est pas le cas, apprenez-en plus sur le sujet, puis revenez sur cette page pour découvrir les journaux d’approvisionnement d’application. Pour en savoir plus sur l’analyse Azure, consultez [Vue d’ensemble d’Azure Monitor](../../azure-monitor/overview.md). Pour en savoir plus sur les journaux Azure Monitor et Log Analytics, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Une fois que vous avez configuré l’analyse Azure, vous pouvez activer les journaux pour l’approvisionnement des applications. L’option se trouve sur la page **Paramètres de diagnostic** .
+Une fois que vous avez configuré l’analyse Azure, vous pouvez activer les journaux pour l’approvisionnement des applications. L’option se trouve sur la page **Paramètres de diagnostic**.
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Activer les journaux d’approvisionnement d’application" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Si vous venez d’approvisionner un espace de travail, il peut falloir un certain temps avant de pouvoir y envoyer des journaux. Si vous recevez une erreur indiquant que l’abonnement n’est pas inscrit pour utiliser *microsoft.insights* revenez après quelques minutes.
  
 ## <a name="understanding-the-data"></a>Vue d’ensemble des données
-Le flux de données sous-jacent que l’approvisionnement envoie aux visionneuses de journaux est presque identique. Les journaux Azure Monitor suivent quasiment le même flux que l’interface utilisateur du Portail Azure et l’API Azure. Il n’existe que quelques **différences** dans les champs du journal, comme indiqué dans le tableau suivant. Pour en savoir plus sur ces champs, consultez [Répertorier provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+Le flux de données sous-jacent que l’approvisionnement envoie aux visionneuses de journaux est presque identique. Les journaux Azure Monitor suivent quasiment le même flux que l’interface utilisateur du Portail Azure et l’API Azure. Il n’existe que quelques **différences** dans les champs du journal, comme indiqué dans le tableau suivant. Pour en savoir plus sur ces champs, consultez [Répertorier provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Journaux d’activité Azure Monitor   |Interface utilisateur du portail Azure   |API Azure |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Les classeurs Azure Monitor fournissent un canevas flexible pour l’analyse des
 
 L’approvisionnement d’applications est fourni avec un ensemble de classeurs prédéfinis. Vous pouvez les trouver dans la page Classeurs. Pour afficher les données, vous devez vous assurer que tous les filtres (timeRange, jobID, appName) sont remplis. Vous devez également vous assurer que vous avez configuré une application, sinon aucune donnée n’est disponible dans les journaux.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Classeurs d’approvisionnement d’application" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Tableau de bord d’approvisionnement d’applications" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Requêtes personnalisées
 
@@ -100,15 +100,15 @@ Pour en savoir plus sur les alertes, consultez [Répondre aux événements avec 
 
 Alerte en cas de pic de défaillances. Remplacez jobID par le jobID de votre application.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Alerte en cas de pic de défaillances." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Il peut y avoir un problème qui a provoqué l’arrêt de l’exécution du service d’approvisionnement. Utilisez l’alerte suivante pour détecter quand il n’y a pas d’événements d’approvisionnement pendant un intervalle de temps donné.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Il peut y avoir un problème qui a provoqué l’arrêt de l’exécution du service d’approvisionnement." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Alerte en cas de pic de désactivations ou de suppressions.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Alerte en cas de pic de désactivations ou de suppressions." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Contributions de la communauté
@@ -121,4 +121,4 @@ Nous adoptons une approche open source et basée sur la communauté pour les req
 - [Bien démarrer avec les requêtes de journal d’activité Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 - [Créer et gérer des groupes d’alertes dans le portail Azure](../../azure-monitor/platform/action-groups.md)
 - [Installer et utiliser les vues Log Analytics pour Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de journaux de provisionnement](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API de journaux de provisionnement](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

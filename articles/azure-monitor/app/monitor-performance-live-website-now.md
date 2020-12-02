@@ -4,12 +4,12 @@ description: Analysez les performances d'un site web sans le redéployer. Foncti
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020923"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186301"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
 
@@ -93,7 +93,7 @@ Voici quelques étapes à suivre pour vérifier que votre installation a réussi
 
 - Vérifiez que le fichier applicationinsights.config est présent dans le répertoire de l'application cible et contient votre iKey.
 
-- Si vous pensez qu’il manque des données, vous pouvez exécuter une requête dans [Analytics](../log-query/get-started-portal.md) pour lister tous les rôles cloud qui envoient actuellement des données de télémétrie.
+- Si vous pensez qu’il manque des données, vous pouvez exécuter une requête dans [Analytics](../log-query/log-analytics-tutorial.md) pour lister tous les rôles cloud qui envoient actuellement des données de télémétrie.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Ajoutez des données de télémétrie :
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143923"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522700"
 ---
 # <a name="azure-resource-logs"></a>Journaux de ressources Azure
 Les journaux de ressources Azure sont des [journaux de plateforme](platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
@@ -54,7 +54,7 @@ La table AzureDiagnostics se présente comme suit :
 | ... |
 
 ### <a name="resource-specific"></a>Spécifique à la ressource
-Dans ce mode, les tables individuelles de l’espace de travail sélectionné sont créées pour chaque catégorie sélectionnée dans le paramètre de diagnostic. Cette méthode est recommandée car elle facilite considérablement l’utilisation des données dans les requêtes de journal, offre une meilleure détectabilité des schémas et de leur structure, améliore les performances en termes de latence d’ingestion et de temps de requête, de même que la possibilité d’accorder des droits de contrôle d'accès en fonction du rôle (RBAC) sur une table spécifique. À termes, tous les services Azure migreront vers le mode Spécifique à la ressource. 
+Dans ce mode, les tables individuelles de l’espace de travail sélectionné sont créées pour chaque catégorie sélectionnée dans le paramètre de diagnostic. Cette méthode est recommandée, car elle facilite considérablement l’utilisation des données dans les requêtes de journal, offre une meilleure détectabilité des schémas et de leur structure, améliore les performances en termes de latence d’ingestion et de temps de requête, de même que la possibilité d’accorder des droits de contrôle d'accès en fonction du rôle (RBAC) Azure sur une table spécifique. À termes, tous les services Azure migreront vers le mode Spécifique à la ressource. 
 
 L’exemple ci-dessus se traduirait par la création de trois tables :
  

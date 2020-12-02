@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964636"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994245"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 
@@ -29,7 +29,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 
 ## <a name="requirements"></a>Spécifications
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Activer la [préversion de l’inscription d’informations de sécurité combinée](concept-registration-mfa-sspr-combined.md)
 - [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
 - WebAuthN nécessite Windows 10 version 1903 ou plus**
@@ -62,8 +62,8 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 1. Accédez à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Connectez-vous si ce n’est pas déjà fait.
 1. Cliquez **Informations de sécurité**.
-   1. Si l’utilisateur possède dispose déjà d’au moins une méthode d’authentification multifacteur Azure inscrite, il peut inscrire immédiatement une clé de sécurité FIDO2.
-   1. Sinon, il doit d’abord ajouter une méthode Azure MFA.
+   1. Si l’utilisateur dispose déjà d’au moins une méthode Azure AD Multi-Factor Authentication inscrite, il peut inscrire immédiatement une clé de sécurité FIDO2.
+   1. Sinon, il doit d’abord ajouter une méthode Azure AD MFA.
 1. Ajoutez une clé de sécurité de FIDO2 en cliquant sur **Ajouter méthode** et en choisissant **Clé de sécurité**.
 1. Choisissez **Périphérique USB** ou **Appareil NFC**.
 1. Préparez votre clé et choisissez **Suivant**.
@@ -105,4 +105,4 @@ Nous travaillons sur la prise en charge d’une fonctionnalité qui permet la mo
 
 [En savoir plus sur l’inscription des appareils](../devices/overview.md)
 
-[En savoir plus sur Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[En savoir plus sur Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

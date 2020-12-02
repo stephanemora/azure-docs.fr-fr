@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 8937cfa5a48903ab53f3015b056a4915240bc525
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: 3eb43c98ae2697ece5ded8ae0df451a6cf5f272d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633125"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007203"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copier des données vers et à partir d’Azure Databricks Delta Lake avec Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers Azure Databricks Delta Lake. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
 
@@ -46,17 +46,17 @@ Pour utiliser ce connecteur Azure Databricks Delta Lake, vous devez configurer u
 
 Le cluster Databricks doit avoir accès à un compte Stockage Blob Azure ou Azure Data Lake Storage Gen2, à la fois au conteneur de stockage/système de fichiers utilisé pour la source/le récepteur/le transit, et au conteneur/système de fichiers dans lequel vous voulez écrire les tables Delta Lake.
 
-- Pour utiliser **Azure Data Lake Storage Gen2** , vous pouvez configurer un **principal de service** ou une **clé d’accès de compte de stockage** sur le cluster Databricks dans le cadre de la configuration Apache Spark. Suivez la procédure décrite dans [Accéder directement avec le principal de service](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) ou [Accéder directement avec la clé d’accès du compte de stockage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Pour utiliser **Azure Data Lake Storage Gen2**, vous pouvez configurer un **principal de service** ou une **clé d’accès de compte de stockage** sur le cluster Databricks dans le cadre de la configuration Apache Spark. Suivez la procédure décrite dans [Accéder directement avec le principal de service](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) ou [Accéder directement avec la clé d’accès du compte de stockage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- Pour utiliser **Stockage Blob Azure** , vous pouvez configurer une **clé d’accès de compte de stockage** ou un **jeton SAS** sur le cluster Databricks dans le cadre de la configuration Apache Spark. Suivez la procédure décrite dans [Accéder à Stockage Blob Azure à l’aide de l’API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
+- Pour utiliser **Stockage Blob Azure**, vous pouvez configurer une **clé d’accès de compte de stockage** ou un **jeton SAS** sur le cluster Databricks dans le cadre de la configuration Apache Spark. Suivez la procédure décrite dans [Accéder à Stockage Blob Azure à l’aide de l’API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 Pendant l’exécution de l’activité de copie, si le cluster que vous avez configuré a été arrêté, Data Factory le redémarre automatiquement. Si vous créez un pipeline à l’aide de l’interface utilisateur de création Data Factory, pour les opérations telles que l’aperçu des données, vous devez avoir un cluster actif, car Data Factory ne démarre pas le cluster en votre nom.
 
 #### <a name="specify-the-cluster-configuration"></a>Spécifier la configuration du cluster
 
-1. Dans le menu déroulant **Mode du cluster** , sélectionnez **Standard**.
+1. Dans le menu déroulant **Mode du cluster**, sélectionnez **Standard**.
 
-2. Dans le menu déroulant **Version du runtime Databricks** , sélectionnez une version de runtime Databricks.
+2. Dans le menu déroulant **Version du runtime Databricks**, sélectionnez une version de runtime Databricks.
 
 3. Activez [Optimisation automatique](/azure/databricks/delta/optimizations/auto-optimize) en ajoutant les propriétés suivantes à votre [configuration Spark](/azure/databricks/clusters/configure#spark-config) :
 
@@ -77,7 +77,7 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées q
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Les propriétés suivantes sont prises en charge pour un service lié Azure Databricks Delta Lake.
+Les propriétés suivantes sont prises en charge pour un service lié à Azure Databricks Delta Lake.
 
 | Propriété    | Description                                                  | Obligatoire |
 | :---------- | :----------------------------------------------------------- | :------- |
@@ -114,7 +114,7 @@ Les propriétés suivantes sont prises en charge pour le jeu de données Azure D
 
 | Propriété  | Description                                                  | Obligatoire                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | La propriété type du jeu de données doit être définie sur  **AzureDatabricksDeltaLakeDataset**. | Oui                         |
+| type      | La propriété type du jeu de données doit être définie sur **AzureDatabricksDeltaLakeDataset**. | Oui                         |
 | database | Nom de la base de données. |Non pour Source, Oui pour Récepteur  |
 | table | Nom de la table Delta. |Non pour Source, Oui pour Récepteur  |
 
@@ -162,14 +162,14 @@ Si le format et le magasin de données récepteur remplissent les critères déc
 
 - Le **service lié au récepteur** est [Stockage Blob Azure](connector-azure-blob-storage.md) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Les informations d’identification du compte doivent être préconfigurées dans la configuration du cluster Azure Databricks. Pour plus d’informations, consultez les [Prérequis](#prerequisites).
 
-- Le **format de données du récepteur** est **Parquet** , **Texte délimité** ou **Avro** avec les configurations suivantes, et pointe vers un dossier plutôt qu’un fichier.
+- Le **format de données du récepteur** est **Parquet**, **Texte délimité** ou **Avro** avec les configurations suivantes, et pointe vers un dossier plutôt qu’un fichier.
 
-    - Pour le format **Parquet** , le codec de compression est **aucun** , **snappy** ou **gzip**.
-    - Pour le format **texte délimité**  :
+    - Pour le format **Parquet**, le codec de compression est **aucun**, **snappy** ou **gzip**.
+    - Pour le format **texte délimité** :
         - `rowDelimiter` est un caractère unique quelconque.
-        - `compression` peut être **aucun** , **bzip2** ou **gzip**.
+        - `compression` peut être **aucun**, **bzip2** ou **gzip**.
         - `encodingName` UTF-7 n’est pas pris en charge.
-    - Pour le format **Avro** , le codec de compression est **aucun** , **deflate** ou **snappy**.
+    - Pour le format **Avro**, le codec de compression est **aucun**, **deflate** ou **snappy**.
 
 - Dans la source de l’activité de copie, `additionalColumns` n’est pas spécifié.
 - Si vous copiez des données dans du texte délimité, dans le récepteur de l’activité de copie, `fileExtension` doit être « .csv ».
@@ -276,14 +276,14 @@ Si le format et le magasin de données source remplissent les critères décrits
 
 - Le **service lié à la source** est [Stockage Blob Azure](connector-azure-blob-storage.md) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Les informations d’identification du compte doivent être préconfigurées dans la configuration du cluster Azure Databricks. Pour plus d’informations, consultez les [Prérequis](#prerequisites).
 
-- Le **format de données de la source** est **Parquet** , **Texte délimité** ou **Avro** avec les configurations suivantes, et pointe vers un dossier plutôt qu’un fichier.
+- Le **format de données de la source** est **Parquet**, **Texte délimité** ou **Avro** avec les configurations suivantes, et pointe vers un dossier plutôt qu’un fichier.
 
-    - Pour le format **Parquet** , le codec de compression est **aucun** , **snappy** ou **gzip**.
-    - Pour le format **texte délimité**  :
+    - Pour le format **Parquet**, le codec de compression est **aucun**, **snappy** ou **gzip**.
+    - Pour le format **texte délimité** :
         - `rowDelimiter` est la valeur par défaut ou n’importe quel caractère unique.
-        - `compression` peut être **aucun** , **bzip2** ou **gzip**.
+        - `compression` peut être **aucun**, **bzip2** ou **gzip**.
         - `encodingName` UTF-7 n’est pas pris en charge.
-    - Pour le format **Avro** , le codec de compression est **aucun** , **deflate** ou **snappy**.
+    - Pour le format **Avro**, le codec de compression est **aucun**, **deflate** ou **snappy**.
 
 - Dans la source de l’activité de copie : 
 

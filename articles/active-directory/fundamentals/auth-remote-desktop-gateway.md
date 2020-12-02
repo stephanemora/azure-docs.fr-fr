@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4baaf2de6fbe4a56f64d449644b8594217dc432c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576793"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172735"
 ---
 # <a name="remote-desktop-gateway-services"></a>Services de passerelle Bureau à distance
 
-Un déploiement de services Bureau à distance (RDS) standard inclut divers [services du rôle Bureau à distance](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) s’exécutant sur Windows Server. Le déploiement RDS utilisant la fonctionnalité Proxy d’application d’Azure Active Directory (Azure AD) dispose d’une connexion sortante permanente depuis le serveur exécutant le service de connexion. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge. Ce modèle d’authentification vous permet de proposer davantage de types d’applications en publiant des applications locales via les services Bureau à distance. Cela réduit également la surface d’attaque de leur déploiement en utilisant Proxy d’application d’Azure AD.
+Un déploiement de services Bureau à distance (RDS) standard inclut divers [services du rôle Bureau à distance](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) s’exécutant sur Windows Server. Le déploiement RDS utilisant la fonctionnalité Proxy d’application d’Azure Active Directory (Azure AD) dispose d’une connexion sortante permanente depuis le serveur exécutant le service de connexion. Les autres déploiements comportent des connexions entrantes ouvertes via un équilibreur de charge. Ce modèle d’authentification vous permet de proposer davantage de types d’applications en publiant des applications locales via les services Bureau à distance. Cela réduit également la surface d’attaque de leur déploiement en utilisant Proxy d’application d’Azure AD.
 
 ## <a name="use-when"></a>Cas d'utilisation
 
@@ -44,8 +44,7 @@ Vous devez fournir un accès à distance et protéger votre déploiement RDS pa
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implémenter des services de passerelle Bureau à distance avec Azure AD
 
-* [Publier le Bureau à distance avec Proxy d’application d’Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services) 
+* [Publier le Bureau à distance avec Proxy d’application d’Azure AD](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

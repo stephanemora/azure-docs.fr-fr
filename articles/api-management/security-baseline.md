@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024566"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183751"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -40,7 +40,7 @@ Le trafic entrant et sortant dans le sous-réseau où la Gestion des API est dé
 
 * [Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -56,7 +56,7 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -75,7 +75,7 @@ Remarque : Cette fonctionnalité est disponible dans les niveaux Premium et Dé
 
 * [Présentation d’Azure Application Gateway](../application-gateway/index.yml)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -98,11 +98,11 @@ Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure
 
 * [Présentation d’Azure Application Gateway](../application-gateway/index.yml)
 
-* [Configurer Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md)
+* [Configurer Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -118,7 +118,7 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -301,7 +301,7 @@ Si vous le souhaitez, vous pouvez intégrer la Gestion des API à Azure Applicat
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Intégration à Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -383,7 +383,7 @@ Suivez les recommandations d’Azure Security Center concernant la gestion et la
 
 * [Recommandations Azure Security Center concernant l’accès et les identités](../security-center/recommendations-reference.md#recs-identity)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -412,7 +412,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 * [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -438,7 +438,7 @@ Le processus de connexion ou d’inscription peut également être personnalisé
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -464,7 +464,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 * [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -512,7 +512,7 @@ Les administrateurs peuvent créer des groupes personnalisés ou utiliser des gr
 
 * [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -606,7 +606,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -614,7 +614,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 **Aide** : Les appels de plan de gestion se font par le biais d’Azure Resource Manager sur TLS. Un jeton web JSON valide (JWT) est nécessaire. Les appels de plan de données peuvent être sécurisés via TLS et un des mécanismes d’authentification pris en charge (certificat client ou JWT, par exemple).
 
-* [Présentation de la protection des données dans la Gestion des API Azure](./api-management-security-controls.md#data-protection)
+* [Présentation de la protection des données dans la Gestion des API Azure](#data-protection)
 
 * [Gérer les paramètres TLS dans la Gestion des API Azure](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -634,7 +634,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -664,7 +664,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 **Aide** : Les données sensibles telles que les certificats, les clés et les valeurs secrètes sont chiffrées à l’aide de clés d’instance de service gérées par le service. Toutes les clés de chiffrement sont propres à l'instance de service et gérées par ce dernier.
 
-* [Protection et chiffrement des données au repos avec la Gestion des API Azure](./api-management-security-controls.md#data-protection)
+* [Protection et chiffrement des données au repos avec la Gestion des API Azure](#data-protection)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -692,7 +692,7 @@ Microsoft gère l’infrastructure sous-jacente de la Gestion des API Azure, et 
 
 La plateforme sous-jacente est analysée et corrigée par Microsoft. Passez en revue les contrôles de sécurité disponibles afin de réduire les vulnérabilités liées à la configuration du service.
 
-* [Contrôles de sécurité disponibles pour la Gestion des API Azure](./api-management-security-controls.md)
+* [Contrôles de sécurité disponibles pour la Gestion des API Azure]()
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -728,7 +728,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Passez en r
 
 La plateforme sous-jacente est analysée et corrigée par Microsoft. Les clients passent en revue les contrôles de sécurité disponibles afin de réduire les vulnérabilités liées à la configuration du service.
 
-* [Contrôles de sécurité disponibles pour la Gestion des API Azure](./api-management-security-controls.md)
+* [Contrôles de sécurité disponibles pour la Gestion des API Azure]()
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -740,7 +740,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Les clients
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -932,8 +932,6 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Documentation Azure Repos](/azure/devops/repos/index)
 
-* [Kit de ressources DevOps Gestion des API Azure](./api-management-security-controls.md#configuration-management)
-
 **Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
@@ -971,8 +969,6 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 **Conseils** : Utilisez le kit de ressources Azure API Management DevOps pour gérer la configuration de la Gestion des API Azure.
 
 En outre, définissez et implémentez des configurations de sécurité standard pour vos services Gestion des API Azure avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ApiManagement » pour créer des stratégies personnalisées en vue d’auditer ou d’appliquer la configuration des instances Gestion des API Azure. Utilisez Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
-
-* [Kit de ressources DevOps Gestion des API Azure](./api-management-security-controls.md#configuration-management)
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1148,7 +1144,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1168,7 +1164,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

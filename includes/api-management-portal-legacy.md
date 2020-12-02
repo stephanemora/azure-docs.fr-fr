@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013538"
 ---
 > [!NOTE]
 > Le contenu de cette documentation s’applique au portail des développeurs déprécié. Vous pouvez continuer à l’utiliser normalement jusqu’à sa suppression en octobre 2023, lorsqu’il sera supprimé de tous les services de gestion des API. Le portail déprécié recevra uniquement les mises à jour de sécurité critiques. Pour plus d’informations, consultez les articles suivants :

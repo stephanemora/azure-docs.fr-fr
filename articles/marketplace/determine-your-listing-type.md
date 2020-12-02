@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
-ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741907"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302862"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
@@ -145,7 +145,7 @@ Le tableau suivant présente les options disponibles pour les différents types 
 
 &#42; Les offres SaaS pouvant faire l’objet d’une transaction dans AppSource sont actuellement accessibles uniquement aux titulaires d’une carte de crédit.
 
-&#42;&#42; Les compléments Microsoft 365 peuvent être installés gratuitement, ainsi que monétisés à l’aide d’une offre SaaS. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+&#42;&#42; Les compléments Microsoft 365 peuvent être installés gratuitement, ainsi que monétisés à l’aide d’une offre SaaS. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="marketplace-rewards"></a>Récompenses de la Place de marché
 

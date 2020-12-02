@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: e23b6513751764063e3d8c85e063a24165d34648
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 94052b847f48a9fd676496601d85a8cb58a76944
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844878"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184295"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI
 
@@ -183,17 +183,7 @@ L’exemple suivant illustre la sortie lorsque vous attribuez le rôle [Contribu
     
 ## <a name="add-role-assignment-examples"></a>Exemples d’ajout d’attribution de rôle
 
-### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Ajouter une attribution de rôle pour un conteneur de blobs spécifique dans l’étendue d’une ressource
-
-Attribue le rôle [Contributeur aux données Blob du stockage](built-in-roles.md#storage-blob-data-contributor) à un principal de service associé à l’ID d’objet *55555555-5555-5555-5555-555555555555* dans l’étendue des ressources d’un conteneur de blobs nommé *blob-container-01*.
-
-```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
---role "Storage Blob Data Contributor" \
---scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
-```
-
-### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’une ressource de compte de stockage
+#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’une ressource de compte de stockage
 
 Attribue le rôle [Contributeur aux données Blob du stockage](built-in-roles.md#storage-blob-data-contributor) à un principal de service associé à l’ID d’objet *55555555-5555-5555-5555-555555555555* dans l’étendue des ressources d’un compte de stockage nommé *storage12345*.
 
@@ -203,7 +193,17 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Ajouter une attribution de rôle pour un groupe dans l’étendue d’une ressource de réseau virtuel spécifique
+#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Ajouter une attribution de rôle pour un conteneur de blobs spécifique dans l’étendue d’une ressource
+
+Attribue le rôle [Contributeur aux données Blob du stockage](built-in-roles.md#storage-blob-data-contributor) à un principal de service associé à l’ID d’objet *55555555-5555-5555-5555-555555555555* dans l’étendue des ressources d’un conteneur de blobs nommé *blob-container-01*.
+
+```azurecli
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+--role "Storage Blob Data Contributor" \
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+```
+
+#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Ajouter une attribution de rôle pour un groupe dans l’étendue d’une ressource de réseau virtuel spécifique
 
 Attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue des ressources d’un réseau virtuel nommé *pharma-sales-project-network*.
 
@@ -213,7 +213,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe de ressources
+#### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe de ressources
 
 Attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales*.
 
@@ -223,7 +223,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur utilisant l’ID de rôle unique dans l’étendue d’un groupe de ressources
+#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur utilisant l’ID de rôle unique dans l’étendue d’un groupe de ressources
 
 Un nom de rôle peut changer dans certaines circonstances, par exemple :
 
@@ -240,7 +240,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’un groupe de ressources
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’un groupe de ressources
 
 Attribue le rôle [Contributeur aux données Blob du stockage](built-in-roles.md#storage-blob-data-contributor) à un principal de service associé à l’ID d’objet *55555555-5555-5555-5555-555555555555* dans l’étendue du groupe de ressources *Example-Storage-rg*.
 
@@ -258,7 +258,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour une application dans l’étendue d’un groupe de ressources
+#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour une application dans l’étendue d’un groupe de ressources
 
 Attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à une application associée à l’ID d’objet de principal de service 44444444-4444-4444-4444-444444444444 dans l’étendue du groupe de ressources *pharma-sales*.
 
@@ -268,7 +268,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un nouveau principal de service dans l’étendue d’un groupe de ressources
+#### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>Ajouter une attribution de rôle pour un nouveau principal de service dans l’étendue d’un groupe de ressources
 
 Dans certains cas, si vous créez un principal de service et que vous tentez immédiatement de lui attribuer un rôle, cette attribution peut échouer. Par exemple, si vous utilisez un script pour créer une identité managée et que vous tentez d’attribuer un rôle à ce principal de service, l’attribution de rôle peut échouer. Cet échec est souvent lié au délai de réplication. Le principal du service est créé dans une région. Toutefois, l’attribution de rôle peut s’effectuer dans une autre région, qui n’a pas encore répliqué le principal de service. Dans le cadre de ce scénario, vous devez spécifier le type de principal lors de la création de l’attribution de rôle.
 
@@ -291,7 +291,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un abonnement
+#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un abonnement
 
 Attribue le rôle [Lecteur](built-in-roles.md#reader) à l’utilisateur *annm\@example.com* dans l’étendue d’un abonnement.
 
@@ -301,7 +301,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour un groupe dans l’étendue d’un abonnement
+#### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour un groupe dans l’étendue d’un abonnement
 
 Attribue le rôle [Lecteur](built-in-roles.md#reader) au groupe *Ann Mack Team* associé à l’ID 22222222-2222-2222-2222-222222222222 dans l’étendue d’un abonnement.
 
@@ -311,7 +311,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’un abonnement
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Ajouter une attribution de rôle pour tous les conteneurs de blobs dans l’étendue d’un abonnement
 
 Attribue le rôle [Lecteur des données BLOB du stockage](built-in-roles.md#storage-blob-data-reader) à l’utilisateur *alain\@example.com* dans l’étendue d’un abonnement.
 
@@ -321,7 +321,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe d’administration
+#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Ajouter une attribution de rôle pour un utilisateur dans l’étendue d’un groupe d’administration
 
 Attribue le rôle [Lecteur de facturation](built-in-roles.md#billing-reader) à l’utilisateur *alain\@example.com* dans l’étendue d’un groupe d’administration.
 
@@ -331,7 +331,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## <a name="remove-role-assignment"></a>Supprimer une attribution de rôle
+## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
 Dans Azure RBAC, pour supprimer un accès, vous supprimez une attribution de rôle à l’aide de la commande [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
 

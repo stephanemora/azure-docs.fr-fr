@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348787"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182765"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Activer Update Management à partir du portail Azure
 
 Cet article explique comment activer la fonctionnalité [Update Management](overview.md) pour les machines virtuelles en parcourant le portail Azure. Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle Azure existante en utilisant Update Management.
 
-Le nombre de groupes de ressources que vous pouvez utiliser pour la gestion de vos machines virtuelles est restreint par les [limites de déploiement Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). Les déploiements Resource Manager (à ne pas confondre avec les déploiements de mises à jour) sont limités à cinq groupes de ressources par déploiement. Deux de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Vous disposez ainsi de trois groupes de ressources à sélectionner pour la gestion par Update Management. Cette limite s’applique uniquement à la configuration simultanée, et non au nombre de groupes de ressources qui peuvent être gérés par une fonctionnalité Automation.
+Le nombre de groupes de ressources que vous pouvez utiliser pour la gestion de vos machines virtuelles est restreint par les [limites de déploiement Resource Manager](../../azure-resource-manager/templates/deploy-to-resource-group.md). Les déploiements Resource Manager (à ne pas confondre avec les déploiements de mises à jour) sont limités à cinq groupes de ressources par déploiement. Deux de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Vous disposez ainsi de trois groupes de ressources à sélectionner pour la gestion par Update Management. Cette limite s’applique uniquement à la configuration simultanée, et non au nombre de groupes de ressources qui peuvent être gérés par une fonctionnalité Automation.
 
 > [!NOTE]
 > Lors de l’activation d’Update Management, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de région pour un compte Automation et l’espace de travail Log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 1. Dans le portail Azure, accédez à **Machines virtuelles**.
 
-2. Dans la page **Machines virtuelles** , utilisez les cases à cocher pour choisir les machines virtuelles à ajouter à Update Management. Vous pouvez ajouter des machines pour trois différents groupes de ressources à la fois. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation.
+2. Dans la page **Machines virtuelles**, utilisez les cases à cocher pour choisir les machines virtuelles à ajouter à Update Management. Vous pouvez ajouter des machines pour trois différents groupes de ressources à la fois. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation.
 
     ![Liste des machines virtuelles](media/enable-from-portal/vmlist.png)
 
@@ -44,7 +44,7 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
     [ ![Activer Update Management](./media/enable-from-portal/onboard-feature.png)](./media/enable-from-portal/onboard-feature-expanded.png#lightbox)
 
-3. Sélectionnez **Services** , puis **Update Management** pour la fonctionnalité Update Management.
+3. Sélectionnez **Services**, puis **Update Management** pour la fonctionnalité Update Management.
 
 4. La liste des machines virtuelles est filtrée pour afficher uniquement celles qui se trouvent dans le même abonnement et le même emplacement. Si vos machines virtuelles se trouvent dans plus de trois groupes de ressources, les trois premiers groupes de ressources sont sélectionnés.
 

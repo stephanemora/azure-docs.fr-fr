@@ -9,17 +9,17 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217063"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183037"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
 > [!IMPORTANT]
-> Le point de terminaison privé est disponible pour les applications web Windows et Linux, conteneurisées ou non, hébergées sur les plans App Service suivants : **Isolé** , **PremiumV2** , **PremiumV3** , **Functions Premium** (parfois appelé plan Premium élastique). 
+> Le point de terminaison privé est disponible pour les applications web Windows et Linux, conteneurisées ou non, hébergées sur les plans App Service suivants : **Isolé**, **PremiumV2**, **PremiumV3**, **Functions Premium** (parfois appelé plan Premium élastique). 
 
 Vous pouvez utiliser un point de terminaison privé pour votre application web Azure afin de permettre aux clients situés dans votre réseau privé d’accéder de façon sécurisée à l’application via une liaison privée. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’application web traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public.
 
@@ -86,7 +86,7 @@ Voici des exemples de résolution des noms :
 |cloudservicename.cloudapp.net|Un|40.122.110.154|<--Cette adresse IP publique n’est pas votre point de terminaison privé ; vous recevrez une erreur 403|
 
 Vous devez configurer un serveur DNS privé ou une zone privée Azure DNS. Pour les tests, vous pouvez modifier l’entrée de l’hôte de votre machine de test.
-La zone DNS à créer est celle-ci : **privatelink.azurewebsites.net** . Enregistrez votre application web avec un enregistrement A et l’adresse IP du point de terminaison privé.
+La zone DNS à créer est celle-ci : **privatelink.azurewebsites.net**. Enregistrez votre application web avec un enregistrement A et l’adresse IP du point de terminaison privé.
 Voici des exemples de résolution des noms :
 
 |Nom |Type |Valeur |Remarque |
@@ -144,7 +144,7 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md

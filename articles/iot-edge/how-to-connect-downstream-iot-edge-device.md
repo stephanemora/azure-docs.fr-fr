@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489282"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187831"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge (préversion)
 
@@ -172,7 +172,7 @@ Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisatio
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -202,7 +202,7 @@ Sur Linux, veillez à ce que l’utilisateur **iotedge** dispose d’autorisatio
 
 Bien que cette fonctionnalité soit en préversion publique, vous devez configurer votre appareil IoT Edge de sorte qu’il utilise la préversion publique des modules runtime IoT Edge. La section précédente donne la procédure de configuration d’edgeAgent au démarrage. Il vous faut également configurer les modules runtime dans les déploiements pour votre appareil.
 
-1. Configurez le module edgeHub de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configurez le module edgeHub de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 1. Configurez les variables d’environnement suivantes pour le module edgeHub :
 
@@ -211,7 +211,7 @@ Bien que cette fonctionnalité soit en préversion publique, vous devez configur
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configurez le module edgeAgent de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configurez le module edgeAgent de façon à utiliser l’image en préversion publique : `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 ## <a name="network-isolate-downstream-devices"></a>Isolement réseau des appareils en aval
 
@@ -366,7 +366,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 

@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308687"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183343"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -146,7 +146,7 @@ Advisor détecte les comptes Azure Cosmos DB recevant du trafic en provenance d�
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Configurer la stratégie d’indexation Azure Cosmos DB avec des chemins inclus ou exclus personnalisés
 
-Advisor identifie les conteneurs Azure Cosmos DB qui utilisent la stratégie d’indexation par défaut, mais qui pourraient bénéficier d’une stratégie d’indexation personnalisée. Cette détermination est basée sur le modèle de charge de travail. La stratégie d’indexation par défaut indexe toutes les propriétés. Une stratégie d’indexation personnalisée avec des chemins inclus ou exclus explicites utilisés dans les filtres de requêtes peut réduire les unités de requête et le stockage utilisés pour l’indexation. [En savoir plus sur la modification des stratégies d’indexation.](/azure/cosmos-db/index-policy)
+Advisor identifie les conteneurs Azure Cosmos DB qui utilisent la stratégie d’indexation par défaut, mais qui pourraient bénéficier d’une stratégie d’indexation personnalisée. Cette détermination est basée sur le modèle de charge de travail. La stratégie d’indexation par défaut indexe toutes les propriétés. Une stratégie d’indexation personnalisée avec des chemins inclus ou exclus explicites utilisés dans les filtres de requêtes peut réduire les unités de requête et le stockage utilisés pour l’indexation. [En savoir plus sur la modification des stratégies d’indexation.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Définir la taille de page de la requête Azure Cosmos DB (MaxItemCount) avec la valeur -1 
 

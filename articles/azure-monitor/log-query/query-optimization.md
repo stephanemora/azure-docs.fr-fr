@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522870"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, dans certains cas, vous pouvez améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -463,7 +463,7 @@ Les comportements de requête qui peuvent réduire le parallélisme sont les sui
 - Utilisation de fonctions de sérialisation et de fenêtre, telles que les fonctions [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) et [row](/azure/kusto/query/rowcumsumfunction) ainsi que l’[opérateur serialize](/azure/kusto/query/serializeoperator). Les fonctions de série chronologique et d’analytique utilisateur peuvent être utilisées dans certains de ces cas. Une sérialisation inefficace peut également se produire si les opérateurs suivants ne sont pas utilisés à la fin de la requête : [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    L’utilisation de la fonction d’agrégation [dcount()](/azure/kusto/query/dcount-aggfunction) force le système à avoir une copie centrale des différentes valeurs. Quand l’échelle de données est élevée, envisagez d’utiliser les paramètres facultatifs de la fonction dcount pour réduire la précision.
 -    Dans de nombreux cas, l’opérateur [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) diminue le parallélisme global. Envisagez une jointure aléatoire comme alternative quand les performances sont problématiques.
--    Dans les requêtes dont l’étendue est limitée à des ressources, les vérifications RBAC en préexécution peuvent traîner en longueur en présence d’un très grand nombre d’attributions de rôle Azure. Cela peut entraîner des contrôles plus longs susceptibles de réduire le parallélisme. Par exemple, une requête est exécutée sur un abonnement qui comprend des milliers de ressources, et de nombreuses attributions de rôle sont définies au niveau de chaque ressource, et non sur l’abonnement ou sur le groupe de ressources.
+-    Dans les requêtes dont l’étendue est limitée à des ressources, les vérifications Kubernetes RBAC ou Azure RBAC en préexécution peuvent traîner en longueur en présence d’un très grand nombre d’attributions de rôle Azure. Cela peut entraîner des contrôles plus longs susceptibles de réduire le parallélisme. Par exemple, une requête est exécutée sur un abonnement qui comprend des milliers de ressources, et de nombreuses attributions de rôle sont définies au niveau de chaque ressource, et non sur l’abonnement ou sur le groupe de ressources.
 -    Si une requête traite de petits blocs de données, son parallélisme est faible, car le système ne la répartit pas sur de nombreux nœuds de calcul.
 
 

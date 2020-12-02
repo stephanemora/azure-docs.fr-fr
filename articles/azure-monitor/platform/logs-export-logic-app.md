@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049478"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185995"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiver des données de l’espace de travail Log Analytics dans le Stockage Azure à l’aide d’une application logique
 Cet article décrit une méthode permettant d’utiliser [Azure Logic Apps](../../logic-apps/index.yml) pour interroger des données à partir d’un espace de travail Log Analytics dans Azure Monitor et les envoyer au Stockage Azure. Utilisez ce processus lorsque vous devez exporter vos données de journal Azure Monitor pour des scénarios d’audit et de conformité, ou pour permettre à un autre service de récupérer ces données.  
@@ -25,7 +25,7 @@ La méthode décrite dans cet article décrit une exportation planifiée à part
 - Exportation ponctuelle vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## <a name="overview"></a>Vue d’ensemble
-Cette procédure utilise le [connecteur Azure Monitor logs](https://docs.microsoft.com/connectors/azuremonitorlogs/) qui vous permet d’exécuter une requête de journal à partir d’une application logique et d’utiliser sa sortie dans d’autres actions du flux de travail. Le [connecteur de Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/) est utilisé dans cette procédure pour envoyer la sortie de la requête vers le stockage Azure. Les autres actions sont décrites dans les sections ci-dessous.
+Cette procédure utilise le [connecteur Azure Monitor logs](/connectors/azuremonitorlogs/) qui vous permet d’exécuter une requête de journal à partir d’une application logique et d’utiliser sa sortie dans d’autres actions du flux de travail. Le [connecteur de Stockage Blob Azure](/connectors/azureblob/) est utilisé dans cette procédure pour envoyer la sortie de la requête vers le stockage Azure. Les autres actions sont décrites dans les sections ci-dessous.
 
 ![Vue d’ensemble de l’application logique](media/logs-export-logicapp/logic-app-overview.png)
 

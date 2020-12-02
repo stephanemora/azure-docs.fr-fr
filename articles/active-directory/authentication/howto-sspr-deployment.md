@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994160"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -48,13 +48,13 @@ Apprenez-en davantage sur la SSPR. Consultez [Fonctionnement : Réinitialisatio
 
 Les principaux avantages de la SSPR sont les suivants :
 
-* **Gestion des coûts** . La SSPR réduit les coûts de support informatique en permettant aux utilisateurs de réinitialiser eux-mêmes leurs mots de passe. Elle réduit également les frais liés au temps perdu suite à l'oubli des mots de passe et aux verrouillages. 
+* **Gestion des coûts**. La SSPR réduit les coûts de support informatique en permettant aux utilisateurs de réinitialiser eux-mêmes leurs mots de passe. Elle réduit également les frais liés au temps perdu suite à l'oubli des mots de passe et aux verrouillages. 
 
-* **Expérience utilisateur intuitive** . La SSPR fournit un processus d'inscription utilisateur unique et intuitif qui permet aux utilisateurs de réinitialiser leurs mots de passe et de débloquer leurs comptes à la demande sur tout type d'appareil et en tout lieu. Elle permet aux utilisateurs de reprendre plus rapidement leur travail et de gagner en productivité.
+* **Expérience utilisateur intuitive**. La SSPR fournit un processus d'inscription utilisateur unique et intuitif qui permet aux utilisateurs de réinitialiser leurs mots de passe et de débloquer leurs comptes à la demande sur tout type d'appareil et en tout lieu. Elle permet aux utilisateurs de reprendre plus rapidement leur travail et de gagner en productivité.
 
-* **Flexibilité et sécurité** . La SSPR permet aux entreprises de bénéficier de la sécurité et de la flexibilité d'une plateforme cloud. Les administrateurs peuvent modifier les paramètres pour répondre à de nouvelles exigences de sécurité et transmettre ces modifications aux utilisateurs sans interrompre leur connexion.
+* **Flexibilité et sécurité**. La SSPR permet aux entreprises de bénéficier de la sécurité et de la flexibilité d'une plateforme cloud. Les administrateurs peuvent modifier les paramètres pour répondre à de nouvelles exigences de sécurité et transmettre ces modifications aux utilisateurs sans interrompre leur connexion.
 
-* **Robustesse de l'audit et du suivi de l'utilisation** . Une organisation peut garantir aux utilisateurs que ses systèmes resteront sécurisés pendant qu'ils réinitialisent leurs mots de passe. Particulièrement robustes, les journaux d'audit contiennent des informations sur chacune des étapes du processus de réinitialisation de mot de passe. Ces journaux sont disponibles à partir d'une API et permettent à l'utilisateur d'importer les données dans le système SIEM (Security Incident and Event Monitoring) de son choix.
+* **Robustesse de l'audit et du suivi de l'utilisation**. Une organisation peut garantir aux utilisateurs que ses systèmes resteront sécurisés pendant qu'ils réinitialisent leurs mots de passe. Particulièrement robustes, les journaux d'audit contiennent des informations sur chacune des étapes du processus de réinitialisation de mot de passe. Ces journaux sont disponibles à partir d'une API et permettent à l'utilisateur d'importer les données dans le système SIEM (Security Incident and Event Monitoring) de son choix.
 
 ### <a name="licensing"></a>Licence
 
@@ -115,7 +115,7 @@ Avant de déployer la SSPR, vous pouvez déterminer le nombre et le coût moyen 
 
 Microsoft recommande aux organisations d’activer l’expérience combinée d’inscription à SSPR et MFA (authentification multifacteur). Lorsque vous activez cette expérience d’inscription combinée, les utilisateurs ne doivent sélectionner qu’une fois leurs informations d’inscription pour activer ces deux fonctionnalités.
 
-L'expérience d'inscription combinée n'oblige pas les organisations à activer à la fois la SSPR et Azure MFA. L'inscription combinée permet aux organisations de bénéficier d'une meilleure expérience utilisateur. Pour plus d'informations, consultez [Inscription combinée d'informations de sécurité](concept-registration-mfa-sspr-combined.md).
+L'expérience d'inscription combinée n'oblige pas les organisations à activer à la fois la SSPR et Azure AD MFA. L'inscription combinée permet aux organisations de bénéficier d'une meilleure expérience utilisateur. Pour plus d'informations, consultez [Inscription combinée d'informations de sécurité](concept-registration-mfa-sspr-combined.md).
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 
@@ -167,7 +167,7 @@ Les paramètres suivants sont requis pour activer SSPR avec les valeurs recomman
 
 Lors de l'activation de la SSPR, choisissez un groupe de sécurité approprié dans l'environnement pilote.
 
-* Pour appliquer l'inscription SSPR à tout le monde, nous vous recommandons d'utiliser l'option **Tous** .
+* Pour appliquer l'inscription SSPR à tout le monde, nous vous recommandons d'utiliser l'option **Tous**.
 * Sinon, sélectionnez l'instance d'Azure AD ou le groupe de sécurité AD approprié.
 
 ### <a name="authentication-methods"></a>Méthodes d’authentification
@@ -176,7 +176,7 @@ Une fois la SSPR activée, les utilisateurs ne peuvent réinitialiser leur mot d
 
 Nous recommandons les paramètres de méthode d'authentification suivants :
 
-* Définissez les **méthodes d'authentification requises pour l'inscription**  ; il doit y en avoir au moins une de plus que le nombre requis pour la réinitialisation. Plus vous en définissez, plus la flexibilité est grande pour les utilisateurs lorsqu'ils doivent réinitialiser leur mot de passe.
+* Définissez les **méthodes d'authentification requises pour l'inscription** ; il doit y en avoir au moins une de plus que le nombre requis pour la réinitialisation. Plus vous en définissez, plus la flexibilité est grande pour les utilisateurs lorsqu'ils doivent réinitialiser leur mot de passe.
 
 * Définissez le **nombre de méthodes requises pour la réinitialisation** sur un niveau approprié pour votre organisation. Le plus simple est d’en choisir une seule, tandis que deux peuvent améliorer l’état de la sécurité. 
 
@@ -184,13 +184,13 @@ Remarque : les méthodes d'authentification de l'utilisateur doivent être conf
 
 ### <a name="registration-settings"></a>Paramètres d’inscription
 
-Définissez l’option **Obliger les utilisateurs à s’inscrire durant la connexion** sur **Oui** . Ce paramètre oblige les utilisateurs à s'inscrire au moment de la connexion, ce qui garantit leur protection.
+Définissez l’option **Obliger les utilisateurs à s’inscrire durant la connexion** sur **Oui**. Ce paramètre oblige les utilisateurs à s'inscrire au moment de la connexion, ce qui garantit leur protection.
 
-Définissez le **nombre de jours avant que les utilisateurs soient invités à reconfirmer leurs informations d'authentification** sur une valeur comprise entre  **90** et  **180**  jours, sauf si votre organisation a besoin d'un délai plus court.
+Définissez le **nombre de jours avant que les utilisateurs soient invités à reconfirmer leurs informations d'authentification** sur une valeur comprise entre **90** et **180** jours, sauf si votre organisation a besoin d'un délai plus court.
 
 ### <a name="notifications-settings"></a>Paramètres de notifications
 
-Configurer les paramètres **Notifier les utilisateurs lors des réinitialisations de mot de passe** et **Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe** sur **Oui** . Sélectionnez **Oui** pour les deux paramètres afin de renforcer la sécurité en veillant à ce que les utilisateurs soient informés lorsque leur mot de passe est réinitialisé. Tous les administrateurs seront également informés lorsque l'un d'eux modifiera un mot de passe. Si les utilisateurs ou les administrateurs reçoivent une notification et qu'ils ne sont pas à l'origine de la modification, ils peuvent immédiatement signaler un problème de sécurité potentiel.
+Configurer les paramètres **Notifier les utilisateurs lors des réinitialisations de mot de passe** et **Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe** sur **Oui**. Sélectionnez **Oui** pour les deux paramètres afin de renforcer la sécurité en veillant à ce que les utilisateurs soient informés lorsque leur mot de passe est réinitialisé. Tous les administrateurs seront également informés lorsque l'un d'eux modifiera un mot de passe. Si les utilisateurs ou les administrateurs reçoivent une notification et qu'ils ne sont pas à l'origine de la modification, ils peuvent immédiatement signaler un problème de sécurité potentiel.
 
 ### <a name="customization-settings"></a>Paramètres de personnalisation
 
@@ -204,8 +204,8 @@ La **réécriture du mot de passe** est activée avec [Azure AD Connect](../hybr
 
 Nous recommandons les paramètres suivants :
 
-* Vérifiez que l'option **Réécriture des mots sur l'instance locale d'AD** est définie sur **Oui** . 
-* Définissez **Autoriser les utilisateurs à déverrouiller leur compte sans réinitialiser leur mot de passe** sur **Oui** .
+* Vérifiez que l'option **Réécriture des mots sur l'instance locale d'AD** est définie sur **Oui**. 
+* Définissez **Autoriser les utilisateurs à déverrouiller leur compte sans réinitialiser leur mot de passe** sur **Oui**.
 
 Par défaut, Azure AD déverrouille les comptes quand il effectue une réinitialisation de mot de passe.
 
@@ -321,7 +321,7 @@ Les journaux d’audit pour l’inscription et la réinitialisation de mot de pa
 
 ### <a name="authentication-methods--usage-and-insights"></a>Méthodes d'authentification - Utilisation et insights
 
-[Utilisation et insights](./howto-authentication-methods-usage-insights.md) vous permet de comprendre comment les méthodes d'authentification des fonctionnalités comme Azure MFA et SSPR fonctionnent au sein de votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation d'identifier les méthodes inscrites et d'en savoir plus sur leur utilisation.
+[Utilisation et insights](./howto-authentication-methods-usage-insights.md) vous permet de comprendre comment les méthodes d'authentification des fonctionnalités comme Azure AD MFA et SSPR fonctionnent au sein de votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation d'identifier les méthodes inscrites et d'en savoir plus sur leur utilisation.
 
 ### <a name="troubleshoot"></a>Dépanner
 

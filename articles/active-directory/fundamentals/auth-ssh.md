@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb766150339820f9356fe94311cd1ff33dda5480
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b77ab0832fa19149c270d6ba5a6641069548cbe
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462799"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172718"
 ---
 # <a name="ssh"></a>SSH  
 
@@ -40,22 +40,21 @@ SSH avec Azure AD
 
 ## <a name="components-of-system"></a>Composants du système 
 
-* **Utilisateur**  : Démarre le client SSH pour établir une connexion avec les machines virtuelles Linux® et fournit des informations d’identification pour l’authentification.
+* **Utilisateur** : Démarre le client SSH pour établir une connexion avec les machines virtuelles Linux® et fournit des informations d’identification pour l’authentification.
 
 * **Navigateur Web** : Composant avec lequel l’utilisateur interagit. Il communique avec le fournisseur d’identité (Azure AD) pour authentifier et autoriser l’utilisateur de façon sécurisée.
 
 * **Client SSH** : Pilote le processus de configuration de la connexion.
 
-* **Azure AD**  : Authentifie l’identité de l’utilisateur à l’aide du flux d’appareil et émet un jeton sur les machines virtuelles Linux.
+* **Azure AD** : Authentifie l’identité de l’utilisateur à l’aide du flux d’appareil et émet un jeton sur les machines virtuelles Linux.
 
 * **Machine virtuelle Linux** : Accepte le jeton et fournit une connexion réussie.
 
 ## <a name="implement-ssh-with-azure-ad"></a>Implémenter SSH avec Azure AD 
 
-* [Se connecter à une machine virtuelle Linux® avec les informations d’identification d’Azure Active Directory - Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad) 
+* [Se connecter à une machine virtuelle Linux® avec les informations d’identification d’Azure Active Directory - Machines virtuelles Azure](../../virtual-machines/linux/login-using-aad.md) 
 
-* [Flux de code d’appareil OAuth 2.0 - Plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)
+* [Flux de code d’appareil OAuth 2.0 - Plateforme d’identités Microsoft](../develop/v2-oauth2-device-code.md)
 
 * [Intégrer à Azure Active Directory (akamai.com)](https://learn.akamai.com/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
 
- 

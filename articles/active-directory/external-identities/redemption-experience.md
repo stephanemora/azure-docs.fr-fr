@@ -11,29 +11,29 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441808"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173088"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
 Cet article décrit les différentes façons dont les utilisateurs invités peuvent accéder à vos ressources, et le processus de consentement qu’ils vont rencontrer. Si vous envoyez un e-mail d’invitation à l’invité, l’invitation comprend un lien que l’invité peut utiliser pour obtenir l’accès à votre application ou portail. L’e-mail d’invitation n’est qu’une des possibilités permettant aux invités d’obtenir l’accès à vos ressources. Comme alternative, vous pouvez ajouter des invités à votre annuaire et leur donner un lien direct vers le portail ou l’application que vous souhaitez partager. Quelle que soit la méthode qu’ils utilisent, les invités sont guidés dans un processus de consentement initial. Ce processus garantit que vos invités sont d’accord avec les conditions de confidentialité, et qu’ils acceptent les [conditions d’utilisation](../conditional-access/terms-of-use.md) que vous avez définies.
 
-Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance** . Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté** , et les pages de consentement ne sont plus présentées à l’invité.
+Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
 
    > [!IMPORTANT]
-   > **À compter du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ## <a name="redemption-through-the-invitation-email"></a>Acceptation via l’e-mail d’invitation
 
 Lorsque vous ajoutez un utilisateur invité à votre annuaire en [utilisant le portail Azure](./b2b-quickstart-add-guest-users-portal.md), un e-mail d’invitation est envoyé à l’invité dans le processus. Vous pouvez également choisir d’envoyer des e-mails d’invitation lorsque vous [utilisez PowerShell](./b2b-quickstart-invite-powershell.md) pour ajouter des utilisateurs invités à votre annuaire. Voici une description de l’expérience de l’invité lorsqu’il accepte le lien dans l’e-mail.
 
-1. L’invité reçoit un [e-mail d’invitation](./invitation-email-elements.md) qui est envoyé depuis **Invitations Microsoft** .
+1. L’invité reçoit un [e-mail d’invitation](./invitation-email-elements.md) qui est envoyé depuis **Invitations Microsoft**.
 2. L’invité sélectionne **Accepter l’invitation** dans l’e-mail.
-3. L’invité utilise ses propres informations d’identification pour se connecter à votre répertoire. Si l’invité n’a pas de compte qui peut être fédéré à votre répertoire et que la fonctionnalité [Code secret e-mail à usage unique (OTP)](./one-time-passcode.md) n’est pas activée, l’invité est invité à créer un [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel ou un [compte libre-service Azure AD](../users-groups-roles/directory-self-service-signup.md). Pour plus d’informations, reportez-vous au [flux d’acceptation d’invitation](#invitation-redemption-flow).
+3. L’invité utilise ses propres informations d’identification pour se connecter à votre répertoire. Si l’invité n’a pas de compte qui peut être fédéré à votre répertoire et que la fonctionnalité [Code secret e-mail à usage unique (OTP)](./one-time-passcode.md) n’est pas activée, l’invité est invité à créer un [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel ou un [compte libre-service Azure AD](../enterprise-users/directory-self-service-signup.md). Pour plus d’informations, reportez-vous au [flux d’acceptation d’invitation](#invitation-redemption-flow).
 4. L’invité est guidé tout au long de l’[expérience de consentement](#consent-experience-for-the-guest) décrite ci-dessous.
 
 ## <a name="redemption-through-a-direct-link"></a>Échange via un lien direct
@@ -74,9 +74,9 @@ Quand un utilisateur clique sur le lien **Accepter l’invitation** dans un [e-m
 
 7. Si le [code secret e-mail à usage unique pour les invités est activé](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), un code secret est envoyé à l’utilisateur par le biais de l’adresse e-mail invitée. L’utilisateur récupère et entre ce code secret dans la page de connexion Azure AD.
 
-8. Si le code secret e-mail à usage unique pour les invités est désactivé, Azure AD vérifie le suffixe de domaine pour déterminer s’il appartient à un compte client. Si c’est le cas, l’utilisateur est invité à créer un [compte Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel. Si ce n’est pas le cas, l’utilisateur est invité à créer un [compte libre-service Azure AD](../users-groups-roles/directory-self-service-signup.md).
+8. Si le code secret e-mail à usage unique pour les invités est désactivé, Azure AD vérifie le suffixe de domaine pour déterminer s’il appartient à un compte client. Si c’est le cas, l’utilisateur est invité à créer un [compte Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel. Si ce n’est pas le cas, l’utilisateur est invité à créer un [compte libre-service Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. Azure AD tente de créer un [compte libre-service Azure AD](../users-groups-roles/directory-self-service-signup.md) en vérifiant l’accès à l’adresse e-mail. La vérification du compte est effectuée en envoyant un code à l’adresse e-mail et en demandant à l’utilisateur de le récupérer et de l’envoyer à Azure AD. Toutefois, si le locataire de l’utilisateur invité est fédéré ou si le champ AllowEmailVerifiedUsers est défini sur False dans le locataire de l’utilisateur invité, l’utilisateur ne peut pas terminer l’acceptation et le flux génère une erreur. Pour plus d’informations, consultez [Résolution des problèmes d’Azure Active Directory B2B Collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD tente de créer un [compte libre-service Azure AD](../enterprise-users/directory-self-service-signup.md) en vérifiant l’accès à l’adresse e-mail. La vérification du compte est effectuée en envoyant un code à l’adresse e-mail et en demandant à l’utilisateur de le récupérer et de l’envoyer à Azure AD. Toutefois, si le locataire de l’utilisateur invité est fédéré ou si le champ AllowEmailVerifiedUsers est défini sur False dans le locataire de l’utilisateur invité, l’utilisateur ne peut pas terminer l’acceptation et le flux génère une erreur. Pour plus d’informations, consultez [Résolution des problèmes d’Azure Active Directory B2B Collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. L’utilisateur est invité à créer un [compte Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel.
 
@@ -95,17 +95,17 @@ Lorsqu’un invité se connecte la première fois pour accéder aux ressources d
    > [!NOTE]
    > Pour plus d’informations sur la manière dont vous pouvez, en tant qu’administrateur de locataire, créer un lien vers la déclaration de confidentialité de votre organisation, consultez le [Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](../fundamentals/active-directory-properties-area.md).
 
-2. Si les conditions d’utilisation sont configurées, l’invité ouvre et passe en revue les conditions d’utilisation, puis il sélectionne **Accepter** . 
+2. Si les conditions d’utilisation sont configurées, l’invité ouvre et passe en revue les conditions d’utilisation, puis il sélectionne **Accepter**. 
 
    ![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/terms-of-use-accept.png) 
 
-   Vous pouvez configurer les [conditions d’utilisation](../conditional-access/terms-of-use.md) dans **Identités externes** > **conditions d’utilisation** .
+   Vous pouvez configurer les [conditions d’utilisation](../conditional-access/terms-of-use.md) dans **Identités externes** > **conditions d’utilisation**.
 
 3. Sauf indication contraire, l’invité est redirigé vers le panneau d’accès des applications qui liste les applications auxquelles l’invité peut accéder.
 
    ![Capture d’écran montrant le panneau d’accès des applications](media/redemption-experience/myapps.png) 
 
-Dans votre annuaire, la valeur de **Invitation acceptée** de l’invité passe à **Oui** . Si un MSA a été créé, la **Source** de l’invité affiche **Compte Microsoft** . Pour plus d’informations sur les propriétés du compte d’utilisateur invité, consultez [Propriétés d’un utilisateur B2B Collaboration Azure AD](user-properties.md). 
+Dans votre annuaire, la valeur de **Invitation acceptée** de l’invité passe à **Oui**. Si un MSA a été créé, la **Source** de l’invité affiche **Compte Microsoft**. Pour plus d’informations sur les propriétés du compte d’utilisateur invité, consultez [Propriétés d’un utilisateur B2B Collaboration Azure AD](user-properties.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

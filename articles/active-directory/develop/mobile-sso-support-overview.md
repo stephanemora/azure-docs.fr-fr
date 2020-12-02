@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634852"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173462"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
@@ -38,7 +38,7 @@ Nous vous recommandons d’utiliser ce qui suit pour permettre à votre applicat
 
 ### <a name="use-microsoft-authentication-library-msal"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL)
 
-Le meilleur choix pour l’implémentation de l’authentification unique dans votre application consiste à utiliser [la bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md). En utilisant MSAL, vous pouvez ajouter l’authentification à votre application avec un minimum de code et d’appels d’API, obtenir les fonctionnalités complètes de la [Microsoft Identity Platform](/azure/active-directory/develop/)et laisser Microsoft gérer la maintenance d’une solution d’authentification sécurisée. Par défaut, MSAL ajoute la prise en charge de l’authentification unique pour votre application. En outre, l’utilisation de MSAL est une exigence si vous envisagez également d’implémenter des politiques de protection des applications.
+Le meilleur choix pour l’implémentation de l’authentification unique dans votre application consiste à utiliser [la bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md). En utilisant MSAL, vous pouvez ajouter l’authentification à votre application avec un minimum de code et d’appels d’API, obtenir les fonctionnalités complètes de la [Microsoft Identity Platform](./index.yml)et laisser Microsoft gérer la maintenance d’une solution d’authentification sécurisée. Par défaut, MSAL ajoute la prise en charge de l’authentification unique pour votre application. En outre, l’utilisation de MSAL est une exigence si vous envisagez également d’implémenter des politiques de protection des applications.
 
 > [!NOTE]
 > Il est possible de configurer MSAL pour utiliser une vue Web incorporée. Cela empêchera l’authentification unique. Utilisez le comportement par défaut (autrement dit, le navigateur Web système) pour garantir le fonctionnement de l’authentification unique.
@@ -64,7 +64,7 @@ Apple vous aide à faire cela dans les applications iOS : [Authentification d�
 
 Pour activer les stratégies de protection des applications, utilisez la [MSAL (Microsoft Authentication Library)](msal-overview.md). MSAL est la bibliothèque d’authentification et d’autorisation de la plateforme d’identité de Microsoft, et le SDK Intune est développé pour fonctionner en tandem avec celui-ci.
 
-En outre, vous devez utiliser une application Broker pour l’authentification. Le répartiteur requiert que l’application fournisse des informations sur l’application et l’appareil pour garantir la conformité de l’application. les utilisateurs d’iOS utilisent l’application [Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) et les utilisateurs Android utilisent l’application Microsoft Authenticator ou l’application [portail d’entreprise](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) pour [l’authentification répartie](brokered-auth.md). Par défaut, MSAL utilise un service Broker comme premier choix pour la réalisation d’une demande d’authentification. par conséquent, l’utilisation du répartiteur pour l’authentification est activée automatiquement pour votre application lors de l’utilisation de MSAL.
+En outre, vous devez utiliser une application Broker pour l’authentification. Le répartiteur requiert que l’application fournisse des informations sur l’application et l’appareil pour garantir la conformité de l’application. les utilisateurs d’iOS utilisent l’application [Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) et les utilisateurs Android utilisent l’application Microsoft Authenticator ou l’application [portail d’entreprise](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) pour [l’authentification répartie](./msal-android-single-sign-on.md). Par défaut, MSAL utilise un service Broker comme premier choix pour la réalisation d’une demande d’authentification. par conséquent, l’utilisation du répartiteur pour l’authentification est activée automatiquement pour votre application lors de l’utilisation de MSAL.
 
 Enfin, [ajouter le kit de développement logiciel (SDK) Intune](/mem/intune/developer/app-sdk-get-started) à votre application pour activer les stratégies de protection des applications. Le kit de développement logiciel (SDK) est le plus souvent suivi d’un modèle d’interception et applique automatiquement des politiques de protection d’application pour déterminer si les actions prises par l’application sont autorisées ou non. Il existe également des API que vous pouvez appeler manuellement pour indiquer à l’application s’il existe des restrictions sur certaines actions.
 
@@ -73,8 +73,8 @@ Enfin, [ajouter le kit de développement logiciel (SDK) Intune](/mem/intune/deve
 - [Planifier le déploiement de l’authentification unique Azure Active Directory](../manage-apps/plan-sso-deployment.md)
 - [Procédure : Configurer l’authentification unique sur macOS et iOS](single-sign-on-macos-ios.md)
 - [Plug-in Microsoft Enterprise SSO pour les appareils Apple (préversion)](apple-sso-plugin.md)
-- [Authentification répartie dans Android](brokered-auth.md)
-- [Agents d’autorisation et comment les activer](authorization-agents.md)
+- [Authentification répartie dans Android](./msal-android-single-sign-on.md)
+- [Agents d’autorisation et comment les activer](./msal-android-single-sign-on.md)
 - [Prise en main du SDK des applications Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Configurer les paramètres du SDK des applications Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Applications protégées par Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

@@ -2,13 +2,13 @@
 title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537609"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243067"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -40,7 +40,7 @@ Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse 
 
 Un pool ne peut être utilisé que par le compte Batch dans lequel il a été créé. Un compte Batch peut créer plusieurs pools pour répondre aux besoins en ressources des applications qu’il exécute.
 
-Vous pouvez créer le pool manuellement. Il peut également être créé automatiquement par le service Batch lorsque vous spécifiez le travail à accomplir. Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
+Vous pouvez créer le pool manuellement ou il peut être créé [automatiquement par le service Batch](#autopools) lorsque vous spécifiez le travail à accomplir. Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 - [Système d’exploitation et version du nœud](#operating-system-and-version)
 - [Type des nœuds et nombre cible de nœuds](#node-type-and-target)
@@ -184,6 +184,10 @@ D’un côté, vous pouvez créer un pool pour chaque travail que vous soumettez
 À l’opposé, si la priorité absolue consiste à démarrer immédiatement des travaux, vous pouvez créer un pool avant l’heure et mettre ses nœuds à disposition avant la soumission des travaux. Dans ce scénario, les tâches peuvent démarrer immédiatement, mais il se peut que les nœuds restent inactifs en attendant que les tâches soient affectées.
 
 Une approche combinée est généralement utilisée pour la gestion d’une charge variable, mais continue. Vous pouvez disposer d’un pool dans lequel plusieurs travaux sont envoyés, et mettre à l’échelle le nombre de nœuds en fonction de la charge du travail. Vous pouvez procéder en réaction, en fonction de la charge actuelle, ou en amont, si la charge peut être prédite. Pour plus d’informations, voir [Stratégie de mise à l’échelle automatique](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Pools automatiques
+
+Un [pool automatique](/rest/api/batchservice/job/add#autopoolspecification) est un pool créé par le service Batch lors de l’envoi d’un travail, au lieu d’être créé avant les travaux qui s’exécuteront dans le pool. Le service Batch gère la durée de vie d’un pool automatique en fonction des caractéristiques que vous spécifiez. La plupart du temps, ces pools sont également configurés pour être supprimés automatiquement une fois que leurs travaux sont terminés.
 
 ## <a name="security-with-certificates"></a>Sécurité avec certificats
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: e0b98f15e03552f27cdd1c9683bdd7e74a1c02df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e7447a8d742caef7a2c2ff0211e7e8002307b9e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358686"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177968"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutoriel : Configurer Lucidchart pour le provisionnement automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ Ce tutoriel décrit les étapes à effectuer dans Lucidchart et Azure Active Dir
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Un locataire Lucidchart avec le [plan d’entreprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ou supérieur activé
 * Un compte utilisateur dans Lucidchart avec des autorisations d’administrateur
 
@@ -55,7 +55,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
       :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Capture d’écran de la console d’administration Lucidchart. Dans un grand bouton SCIM, le texte SCIM est mis en évidence et une bannière activée est visible." border="false":::
 
-3. Faites défiler la liste jusqu’à **Bearer token** (Jeton du porteur) et **Lucidchart Base URL** (URL de base de Lucidchart). Copiez et enregistrez le jeton du porteur ( **Bearer token** ). Cette valeur sera entrée dans le champ **Jeton secret** * situé sous l’onglet Provisionnement de votre application Lucidchart dans le portail Azure. 
+3. Faites défiler la liste jusqu’à **Bearer token** (Jeton du porteur) et **Lucidchart Base URL** (URL de base de Lucidchart). Copiez et enregistrez le jeton du porteur (**Bearer token**). Cette valeur sera entrée dans le champ **Jeton secret*** situé sous l’onglet Provisionnement de votre application Lucidchart dans le portail Azure. 
 
       ![Jeton Lucidchart](./media/lucidchart-provisioning-tutorial/token.png)
 
@@ -78,7 +78,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-lucidchart-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs vers Lucidchart dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -94,19 +94,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez la valeur du **jeton du porteur** que vous avez récupérée précédemment dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Lucidchart. Si la connexion échoue, vérifiez que votre compte Lucidchart dispose des autorisations d’administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez la valeur du **jeton du porteur** que vous avez récupérée précédemment dans le champ **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Lucidchart. Si la connexion échoue, vérifiez que votre compte Lucidchart dispose des autorisations d’administrateur, puis réessayez.
 
       ![approvisionnement](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Lucidchart**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Lucidchart**.
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Lucidchart. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes utilisateur dans Lucidchart, dans le cadre des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Lucidchart prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Lucidchart. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes utilisateur dans Lucidchart, dans le cadre des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Lucidchart prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -123,9 +123,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
    |urn:ietf:params:scim:schemas:extension:lucidchart:1.0:User:canEdit|Boolean|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Lucidchart**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Lucidchart**.
 
-11. Dans la section **Mappage d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Lucidchart . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les groupes dans Lucidchart, dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappage d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Lucidchart . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les groupes dans Lucidchart, dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -134,11 +134,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service de provisionnement Azure AD pour Lucidchart, accédez à la section **Paramètres** et définissez l’ **état de provisionnement** sur **Activé**.
+13. Pour activer le service de provisionnement Azure AD pour Lucidchart, accédez à la section **Paramètres** et définissez l’**état de provisionnement** sur **Activé**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs ou les groupes que vous souhaitez provisionner vers Lucidchart en entrant les valeurs de votre choix dans **Étendue** , dans la section **Paramètres**.
+14. Définissez les utilisateurs ou les groupes que vous souhaitez provisionner vers Lucidchart en entrant les valeurs de votre choix dans **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

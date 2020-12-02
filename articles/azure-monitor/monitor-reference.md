@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021437"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186692"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -135,7 +135,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Network Watcher | Oui | Oui | Non |  |
 |Notification Hubs | Oui | Non | Non |  |
 |Ouvrir des jeux de données | Non | Non | Non |  |
-|Stratégie | Non | Non | Non |  |
+|Policy | Non | Non | Non |  |
 |Power Automate | Non | Non | Non |  |
 |Power BI Embedded | Oui | Oui | Non |  |
 |Private Link | Non | Non | Non |  |
@@ -189,7 +189,7 @@ Les services et solutions figurant dans le tableau suivant stockent leurs donné
 
 | Produit/Service | Description |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Gérez les mises à jour du système d’exploitation et effectuez le suivi des modifications sur les ordinateurs Windows et Linux. Consultez [Change Tracking](../automation/change-tracking/overview.md) et [Update Management](../automation/update-management/update-mgmt-overview.md). |
+| [Azure Automation](../automation/index.yml) | Gérez les mises à jour du système d’exploitation et effectuez le suivi des modifications sur les ordinateurs Windows et Linux. Consultez [Change Tracking](../automation/change-tracking/overview.md) et [Update Management](../automation/update-management/overview.md). |
 | [Azure Information Protection ](/azure/information-protection/) | Classifiez et éventuellement protégez les documents et les e-mails. Consultez [Rapports centraux d’Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centre de sécurité Azure](../security-center/index.yml) | Collectez et analysez les événements de sécurité et effectue une analyse des menaces. Consultez [Collecte de données dans Azure Security Center](../security-center/security-center-enable-data-collection.md). |
 | [Azure Sentinel](../sentinel/index.yml) | Se connecte à différentes sources, notamment Office 365 et Amazon Web Services CloudTrail. Voir [Connecter des sources de données](../sentinel/connect-data-sources.md). |
@@ -245,4 +245,3 @@ Azure Monitor peut collecter des données à partir de ressources situées en de
 - Suivez un [tutoriel sur l’écriture d’une requête de journal pour analyser des données dans les journaux Azure Monitor](learn/tutorial-resource-logs.md).
 - Suivez un [tutoriel sur la création d’un graphique de métriques pour analyser des données dans les métriques Azure Monitor](learn/tutorial-metrics-explorer.md).
 
- 

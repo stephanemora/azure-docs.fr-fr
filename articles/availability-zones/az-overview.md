@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 771635baa3c49c07d0d796cf6ef3be7b870de3e1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 32cd6c23e1fe465a801e56fad5dd3461df860503
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425434"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182731"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -47,8 +47,8 @@ Une zone de disponibilité dans une région Azure est une combinaison d’un dom
 
 Générez la haute disponibilité dans votre architecture d’applications par la colocalisation de vos ressources de calcul, de stockage, de mise en réseau et de données dans une zone et une réplication dans d’autres zones. Les services Azure qui prennent en charge les Zones de disponibilité sont classés en deux catégories :
 
-- **Services zonaux**  : lorsque vous épinglez la ressource à une zone spécifique (par exemple des machines virtuelles, des disques managés, des adresses IP standard) ou
-- **Services redondants interzone**  : lorsque la plateforme Azure effectue automatiquement la réplication entre des zones (par exemple, stockage redondant interzone, SQL Database).
+- **Services zonaux** : lorsque vous épinglez la ressource à une zone spécifique (par exemple des machines virtuelles, des disques managés, des adresses IP standard) ou
+- **Services redondants interzone** : lorsque la plateforme Azure effectue automatiquement la réplication entre des zones (par exemple, stockage redondant interzone, SQL Database).
 
 Pour obtenir la continuité complète des activités sur Azure, générez votre architecture d’applications à l’aide de la combinaison des Zones de disponibilité et des paires de régions Azure. Vous pouvez effectuer une réplication synchrone de vos applications et données à l’aide des Zones de la disponibilité d’une région Azure pour répliquer en haute disponibilité et de façon asynchrone entre les régions Azure pour la protection de la récupération d’urgence.
  
@@ -68,7 +68,7 @@ L’approche d’Azure en matière de disponibilité des services Azure dans les
 
 Les services Azure sont regroupés en trois catégories : services fondamentaux, principaux et spécialisés. La stratégie générale d’Azure pour le déploiement de services dans une région donnée est principalement pilotée par le type de région, les catégories de service et la demande des clients :
 
-- **De base**  - Disponibles dans toutes les régions recommandées et alternatives lorsque la région est généralement disponible, ou dans les 12 mois suivant la disponibilité générale d’un nouveau service.
+- **De base** - Disponibles dans toutes les régions recommandées et alternatives lorsque la région est généralement disponible, ou dans les 12 mois suivant la disponibilité générale d’un nouveau service.
 - **Standard** - Disponibles dans toutes les régions recommandées dans un délai de 12 mois suivant la disponibilité générale de la région/du service ; pilotés par la demande dans les autres régions (beaucoup sont déjà déployés dans un grand sous-ensemble de régions alternatives).
 - **Spécialisés** - Ciblés, souvent axés sur le secteur ou sur du matériel personnalisé/spécialisé. Disponibilité basée sur la demande entre les régions (beaucoup sont déjà déployés dans un grand sous-ensemble de régions recommandées).
 
@@ -170,9 +170,9 @@ Il n’existe aucun coût supplémentaire pour les machines virtuelles déployé
 - [Créer une machine virtuelle](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Créer un groupe de machines virtuelles identiques redondant interzone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant interzone](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Stockage redondant interzone](../storage/common/storage-redundancy-zrs.md)
+- [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant interzone](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Stockage redondant interzone](../storage/common/storage-redundancy.md)
 - [Niveau Usage général de SQL Database](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004651"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -30,7 +30,7 @@ Un administrateur de rôle privilégié peut personnaliser Privileged Identity M
 Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles de ressources Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
-1. Ouvrez **Azure AD Privileged Identity Management** . Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente** .
+1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
 
   [![Sélectionnez Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -44,7 +44,7 @@ Suivez ces étapes pour ouvrir les paramètres d’un rôle Azure AD.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
 gt
-1. Ouvrez **Azure AD Privileged Identity Management** &gt; **Rôles Azure AD** &gt; **Paramètres du rôle** .
+1. Ouvrez **Azure AD Privileged Identity Management** &gt; **Rôles Azure AD** &gt; **Paramètres du rôle**.
 
     ![Page Paramètres de rôle répertoriant les rôles Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -62,14 +62,14 @@ gt
 
 Vous pouvez choisir entre deux options de durée d’attribution pour chaque type d’attribution (éligible et actif) lorsque vous configurez les paramètres d’un rôle. Ces options deviennent la durée maximale par défaut lorsqu’un utilisateur est attribué au rôle dans Privileged Identity Management.
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **éligible**  :
+Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
 
 | | |
 | --- | --- |
 | **Autoriser une attribution éligible permanente** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent assigner une attribution éligible permanente. |
 | **Faire expirer les attributions éligibles après** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **active**  :
+Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
 
 | | |
 | --- | --- |
@@ -81,19 +81,19 @@ Vous pouvez choisir l’une de ces options de durée d’attribution **active** 
 
 ## <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
 
-Privileged Identity Management permet également l’implémentation facultative d’Azure Multi-Factor Authentication dans deux scénarios distincts.
+Privileged Identity Management permet également l'implémentation facultative d'Azure AD Multi-Factor Authentication dans deux scénarios distincts.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
 
 Dans certains cas, vous pourriez vouloir attribuer un rôle à un utilisateur pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
-Pour garantir que l’administrateur qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active** .
+Pour garantir que l’administrateur qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active**.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exiger Multi-Factor Authentication lors de l’activation
 
-Vous pouvez exiger des utilisateurs éligibles à un rôle qu’ils s’authentifient à l’aide d’Azure Multi-Factor Authentication pour effectuer l’activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
+Vous pouvez exiger des utilisateurs éligibles à un rôle qu'ils s'authentifient à l'aide d'Azure AD Multi-Factor Authentication pour effectuer l'activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
 
-Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation** dans l’onglet Attribution de la page **Modifier le paramètre du rôle** .
+Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation** dans l’onglet Attribution de la page **Modifier le paramètre du rôle**.
 
 Pour plus d’informations, consultez [Authentification multifacteur et Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -103,19 +103,19 @@ Utilisez le curseur **Durée maximum d’activation** pour définir la durée ma
 
 ## <a name="require-justification"></a>Demander une justification
 
-Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation** .
+Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation**.
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
 Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès que l’un d’eux approuve ou refuse. Vous ne pouvez pas demander l’approbation d’au moins deux utilisateurs. Pour exiger l’approbation pour activer un rôle, procédez comme suit.
 
-1. Cochez la case **Exiger une approbation pour activer** .
+1. Cochez la case **Exiger une approbation pour activer**.
 
-1. Sélectionnez **Sélectionner des approbateurs** .
+1. Sélectionnez **Sélectionner des approbateurs**.
 
     ![Sélectionner un volet d’utilisateur ou de groupe pour sélectionner les approbateurs](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Sélectionnez au moins un utilisateur, puis cliquez sur **Sélectionner** . Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
+1. Sélectionnez au moins un utilisateur, puis cliquez sur **Sélectionner**. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
     Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
 
@@ -127,21 +127,21 @@ Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès q
 
 Suivez ces étapes pour ouvrir les paramètres d’un rôle Azure AD.
 
-1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Sélectionnez des **rôles Azure AD** .
+1. Sélectionnez des **rôles Azure AD**.
 
-1. Sélectionnez **Paramètres** .
+1. Sélectionnez **Paramètres**.
 
     ![Rôles Azure AD - Paramètres](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. Sélectionnez **Rôles** .
+1. Sélectionnez **Rôles**.
 
 1. Sélectionnez le rôle dont vous souhaitez configurer les paramètres.
 
     ![Rôles Azure AD - Paramètres des rôles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
-    Dans la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont **éligibles** , et non ceux qui sont **permanents** .
+    Dans la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont **éligibles**, et non ceux qui sont **permanents**.
 
 ## <a name="activations"></a>Activations
 
@@ -151,7 +151,7 @@ Utilisez le curseur **Activations** pour définir la durée maximale (en heures)
 
 Utilisez le commutateur **Notifications** pour spécifier si les administrateurs reçoivent une notification quand les rôles sont activés. Cette notification peut être utile pour détecter les activations non autorisées ou illégitimes.
 
-Quand la valeur est **Activer** , les notifications sont envoyées aux personnes suivantes :
+Quand la valeur est **Activer**, les notifications sont envoyées aux personnes suivantes :
 
 - Administrateur de rôle privilégié
 - Administrateur de sécurité
@@ -167,8 +167,8 @@ Utilisez le commutateur **Ticket d’incident/de demande** pour exiger que les a
 
 Utilisez le commutateur **Authentification multifacteur** pour spécifier si les utilisateurs doivent ou non confirmer leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification de leur identité est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
 
-- Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses e-mail (généralement @outlook.com, mais pas toujours) ne peuvent pas s’inscrire à Azure Multi-Factor Authentication. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
-- Vous ne pouvez pas désactiver Azure Multi-Factor Authentication pour les rôles à privilèges élevés pour Azure AD et Microsoft 365. Cette fonctionnalité de sécurité permet de protéger les rôles suivants :  
+- Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses e-mail (généralement @outlook.com, mais pas toujours) ne peuvent pas s’inscrire à Azure AD Multi-Factor Authentication. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
+- Vous ne pouvez pas désactiver Azure AD Multi-Factor Authentication pour les rôles à privilèges élevés pour Azure AD et Microsoft 365. Cette fonctionnalité de sécurité permet de protéger les rôles suivants :  
   
   - Administrateur Azure Information Protection
   - Administrateur de facturation
@@ -194,17 +194,17 @@ Pour plus d’informations, consultez [Authentification multifacteur et Privileg
 
 Si vous souhaitez déléguer l’approbation exigée pour activer un rôle, suivez ces étapes.
 
-1. Réglez le commutateur **Exiger l'approbation** sur **Activé** . Le volet affiche les options permettant de sélectionner des approbateurs.
+1. Réglez le commutateur **Exiger l'approbation** sur **Activé**. Le volet affiche les options permettant de sélectionner des approbateurs.
 
     ![Capture d’écran montrant le bouton « Exiger l’approbation » sur « Activer ».](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Si vous ne spécifiez aucun approbateur, l’administrateur de rôle privilégié devient l’approbateur par défaut, et c’est alors lui qui doit approuver toutes les demandes d’activation pour ce rôle.
 
-1. Pour ajouter des approbateurs, cliquez sur **Sélectionner des approbateurs** .
+1. Pour ajouter des approbateurs, cliquez sur **Sélectionner des approbateurs**.
 
     ![Rôles Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Sélectionnez un ou plusieurs approbateurs en plus de l’administrateur de rôle privilégié, puis cliquez sur **Sélectionner** . Nous vous recommandons d’ajouter au moins deux approbateurs. Même si vous vous ajoutez vous-même en tant qu’approbateur, vous ne pouvez pas approuver l’activation d’un rôle pour vous-même. Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
+1. Sélectionnez un ou plusieurs approbateurs en plus de l’administrateur de rôle privilégié, puis cliquez sur **Sélectionner**. Nous vous recommandons d’ajouter au moins deux approbateurs. Même si vous vous ajoutez vous-même en tant qu’approbateur, vous ne pouvez pas approuver l’activation d’un rôle pour vous-même. Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
 
 1. Après avoir spécifié tous vos paramètres de rôle, sélectionnez **Enregistrer** pour enregistrer vos modifications.
 

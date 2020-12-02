@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d365b13ef8fb7ed9676bb00919315dc6fc9773ee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993705"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184584"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -93,7 +93,7 @@ De nombreux services incluent des données de supervision dans leur page **Vue d
 
 
 ### <a name="insights-and-solutions"></a>Insights et solutions 
-Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [insights](./insights-overview.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor. Des [solutions](./solutions.md) fournissent une logique de supervision prédéfinie basée sur les journaux d’activité Azure Monitor. 
+Certains services fournissent des outils dépassant les fonctionnalités standard d’Azure Monitor. Des [insights](../monitor-reference.md) fournissent une expérience de supervision personnalisée basée sur les fonctionnalités standard et la plateforme de données d’Azure Monitor. Des [solutions](./solutions.md) fournissent une logique de supervision prédéfinie basée sur les journaux d’activité Azure Monitor. 
 
 Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à partir de **Supervision** dans le menu de chaque ressource. Accédez à tous les insights et à toutes les solutions à partir du menu **Azure Monitor**.
 
@@ -119,7 +119,7 @@ Affichez les entrées du journal d’activité dans le Portail Azure avec le fil
 ### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
 Les journaux Azure Monitor centralisent les journaux et les métriques à partir de plusieurs services et d’autres sources de données pour qu’ils soient analysés à l’aide d’un puissant outil de requête. Comme cela est décrit ci-dessus, créez un paramètre de diagnostic pour collecter les métriques de plateforme, le journal d’activité et les journaux de ressources dans un espace de travail Log Analytics dans Azure Monitor.
 
-[Log Analytics](../log-query/get-started-portal.md) vous permet de travailler avec des [requêtes de journal](../log-query/log-query-overview.md), qui sont une fonctionnalité puissante d’Azure Monitor qui vous permet d’effectuer une analyse avancée des données de journal à l’aide d’un langage de requête complet. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Supervision** pour qu’une ressource Azure utilise les requêtes de journal avec la ressource en tant qu’[étendue de requête](../log-query/scope.md#query-scope). Cela vous permet d’analyser les données de plusieurs tables uniquement pour cette ressource. Utilisez **Journaux** dans le menu d’Azure Monitor pour accéder aux journaux de toutes les ressources. 
+[Log Analytics](../log-query/log-analytics-tutorial.md) vous permet de travailler avec des [requêtes de journal](../log-query/log-query-overview.md), qui sont une fonctionnalité puissante d’Azure Monitor qui vous permet d’effectuer une analyse avancée des données de journal à l’aide d’un langage de requête complet. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Supervision** pour qu’une ressource Azure utilise les requêtes de journal avec la ressource en tant qu’[étendue de requête](../log-query/scope.md#query-scope). Cela vous permet d’analyser les données de plusieurs tables uniquement pour cette ressource. Utilisez **Journaux** dans le menu d’Azure Monitor pour accéder aux journaux de toutes les ressources. 
 
 - Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md) pour bénéficier d’un tutoriel sur le langage de requêtes utilisé pour écrire des requêtes de journal.
 - Consultez [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) pour plus d’informations sur la façon dont les journaux de ressources sont collectés dans les journaux Azure Monitor et la façon d’accéder à ces derniers dans une requête.

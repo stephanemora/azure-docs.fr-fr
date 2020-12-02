@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168098"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -86,7 +86,7 @@ Pour activer la build distante sur Linux, les [paramètres d’application](func
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Par défaut, [Azure Functions Core Tools](functions-run-local.md) et l’[extension Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectuent des builds distantes lors du déploiement sur Linux. Pour cette raison, les deux outils créent automatiquement ces paramètres pour vous dans Azure.
+Par défaut, [Azure Functions Core Tools](functions-run-local.md) et l’[extension Azure Functions pour Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) effectuent des builds distantes lors du déploiement sur Linux. Pour cette raison, les deux outils créent automatiquement ces paramètres pour vous dans Azure.
 
 Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md).
 
@@ -128,7 +128,7 @@ Vous pouvez déployer une image conteneur Linux qui contient votre application d
 
 >__Comment l’utiliser ?__ Créez une application de fonction Linux dans le plan Premium ou Dédié et spécifiez l’image conteneur à partir de laquelle exécuter l’application. Il existe deux méthodes pour le faire :
 >
->* Créer une application de fonction Linux dans un plan Azure App Service dans le portail Azure. Pour **Publier** , sélectionnez **Image Docker** , puis configurez le conteneur. Entrez l’emplacement d’hébergement de l’image.
+>* Créer une application de fonction Linux dans un plan Azure App Service dans le portail Azure. Pour **Publier**, sélectionnez **Image Docker**, puis configurez le conteneur. Entrez l’emplacement d’hébergement de l’image.
 >* Créer une application de fonction Linux dans un plan App Service par le biais d’Azure CLI. Pour savoir comment procéder, consultez [Créer une fonction sur Linux en utilisant une image personnalisée](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Pour effectuer le déploiement sur une application existante à l’aide d’un conteneur personnalisé, utilisez la commande [`func deploy`](functions-run-local.md#publish) dans [Azure Functions Core Tools](functions-run-local.md).
@@ -185,7 +185,7 @@ Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans
 
 >__Quand l’utiliser ?__ Le portail est un excellent moyen de vous familiariser avec Azure Functions. Toutefois, pour un travail de développement plus complexe, nous vous recommandons l’un des outils clients suivants :
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (ligne de commande)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

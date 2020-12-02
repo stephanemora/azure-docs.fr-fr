@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 97c524e1f4c05787f1dd61dea5a463e8fa83511a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836782"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168625"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Authentification RADIUS avec Azure Active Directory
 
@@ -59,13 +59,12 @@ Vous devez ajouter Multi-Factor Authentication à des applications telles que
 
 ## <a name="implement-radius-with-azure-ad"></a>Implémenter RADIUS avec Azure AD 
 
-* [Fournir des fonctionnalités Azure AD Multi-Factor Authentication à l'aide de NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Fournir des fonctionnalités Azure AD Multi-Factor Authentication à l'aide de NPS](../authentication/howto-mfa-nps-extension.md) 
 
-* [Configurer l'extension NPS d'Azure AD Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Configurer l'extension NPS d'Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension-advanced.md) 
 
-* [VPN avec Azure AD Multi-Factor Authentication à l'aide de l'extension NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN avec Azure AD Multi-Factor Authentication à l'aide de l'extension NPS](../authentication/howto-mfa-nps-extension-vpn.md) 
 
   
 ‎ 
 
- 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3f2c5b37c713b69df56e938fdaa2a9134402d765
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363604"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173900"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -46,21 +46,21 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans le volet gauche.
 3. Recherchez **Azure Active Directory** dans la liste des services, puis sélectionnez-le.
-4. Dans la section Gérer, sélectionnez **Utilisateurs** .
-5. Sélectionnez **Journaux d’audit** dans le panneau **Utilisateurs** . Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
-6. Dans le menu **Filtrer** situé en haut du volet, sélectionnez la liste déroulante **Service** et remplacez-la par le type de service **Gestion des mots de passe en libre-service** .
-7. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’ **Activité** spécifique qui vous intéresse.
+4. Dans la section Gérer, sélectionnez **Utilisateurs**.
+5. Sélectionnez **Journaux d’audit** dans le panneau **Utilisateurs**. Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
+6. Dans le menu **Filtrer** situé en haut du volet, sélectionnez la liste déroulante **Service** et remplacez-la par le type de service **Gestion des mots de passe en libre-service**.
+7. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
 
 ### <a name="combined-registration"></a>Inscription combinée
 
-Si vous avez activé l’ [inscription combinée](./concept-registration-mfa-sspr-combined.md), les informations relatives à l’activité des utilisateurs dans les journaux d’audit se trouvent sous **Sécurité** > **Méthodes d’authentification** .
+Si vous avez activé l’[inscription combinée](./concept-registration-mfa-sspr-combined.md), les informations relatives à l’activité des utilisateurs dans les journaux d’audit se trouvent sous **Sécurité** > **Méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
 La liste suivante décrit chacune des colonnes du rapport dans le portail Azure en détail :
 
-* **Utilisateur**  : utilisateur ayant tenté d’effectuer une opération d’inscription de réinitialisation de mot de passe.
-* **Rôle**  : rôle de l’utilisateur dans l’annuaire.
+* **Utilisateur** : utilisateur ayant tenté d’effectuer une opération d’inscription de réinitialisation de mot de passe.
+* **Rôle** : rôle de l’utilisateur dans l’annuaire.
 * **Date et heure** : date et heure de la tentative.
 * **Données inscrites** : données d’authentification fournies par l’utilisateur lors de l’inscription de réinitialisation de mot de passe.
 
@@ -92,7 +92,7 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui a été empêché d’effectuer des opérations supplémentaires de réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui a été empêché d’effectuer des opérations supplémentaires de réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity status** (État de l’activité) :
-  * _Réussite_  : indique qu’un utilisateur a été empêché d’effectuer des réinitialisations supplémentaires, d’essayer des méthodes d’authentification supplémentaires ou de valider des numéros de téléphone supplémentaires pendant les prochaines 24 heures.
+  * _Réussite_ : indique qu’un utilisateur a été empêché d’effectuer des réinitialisations supplémentaires, d’essayer des méthodes d’authentification supplémentaires ou de valider des numéros de téléphone supplémentaires pendant les prochaines 24 heures.
 * **Activity status failure reason** (Motif de l’état de l’activité Failure) : Non applicable.
 
 ### <a name="activity-type-change-password-self-service"></a>Type d’activité : Modifier un mot de passe (libre-service)
@@ -103,8 +103,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui a modifié son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui a modifié son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity statuses** (États de l'activité) :
-  * _Réussite_  : indique qu’un utilisateur a modifié son mot de passe avec succès.
-  * _Échec_  : indique qu’un utilisateur n’a pas réussi à modifier son mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un utilisateur a modifié son mot de passe avec succès.
+  * _Échec_ : indique qu’un utilisateur n’a pas réussi à modifier son mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 * **Activity status failure reason** (Motif de l’état de l’activité Failure) :
   * _FuzzyPolicyViolationInvalidPassword_ : l’utilisateur a sélectionné un mot de passe qui a été automatiquement interdit, car les fonctionnalités de détection de mots de passe interdits de Microsoft l’ont jugé trop banal ou trop faible.
 
@@ -116,8 +116,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation de mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Il doit s'agir d'un administrateur de mots de passe, d'un administrateur d'utilisateurs ou d'un administrateur du support technique.
 * **Activity target** (Cible de l’activité) : l’utilisateur dont le mot de passe a été réinitialisé. L’utilisateur peut être un utilisateur final ou un autre administrateur.
 * **Activity statuses** (États de l'activité) :
-  * _Réussite_  : indique qu’un administrateur a correctement réinitialisé le mot de passe d’un utilisateur.
-  * _Échec_  : indique qu’un administrateur n’a pas réussi à modifier le mot de passe d’un utilisateur. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un administrateur a correctement réinitialisé le mot de passe d’un utilisateur.
+  * _Échec_ : indique qu’un administrateur n’a pas réussi à modifier le mot de passe d’un utilisateur. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 
 ### <a name="activity-type-reset-password-self-service"></a>Type d’activité : Réinitialiser un mot de passe (libre-service)
 
@@ -127,8 +127,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui a réinitialisé son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui a réinitialisé son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity statuses** (États de l'activité) :
-  * _Réussite_  : indique qu’un utilisateur a correctement réinitialisé son propre mot de passe.
-  * _Échec_  : indique qu’un utilisateur n’a pas réussi à réinitialiser son propre mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un utilisateur a correctement réinitialisé son propre mot de passe.
+  * _Échec_ : indique qu’un utilisateur n’a pas réussi à réinitialiser son propre mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 * **Activity status failure reason** (Motif de l’état de l’activité Failure) :
   * _FuzzyPolicyViolationInvalidPassword_ : l’administrateur a sélectionné un mot de passe qui a été automatiquement interdit, car les fonctionnalités de détection de mots de passe interdits de Microsoft l’ont jugé trop banal ou trop faible.
 
@@ -140,8 +140,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui a effectué une partie du flux de réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui a effectué une partie du flux de réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity statuses** (États de l'activité) :
-  * _Réussite_  : indique qu’un utilisateur a correctement effectué une étape spécifique du flux de réinitialisation de mot de passe.
-  * _Échec_  : indique qu’une étape spécifique du flux de réinitialisation de mot de passe a échoué. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un utilisateur a correctement effectué une étape spécifique du flux de réinitialisation de mot de passe.
+  * _Échec_ : indique qu’une étape spécifique du flux de réinitialisation de mot de passe a échoué. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 * **Activity status reasons** (Motif de l’état de l’activité) :   consultez le tableau suivant pour connaître [tous les motifs des états de l’activité de réinitialisation autorisés](#description-of-the-report-columns-in-the-azure-portal).
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>Type d’activité : Déverrouiller un compte d’utilisateur (libre-service)
@@ -152,8 +152,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui a déverrouillé son compte sans réinitialiser son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui a déverrouillé son compte sans réinitialiser son mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Allowed activity statuses** (États de l’activité autorisés) :
-  * _Réussite_  : indique qu’un utilisateur a correctement déverrouillé son propre compte.
-  * _Échec_  : indique qu’un utilisateur n’a pas réussi à déverrouiller son propre compte. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un utilisateur a correctement déverrouillé son propre compte.
+  * _Échec_ : indique qu’un utilisateur n’a pas réussi à déverrouiller son propre compte. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Type d’activité : Utilisateur enregistré pour la réinitialisation de mot de passe en libre-service
 
@@ -163,8 +163,8 @@ La liste suivante explique cette activité en détail :
 * **Activity actor** (Acteur de l’activité) : l’utilisateur qui s’est inscrit pour la réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Activity target** (Cible de l’activité) : l’utilisateur qui s’est inscrit pour la réinitialisation de mot de passe. L’utilisateur peut être un utilisateur final ou un administrateur.
 * **Allowed activity statuses** (États de l’activité autorisés) :
-  * _Réussite_  : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle. 
-  * _Échec_  : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
+  * _Réussite_ : indique qu’un utilisateur s’est inscrit pour la réinitialisation de mot de passe conformément à la stratégie actuelle. 
+  * _Échec_ : indique qu’un utilisateur n’a pas réussi à s’inscrire pour la réinitialisation de mot de passe. Vous pouvez sélectionner la ligne pour voir la catégorie **Activity status reason** (Motif de l’état de l’activité) et en savoir plus sur la cause de l’échec.
 
      >[!NOTE]
      >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe.
@@ -181,7 +181,7 @@ La liste suivante explique cette activité en détail :
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
 * [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](./tutorial-enable-sspr-writeback.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
+* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](./troubleshoot-sspr.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemple de journaux d’audit d’activité SSPR dans Azure AD"

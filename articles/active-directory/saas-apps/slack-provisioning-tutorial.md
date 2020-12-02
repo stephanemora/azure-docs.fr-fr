@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359474"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181456"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
 * Un client Slack avec le [forfait Plus](https://aadsyncfabric.slack.com/pricing) ou mieux activé.
 * Un compte d’utilisateur dans Slack avec les autorisations d’administrateur d’équipe.
 
@@ -63,7 +63,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Pour configurer l’approvisionnement automatique de comptes utilisateur vers Slack dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **informations d’identification de l’administrateur** , cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
+5. Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
 
     ![La capture d’écran affiche le bouton Autoriser les informations d’identification administrateur.](media/slack-provisioning-tutorial/authorization.png)
 
@@ -90,7 +90,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 7. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Slack. Si la connexion échoue, vérifiez que votre compte Slack dispose des autorisations d’administrateur d’équipe et recommencez l’étape « Autoriser ».
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
@@ -98,7 +98,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 10. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Slack**.
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les comptes d’utilisateur dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les comptes d’utilisateur dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -132,9 +132,9 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Slack**.
+12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Slack**.
 
-13. Dans la section **Mappages des attributs** , passez en revue les attributs de groupe qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les groupes dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+13. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les groupes dans Slack pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
       |Attribut|Type|
       |---|---|

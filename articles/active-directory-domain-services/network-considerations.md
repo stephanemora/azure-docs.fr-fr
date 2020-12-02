@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968087"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175217"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -104,7 +104,7 @@ Un domaine managé crée des ressources réseau au cours du déploiement. Ces re
 
 ## <a name="network-security-groups-and-required-ports"></a>Groupes de sécurité réseau et ports requis
 
-Un [groupe de sécurité réseau (NSG)](../virtual-network/security-overview.md) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez un domaine managé contenant un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
+Un [groupe de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez un domaine managé contenant un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
 
 Les règles de groupe de sécurité réseau suivantes sont requises pour permettre au domaine managé de fournir des services d’authentification et de gestion. Ne modifiez pas et ne supprimez pas ces règles de groupe de sécurité réseau pour le sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
 
@@ -176,4 +176,4 @@ Pour plus d’informations sur certaines ressources réseau et options de connex
 
 * [Peering de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Passerelles VPN Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)
+* [Groupes de sécurité réseau Azure](../virtual-network/network-security-groups-overview.md)

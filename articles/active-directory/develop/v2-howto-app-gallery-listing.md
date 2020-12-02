@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356346"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173377"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -36,7 +36,7 @@ En outre, il existe de nombreux avantages lorsque vos clients utilisent Azure AD
 - Proposez l'authentification unique pour vos utilisateurs. Avec l’authentification unique, vous réduisez les coûts de support en facilitant l’authentification unique pour vos clients. Si le SSO en un seul clic est activé, les administrateurs informatiques de vos clients n’ont pas besoin d’apprendre à configurer votre application pour l’utiliser dans leur organisation. Pour en savoir plus sur l’authentification unique, consultez [Qu’est-ce que l’authentification unique ?](../manage-apps/what-is-single-sign-on.md).
 - Votre application peut être détectable dans la galerie d’applications Microsoft 365, dans le lanceur d’applications Microsoft 365 et au sein de la Recherche Microsoft sur Office.com. 
 - Gestion intégrée des applications. Pour en savoir plus sur la gestion des applications dans Azure AD, consultez l’article [Gestion des applications](../manage-apps/what-is-application-management.md).
-- Votre application peut utiliser l’[API Graph](https://docs.microsoft.com/graph/) pour accéder aux données qui engendrent la productivité des utilisateurs dans l’écosystème Microsoft.
+- Votre application peut utiliser l’[API Graph](/graph/) pour accéder aux données qui engendrent la productivité des utilisateurs dans l’écosystème Microsoft.
 - La documentation spécifique à l’application coproduite avec l’équipe d’Azure AD pour nos clients communs facilite l’adoption.
 - Vous offrez à vos clients la possibilité de gérer complètement l’authentification et l’autorisation des identités de leurs employés et de leurs invités.
 - Toute la responsabilité de la gestion des comptes et de la conformité incombe alors au client propriétaire de ces identités.
@@ -47,7 +47,7 @@ En outre, il existe de nombreux avantages lorsque vos clients utilisent Azure AD
 - Ajoutez de la sécurité et de la commodité quand les utilisateurs se connectent à des applications à l’aide de l’authentification unique Azure AD et supprimez le besoin d’informations d’identification distinctes.
 
 > [!TIP]
-> Lorsque vous offrez votre application à d’autres entreprises par le biais d’un achat ou d’un abonnement, vous la mettez à disposition des clients au sein de leurs propres locataires Azure. Ceci permet de créer une application multilocataires. Pour un aperçu de ce concept, consultez [Applications multilocataires dans Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) et [Location dans Azure Active Directory](single-and-multi-tenant-apps.md).
+> Lorsque vous offrez votre application à d’autres entreprises par le biais d’un achat ou d’un abonnement, vous la mettez à disposition des clients au sein de leurs propres locataires Azure. Ceci permet de créer une application multilocataires. Pour un aperçu de ce concept, consultez [Applications multilocataires dans Azure](../../dotnet-develop-multitenant-applications.md) et [Location dans Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Pour publier votre application dans la Galerie Azure AD, vous devez accepter les conditions générales spécifiques. Avant de commencer, veillez à lire et à accepter les [conditions générales](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -162,7 +162,7 @@ Si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directe
 Microsoft ne fournit pas et ne recommande pas de bibliothèques pour les implémentations SAML. Il existe de nombreuses bibliothèques open source disponibles.
 
 ### <a name="implement-ws-fed"></a>Implémenter WS-Fed
-Pour en savoir plus sur WS-Fed dans ASP.NET Core, consultez [Authentifier les utilisateurs avec WS-Federation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Pour en savoir plus sur WS-Fed dans ASP.NET Core, consultez [Authentifier les utilisateurs avec WS-Federation dans ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implémenter un coffre de mots de passe
 
@@ -173,7 +173,7 @@ Créez une application web avec une page de connexion HTML. Assurez-vous que vot
 
 Vous aurez besoin d’un locataire Azure AD pour tester votre application. Pour configurer votre environnement de développement, consultez [Démarrage rapide : Configurer un locataire](quickstart-create-new-tenant.md).
 
-En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnement Microsoft 365. Pour configurer un environnement de développement Microsoft 365 gratuit, consultez [Rejoindre le programme pour développeurs Microsoft 365](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnement Microsoft 365. Pour configurer un environnement de développement Microsoft 365 gratuit, consultez [Rejoindre le programme pour développeurs Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
 Une fois que vous avez un locataire, vous devez activer et tester l’accès d’authentification unique. 
 
@@ -209,7 +209,7 @@ Nous recommandons que la documentation sur votre site contienne au minimum les �
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentation sur le site Microsoft
 
-Lorsque vous répertoriez votre application dans la galerie d’applications Azure Active Directory, qui publie également votre application sur la Place de marché Azure, Microsoft génère la documentation pour nos clients mutuels expliquant le processus pas à pas. Vous pouvez consulter un exemple [ici](https://aka.ms/appstutorial). Cette documentation est créée en fonction de ce que vous envoyez à la galerie, et vous pouvez facilement la mettre à jour si vous apportez des modifications à votre application à l’aide de votre compte GitHub.
+Lorsque vous répertoriez votre application dans la galerie d’applications Azure Active Directory, qui publie également votre application sur la Place de marché Azure, Microsoft génère la documentation pour nos clients mutuels expliquant le processus pas à pas. Vous pouvez consulter un exemple [ici](../saas-apps/tutorial-list.md). Cette documentation est créée en fonction de ce que vous envoyez à la galerie, et vous pouvez facilement la mettre à jour si vous apportez des modifications à votre application à l’aide de votre compte GitHub.
 
 
 ## <a name="step-5---submit-your-app"></a>Étape 5 : Envoyez votre application
@@ -262,7 +262,7 @@ Si vous souhaitez ajouter votre application à la liste dans la galerie à l’a
 
 ![Listing d’une application avec authentification unique par mot de passe dans la galerie](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si vous implémentez un point de terminaison [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 pour l’Attribution d’utilisateurs, sélectionnez l’option comme indiqué. 
+Si vous implémentez un point de terminaison [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 pour l’Attribution d’utilisateurs, sélectionnez l’option comme indiqué. 
 
    ![Demande de provisionnement d’utilisateurs](./media/howto-app-gallery-listing/user-provisioning.png)
 

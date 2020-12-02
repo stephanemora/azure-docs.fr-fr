@@ -3,12 +3,12 @@ title: Exporter vers Power BI à partir d’Azure Application Insights | Micros
 description: Les requêtes Analytics peuvent être affichées dans Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979158"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186998"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](https://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Pour importer votre requête Application Insights, vous utilisez la version pour
 Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exporter une requête Analytics
-1. [Ouvrez Analytics et écrivez votre requête](../log-query/get-started-portal.md).
+1. [Ouvrez Analytics et écrivez votre requête](../log-query/log-analytics-tutorial.md).
 2. Testez et affinez la requête jusqu'à ce que vous soyez satisfait des résultats. Vérifiez que la requête s’exécute correctement dans Analytics avant de l’exporter.
 3. Dans le menu **Exporter**, choisissez **Power BI (M)** . Enregistrez le fichier texte.
    
@@ -146,5 +146,4 @@ Après l’importation initiale, le tableau de bord et les rapports sont mis à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Power BI - En savoir plus](https://www.powerbi.com/learning/)
-* [Didacticiel Analytics](../log-query/get-started-portal.md)
-
+* [Didacticiel Analytics](../log-query/log-analytics-tutorial.md)

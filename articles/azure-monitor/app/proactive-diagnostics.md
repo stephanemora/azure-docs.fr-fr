@@ -3,12 +3,12 @@ title: Détection intelligente dans Azure Application Insights | Microsoft Docs
 description: Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305871"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186250"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances et des défaillances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](./app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -55,10 +55,9 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 * [Metrics Explorer](../platform/metrics-charts.md)
 * [Navigateur de recherche](./diagnostic-search.md)
-* [Analytics : un puissant langage de requête](../log-query/get-started-portal.md)
+* [Analytics : un puissant langage de requête](../log-query/log-analytics-tutorial.md)
 
 La détection intelligente est entièrement automatique. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
 * [Alertes de mesures configurées manuellement](../platform/alerts-log.md)
-* [Tests web de disponibilité](./monitor-web-app-availability.md) 
-
+* [Tests web de disponibilité](./monitor-web-app-availability.md)

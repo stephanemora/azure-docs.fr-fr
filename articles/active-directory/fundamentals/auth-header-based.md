@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577156"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168744"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Authentification basée sur l’en-tête avec Azure Active Directory
 
@@ -48,8 +48,8 @@ Les utilisateurs distants doivent utiliser l’authentification unique (SSO) de 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implémenter l’authentification basée sur l’en-tête avec Azure AD
 
-* [Ajouter des applications locales pour un accès à distance via le service Proxy d’application dans Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Ajouter des applications locales pour un accès à distance via le service Proxy d’application dans Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [Sécuriser les applications héritées avec les réseaux et les contrôleurs de livraison d’applications](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [Sécuriser les applications héritées avec les réseaux et les contrôleurs de livraison d’applications](../manage-apps/secure-hybrid-access.md)

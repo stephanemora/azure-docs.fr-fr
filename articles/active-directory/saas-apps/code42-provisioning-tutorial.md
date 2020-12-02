@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: Zhchia
-ms.openlocfilehash: e7f3817a6db288e93b5e0dc99c7b6c9b7bd2e44b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ffae286437a476d5ebe08c3ee442d0d52af84eb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355734"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179336"
 ---
 # <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Tutoriel : Configurer Code42 pour l'approvisionnement automatique d'utilisateurs
 
@@ -40,7 +40,7 @@ Ce tutoriel décrit les étapes à suivre dans Code42 et Azure Active Directory 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md)
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
 * Un locataire Code42 sur lequel la Gestion des identités est activée.
 * Un compte d'utilisateur Code42 doté de l'autorisation [Administrateur de cloud client](https://support.code42.com/Administrator/Cloud/Monitoring_and_managing/Roles_reference#Customer_Cloud_Admin).
 
@@ -57,10 +57,10 @@ Cette section explique comment configurer Azure AD en tant que fournisseur d'app
 
 1. Connectez-vous à votre console Code42. Sélectionnez **Administration** pour développer le menu de navigation. Sélectionnez **Paramètres** puis **Gestion des identités**.
 2. Sélectionnez l’onglet **Approvisionnement**. Développez ensuite le menu **Ajouter un fournisseur d'approvisionnement** et sélectionnez **Ajouter un fournisseur SCIM**.
-3. Dans le champ **Nom d'affichage** , entrez un nom unique pour le fournisseur d'approvisionnement. Définissez le **Type d'informations d'identification d'authentification** sur **Jeton OAuth**. Sélectionnez **Suivant** pour générer les informations d'identification.
+3. Dans le champ **Nom d'affichage**, entrez un nom unique pour le fournisseur d'approvisionnement. Définissez le **Type d'informations d'identification d'authentification** sur **Jeton OAuth**. Sélectionnez **Suivant** pour générer les informations d'identification.
 
 > [!NOTE]
->* Laissez cette fenêtre ouverte jusqu'à ce que vous soyez invité à fournir l' **URL de base** et le **Jeton** requis dans les étapes suivantes.
+>* Laissez cette fenêtre ouverte jusqu'à ce que vous soyez invité à fournir l'**URL de base** et le **Jeton** requis dans les étapes suivantes.
 >* Vous pouvez également copier ces informations à un emplacement temporaire pour y revenir ultérieurement.
 
 ## <a name="step-3-add-code42-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Code42 à partir de la galerie d'applications Azure AD
@@ -82,7 +82,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-code42-in-azure-ad"></a>Pour configurer l'approvisionnement automatique d'utilisateurs pour Code42 dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -98,19 +98,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification de l'administrateur** , entrez les valeurs de l' **URL de base SCIM 2.0 et du Jeton d'accès** récupérées précédemment sur Code42 dans **URL de locataire** et **Jeton secret** , respectivement. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Code42. Si la connexion échoue, vérifiez que votre compte Code42 dispose des autorisations d'administrateur et réessayez.
+5. Dans la section **Informations d'identification de l'administrateur**, entrez les valeurs de l'**URL de base SCIM 2.0 et du Jeton d'accès** récupérées précédemment sur Code42 dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Code42. Si la connexion échoue, vérifiez que votre compte Code42 dispose des autorisations d'administrateur et réessayez.
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Code42**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Code42**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d'utilisateur Code42 en vue de mises à jour ultérieures. Si vous choisissez de modifier l'[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l'API Code42 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d'utilisateur Code42 en vue de mises à jour ultérieures. Si vous choisissez de modifier l'[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l'API Code42 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -129,9 +129,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Code42**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Code42**.
 
-11. Dans la section **Mappage d'attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés afin de faire correspondre les groupes dans Code42 pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappage d'attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Code42. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés afin de faire correspondre les groupes dans Code42 pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|

@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174949"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -43,7 +43,7 @@ Si vous souhaitez demander un connecteur de provisionnement automatique Azure A
 
 ## <a name="authorization"></a>Autorisation
 
-Des informations d’identification sont nécessaires pour qu’Azure AD puisse se connecter à l’API de gestion des utilisateurs de l’application. Pour configurer l’attribution automatique d’utilisateurs dans une application, vous devez entrer des informations d’identification valides. Pour les applications de la galerie, consultez le tutoriel de l’application afin d’en connaître les différents types d’informations d’identification et les exigences. Pour les applications qui ne proviennent pas de la galerie, vous pouvez consulter la documentation [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) pour comprendre les types d’informations d’identification et les exigences. Dans le portail Azure, vous pouvez tester les informations d’identification en demandant à Azure AD de se connecter à l’API de provisionnement de l’application à l’aide des informations d’identification fournies.
+Des informations d’identification sont nécessaires pour qu’Azure AD puisse se connecter à l’API de gestion des utilisateurs de l’application. Pour configurer l’attribution automatique d’utilisateurs dans une application, vous devez entrer des informations d’identification valides. Pour les applications de la galerie, consultez le tutoriel de l’application afin d’en connaître les différents types d’informations d’identification et les exigences. Pour les applications qui ne proviennent pas de la galerie, vous pouvez consulter la documentation [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) pour comprendre les types d’informations d’identification et les exigences. Dans le portail Azure, vous pouvez tester les informations d’identification en demandant à Azure AD de se connecter à l’API de provisionnement de l’application à l’aide des informations d’identification fournies.
 
 ## <a name="mapping-attributes"></a>Mappage d’attributs
 

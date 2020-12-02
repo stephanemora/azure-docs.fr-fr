@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020906"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186573"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -151,12 +151,12 @@ Cette section explique comment déplacer la mise à l’échelle automatique Azu
 1. Vérifiez que la mise à l’échelle automatique Azure est disponible dans la [région Azure vers laquelle vous souhaitez effectuer le déplacement](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
 ### <a name="move"></a>Déplacer
-Utilisez l’[API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) pour créer un paramètre de mise à l’échelle automatique dans le nouvel environnement. Le paramètre de mise à l’échelle automatique créé dans la région de destination est une copie du paramètre de mise à l’échelle automatique dans la région source.
+Utilisez l’[API REST](/rest/api/monitor/autoscalesettings/createorupdate) pour créer un paramètre de mise à l’échelle automatique dans le nouvel environnement. Le paramètre de mise à l’échelle automatique créé dans la région de destination est une copie du paramètre de mise à l’échelle automatique dans la région source.
 
-Les [paramètres de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) créés en association avec le paramètre de mise à l’échelle automatique dans la région source ne peuvent pas être déplacés. Vous devez recréer les paramètres de diagnostic dans la région de destination une fois créés les paramètres de mise à l’échelle automatique. 
+Les [paramètres de diagnostic](./diagnostic-settings.md) créés en association avec le paramètre de mise à l’échelle automatique dans la région source ne peuvent pas être déplacés. Vous devez recréer les paramètres de diagnostic dans la région de destination une fois créés les paramètres de mise à l’échelle automatique. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>En savoir plus sur le déplacement de ressources dans les régions Azure
-Pour en savoir plus sur le déplacement de ressources entre régions et sur la reprise d’activité après sinistre dans Azure, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Pour en savoir plus sur le déplacement de ressources entre régions et sur la reprise d’activité après sinistre dans Azure, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

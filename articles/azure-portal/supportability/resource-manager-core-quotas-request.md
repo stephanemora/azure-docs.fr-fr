@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173289"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185876"
 ---
 # <a name="quota-increase-requests"></a>Demandes d’augmentation de quota
 
@@ -24,7 +24,6 @@ Vous pouvez demander une augmentation de la limite de quota de processeurs virtu
 Quand un abonnement est créé, la valeur par défaut du total de processeurs virtuels régionaux peut ne pas être égale à la somme des quotas de processeurs virtuels par défaut pour toutes les séries de machines virtuelles individuelles. De ce fait, l’abonnement peut avoir un quota suffisant pour chacune des séries de machines virtuelles à déployer. Son quota peut être insuffisant pour le total des processeurs virtuels régionaux de tous les déploiements. Dans ce cas, vous devez envoyer une demande d’augmentation explicite de la limite totale des processeurs virtuels régionaux. La limite du nombre de processeurs virtuels régionaux ne peut pas dépasser la somme des quotas approuvés sur toutes les séries de machines virtuelles pour la région.
 
 > [!NOTE]
-> Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne gratuitement](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne gratuitement](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 Pour en savoir plus sur les quotas, consultez [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md) et [Abonnement Azure et limites, quotas et contraintes de service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-

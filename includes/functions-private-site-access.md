@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578812"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020984"
 ---
 Le [point de terminaison privé Azure](../articles/private-link/private-endpoint-overview.md) est une interface réseau qui vous connecte de manière privée et sécurisée à un service s’appuyant sur Azure Private Link.  Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel pour apporter le service à votre réseau virtuel de façon effective.
 

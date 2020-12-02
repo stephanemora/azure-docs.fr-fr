@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 392f361f6fe487a15bdd63c2f3281ccc78b2f86d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790302"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184414"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Bien démarrer avec des bases de données uniques dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Vous pouvez utiliser PowerShell ou Azure CLI pour créer, configurer et mettre �
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migration vers une base de données unique avec un temps d’arrêt minimal
 
-Ces guides de démarrage rapide vous permettent de créer ou d’importer votre base de données dans Azure avec un fichier `.bacpac`. Cependant, les fichiers `.bacpac` et `.dacpac` sont conçus pour déplacer rapidement des bases de données entre des versions différentes de SQL Server et au sein d’Azure SQL, ou pour implémenter l’intégration continue dans votre pipeline DevOps. Toutefois, cette méthode n’est pas conçue pour la migration de vos bases de données de production avec un temps d’arrêt minimal dans la mesure où vous devez cesser d’ajouter de nouvelles données, attendre la fin de l’exportation de la base de données source vers un fichier `.bacpac`, puis attendre la fin de l’importation dans Azure SQL Database. Toute cette attente entraîne des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, vous devez trouver une meilleure méthode de migration garantissant un temps d’arrêt minimal. Pour cela, utilisez [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) pour migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données unique en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
+Ces guides de démarrage rapide vous permettent de créer ou d’importer votre base de données dans Azure avec un fichier `.bacpac`. Cependant, les fichiers `.bacpac` et `.dacpac` sont conçus pour déplacer rapidement des bases de données entre des versions différentes de SQL Server et au sein d’Azure SQL, ou pour implémenter l’intégration continue dans votre pipeline DevOps. Toutefois, cette méthode n’est pas conçue pour la migration de vos bases de données de production avec un temps d’arrêt minimal dans la mesure où vous devez cesser d’ajouter de nouvelles données, attendre la fin de l’exportation de la base de données source vers un fichier `.bacpac`, puis attendre la fin de l’importation dans Azure SQL Database. Toute cette attente entraîne des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, vous devez trouver une meilleure méthode de migration garantissant un temps d’arrêt minimal. Pour cela, utilisez [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%2fazure%2fsql-database%2ftoc.json) pour migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données unique en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
 
 ## <a name="hands-on-learning-modules"></a>Modules d’apprentissage pratique
 

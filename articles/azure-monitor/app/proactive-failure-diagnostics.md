@@ -4,12 +4,12 @@ description: Vous prévient en cas de modifications inhabituelles du taux d’é
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f5bc6f5c3523bc76876f946474eaeb897cfe9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565835"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186964"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](./app-insights-overview.md) vous alerte automatiquement en quasi temps réel si votre application web enregistre une hausse anormale du taux de requêtes ayant échoué. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les requêtes ayant échoué ont généralement un code de réponse supérieur ou égal à 400. Pour vous aider à trier et diagnostiquer les causes du problème, les détails de l’alerte s’accompagnent d’une analyse des caractéristiques des échecs et des données d’application associées. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -73,11 +73,11 @@ Cette règle d’alerte est créée avec un [groupe d’actions](../platform/act
 
 Ouvrez la page Alertes. Les règles d’alerte Anomalies des échecs sont affichées avec les alertes que vous avez définies manuellement, et vous pouvez savoir si elle se trouve actuellement à l’état d’alerte.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Dans la page de la ressource Application Insights, cliquez sur la vignette « Alertes », puis sur « Gérer les règles d’alerte »." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Cliquez sur l’alerte pour la configurer.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Écran de configuration des règles." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Notez que vous pouvez désactiver ou supprimer une règle Anomalies des échecs, mais que vous ne pouvez pas en créer une autre sur la même ressource Application Insights.
 
@@ -299,7 +299,7 @@ Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), acc�
 
 Vous pouvez cliquer sur « Diagnostiquer les échecs » pour obtenir plus de détails et résoudre le problème plus aisément.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Recherche de diagnostic." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 78,5 % est comparé à un taux normal de 2,2 %, ce qui indique un problème. En revanche, seuls 46 utilisateurs ont été impactés. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
 
@@ -307,13 +307,13 @@ Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidem
 
 Dans cet exemple, une exception est survenue dans SQL Database à cause du dépassement de la limite de requêtes.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Détails des requêtes ayant échoué." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Consulter les alertes récentes
 
 Cliquez sur **Alertes** dans la page de ressources Application Insights pour accéder aux alertes déclenchées les plus récentes :
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Résumé des alertes." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Quelle est la différence ?
 La détection intelligente des anomalies de type échec vient compléter d’autres fonctionnalités d’Application Insights similaires, mais distinctes.
@@ -356,10 +356,9 @@ Ces outils de diagnostic vous aident à inspecter les données reçues de votre 
 
 * [Metrics Explorer](../platform/metrics-charts.md)
 * [Navigateur de recherche](./diagnostic-search.md)
-* [Analytics : un puissant langage de requête](../log-query/get-started-portal.md)
+* [Analytics : un puissant langage de requête](../log-query/log-analytics-tutorial.md)
 
 Les détections intelligentes sont automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
 * [Alertes de mesures configurées manuellement](../platform/alerts-log.md)
 * [Tests web de disponibilité](./monitor-web-app-availability.md)
-

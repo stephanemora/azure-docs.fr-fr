@@ -8,17 +8,17 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 1d380a41f5b20c52fefca9e68bb4ed858b3bf3a1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/27/2020
+ms.openlocfilehash: b0b2dd9904682121c83b22b9029097e7ee57fb11
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422051"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303763"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
-Les jeux de données externes utilisés pour remplir un index Recherche cognitive Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes* , *composées* , *composites* or *agrégées*. Le terme utilisé par Recherche cognitive Azure pour ce concept est **type complexe**. Dans Recherche cognitive Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
+Les jeux de données externes utilisés pour remplir un index Recherche cognitive Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes*, *composées*, *composites* or *agrégées*. Le terme utilisé par Recherche cognitive Azure pour ce concept est **type complexe**. Dans Recherche cognitive Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
 
 Les champs complexes représentent un objet unique dans le document ou un tableau d’objets, selon le type de données. Les champs de type `Edm.ComplexType` représentent des objets uniques, alors que des champs de type `Collection(Edm.ComplexType)` représentent des tableaux d’objets.
 
@@ -62,8 +62,6 @@ Le document JSON suivant est composé de champs simples et de champs complexes. 
   ]
 }
 ```
-
-<a name="indexing-complex-types></a>
 
 ## <a name="indexing-complex-types"></a>Indexation des types complexes
 

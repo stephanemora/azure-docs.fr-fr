@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1a0ec8393e3c5ea40cb53fc101040441a5ca15bb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 7419f5f8b519b8c3e978e358afb9f15a61132769
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359032"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177818"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Tutoriel : Configurer LinkedIn Learning pour l’approvisionnement automatique d’utilisateurs
 
@@ -40,7 +40,7 @@ Ce tutoriel décrit les étapes à effectuer dans LinkedIn Learning et Azure Act
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Approbation et SCIM activés pour LinkedIn Learning (contact par e-mail).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -49,7 +49,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 3. Déterminez les données à [mapper entre Azure AD et LinkedIn Learning](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-linkedin-learning-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer LinkedIn Learning pour prendre en charge le provisionnement avec Azure AD
-1. Accédez aux [paramètres de LinkedIn Learning](https://www.linkedin.com/learning-admin/settings/global). Sélectionnez **Configuration SCIM** , puis sélectionnez **Ajouter une configuration SCIM**.
+1. Accédez aux [paramètres de LinkedIn Learning](https://www.linkedin.com/learning-admin/settings/global). Sélectionnez **Configuration SCIM**, puis sélectionnez **Ajouter une configuration SCIM**.
 
    ![Configuration SCIM](./media/linkedin-learning-provisioning-tutorial/learning-scim-settings.png)
 
@@ -82,7 +82,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-linkedin-learning-in-azure-ad"></a>Pour configurer l’approvisionnement automatique de comptes d’utilisateur pour LinkedIn Learning dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -98,19 +98,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.linkedin.com/scim` dans **URL de locataire**. Entrez la valeur du jeton d’accès récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à LinkedIn Learning. Si la connexion échoue, vérifiez que votre compte LinkedIn Learning dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://api.linkedin.com/scim` dans **URL de locataire**. Entrez la valeur du jeton d’accès récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à LinkedIn Learning. Si la connexion échoue, vérifiez que votre compte LinkedIn Learning dispose d’autorisations d’administrateur et réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/linkedin-learning-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
+8. Dans la section **Mappages**, sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et LinkedIn Learning. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans LinkedIn Learning pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API LinkedIn Learning prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et LinkedIn Learning. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans LinkedIn Learning pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API LinkedIn Learning prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|Pris en charge pour le filtrage|
    |---|---|---|
@@ -125,9 +125,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. Dans la section **Mappages** , sélectionnez **Attribuer les groupes Azure Active Directory**.
+10. Dans la section **Mappages**, sélectionnez **Attribuer les groupes Azure Active Directory**.
 
-11. Dans la section **Mappage d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et LinkedIn Learning . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans LinkedIn Learning pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappage d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et LinkedIn Learning . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans LinkedIn Learning pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     |Attribut|Type|Pris en charge pour le filtrage|
     |---|---|---|

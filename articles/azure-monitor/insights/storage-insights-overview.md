@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101270"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296333"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage
 
@@ -25,7 +25,7 @@ Avant d’entrer dans les détails de l’expérience avec la fonctionnalité, v
 
 La solution offre les avantages suivants :
 
-* **Une perspective à l’échelle** , présentant une vue d’instantané de la disponibilité en fonction de l’intégrité du service de stockage ou de l’opération d’API, de l’utilisation en indiquant le nombre total de requêtes reçues par le service de stockage, et de la latence en indiquant la durée moyenne nécessaire pour que le service de stockage ou le type d’opération d’API traite les requêtes. Vous pouvez également afficher la capacité par objet blob, fichier, table et file d’attente.
+* **Une perspective à l’échelle**, présentant une vue d’instantané de la disponibilité en fonction de l’intégrité du service de stockage ou de l’opération d’API, de l’utilisation en indiquant le nombre total de requêtes reçues par le service de stockage, et de la latence en indiquant la durée moyenne nécessaire pour que le service de stockage ou le type d’opération d’API traite les requêtes. Vous pouvez également afficher la capacité par objet blob, fichier, table et file d’attente.
 
 * **Explorez l’analyse** d’un compte de stockage particulier pour vous aider à diagnostiquer les problèmes ou à effectuer une analyse détaillée par catégorie : disponibilité, performances, défaillances et capacité. La sélection de l’une de ces options fournit une vue détaillée des métriques.  
 
@@ -36,9 +36,6 @@ Cette fonctionnalité ne vous oblige pas à activer ou à configurer quoi que ce
 >[!NOTE]
 >Il n’y a pas de frais facturés pour accéder à cette fonctionnalité et vous ne paierez que pour les fonctionnalités essentielles d’Azure Monitor que vous configurez ou activez, comme décrit dans la page [Détails de la tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
->[!NOTE]
->Azure Monitor pour le stockage ne prend pas en charge les [comptes v1 à usage général](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
->
 
 ## <a name="view-from-azure-monitor"></a>Voir à partir d’Azure Monitor
 
@@ -48,7 +45,7 @@ Pour afficher l’utilisation et la disponibilité de vos comptes de stockage po
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Sélectionnez **Analyse** dans le volet gauche du Portail Azure, puis sous la section **Insights** , sélectionnez **Comptes de stockage**.
+2. Sélectionnez **Analyse** dans le volet gauche du Portail Azure, puis sous la section **Insights**, sélectionnez **Comptes de stockage**.
 
     ![Vue de comptes de stockage multiples](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -64,10 +61,10 @@ Dans le classeur **Vue d’ensemble** de l’abonnement sélectionné, le tablea
 
 La vignette de compteur sous les listes déroulantes cumule le total de comptes de stockage dans l’abonnement et indique le nombre total d’opérations sélectionnées. Il existe des codes de couleur conditionnels ou des cartes thermiques pour les colonnes du classeur qui signalent des métriques ou des erreurs de transaction. La couleur la plus profonde a la valeur la plus élevée et la couleur la plus claire désigne les valeurs les plus basses. Pour les colonnes basées sur une erreur, la valeur est en rouge, et pour les colonnes basées sur les métriques, la valeur est en bleu.
 
-Sélectionnez une valeur dans les colonnes **Disponibilité** , **Latence E2E** , **Latence du serveur** et **Type d’erreur de transaction/Erreurs** pour aller au rapport adapté au type spécifique de métriques de stockage correspondant à la colonne sélectionnée pour ce compte de stockage. Pour plus d’informations sur les classeurs pour chaque catégorie, consultez la section [Classeurs de stockage détaillés](#detailed-storage-workbooks) ci-dessous. 
+Sélectionnez une valeur dans les colonnes **Disponibilité**, **Latence E2E**, **Latence du serveur** et **Type d’erreur de transaction/Erreurs** pour aller au rapport adapté au type spécifique de métriques de stockage correspondant à la colonne sélectionnée pour ce compte de stockage. Pour plus d’informations sur les classeurs pour chaque catégorie, consultez la section [Classeurs de stockage détaillés](#detailed-storage-workbooks) ci-dessous. 
 
 >[!NOTE]
->Pour plus d’informations sur les erreurs pouvant être affichées dans le rapport, consultez [Schéma de type de réponse](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) et recherchez les types de réponse, comme **ServerOtherError** , **ClientOtherError** et **ClientThrottlingError**. Selon les comptes de stockage sélectionnés, si plus de trois types d’erreurs sont signalés, toutes les autres erreurs sont représentées sous la catégorie **Autres**.
+>Pour plus d’informations sur les erreurs pouvant être affichées dans le rapport, consultez [Schéma de type de réponse](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) et recherchez les types de réponse, comme **ServerOtherError**, **ClientOtherError** et **ClientThrottlingError**. Selon les comptes de stockage sélectionnés, si plus de trois types d’erreurs sont signalés, toutes les autres erreurs sont représentées sous la catégorie **Autres**.
 
 Le seuil de **Disponibilité** par défaut est le suivant :
 
@@ -104,13 +101,13 @@ Dans le classeur **Vue d’ensemble** du compte de stockage, plusieurs métrique
 
 * Les vignettes Métriques et État mettent en évidence la disponibilité du service, le nombre total de transactions pour le service de stockage, la latence E2E et la latence du serveur.
 
-Sélectionnez un des boutons parmi **Défaillances** , **Performances** , **Disponibilité** et **Capacité** pour ouvrir le classeur respectif. 
+Sélectionnez un des boutons parmi **Défaillances**, **Performances**, **Disponibilité** et **Capacité** pour ouvrir le classeur respectif. 
 
 ![Page Vue d’ensemble du compte de stockage sélectionné](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Classeurs de stockage détaillés
 
-Si vous avez sélectionné une valeur dans les colonnes **Disponibilité** , **Latence E2E** , **Latence du serveur** ou **Type d’erreur de transaction/Erreurs** à partir du classeur **Vue d’ensemble** du compte de stockage multiple, ou en sélectionnant un des boutons parmi **Défaillances** , **Performances** , **Disponibilité** et **Capacité** du classeur **Vue d’ensemble** à partir d’un compte de stockage spécifique, vous obtenez un ensemble d’informations interactives relatives au stockage adaptées à cette catégorie.  
+Si vous avez sélectionné une valeur dans les colonnes **Disponibilité**, **Latence E2E**, **Latence du serveur** ou **Type d’erreur de transaction/Erreurs** à partir du classeur **Vue d’ensemble** du compte de stockage multiple, ou en sélectionnant un des boutons parmi **Défaillances**, **Performances**, **Disponibilité** et **Capacité** du classeur **Vue d’ensemble** à partir d’un compte de stockage spécifique, vous obtenez un ensemble d’informations interactives relatives au stockage adaptées à cette catégorie.  
 
 * **Disponibilité** ouvre le classeur **Disponibilité**. Il indique l’état d’intégrité actuel du service de stockage Azure, un tableau montrant l’état d’intégrité disponible de chaque objet catégorisé par le service de données défini dans le compte de stockage, avec une courbe de tendance représentant la plage horaire sélectionnée et un graphique de tendance de disponibilité pour chaque service de données dans le compte.  
 
@@ -157,11 +154,11 @@ Vous pouvez configurer les classeurs **Vue d’ensemble** et **Capacité** du co
 
 1. Sélectionnez **Analyse** à partir du portail, puis sélectionnez **Comptes de stockage** dans le volet gauche.
 
-2. Dans le classeur **Vue d’ensemble** , dans la barre de commandes, sélectionnez **Modifier**.
+2. Dans le classeur **Vue d’ensemble**, dans la barre de commandes, sélectionnez **Modifier**.
 
-3. Dans la liste déroulante **Abonnements** , sélectionnez un ou plusieurs abonnements à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection de jusqu’à 10 abonnements au total.  
+3. Dans la liste déroulante **Abonnements**, sélectionnez un ou plusieurs abonnements à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection de jusqu’à 10 abonnements au total.  
 
-4. Dans la liste déroulante **Comptes de stockage** , sélectionnez un ou plusieurs comptes à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection d’un total de jusqu’à 200 comptes de stockage. 
+4. Dans la liste déroulante **Comptes de stockage**, sélectionnez un ou plusieurs comptes à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection d’un total de jusqu’à 200 comptes de stockage. 
 
 5. Sélectionnez **Enregistrer sous** dans la barre de commandes pour enregistrer une copie du classeur avec vos personnalisations, puis cliquez sur **Modifications terminées** pour revenir au mode lecture.  
 
@@ -174,7 +171,7 @@ Dans notre exemple, nous travaillons avec le classeur de capacité du compte de 
 * Supprimer une métrique
 * Modifier le rendu des couleurs
 
-Vous pouvez effectuer les mêmes modifications sur n’importe lequel des classeurs **Défaillances** , **Performances** , **Disponibilité** et **Capacité**.
+Vous pouvez effectuer les mêmes modifications sur n’importe lequel des classeurs **Défaillances**, **Performances**, **Disponibilité** et **Capacité**.
 
 1. Sélectionnez **Analyse** à partir du portail, puis sélectionnez **Comptes de stockage** dans le volet gauche.
 
@@ -190,7 +187,7 @@ Vous pouvez effectuer les mêmes modifications sur n’importe lequel des classe
 
     ![Modifier les paramètres de colonne](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. Dans le volet **Modifier les paramètres de la colonne** , sélectionnez sous la section **Colonnes** **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Chronologie de la capacité utilisée du compte$** , et dans la liste déroulante **Convertisseur de colonne** sélectionnez **Masqué**.
+5. Dans le volet **Modifier les paramètres de la colonne**, sélectionnez sous la section **Colonnes** **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Chronologie de la capacité utilisée du compte$** , et dans la liste déroulante **Convertisseur de colonne** sélectionnez **Masqué**.
 
 6. Sélectionnez **Enregistrer et fermer** pour valider vos modifications.
 
@@ -198,7 +195,7 @@ Vous pouvez effectuer les mêmes modifications sur n’importe lequel des classe
 
 1. Sélectionnez **Paramètres de colonne** dans la grille de métriques.
 
-2. Dans le volet **Modifier les paramètres de colonne** , sous la section **Colonnes** , sélectionnez **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . Dans la liste déroulante **Palette de couleurs** , sélectionnez **Vert**.
+2. Dans le volet **Modifier les paramètres de colonne**, sous la section **Colonnes**, sélectionnez **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . Dans la liste déroulante **Palette de couleurs**, sélectionnez **Vert**.
 
 3. Sélectionnez **Enregistrer et fermer** pour valider vos modifications.
 
@@ -214,13 +211,13 @@ Dans cet exemple, nous travaillons avec le classeur Capacité du compte de stock
 
 3. Dans le classeur, sélectionnez **Disponibilité** pour basculer vers le classeur de disponibilité , puis sélectionnez **Modifier** dans la barre de commandes. 
 
-4. Faites défiler vers le bas de la page et, dans la partie gauche en regard de la grille **Disponibilité par API** , sélectionnez **Modifier**.
+4. Faites défiler vers le bas de la page et, dans la partie gauche en regard de la grille **Disponibilité par API**, sélectionnez **Modifier**.
 
     ![Modifier les paramètres de la grille de disponibilité par nom d’API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Sélectionnez **Paramètres de colonne** puis, dans le volet **Modifier les paramètres de colonne** , sous la section **Colonnes** , sélectionnez **Disponibilité (%).(Seuils + formatés)** .
+5. Sélectionnez **Paramètres de colonne** puis, dans le volet **Modifier les paramètres de colonne**, sous la section **Colonnes**, sélectionnez **Disponibilité (%).(Seuils + formatés)** .
 
-6. Modifiez la valeur de l'état d’intégrité **Critique** de **90** à **85** , puis cliquez sur **Enregistrer et fermer**.
+6. Modifiez la valeur de l'état d’intégrité **Critique** de **90** à **85**, puis cliquez sur **Enregistrer et fermer**.
 
     ![Modifier la valeur du seuil de disponibilité pour l’état critique](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 

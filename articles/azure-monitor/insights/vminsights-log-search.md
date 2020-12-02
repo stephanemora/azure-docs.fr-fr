@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015588"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186726"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Comment interroger des journaux d’activité à partir d’Azure Monitor pour les machines virtuelles
 
@@ -473,7 +473,6 @@ Les compteurs de performance actuellement collectés dans la table *InsightsMetr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Si vous débutez dans l’écriture de requêtes de journal dans Azure Monitor, consultez [Comment utiliser Log Analytics](../log-query/get-started-portal.md) dans le portail Azure pour en savoir plus.
+* Si vous débutez dans l’écriture de requêtes de journal dans Azure Monitor, consultez [Comment utiliser Log Analytics](../log-query/log-analytics-tutorial.md) dans le portail Azure pour en savoir plus.
 
-* Découvrez [l’écriture de requêtes de recherche](/azure/azure-monitor/log-query/get-started-queries).
-
+* Découvrez [l’écriture de requêtes de recherche](../log-query/get-started-queries.md).

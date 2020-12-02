@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000706"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185825"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -76,10 +76,10 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | StorageAccountAlreadyTaken | Attribuez un nom unique au compte de stockage. | [Résoudre les erreurs de nom du compte de stockage](error-storage-account-name.md) |
 | StorageAccountNotFound | Vérifiez l’abonnement, le groupe de ressources et le nom du compte de stockage que vous tentez d’utiliser. | |
 | SubnetsNotInSameVnet | Une machine virtuelle ne peut avoir qu’un seul réseau virtuel. Si vous déployez plusieurs cartes réseau, assurez-vous qu’elles appartiennent au même réseau virtuel. | [Cartes réseau multiples](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | Impossible d’accéder à un abonnement spécifié pour le déploiement. L’ID d’abonnement est peut-être incorrect, l’utilisateur qui déploie le modèle ne dispose pas des autorisations appropriées pour le déployer sur l’abonnement, ou l’ID d’abonnement n’est pas au bon format. Lorsque vous utilisez des déploiements imbriqués pour [déployer à travers des étendues](cross-scope-deployment.md), indiquez le GUID de l’abonnement. | |
+| SubscriptionNotFound | Impossible d’accéder à un abonnement spécifié pour le déploiement. L’ID d’abonnement est peut-être incorrect, l’utilisateur qui déploie le modèle ne dispose pas des autorisations appropriées pour le déployer sur l’abonnement, ou l’ID d’abonnement n’est pas au bon format. Lorsque vous utilisez des déploiements imbriqués pour [déployer à travers des étendues](./deploy-to-resource-group.md), indiquez le GUID de l’abonnement. | |
 | SubscriptionNotRegistered | Lors du déploiement d’une ressource, le fournisseur de ressources doit être inscrit pour votre abonnement. Lorsque vous utilisez un modèle Resource Manager pour le déploiement, le fournisseur de ressources est automatiquement inscrit dans l’abonnement. Parfois, l’inscription automatique ne se termine pas à temps. Pour éviter cette erreur intermittente, inscrivez le fournisseur de ressources avant le déploiement. | [Résoudre les erreurs d’inscription](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement inter-étendue](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Réduisez le nombre de groupes de ressources pour un déploiement unique. | [Déploiement inter-étendue](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Recherche un code d'erreur
 

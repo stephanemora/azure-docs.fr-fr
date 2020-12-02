@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: d567985cba35647654d3ec47340979fcf9411132
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d2c1704182a2a59f8e3f79c2d4e671167ce661d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183071"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zapier pour le provisionnement automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ Ce tutoriel décrit les étapes à effectuer dans Zapier et Azure Active Directo
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Un compte d’utilisateur Zapier ayant des autorisations d’administrateur.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -54,7 +54,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
     ![Zapier, Ajouter SCIM](media/zapier-provisioning-tutorial/user.png)
 
-3. Copiez l’URL de base SCIM ( **SCIM Base URL** ) et le jeton du porteur SCIM ( **SCIM Bearer Token** ). Ces valeurs doivent être entrées respectivement dans les champs Tenant URL (URL de locataire) et Secret Token (Jeton secret) sous l’onglet Provisioning (Provisionnement) de votre application Zapier dans le portail Azure.
+3. Copiez l’URL de base SCIM (**SCIM Base URL**) et le jeton du porteur SCIM (**SCIM Bearer Token**). Ces valeurs doivent être entrées respectivement dans les champs Tenant URL (URL de locataire) et Secret Token (Jeton secret) sous l’onglet Provisioning (Provisionnement) de votre application Zapier dans le portail Azure.
 
     ![Zapier, Créer un jeton](media/zapier-provisioning-tutorial/token.png)
 
@@ -77,7 +77,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-zapier-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Zapier dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -93,19 +93,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez l’ **URL du locataire** et le **Jeton secret** de Zapier. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Zapier. Si la connexion échoue, vérifiez que votre compte Zapier dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez l’**URL du locataire** et le **Jeton secret** de Zapier. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Zapier. Si la connexion échoue, vérifiez que votre compte Zapier dispose des autorisations d’administrateur et réessayez.
 
    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/zapier-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
    ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zapier**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zapier**.
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zapier. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Zapier dans le cadre des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Zapier prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zapier. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Zapier dans le cadre des opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Zapier prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Variable|Type|
    |---|---|
@@ -116,9 +116,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.familyName|String|
    |emails[type eq "work"].value|String|
 
-10. Sous la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Zapier**.
+10. Sous la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Zapier**.
 
-11. Dans la section **Mappages d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zapier. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans Zapier dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zapier. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondance des groupes dans Zapier dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     |Variable|Type|
     |---|---|

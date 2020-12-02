@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122907"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122264"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Surveiller l’intégrité globale des appareils connectés à une application IoT Central
 
@@ -31,7 +31,7 @@ Les applications qui utilisent le plan d’essai gratuit n’ont pas d’abonnem
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Afficher les métriques dans le portail Azure
 
-Les étapes suivantes partent du principe que vous disposez d’une [application IoT Central](./quick-deploy-iot-central.md) avec quelques [appareils connectés](./tutorial-connect-device-nodejs.md).
+Les étapes suivantes partent du principe que vous disposez d’une [application IoT Central](./quick-deploy-iot-central.md) avec quelques [appareils connectés](./tutorial-connect-device.md).
 
 Pour afficher les métriques IoT Central dans le portail :
 

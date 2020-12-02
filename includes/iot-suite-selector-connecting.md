@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026763"
 ---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67177499"
 > * [C sur Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (générique)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js sur Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [DevKit IoT MXChip](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [DevKit IoT MXChip](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 Dans ce tutoriel, vous allez implémenter un appareil **Condenseur** qui envoie les données de télémétrie ci-après à [l’accélérateur de solution](../articles/iot-accelerators/about-iot-accelerators.md) Monitoring à distance :
 
@@ -54,7 +54,7 @@ Au terme du processus de déploiement de la solution de supervision à distance,
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Ajouter votre appareil à la solution de supervision à distance
 
 > [!NOTE]
-> Si vous avez déjà ajouté un appareil dans votre solution, vous pouvez ignorer cette étape. Toutefois, l’étape suivante requiert la chaîne de connexion de votre appareil. Vous pouvez récupérer la chaîne de connexion d’un appareil à partir du [portail Azure](https://portal.azure.com) ou à l’aide de l’outil d’interface de ligne de commande (CLI) [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
+> Si vous avez déjà ajouté un appareil dans votre solution, vous pouvez ignorer cette étape. Toutefois, l’étape suivante requiert la chaîne de connexion de votre appareil. Vous pouvez récupérer la chaîne de connexion d’un appareil à partir du [portail Azure](https://portal.azure.com) ou à l’aide de l’outil d’interface de ligne de commande (CLI) [az iot](/cli/azure/iot?view=azure-cli-latest).
 
 Pour qu’un appareil puisse se connecter à l’accélérateur de solution, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous avez la possibilité d’enregistrer la chaîne de connexion de l’appareil qui contient ces informations d’identification lorsque vous ajoutez l’appareil à la solution. La chaîne de connexion de l’appareil sera ajoutée dans votre application cliente dans la suite de ce didacticiel.
 

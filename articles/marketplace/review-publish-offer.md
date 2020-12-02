@@ -9,11 +9,11 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
 ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129573"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188749"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
 
@@ -38,11 +38,11 @@ Vous pouvez consulter l’état de votre offre dans l’onglet **Vue d’ensembl
 
 Lorsque vous êtes prêt à soumettre votre offre à la publication, sélectionnez **Vérifier et publier** dans le coin supérieur droit du portail. La page **Vérifier et publier** affiche l’état de chaque page de votre offre, qui peut être l’un des états suivants :
 
-   - **Non démarré**  : la page n’est pas démarrée.
-   - **Incomplète**  : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
-   - **Complète**  : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
+   - **Non démarré** : la page n’est pas démarrée.
+   - **Incomplète** : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
+   - **Complète** : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
 
-Si l’un des pages présente un état autre que **Complète** , vous devez corriger le problème sur cette page, puis revenir à la page **Vérifier et publier** pour confirmer que l’état s’affiche comme **Complète**. Certains types d’offres nécessitent un test. Si c’est le cas, vous verrez un champ **Notes pour la certification** dans lequel vous devez fournir des instructions de test à l’équipe de certification et toutes autres notes utiles pour comprendre votre application.
+Si l’un des pages présente un état autre que **Complète**, vous devez corriger le problème sur cette page, puis revenir à la page **Vérifier et publier** pour confirmer que l’état s’affiche comme **Complète**. Certains types d’offres nécessitent un test. Si c’est le cas, vous verrez un champ **Notes pour la certification** dans lequel vous devez fournir des instructions de test à l’équipe de certification et toutes autres notes utiles pour comprendre votre application.
 
 Une fois que toutes les pages sont terminées et que vous avez entré les notes de test correspondantes, sélectionnez **Publier** pour commencer les processus de validation et de publication. Les phases et la séquence globale peuvent varier en fonction du type d’offre que vous publiez. Le tableau suivant présente un seul et même flux de publication. Chaque phase est expliquée plus en détail dans les sections suivantes.
 
@@ -128,7 +128,7 @@ Lors de l’étape de création de la préversion, nous créons une version de v
 
 ## <a name="cancel-publishing"></a>Annuler la publication
 
-Pour annuler une offre avec l’état **Publication en cours d’exécution**  :
+Pour annuler une offre avec l’état **Publication en cours d’exécution** :
 
 1. Sélectionnez le nom de l’offre pour ouvrir la page **Vue d’ensemble de l’offre**.
 1. Sélectionnez **Annuler la publication** à partir de l’angle supérieur droit de la page.
@@ -137,7 +137,7 @@ Pour annuler une offre avec l’état **Publication en cours d’exécution**  
 Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le processus de publication.
 
 > [!NOTE]
-> Vous pouvez arrêter la publication d’une offre seulement si elle n’a pas encore atteint l’étape d’approbation de l’éditeur. Après avoir sélectionné **Mise en ligne** , vous n’avez plus la possibilité d’annuler la publication.
+> Vous pouvez arrêter la publication d’une offre seulement si elle n’a pas encore atteint l’étape d’approbation de l’éditeur. Après avoir sélectionné **Mise en ligne**, vous n’avez plus la possibilité d’annuler la publication.
 
 ## <a name="publisher-sign-off-phase"></a>Phase d’approbation de l’éditeur
 
@@ -152,11 +152,11 @@ La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** 
 > [!IMPORTANT]
 > Pour valider le processus d’achat et d’installation de bout en bout, achetez votre offre en version préliminaire. Informez tout d’abord Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour être sûr que nous ne vous imputions pas des frais.
 
-Dans la page **Vue d’ensemble de l’offre** , vous verrez des liens d’aperçu sous le bouton **Mise en ligne**. Il y aura un lien soit pour l’aperçu AppSource, soit pour l’aperçu de la Place de marché Azure, ou les deux, selon les options que vous avez choisies lors de la création de votre offre. Si vous avez choisi de vendre votre offre par le biais de Microsoft, quiconque a été ajouté au public de la préversion peut tester son acquisition et son déploiement pour vérifier qu’elle répond à vos exigences au cours de cette phase.
+Dans la page **Vue d’ensemble de l’offre**, vous verrez des liens d’aperçu sous le bouton **Mise en ligne**. Il y aura un lien soit pour l’aperçu AppSource, soit pour l’aperçu de la Place de marché Azure, ou les deux, selon les options que vous avez choisies lors de la création de votre offre. Si vous avez choisi de vendre votre offre par le biais de Microsoft, quiconque a été ajouté au public de la préversion peut tester son acquisition et son déploiement pour vérifier qu’elle répond à vos exigences au cours de cette phase.
 
 Une fois que vous avez approuvé votre préversion, sélectionnez **Mise en ligne** pour publier votre offre sur le marketplace commercial. 
 
-Si vous souhaitez apporter des modifications après avoir visualisé un aperçu de l’offre, vous pouvez modifier et soumettre à nouveau votre demande de publication. Si votre offre est déjà en ligne et accessible au public sur le marketplace, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous n’aurez pas sélectionné * *Mise en ligne*. Pour plus d’informations, consultez [Mettre à jour une offre existante dans le marketplace commercial](partner-center-portal/update-existing-offer.md).
+Si vous souhaitez apporter des modifications après avoir visualisé un aperçu de l’offre, vous pouvez modifier et soumettre à nouveau votre demande de publication. Si votre offre est déjà en ligne et accessible au public sur le marketplace, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous n’aurez pas sélectionné **Mise en ligne*. Pour plus d’informations, consultez [Mettre à jour une offre existante dans le marketplace commercial](partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Phase de publication
 
@@ -228,7 +228,7 @@ Il existe quatre filtres :
 * Date
 * Pages
 
-Lorsque vous choisissez le filtre **Pages** , vous pouvez sélectionner n’importe quelle page d’Espace partenaires applicable à votre type d’offre. Lorsqu’il est appliqué, le filtre **Pages** affiche tous les événements **Offre soumise à la préversion** avec les modifications apportées à la page que vous avez sélectionnée.
+Lorsque vous choisissez le filtre **Pages**, vous pouvez sélectionner n’importe quelle page d’Espace partenaires applicable à votre type d’offre. Lorsqu’il est appliqué, le filtre **Pages** affiche tous les événements **Offre soumise à la préversion** avec les modifications apportées à la page que vous avez sélectionnée.
 
 * Pour toutes les offres, la page **Configuration de l’offre** est incluse par défaut pour chaque événement d’envoi.
 * Pour les offres qui prennent en charge les plans, la page **Vue d’ensemble du plan** est incluse pour chaque événement d’envoi.

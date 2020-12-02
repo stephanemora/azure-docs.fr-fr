@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577904"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172837"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Authentification OAuth 2,0 avec Azure Active Directory
 
@@ -44,10 +44,9 @@ Pour les clients riches & les scénarios d’application moderne et l’accès �
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implémenter OAuth 2,0 avec Azure AD
 
-* [Intégration des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Intégration des applications dans Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protocoles OAuth 2,0 et OpenID Connect sur la plateforme Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protocoles OAuth 2,0 et OpenID Connect sur la plateforme Microsoft Identity](../develop/active-directory-v2-protocols.md) 
 
-* [Types d’applications et OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Types d’applications et OAuth2](../develop/v2-app-types.md) 
 
- 

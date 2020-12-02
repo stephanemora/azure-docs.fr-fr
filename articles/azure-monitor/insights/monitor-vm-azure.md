@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738099"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186896"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -64,7 +64,7 @@ Pour activer toutes les fonctionnalités d’Azure Monitor afin de superviser un
 Chacune de ces étapes de configuration est décrite dans les sections suivantes.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Activer Azure Monitor pour machines virtuelles
-[Azure Monitor pour machines virtuelles](vminsights-overview.md) est un [insight](insights-overview.md) dans Azure Monitor qui est le principal outil de supervision des machines virtuelles dans Azure Monitor. Il fournit la valeur ajoutée suivante par rapport aux fonctionnalités standard d’Azure Monitor.
+[Azure Monitor pour machines virtuelles](vminsights-overview.md) est un [insight](../monitor-reference.md) dans Azure Monitor qui est le principal outil de supervision des machines virtuelles dans Azure Monitor. Il fournit la valeur ajoutée suivante par rapport aux fonctionnalités standard d’Azure Monitor.
 
 - Intégration simplifiée de l’agent Log Analytics et de Dependency Agent pour pouvoir superviser le système d’exploitation invité et les charges de travail d’une machine virtuelle. 
 - Classeurs et graphiques de performances des tendances prédéfinis qui vous permettent d’analyser les principales métriques de performances du système d’exploitation invité de la machine virtuelle.
@@ -140,7 +140,7 @@ Une fois que vous avez configuré la collecte des données de supervision pour u
 | Paramètres de diagnostic | Active et configure l’[extension de diagnostic](../platform/diagnostics-extension-overview.md) pour la machine virtuelle actuelle. |
 | Recommandations d’Advisor | Recommandations d’[Azure Advisor](../../advisor/index.yml) pour la machine virtuelle actuelle. |
 | Journaux d’activité | Ouvre [Log Analytics](../log-query/log-analytics-overview.md) avec l’[étendue](../log-query/scope.md) définie sur la machine virtuelle actuelle. |
-| Moniteur de connexion | Ouvre le [moniteur de connexion Network Watcher](../../network-watcher/connection-monitor-preview.md) pour superviser les connexions entre la machine virtuelle actuelle et les autres machines virtuelles. |
+| Moniteur de connexion | Ouvre le [moniteur de connexion Network Watcher](../../network-watcher/connection-monitor-overview.md) pour superviser les connexions entre la machine virtuelle actuelle et les autres machines virtuelles. |
 
 
 ## <a name="analyzing-metric-data"></a>Analyse des données de métrique
@@ -242,4 +242,3 @@ Pour plus d’informations sur la connexion de votre groupe d’administration O
 
 * [Découvrez comment analyser des données dans des journaux Azure Monitor à l’aide de requêtes de journal.](../log-query/get-started-queries.md)
 * [Découvrez plus d’informations sur les alertes à l’aide des métriques et des journaux dans Azure Monitor.](../platform/alerts-overview.md)
-

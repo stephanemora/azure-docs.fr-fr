@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363655"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174898"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure AD utilise cette intégration pour activer les workflows suivants d’appl
 
 - **Approvisionnement des utilisateurs vers Active Directory :** approvisionnez les ensembles d’utilisateurs sélectionnés dans une application RH cloud dans un ou plusieurs domaines Active Directory (AD).
 - **Approvisionnement des utilisateurs du cloud uniquement vers Azure AD :** dans les scénarios où Active Directory n’est pas utilisé, approvisionnez les utilisateurs directement à partir de l’application RH du cloud vers Azure AD.
-- **Mise à jour de l’application RH cloud**  : mettez à jour les adresses e-mail et les attributs de nom d’utilisateur à partir d’Azure AD sur l’application RH cloud.
+- **Mise à jour de l’application RH cloud** : mettez à jour les adresses e-mail et les attributs de nom d’utilisateur à partir d’Azure AD sur l’application RH cloud.
 
 > [!NOTE]
 > Ce plan de déploiement vous indique comment déployer vos workflows d’application RH cloud à l’aide de l’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur la façon de déployer l’approvisionnement automatique d’utilisateurs vers des applications SaaS (Software-as-a-Service), consultez [Planifier un déploiement de l’approvisionnement automatique d’utilisateurs](./plan-auto-user-provisioning.md).
@@ -60,8 +60,8 @@ L’approvisionnement des utilisateurs crée une base pour la gouvernance contin
 
 Cet article utilise les termes suivants :
 
-- **Système source**  : référentiel d’utilisateurs à partir duquel Azure AD approvisionne. C’est le cas, par exemple, d’une application RH cloud telle que Workday ou SuccessFactors.
-- **Système cible**  : référentiel d’utilisateurs vers lequel Azure AD approvisionne. Active Directory, Azure AD, Microsoft 365 ou d’autres applications SaaS en sont des exemples.
+- **Système source** : référentiel d’utilisateurs à partir duquel Azure AD approvisionne. C’est le cas, par exemple, d’une application RH cloud telle que Workday ou SuccessFactors.
+- **Système cible** : référentiel d’utilisateurs vers lequel Azure AD approvisionne. Active Directory, Azure AD, Microsoft 365 ou d’autres applications SaaS en sont des exemples.
 - **Processus entrants-changements de poste-sortants :** terme utilisé pour les nouvelles embauches, les transferts et les licenciements avec une application RH cloud comme système d’enregistrement. Le processus se termine lorsque le service approvisionne correctement les attributs nécessaires sur le système cible.
 
 ### <a name="key-benefits"></a>Principaux avantages
@@ -117,7 +117,7 @@ Les étapes de clé suivantes sont indiquées dans le diagramme :
 3. **Le service d’approvisionnement Azure AD** appelle l’agent d’approvisionnement Azure AD Connect avec une charge utile de demandes contenant des opérations de création, de mise à jour, d’activation et de désactivation de compte Active Directory.
 4. **L’agent d’approvisionnement Azure AD Connect** utilise un compte de service pour gérer des données de compte Active Directory.
 5. **Azure AD Connect** exécute la [synchronisation](../hybrid/how-to-connect-sync-whatis.md) différentielle pour extraire les mises à jour dans Active Directory.
-6. Les mises à jour d’ **Active Directory** sont synchronisées avec Azure AD.
+6. Les mises à jour d’**Active Directory** sont synchronisées avec Azure AD.
 7. **Le service d’approvisionnement Azure AD** met à jour l’attribut d’e-mail et le nom d’utilisateur à partir d’Azure AD vers le locataire de l’application RH cloud.
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
@@ -144,9 +144,9 @@ Exécutez la configuration initiale dans un [environnement pilote](../fundamenta
 
 Pour faciliter les workflows d’approvisionnement Azure AD entre l’application RH cloud et Active Directory, vous pouvez ajouter plusieurs applications du connecteur d’approvisionnement à partir de la galerie d’applications Azure AD :
 
-- **Approvisionnement d’utilisateurs de l’application RH cloud vers Active Directory**  : cette application du connecteur d’approvisionnement facilite l’approvisionnement des comptes d’utilisateur à partir de l’application RH cloud vers un domaine Active Directory unique. Si vous avez de plusieurs domaines, vous pouvez ajouter une instance de cette application à partir de la galerie d’applications Azure AD pour chaque domaine Active Directory vers lequel vous devez provisionner.
-- **Approvisionnement d’utilisateurs de l’application RH cloud vers Azure AD**  : Azure AD Connect est l’outil à utiliser pour synchroniser les utilisateurs Active Directory avec Azure AD, mais cette application du connecteur d’approvisionnement peut aussi faciliter l’approvisionnement d’utilisateurs cloud uniquement de l’application RH cloud vers un locataire Azure AD unique.
-- **Mise à jour de l’application RH Cloud**  : cette application du connecteur d’approvisionnement facilite la mise à jour des adresses e-mail de l’utilisateur d’Azure AD vers l’application RH cloud.
+- **Approvisionnement d’utilisateurs de l’application RH cloud vers Active Directory** : cette application du connecteur d’approvisionnement facilite l’approvisionnement des comptes d’utilisateur à partir de l’application RH cloud vers un domaine Active Directory unique. Si vous avez de plusieurs domaines, vous pouvez ajouter une instance de cette application à partir de la galerie d’applications Azure AD pour chaque domaine Active Directory vers lequel vous devez provisionner.
+- **Approvisionnement d’utilisateurs de l’application RH cloud vers Azure AD** : Azure AD Connect est l’outil à utiliser pour synchroniser les utilisateurs Active Directory avec Azure AD, mais cette application du connecteur d’approvisionnement peut aussi faciliter l’approvisionnement d’utilisateurs cloud uniquement de l’application RH cloud vers un locataire Azure AD unique.
+- **Mise à jour de l’application RH Cloud** : cette application du connecteur d’approvisionnement facilite la mise à jour des adresses e-mail de l’utilisateur d’Azure AD vers l’application RH cloud.
 
 Par exemple, l’image suivante répertorie les applications du connecteur Workday qui sont disponibles dans la galerie d’applications Azure AD.
 
@@ -301,9 +301,9 @@ La fonction [SelectUniqueValues](../app-provisioning/functions-for-customizing-a
 
 Il est souvent nécessaire de placer les comptes d’utilisateur Active Directory dans des conteneurs basés sur des unités commerciales, des emplacements et des services. Lorsque vous lancez un processus Changements de poste et que l’organisme de supervision change, vous devrez peut-être déplacer l’utilisateur d’une unité d’organisation vers une autre dans Active Directory.
 
-Utilisez la fonction [Switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) pour configurer la logique métier de l’attribution de l’unité d’organisation et la mapper à l’attribut Active Directory **parentDistinguishedName** .
+Utilisez la fonction [Switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) pour configurer la logique métier de l’attribution de l’unité d’organisation et la mapper à l’attribut Active Directory **parentDistinguishedName**.
 
-Par exemple, si vous souhaitez créer des utilisateurs dans l’unité d’organisation en fonction de l’attribut RH **Municipalité** , vous pouvez utiliser l’expression suivante :
+Par exemple, si vous souhaitez créer des utilisateurs dans l’unité d’organisation en fonction de l’attribut RH **Municipalité**, vous pouvez utiliser l’expression suivante :
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
@@ -366,9 +366,9 @@ L’implémentation de l’approvisionnement d’utilisateurs des RH dans le clo
 
 Choisissez l’application RH cloud qui correspond aux exigences de votre solution.
 
-**Workday**  : Pour importer des profils de travail depuis Workday dans Active Directory et Azure AD, consultez [Didacticiel : Configurer Workday pour l’attribution automatique d’utilisateurs](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail, le nom d’utilisateur et le numéro de téléphone dans Workday.
+**Workday** : Pour importer des profils de travail depuis Workday dans Active Directory et Azure AD, consultez [Didacticiel : Configurer Workday pour l’attribution automatique d’utilisateurs](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail, le nom d’utilisateur et le numéro de téléphone dans Workday.
 
-**SAP SuccessFactors**  : Pour importer des profils de Worker depuis SuccessFactors dans Active Directory et Azure AD, consultez [Didacticiel : Configurer SAP SuccessFactors pour l’approvisionnement automatique d’utilisateurs](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail et le nom d’utilisateur dans SuccessFactors.
+**SAP SuccessFactors** : Pour importer des profils de Worker depuis SuccessFactors dans Active Directory et Azure AD, consultez [Didacticiel : Configurer SAP SuccessFactors pour l’approvisionnement automatique d’utilisateurs](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail et le nom d’utilisateur dans SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Gérer votre configuration
 
@@ -404,9 +404,9 @@ Pour résoudre les problèmes susceptibles de survenir au cours de l’approvisi
 
 - [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](application-provisioning-config-problem.md)
 - [Synchroniser un attribut entre votre instance Active Directory local et Azure AD pour le provisionnement d’une application](user-provisioning-sync-attributes-for-mapping.md)
-- [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](./user-provisioning.md)
 - [Aucun utilisateur n’est attribué à une application de la galerie Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](../manage-apps/add-application-portal-assign-users.md)
 - [Configuration de l'observateur d'événements Windows pour résoudre les problèmes liés à l'agent](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configuration des journaux d’activité d’audit du portail Azure pour résoudre les problèmes de service](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Familiarisation avec les journaux d’activité pour les opérations de création de compte d’utilisateur AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

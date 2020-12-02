@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175166"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services
 
@@ -141,7 +141,7 @@ Pour activer les événements d’audit de sécurité Azure AD DS à l’aide d�
 Les espaces de travail log Analytics vous permettent d’afficher et d’analyser les événements d’audit de sécurité à l’aide d’Azure Monitor et du langage de requête Kusto. Ce langage de requête est conçu pour être utilisé en lecture seule, offrant des capacités d’analyse puissantes et une syntaxe facile à lire. Pour en savoir plus sur la prise en main des langages de requête Kusto, consultez les articles suivants :
 
 * [Documentation Azure Monitor](../azure-monitor/index.yml)
-* [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 * [Créer et partager des tableaux de bord de données Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

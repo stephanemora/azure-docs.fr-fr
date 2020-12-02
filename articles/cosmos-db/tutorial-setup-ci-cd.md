@@ -8,14 +8,14 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a5b8842718aa2d9f90ac06283abc5fe2fdd925cb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073891"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996999"
 ---
-# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
+# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer le pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB dans Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. L’émulateur vous permet de développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. 
@@ -45,7 +45,7 @@ Maintenant que l’extension est installée, connectez-vous à votre organisatio
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Créer un nouveau pipeline de build":::
 
-2. Sélectionnez la **source** , le **projet d’équipe** , le **référentiel** et la **branche par défaut des builds manuels et planifiés** souhaités. Après avoir choisi les options requises, sélectionnez **Continuer**.
+2. Sélectionnez la **source**, le **projet d’équipe**, le **référentiel** et la **branche par défaut des builds manuels et planifiés** souhaités. Après avoir choisi les options requises, sélectionnez **Continuer**.
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Sélectionner le projet d’équipe, le référentiel et la branche pour le pipeline de build":::
 
@@ -54,7 +54,7 @@ Maintenant que l’extension est installée, connectez-vous à votre organisatio
 > [!NOTE]
 > Le pool d’agents à sélectionner pour ce CI doit disposer de Docker pour Windows, sauf si l’installation est effectuée manuellement dans une tâche précédente dans le cadre de ce CI. Consultez l’article [Agents hébergés Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) pour une sélection de pools d’agents ; nous vous recommandons de commencer par `Hosted VS2017`.
 
-L’émulateur Azure Cosmos DB ne prend pas actuellement en charge le pool d’agents VS2019 hébergé. Toutefois, l’émulateur est déjà équipé de VS2019. Pour l’utiliser, démarrez l’émulateur avec les applets de commande PowerShell suivantes. Si vous rencontrez des problèmes lors de l’utilisation de VS2019, contactez l’équipe [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) pour obtenir de l’aide :
+L’émulateur Azure Cosmos DB ne prend actuellement pas en charge le pool d’agents VS2019 hébergé. Toutefois, l’émulateur est déjà équipé de VS2019. Pour l’utiliser, démarrez l’émulateur avec les applets de commande PowerShell suivantes. Si vous rencontrez des problèmes lors de l’utilisation de VS2019, contactez l’équipe [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) pour obtenir de l’aide :
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
@@ -65,7 +65,7 @@ Start-CosmosDbEmulator
 
 1. Avant d’ajouter une tâche au pipeline de build, vous devez ajouter un travail d’agent. Accédez à votre pipeline de build, sélectionnez **...** et choisissez **Ajouter un travail d’agent**.
 
-1. Sélectionnez ensuite le symbole **+** en regard de la tâche d’agent pour ajouter la tâche de génération d’émulateur. Dans la zone de recherche, tapez **cosmos** , puis sélectionnez **Azure Cosmos DB Emulator** (Émulateur Azure Cosmos DB) et ajoutez-le au travail d’agent. La tâche de génération démarre un conteneur avec une instance de l’émulateur Cosmos DB déjà en cours d’exécution sur ce dernier. La tâche de l’émulateur Azure Cosmos DB doit être placée avant toutes les autres tâches qui attendent que l’émulateur soit en cours d’exécution.
+1. Sélectionnez ensuite le symbole **+** en regard de la tâche d’agent pour ajouter la tâche de génération d’émulateur. Dans la zone de recherche, tapez **cosmos**, puis sélectionnez **Azure Cosmos DB Emulator** (Émulateur Azure Cosmos DB) et ajoutez-le au travail d’agent. La tâche de génération démarre un conteneur avec une instance de l’émulateur Cosmos DB déjà en cours d’exécution sur ce dernier. La tâche de l’émulateur Azure Cosmos DB doit être placée avant toutes les autres tâches qui attendent que l’émulateur soit en cours d’exécution.
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Ajouter la tâche de génération d’émulateur à une définition de build":::
 
@@ -158,7 +158,7 @@ namespace todo.Tests
 }
 ```
 
-Accédez aux options d’exécution dans la tâche de test Visual Studio. Dans l’option **Settings file** (Fichier de paramètres), spécifiez que les tests sont configurés à l’aide du fichier **.runsettings**. Dans l’option **Remplacer les paramètres de série de tests** , ajoutez `-endpoint $(CosmosDbEmulator.Endpoint)`. Cela configurera la tâche de test pour faire référence au point de terminaison de la tâche de génération d’émulateur, au lieu de celle définie dans le fichier **.runsettings**.  
+Accédez aux options d’exécution dans la tâche de test Visual Studio. Dans l’option **Settings file** (Fichier de paramètres), spécifiez que les tests sont configurés à l’aide du fichier **.runsettings**. Dans l’option **Remplacer les paramètres de série de tests**, ajoutez `-endpoint $(CosmosDbEmulator.Endpoint)`. Cela configurera la tâche de test pour faire référence au point de terminaison de la tâche de génération d’émulateur, au lieu de celle définie dans le fichier **.runsettings**.  
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Remplacer la variable de point de terminaison par le point de terminaison de la tâche de génération d’émulateur":::
 

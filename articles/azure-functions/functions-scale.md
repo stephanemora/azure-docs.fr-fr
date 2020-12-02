@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108454"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167792"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -97,7 +97,7 @@ Même lorsque le paramètre Always On est activé, le délai d’exécution des 
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Déterminer le plan d’hébergement d’une application existante
 
-Pour identifier le plan d’hébergement utilisé par votre application de fonction, consultez la section **Plan App Service** dans l’onglet **Vue d’ensemble** correspondant à l’application de fonction dans le [portail Azure](https://portal.azure.com). Pour afficher le niveau tarifaire, sélectionnez le nom **Plan App Service** , puis sélectionnez **Propriétés** dans le volet de gauche.
+Pour identifier le plan d’hébergement utilisé par votre application de fonction, consultez la section **Plan App Service** dans l’onglet **Vue d’ensemble** correspondant à l’application de fonction dans le [portail Azure](https://portal.azure.com). Pour afficher le niveau tarifaire, sélectionnez le nom **Plan App Service**, puis sélectionnez **Propriétés** dans le volet de gauche.
 
 ![Afficher le plan de mise à l’échelle dans le portail](./media/functions-scale/function-app-overview-portal.png)
 
@@ -144,7 +144,7 @@ L’unité d’échelle pour Azure Functions est la Function App. Quand les inst
 
 ### <a name="cold-start"></a>Démarrage à froid
 
-Une fois que votre application de fonction a été inactive pendant quelques minutes, la plateforme peut effectuer un scale-down à zéro du nombre d’instances sur lesquelles votre application s’exécute. La prochaine requête présente la latence supplémentaire de la mise à l’échelle de zéro à un. Cette latence est appelée _démarrage à froid_ . Le nombre de dépendances que votre application de fonction doit charger peut avoir un impact sur le temps de démarrage à froid. Le démarrage à froid est plus problématique pour les opérations synchrones, telles que les déclencheurs HTTP, qui doivent retourner une réponse. Si les démarrages à froid ont un impact sur vos fonctions, envisagez l’exécution dans un plan Premium ou dans un plan dédié avec activation de l’option Always-on.   
+Une fois que votre application de fonction a été inactive pendant quelques minutes, la plateforme peut effectuer un scale-down à zéro du nombre d’instances sur lesquelles votre application s’exécute. La prochaine requête présente la latence supplémentaire de la mise à l’échelle de zéro à un. Cette latence est appelée _démarrage à froid_. Le nombre de dépendances que votre application de fonction doit charger peut avoir un impact sur le temps de démarrage à froid. Le démarrage à froid est plus problématique pour les opérations synchrones, telles que les déclencheurs HTTP, qui doivent retourner une réponse. Si les démarrages à froid ont un impact sur vos fonctions, envisagez l’exécution dans un plan Premium ou dans un plan dédié avec activation de l’option Always-on.   
 
 ### <a name="understanding-scaling-behaviors"></a>Présentation des comportements de mise à l’échelle
 
@@ -153,7 +153,7 @@ La mise à l’échelle peut varier en fonction de certains facteurs et selon le
 * Une application de fonction peut faire l’objet d’un scale-out jusqu’à 200 instances au maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.  Vous pouvez [spécifier une valeur maximale inférieure](#limit-scale-out) pour limiter l’échelle en fonction des besoins.
 * Pour les déclencheurs HTTP, de nouvelles instances sont allouées, au plus, une fois par seconde.
 * Pour les déclencheurs non HTTP, de nouvelles instances sont allouées, au plus, une fois toutes les 30 secondes. La mise à l’échelle est plus rapide lors de l’exécution dans [plan Premium](#premium-plan).
-* Pour les déclencheurs Service Bus, utilisez des _Droits de gestion_ sur les ressources pour une mise à l’échelle d’une efficacité optimale. Avec des _Droits d’écoute_ , la mise à l’échelle n’est pas aussi précise parce que la longueur de la file d’attente ne peut pas être utilisée pour informer des décisions de mise à l’échelle. Pour en savoir plus sur la définition de droits dans les stratégies d’accès Service Bus, consultez [Stratégie d’autorisation d’accès partagé](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Pour les déclencheurs Service Bus, utilisez des _Droits de gestion_ sur les ressources pour une mise à l’échelle d’une efficacité optimale. Avec des _Droits d’écoute_, la mise à l’échelle n’est pas aussi précise parce que la longueur de la file d’attente ne peut pas être utilisée pour informer des décisions de mise à l’échelle. Pour en savoir plus sur la définition de droits dans les stratégies d’accès Service Bus, consultez [Stratégie d’autorisation d’accès partagé](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * Pour les déclencheurs Event Hub, consultez les [conseils de mise à l’échelle](functions-bindings-event-hubs-trigger.md#scaling) dans l’article de référence. 
 
 ### <a name="limit-scale-out"></a>Limiter le scale-out
@@ -175,7 +175,7 @@ Pour plus d’informations sur la mise à l’échelle en Python et Node.js, con
 La facturation des différents plans est décrite en détail dans la [page Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/). L’utilisation est agrégée au niveau de l’application de fonction et compte uniquement la durée d’exécution du code de fonction. Les unités de facturation sont les suivantes :
 
 * **Consommation des ressources en gigaoctet/seconde (Go/s)** . Calcul effectué d’après une combinaison de la taille de la mémoire et de la durée d’exécution pour toutes les fonctions d’une application de fonction. 
-* **Exécutions** . Comptées chaque fois qu’une fonction est exécutée en réponse à un déclencheur d’événements.
+* **Exécutions**. Comptées chaque fois qu’une fonction est exécutée en réponse à un déclencheur d’événements.
 
 Vous trouverez des requêtes et des informations utiles pour vous aider à comprendre votre facture de consommation [dans la FAQ sur la facturation](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
@@ -257,6 +257,6 @@ Le tableau de comparaison suivant présente tous les aspects importants pour aid
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Démarrage rapide : Créer un projet Azure Functions avec Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Démarrage rapide : Créer un projet Azure Functions avec Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Technologies de déploiement dans Azure Functions](functions-deployment-technologies.md) 
 + [Guide du développeur Azure Functions](functions-reference.md)

@@ -3,12 +3,12 @@ title: Alertes sur les métriques d'Azure Monitor pour conteneurs
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Azure Monitor pour les conteneurs en préversion publique.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927819"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186879"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertes métriques recommandées (préversion) d’Azure Monitor pour les conteneurs
 
@@ -29,11 +29,11 @@ Avant de commencer, vérifiez les éléments suivants :
     Pour vérifier que votre cluster exécute la version la plus récente de l’agent, vous pouvez :
 
     * Exécuter la commande : `kubectl describe <omsagent-pod-name> --namespace=kube-system`. Dans l’état renvoyé, notez la valeur sous **Image** pour omsagent, dans la section *Containers* de la sortie. 
-    * Sous l’onglet **Nœuds** , sélectionnez le nœud de cluster, puis, dans le volet **Propriétés** à droite, notez la valeur sous **Balise d’image de l’agent**.
+    * Sous l’onglet **Nœuds**, sélectionnez le nœud de cluster, puis, dans le volet **Propriétés** à droite, notez la valeur sous **Balise d’image de l’agent**.
 
     La valeur indiquée pour AKS doit être la version **ciprod05262020** ou une version ultérieure. La valeur indiquée pour le cluster Kubernetes avec Azure Arc doit être la version **ciprod09252020** ou une version ultérieure. Si votre cluster dispose d'une version antérieure, consultez [Comment mettre à niveau l'agent Azure Monitor pour conteneurs](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) afin de connaître les étapes à suivre pour obtenir la dernière version.
 
-    Pour plus d’informations sur la version de l’agent, consultez l’[historique de publication des mises en production de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Pour vérifier que les métriques sont collectées, vous pouvez utiliser Azure Monitor Metrics Explorer et vérifier qu’ **Insights** figure dans l’ **espace de noms métrique** . Si c’est le cas, vous pouvez commencer à configurer les alertes. Si vous ne voyez aucune métrique collectée, le principal du service de cluster ou MSI ne dispose pas des autorisations nécessaires. Pour vérifier que le SPN ou MSI est membre du rôle **Éditeur de métriques d’analyse** , suivez les étapes décrites dans la section [Effectuer une mise à niveau par cluster à l’aide d’Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) pour confirmer et définir l’attribution de rôle.
+    Pour plus d’informations sur la version de l’agent, consultez l’[historique de publication des mises en production de l’agent](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Pour vérifier que les métriques sont collectées, vous pouvez utiliser Azure Monitor Metrics Explorer et vérifier qu’**Insights** figure dans l’**espace de noms métrique** . Si c’est le cas, vous pouvez commencer à configurer les alertes. Si vous ne voyez aucune métrique collectée, le principal du service de cluster ou MSI ne dispose pas des autorisations nécessaires. Pour vérifier que le SPN ou MSI est membre du rôle **Éditeur de métriques d’analyse**, suivez les étapes décrites dans la section [Effectuer une mise à niveau par cluster à l’aide d’Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) pour confirmer et définir l’attribution de rôle.
 
 ## <a name="alert-rules-overview"></a>Vue d’ensemble des règles d’alerte
 
@@ -74,9 +74,9 @@ Les métriques suivantes basées sur les alertes présentent des caractéristiqu
 
 * La métrique *oomKilledContainerCount* n’est envoyée que s’il y a des conteneurs arrêtés OOM.
 
-* Les métriques *cpuExceededPercentage* , *memoryRssExceededPercentage* et *memoryWorkingSetExceededPercentage* sont envoyées lorsque les valeurs d’UC, de mémoire Rss et de plage de travail de mémoire dépassent le seuil configuré (le seuil par défaut est de 95 %). Ces seuils sont exclusifs du seuil de condition d’alerte spécifié pour la règle d’alerte correspondante. Cela signifie que, si vous souhaitez collecter ces métriques et les analyser à partir de [Metrics Explorer](../platform/metrics-getting-started.md), nous vous recommandons de configurer le seuil sur une valeur inférieure au seuil d’alerte. La configuration relative aux paramètres de collection pour les seuils d’utilisation des ressources de conteneur peut être remplacée dans le fichier ConfigMaps sous la section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. Pour plus d’informations sur la configuration de votre fichier de configuration ConfigMap, consultez la section [Configurer les métriques alertables ConfigMaps](#configure-alertable-metrics-in-configmaps).
+* Les métriques *cpuExceededPercentage*, *memoryRssExceededPercentage* et *memoryWorkingSetExceededPercentage* sont envoyées lorsque les valeurs d’UC, de mémoire Rss et de plage de travail de mémoire dépassent le seuil configuré (le seuil par défaut est de 95 %). Ces seuils sont exclusifs du seuil de condition d’alerte spécifié pour la règle d’alerte correspondante. Cela signifie que, si vous souhaitez collecter ces métriques et les analyser à partir de [Metrics Explorer](../platform/metrics-getting-started.md), nous vous recommandons de configurer le seuil sur une valeur inférieure au seuil d’alerte. La configuration relative aux paramètres de collection pour les seuils d’utilisation des ressources de conteneur peut être remplacée dans le fichier ConfigMaps sous la section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. Pour plus d’informations sur la configuration de votre fichier de configuration ConfigMap, consultez la section [Configurer les métriques alertables ConfigMaps](#configure-alertable-metrics-in-configmaps).
 
-* La métrique *pvUsageExceededPercentage* est envoyée lorsque le pourcentage d’utilisation du volume persistant dépasse le seuil configuré (le seuil par défaut est de 60 %). Ce seuil est exclusif du seuil de condition d’alerte spécifié pour la règle d’alerte correspondante. Cela signifie que, si vous souhaitez collecter ces métriques et les analyser à partir de [Metrics Explorer](../platform/metrics-getting-started.md), nous vous recommandons de configurer le seuil sur une valeur inférieure au seuil d’alerte. La configuration relative aux paramètres de collection pour les seuils d’utilisation du volume persistant peut être remplacée dans le fichier ConfigMap sous la section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. Pour plus d’informations sur la configuration de votre fichier de configuration ConfigMap, consultez la section [Configurer les métriques alertables ConfigMaps](#configure-alertable-metrics-in-configmaps). La collecte des métriques de volume persistant avec des revendications dans l’espace de noms *kube-system* est exclue par défaut. Pour activer la collecte dans cet espace de noms, utilisez la section `[metric_collection_settings.collect_kube_system_pv_metrics]` dans le fichier ConfigMap. Pour plus d’informations, consultez [Paramètres de collection de métriques](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings).
+* La métrique *pvUsageExceededPercentage* est envoyée lorsque le pourcentage d’utilisation du volume persistant dépasse le seuil configuré (le seuil par défaut est de 60 %). Ce seuil est exclusif du seuil de condition d’alerte spécifié pour la règle d’alerte correspondante. Cela signifie que, si vous souhaitez collecter ces métriques et les analyser à partir de [Metrics Explorer](../platform/metrics-getting-started.md), nous vous recommandons de configurer le seuil sur une valeur inférieure au seuil d’alerte. La configuration relative aux paramètres de collection pour les seuils d’utilisation du volume persistant peut être remplacée dans le fichier ConfigMap sous la section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. Pour plus d’informations sur la configuration de votre fichier de configuration ConfigMap, consultez la section [Configurer les métriques alertables ConfigMaps](#configure-alertable-metrics-in-configmaps). La collecte des métriques de volume persistant avec des revendications dans l’espace de noms *kube-system* est exclue par défaut. Pour activer la collecte dans cet espace de noms, utilisez la section `[metric_collection_settings.collect_kube_system_pv_metrics]` dans le fichier ConfigMap. Pour plus d’informations, consultez [Paramètres de collection de métriques](./container-insights-agent-config.md#metric-collection-settings).
 
 ## <a name="metrics-collected"></a>Métriques collectées
 
@@ -118,7 +118,7 @@ Cette section décrit l’activation de l’alerte métrique d’Azure Monitor p
 
     ![Option Alertes recommandées dans Azure Monitor pour les conteneurs](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. Le volet de propriétés **Alertes recommandées** s’affiche automatiquement sur le côté droit de la page. Par défaut, toutes les règles d’alerte dans la liste sont désactivées. Après que vous avez sélectionné **Activer** , la règle d’alerte est créée et son nom mis à jour pour inclure un lien vers la ressource d’alerte.
+4. Le volet de propriétés **Alertes recommandées** s’affiche automatiquement sur le côté droit de la page. Par défaut, toutes les règles d’alerte dans la liste sont désactivées. Après que vous avez sélectionné **Activer**, la règle d’alerte est créée et son nom mis à jour pour inclure un lien vers la ressource d’alerte.
 
     ![Volet de propriétés Alertes recommandées](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -126,7 +126,7 @@ Cette section décrit l’activation de l’alerte métrique d’Azure Monitor p
 
     ![Activer une règle d’alerte](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Les règles d’alertes ne sont pas associées à un [groupe d’actions](../platform/action-groups.md) pour notifier aux utilisateurs qu’une alerte a été déclenchée. Sélectionnez **No action group assigned** (aucun groupe d’actions affecté), puis, dans la page **Groupes d’actions** , spécifiez un groupe d’actions existant, ou créez un groupe en sélectionnant **Ajouter** ou **Créer**.
+5. Les règles d’alertes ne sont pas associées à un [groupe d’actions](../platform/action-groups.md) pour notifier aux utilisateurs qu’une alerte a été déclenchée. Sélectionnez **No action group assigned** (aucun groupe d’actions affecté), puis, dans la page **Groupes d’actions**, spécifiez un groupe d’actions existant, ou créez un groupe en sélectionnant **Ajouter** ou **Créer**.
 
     ![Sélectionner un groupe d’actions](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -146,19 +146,19 @@ Les étapes de base sont les suivantes :
 
 1. Téléchargez et enregistrez dans un dossier local le modèle Azure Resource Manager et un fichier de paramétrage pour créer la règle d’alerte en utilisant les commandes suivantes :
 
-2. Pour déployer un modèle personnalisé via le portail, sélectionnez **Créer une ressource** , dans le [portail Azure](https://portal.azure.com).
+2. Pour déployer un modèle personnalisé via le portail, sélectionnez **Créer une ressource**, dans le [portail Azure](https://portal.azure.com).
 
-3. Recherchez **modèle** , puis sélectionnez **Déploiement de modèle**.
+3. Recherchez **modèle**, puis sélectionnez **Déploiement de modèle**.
 
 4. Sélectionnez **Create** (Créer).
 
 5. Vous voyez plusieurs options pour créer un modèle, sélectionnez **Créer votre propre modèle dans l’éditeur**.
 
-6. Sur la page **Modifier le modèle** , sélectionnez **Charger le fichier** , puis sélectionnez le fichier de modèle.
+6. Sur la page **Modifier le modèle**, sélectionnez **Charger le fichier**, puis sélectionnez le fichier de modèle.
 
-7. Sur la page **Modifier le modèle** , sélectionnez **Enregistrer**.
+7. Sur la page **Modifier le modèle**, sélectionnez **Enregistrer**.
 
-8. Sur la page **Déploiement personnalisé** , spécifiez ce qui suit, puis, lorsque vous avez terminé, sélectionnez **Achat** pour déployer le modèle et créer la règle d’alerte.
+8. Sur la page **Déploiement personnalisé**, spécifiez ce qui suit, puis, lorsque vous avez terminé, sélectionnez **Achat** pour déployer le modèle et créer la règle d’alerte.
 
     * Resource group
     * Emplacement
@@ -202,12 +202,12 @@ Vous pouvez afficher et gérer les règles d’alerte d’Azure Monitor pour les
 
 1. Dans la barre de commandes, sélectionnez **Alertes recommandées**.
 
-2. Pour modifier le seuil, dans le volet **Alertes recommandées** , sélectionnez l’alerte activée. Dans **Modifier la règle** , cliquez sur le **Critère d’alerte** que vous souhaitez modifier.
+2. Pour modifier le seuil, dans le volet **Alertes recommandées**, sélectionnez l’alerte activée. Dans **Modifier la règle**, cliquez sur le **Critère d’alerte** que vous souhaitez modifier.
 
     * Pour modifier le seuil de la règle d’alerte, sélectionnez la **Condition**.
     * Pour spécifier un groupe d’actions ou en créer un, sélectionnez **Ajouter** ou **Créer** sous **Groupe d’actions**.
 
-Pour afficher les alertes créées pour les règles activées, dans le volet **Alertes recommandées** , sélectionnez **Afficher dans les alertes**. Vous êtes redirigé vers le menu d’alerte pour le cluster AKS, où vous pouvez voir toutes les alertes actuellement créées pour votre cluster.
+Pour afficher les alertes créées pour les règles activées, dans le volet **Alertes recommandées**, sélectionnez **Afficher dans les alertes**. Vous êtes redirigé vers le menu d’alerte pour le cluster AKS, où vous pouvez voir toutes les alertes actuellement créées pour votre cluster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurer des métriques alertables dans ConfigMaps
 

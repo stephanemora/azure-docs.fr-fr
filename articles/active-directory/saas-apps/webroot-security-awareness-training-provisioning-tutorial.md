@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: feb661a5f0a22350d9660669c18209e7b1fd878d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358522"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181334"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutoriel : Configurer Webroot Security Awareness Training pour le provisionnement automatique d’utilisateurs
 
@@ -39,7 +39,7 @@ Ce tutoriel décrit les étapes que vous devez effectuer dans Webroot Security A
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
 * Une console de fournisseur de services managés avec Webroot Security Awareness Training activé pour au moins l’un de vos sites.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -55,7 +55,7 @@ Pour connecter votre site à Azure AD, vous devez obtenir un **jeton secret**  p
 
 1. Connectez-vous à votre [console de gestion Webroot](https://identity.webrootanywhere.com/v1/Account/login#tab_customers).
 
-2. Dans l’onglet **Sites** , cliquez sur l’icône d’engrenage correspondant au site auquel vous souhaitez vous connecter avec Azure AD dans la colonne Security Awareness Training.
+2. Dans l’onglet **Sites**, cliquez sur l’icône d’engrenage correspondant au site auquel vous souhaitez vous connecter avec Azure AD dans la colonne Security Awareness Training.
 
     ![Icône d’engrenage](./media/webroot-security-awareness-training-provisioning-tutorial/gear-icon.png)
 
@@ -88,7 +88,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-webroot-security-awareness-training-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Webroot Security Awareness Training dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://awarenessapi.webrootanywhere.com/api/v2/scim` dans **URL de locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Webroot Security Awareness Training. Si la connexion échoue, vérifiez que votre compte Webroot Security Awareness Training dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://awarenessapi.webrootanywhere.com/api/v2/scim` dans **URL de locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Webroot Security Awareness Training. Si la connexion échoue, vérifiez que votre compte Webroot Security Awareness Training dispose d’autorisations d’administrateur et réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
+8. Dans la section **Mappages**, sélectionnez **Attribuer les utilisateurs Azure Active Directory**.
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les comptes d’utilisateur dans Webroot Security Awareness Training pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API Webroot Security Awareness Training prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les comptes d’utilisateur dans Webroot Security Awareness Training pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API Webroot Security Awareness Training prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|Pris en charge pour le filtrage|
    |---|---|---|
@@ -125,9 +125,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.familyName|String|
    |emails[type eq "work"].value|String|
 
-10. Dans la section **Mappages** , sélectionnez **Attribuer les groupes Azure Active Directory**.
+10. Dans la section **Mappages**, sélectionnez **Attribuer les groupes Azure Active Directory**.
 
-11. Dans la section **Mappages d’attributs** , passez en revue les attributs de groupe qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les groupes dans Webroot Security Awareness Training pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages d’attributs**, passez en revue les attributs de groupe qui sont synchronisés à partir d’Azure AD vers Webroot Security Awareness Training. Les attributs sélectionnés comme propriétés de **Correspondance** servent à faire correspondre les groupes dans Webroot Security Awareness Training pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|Pris en charge pour le filtrage|
       |---|---|---|

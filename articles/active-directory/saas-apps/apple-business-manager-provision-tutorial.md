@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: f7fd2337fe496e75ced78215d14d530a853096fd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4f24c9beffcd67fb84940c2e159da615496d9aa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359280"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180368"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Tutoriel : Configurer Apple Business Manager pour le provisionnement automatique d’utilisateurs
 
@@ -39,7 +39,7 @@ Ce tutoriel décrit les étapes à suivre dans Apple Business Manager et Azure A
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
 * Un compte Apple Business Manager avec le rôle Administrator ou People Manager
 
 > [!NOTE]
@@ -76,7 +76,7 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-apple-business-manager"></a>Étape 5. Configurer le provisionnement automatique d’utilisateurs dans Apple Business Manager
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -92,22 +92,22 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
     ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs d’ **URL de base SCIM 2.0 et de jeton d’accès** récupérées à partir d’Apple Business Manager respectivement dans **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Apple Business Manager. Si la connexion échoue, vérifiez que votre compte Apple Business Manager dispose des autorisations d’administrateur, puis réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’**URL de base SCIM 2.0 et de jeton d’accès** récupérées à partir d’Apple Business Manager respectivement dans **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Apple Business Manager. Si la connexion échoue, vérifiez que votre compte Apple Business Manager dispose des autorisations d’administrateur, puis réessayez.
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
 > [!NOTE]
 >Si la connexion réussit, Apple Business Manager indique que la connexion SCIM est active. Ce processus peut prendre jusqu’à 60 secondes pour qu’Apple Business Manager reflète l’état de la connexion la plus récente.
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Apple Business Manager**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Apple Business Manager**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Apple Business Manager. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Apple Business Manager dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Apple Business Manager. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour la mise en correspondance des comptes d’utilisateur dans Apple Business Manager dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|

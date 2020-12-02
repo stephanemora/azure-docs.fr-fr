@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86112110"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302932"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -65,7 +65,7 @@ Pour configurer Azure Monitor de façon à importer des groupes de sécurité Ac
 
 ![Groupes d’ordinateurs d’Active Directory](media/computer-groups/configure-activedirectory.png)
 
-Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
+Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup** avec ces informations.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
 Si Azure Monitor est configuré de façon à importer les appartenances de groupe WSUS, il analyse l’appartenance de groupe de ciblage de tous les ordinateurs avec l’agent Log Analytics.  Si vous utilisez un ciblage côté client, l’appartenance de groupe de tous les ordinateurs connectés à Azure Monitor et faisant partie d’un groupe de ciblage WSUS est importée dans Azure Monitor. Si vous utilisez un ciblage côté serveur, l’agent Log Analytics doit être installé sur le serveur WSUS pour que les informations d’appartenance de groupe soient importées dans Azure Monitor.  Cet appartenance est mise à jour toutes les 4 heures. 
@@ -74,7 +74,7 @@ Pour configurer Azure Monitor de façon à importer des groupes WSUS, accédez �
 
 ![Groupes d’ordinateurs à partir de WSUS](media/computer-groups/configure-wsus.png)
 
-Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
+Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup** avec ces informations.
 
 ### <a name="configuration-manager"></a>Gestionnaire de configuration
 Si Azure Monitor est configuré de façon à importer les adhésions aux regroupements Configuration Manager, il crée un groupe d’ordinateurs pour chaque regroupement.  Les informations d’appartenance au regroupement sont récupérées toutes les 3 heures pour tenir les groupes d’ordinateurs à jour. 
@@ -83,7 +83,7 @@ Pour pouvoir importer des regroupements Configuration Manager, vous devez [conne
 
 ![Groupes d’ordinateurs à partir de SCCM](media/computer-groups/configure-sccm.png)
 
-Une fois les regroupements importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
+Une fois les regroupements importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup** avec ces informations.
 
 ## <a name="managing-computer-groups"></a>Gestion de groupes d’ordinateurs
 Pour afficher les groupes d’ordinateurs créés à partir d’une requête de journal d’activité ou de l’API Recherche dans les journaux, accédez à **Paramètres avancés** dans votre espace de travail Log Analytics sur le Portail Azure.  Sélectionnez **Groupes d’ordinateurs**, puis **Groupes enregistrés**.  
@@ -97,13 +97,13 @@ Cliquez sur le signe **x** dans la colonne **Supprimer** pour supprimer le group
 Pour utiliser un groupe d’ordinateurs créé à partir d’une requête de journal, traitez son alias comme une fonction, en général avec la syntaxe suivante :
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 Par exemple, vous pouvez utiliser les éléments suivants pour retourner les enregistrements UpdateSummary pour les ordinateurs contenus dans un groupe d’ordinateurs appelé mycomputergroup.
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 Les groupes d’ordinateurs importés et leurs ordinateurs inclus sont stockés dans la table **ComputerGroup**.  Par exemple, la requête suivante retourne une liste d’ordinateurs du groupe d’ordinateurs du domaine d’Active Directory. 

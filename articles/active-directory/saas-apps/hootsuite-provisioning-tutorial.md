@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 011071c9aa1722b8f1cf81ec8d9ef88e8d91ea03
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359049"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177070"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutoriel : Configurer Hootsuite pour le provisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ Ce tutoriel décrit les étapes à effectuer dans Hootsuite et Azure Active Dire
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
 * Un compte d’utilisateur avec [HootSuite](http://www.hootsuite.com/) qui dispose d’autorisations de **Gestion de membre** dans l’organisation.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -66,7 +66,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-hootsuite-in-azure-ad"></a>Afin de configurer le provisionnement automatique d’utilisateurs pour Hootsuite dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](./media/hootsuite-provisioning-tutorial/enterprise-applications.png)
 
@@ -86,19 +86,19 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez `https://platform.hootsuite.com/scim/v2` dans URL de locataire. Entrez la valeur du jeton secret de longue durée qui a été récupérée précédemment à l’ **étape 2**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Hootsuite. Si la connexion échoue, vérifiez que votre compte Hootsuite dispose des autorisations d’administration et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez `https://platform.hootsuite.com/scim/v2` dans URL de locataire. Entrez la valeur du jeton secret de longue durée qui a été récupérée précédemment à l’**étape 2**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Hootsuite. Si la connexion échoue, vérifiez que votre compte Hootsuite dispose des autorisations d’administration et réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
+8. Dans la section **Mappages**, sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs d’utilisateurs qui sont synchronisés à partir d’Azure AD dans Hootsuite. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Hootsuite pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Hootsuite prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateurs qui sont synchronisés à partir d’Azure AD dans Hootsuite. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Hootsuite pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Hootsuite prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -111,9 +111,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |name.givenName|String|
    |name.familyName|String|
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory**.
 
-11. Dans la section **Mappage des attributs** , vérifiez les attributs de groupes qui sont synchronisés d’Azure AD vers HootSuite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans HootSuite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappage des attributs**, vérifiez les attributs de groupes qui sont synchronisés d’Azure AD vers HootSuite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans HootSuite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
       |Attribut|Type|
       |---|---|
@@ -121,7 +121,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
       |externalId|String|
       |membres|Informations de référence|
 
-12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Pour activer le service de provisionnement Azure AD pour Hootsuite, définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
 

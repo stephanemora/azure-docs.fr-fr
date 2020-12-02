@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309841"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302776"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importer vos données d’entraînement dans Azure Machine Learning Studio (classique) à partir de différentes sources de données
 
@@ -23,8 +23,8 @@ ms.locfileid: "93309841"
 
 Pour utiliser vos propres données dans Machine Learning Studio (classique) afin de développer et de tester une solution d’analyse prédictive, vous pouvez utiliser les données des ressources suivantes : 
 
-* **Fichier local**  : chargez à l’avance les données locales à partir de votre disque dur pour créer un module de jeu de données dans votre espace de travail
-* **Sources de données en ligne**  : utilisez le module [Importer les données][import-data] pour accéder aux données à partir d’une des nombreuses sources en ligne pendant que votre expérience s’exécute
+* **Fichier local** : chargez à l’avance les données locales à partir de votre disque dur pour créer un module de jeu de données dans votre espace de travail
+* **Sources de données en ligne** : utilisez le module [Importer les données][import-data] pour accéder aux données à partir d’une des nombreuses sources en ligne pendant que votre expérience s’exécute
 * **Expérience Machine Learning Studio (classique)**  : utiliser les données qui ont été enregistrées en tant que jeu de données dans Machine Learning Studio (classique)
 * [**Base de données SQL Server**](use-data-from-an-on-premises-sql-server.md) - Utiliser les données d’une base de données SQL Server sans avoir à copier les données manuellement
 
@@ -54,7 +54,7 @@ Vous pouvez importer un certain nombre de types de données dans votre expérien
 * Base de données SQL
 * Valeurs OData
 * Données SVMLight (.svmlight) (voir la [définition SVMLight](http://svmlight.joachims.org/) pour les informations relatives au format)
-* Données Attribute Relation File Format (ARFF) (.arff) (voir la [définition ARFF](https://weka.wikispaces.com/ARFF) pour les informations relatives au format)
+* Données Attribute Relation File Format (ARFF) (.arff) (voir la [définition ARFF](https://www.cs.waikato.ac.nz/ml/weka/arff.html) pour les informations relatives au format)
 * Fichier zip (.zip)
 * Fichier d’espace de travail ou d’objet R (.RData)
 
@@ -73,12 +73,12 @@ Les types de données reconnus par Studio (classique) sont les suivants :
 * DateTime
 * TimeSpan
 
-Studio utilise un type de données interne appelé * **table de données** _ pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
+Studio utilise un type de données interne appelé ***table de données** _ pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
 
 Tout module qui accepte des formats autres que la table de données convertit silencieusement les données en table de données avant de les passer au module suivant.
 
 Au besoin, vous pouvez convertir à nouveau le format de table de données au format CSV, TSV, ARFF ou SVMLight à l’aide d’autres modules de conversion.
-Recherchez dans la section _ *Conversion des formats de données* * de la palette des modules ceux qui exécutent ces fonctions.
+Recherchez dans la section _ *Conversion des formats de données** de la palette des modules ceux qui exécutent ces fonctions.
 
 ## <a name="data-capacities"></a>Capacités des données
 
@@ -150,7 +150,7 @@ Les sources de données en ligne prises en charge sont détaillées dans le tabl
 > Actuellement, les modules [Importer les données][import-data] et [Exporter les données][export-data] peuvent lire et écrire des données uniquement à partir d’un stockage Azure créé à l’aide du modèle de déploiement classique. En d’autres termes, le nouveau type de compte de stockage d’objets blob Azure qui offre un niveau d’accès au stockage chaud ou un niveau d’accès au stockage froid n’est pas encore pris en charge.
 >
 > En règle générale, les comptes de stockage Azure que vous avez peut-être créés avant que cette option de service ne soit disponible ne devraient pas être affectés.
-> Si vous avez besoin de créer un nouveau compte, sélectionnez **Classique** comme modèle de déploiement, ou utilisez Resource Manager et, comme **Type de compte** , sélectionnez **Usage général** plutôt que **Stockage Blob**.
+> Si vous avez besoin de créer un nouveau compte, sélectionnez **Classique** comme modèle de déploiement, ou utilisez Resource Manager et, comme **Type de compte**, sélectionnez **Usage général** plutôt que **Stockage Blob**.
 >
 > Pour plus d’informations, consultez [Stockage Blob Azure : niveaux de stockage chauds et froids](../../storage/blobs/storage-blob-storage-tiers.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dbaea9d4aaea982165c96af00f75524b15fa3015
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355190"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178073"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutoriel : Configurer iProva pour l’approvisionnement automatique d’utilisateurs
 
@@ -39,7 +39,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans iPro
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
 * [Un locataire iProva](https://www.iProva.com/).
 * Un compte d’utilisateur dans iProva des autorisations d’administrateur.
 
@@ -58,7 +58,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
     ![iProva Ajouter SCIM](media/iprova-provisioning-tutorial/external.png)
 
-3. Pour ajouter un nouveau fournisseur, cliquez sur l’icône **Plus**. Dans la nouvelle boîte de dialogue **Ajouter un fournisseur** , indiquez un **titre**. Vous pouvez ajouter des **restrictions d’accès basé sur IP**. Cliquez sur le bouton **OK**.
+3. Pour ajouter un nouveau fournisseur, cliquez sur l’icône **Plus**. Dans la nouvelle boîte de dialogue **Ajouter un fournisseur**, indiquez un **titre**. Vous pouvez ajouter des **restrictions d’accès basé sur IP**. Cliquez sur le bouton **OK**.
 
     ![iProva – Ajouter un nouveau](media/iprova-provisioning-tutorial/add.png)
 
@@ -86,7 +86,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-iprova-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour iProva dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -102,17 +102,17 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs d’ **URL de base SCIM 2.0 et de Jeton permanent** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iProva. Si la connexion échoue, vérifiez que votre compte iProva dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton permanent** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iProva. Si la connexion échoue, vérifiez que votre compte iProva dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur iProva**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur iProva**.
 
 9. Passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et iProva dans la section **Mappage d’attributs**. Les attributs sélectionnés en tant que propriétés de **correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans iProva pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
@@ -148,7 +148,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
 
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory sur iProva**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory sur iProva**.
 
 11. Passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et iProva dans la section **Mappage d’attributs**. Les attributs sélectionnés comme propriétés de **correspondance** sont utilisés afin de faire correspondre les groupes dans iProva pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 

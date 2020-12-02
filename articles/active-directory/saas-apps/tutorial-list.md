@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 19889c05447db05cc20c8f46e97bd8d16ff43bdf
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f74cdb700013dc9b124c6a2df195456f08e4b60a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445657"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182136"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Didacticiels pour l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -25,7 +25,7 @@ Pour vous aider à intégrer vos applications cloud [SaaS (software as a service
 
 Pour obtenir la liste complète des applications SaaS qui ont été préalablement intégrées dans Azure AD, consultez la [Place de marché Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps).
 
-Utilisez le [portail Application Network](../azuread-dev/howto-app-gallery-listing.md) pour demander l’ajout d’une application [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) à la galerie en vue d’un approvisionnement automatiquement, ou l’ajout d’une application SAML/OIDC à la galerie pour l’authentification unique (SSO).
+Utilisez le [portail Application Network](../develop/v2-howto-app-gallery-listing.md) pour demander l’ajout d’une application [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) à la galerie en vue d’un approvisionnement automatiquement, ou l’ajout d’une application SAML/OIDC à la galerie pour l’authentification unique (SSO).
 
 ## <a name="quick-links"></a>Liens rapides
 

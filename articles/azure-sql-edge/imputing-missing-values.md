@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: eb1b3534481c55723bd5d13760259b18e0b5cce2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: c444732a497d595235ac337d7f5c71fb84f17cca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392042"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185587"
 ---
 # <a name="filling-time-gaps-and-imputing-missing-values"></a>Comblement des écarts temporels et imputation des valeurs manquantes 
 
@@ -71,7 +71,7 @@ From
 #SeriesGenerate a LEFT OUTER JOIN MachineTelemetry b 
     on a.dt = b.[timestamp]
 ```
-La requête ci-dessus retourne la sortie suivante, qui contient tous les horodatages d’ *une seconde* dans la plage spécifiée.
+La requête ci-dessus retourne la sortie suivante, qui contient tous les horodatages d’*une seconde* dans la plage spécifiée.
 
 Voici le jeu de résultats obtenu
 
@@ -181,7 +181,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-- [FIRST_VALUE (Transact-SQL)](/sql/t-sql/functions/first-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json)
-- [LAST_VALUE (Transact-SQL)](/sql/t-sql/functions/last-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json)
+- [FIRST_VALUE (Transact-SQL)](/sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)
+- [LAST_VALUE (Transact-SQL)](/sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)
 - [DATE_BUCKET (Transact-SQL)](date-bucket-tsql.md)
 - [Fonctions d'agrégation (Transact-SQL)](/sql/t-sql/functions/aggregate-functions-transact-sql)

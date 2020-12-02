@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577054"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168710"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Authentification LDAP avec Azure Active Directory
 
@@ -60,12 +60,11 @@ Il est nécessaire qu’une application ou un service utilise l’authentificati
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implémenter l’authentification LDAP avec Azure AD
 
-* [Créer et configurer une instance Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Créer et configurer une instance Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configuration de la mise en réseau virtuelle pour une instance Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configuration de la mise en réseau virtuelle pour une instance Azure AD DS](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configurer LDAP sécurisé pour un domaine géré Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configurer LDAP sécurisé pour un domaine géré Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Créer une approbation de forêt sortante vers un domaine local dans Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Créer une approbation de forêt sortante vers un domaine local dans Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

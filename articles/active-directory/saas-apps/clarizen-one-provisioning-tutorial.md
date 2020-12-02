@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358913"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179693"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutoriel : Configurer Clarizen One pour l’approvisionnement automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à suivre dans Clarizen One et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD attribue et désattribue automatiquement les utilisateurs et les groupes dans [Clarizen One](https://www.clarizen.com/) à l’aide du service de provisionnement Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service, et pour accéder aux questions fréquentes, consultez [Automatisation de l’attribution et de l’annulation d’attribution des utilisateurs pour les applications SaaS (Software as a Service) avec Azure AD](../manage-apps/user-provisioning.md).
+Ce tutoriel décrit les étapes à suivre dans Clarizen One et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD attribue et désattribue automatiquement les utilisateurs et les groupes dans [Clarizen One](https://www.clarizen.com/) à l’aide du service de provisionnement Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service, et pour accéder aux questions fréquentes, consultez [Automatisation de l’attribution et de l’annulation d’attribution des utilisateurs pour les applications SaaS (Software as a Service) avec Azure AD](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 
@@ -33,21 +33,21 @@ Ce tutoriel décrit les étapes à suivre dans Clarizen One et Azure Active Dire
 > * Supprimer des utilisateurs dans Clarizen One quand ils n’ont plus besoin d’accès.
 > * Maintenir les attributs utilisateur synchronisés entre Azure AD et Clarizen One.
 > * Provisionner des groupes et des appartenances aux groupes dans Clarizen One.
-> * L’[authentification unique (SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) auprès de Clarizen One recommandée.
+> * L’[authentification unique (SSO)](./clarizen-tutorial.md) auprès de Clarizen One recommandée.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Un compte d’utilisateur dans Azure AD disposant d’une [autorisation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) pour configurer le provisionnement. Par exemple : Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général.
+* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
+* Un compte d’utilisateur dans Azure AD disposant d’une [autorisation](../roles/permissions-reference.md) pour configurer le provisionnement. Par exemple : Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général.
 * Un compte d’utilisateur dans Clarizen One avec les [autorisations](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support) **Utilisateur d’intégration** et **Administrateur Lite**.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
 
-1. En savoir plus sur le [fonctionnement du service d’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Déterminez qui sera dans l’[étendue pour l’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Déterminez les données à [mapper entre Azure AD et Clarizen One ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
+1. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Déterminez les données à [mapper entre Azure AD et Clarizen One ](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Clarizen One pour prendre en charge l’approvisionnement avec Azure AD
 
@@ -61,14 +61,14 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Clarizen One à partir de la galerie d’applications Azure AD
 
-Ajoutez Clarizen One à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement sur Clarizen One. Si vous avez déjà configuré Clarizen One pour l’authentification unique (SSO), vous pouvez utiliser la même application. Quand vous effectuez un test initial de l’intégration, créez une application distincte. Pour en savoir plus sur la façon d’ajouter une application à partir de la galerie, consultez [Ajouter une application à votre locataire Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Ajoutez Clarizen One à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement sur Clarizen One. Si vous avez déjà configuré Clarizen One pour l’authentification unique (SSO), vous pouvez utiliser la même application. Quand vous effectuez un test initial de l’intégration, créez une application distincte. Pour en savoir plus sur la façon d’ajouter une application à partir de la galerie, consultez [Ajouter une application à votre locataire Azure AD](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement
 
-Avec le service de provisionnement Azure AD, vous pouvez définir l’étendue des utilisateurs qui seront attribués en fonction de l’affectation à l’application ou en fonction des attributs de l’utilisateur ou du groupe. Si vous choisissez de définir l’étendue des utilisateurs qui seront attribués à votre application en fonction de l’affectation, effectuez les étapes mentionnées dans [Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) afin d’affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue des utilisateurs qui seront attribués uniquement en fonction des attributs de l’utilisateur ou du groupe, utilisez un filtre d’étendue comme décrit dans [Provisionnement d’application basé sur des attributs avec des filtres d’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Avec le service de provisionnement Azure AD, vous pouvez définir l’étendue des utilisateurs qui seront attribués en fonction de l’affectation à l’application ou en fonction des attributs de l’utilisateur ou du groupe. Si vous choisissez de définir l’étendue des utilisateurs qui seront attribués à votre application en fonction de l’affectation, effectuez les étapes mentionnées dans [Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) afin d’affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue des utilisateurs qui seront attribués uniquement en fonction des attributs de l’utilisateur ou du groupe, utilisez un filtre d’étendue comme décrit dans [Provisionnement d’application basé sur des attributs avec des filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Quand vous affectez des utilisateurs et des groupes à Clarizen One, vous devez sélectionner un rôle autre que **Accès par défaut**. Les utilisateurs disposant du rôle d’accès par défaut sont exclus de l’attribution et sont marqués comme non autorisés dans les journaux de provisionnement. Si le seul rôle disponible sur l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste d’application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) pour ajouter plus de rôles.
-* Commencez progressivement. Effectuez un test avec un petit ensemble d’utilisateurs et de groupes avant de procéder à un déploiement général. Quand l’étendue de l’attribution est définie sur les utilisateurs et les groupes affectés, vous pouvez garder le contrôle en affectant un ou deux utilisateurs ou groupes à l’application. Quand l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur les attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Quand vous affectez des utilisateurs et des groupes à Clarizen One, vous devez sélectionner un rôle autre que **Accès par défaut**. Les utilisateurs disposant du rôle d’accès par défaut sont exclus de l’attribution et sont marqués comme non autorisés dans les journaux de provisionnement. Si le seul rôle disponible sur l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste d’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter plus de rôles.
+* Commencez progressivement. Effectuez un test avec un petit ensemble d’utilisateurs et de groupes avant de procéder à un déploiement général. Quand l’étendue de l’attribution est définie sur les utilisateurs et les groupes affectés, vous pouvez garder le contrôle en affectant un ou deux utilisateurs ou groupes à l’application. Quand l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur les attributs](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Étape 5. Configurer l’approvisionnement automatique d’utilisateurs sur Clarizen One
 
@@ -104,7 +104,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Clarizen One**.
 
-1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Clarizen One. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Clarizen One pour les opérations de mise à jour. Si vous changez l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vérifier que l’API Clarizen One prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Clarizen One. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Clarizen One pour les opérations de mise à jour. Si vous changez l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vérifier que l’API Clarizen One prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -158,7 +158,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
       |externalId|String|
       |membres|Informations de référence|
 
-1. Pour configurer des filtres d’étendue, consultez les instructions fournies dans le [tutoriel sur les filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Pour configurer des filtres d’étendue, consultez les instructions fournies dans le [tutoriel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Afin d’activer le service de provisionnement Azure AD pour Clarizen One, définissez le paramètre **État de provisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -178,9 +178,9 @@ Cette opération démarre le cycle de synchronisation initiale de tous les utili
 
 Après avoir configuré le provisionnement, utilisez les ressources suivantes pour superviser votre déploiement.
 
-1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou ceux pour laquelle la procédure a échoué.
-1. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état d’avancement du cycle d’approvisionnement et le moment où il se terminera.
-1. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, consultez [Provisionnement d’application en état de quarantaine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou ceux pour laquelle la procédure a échoué.
+1. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état d’avancement du cycle d’approvisionnement et le moment où il se terminera.
+1. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, consultez [Provisionnement d’application en état de quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 
@@ -196,9 +196,9 @@ Quand vous attribuez un utilisateur à l’application de galerie Clarizen One,
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)

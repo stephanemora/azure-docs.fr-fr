@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743318"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301988"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -567,7 +567,7 @@ Ajoutez vos propres variables d’environnement à une application de fonction, 
 
 ### <a name="in-local-development-environment"></a>Dans un environnement de développement local
 
-Dans le cas d’une exécution locale, votre projet Functions comprend un [fichier `local.settings.json`](/functions-run-local.md?tabs=node#local-settings-file), où vous stockez vos variables d’environnement dans l’objet `Values`. 
+Dans le cas d’une exécution locale, votre projet Functions comprend un [fichier `local.settings.json`](/azure/azure-functions/functions-run-local), où vous stockez vos variables d’environnement dans l’objet `Values`. 
 
 ```json
 {

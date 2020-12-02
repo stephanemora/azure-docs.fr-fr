@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 507ef55a6fa3976475dbf08f88ee36cd1977464d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4436385b07dd4f1da81f17eb19b38e922e21a1ef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421020"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180419"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Créer et attribuer un rôle personnalisé dans Azure Active Directory
 
@@ -35,17 +35,17 @@ Vous pouvez créer des rôles personnalisés sous l’onglet [Rôles et administ
 
    ![Créer ou modifier des rôles à partir de la page Rôles et administrateurs](./media/custom-create/new-custom-role.png)
 
-1. Dans l'onglet **Notions de base** , indiquez un nom et une description pour le rôle, puis cliquez sur **Suivant**.
+1. Dans l'onglet **Notions de base**, indiquez un nom et une description pour le rôle, puis cliquez sur **Suivant**.
 
    ![fournir un nom et une description pour un rôle personnalisé sous l’onglet Notions de base](./media/custom-create/basics-tab.png)
 
-1. Sous l'onglet **Permissions** , sélectionnez les permissions nécessaires pour gérer les propriétés de base et les propriétés des informations d’identification des inscriptions d’applications. Pour obtenir une description détaillée de chaque permission, consultez [Sous-types et permissions d'inscription de l’application dans Azure Active Directory](custom-available-permissions.md).
+1. Sous l'onglet **Permissions**, sélectionnez les permissions nécessaires pour gérer les propriétés de base et les propriétés des informations d’identification des inscriptions d’applications. Pour obtenir une description détaillée de chaque permission, consultez [Sous-types et permissions d'inscription de l’application dans Azure Active Directory](custom-available-permissions.md).
    1. Tout d’abord, entrez « informations d’identification » dans la barre de recherche et sélectionnez la permission `microsoft.directory/applications/credentials/update`.
 
       ![Sélectionnez les permissions pour un rôle personnalisé sous l’onglet Permissions.](./media/custom-create/permissions-tab.png)
 
    1. Ensuite, entrez « notions de base » dans la barre de recherche, sélectionnez la permission `microsoft.directory/applications/basic/update`, puis cliquez sur **Suivant**.
-1. Sur l’onglet **Vérifier + Créer** , vérifiez les permissions, puis sélectionnez **Créer**.
+1. Sur l’onglet **Vérifier + Créer**, vérifiez les permissions, puis sélectionnez **Créer**.
 
 Votre rôle personnalisé s’affiche dans la liste des rôles disponibles à affecter.
 
@@ -183,4 +183,4 @@ Tout comme les rôles intégrés, les rôles personnalisés sont attribués par 
 
 - N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Pour plus d’informations sur les rôles et l’attribution de rôle d’administrateur, consultez [Attribuer des rôles d’administrateur](permissions-reference.md).
-- Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](/azure/active-directory/fundamentals/users-default-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).

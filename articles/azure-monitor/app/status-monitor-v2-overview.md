@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318944"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186216"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Déployer Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -67,7 +67,7 @@ Chacune de ces options est décrite dans les [instructions détaillées](status-
   - Le cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) peut être utilisé pour vérifier que l’activation a réussi.
   - Nous vous recommandons d’utiliser les [métriques en temps réel](./live-stream.md) pour déterminer rapidement si votre application envoie les données de télémétrie.
 
-  - Vous pouvez également utiliser [Log Analytics](../log-query/get-started-portal.md) pour répertorier tous les rôles de cloud qui envoient des données de télémétrie :
+  - Vous pouvez également utiliser [Log Analytics](../log-query/log-analytics-tutorial.md) pour répertorier tous les rôles de cloud qui envoient des données de télémétrie :
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Ajoutez des données de télémétrie :
 * [Créez des tests web](monitor-web-app-availability.md) pour vous assurer que votre site reste actif.
 * [Ajoutez la télémétrie de client web](./javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
 * [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](./asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
-

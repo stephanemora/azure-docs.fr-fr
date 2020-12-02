@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963825"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303783"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -49,6 +49,8 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série NCv3](ncv3-series.md)
 * [Série ND](nd-series.md)
 * [Série NVv3](nvv3-series.md)
+* [Série NVv4](nvv4-series.md)
+* [NCasT4_v3-series](nct4-v3-series.md)
 
 <sup>1</sup> La série MV2 ne prend pas en charge les images de machine virtuelle de 1re génération et ne prend en charge qu’un sous-ensemble d’images de 2e génération. Pour plus d’informations, consultez la [documentation de la série MV2](mv2-series.md).
 

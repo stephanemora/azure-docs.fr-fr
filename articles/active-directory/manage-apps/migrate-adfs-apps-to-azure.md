@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658823"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180657"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -320,7 +320,7 @@ Le sélecteur Utilisateurs/groupes est une règle qui vous permet d’appliquer 
 
 Spécifiez les règles d’authentification multifacteur pour un utilisateur ou un groupe dans Azure AD :
 
-1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Sélectionnez **Affectations**. Ajoutez le ou les utilisateurs ou groupes pour lesquels vous souhaitez appliquer l’authentification multifacteur.
 
@@ -333,7 +333,7 @@ Spécifiez les règles d’authentification multifacteur pour un utilisateur ou 
 
 Spécifiez les règles d’authentification multifacteur pour les appareils non inscrits dans Azure AD :
 
-1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Définissez les **Affectations** sur **Tous les utilisateurs**.
 
@@ -348,7 +348,7 @@ Lorsque vous définissez l’option Pour plusieurs contrôles sur Demander un de
 
 Spécifiez les règles d’authentification multifacteur en fonction de l’emplacement de l’utilisateur dans Azure AD :
 
-1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Créez une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Définissez les **Affectations** sur **Tous les utilisateurs**.
 
@@ -386,7 +386,7 @@ AD FS 2016 possède plusieurs stratégies de contrôle d’accès intégrées qu
 ![Contrôle d’accès intégré Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Pour implémenter des stratégies intégrées dans Azure AD, vous pouvez utiliser une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) et configurer les contrôles d’accès, ou vous pouvez utiliser le concepteur de stratégie personnalisée dans AD FS 2016 pour configurer des stratégies de contrôle d’accès. L’éditeur de règles comprend une liste exhaustive d’options d’autorisation et d’exclusion qui peuvent vous aider à effectuer tous types de permutations.
+Pour implémenter des stratégies intégrées dans Azure AD, vous pouvez utiliser une [nouvelle stratégie d’accès conditionnel](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) et configurer les contrôles d’accès, ou vous pouvez utiliser le concepteur de stratégie personnalisée dans AD FS 2016 pour configurer des stratégies de contrôle d’accès. L’éditeur de règles comprend une liste exhaustive d’options d’autorisation et d’exclusion qui peuvent vous aider à effectuer tous types de permutations.
 
 ![Stratégies de contrôle d’accès Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 
