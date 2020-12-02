@@ -3,20 +3,20 @@ title: Utiliser des modèles Resource Manager dans Data Factory
 description: Découvrez comment créer et utiliser des modèles Azure Resource Manager pour créer des entités Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4c840d50fb80a57e9c68645ade8baa22b455fa84
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631476"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495495"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]

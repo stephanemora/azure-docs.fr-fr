@@ -3,8 +3,8 @@ title: Appeler le programme MapReduce à partir d'Azure Data Factory
 description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636848"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495427"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -49,11 +49,11 @@ Consultez [Pig](data-factory-pig-activity.md) et [Hive](data-factory-hive-activi
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON pour l’activité MapReduce de HDInsight
 Dans la définition JSON de l’activité HDInsight : 
 
-1. Affectez au **type** de l’ **activité** la valeur **HDInsight** .
+1. Affectez au **type** de l’**activité** la valeur **HDInsight**.
 2. Spécifiez le nom de la classe pour la propriété **className** .
 3. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath** .
 4. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService** .   
-5. Spécifiez les arguments du programme MapReduce dans la section **arguments** . Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments comme indiqué dans l’exemple suivant (-s, --entrée, --sortie etc. sont des options immédiatement suivies par leurs valeurs).
+5. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments comme indiqué dans l’exemple suivant (-s, --entrée, --sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
     ```JSON   
     {
@@ -183,7 +183,7 @@ Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapRed
 
 | Propriété | Notes |
 |:--- |:--- |
-| type |Le type doit être défini sur **HDInsightMapReduce** . |
+| type |Le type doit être défini sur **HDInsightMapReduce**. |
 | ClassName |Le nom de la classe est : **wordcount** |
 | jarFilePath |Chemin d’accès au fichier jar contenant la classe. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. |
 | jarLinkedService |Service Azure Storage lié qui contient le fichier jar. Ce service lié fait référence au stockage associé au cluster HDInsight. |

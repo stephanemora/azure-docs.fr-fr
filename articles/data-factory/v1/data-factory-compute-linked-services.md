@@ -3,20 +3,20 @@ title: Environnements Compute pris en charge par Azure Data Factory version 1
 description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2250a2565aa4fbab32daed54830fb701a3a2a1ac
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9f970b66bd30ef2faf705d2fb41825bb81bbb8c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636185"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496090"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Environnements Compute pris en charge par Azure Data Factory version 1
 > [!NOTE]
@@ -58,7 +58,7 @@ Après le 31 juillet 2018 :
 ### <a name="recommended-actions"></a>Actions recommandées
 
 - Afin de vous assurer de pouvoir utiliser les tout derniers correctifs et composants de l’écosystème Hadoop, mettez à jour les propriétés [**osType** et **Version**](#azure-hdinsight-on-demand-linked-service) des définitions du service lié HDInsight à la demande d’Azure Data Factory version 1 vers de nouvelles versions de HDInsight basé sur Linux (HDInsight 3.6). 
-- Avant le 15 décembre 2017, testez les activités de diffusion en continu Hive, Pig, MapReduce et Hadoop de Data Factory version 1 faisant référence au service lié concerné. Vérifiez qu’elles sont compatibles avec les nouvelles valeurs **osType** et **Version** par défaut ( **Version=3.6** , **osType=Linux** ) ou avec la version HDInsight explicite et le type de système d’exploitation vers lequel vous mettez à niveau. 
+- Avant le 15 décembre 2017, testez les activités de diffusion en continu Hive, Pig, MapReduce et Hadoop de Data Factory version 1 faisant référence au service lié concerné. Vérifiez qu’elles sont compatibles avec les nouvelles valeurs **osType** et **Version** par défaut (**Version=3.6**, **osType=Linux**) ou avec la version HDInsight explicite et le type de système d’exploitation vers lequel vous mettez à niveau. 
   Pour plus d’informations sur la compatibilité, consultez [Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux](../../hdinsight/index.yml) et [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](../../hdinsight/hdinsight-component-versioning.md). 
 - Pour continuer à utiliser un service lié HDInsight à la demande d’Azure Data Factory version 1 afin de créer des clusters HDInsight basé sur Windows, définissez explicitement **osType** to **Windows** avant le 15 décembre 2017. Nous vous recommandons de procéder à la migration vers les clusters HDInsight basé sur Linux avant le 31 juillet 2018. 
 - Si vous utilisez un service lié HDInsight à la demande pour exécuter une activité personnalisée DotNet d’Azure Data Factory version 1, mettez à jour la définition JSON de l’activité personnalisée DotNet pour utiliser plutôt un service lié Azure Batch. Pour plus d’informations, consultez [Utilisation des activités personnalisées dans un pipeline Data Factory](./data-factory-use-custom-activities.md). 
@@ -112,7 +112,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 ```
 
 > [!IMPORTANT]
-> Le cluster HDInsight crée un *conteneur par défaut* dans le stockage d’objets blob Azure que vous spécifiez dans la propriété **linkedServiceName** JSON. De par sa conception, HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Dans un service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche doit être traitée, à moins qu’il n’existe un cluster actif ( **timeToLive** ). Ce cluster est automatiquement supprimé lorsque le traitement est terminé. 
+> Le cluster HDInsight crée un *conteneur par défaut* dans le stockage d’objets blob Azure que vous spécifiez dans la propriété **linkedServiceName** JSON. De par sa conception, HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Dans un service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche doit être traitée, à moins qu’il n’existe un cluster actif (**timeToLive**). Ce cluster est automatiquement supprimé lorsque le traitement est terminé. 
 >
 > À mesure que le nombre de tranches traitées augmente, les conteneurs se multiplient dans votre stockage d’objets blob. Si vous n’avez pas besoin des conteneurs pour dépanner les travaux, vous pouvez les supprimer afin de réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf<your Data Factory name>-<linked service name>-<date and time>`. Vous pouvez utiliser un outil tel que l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/) pour supprimer des conteneurs du Stockage Blob.
 >
@@ -123,7 +123,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Définissez la propriété de type sur **HDInsightOnDemand**. | Oui      |
 | clusterSize                  | Le nombre de nœuds worker et de données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux, en plus du nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds sont de taille Standard_D3 à 4 cœurs. Un cluster à 4 nœuds worker prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds worker + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Oui      |
-| timeToLive                   | La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif lorsqu’une exécution d’activité est terminée s’il n’existe aucun autre travail actif dans le cluster.<br /><br />Par exemple, si une exécution d’activité prend 6 minutes et si la propriété **timeToLive** est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br /><br />La création d’un cluster HDInsight à la demande est une opération coûteuse (elle peut prendre un certain temps). Utilisez ce paramètre si nécessaire pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br /><br />Si vous définissez la valeur de la propriété **timeToLive** sur  **0** , le cluster est supprimé dès que l’exécution d’activité se termine. Toutefois, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement, entraînant des coûts élevés. Il est important de définir la valeur appropriée en fonction de vos besoins.<br /><br />Plusieurs pipelines peuvent partager l’instance du cluster HDInsight à la demande si la valeur de la propriété **timeToLive** est correctement définie. | Oui      |
+| timeToLive                   | La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif lorsqu’une exécution d’activité est terminée s’il n’existe aucun autre travail actif dans le cluster.<br /><br />Par exemple, si une exécution d’activité prend 6 minutes et si la propriété **timeToLive** est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br /><br />La création d’un cluster HDInsight à la demande est une opération coûteuse (elle peut prendre un certain temps). Utilisez ce paramètre si nécessaire pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br /><br />Si vous définissez la valeur de la propriété **timeToLive** sur **0**, le cluster est supprimé dès que l’exécution d’activité se termine. Toutefois, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement, entraînant des coûts élevés. Il est important de définir la valeur appropriée en fonction de vos besoins.<br /><br />Plusieurs pipelines peuvent partager l’instance du cluster HDInsight à la demande si la valeur de la propriété **timeToLive** est correctement définie. | Oui      |
 | version                      | La version du cluster HDInsight. Pour connaître les versions de HDInsight autorisées, consultez [Versions de HDInsight prises en charge](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Si cette valeur n’est pas spécifiée, la [dernière version HDI par défaut](../../hdinsight/hdinsight-component-versioning.md) est utilisée. | Non       |
 | linkedServiceName            | Le service lié Stockage Azure utilisé par le cluster à la demande pour le stockage et le traitement des données. Le cluster HDInsight est créé dans la même région que ce compte de stockage.<p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Data Lake Store, utilisez l’activité de copie pour copier les données du stockage blob dans Data Lake Store. </p> | Oui      |
 | additionalLinkedServiceNames | Spécifie des comptes de stockage supplémentaires pour le service lié HDInsight. Data Factory inscrit les comptes de stockage en votre nom. Ces comptes de stockage doivent se trouver dans la même région que le cluster HDInsight. Le cluster HDInsight est créé dans la même région que celle du compte de stockage qui est spécifié par la propriété **linkedServiceName**. | Non       |
@@ -232,7 +232,7 @@ Ce type de configuration est pris en charge pour les environnements de calcul su
 * Azure Batch
 * Azure Machine Learning Studio (classique)
 * Service Analytique Azure Data Lake
-* Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse), SQL Server
+* Azure SQL Database, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Service lié Azure HDInsight
 Vous pouvez créer un service lié HDInsight pour inscrire votre propre cluster HDInsight avec Data Factory.
@@ -289,7 +289,7 @@ Si vous ne savez pas utiliser le service Batch :
 }
 ```
 
-Pour la propriété **accountName** , ajoutez **.\<region name\>** au nom de votre compte Batch. Par exemple :
+Pour la propriété **accountName**, ajoutez **.\<region name\>** au nom de votre compte Batch. Par exemple :
 
 ```json
 "accountName": "mybatchaccount.eastus"

@@ -3,20 +3,20 @@ title: Cas d’utilisation - Profilage des utilisateurs
 description: Découvrez comment Azure Data Factory permet de créer un workflow piloté par les données (pipeline) pour définir le profil des clients de leurs jeux.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637885"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495920"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.
@@ -32,21 +32,21 @@ Dans cette solution, Contoso souhaite évaluer l’efficacité d’une campagne 
 Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/), d’un [compte de stockage d’objets Blob Azure](../../storage/common/storage-account-create.md) et d’une [base de données Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Vous déployez le pipeline de profilage de client à partir du panneau **Exemples de pipelines** sur la page d’accueil de votre Data Factory.
 
 1. Créez une fabrique de données ou ouvrez une fabrique de données existante. Pour connaître les étapes de création d’une fabrique de données, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines** .
+2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
     ![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
-3. Dans le panneau **Exemples de pipelines** , cliquez sur le **Profilage des utilisateurs** que vous souhaitez déployer.
+3. Dans le panneau **Exemples de pipelines**, cliquez sur le **Profilage des utilisateurs** que vous souhaitez déployer.
 
     ![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
 4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé et votre nom de compte de stockage Azure, le nom du serveur SQL logique, la base de données, l’ID d’utilisateur et le mot de passe.
 
     ![Panneau Exemple](./media/data-factory-samples/SampleBlade.png)
 5. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **Créer** pour créer/déployer les exemples de pipelines et les tables/services liés utilisés par les pipelines.
-6. L’état du déploiement s’affiche sur l’exemple de mosaïque sur laquelle vous avez cliqué dans le panneau **Exemples de pipelines** .
+6. L’état du déploiement s’affiche sur l’exemple de mosaïque sur laquelle vous avez cliqué dans le panneau **Exemples de pipelines**.
 
     ![état du déploiement](./media/data-factory-samples/DeploymentStatus.png)
-7. Lorsque vous voyez le message **Déploiement réussi** sur la mosaïque de l’exemple, fermez le panneau **Exemples de pipelines** .  
-8. Dans le panneau **DATA FACTORY** , vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
+7. Lorsque vous voyez le message **Déploiement réussi** sur la mosaïque de l’exemple, fermez le panneau **Exemples de pipelines**.  
+8. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
 
     ![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
