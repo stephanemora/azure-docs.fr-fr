@@ -7,12 +7,12 @@ ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 732a2ef3c6c33d0b17deaf3b9bdc5d1ac5e5934c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487957"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498912"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Comment redimensionner des appareils de gestion de volumes logiques avec Azure Disk Encryption
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser ce processus de redimensionnement dans les environnements s
 
 Cet article suppose que vous avez :
 
-- Une configuration LVM existante. Pour plus d’informations, consultez [Configurer LVM sur une machine virtuelle Linux](configure-lvm.md).
+- Une configuration LVM existante. Pour plus d’informations, consultez [Configurer LVM sur une machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 - Des disques déjà chiffrés par Azure Disk Encryption. Pour plus d’informations, consultez [Configurer LVM et RAID sur des appareils chiffrés](how-to-configure-lvm-raid-on-crypt.md).
 

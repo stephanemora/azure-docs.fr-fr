@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412644"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498878"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Contrôle de sécurité : Gestion des stocks et des ressources
 
@@ -100,7 +100,7 @@ Utilisez le monitoring d’intégrité des fichiers d’Azure Security Center (C
 
 - [Guide pratique pour utiliser le monitoring d’intégrité des fichiers](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Présentation d’Azure Change Tracking](../../automation/change-tracking.md)
+- [Présentation d’Azure Change Tracking](../../automation/change-tracking/overview.md)
 
 - [Guide pratique pour activer l’inventaire des machines virtuelles Azure](../../automation/automation-tutorial-installed-software.md)
 

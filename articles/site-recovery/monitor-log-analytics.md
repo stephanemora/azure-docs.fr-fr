@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006939"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499813"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -36,7 +36,7 @@ Voici ce dont vous avez besoin :
 
 - Au moins une machine protégée dans un coffre Recovery Services
 - Un espace de travail Log Analytics pour stocker les journaux Site Recovery. [Découvrez comment configurer un espace de travail](../azure-monitor/learn/quick-create-workspace.md)
-- Des connaissances de base concernant l’écriture, l’exécution et l’analyse des requêtes de journal dans Log Analytics. [Plus d’informations](../azure-monitor/log-query/get-started-portal.md)
+- Des connaissances de base concernant l’écriture, l’exécution et l’analyse des requêtes de journal dans Log Analytics. [Plus d’informations](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 Avant de commencer, il est recommandé de consulter les [questions courantes concernant la supervision](monitoring-common-questions.md).
 

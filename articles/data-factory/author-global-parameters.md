@@ -5,15 +5,15 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.date: 08/31/2020
-ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 676b954854fd0c2b0c4b12c654972e2e80cae781
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328163"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500170"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Paramètres globaux dans Azure Data Factory
 
@@ -23,7 +23,7 @@ Les paramètres globaux représentent des constantes d’une fabrique de donnée
 
 ## <a name="creating-global-parameters"></a>Création de paramètres globaux
 
-Pour créer un paramètre global, accédez à l’onglet *Paramètres globaux* de la section *Gérer* . Sélectionnez **Nouveau** pour ouvrir le volet latéral de navigation.
+Pour créer un paramètre global, accédez à l’onglet *Paramètres globaux* de la section *Gérer*. Sélectionnez **Nouveau** pour ouvrir le volet latéral de navigation.
 
 ![Capture d’écran mettant en évidence le bouton Nouveau qui permet de créer des paramètres globaux.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -31,7 +31,7 @@ Dans le volet latéral de navigation, entrez un nom, sélectionnez un type de do
 
 ![Capture d’écran montrant où ajouter le nom, le type de données et la valeur du nouveau paramètre global.](media/author-global-parameters/create-global-parameter-2.png)
 
-Après avoir créé un paramètre global, vous pouvez le modifier en cliquant sur le nom du paramètre. Pour modifier plusieurs paramètres à la fois, sélectionnez **Modifier tout** .
+Après avoir créé un paramètre global, vous pouvez le modifier en cliquant sur le nom du paramètre. Pour modifier plusieurs paramètres à la fois, sélectionnez **Modifier tout**.
 
 ![Créer des paramètres globaux](media/author-global-parameters/create-global-parameter-3.png)
 
@@ -58,7 +58,7 @@ L’ajout de paramètres globaux au modèle ARM a pour effet d’ajouter un para
 
 Les étapes suivantes décrivent comment déployer des paramètres globaux via PowerShell. Cela est utile lorsque votre fabrique cible a un paramètre de niveau fabrique tel qu’une clé gérée par le client.
 
-Lorsque vous publiez une fabrique ou exportez un modèle ARM avec des paramètres globaux, un dossier appelé *globalParameters* est créé avec un fichier appelé *your-factory-name_GlobalParameters.json* . Ce fichier est un objet JSON qui contient chaque type et valeur de paramètre global dans la fabrique publiée.
+Lorsque vous publiez une fabrique ou exportez un modèle ARM avec des paramètres globaux, un dossier appelé *globalParameters* est créé avec un fichier appelé *your-factory-name_GlobalParameters.json*. Ce fichier est un objet JSON qui contient chaque type et valeur de paramètre global dans la fabrique publiée.
 
 ![Publication de paramètres globaux](media/author-global-parameters/global-parameters-adf-publish.png)
 

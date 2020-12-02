@@ -8,20 +8,20 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: a0ded2a1ad5cd590ab5715edebde2ab19e399e8d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499354"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identités managées et stockage approuvé avec Media Services
 
-La plateforme Media Services peut être utilisée avec des [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour permettre un stockage approuvé. Lorsque vous créez un compte Media Services, vous devez l’associer à un compte de stockage. La plateforme Media Services peut accéder à ce compte de stockage à l’aide d’une authentification système. Media Services vérifie que le compte Media Services et le compte de stockage se trouvent dans le même abonnement, et que l’utilisateur qui ajoute l’association a accès au compte de stockage avec le RBAC Azure Resource Manager.
+La plateforme Media Services peut être utilisée avec des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md) pour permettre un stockage approuvé. Lorsque vous créez un compte Media Services, vous devez l’associer à un compte de stockage. La plateforme Media Services peut accéder à ce compte de stockage à l’aide d’une authentification système. Media Services vérifie que le compte Media Services et le compte de stockage se trouvent dans le même abonnement, et que l’utilisateur qui ajoute l’association a accès au compte de stockage avec le RBAC Azure Resource Manager.
 
 ## <a name="trusted-storage"></a>Stockage approuvé
 
-Toutefois, si vous souhaitez utiliser un pare-feu pour sécuriser votre compte de stockage, vous devez utiliser une authentification d’identité managée. Celle-ci permet à la plateforme Media Services d’accéder au compte de stockage configuré avec un pare-feu ou une restriction de réseau virtuel via un accès à un stockage approuvé.  Pour plus d’informations sur les services Microsoft approuvés, consultez [Configurer des pare-feux et des réseaux virtuels dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Toutefois, si vous souhaitez utiliser un pare-feu pour sécuriser votre compte de stockage, vous devez utiliser une authentification d’identité managée. Celle-ci permet à la plateforme Media Services d’accéder au compte de stockage configuré avec un pare-feu ou une restriction de réseau virtuel via un accès à un stockage approuvé.  Pour plus d’informations sur les services Microsoft approuvés, consultez [Configurer des pare-feux et des réseaux virtuels dans Stockage Azure](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ## <a name="media-services-managed-identity-scenarios"></a>Scénarios d’identité managée de la plateforme Media Services
 
@@ -57,4 +57,4 @@ Ces tutoriels incluent les deux scénarios mentionnés ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur ce que les identités managées peuvent faire pour vous et vos applications Azure, consultez [Identités managées Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Pour en savoir plus sur ce que les identités managées peuvent faire pour vous et vos applications Azure, consultez [Identités managées Azure AD](../../active-directory/managed-identities-azure-resources/overview.md).

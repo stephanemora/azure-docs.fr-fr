@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843551"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500340"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure
 
@@ -41,7 +41,7 @@ Le chiffrement n’a pas d’impact sur les performances des disques managés. L
 
 Vous pouvez vous appuyer sur les clés gérées par la plateforme pour le chiffrement de votre disque managé, ou vous pouvez gérer le chiffrement en utilisant vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une *clé gérée par le client* à utiliser pour le chiffrement et le déchiffrement de toutes les données dans les disques managés. 
 
-Pour en savoir plus sur le chiffrement côté serveur, consultez les articles suivants pour [Windows](windows/disk-encryption.md) ou [Linux](linux/disk-encryption.md).
+Pour en savoir plus sur le chiffrement côté serveur, consultez les articles suivants pour [Windows](./disk-encryption.md) ou [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -73,4 +73,4 @@ Grâce au [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Suivez les étapes permettant de surveiller la sécurité de la machine virtuelle à l’aide d’Azure Security Center pour [Linux](../security/fundamentals/overview.md) ou [Windows](windows/tutorial-azure-security.md).
+- Suivez les étapes permettant de surveiller la sécurité de la machine virtuelle à l’aide d’Azure Security Center pour [Linux](../security/fundamentals/overview.md) ou [Windows](./tutorial-azure-security.md).

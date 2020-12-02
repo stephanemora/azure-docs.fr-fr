@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016333"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500595"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 
@@ -38,7 +38,7 @@ Cet article fournit des conseils généraux pour exécuter votre distribution Li
 * Le format de disque dur virtuel pour Hyper-V (VHDX) n’est pas pris en charge dans Azure ; seul le format *VHD fixe* l’est.  Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de la cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd). Si vous utilisez VirtualBox, il est conseillé de sélectionner **Taille fixe** plutôt que la valeur par défaut (allouée dynamiquement) lorsque vous créez le disque.
 * Azure prend en charge les machines virtuelles Gen1 (BIOS Boot) & Gen2 (amorçage UEFI).
 * La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
-* Lorsque vous installez le système Linux, nous vous recommandons d’utiliser les partitions standard plutôt que le Gestionnaire de volumes logiques (LVM), qui constitue le choix par défaut pour de nombreuses installations. L’utilisation des partitions standard permet d’éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d’exploitation est attaché à une autre machine virtuelle identique à des fins de dépannage. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données.
+* Lorsque vous installez le système Linux, nous vous recommandons d’utiliser les partitions standard plutôt que le Gestionnaire de volumes logiques (LVM), qui constitue le choix par défaut pour de nombreuses installations. L’utilisation des partitions standard permet d’éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d’exploitation est attaché à une autre machine virtuelle identique à des fins de dépannage. La technique [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données.
 * La prise en charge du noyau pour le montage du système de fichiers UDF est nécessaire. Au premier démarrage sur Azure, la configuration d’approvisionnement est transmise à la machine virtuelle Linux à l’aide de supports au format UDF qui sont attachés à l’invité. L’agent Linux Azure doit monter le système de fichiers UDF pour lire sa configuration et approvisionner la machine virtuelle.
 * Les versions du noyau Linux antérieures à la version 2.6.37 ne prennent pas en charge NUMA sur Hyper-V avec des machines virtuelles de taille supérieure. Ce problème concerne principalement les distributions antérieures utilisant le noyau Red Hat 2.6.32 en amont ; il a été corrigé dans Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Pour les systèmes exécutant des noyaux personnalisés dont la version est antérieure à la version 2.6.37 ou des noyaux basés sur RHEL antérieurs à la version 2.6.32-504, le paramètre de démarrage `numa=off` doit être défini sur la ligne de commande du noyau dans grub.conf. Pour plus d’informations, consultez l’article [KB 436883](https://access.redhat.com/solutions/436883) sur Red Hat.
 * Ne configurez pas une partition d’échange sur le disque du système d’exploitation. L’agent Linux est configurable pour créer un fichier d’échange sur le disque de ressources temporaire, comme décrit dans les étapes suivantes.

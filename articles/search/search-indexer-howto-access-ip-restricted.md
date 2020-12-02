@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499949"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configurer des règles de pare-feu IP pour autoriser les connexions d’indexeur (Recherche cognitive Azure)
 
@@ -77,11 +77,11 @@ Pour les adresses IP/32, supprimez la chaîne "/32" (52.253.133.74/32 -> 52.253.
 
 ## <a name="add-the-ip-address-ranges-to-ip-firewall-rules"></a>Ajouter les plages d’adresses IP aux règles de pare-feu IP
 
-Le moyen le plus simple d’ajouter des plages d’adresses IP à la règle de pare-feu d’un compte de stockage consiste à utiliser le portail Azure. Sur le portail, recherchez le compte de stockage sur et accédez à l’onglet **Pare-feux et réseaux virtuels** .
+Le moyen le plus simple d’ajouter des plages d’adresses IP à la règle de pare-feu d’un compte de stockage consiste à utiliser le portail Azure. Sur le portail, recherchez le compte de stockage sur et accédez à l’onglet **Pare-feux et réseaux virtuels**.
 
    ![Pare-feu et réseaux virtuels](media\search-indexer-howto-secure-access\storage-firewall.png "Pare-feu et réseaux virtuels")
 
-Ajoutez les trois adresses IP obtenues précédemment (1 pour l’adresse IP du service de recherche, 2 pour l’étiquette de service `AzureCognitiveSearch`) dans la plage d’adresses, puis cliquez sur **Enregistrer** .
+Ajoutez les trois adresses IP obtenues précédemment (1 pour l’adresse IP du service de recherche, 2 pour l’étiquette de service `AzureCognitiveSearch`) dans la plage d’adresses, puis cliquez sur **Enregistrer**.
 
    ![Règles IP de pare-feu](media\search-indexer-howto-secure-access\storage-firewall-ip.png "Règles IP de pare-feu")
 
@@ -90,5 +90,5 @@ La mise à jour des règles de pare-feu prend 5 à 10 minutes après lesquelles 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer des pare-feu pour le service Stockage Azure](../storage/common/storage-network-security.md)
-- [Configurer un pare-feu IP pour Cosmos DB](../cosmos-db/firewall-support.md)
+- [Configurer un pare-feu IP pour Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Configurer un pare-feu IP pour Azure SQL Server](../azure-sql/database/firewall-configure.md)

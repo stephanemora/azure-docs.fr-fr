@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521000"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499660"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -559,7 +559,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
         
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)
@@ -628,7 +628,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
         
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)
@@ -683,7 +683,7 @@ Le chargement, le téléchargement et la copie entre régions des disques repose
 
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
+* Vous pouvez maintenant utiliser l’Explorateur Stockage pour accéder à vos données Blob via [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si vous êtes connecté et que l’Explorateur Stockage ne peut pas récupérer les clés de votre compte de stockage, un jeton OAuth est utilisé pour l’authentification quand vous interagissez avec vos données.
 * L’Explorateur Stockage prend désormais en charge les comptes de stockage ADLS Gen2. Quand l’Explorateur Stockage détecte que l’espace de noms hiérarchique est activé pour un compte de stockage, vous voyez « (Préversion d’ADLS Gen2) » à côté du nom de votre compte de stockage. L’Explorateur Stockage peut détecter si l’espace de noms hiérarchique est activé ou non quand vous êtes connecté, ou si vous avez attaché votre compte de stockage avec un nom et une clé. Pour les comptes de stockage ADLS Gen2, vous pouvez utiliser l’Explorateur Stockage pour :
   * Créer et supprimer des conteneurs
   * Gérer les propriétés et les autorisations de conteneur (à gauche)

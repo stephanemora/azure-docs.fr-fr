@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6001048d087a50a610b19d6fbdf33529f7210b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499711"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser Azure CLI pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 
-Le stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client, ainsi que d’autres types de chiffrement de disque managés, consultez la section [Customer-managed keys](disk-encryption.md#customer-managed-keys) (Clés gérées par le client) de notre article sur le chiffrement de disque.
+Le stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client, ainsi que d’autres types de chiffrement de disque managés, consultez la section [Customer-managed keys](../disk-encryption.md#customer-managed-keys) (Clés gérées par le client) de notre article sur le chiffrement de disque.
 
 ## <a name="restrictions"></a>Restrictions
 

@@ -3,19 +3,19 @@ title: Expressions et fonctions dans Azure Data Factory
 description: Cet article fournit des informations sur les expressions et fonctions que vous pouvez utiliser pour la création d’entités de fabrique de données.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 24347d86a99251d0bf02d5ea5cb6985df5814b29
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3c966f0efc51a3b2fa8908e060b4031ae1ad1e50
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635182"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500017"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
@@ -57,8 +57,8 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |----------------|------------|  
 |"\@pipeline().parameters.myString"| Retourne `foo` en tant que chaîne.|  
 |"\@{pipeline().parameters.myString}"| Retourne `foo` en tant que chaîne.|  
-|"\@pipeline().parameters.myNumber"| Retourne `42` en tant que *nombre* .|  
-|"\@{pipeline().parameters.myNumber}"| Retourne `42` en tant que *chaîne* .|  
+|"\@pipeline().parameters.myNumber"| Retourne `42` en tant que *nombre*.|  
+|"\@{pipeline().parameters.myNumber}"| Retourne `42` en tant que *chaîne*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Retourne la chaîne `Answer is: 42`.|  
 |"\@concat(’Answer is: ’, string(pipeline().parameters.myNumber))"| Retourne la chaîne `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Retourne la chaîne `Answer is: @{pipeline().parameters.myNumber}`.|  
@@ -68,10 +68,10 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 ### <a name="complex-expression-example"></a>Exemple d’expression complexe
 L’exemple ci-dessous montre un exemple complexe qui fait référence à un sous-champ profond d’une sortie d’activité. Pour faire référence à un paramètre de pipeline qui prend la valeur d’un sous-champ, utilisez la syntaxe [] au lieu de l’opérateur point(.) (comme dans le cas de subfield1 et subfield2)
 
-@activity(' *activityName* ').output. *subfield1* . *subfield2* [pipeline().parameters. *subfield3* ]. *subfield4*
+@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>Un jeu de données avec un paramètre
-Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path** . Sa valeur est utilisée pour donner une valeur à la propriété **folderPath** à l’aide de l’expression : `dataset().path`. 
+Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path**. Sa valeur est utilisée pour donner une valeur à la propriété **folderPath** à l’aide de l’expression : `dataset().path`. 
 
 ```json
 {
@@ -95,7 +95,7 @@ Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path** . Sa v
 ```
 
 ### <a name="a-pipeline-with-a-parameter"></a>Un pipeline avec un paramètre
-Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **outputPath** . Le **path** du jeu de données blob paramétrable est défini par les valeurs de ces paramètres. Voici la syntaxe utilisée : `pipeline().parameters.parametername`. 
+Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **outputPath**. Le **path** du jeu de données blob paramétrable est défini par les valeurs de ces paramètres. Voici la syntaxe utilisée : `pipeline().parameters.parametername`. 
 
 ```json
 {
@@ -243,7 +243,7 @@ Ces fonctions sont utiles à l’intérieur de conditions, et permettent d’év
 | [xpath](control-flow-expression-language-functions.md#xpath) | Vérifie si le code XML contient des valeurs ou des nœuds qui correspondent à une expression de langage XPath et retourne les valeurs ou les nœuds correspondants. |
 
 ## <a name="math-functions"></a>Fonctions mathématiques  
- Ces fonctions peuvent être utilisées pour les deux types de nombre : **entiers** et **flottants** .  
+ Ces fonctions peuvent être utilisées pour les deux types de nombre : **entiers** et **flottants**.  
 
 | Fonction mathématique | Tâche |
 | ------------- | ---- |
@@ -298,7 +298,7 @@ add(<summand_1>, <summand_2>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1* >, < *summand_2*> | Oui | Entier, flottant ou mixte | Nombres à ajouter |
+| <*summand_1*>, <*summand_2*> | Oui | Entier, flottant ou mixte | Nombres à ajouter |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -499,7 +499,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
-| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval*  : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -541,7 +541,7 @@ and(<expression1>, <expression2>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1* >, < *expression2*> | Oui | Boolean | Expressions à vérifier |
+| <*expression1*>, <*expression2*> | Oui | Boolean | Expressions à vérifier |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -599,7 +599,7 @@ array('<value>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *valeur* >] | Array | Tableau qui contient l’entrée spécifiée unique |
+| [<*valeur*>] | Array | Tableau qui contient l’entrée spécifiée unique |
 ||||
 
 *Exemple*
@@ -785,7 +785,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object_1* >, < *object_2* >... | Oui | N’importe lequel, possibilité de combiner plusieurs types | Recherche de la valeur Null dans un ou plusieurs éléments |
+| <*object_1*>, <*object_2*>... | Oui | N’importe lequel, possibilité de combiner plusieurs types | Recherche de la valeur Null dans un ou plusieurs éléments |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -821,7 +821,7 @@ concat('<text1>', '<text2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text1* >, < *text2* >... | Oui | String | Au moins deux chaînes à combiner |
+| <*text1*>, <*text2*>... | Oui | String | Au moins deux chaînes à combiner |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1025,12 +1025,12 @@ createArray('<object1>', '<object2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1* >, < *object2* >... | Oui | N’importe lequel, mais pas de combinaison | Au moins deux éléments pour créer le tableau |
+| <*object1*>, <*object2*>... | Oui | N’importe lequel, mais pas de combinaison | Au moins deux éléments pour créer le tableau |
 |||||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *object1* >, < *object2* >...] | Array | Tableau créé à partir de tous les éléments d’entrée |
+| [<*object1*>, <*object2*>...] | Array | Tableau créé à partir de tous les éléments d’entrée |
 ||||
 
 *Exemple*
@@ -1343,7 +1343,7 @@ div(<dividend>, <divisor>)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Oui | Entier ou flottant | Nombre à diviser par le *diviseur* |
-| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende* , mais qui ne peut pas être égal à 0 |
+| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0 |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1486,7 +1486,7 @@ equals('<object1>', '<object2>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1* >, < *object2*> | Oui | Divers | Valeurs, expressions ou objets à comparer |
+| <*object1*>, <*object2*> | Oui | Divers | Valeurs, expressions ou objets à comparer |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1617,7 +1617,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
-| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval*  : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1661,7 +1661,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval*  : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1980,7 +1980,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1* >, < *collection2* >... | Oui | Tableau ou objet, mais pas les deux | Collections à partir desquelles vous souhaitez *uniquement* les éléments communs |
+| <*collection1*>, <*collection2*>... | Oui | Tableau ou objet, mais pas les deux | Collections à partir desquelles vous souhaitez *uniquement* les éléments communs |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2002,7 +2002,7 @@ Et retourne un tableau comportant *uniquement* ces éléments : `[1, 2]`
 
 ### <a name="join"></a>join
 
-Retourne une chaîne qui contient tous les éléments d’un tableau, et dont tous les caractères sont séparés par un *séparateur* .
+Retourne une chaîne qui contient tous les éléments d’un tableau, et dont tous les caractères sont séparés par un *séparateur*.
 
 ```
 join([<collection>], '<delimiter>')
@@ -2016,7 +2016,7 @@ join([<collection>], '<delimiter>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter* >... | String | Chaîne obtenue créée à partir de tous les éléments du tableau spécifié |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | Chaîne obtenue créée à partir de tous les éléments du tableau spécifié |
 ||||
 
 *Exemple*
@@ -2215,8 +2215,8 @@ max([<number1>, <number2>, ...])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1* >, < *number2* >... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus élevée |
-| [< *number1* >, < *number2* >...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus élevée |
+| <*number1*>, <*number2*>... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus élevée |
+| [<*number1*>, <*number2*>...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus élevée |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2248,8 +2248,8 @@ min([<number1>, <number2>, ...])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1* >, < *number2* >... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus petite |
-| [< *number1* >, < *number2* >...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus petite |
+| <*number1*>, <*number2*>... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus petite |
+| [<*number1*>, <*number2*>...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus petite |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2282,7 +2282,7 @@ mod(<dividend>, <divisor>)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Oui | Entier ou flottant | Nombre à diviser par le *diviseur* |
-| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende* , mais qui ne peut pas être égal à 0. |
+| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2397,7 +2397,7 @@ or(<expression1>, <expression2>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1* >, < *expression2*> | Oui | Boolean | Expressions à vérifier |
+| <*expression1*>, <*expression2*> | Oui | Boolean | Expressions à vérifier |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2482,7 +2482,7 @@ range(<startIndex>, <count>)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *range-result* >] | Array | Tableau dont les entiers commencent à partir de l’index spécifié |
+| [<*range-result*>] | Array | Tableau dont les entiers commencent à partir de l’index spécifié |
 ||||
 
 *Exemple*
@@ -2545,7 +2545,7 @@ skip([<collection>], <count>)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *updated-collection* >] | Array | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
+| [<*updated-collection*>] | Array | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
 ||||
 
 *Exemple*
@@ -2576,7 +2576,7 @@ split('<text>', '<delimiter>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *substring1* >,< *substring2* >,...] | Array | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
+| [<*substring1*>,<*substring2*>,...] | Array | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
 ||||
 
 *Exemple*
@@ -2844,7 +2844,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval*  : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -2892,7 +2892,7 @@ take([<collection>], <count>)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*subset* > ou [< *subset* >] | Chaîne ou tableau, respectivement | Chaîne ou tableau qui comporte le nombre spécifié d’éléments obtenus à partir du début de la collection d’origine |
+| <*subset*> ou [<*subset*>] | Chaîne ou tableau, respectivement | Chaîne ou tableau qui comporte le nombre spécifié d’éléments obtenus à partir du début de la collection d’origine |
 ||||
 
 *Exemple*
@@ -3034,7 +3034,7 @@ union([<collection1>], [<collection2>], ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1* >, < *collection2* >...  | Oui | Tableau ou objet, mais pas les deux | Collections dont vous souhaitez *tous* les éléments |
+| <*collection1*>, <*collection2*>...  | Oui | Tableau ou objet, mais pas les deux | Collections dont vous souhaitez *tous* les éléments |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -3159,7 +3159,7 @@ Retourne l’horodatage actuel.
 utcNow('<format>')
 ```
 
-Si vous le souhaitez, vous pouvez spécifier un autre format avec le paramètre < *format* >.
+Si vous le souhaitez, vous pouvez spécifier un autre format avec le paramètre <*format*>.
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -3271,7 +3271,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | Nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
 | <*value*> | Quelconque | Valeur d’un nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
-| [< *xml-node1* >, < *xml-node2* >...] </br>-ou- </br>[< *value1* >, < *value2* >...] | Array | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
+| [<*xml-node1*>, <*xml-node2*>...] </br>-ou- </br>[<*value1*>, <*value2*>...] | Array | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
 ||||
 
 *Exemple 1*

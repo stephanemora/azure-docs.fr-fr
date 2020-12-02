@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817079"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499388"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser le portail Azure pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 
 Le Stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client ainsi que d’autres types de chiffrement de disque managés, consultez la section **Clés gérées par le client** de notre article sur le chiffrement de disque :
 
-- Pour Linux : [Clés gérées par le client](./linux/disk-encryption.md#customer-managed-keys)
-- Pour Windows : [Clés gérées par le client](./windows/disk-encryption.md#customer-managed-keys)
+- Pour Linux : [Clés gérées par le client](./disk-encryption.md#customer-managed-keys)
+- Pour Windows : [Clés gérées par le client](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -47,7 +47,7 @@ Le processus de déploiement de la machine virtuelle est similaire au processus 
 
 1. Recherchez **Machines virtuelles** et sélectionnez **+ Ajouter** pour créer une machine virtuelle.
 1. Sous l’onglet **De base**, sélectionnez la région de votre jeu de chiffrement de disque et d’Azure Key Vault.
-1. Renseignez les autres valeurs du panneau**De base** à votre guise.
+1. Renseignez les autres valeurs du panneau **De base** à votre guise.
 
     ![Capture d’écran de l’expérience de création de machines virtuelles, dont la valeur de région est mise en surbrillance.](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-vm-region.png)
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076614"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499745"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 
@@ -182,4 +182,4 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](optimization.md) .
-* Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](configure-raid.md) pour augmenter les performances.
+* Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) pour augmenter les performances.

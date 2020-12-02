@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792648"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499269"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Managed Instance à l’aide du portail Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Les métriques d’instance gérée suivantes sont disponibles pour la configura
 
    ![Select_action_group](./media/alerts-create/mi-select-action-group-smaller-annotated.png)
 
-   * Pour créer un groupe d’actions, sélectionnez **+ Créer un groupe d’actions** .
+   * Pour créer un groupe d’actions, sélectionnez **+ Créer un groupe d’actions**.
 
       ![Create_action_group_alerts](./media/alerts-create/mi-create-alert-action-group-smaller-annotated.png)
    
@@ -106,7 +106,7 @@ Les métriques d’instance gérée suivantes sont disponibles pour la configura
 
       ![Rule_description](./media/alerts-create/mi-rule-details-complete-smaller-annotated.png)
 
-   * Terminez la création de la règle d’alerte en cliquant sur le bouton **Créer une règle d’alerte** .
+   * Terminez la création de la règle d’alerte en cliquant sur le bouton **Créer une règle d’alerte**.
 
 La nouvelle règle d’alerte est active en quelques minutes et est déclenchée en fonction de vos paramètres.
 

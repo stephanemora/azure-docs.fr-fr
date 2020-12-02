@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842734"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498793"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -91,5 +91,5 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| Équilibreur de charge DNS global.|
 | [Proxy d’application Azure](../../active-directory/manage-apps/application-proxy.md)| Frontend d’authentification utilisé pour sécuriser l’accès à distance pour des applications web hébergées en local. |
 |[Pare-feu Azure](../../firewall/overview.md)|Service de sécurité réseau cloud managé qui protège vos ressources Réseau virtuel Azure.|
-|[Protection DDoS Azure](../../virtual-network/ddos-protection-overview.md)|Associé aux bonnes pratiques de conception d’application, assure une excellente protection contre les attaques DDoS.|
+|[Protection DDoS Azure](../../ddos-protection/ddos-protection-overview.md)|Associé aux bonnes pratiques de conception d’application, assure une excellente protection contre les attaques DDoS.|
 |[Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md)|Étend votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, par le biais d’une connexion directe.|

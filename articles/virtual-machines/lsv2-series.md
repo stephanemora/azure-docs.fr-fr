@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652922"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498419"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -51,7 +51,7 @@ Mode rafale : Prise en charge<br>
 
 <sup>4</sup> Les machines virtuelles de la série Lsv2 ne fournissent pas de cache hôte pour le disque de données, car cela ne profite pas aux charges de travail Lsv2.
 
-<sup>5</sup> Les machines virtuelles de la série Lsv2 peuvent [augmenter via le mode rafale](linux/disk-bursting.md) leurs performances de disque pendant 30 minutes à la fois. 
+<sup>5</sup> Les machines virtuelles de la série Lsv2 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque pendant 30 minutes à la fois. 
 
 <sup>6</sup> Les machines virtuelles avec plus de 64 processeurs virtuels nécessitent l’un de ces systèmes d’exploitation invités pris en charge :
 

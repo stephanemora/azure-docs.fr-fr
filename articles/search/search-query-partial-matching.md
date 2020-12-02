@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935770"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499541"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (caractère générique, expression régulière, modèles)
 
@@ -160,7 +160,7 @@ Que vous évaluiez des analyseurs ou que vous avanciez avec une configuration sp
 
 Les analyseurs intégrés ou prédéfinis peuvent être spécifiés par leur nom dans la propriété `analyzer` d’une définition de champ, sans qu’une configuration supplémentaire ne soit requise dans l’index. L’exemple suivant montre comment définir l’analyseur `whitespace` sur un champ. 
 
-Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Liste des analyseurs prédéfinis](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Liste des analyseurs prédéfinis](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842411"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498470"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
@@ -40,7 +40,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Guide pratique pour déployer et configurer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -52,7 +52,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Présentation de la sécurité réseau assurée par Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -78,7 +78,7 @@ Vous pouvez également déployer un pare-feu d’applications web (WAF) Azure de
 
 Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center pour restreindre l’exposition de machines virtuelles Linux aux adresses IP approuvées pendant une période limitée. De plus, utilisez la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center pour recommander des configurations NSG qui brident les ports et les adresses IP sources en fonction du trafic réel et du renseignement sur les menaces.
 
-* [Guide pratique pour configurer la protection DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Guide pratique pour configurer la protection DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Guide pratique pour déployer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -100,7 +100,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour activer Network Watcher](../../network-watcher/network-watcher-create.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../../firewall/threat-intel.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -278,7 +278,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,7 +308,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Instructions pour l’intégration de serveurs Linux à Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [Le lien suivant présente les directives de sécurité recommandées par Microsoft, qui peuvent servir de liste de critères à prendre en compte dans le choix du logiciel de détection des vulnérabilités.](./security-recommendations.md)
+* [Le lien suivant présente les directives de sécurité recommandées par Microsoft, qui peuvent servir de liste de critères à prendre en compte dans le choix du logiciel de détection des vulnérabilités.](../security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -346,7 +346,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -366,7 +366,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -390,7 +390,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -450,7 +450,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -458,7 +458,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Configurez des paramètres de diagnostic pour Azure Active Directory afin d’envoyer les journaux d’audit et de connexion à un espace de travail Log Analytics. Exploitez également Azure Monitor pour examiner les journaux et effectuer des requêtes sur les données Syslog d’authentification des machines virtuelles Azure.
 
-* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -586,7 +586,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Les disques virtuels des machines virtuelles Linux sont chiffrés au repos à l’aide d’un chiffrement côté serveur ou d’Azure Disk Encryption (ADE). Azure Disk Encryption utilise la fonctionnalité DM-Crypt de Linux pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée. Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 
-* [Chiffrement côté serveur de disques managés Azure](../windows/disk-encryption.md)
+* [Chiffrement côté serveur de disques managés Azure](../disk-encryption.md)
 
 * [Azure Disk Encryption pour les machines virtuelles Linux](./disk-encryption-overview.md)
 
@@ -618,7 +618,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Instructions pour l’intégration de serveurs Linux à Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [Directives de sécurité recommandées par Microsoft](./security-recommendations.md)
+* [Directives de sécurité recommandées par Microsoft](../security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -628,11 +628,11 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Utilisez la solution Azure Update Management pour gérer les mises à jour et les correctifs de vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes pris en charge.
 
-* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solution Update Management dans Azure](../../automation/update-management/overview.md)
 
-* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/manage-updates-for-vm.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -640,9 +640,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Vous pouvez utiliser une solution tierce de gestion des correctifs. Vous pouvez utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes pris en charge.
 
-* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solution Update Management dans Azure](../../automation/update-management/overview.md)
 
-* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -772,7 +772,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../../security-center/security-center-adaptive-application.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1016,7 +1016,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 **Aide** : Vous aurez besoin d’un outil tiers pour la protection contre les programmes malveillants sur la machine virtuelle Linux Azure.
 
-* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](./security-recommendations.md)
+* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -1034,7 +1034,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 **Aide** : Vous aurez besoin d’un outil tiers pour la protection contre les programmes malveillants sur la machine virtuelle Linux Azure.
 
-* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](./security-recommendations.md)
+* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -1100,7 +1100,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 * [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1130,7 +1130,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 * [Organisation des ressources Azure à l’aide de catégories](../../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1150,7 +1150,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

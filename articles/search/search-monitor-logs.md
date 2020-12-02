@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935056"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499932"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
@@ -25,7 +25,7 @@ Quand vous configurez la journalisation des diagnostics, vous êtes invité à s
 
 | Ressource | Utilisé pour |
 |----------|----------|
-| [Envoyer à l’espace de travail Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Les événements et les mesures sont envoyés à un espace de travail Log Analytics, lequel peut être interrogé dans le portail pour retourner des informations détaillées. Pour une introduction sur le sujet, consultez [Prise en main des journaux d’activité Azure Monitor](../azure-monitor/log-query/get-started-portal.md). |
+| [Envoyer à l’espace de travail Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Les événements et les mesures sont envoyés à un espace de travail Log Analytics, lequel peut être interrogé dans le portail pour retourner des informations détaillées. Pour une introduction sur le sujet, consultez [Prise en main des journaux d’activité Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). |
 | [Archiver avec le stockage Blob](../storage/blobs/storage-blobs-overview.md) | Les événements et les mesures sont archivés dans un conteneur de blobs et stockés dans des fichiers JSON. Les journaux d’activité peuvent être très granulaires (par heure/minute), ce qui est utile pour la recherche d’un incident spécifique, mais pas pour une investigation ouverte. Utilisez un éditeur JSON pour afficher un fichier journal brut ou Power BI pour agréger et visualiser les données du journal.|
 | [Diffuser vers un Event Hub](../event-hubs/index.yml) | Les événements et les mesures sont diffusés vers un service Azure Event Hubs. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 

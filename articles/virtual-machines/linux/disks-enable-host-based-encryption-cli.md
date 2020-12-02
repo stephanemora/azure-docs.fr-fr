@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5c0336b80bee1cd5eb76d0ce3d5f99c7296a8467
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741746"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499762"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez Azure CLI pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
-Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 Les tailles de machine virtuelle héritées ne sont pas prises en charge. Pour accéder à la liste des tailles de machines virtuelles prises en charge, procédez comme suit :
 
-Appelez l' [API des références SKU de ressource](/rest/api/compute/resourceskus/list) et vérifiez que la capacité `EncryptionAtHostSupported` est définie sur **True** .
+Appelez l'[API des références SKU de ressource](/rest/api/compute/resourceskus/list) et vérifiez que la capacité `EncryptionAtHostSupported` est définie sur **True**.
 
 ```json
     {

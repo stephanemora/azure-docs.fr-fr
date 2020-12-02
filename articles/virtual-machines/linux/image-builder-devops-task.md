@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968665"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499252"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tâche DevOps du service Azure Image Builder
 
@@ -139,7 +139,7 @@ Sélectionnez le bouton **Chemin d’accès à la build** pour choisir le dossie
 
 L’exemple suivant explique son fonctionnement :
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Sélection de l’option Ajouter un artefact dans le pipeline de mise en production.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Une structure de répertoires qui présente la hiérarchie.":::
 
 
 * Des fichiers Windows existent dans `C:\`. Un répertoire nommé `buildArtifacts` est créé et comprend le répertoire `webapp`.
@@ -194,7 +194,7 @@ L’exemple suivant explique son fonctionnement :
     
 #### <a name="total-length-of-image-build"></a>Longueur totale de la build d’image
 
-La longueur totale ne peut pas encore être modifiée dans la tâche de pipeline DevOps. Il utilise la valeur par défaut de 240 minutes. Si vous souhaitez augmenter la [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), vous pouvez utiliser une tâche AZ CLI dans le pipeline de mise en production. Configurez la tâche pour copier un modèle et l’envoyer. Pour obtenir un exemple, consultez cette [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) ou utilisez AZ PowerShell.
+La longueur totale ne peut pas encore être modifiée dans la tâche de pipeline DevOps. Il utilise la valeur par défaut de 240 minutes. Si vous souhaitez augmenter la [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), vous pouvez utiliser une tâche AZ CLI dans le pipeline de mise en production. Configurez la tâche pour copier un modèle et l’envoyer. Pour obtenir un exemple, consultez cette [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) ou utilisez AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Compte de stockage
@@ -314,7 +314,7 @@ En cas d’échec d’une build, la tâche DevOps ne supprime pas le groupe de r
 
 Vous verrez une erreur dans le journal DevOps pour la tâche Image Builder de machine virtuelle et vous verrez l’emplacement du fichier customization.log. Par exemple :
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Sélection de l’option Ajouter un artefact dans le pipeline de mise en production.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemple d’erreur de tâche DevOps qui indique une défaillance.":::
 
 Pour plus d’informations sur la résolution des problèmes, consultez [Résoudre des problèmes liés au service Azure Image Builder](image-builder-troubleshoot.md). 
 

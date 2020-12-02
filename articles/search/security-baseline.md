@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842785"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499864"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Ligne de base de la sécurité Azure pour Recherche cognitive Azure
 
@@ -64,7 +64,7 @@ La Recherche cognitive prend également en charge des fonctionnalités de sécur
 
 **Conseils** : La Recherche cognitive ne fournit pas de fonctionnalité spécifique pour combattre une attaque par déni de service distribuée, mais vous pouvez activer la protection DDoS standard sur les réseaux virtuels associés à votre service Recherche cognitive à des fins de protection générale.
 
-- [Guide pratique pour configurer la protection DDoS](../virtual-network/manage-ddos-protection.md)
+- [Guide pratique pour configurer la protection DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -175,7 +175,7 @@ Vous pouvez également activer et intégrer ces données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -223,7 +223,7 @@ Dans Azure Monitor, définissez la période de rétention de votre espace de tra
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [En savoir plus sur Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [En savoir plus sur Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -358,7 +358,7 @@ Pour les opérations de gestion, utilisez les rôles Azure AD intégrés qui doi
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -420,7 +420,7 @@ Simplifiez ce processus en créant des paramètres de diagnostic pour les compte
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -686,7 +686,7 @@ Utilisez Azure Resource Graph pour interroger ou découvrir les ressources dans 
 
 - [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md) 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -750,7 +750,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 **Conseils** : Non applicable à Recherche cognitive. non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -1012,7 +1012,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693441"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499609"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
@@ -96,7 +96,7 @@ Vous pouvez définir les deux propriétés à l’aide du portail ou en utilisan
 
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
-+ Si [Azure CLI est installé](https://docs.microsoft.com/cli/azure/install-azure-cli), vous pouvez exécuter la commande suivante pour activer les propriétés requises.
++ Si [Azure CLI est installé](/cli/azure/install-azure-cli), vous pouvez exécuter la commande suivante pour activer les propriétés requises.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ Les autorisations d’accès peuvent être révoquées à tout moment. Une fois 
 
 ## <a name="5---encrypt-content"></a>5 - Chiffrer le contenu
 
-Pour ajouter une clé gérée par le client sur un index, une source de données, un ensemble de compétences ou un mappage de synonymes, vous devez utiliser l’[API REST Recherche](https://docs.microsoft.com/rest/api/searchservice/) ou un Kit de développement logiciel (SDK). Le portail n’expose pas les mappages de synonymes ou les propriétés de chiffrement. Lorsque vous utilisez des index d’API valides, les sources de données, ensembles de compétences, indexeurs et mappages de synonymes prennent en charge une propriété **encryptionKey** de niveau supérieur.
+Pour ajouter une clé gérée par le client sur un index, une source de données, un ensemble de compétences ou un mappage de synonymes, vous devez utiliser l’[API REST Recherche](/rest/api/searchservice/) ou un Kit de développement logiciel (SDK). Le portail n’expose pas les mappages de synonymes ou les propriétés de chiffrement. Lorsque vous utilisez des index d’API valides, les sources de données, ensembles de compétences, indexeurs et mappages de synonymes prennent en charge une propriété **encryptionKey** de niveau supérieur.
 
 Cet exemple utilise l’API REST, avec des valeurs pour Azure Key Vault et Azure Active Directory :
 
@@ -196,7 +196,7 @@ Cet exemple utilise l’API REST, avec des valeurs pour Azure Key Vault et Azure
 
 ## <a name="example-index-encryption"></a>Exemple : Chiffrement d’index
 
-Créez un index chiffré en procédant de la manière décrite dans [Créer un index (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
+Créez un index chiffré en procédant de la manière décrite dans [Créer un index (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-index). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
 > [!Note]
 > Aucune de ces informations sur le coffre de clés n'est considérée comme secrète et peut être facilement récupérée en accédant à la page de la clé Azure Key Vault appropriée dans le portail Azure.
 
@@ -239,7 +239,7 @@ Vous pouvez maintenant envoyer la demande de création d'un index, puis commence
 
 ### <a name="synonym-map-encryption"></a>Chiffrement de mappage de synonymes
 
-Créez une carte de synonymes chiffrée en procédant de la manière décrite dans [Créer un mappage de synonymes (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
+Créez une carte de synonymes chiffrée en procédant de la manière décrite dans [Créer un mappage de synonymes (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-synonym-map). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
 
 ```json
 {
@@ -263,7 +263,7 @@ Vous pouvez maintenant envoyer la demande de création d’un mappage de synonym
 
 ## <a name="example-data-source-encryption"></a>Exemple : Chiffrement de source de données
 
-Créez une source de données chiffrée en procédant de la manière décrite dans [Créer une source de données (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
+Créez une source de données chiffrée en procédant de la manière décrite dans [Créer une source de données (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-data-source). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
 
 ```json
 {
@@ -289,7 +289,7 @@ Vous pouvez maintenant envoyer la demande de création de la source de données,
 
 ## <a name="example-skillset-encryption"></a>Exemple : Chiffrement d’ensemble de compétences
 
-Créez un ensemble de compétences chiffré en procédant de la manière décrite dans [Créer un ensemble de compétences (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
+Créez un ensemble de compétences chiffré en procédant de la manière décrite dans [Créer un ensemble de compétences (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-skillset). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
 
 ```json
 {
@@ -315,7 +315,7 @@ Vous pouvez maintenant envoyer la demande de création de l’ensemble de compé
 
 ## <a name="example-indexer-encryption"></a>Exemple : Chiffrement d’indexeur
 
-Créez un indexeur chiffré en procédant de la manière décrite dans [Créer un indexeur (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
+Créez un indexeur chiffré en procédant de la manière décrite dans [Créer un indexeur (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-indexer). Utilisez la propriété `encryptionKey` pour spécifier la clé de chiffrement à utiliser.
 
 ```json
 {

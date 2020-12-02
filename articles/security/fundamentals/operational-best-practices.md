@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701029"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498844"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -195,7 +195,7 @@ Le fait d’utiliser des [points de terminaison de service](../../virtual-networ
 
 Il arrive fréquemment que les ressources locales d’un client soient attaquées en même temps que ses ressources dans Azure. Si vous connectez un environnement local à Azure, réduisez l’exposition des ressources locales à l’Internet public.
 
-Azure propose deux [offres de service](../../virtual-network/ddos-protection-overview.md) DDoS qui fournissent une protection contre les attaques réseau :
+Azure propose deux [offres de service](../../ddos-protection/ddos-protection-overview.md) DDoS qui fournissent une protection contre les attaques réseau :
 
 - La protection de base est intégrée à Azure par défaut sans coût supplémentaire. De par son échelle et sa capacité, le réseau Azure déployé à l’échelle mondiale assure une défense contre les attaques courantes de la couche réseau. Cette défense est par ailleurs renforcée par le monitoring continu du trafic et l’atténuation en temps réel. La protection de base ne nécessite aucun changement de la part de l’utilisateur au niveau de configuration ou de l’application et permet de protéger tous les services Azure, notamment les services PaaS comme Azure DNS.
 - La protection standard fournit des fonctions d’atténuation DDoS avancées contre les attaques réseau. Cette solution s’adapte automatiquement pour protéger vos ressources Azure spécifiques. La protection est facile à activer pendant la création de réseaux virtuels. Vous pouvez également l’activer après la création ; aucun changement au niveau de l’application ou de la ressource ne s’impose.

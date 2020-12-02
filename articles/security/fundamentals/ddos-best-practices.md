@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412865"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498929"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - Concevoir des solutions résilientes
 
@@ -54,7 +54,7 @@ Pour [Azure App Service](../../app-service/overview.md), sélectionnez un [plan 
 
 L’idée derrière la défense en profondeur est de gérer les risques en utilisant des stratégies de protection variées. Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Nous vous recommandons d’implémenter des conceptions sécurisées pour vos applications par le biais des fonctionnalités intégrées à la plateforme Azure.
 
-Par exemple, plus la taille ( *surface d’exposition* ) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant une liste d’approbation permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) et [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). Les [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md) permettent également de réduire la surface d’attaque.
+Par exemple, plus la taille (*surface d’exposition*) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant une liste d’approbation permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) et [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). Les [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md) permettent également de réduire la surface d’attaque.
 Vous pouvez utiliser des [balises de service](../../virtual-network/network-security-groups-overview.md#service-tags) et des [groupes de sécurité d’application](../../virtual-network/network-security-groups-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
 
 Vous devez déployer les services Azure dans un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) dans la mesure du possible. Les ressources de service peuvent ainsi communiquer par le biais d’adresses IP privées. Le trafic du service Azure à partir d’un réseau virtuel utilise des adresses IP publiques comme adresses IP source par défaut. Le fait d’utiliser des [points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md) force le trafic de service à utiliser des adresses privées de réseau virtuel comme adresses IP source lors de l’accès au service Azure à partir d’un réseau virtuel.
@@ -97,7 +97,7 @@ DDoS Protection Standard expose des données de télémétrie riches par le biai
 
 ##### <a name="ddos-mitigation-policies"></a>Stratégies d’atténuation des risques liés à DDoS
 
-Dans le portail Azure, cliquez sur **Surveiller** > **Métriques**. Dans le volet **Métriques** , sélectionnez le groupe de ressources, le type de ressource **Adresse IP publique** et votre adresse IP publique Azure. Les métriques DDoS sont visibles dans le volet **Métriques disponibles**.
+Dans le portail Azure, cliquez sur **Surveiller** > **Métriques**. Dans le volet **Métriques**, sélectionnez le groupe de ressources, le type de ressource **Adresse IP publique** et votre adresse IP publique Azure. Les métriques DDoS sont visibles dans le volet **Métriques disponibles**.
 
 DDoS Protection Standard applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez afficher les seuils de stratégie en sélectionnant la métrique **Paquets entrants pour déclencher l’atténuation DDoS**.
 
@@ -113,7 +113,7 @@ Si l’adresse IP publique est attaquée, la valeur de la métrique **Sous attaq
 
 Nous vous recommandons de configurer une alerte sur cette métrique. Vous serez alors averti en cas d’atténuation DDoS active sur votre adresse IP publique.
 
-Pour plus d’informations, consultez [Gérer Azure DDoS Protection Standard à l’aide du portail Azure](../../virtual-network/manage-ddos-protection.md).
+Pour plus d’informations, consultez [Gérer Azure DDoS Protection Standard à l’aide du portail Azure](../../ddos-protection/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Pare-feu d’applications web pour les attaques sur les ressources
 
@@ -179,7 +179,7 @@ Pour votre équipe de réponse DDoS, nous vous recommandons d’utiliser des exe
 
 ### <a name="alerts-during-an-attack"></a>Alertes durant une attaque
 
-Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucune intervention de l’utilisateur. Pour être averti en cas d’atténuation active pour une adresse IP publique protégée, vous pouvez [configurer une alerte](../../virtual-network/manage-ddos-protection.md) sur la métrique **Sous attaque DDoS ou non**. Vous pouvez choisir de créer des alertes pour les autres métriques DDoS afin de comprendre l’échelle des attaques, le trafic abandonné, etc.
+Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucune intervention de l’utilisateur. Pour être averti en cas d’atténuation active pour une adresse IP publique protégée, vous pouvez [configurer une alerte](../../ddos-protection/manage-ddos-protection.md) sur la métrique **Sous attaque DDoS ou non**. Vous pouvez choisir de créer des alertes pour les autres métriques DDoS afin de comprendre l’échelle des attaques, le trafic abandonné, etc.
 
 #### <a name="when-to-contact-microsoft-support"></a>Quand contacter le support Microsoft
 
@@ -260,7 +260,7 @@ Cette architecture de référence montre la configuration de DDoS Protection Sta
 
 Dans cette architecture, le trafic destiné au cluster HDInsight en provenance d’Internet est acheminé à l’adresse IP publique associée à l’équilibreur de charge de la passerelle HDInsight. L’équilibreur de charge de la passerelle envoie ensuite directement le trafic aux nœuds principaux ou aux nœuds worker. Dans la mesure où DDoS Protection Standard est activé sur le réseau virtuel HDInsight, toutes les adresses IP publiques dans le réseau virtuel bénéficient d’une protection DDoS au niveau des couches 3 et 4. Cette architecture de référence peut être combinée avec les architectures de référence multiniveau/multirégion.
 
-Pour plus d’informations sur cette architecture de référence, consultez la documentation [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json).
+Pour plus d’informations sur cette architecture de référence, consultez la documentation [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Pour plus d’informations sur cette architecture de référence, consultez la d
 
 * [Responsabilité partagée dans le cloud](shared-responsibility.md)
 * [Azure DDoS Protection : page produit](https://azure.microsoft.com/services/ddos-protection/)
-* [Documentation sur Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)
+* [Documentation sur Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)
