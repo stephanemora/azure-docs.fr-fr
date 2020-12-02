@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4487aeba72cc71a31871169c0647efbff34ee068
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9b35a3cbe23af91f7f0b8aceecfb8ba3c9720461
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968619"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484411"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Mises à niveau sur place de Red Hat Enterprise Linux
 
@@ -35,7 +35,7 @@ Avant de commencer la mise à niveau, gardez à l’esprit les points suivants.
 >[!Important] 
 > Prenez un instantané de l’image avant de commencer la mise à niveau.
 
-* Veillez à utiliser la dernière version de RHEL 7. Il s’agit actuellement de la version 7.9. Si vous utilisez une version verrouillée et que vous ne pouvez pas effectuer la mise à niveau vers RHEL 7.9, suivez [cette procédure pour basculer vers un référentiel non EUS (mise à jour étendue)](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
+* Veillez à utiliser la dernière version de RHEL 7. Il s’agit actuellement de la version 7.9. Si vous utilisez une version verrouillée et que vous ne pouvez pas effectuer la mise à niveau vers RHEL 7.9, suivez [cette procédure pour basculer vers un référentiel non EUS (mise à jour étendue)](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
 * Exécutez la commande suivante pour vérifier votre mise à niveau et voir si elle se termine correctement. La commande doit générer un fichier */var/log/leapp/leapp-report.txt*. Ce fichier explique le processus, décrit son déroulement et indique si la mise à niveau est possible.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fcc247e9e3122515ebe9230f58860df8c6dd3948
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956430"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484326"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Haute disponibilité d’IBM Db2 LUW sur les machines virtuelles Azure sur Red Hat Enterprise Linux Server
 
@@ -405,7 +405,7 @@ Pour configurer Azure Load Balancer, nous vous recommandons d’utiliser la [ré
 > La référence SKU Standard Load Balancer a des restrictions quant à l’accès aux adresses IP publiques à partir des nœuds situés sous le Load Balancer. L’article [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) décrit comment activer ces nœuds pour accéder aux adresses IP publiques.
 
 > [!IMPORTANT]
-> L'adresse IP flottante n'est pas prise en charge sur une configuration d'adresse IP secondaire de carte réseau dans les scénarios d'équilibrage de charge. Pour plus d'informations, consultez [Limitations relatives à Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d'une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
+> L'adresse IP flottante n'est pas prise en charge sur une configuration d'adresse IP secondaire de carte réseau dans les scénarios d'équilibrage de charge. Pour plus d'informations, consultez [Limitations relatives à Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si vous avez besoin d'une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
 
 
 1. Créez un pool d’adresses IP front-end :

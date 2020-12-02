@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003971"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500153"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -639,7 +639,7 @@ Regardez la vidéo ci-dessous, un didacticiel vidéo détaillé sur la façon de
 
 ## <a name="exposure-control-and-feature-flags"></a>Indicateurs de contrôle d’exposition et de fonctionnalité
 
-Lorsque vous travaillez en équipe, vous pouvez souhaiter fusionner des modifications, sans les exécuter dans des environnements élevés tels que PROD et QA. Pour gérer un tel scénario, l’équipe ADF recommande [le concept DevOps utilisant les indicateurs de fonctionnalité](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). Dans ADF, vous pouvez combiner les [paramètres globaux](author-global-parameters.md) et l’[activité IfCondition](control-flow-if-condition-activity.md) pour masquer des ensembles de logique en fonction de ces indicateurs d’environnement.
+Lorsque vous travaillez en équipe, vous pouvez souhaiter fusionner des modifications, sans les exécuter dans des environnements élevés tels que PROD et QA. Pour gérer un tel scénario, l’équipe ADF recommande [le concept DevOps utilisant les indicateurs de fonctionnalité](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). Dans ADF, vous pouvez combiner les [paramètres globaux](author-global-parameters.md) et l’[activité IfCondition](control-flow-if-condition-activity.md) pour masquer des ensembles de logique en fonction de ces indicateurs d’environnement.
 
 Pour savoir comment configurer un indicateur de fonctionnalité, consultez le tutoriel vidéo ci-dessous :
 

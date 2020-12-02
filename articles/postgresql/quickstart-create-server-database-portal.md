@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 42e15da2fd31d163bc8822a347101704b27e1222
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492384"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL en utilisant le portail Azure
 
@@ -65,7 +65,7 @@ Accédez au [portail Azure](https://portal.azure.com/) pour créer une base de d
 [Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="configure-a-firewall-rule"></a>Configurer une règle de pare-feu
-Par défaut, le serveur que vous créez n’est pas accessible publiquement. Vous devez accorder des autorisations d’accès à votre adresse IP. Accédez à votre ressource de serveur dans le portail Azure, puis sélectionnez **Sécurité de la connexion** dans le menu de gauche pour votre ressource de serveur. Si vous ne savez pas comment trouver votre ressource, consultez [Ouvrir des ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Par défaut, le serveur que vous créez n’est pas accessible publiquement. Vous devez accorder des autorisations d’accès à votre adresse IP. Accédez à votre ressource de serveur dans le portail Azure, puis sélectionnez **Sécurité de la connexion** dans le menu de gauche pour votre ressource de serveur. Si vous ne savez pas comment trouver votre ressource, consultez [Ouvrir des ressources](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Capture d’écran montrant les règles de pare-feu pour la sécurité de la connexion.":::

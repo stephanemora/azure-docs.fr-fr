@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e9e7586c29f3b75512a57b0f89885f13e58e2ba1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3b648168cd80920b8042f1edeacca893c21b98e2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949256"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498946"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Base de référence de la sécurité pour ASecurity Center
 
@@ -156,7 +156,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/get-started-portal.md) 
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

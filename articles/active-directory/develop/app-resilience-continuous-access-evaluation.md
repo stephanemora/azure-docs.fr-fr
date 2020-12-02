@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753695"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484037"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications
 
@@ -27,9 +27,9 @@ Cet article explique comment utiliser les API prenant en charge l’évaluation 
 
 ## <a name="implementation-considerations"></a>Considérations relatives à l’implémentation
 
-Pour utiliser l’évaluation continue de l’accès, votre application et l’API de ressource à laquelle elle accède doivent prendre en charge l’évaluation continue de l’accès. Toutefois, la préparation de votre code pour l’utilisation d’une ressource prenant en charge l’évaluation continue de l’accès ne vous empêche pas d’utiliser des API qui ne prennent pas en charge l’évaluation continue de l’accès. 
+Pour utiliser l’évaluation continue de l’accès, votre application et l’API de ressource à laquelle elle accède doivent prendre en charge l’évaluation continue de l’accès. Toutefois, la préparation de votre code pour l’utilisation d’une ressource prenant en charge l’évaluation continue de l’accès ne vous empêche pas d’utiliser des API qui ne prennent pas en charge l’évaluation continue de l’accès.
 
-Si une API de ressource implémente l’évaluation continue de l’accès et que votre application déclare qu’elle peut gérer l’évaluation continue de l’accès, votre application obtiendra des jetons d’évaluation continue de l’accès pour cette ressource. Pour cette raison, si vous déclarez que votre application est prête à utiliser l’évaluation continue de l’accès, votre application doit traiter le défi de revendications d’évaluation continue de l’accès pour toutes les API de ressources qui acceptent les jetons d’accès Microsoft Identity. Si vous ne gérez pas les réponses d’évaluation continue de l’accès dans ces appels d’API, votre application peut se retrouver à réessayer en boucle un appel d’API avec un jeton qui est toujours dans la durée de vie retournée du jeton, mais qui a été révoqué en raison de l’évaluation continue de l’accès. 
+Si une API de ressource implémente l’évaluation continue de l’accès et que votre application déclare qu’elle peut gérer l’évaluation continue de l’accès, votre application obtiendra des jetons d’évaluation continue de l’accès pour cette ressource. Pour cette raison, si vous déclarez que votre application est prête à utiliser l’évaluation continue de l’accès, votre application doit traiter le défi de revendications d’évaluation continue de l’accès pour toutes les API de ressources qui acceptent les jetons d’accès Microsoft Identity. Si vous ne gérez pas les réponses d’évaluation continue de l’accès dans ces appels d’API, votre application peut se retrouver à réessayer en boucle un appel d’API avec un jeton qui est toujours dans la durée de vie retournée du jeton, mais qui a été révoqué en raison de l’évaluation continue de l’accès.
 
 ## <a name="the-code"></a>Code
 
@@ -57,7 +57,7 @@ Lorsque ces conditions sont réunies, l’application peut extraire et décoder 
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Une fois que votre application est prête à traiter le défi de revendications retourné par une ressource prenant en charge l’évaluation continue de l’accès, vous pouvez indiquer à Microsoft Identity que votre application est prête à utiliser l’évaluation continue de l’accès. Pour effectuer cette opération dans votre application MSAL, générez votre client public à l’aide des fonctionnalités client de « cp1 ».
@@ -116,4 +116,4 @@ Vous pouvez tester votre application en connectant un utilisateur à l’applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Évaluation continue de l’accès](/conditional-access/concept-continuous-access-evaluation.md).
+Pour plus d’informations, consultez [Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md).

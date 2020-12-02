@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317203"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494696"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -31,7 +31,7 @@ Il existe deux versions du service Azure Migrate :
 
 ## <a name="upgrade-between-versions"></a>Mise à niveau entre versions
 
-Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un projet Azure Migrate](create-manage-projects.md) et y [ajouter des outils d’évaluation et de migration](how-to-add-tool-first-time.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si un espace de travail Log Analytics est attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
+Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un projet Azure Migrate](create-manage-projects.md) et y [ajouter des outils d’évaluation et de migration](./create-manage-projects.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si un espace de travail Log Analytics est attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
 
 ## <a name="find-projects-from-previous-version"></a>Rechercher des projets de la version précédente
 
@@ -308,7 +308,7 @@ Pour exécuter des requêtes Kusto :
 4. Rédigez votre requête pour recueillir des données de dépendance à l'aide des journaux d'activité Azure Monitor. Accédez à des exemples de requêtes dans la section suivante.
 5. Exécutez votre requête en cliquant sur Exécuter. 
 
-[Découvrez-en plus](../azure-monitor/log-query/get-started-portal.md) sur la rédaction de requêtes Kusto. 
+[Découvrez-en plus](../azure-monitor/log-query/log-analytics-tutorial.md) sur la rédaction de requêtes Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Exemples d'interrogation des journaux d'activité Azure Monitor
 

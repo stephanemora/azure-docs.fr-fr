@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 56bed63a9030135966a208dd1ad9b4c45cde328d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811693"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498691"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Démarrage rapide : Rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus en préversion
 Dans ce tutoriel, vous allez découvrir comment utiliser le package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) dans un programme JavaScript pour envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à cette rubrique.
@@ -208,4 +208,4 @@ Voir la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Le dossier **JavaScript** contient des exemples JavaScript, et le dossier **typescript** contient des exemples TypeScript. 
-- [Documentation de référence sur azure-servicebus](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
+- [Documentation de référence sur azure-servicebus](/javascript/api/overview/azure/service-bus)

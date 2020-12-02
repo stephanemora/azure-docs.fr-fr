@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283892"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497484"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Démarrage rapide : Créer une fabrique de données Azure à l’aide d’un modèle ARM
 
@@ -94,23 +94,23 @@ Vous trouverez d’autres exemples de modèles Azure Data Factory dans la [galer
 
 1. Sélectionnez **Accéder au groupe de ressources**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Groupe de ressources":::
 
 2.  Vérifiez que votre Azure Data Factory est créé.
     1. Le nom de votre Azure Data Factory est au format datafactory\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Exemple de Data Factory":::
 
 2. Vérifiez que votre compte de stockage est créé.
     1. Le nom du compte de stockage est au format storage\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Compte de stockage":::
 
 3. Sélectionnez le compte de stockage créé, puis **Conteneurs**.
     1. Sur la page **Conteneurs**, sélectionnez le conteneur d’objets blob que vous avez créé.
         1. Le nom du conteneur d’objets blob est au format blob\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Conteneur d’objets blob":::
 
 ### <a name="upload-a-file"></a>Charger un fichier
 
@@ -126,7 +126,7 @@ Vous trouverez d’autres exemples de modèles Azure Data Factory dans la [galer
 
 6. Sélectionnez l’icône **Fermer** (**X**) pour fermer la page **Charger l’objet blob**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Charger le fichier dans le dossier d’entrée":::
 
 Laissez la page du conteneur ouverte, car elle vous permettra de vérifier la sortie à l’issue de ce démarrage rapide.
 
@@ -136,17 +136,17 @@ Laissez la page du conteneur ouverte, car elle vous permettra de vérifier la so
 
 2. Sélectionnez la vignette **Créer et surveiller**. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Auteur et moniteur":::
 
 2. Sélectionnez l’onglet **Auteur** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 
 3. Sélectionnez le pipeline créé ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Pipeline de modèle ARM":::
 
 4. Sélectionnez **Ajouter un déclencheur** > **Déclencher maintenant**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Déclencheur":::
 
 5. Dans le volet droit, sous **Exécuter le pipeline**, sélectionnez **OK**.
 
@@ -156,7 +156,7 @@ Laissez la page du conteneur ouverte, car elle vous permettra de vérifier la so
 
 2. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copier. Par conséquent, vous voyez une exécution pour cette activité.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Exécution réussie":::
 
 ### <a name="verify-the-output-file"></a>Vérifier le fichier de sortie
 
@@ -168,7 +168,7 @@ Le pipeline crée automatiquement un dossier de sortie dans le conteneur d’obj
 
 3. Vérifiez que le fichier **emp.txt** a été copié dans le dossier de sortie. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Déployer un modèle ARM ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Sortie":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

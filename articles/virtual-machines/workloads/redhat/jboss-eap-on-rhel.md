@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: ce07a0667b1fd4b439f061966e4ee0b1112578c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413205"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500187"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Déployer des applications Java d’entreprise sur Azure avec JBoss EAP on Red Hat Enterprise Linux
 
@@ -31,7 +31,7 @@ JBoss EAP et RHEL incluent tout ce dont vous avez besoin pour générer, exécut
 
   Si vous n’avez pas de droit EAP, obtenez un [abonnement d’évaluation JBoss EAP](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) avant de commencer. Pour créer un abonnement Red Hat, accédez au [portail client Red Hat](https://access.redhat.com/) et configurez un compte.
 
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview).
+* [Interface de ligne de commande Azure](/cli/azure/overview).
 
 * Options RHEL. Choisissez entre le mode PAYG (paiement à l’utilisation) ou BYOS (apportez votre propre abonnement). Avec BYOS, vous devez activer votre image RHEL Gold [Red Hat Cloud Access](https://access.redhat.com/) avant de déployer le modèle de guide de démarrage rapide.
 
@@ -164,9 +164,9 @@ Afin d’utiliser le modèle BYOS pour le système d’exploitation RHEL, vous d
 
    1. Attendez que les images Red Hat Gold soient disponibles dans votre abonnement Azure. Ces images sont généralement disponibles dans un délai de trois heures.
     
-3. Acceptez les conditions de la Place de marché Azure pour les images RHEL BYOS. Vous pouvez effectuer ce processus en exécutant les commandes Azure CLI suivantes. Pour plus d’informations, consultez la documentation sur les [Images RHEL BYOS Gold dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). Il est important que vous exécutiez la dernière version d’Azure CLI.
+3. Acceptez les conditions de la Place de marché Azure pour les images RHEL BYOS. Vous pouvez effectuer ce processus en exécutant les commandes Azure CLI suivantes. Pour plus d’informations, consultez la documentation sur les [Images RHEL BYOS Gold dans Azure](./byos.md). Il est important que vous exécutiez la dernière version d’Azure CLI.
 
-   1. Ouvrez une session Azure CLI et authentifiez-vous avec votre compte Azure. Pour obtenir de l’aide, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   1. Ouvrez une session Azure CLI et authentifiez-vous avec votre compte Azure. Pour obtenir de l’aide, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
    1. Vérifiez que les images RHEL BYOS sont disponibles dans votre abonnement en exécutant la commande CLI suivante. Si vous n’obtenez pas de résultats ici, vérifiez que votre abonnement Azure est activé pour les images RHEL BYOS.
    
@@ -203,7 +203,7 @@ Vous pouvez déployer le modèle selon les façons suivantes :
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez la [Documentation Azure PowerShell](https://docs.microsoft.com/powershell/azure/).  
+  Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez la [Documentation Azure PowerShell](/powershell/azure/).  
 
 - **Azure CLI**. Déployez le modèle en exécutant les commandes suivantes :
 
@@ -215,7 +215,7 @@ Vous pouvez déployer le modèle selon les façons suivantes :
   az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  Pour plus d’informations sur l’installation et la configuration d’Azure CLI, consultez [Installer l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+  Pour plus d’informations sur l’installation et la configuration d’Azure CLI, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli).
 
 - **Portail Azure**. Vous pouvez effectuer le déploiement sur le portail Azure en accédant aux modèles de démarrage rapide Azure, comme indiqué dans la section suivante. Après avoir suivi le guide de démarrage rapide, sélectionnez le bouton **Déployer dans Azure** ou **Rechercher sur GitHub**.
 
@@ -231,10 +231,10 @@ Vous pouvez commencer par utiliser l’un des modèles de démarrage rapide suiv
 
 ## <a name="resource-links"></a>Liens de ressources
 
-* [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
-* [Configurer une application Java pour Azure App Service](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Azure Hybrid Benefit](../../windows/hybrid-use-benefit-licensing.md)
+* [Configurer une application Java pour Azure App Service](../../../app-service/configure-language-java.md)
 * [JBoss EAP sur Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* [JBoss EAP sur Azure App Service Linux](https://docs.microsoft.com/azure/app-service/quickstart-java)
+* [JBoss EAP sur Azure App Service Linux](../../../app-service/quickstart-java.md)
 * [Déployer JBoss EAP sur Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -242,6 +242,6 @@ Vous pouvez commencer par utiliser l’un des modèles de démarrage rapide suiv
 * En découvrir plus sur [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
 * En découvrir plus sur [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
 * En découvrir plus sur la [Gestion des abonnements Red Hat](https://access.redhat.com/products/red-hat-subscription-management).
-* En découvrir plus sur les [Charges de travail Red Hat sur Azure](https://aka.ms/rhel-docs).
+* En découvrir plus sur les [Charges de travail Red Hat sur Azure](./overview.md).
 * Déployer [JBoss EAP sur une machine virtuelle ou un groupe de machines virtuelles identiques RHEL à partir de la Place de marché Azure](https://aka.ms/AMP-JBoss-EAP).
 * Déployer [JBoss EAP sur une machine virtuelle ou un groupe de machines virtuelles identiques RHEL à partir de modèles de démarrage rapide Azure](https://aka.ms/Quickstart-JBoss-EAP).

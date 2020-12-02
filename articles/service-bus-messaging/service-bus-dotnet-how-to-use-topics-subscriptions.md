@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ddfca1186025f4118013815af7bbf7f500951ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5dfdf846410e9b622f3ef1e9006aa9846de9979c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95809326"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498708"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Envoyer des messages à une rubrique Azure Service Bus et recevoir des messages à partir des abonnements à cette rubrique (.NET)
 Ce tutoriel vous montre comment créer une application console .NET Core qui envoie des messages à une rubrique Service Bus et reçoit des messages d’un abonnement à cette rubrique. 
@@ -151,7 +151,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
             await SendMessageBatchToTopicAsync();
         }
     ```
-5. Exécutez l'application. Vous devez normalement voir la sortie suivante :
+5. Exécutez l'application. Vous devez normalement voir la sortie suivante.
 
     ```console
     Sent a single message to the topic: mytopic
@@ -270,5 +270,4 @@ Consultez la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour .NET – Fichier Lisez-moi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemples sur GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Informations de référence sur l’API .NET](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [Informations de référence sur l’API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

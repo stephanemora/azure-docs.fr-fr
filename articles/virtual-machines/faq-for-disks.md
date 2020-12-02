@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843993"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499320"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -151,7 +151,7 @@ La réservation de disque Azure offre la possibilité d’acheter des SSD Premiu
 Les réservations sont effectuées sous forme de disques, et non de capacité. En d’autres termes, lorsque vous réservez un disque P80 (32 Tio), vous recevez un seul disque P80 ; vous ne pouvez pas ensuite diviser cette réservation spécifique en deux disques P70 plus petits (16 Tio). Vous pouvez, bien sûr, réserver autant de disques que vous le souhaitez, y compris deux disques P70 (16 Tio) distincts.
 
 **Comment la réservation de disque Azure est-elle appliquée ?**     
-La réservation de disque suit un modèle similaire aux instances de machines virtuelles réservées. La différence réside dans le fait qu’une réservation de disque ne peut pas être appliquée à différentes références SKU, contrairement aux instances de machines virtuelles. Pour plus d’informations sur les instances de machine virtuelle, consultez [Économiser grâce aux instances de machines virtuelles Azure réservées](./linux/prepay-reserved-vm-instances.md).     
+La réservation de disque suit un modèle similaire aux instances de machines virtuelles réservées. La différence réside dans le fait qu’une réservation de disque ne peut pas être appliquée à différentes références SKU, contrairement aux instances de machines virtuelles. Pour plus d’informations sur les instances de machine virtuelle, consultez [Économiser grâce aux instances de machines virtuelles Azure réservées](./prepay-reserved-vm-instances.md).     
 
 **Puis-je utiliser mon stockage de données acheté par le biais de la réservation de disques Azure dans plusieurs régions ?**     
 La réservation de disque Azure est achetée pour une région et une référence SKU spécifiques (par exemple, P30 dans USA Est 2) et ne peut donc pas être utilisée en dehors de ces limites. Vous pouvez toujours acheter une réservation de disque Azure supplémentaire pour vos besoins de stockage sur disque dans d’autres régions ou références SKU.    

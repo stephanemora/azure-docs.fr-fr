@@ -4,16 +4,16 @@ description: Découvrez comment utiliser la bibliothèque File d’attente Azure
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 25b6bdcb293379e3206cc6714fae65fe40f6e6c5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4c96b84aa53d2a9f4d6e44ac84cf0ce9e0ecac04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345599"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491925"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Java
 
@@ -33,7 +33,7 @@ Ressources supplémentaires :
 - [Documentation de référence de l’API](/java/api/overview/azure/storage-queue-readme)
 - [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 - [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-- [Exemples](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Exemples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,13 +52,29 @@ Créez une application Java nommée *queues-quickstart-v12*.
 
 1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *queues-quickstart-v12*. Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
 
-   ```console
-   mvn archetype:generate -DgroupId=com.queues.quickstart \
-                          -DartifactId=queues-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.queues.quickstart `
+        --define artifactId=queues-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.queues.quickstart \
+        --define artifactId=queues-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. Le résultat de la génération du projet doit ressembler à ceci :
 

@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Analysis Services utilise Azure A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487437"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 
@@ -24,7 +24,7 @@ Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../activ
 
 ## <a name="authentication"></a>Authentication
 
-Tous les outils et les applications clientes utilisent une ou plusieurs [bibliothèques clientes](/analysis-services/client-libraries?view=azure-analysis-services-current) des Services d’analyse (AMO, MSOLAP, ADOMD) pour se connecter à un serveur. 
+Tous les outils et les applications clientes utilisent une ou plusieurs [bibliothèques clientes](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) des Services d’analyse (AMO, MSOLAP, ADOMD) pour se connecter à un serveur. 
 
 Les trois bibliothèques clientes prennent en charge les deux flux interactif d’Azure AD et les méthodes d’authentification non interactive. Les deux méthodes non-interactives, les méthodes de mot de passe Active Directory et d’authentification intégrée Active Directory peuvent être utilisées dans les applications qui utilisent AMOND et MSOLAP. Ces deux méthodes n’entraînent jamais l’affichage de boîtes de dialogue contextuelles.
 

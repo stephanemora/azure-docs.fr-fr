@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531353"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491670"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 ### <a name="partition-key-options"></a>Options de clé de partition
 
-La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être de type NVARCHAR (MAX), BIGINT, FLOAT ou BIT (niveau de compatibilité 1.2 ou supérieur). Pour plus d’informations, consultez [Types de données Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être de type NVARCHAR (MAX), BIGINT, FLOAT ou BIT (niveau de compatibilité 1.2 ou supérieur). Pour plus d’informations, consultez [Types de données Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemple
 

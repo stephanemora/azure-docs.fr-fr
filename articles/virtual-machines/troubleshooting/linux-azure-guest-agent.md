@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 9e3b376cfaf5379acaf92713c42509471200d066
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fc609b60c9d5d4d4734c3d73cbda87935b533caf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95547882"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500255"
 ---
 # <a name="troubleshooting-azure-linux-guest-agent"></a>Résolution des problèmes de l’agent invité Linux Azure
 
-[L’agent invité Linux Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) est un agent de machine virtuelle. Il permet à la machine virtuelle de communiquer avec le contrôleur de structure (serveur physique sous-jacent sur lequel la machine virtuelle est hébergée) via l’adresse IP 168.63.129.16. Cette adresse IP est une adresse IP publique virtuelle qui facilite la communication. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+[L’agent invité Linux Azure](../extensions/agent-linux.md) est un agent de machine virtuelle. Il permet à la machine virtuelle de communiquer avec le contrôleur de structure (serveur physique sous-jacent sur lequel la machine virtuelle est hébergée) via l’adresse IP 168.63.129.16. Cette adresse IP est une adresse IP publique virtuelle qui facilite la communication. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ## <a name="checking-agent-status-and-version"></a>Vérification de l’état et de la version de l’agent
 

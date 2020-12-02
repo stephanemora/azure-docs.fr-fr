@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920608"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500272"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -137,7 +137,7 @@ Le *nom de ressource galleryImage.properties.identifier.<property\> n’est pas 
 
 *Le type de compte ZRS n’est pas pris en charge dans cette région.*  
 **Cause** : vous avez choisi un stockage redondant de zone standard (ZRS) dans une région qui ne le prend pas encore en charge.  
-**Solution de contournement** : modifiez le type de compte de stockage en **Premium\_LRS** ou **Standard\_LRS**. Consultez notre documentation pour obtenir la dernière [liste des régions](/azure/storage/common/storage-redundancy#zone-redundant-storage) avec la préversion ZRS activée.
+**Solution de contournement** : modifiez le type de compte de stockage en **Premium\_LRS** ou **Standard\_LRS**. Consultez notre documentation pour obtenir la dernière [liste des régions](../storage/common/storage-redundancy.md#zone-redundant-storage) avec la préversion ZRS activée.
 
 ## <a name="creating-or-updating-image-versions"></a>Création ou mise à jour de versions d’images ##
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/24/2020
 ms.author: memildin
-ms.openlocfilehash: ee2582d25477d9b9f4fe0bac6b230132a797fd0f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95896592"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487947"
 ---
 # <a name="pricing-of-azure-security-center"></a>Niveaux tarifaires d’Azure Security Center
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyber-risques en rapide évolution.
@@ -86,9 +86,9 @@ Vous pouvez utiliser l’une des méthodes suivantes pour activer Azure Defender
 |Méthode  |Instructions  |
 |---------|---------|
 |Pages Azure Security Center du portail Azure|[Activation d’Azure Defender](#enable-azure-defender)|
-|API REST|[API pricings](https://docs.microsoft.com/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](https://docs.microsoft.com/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](https://docs.microsoft.com/powershell/module/az.security/set-azsecuritypricing)|
+|API REST|[API pricings](/rest/api/securitycenter/pricings)|
+|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
+|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
 |Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
 |||
 

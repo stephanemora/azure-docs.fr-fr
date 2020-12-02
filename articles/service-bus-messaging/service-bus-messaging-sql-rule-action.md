@@ -3,16 +3,16 @@ title: Syntaxe d’action SQL pour les règles d’abonnement Azure Service Bus 
 description: Cet article fournit une référence pour la syntaxe d’action des règles SQL. Les actions sont écrites dans une syntaxe basée sur le langage SQL exécutée sur un message.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808846"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489392"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Syntaxe d’action SQL pour les règles d’abonnement
 
-Une *action SQL* permet de manipuler les métadonnées d’un message après qu’un message a été sélectionné par un filtre d’une règle d’abonnement. Il s’agit d’une expression textuelle qui s’appuie sur un sous-ensemble de la norme SQL-92. Les expressions d’action sont utilisées avec l’élément `sqlExpression` de la propriété « action » d’un objet `Rule` Service Bus dans un [modèle Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), avec l’argument [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) de la commande Azure CLI `az servicebus topic subscription rule create` et avec plusieurs fonctions de Kit de développement logiciel (SDK) qui autorisent la gestion des règles d’abonnement.
+Une *action SQL* permet de manipuler les métadonnées d’un message après qu’un message a été sélectionné par un filtre d’une règle d’abonnement. Il s’agit d’une expression textuelle qui s’appuie sur un sous-ensemble de la norme SQL-92. Les expressions d’action sont utilisées avec l’élément `sqlExpression` de la propriété « action » d’un objet `Rule` Service Bus dans un [modèle Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), avec l’argument [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) de la commande Azure CLI `az servicebus topic subscription rule create` et avec plusieurs fonctions de Kit de développement logiciel (SDK) qui autorisent la gestion des règles d’abonnement.
   
   
 ```  
