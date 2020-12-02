@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145597"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461188"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Création de kits SDK personnalisés pour Azure Digital Twins avec AutoRest
 
@@ -64,7 +64,7 @@ Voici la procédure à suivre :
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit pour sélectionner le projet *ADTApi* de la solution générée, puis choisissez *Ajouter > Élément existant…* .
 4. Recherchez le dossier dans lequel vous avez généré le kit SDK et sélectionnez les fichiers au niveau racine.
 5. Appuyez sur « OK ».
-6. Ajoutez un dossier au projet (cliquez avec le bouton droit pour sélectionner le projet dans l’Explorateur de solutions, puis sélectionnez *Ajouter > Nouveau dossier* ).
+6. Ajoutez un dossier au projet (cliquez avec le bouton droit pour sélectionner le projet dans l’Explorateur de solutions, puis sélectionnez *Ajouter > Nouveau dossier*).
 7. Nommez le dossier *Modèles*.
 8. Cliquez avec le bouton droit pour sélectionner le dossier *Modèles* dans l’Explorateur de solutions, puis sélectionnez *Ajouter un élément existant…* .
 9. Sélectionnez les fichiers dans le dossier *Modèles* du kit SDK généré et appuyez sur « OK ».
@@ -102,7 +102,7 @@ Voici un extrait de code qui tente d’ajouter un jumeau et intercepte les erreu
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

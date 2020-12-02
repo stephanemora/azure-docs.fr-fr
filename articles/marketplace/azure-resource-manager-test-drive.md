@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491237"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461757"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -20,7 +20,7 @@ Utilisez ce type si vous disposez d’une offre sur la Place de marché Azure ou
 
 Si vous ne savez pas très bien ce qu’est un modèle ARM, lisez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md) et [Comprendre la structure et la syntaxe des modèles ARM](../azure-resource-manager/templates/template-syntax.md) pour mieux comprendre comment créer et tester vos propres modèles.
 
-Pour plus d’informations sur ce qu’est une version d’évaluation **hébergée** ou d’ **application logique** , consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md)
+Pour plus d’informations sur ce qu’est une version d’évaluation **hébergée** ou d’**application logique**, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md)
 
 ## <a name="technical-configuration"></a>Configuration technique
 
@@ -28,16 +28,16 @@ Un modèle de déploiement contient toutes les ressources Azure constituant votr
 
 - **Régions** (obligatoire) : à l’heure actuelle, vous pouvez mettre votre version d’évaluation à disposition dans 26 régions Azure. En règle générale, vous devez rendre votre version d’évaluation disponible dans les régions où vous prévoyez le plus grand nombre de clients, de sorte qu’ils puissent sélectionner la région la plus proche pour des performances optimales. Vous devez vous assurer que votre abonnement a l’autorisation de déployer toutes les ressources nécessaires dans chacune des régions sélectionnées.
 
-- **Instances**  : sélectionnez le type (chaud ou froid) et le nombre d’instances disponibles, qui seront multipliés par le nombre de régions où votre offre sera disponible.
+- **Instances** : sélectionnez le type (chaud ou froid) et le nombre d’instances disponibles, qui seront multipliés par le nombre de régions où votre offre sera disponible.
 
-  - **Chaud**  : ce type d’instance est déployé et en attente de l’accès par région sélectionnée. Les clients peuvent accéder instantanément aux instances *à chaud* d’une version d’évaluation au lieu d’attendre un déploiement. L’inconvénient est que ces instances sont toujours en cours d’exécution sur votre abonnement Azure, entraînant des coûts de fonctionnement plus importants. Il est vivement recommandé d’avoir au moins une instance *à chaud* , étant donné que la plupart de vos clients ne souhaitent pas attendre la fin des déploiements complets, et il y a donc une chute dans l’utilisation du client si aucune instance *à chaud* n’est disponible.
+  - **Chaud** : ce type d’instance est déployé et en attente de l’accès par région sélectionnée. Les clients peuvent accéder instantanément aux instances *à chaud* d’une version d’évaluation au lieu d’attendre un déploiement. L’inconvénient est que ces instances sont toujours en cours d’exécution sur votre abonnement Azure, entraînant des coûts de fonctionnement plus importants. Il est vivement recommandé d’avoir au moins une instance *à chaud*, étant donné que la plupart de vos clients ne souhaitent pas attendre la fin des déploiements complets, et il y a donc une chute dans l’utilisation du client si aucune instance *à chaud* n’est disponible.
 
-  - **Froid**  : ce type d’instance représente le nombre total d’instances pouvant éventuellement être déployées par région. Les instances à froid nécessitent le modèle Resource Manager entier de la version d’évaluation pour être déployées lorsqu’un client demande la version d’évaluation, les instances *à froid* sont donc plus lentes à charger que les instances *à chaud*. L’inconvénient est que vous avez uniquement à payer pour la durée de la version d’évaluation, elle n’est *pas* toujours en cours d’exécution sur votre abonnement Azure comme c’est le cas avec une instance *à chaud*.
+  - **Froid** : ce type d’instance représente le nombre total d’instances pouvant éventuellement être déployées par région. Les instances à froid nécessitent le modèle Resource Manager entier de la version d’évaluation pour être déployées lorsqu’un client demande la version d’évaluation, les instances *à froid* sont donc plus lentes à charger que les instances *à chaud*. L’inconvénient est que vous avez uniquement à payer pour la durée de la version d’évaluation, elle n’est *pas* toujours en cours d’exécution sur votre abonnement Azure comme c’est le cas avec une instance *à chaud*.
 
 - **Version d’évaluation du modèle Azure Resource Manager** – Chargez le fichier .zip contenant votre modèle Azure Resource Manager. Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > Pour une publication réussie, il est important de valider la mise en forme du modèle ARM. Pour ce faire, il existe deux méthodes : (1) en utilisant un [outil API en ligne](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) avec un [déploiement de test](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > Pour une publication réussie, il est important de valider la mise en forme du modèle ARM. Pour ce faire, il existe deux méthodes : (1) en utilisant un [outil API en ligne](/rest/api/resources/deployments/validate) ou (2) avec un [déploiement de test](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Durée de la version d’évaluation** (obligatoire) – Entrez le nombre d’heures durant lesquelles la version d’évaluation restera active. La version d’évaluation se termine automatiquement à la fin de cette période. Utilisez uniquement des nombres entiers (par exemple, « 2 » heures est valide, « 1,5 » ne l’est pas).
 
@@ -300,13 +300,13 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
 
    ![Abonnements Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenez un **ID de locataire Azure AD**. Si vous disposez déjà d’un ID de locataire, vous pouvez le trouver dans **Azure Active Directory** > **Propriétés** > **ID de répertoire**  :
+2. Obtenez un **ID de locataire Azure AD**. Si vous disposez déjà d’un ID de locataire, vous pouvez le trouver dans **Azure Active Directory** > **Propriétés** > **ID de répertoire** :
 
    ![Propriétés Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
    Si vous n’avez pas d’ID de locataire, créez-en un dans Azure Active Directory. Pour obtenir de l’aide sur la configuration d’un locataire, consultez [Démarrage rapide : Configurer un locataire](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **ID application Azure AD**  : créez et inscrivez une nouvelle application. Nous utiliserons cette application pour effectuer des opérations sur l’instance de votre version d’évaluation.
+3. **ID application Azure AD** : créez et inscrivez une nouvelle application. Nous utiliserons cette application pour effectuer des opérations sur l’instance de votre version d’évaluation.
 
    1. Accédez au répertoire que vous venez de créer ou au répertoire existant, et sélectionnez Azure Active Directory dans le volet de filtre.
    2. Recherchez **Inscriptions d’applications** et sélectionnez **Ajouter**.
@@ -314,7 +314,7 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
    4. Sélectionnez le **Type** **Application/API web**.
    5. Spécifiez une valeur quelconque dans URL de connexion. Ce champ n’est pas utilisé.
    6. Sélectionnez **Create** (Créer).
-   7. Une fois l’application créée, sélectionnez **Propriétés** > **Définir l’application comme étant multilocataire** , puis **Enregistrer**.
+   7. Une fois l’application créée, sélectionnez **Propriétés** > **Définir l’application comme étant multilocataire**, puis **Enregistrer**.
 
 4. Sélectionnez **Enregistrer**.
 
@@ -324,19 +324,19 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
 
 6. Étant donné que nous utilisons l’application pour le déploiement sur l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement :
 
-   1. Sélectionnez le type d’ **Abonnement** que vous utilisez pour la version d’évaluation.
+   1. Sélectionnez le type d’**Abonnement** que vous utilisez pour la version d’évaluation.
    1. Sélectionnez **Contrôle d’accès (IAM)** .
-   1. Sélectionnez l’onglet **Attributions de rôle** , puis **Ajouter une attribution de rôle**.
+   1. Sélectionnez l’onglet **Attributions de rôle**, puis **Ajouter une attribution de rôle**.
 
       ![Ajouter un nouveau principal de contrôle d’accès](media/test-drive/access-control-principal.jpg)
 
-   1. Définissez **Rôle** et **Attribuer l’accès à** comme indiqué. Dans le champ **Sélectionner** , entrez le nom de l’application Azure AD. Sélectionnez l’application à laquelle vous souhaitez affecter le rôle de **Contributeur**.
+   1. Définissez **Rôle** et **Attribuer l’accès à** comme indiqué. Dans le champ **Sélectionner**, entrez le nom de l’application Azure AD. Sélectionnez l’application à laquelle vous souhaitez affecter le rôle de **Contributeur**.
 
       ![Ajouter les autorisations](media/test-drive/access-control-permissions.jpg)
 
    1. Sélectionnez **Enregistrer**.
 
-7. Générez une clé d’authentification **Azure AD App**. Sous **Clés** , ajoutez une **Description de clé** , définissez la durée sur **N’expire jamais** (une clé expirée interrompt votre version d’évaluation en production), puis sélectionnez **Enregistrer**. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
+7. Générez une clé d’authentification **Azure AD App**. Sous **Clés**, ajoutez une **Description de clé**, définissez la durée sur **N’expire jamais** (une clé expirée interrompt votre version d’évaluation en production), puis sélectionnez **Enregistrer**. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
 
 ![Affiche les clés de l’application Azure AD](media/test-drive/azure-ad-app-keys.png)
 

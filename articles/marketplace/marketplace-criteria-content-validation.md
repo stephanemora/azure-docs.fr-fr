@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462136"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
@@ -93,5 +93,5 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 * Apprenez-en davantage sur les différents types d’offre dans la Place de marché Azure :
   * [Applications SaaS](./plan-saas-offer.md)
   * [Containers](./marketplace-containers.md)
-  * [Services de conseil](./consulting-services.md)
+  * [Services de conseil](./plan-consulting-service-offer.md)
 * [Déterminer votre option de publication](./determine-your-listing-type.md)

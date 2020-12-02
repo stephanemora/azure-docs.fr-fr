@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659826"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462426"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurer un laboratoire pour enseigner la gestion des bases de données pour les bases de données relationnelles
 
@@ -41,7 +41,7 @@ Utilisez les paramètres du tableau ci-dessous lors de la configuration d’un l
 
 ## <a name="template-machine-configuration"></a>Configuration du modèle de machine
 
-Pour installer MySQL sur Windows Server 2019, vous pouvez suivre les étapes indiquées dans [Installer et exécuter le serveur de communauté MySQL sur une machine virtuelle](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Pour installer MySQL sur Windows Server 2019, vous pouvez suivre les étapes indiquées dans [Installer et exécuter le serveur de communauté MySQL sur une machine virtuelle](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 est préinstallé dans l’image de machine virtuelle que nous avons choisie lors de la création du laboratoire.
 

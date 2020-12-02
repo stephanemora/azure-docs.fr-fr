@@ -254,8 +254,8 @@
     - name: Architecture de référence
       href: /azure/architecture/reference-architectures/iot
       items:
-        - name: Télécharger
-          href: 'https://aka.ms/iotrefarchitecture'
+        - name: Téléchargement
+          href: /azure/architecture/reference-architectures/iot
         - name: Implémentations partenaires
           items:
             - name: Plateforme de logistique connecté Intel
@@ -264,7 +264,7 @@
               href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
             - name: Solution de signalisation numérique
               href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
-    - name: Forum aux questions
+    - name: Questions fréquentes (FAQ)
       href: iot-accelerators-faq.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
