@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920523"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453288"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notification de maintenance planifiée dans Azure Database for MariaDB
 
@@ -61,7 +61,7 @@ Vous pouvez consulter la notification de maintenance planifiée sur le portail A
 7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
 8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
 
-Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
+Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Puis-je annuler ou reporter la maintenance planifiée ?
 

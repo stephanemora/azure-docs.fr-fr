@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992163"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459664"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Ce document fournit des conseils sur la façon de répondre à des exigences de 
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Offres de déploiement non traitées dans ce guide
 
-- Azure Synapse Analytics (anciennement SQL Data Warehouse)
+- Azure Synapse Analytics
 - Machines virtuelles Azure SQL (IaaS)
 - SQL Server
 
@@ -614,7 +614,7 @@ Des attaques par déni de service distribué (DDoS) sont des tentatives effectu�
 
 La protection contre les attaques par déni de service distribué est automatiquement activée sur la plateforme Azure. Elle inclut une surveillance permanente du trafic et l’atténuation en temps réel des attaques au niveau réseau de points de terminaison publics.
 
-- Utilisez [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) pour surveiller les adresses IP publiques associées aux ressources déployées dans des réseaux virtuels.
+- Utilisez [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) pour surveiller les adresses IP publiques associées aux ressources déployées dans des réseaux virtuels.
 
 - Utilisez [Advanced Threat Protection pour Azure SQL Database](threat-detection-overview.md) pour détecter les attaques par déni de service (DoS) dirigées contre des bases de données.
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012943"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447326"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -30,7 +30,7 @@ Cet article explique comment créer, afficher et supprimer des [**espaces de tra
 
 ## <a name="limitations"></a>Limites
 
-* Lors de la création d’un espace de travail, vous pouvez autoriser l’espace de travail à créer les services Azure requis automatiquement ou à fournir des services existants. Lorsque vous fournissez des services existants, ces services doivent tous se trouver dans le même abonnement Azure que l’espace de travail.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 

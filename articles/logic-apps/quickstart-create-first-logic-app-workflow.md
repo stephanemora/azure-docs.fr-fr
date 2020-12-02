@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337455"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455059"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Démarrage rapide : Créer votre premier workflow Logic Apps dans le portail Azure
 
@@ -46,11 +46,11 @@ Si vous souhaitez apprendre à créer et à gérer votre première application l
 
    ![Capture d’écran du portail Azure, montrant la zone de recherche avec le terme de recherche « logic apps », et le résultat de recherche « Logic Apps » sélectionné.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
-1. Dans la page **Logic Apps** , sélectionnez **Ajouter**.
+1. Dans la page **Logic Apps**, sélectionnez **Ajouter**.
 
    ![Capture d’écran de la page du service Logic Apps dans le portail Azure, montrant la liste des applications logiques et le bouton « Ajouter » sélectionné.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Dans le volet **Logic Apps** , entrez les détails de base et les paramètres de votre application logique. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md#terminology) pour les besoins de cet exemple d’application logique.
+1. Dans le volet **Logic Apps**, entrez les détails de base et les paramètres de votre application logique. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md#terminology) pour les besoins de cet exemple d’application logique.
     
    | Property | Valeur | Description |
    |----------|-------|-------------|
@@ -69,7 +69,7 @@ Si vous souhaitez apprendre à créer et à gérer votre première application l
 
    ![Capture d’écran de la page de déploiement de ressource, montrant le bouton « Accéder à la ressource » sélectionné.](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. Sous **Modèles** , sélectionnez **Application logique vide**.
+   Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. Sous **Modèles**, sélectionnez **Application logique vide**.
 
    ![Capture d’écran du concepteur d’applications logiques, montrant la galerie de modèles et le modèle « Application logique vide » sélectionné.](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
@@ -83,9 +83,9 @@ Chaque application logique doit démarrer avec un [déclencheur](../logic-apps/l
 
 Dans cet exemple de démarrage rapide, après avoir [créé une application logique](#create-your-logic-app), vous ajoutez un déclencheur qui recherche les nouveaux éléments dans un flux RSS et qui se déclenche quand il en trouve. Vous pouvez également créer des applications logiques avec différents types de déclencheurs, comme cela est expliqué dans le tutoriel sur la [création de workflows basés sur l’approbation automatique](tutorial-process-mailing-list-subscriptions-workflow.md).
 
-1. Dans le **Concepteur d’application logique** , sous la zone de recherche, sélectionnez **Tout**.
+1. Dans le **Concepteur d’application logique**, sous la zone de recherche, sélectionnez **Tout**.
 
-1. Pour rechercher le connecteur RSS, dans la zone de recherche, entrez `rss`. Dans la liste **Déclencheurs** , sélectionnez le déclencheur RSS **Lors de la publication d’un élément de flux**.
+1. Pour rechercher le connecteur RSS, dans la zone de recherche, entrez `rss`. Dans la liste **Déclencheurs**, sélectionnez le déclencheur RSS **Lors de la publication d’un élément de flux**.
 
    ![Capture d’écran du concepteur d’applications logiques, montrant la zone de recherche avec le terme « rss », et le déclencheur RSS « Lors de la publication d’un élément de flux » sélectionné.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -112,12 +112,12 @@ Votre application logique est à présent opérationnelle. Toutefois, elle ne fa
 
 ## <a name="add-the-send-email-action"></a>Ajouter l’action « Envoyer un courrier électronique »
 
-Après avoir [ajouté un déclencheur à votre application logique](#add-rss-trigger), vous devez ajouter une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) pour définir ce que doit faire l’application logique quand elle vérifie le flux RSS et qu’elle détecte un nouvel élément publié. Vous pouvez également créer des applications logiques avec des actions bien plus complexes, comme cela est décrit dans le tutoriel sur le [traitement des e-mails avec Logic Apps, Azure Functions et Stockage Azure](/azure/logic-apps/tutorial-process-email-attachments-workflow).
+Après avoir [ajouté un déclencheur à votre application logique](#add-rss-trigger), vous devez ajouter une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) pour définir ce que doit faire l’application logique quand elle vérifie le flux RSS et qu’elle détecte un nouvel élément publié. Vous pouvez également créer des applications logiques avec des actions bien plus complexes, comme cela est décrit dans le tutoriel sur le [traitement des e-mails avec Logic Apps, Azure Functions et Stockage Azure](./tutorial-process-email-attachments-workflow.md).
 
 > [!NOTE]
 > Cet exemple utilise Office 365 Outlook comme service de messagerie. Si vous utilisez un autre service de messagerie pris en charge dans votre application logique, l’interface utilisateur se présentera peut-être différemment. Les concepts de base pour la connexion à un autre service de messagerie restent néanmoins les mêmes.
 
-1. Sous le déclencheur **Lors de la publication d’un élément de flux** , sélectionnez **Nouvelle étape**.
+1. Sous le déclencheur **Lors de la publication d’un élément de flux**, sélectionnez **Nouvelle étape**.
 
    ![Capture d’écran du concepteur d’applications logiques, montrant un workflow avec le bouton « Nouvelle étape » sélectionné.](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
@@ -143,23 +143,23 @@ Après avoir [ajouté un déclencheur à votre application logique](#add-rss-tri
    > * [Authentifier l’accès avec des identités managées](../logic-apps/create-managed-service-identity.md)
    > * [Authentifier les connexions pour le déploiement d’applications logiques](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
-1. Dans l’action **Envoyer un courrier électronique** , entrez les informations à inclure dans l’e-mail de notification.
+1. Dans l’action **Envoyer un courrier électronique**, entrez les informations à inclure dans l’e-mail de notification.
 
-   1. Dans la zone **À** , entrez l’adresse e-mail du destinataire. Pour cet exemple, utilisez votre propre adresse e-mail.
+   1. Dans la zone **À**, entrez l’adresse e-mail du destinataire. Pour cet exemple, utilisez votre propre adresse e-mail.
 
         > [!NOTE]
         > La liste **Ajouter du contenu dynamique** s’affiche quand vous cliquez à l’intérieur de la zone **À** ainsi que dans d’autres zones d’entrée dans le concepteur d’applications logiques. Cet exemple utilise du contenu dynamique dans une étape ultérieure. La liste **Ajouter du contenu dynamique** affiche toutes les sorties disponibles trouvées à l’étape précédente, et que vous pouvez utiliser comme entrées pour l’action actuelle.
 
-   1. Dans la zone **Objet** , entrez l’objet de votre e-mail de notification. Pour cet exemple, entrez le texte suivant avec un espace vide à la fin : `New RSS item: `
+   1. Dans la zone **Objet**, entrez l’objet de votre e-mail de notification. Pour cet exemple, entrez le texte suivant avec un espace vide à la fin : `New RSS item: `
 
       ![Capture d’écran du concepteur d’applications logiques, montrant l’action « Envoyer un courrier électronique » et le curseur d’entrée placé à l’intérieur de la zone de propriété « Objet ».](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. Dans la liste **Ajouter du contenu dynamique** , sélectionnez **Titre du flux** , qui est la sortie du déclencheur **Lors de la publication d’un élément de flux**. Votre e-mail de notification récupère le titre de l’élément RSS dans cette sortie.
+   1. Dans la liste **Ajouter du contenu dynamique**, sélectionnez **Titre du flux**, qui est la sortie du déclencheur **Lors de la publication d’un élément de flux**. Votre e-mail de notification récupère le titre de l’élément RSS dans cette sortie.
 
       ![Capture d’écran du concepteur d’applications logiques, montrant l’action « Envoyer un courrier électronique » et le curseur d’entrée placé à l’intérieur de la zone de propriété « Objet » avec une liste de contenu dynamique ouverte et la sortie « Titre du flux » sélectionnée.](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
 
       > [!TIP]
-      > Si la liste de contenu dynamique n’affiche aucune sortie retournée par le déclencheur **Lors de la publication d’un élément de flux** , en regard de l’en-tête de l’action, sélectionnez **Afficher plus**.
+      > Si la liste de contenu dynamique n’affiche aucune sortie retournée par le déclencheur **Lors de la publication d’un élément de flux**, en regard de l’en-tête de l’action, sélectionnez **Afficher plus**.
       > 
       > ![Capture d’écran du concepteur d’applications logiques, montrant la liste de contenu dynamique ouverte et le bouton « Afficher plus » sélectionné pour le déclencheur.](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
 
@@ -167,9 +167,9 @@ Après avoir [ajouté un déclencheur à votre application logique](#add-rss-tri
 
       ![Capture d’écran du concepteur d’applications logiques, montrant l’action « Envoyer un courrier électronique » et un exemple d’objet d’e-mail contenant la propriété « Titre du flux ».](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Si une boucle « For each » s’affiche dans le concepteur, c’est que vous avez sélectionné un jeton de tableau, par exemple, le jeton **categories-Item**. Pour ces types de jeton, le concepteur ajoute automatiquement cette boucle autour de l’action qui référence ce jeton. De cette façon, votre application logique effectue la même action sur chaque élément du tableau. Pour supprimer la boucle, sélectionnez le bouton **points de suspension** ( **...** ) sur la barre de titre de la boucle, puis **Supprimer**.
+      Si une boucle « For each » s’affiche dans le concepteur, c’est que vous avez sélectionné un jeton de tableau, par exemple, le jeton **categories-Item**. Pour ces types de jeton, le concepteur ajoute automatiquement cette boucle autour de l’action qui référence ce jeton. De cette façon, votre application logique effectue la même action sur chaque élément du tableau. Pour supprimer la boucle, sélectionnez le bouton **points de suspension** (**...**) sur la barre de titre de la boucle, puis **Supprimer**.
 
-   1. Dans la zone **Corps** , entrez le contenu du corps de l’e-mail. Dans cet exemple, le contenu comprend trois propriétés avec un texte descriptif pour chacune : `Title:` (propriété **Titre du flux** ), `Date published:` (propriété **Flux publié le** ) et `Link:` (propriété **Lien de flux principal** ). Pour ajouter des lignes vides dans une zone d’édition, appuyez sur Maj + Entrée.
+   1. Dans la zone **Corps**, entrez le contenu du corps de l’e-mail. Dans cet exemple, le contenu comprend trois propriétés avec un texte descriptif pour chacune : `Title:` (propriété **Titre du flux**), `Date published:` (propriété **Flux publié le**) et `Link:` (propriété **Lien de flux principal**). Pour ajouter des lignes vides dans une zone d’édition, appuyez sur Maj + Entrée.
 
       | Property | Description |
       |----------|-------------|
@@ -214,7 +214,7 @@ Lorsque vous avez fini de tester cet exemple d’application logique, nettoyez l
 
    ![Capture d’écran montrant la zone de recherche du portail Azure avec le terme de recherche « resource groups ».](./media/quickstart-create-first-logic-app-workflow/find-resource-groups.png)
 
-1. Recherchez et sélectionnez le groupe de ressources de votre application logique. Dans le volet **Vue d’ensemble** , sélectionnez **Supprimer un groupe de ressources**.
+1. Recherchez et sélectionnez le groupe de ressources de votre application logique. Dans le volet **Vue d’ensemble**, sélectionnez **Supprimer un groupe de ressources**.
 
    ![Capture d’écran montrant le portail Azure avec le groupe de ressources sélectionné et le bouton « Supprimer le groupe de ressources ».](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 

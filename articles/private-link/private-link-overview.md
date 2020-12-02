@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ce3903bad4f7e4675406956ddedbc9011a6d2be8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522258"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454951"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -47,7 +47,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 | Stockage File d’attente Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage File d’attente.](tutorial-private-endpoint-storage-portal.md) |
 | Stockage Table Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Table.](tutorial-private-endpoint-storage-portal.md)  |
 |  Azure SQL Database         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure SQL](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics (anciennement SQL Data Warehouse)| Toutes les régions publiques <br/> Toutes les régions administratives |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy |GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| Toutes les régions publiques <br/> Toutes les régions administratives |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy |GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
 |Azure Cosmos DB|  Toutes les régions publiques<br/> Toutes les régions administratives</br> Toutes les régions de Chine | |GA <br/> [Découvrez comment créer un point de terminaison privé pour Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine     | Prise en charge des niveaux tarifaires Usage général et À mémoire optimisée | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database pour MySQL         | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour MySQL.](../mysql/concepts-data-access-security-private-link.md)     |

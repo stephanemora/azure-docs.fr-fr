@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677389"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353032"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -43,11 +43,11 @@ Un compte de facturation est créé lorsque vous vous inscrivez pour utiliser Az
 
 Le portail Azure prend en charge les types de comptes de facturation suivants :
 
-- **Programme Microsoft Online Services**  : Un seul compte de facturation pour un Programme Microsoft Online Services est créé lorsque vous vous inscrivez à Azure via le site web Azure. Par exemple, quand vous souscrivez à un compte gratuit Azure, un compte avec tarifs de paiement à l’utilisation ou en tant qu’abonné Visual Studio.
+- **Programme Microsoft Online Services** : Un seul compte de facturation pour un Programme Microsoft Online Services est créé lorsque vous vous inscrivez à Azure via le site web Azure. Par exemple, quand vous souscrivez à un compte gratuit Azure, un compte avec tarifs de paiement à l’utilisation ou en tant qu’abonné Visual Studio.
 
 - **Contrat Entreprise** : Un compte de facturation pour un Contrat Entreprise est créé quand votre organisation signe un Contrat Entreprise (EA) pour utiliser Azure.
 
-- **Contrat client Microsoft**  : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un compte avec tarifs de paiement à l’utilisation ou mettent à niveau leur compte gratuit Azure, peuvent avoir un compte de facturation pour un Contrat client Microsoft.
+- **Contrat client Microsoft** : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un compte avec tarifs de paiement à l’utilisation ou mettent à niveau leur compte gratuit Azure, peuvent avoir un compte de facturation pour un Contrat client Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Étendues pour les comptes de facturation
 Une étendue est un nœud à l’intérieur d’un compte de facturation que vous utilisez pour afficher et gérer la facturation. C’est là que vous gérez les données de facturation, les paiements, les factures, et effectuez la gestion des comptes de manière générale.
@@ -108,7 +108,7 @@ Cloudyn est un service Azure lié à Cost Management, qui sera déprécié d’i
 Azure dispose d’autres outils qui ne font pas partie de l’ensemble des fonctionnalités d’Azure Cost Management + Facturation. Toutefois, ils jouent un rôle important dans le processus de gestion des coûts. Pour en savoir plus sur ces outils, consultez les liens suivants.
 
 - [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) - Utilisez cet outil pour estimer vos coûts cloud à l’avance.
-- [Azure Migrate](/azure/migrate/migrate-services-overview) - Évaluez la charge actuelle de votre centre de données pour savoir ce dont vous avez besoin pour une solution de remplacement Azure.
+- [Azure Migrate](../migrate/migrate-services-overview.md) - Évaluez la charge actuelle de votre centre de données pour savoir ce dont vous avez besoin pour une solution de remplacement Azure.
 - [Azure Advisor](../advisor/advisor-overview.md) - Identifiez les machines virtuelles inutilisées et recevez des recommandations sur les achats d’instance réservée Azure.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) - Utilisez vos licences Windows Server ou SQL Server locales actuelles pour les machines virtuelles dans Azure afin d’économiser.
 

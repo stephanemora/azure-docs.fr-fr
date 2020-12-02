@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147235"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352913"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Comprendre comment la remise de réservation est appliquée à Azure Data Explorer
 
@@ -29,7 +29,7 @@ Lorsque vous arrêtez une ressource, la remise de réservation s'applique automa
 Une remise de réservation est appliquée à la consommation de majoration d’Azure Data Explorer sur une base horaire. Dans le cas des ressources Azure Data Explorer qui ne s’exécutent pas pendant une heure entière, la remise de réservation est automatiquement appliquée aux autres ressources Azure Data Explorer qui correspondent aux attributs de la réservation. La remise peut être appliquée à des ressources Azure Data Explorer qui s’exécutent simultanément. Si aucune ressource Azure Data Explorer ne s’exécute pendant une heure entière et ne correspond aux attributs de la réservation, vous ne bénéficiez pas pleinement de la remise de réservation pour cette heure.
 
 > [!NOTE]
-> * Il est **vivement recommandé** d’acheter une [capacité de réservation](../../virtual-machines/windows/prepay-reserved-vm-instances.md) pour les machines virtuelles utilisées pour le cluster Azure Data Explorer afin d’optimiser les économies de capacité réservée.
+> * Il est **vivement recommandé** d’acheter une [capacité de réservation](../../virtual-machines/prepay-reserved-vm-instances.md) pour les machines virtuelles utilisées pour le cluster Azure Data Explorer afin d’optimiser les économies de capacité réservée.
 > * L’achat de réservation appliquera les remises à toutes les régions.
 
 ## <a name="examples"></a>Exemples

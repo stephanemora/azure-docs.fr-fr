@@ -10,11 +10,11 @@ ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
 ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148978"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188103"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
@@ -22,7 +22,7 @@ Après avoir configuré l’intégration du rapport sur le coût et l’utilisat
 
 Si vous n’avez pas déjà configuré l’intégration, consultez [Configurer l’intégration du rapport d’utilisation d’AWS](aws-integration-set-up-configure.md).
 
-_Avant de commencer_  : Si vous n’êtes pas familiarisé avec l’analyse des coûts, consultez le guide de démarrage rapide [Explorer et analyser les coûts avec l’analyse du coût](quick-acm-cost-analysis.md). Enfin, si vous n’êtes pas familiarisé avec les budgets dans Azure, consultez le didacticiel [Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).
+_Avant de commencer_ : Si vous n’êtes pas familiarisé avec l’analyse des coûts, consultez le guide de démarrage rapide [Explorer et analyser les coûts avec l’analyse du coût](quick-acm-cost-analysis.md). Enfin, si vous n’êtes pas familiarisé avec les budgets dans Azure, consultez le didacticiel [Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Afficher les coûts d’AWS dans l’analyse du coût
 
@@ -44,7 +44,7 @@ Dans Analyse du coût, ouvrez le sélecteur de portée, puis sélectionnez le gr
 
 Voici un exemple indiquant le coût de groupe d’administration dans Analyse du coût, classé par fournisseur (Azure et AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemple illustrant les coûts d’Azure et d’AWS pour un trimestre dans Analyse du coût" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Les groupes d’administration ne sont actuellement pas pris en charge pour les clients disposant d’un Contrat client Microsoft (MCA). Ces clients peuvent créer le connecteur et visualiser leurs données AWS. Cependant, ils ne peuvent pas voir conjointement leurs coûts Azure et leurs coûts AWS dans un groupe d’administration.
@@ -55,17 +55,17 @@ Pour afficher les coûts d’un compte AWS lié, ouvrez le sélecteur de portée
 
 Voici un exemple qui présente la sélection d’une portée d’un compte AWS lié.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemple de vue Sélectionnez une étendue montrant des comptes liés AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Afficher les coûts d’un compte AWS consolidé
 
 Pour afficher les coûts d’un compte AWS consolidé, ouvrez le sélecteur de portée, puis sélectionnez le compte AWS consolidé. Voici un exemple qui présente la sélection d’une portée d’un compte AWS consolidés.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes consolidés" :::
 
 Cette portée présente une vue agrégée de tous les comptes AWS liés associés au compte AWS consolidé. Voici un exemple illustrant les coûts d’un compte AWS consolidé, classés par nom de service.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemple illustrant les coûts d’un compte AWS consolidé dans Analyse du coût" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensions disponibles pour le filtrage et regroupement
 
@@ -95,7 +95,7 @@ Le tableau suivant décrit les dimensions disponibles pour le regroupement et le
 
 Utilisez des budgets pour gérer les coûts de manière proactive et responsabiliser les équipes au sein de votre organisation. Les budgets sont définis sur les portées des comptes AWS consolidés et liés. Voici un exemple de budgets d’un compte AWS consolidé affiché dans Cost Management :
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemple présentant des budgets pour un compte AWS consolidé" :::
 
 ## <a name="aws-data-collection-process"></a>Processus de collecte de données AWS
 
@@ -145,7 +145,7 @@ Cette erreur signifie que Cost Management ne peut pas appeler l’API AssumeRole
 - L’ID externe est identique à celui de la définition de rôle et de la définition de connecteur.
 - Le type de rôle est défini sur **un autre compte AWS qui vous appartient ou appartient à un tiers.**
 - La case à cocher **MFA requise** est décochée.
-- Le compte AWS approuvé dans le rôle AWS est _432263259397_ .
+- Le compte AWS approuvé dans le rôle AWS est _432263259397_.
 
 ### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Échec de la collecte avec les définitions de rapport Accès refusé - Rapport d’utilisation et de coût
 

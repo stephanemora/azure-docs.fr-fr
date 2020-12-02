@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348957"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -44,33 +44,33 @@ Pour faciliter la gestion de l’utilisation et des dépenses d’une organisati
 - Administrateur de service (lecture seule)
 - Propriétaire du compte
 
-Chaque rôle a un degré variable de limites et d’autorisations utilisateur. Pour plus d’informations, consultez [Structure de l’organisation et autorisations par rôle](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Chaque rôle a un degré variable de limites et d’autorisations utilisateur. Pour plus d’informations, consultez [Structure de l’organisation et autorisations par rôle](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>Activer votre inscription, créer un abonnement et d’autres tâches d’administration
 
-Pour plus d’informations sur l’activation de votre inscription, la création d’un service ou d’un abonnement, l’ajout d’administrateurs et de propriétaires de comptes, et d’autres tâches d’administration, consultez [Administration du portail Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+Pour plus d’informations sur l’activation de votre inscription, la création d’un service ou d’un abonnement, l’ajout d’administrateurs et de propriétaires de comptes, et d’autres tâches d’administration, consultez [Administration du portail Azure EA](./ea-portal-administration.md).
 
-Si vous souhaitez en savoir plus sur le transfert d’un abonnement Enterprise sur un abonnement avec paiement à l’utilisation, consultez [Transferts Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+Si vous souhaitez en savoir plus sur le transfert d’un abonnement Enterprise sur un abonnement avec paiement à l’utilisation, consultez [Transferts Azure Enterprise](./ea-transfers.md).
 
 ## <a name="view-usage-summary-and-download-reports"></a>Consulter le résumé de l’utilisation et télécharger les rapports
 
 Vous pouvez gérer et intervenir sur votre facture Azure EA. Votre facture représente ce que vous devez payer, il convient donc d’en vérifier l’exactitude.
 
-Pour voir le récapitulatif de l’utilisation, télécharger des rapports et gérer des factures d’inscription, consultez [Factures d’inscription Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+Pour voir le récapitulatif de l’utilisation, télécharger des rapports et gérer des factures d’inscription, consultez [Factures d’inscription Azure Enterprise](./ea-portal-enrollment-invoices.md).
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>À présent que vous êtes familiarisé avec les principes de base, voici quelques liens supplémentaires pour vous aider à vous lancer
 
-[Les tarifs Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) fournissent des informations détaillées sur la façon dont l’utilisation est calculée et explique les frais de divers services Azure du Contrat Entreprise, où les calculs sont plus complexes.
+[Les tarifs Azure EA](./ea-pricing-overview.md) fournissent des informations détaillées sur la façon dont l’utilisation est calculée et explique les frais de divers services Azure du Contrat Entreprise, où les calculs sont plus complexes.
 
-Si vous souhaitez savoir comment les réservations Azure pour les instances réservées de machine virtuelle peuvent vous aider à faire des économies au niveau de votre inscription d’entreprise, consultez [Instances réservées de machine virtuelle Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+Si vous souhaitez savoir comment les réservations Azure pour les instances réservées de machine virtuelle peuvent vous aider à faire des économies au niveau de votre inscription d’entreprise, consultez [Instances réservées de machine virtuelle Azure EA](./ea-portal-vm-reservations.md).
 
-Pour obtenir des informations sur les API REST à utiliser avec votre inscription Azure Enterprise, et des explications sur la façon de résoudre les problèmes courants liés aux API REST, consultez [API REST Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Pour obtenir des informations sur les API REST à utiliser avec votre inscription Azure Enterprise, et des explications sur la façon de résoudre les problèmes courants liés aux API REST, consultez [API REST Azure Enterprise](./ea-portal-rest-apis.md).
 
-La page [Contrats et avenants Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) décrit dans quelle mesure les contrats et avenants Azure EA peuvent affecter votre accès, votre utilisation et vos paiements pour les services Azure.
+La page [Contrats et avenants Azure EA](./ea-portal-agreements.md) décrit dans quelle mesure les contrats et avenants Azure EA peuvent affecter votre accès, votre utilisation et vos paiements pour les services Azure.
 
-La page [Place de marché Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) explique comment les clients et partenaires EA peuvent afficher les frais de la Place de marché et activer les achats sur la Place de marché Azure.
+La page [Place de marché Azure](./ea-azure-marketplace.md) explique comment les clients et partenaires EA peuvent afficher les frais de la Place de marché et activer les achats sur la Place de marché Azure.
 
-Pour obtenir des explications sur les tâches courantes qu’un administrateur EA partenaire effectue dans le portail Azure EA, consultez [Administration du portail Azure EA pour les partenaires](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
+Pour obtenir des explications sur les tâches courantes qu’un administrateur EA partenaire effectue dans le portail Azure EA, consultez [Administration du portail Azure EA pour les partenaires](./ea-partner-portal-administration.md).
 
 ## <a name="get-started-on-azure-ea---faq"></a>FAQ de prise en main d’Azure EA
 
@@ -132,7 +132,7 @@ Vous pouvez créer autant de services que nécessaire dans le cadre de votre ins
 
 Après avoir créé des services et des abonnements, vous pouvez voir les données dans le rapport d’utilisation. Ces informations peuvent vous aider à suivre l’utilisation ainsi qu’à gérer les coûts et les dépenses au niveau du service.
 
-Vous pouvez également accéder aux données d’utilisation par le biais de l’API de création de rapports. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Vous pouvez également accéder aux données d’utilisation par le biais de l’API de création de rapports. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Puis-je définir un quota de dépenses et recevoir des alertes lorsque je m’approche de ma limite ?
 
@@ -144,7 +144,7 @@ Pour définir votre quota de dépenses, sélectionnez un service, puis sélectio
 
 Si vous utilisez des _groupes de ressources_ et des _balises_, ces informations sont suivies au niveau du service, et vous pouvez y accéder dans le fichier de téléchargement d’utilisation détaillé (CSV). Consultez le [rapport d’utilisation à télécharger](https://ea.azure.com/report/downloadusage) dans le portail Azure Enterprise.
 
-Vous pouvez également accéder à l’utilisation via l’API. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Vous pouvez également accéder à l’utilisation via l’API. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations Azure Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (tel que via le portail Azure classique), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.

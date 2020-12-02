@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917917"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460065"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -226,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Vérifiez que vous disposez d’une ressource de zone DNS privée. 
     1. Vous devez avoir d’une ressource de zone DNS privée avec ce nom exact : privatelink.vaultcore.azure.net. 
-    2. Pour savoir comment configurer cela, consultez le lien suivant. [Zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Pour savoir comment configurer cela, consultez le lien suivant. [Zones DNS privées](../../dns/private-dns-privatednszone.md)
     
 * Vérifiez que la zone DNS privée n’est pas liée au réseau virtuel. Ceci peut être le problème si vous continuez de recevoir l’adresse IP publique en retour. 
     1. Si la zone DNS privée n’est pas liée au réseau virtuel, la requête DNS provenant du réseau virtuel va retourner l’adresse IP publique du coffre de clés. 
     2. Accédez à la ressource de zone DNS privée dans le portail Azure et cliquez sur l’option des liens du réseau virtuel. 
     4. Le réseau virtuel qui va effectuer les appels au coffre de clés doit être listé. 
     5. Si ce n’est pas le cas, ajoutez-le. 
-    6. Pour obtenir des étapes détaillées, consultez le document suivant : [Lier un réseau virtuel à une zone DNS privée](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Pour obtenir des étapes détaillées, consultez le document suivant : [Lier un réseau virtuel à une zone DNS privée](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Vérifiez que la zone DNS privée contient bien un enregistrement A pour le coffre de clés. 
     1. Accédez à la page Zone DNS privée. 

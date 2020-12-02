@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 8d8da39f038f465030a2dced092ab1b008e30e5e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3aa236570e518b142adb8382387a8cdea4fc08a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511350"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453278"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guide du développeur d’appareils IoT Plug-and-Play
 
@@ -67,8 +67,8 @@ Une fois que l’implémentation de votre appareil ou module est prête, utilise
 Maintenant que vous maîtrisez le développement d’appareil IoT Plug-and-Play, voici quelques ressources supplémentaires :
 
 - [Langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [SDK d’appareils C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [API REST IoT](https://docs.microsoft.com/rest/api/iothub/device)
+- [SDK d’appareils C](/azure/iot-hub/iot-c-sdk-ref/)
+- [API REST IoT](/rest/api/iothub/device)
 - [Composants de modèle](concepts-components.md)
 - [Installer et utiliser les outils de création DTDL](howto-use-dtdl-authoring-tools.md)
 - [Guide du développeur du service IoT Plug-and-Play](concepts-developer-guide-service.md)

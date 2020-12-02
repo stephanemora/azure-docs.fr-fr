@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: banders
-ms.openlocfilehash: 3b936cb15114d81d1dff1eb052a9bafe01adeff7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681683"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350838"
 ---
 # <a name="azure-software-plan-discount"></a>Remise sur abonnement logiciel Azure
 
@@ -123,7 +123,7 @@ Pour plus d’informations sur les réservations, consultez les articles suivant
 
 - [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)
 - [Prépayer les abonnements logiciels SUSE avec les réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Gérer les réservations Azure](manage-reserved-vm-instance.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](understand-reserved-instance-usage-ea.md)

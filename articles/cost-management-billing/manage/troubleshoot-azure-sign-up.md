@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131069"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344485"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
 
@@ -76,8 +76,8 @@ Pour résoudre ce problème, vérifiez que les points suivants sont vrais :
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Vous voyez le message « Le type de votre compte actuel n’est pas pris en charge »
 
-Ce problème peut se produire si le compte est inscrit dans un [répertoire Azure AD non managé](../../active-directory/users-groups-roles/directory-self-service-signup.md) et ne se trouve pas dans le répertoire Azure AD de votre organisation.
-Pour résoudre ce problème, inscrivez le compte Azure en utilisant un autre compte, ou prenez en charge le répertoire AD non managé. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Ce problème peut se produire si le compte est inscrit dans un [répertoire Azure AD non managé](../../active-directory/enterprise-users/directory-self-service-signup.md) et ne se trouve pas dans le répertoire Azure AD de votre organisation.
+Pour résoudre ce problème, inscrivez le compte Azure en utilisant un autre compte, ou prenez en charge le répertoire AD non managé. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 ## <a name="identity-verification-by-phone"></a>Vérification d’identité par téléphone
 

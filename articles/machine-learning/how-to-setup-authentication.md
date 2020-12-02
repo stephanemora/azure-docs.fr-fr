@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843925"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447012"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -67,7 +67,7 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
 
     Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Dans le cas contraire, vous devez ouvrir un navigateur et suivre les instructions de la ligne de commande. Les instructions impliquent de naviguer vers [https://aka.ms/devicelogin](https://aka.ms/devicelogin) et d’entrer un code d’autorisation.
 
-    Si vous avez plusieurs abonnements Azure, vous pouvez utiliser la commande `az account set -s <subscription name or ID>` pour configurer l’abonnement. Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Si vous avez plusieurs abonnements Azure, vous pouvez utiliser la commande `az account set -s <subscription name or ID>` pour configurer l’abonnement. Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -184,7 +184,7 @@ La plupart des exemples de la documentation et des exemples utilisent l’authen
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-Lors de l’utilisation de l’interface de ligne de commande Azure, la commande `az login` est utilisée pour authentifier la session de l’interface de ligne de commande. Pour plus d’informations, consultez [Prise en main d’Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Lors de l’utilisation de l’interface de ligne de commande Azure, la commande `az login` est utilisée pour authentifier la session de l’interface de ligne de commande. Pour plus d’informations, consultez [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 > [!TIP]
 > Si vous utilisez le kit de développement logiciel (SDK) à partir d’un environnement auquel vous vous êtes précédemment authentifié de façon interactive à l’aide de l’interface de ligne de commande Azure, vous pouvez utiliser la classe `AzureCliAuthentication` pour vous authentifier à l’espace de travail à l’aide des informations d’identification mises en cache par l’interface de ligne de commande :

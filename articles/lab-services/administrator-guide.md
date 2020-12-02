@@ -3,12 +3,12 @@ title: Azure Lab Services – Guide de l’administrateur | Microsoft Docs
 description: Ce guide aide les administrateurs qui créent et gèrent des comptes lab à l’aide d’Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462475"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs informatiques qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Après avoir configuré un compte lab, les administrateurs ou enseignants créent des labos dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -167,14 +167,14 @@ Au moment de créer un labo, les administrateurs ou les créateurs de labo ont l
 
 | Taille | Spécifications | Série | Utilisation suggérée |
 | ---- | ----- | ------ | ------------- |
-| Petite| <ul><li>2&nbsp;cœurs</li><li>3,5 gigaoctets (Go) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Taille idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
-| Moyenne | <ul><li>4&nbsp;cœurs</li><li>7&nbsp;Go&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Taille idéale pour les bases de données relationnelles, la mise en cache en mémoire et l’analyse. |
-| Moyenne (virtualisation imbriquée) | <ul><li>4&nbsp;cœurs</li><li>16&nbsp;Go&nbsp;de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Taille idéale pour les bases de données relationnelles, la mise en cache en mémoire et l’analyse.
+| Petite| <ul><li>2&nbsp;cœurs</li><li>3,5 gigaoctets (Go) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Taille idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
+| Moyenne | <ul><li>4&nbsp;cœurs</li><li>7&nbsp;Go&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Taille idéale pour les bases de données relationnelles, la mise en cache en mémoire et l’analyse. |
+| Moyenne (virtualisation imbriquée) | <ul><li>4&nbsp;cœurs</li><li>16&nbsp;Go&nbsp;de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Taille idéale pour les bases de données relationnelles, la mise en cache en mémoire et l’analyse.
 | grand | <ul><li>8&nbsp;cœurs</li><li>16&nbsp;Go&nbsp;de RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Taille idéale pour les applications exigeant des processeurs plus rapides, un niveau de performance du disque local plus élevé, des bases de données volumineuses et des caches mémoire volumineux.  Cette taille prend également en charge la virtualisation imbriquée. |
-| Grande (virtualisation imbriquée) | <ul><li>8&nbsp;cœurs</li><li>32&nbsp;Go&nbsp;de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Taille idéale pour les applications exigeant des processeurs plus rapides, un niveau de performance du disque local plus élevé, des bases de données volumineuses et des caches mémoire volumineux. |
+| Grande (virtualisation imbriquée) | <ul><li>8&nbsp;cœurs</li><li>32&nbsp;Go&nbsp;de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Taille idéale pour les applications exigeant des processeurs plus rapides, un niveau de performance du disque local plus élevé, des bases de données volumineuses et des caches mémoire volumineux. |
 | GPU de petite taille (visualisation) | <ul><li>6&nbsp;cœurs</li><li>56&nbsp;Go de&nbsp;RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Taille idéale pour la visualisation à distance, le streaming, les jeux et l'encodage à l’aide d’infrastructures de type OpenGL et DirectX. |
 | GPU de petite taille (calcul) | <ul><li>6&nbsp;cœurs</li><li>56&nbsp;Go de&nbsp;RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Taille idéale pour les applications nécessitant beaucoup de ressources informatiques comme l’IA et le Deep Learning. |
-| GPU de taille moyenne (visualisation) | <ul><li>12&nbsp;cœurs</li><li>112&nbsp;Go de&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Taille idéale pour la visualisation à distance, le streaming, les jeux et l'encodage à l’aide d’infrastructures de type OpenGL et DirectX. |
+| GPU de taille moyenne (visualisation) | <ul><li>12&nbsp;cœurs</li><li>112&nbsp;Go de&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Taille idéale pour la visualisation à distance, le streaming, les jeux et l'encodage à l’aide d’infrastructures de type OpenGL et DirectX. |
 
 ## <a name="manage-identity"></a>Gérer l’identité
 

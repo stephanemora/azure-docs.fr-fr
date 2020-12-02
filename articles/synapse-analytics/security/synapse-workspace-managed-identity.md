@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738302"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461293"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identité managée de l’espace de travail Azure Synapse (préversion)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identité managée de l’espace de travail Azure Synapse
 
 Dans cet article, vous allez découvrir ce qu’est une identité managée dans l’espace de travail Azure Synapse.
 
@@ -48,11 +48,11 @@ Lancez **Azure Synapse Studio** et sélectionnez l’onglet **Gérer** dans le v
 
 ![Création de service lié 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-Dans la fenêtre **Nouveau service lié** , tapez *Azure Data Lake Storage Gen2*. Sélectionnez le type de ressource **Azure Data Lake Storage Gen2** dans la liste ci-dessous, puis choisissez **Continuer**.
+Dans la fenêtre **Nouveau service lié**, tapez *Azure Data Lake Storage Gen2*. Sélectionnez le type de ressource **Azure Data Lake Storage Gen2** dans la liste ci-dessous, puis choisissez **Continuer**.
 
 ![Création de service lié 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-Dans la fenêtre suivante, choisissez **Identité managée** comme **Méthode d’authentification**. Vous verrez le **Nom** et l’ **ID d’objet** de l’identité managée.
+Dans la fenêtre suivante, choisissez **Identité managée** comme **Méthode d’authentification**. Vous verrez le **Nom** et l’**ID d’objet** de l’identité managée.
 
 ![Création de service lié 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

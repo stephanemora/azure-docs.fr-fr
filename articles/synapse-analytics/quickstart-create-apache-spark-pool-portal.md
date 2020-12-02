@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323533"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461603"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Démarrage rapide : Créer un pool Apache Spark serverless avec le portail Azure
 
@@ -47,7 +47,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 1. Dans l’espace de travail Synapse où vous souhaitez créer le pool Apache Spark, sélectionnez **Nouveau pool Apache Spark**.
     ![Vue d’ensemble de l’espace de travail Synapse avec, dans un encadré rouge, la commande permettant de créer un pool Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. Sous l’onglet **Général** , entrez les informations suivantes :
+2. Sous l’onglet **Général**, entrez les informations suivantes :
 
     |Paramètre | Valeur suggérée | Description |
     | :------ | :-------------- | :---------- |
@@ -89,7 +89,7 @@ Effectuez les étapes ci-dessous pour supprimer le pool Apache Spark de l’espa
 Si vous souhaitez supprimer le pool Apache Spark, procédez comme suit :
 
 1. Accédez au panneau des pools Apache Spark dans l’espace de travail.
-2. Sélectionnez le pool Apache Spark à supprimer (dans ce cas, **contosospark** ).
+2. Sélectionnez le pool Apache Spark à supprimer (dans ce cas, **contosospark**).
 3. Appuyez sur la touche **Supprimer**.
  ![Liste des pools Apache Spark, avec sélection du pool récemment créé.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirmez la suppression, puis appuyez sur le bouton **Supprimer**.
@@ -99,4 +99,4 @@ Si vous souhaitez supprimer le pool Apache Spark, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Démarrage rapide : Créer un notebook Apache Spark](quickstart-apache-spark-notebook.md).
-- Consultez [Démarrage rapide : Créer un pool SQL dédié Synapse avec le portail Azure](quickstart-create-sql-pool-portal.md).
+- Consultez [Démarrage rapide : Créer un pool SQL dédié à l’aide du portail Azure](quickstart-create-sql-pool-portal.md).

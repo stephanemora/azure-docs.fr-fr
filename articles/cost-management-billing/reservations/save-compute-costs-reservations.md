@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887210"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352981"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -125,7 +125,7 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
     - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](/partner-center/azure-reservations)
 
 - En savoir plus sur les réservations de plans de service :
-    - [Machines virtuelles avec instances de machines virtuelles réservées Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Machines virtuelles avec instances de machines virtuelles réservées Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Ressources Azure Cosmos DB avec capacité réservée Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
     - [Ressources de calcul Azure Cache pour Redis avec une capacité réservée Azure Cache pour Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) En savoir plus sur les réservations pour les offres logicielles :

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348923"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -65,11 +65,11 @@ Les instances réservées peuvent réduire les coûts de vos machines virtuelles
 
 Pour acheter une instance de machine virtuelle réservée Azure, un administrateur d’inscription Enterprise Azure doit activer l’option d’achat _Reserve Instance_ (Réserver une instance). Cette option se trouve dans la section _Détails de l’inscription_ de l’onglet _Inscription_ dans le [portail Azure EA](https://ea.azure.com/).
 
-Une fois que l’inscription EA est activée pour ajouter des instances réservées, n’importe quel propriétaire de compte avec un abonnement actif associé à l’inscription EA peut acheter une instance de machine virtuelle réservée dans le [portail Azure](https://aka.ms/reservations). Pour plus d’informations, consultez [Prépayer des machines virtuelles et réaliser des économies avec les instances de machine virtuelle réservées](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
+Une fois que l’inscription EA est activée pour ajouter des instances réservées, n’importe quel propriétaire de compte avec un abonnement actif associé à l’inscription EA peut acheter une instance de machine virtuelle réservée dans le [portail Azure](https://aka.ms/reservations). Pour plus d’informations, consultez [Prépayer des machines virtuelles et réaliser des économies avec les instances de machine virtuelle réservées](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Comment afficher les détails d’achat d’une instance réservée
 
-Vous pouvez afficher les détails de votre achat d’instance réservée via le menu _Réservations_ sur le côté gauche du [portail Azure](https://aka.ms/reservations) ou à partir d’ [Azure EA Portal](https://ea.azure.com/). Sélectionnez **Rapports** dans le menu de gauche et faites défiler la liste jusqu’à la section _Charges by Services_ (Frais par services) de l’onglet _Résumé de l’utilisation_ . Faites défiler l’écran jusqu’au bas de la section. Les achats et l’utilisation de votre instance réservée sont listés à la fin, comme indiqué par la désignation `1 year` ou `3 years` en regard du nom du service, par exemple `Standard_DS1_v2 eastus 1 year` ou `Standard_D2s_v3 eastus2 3 years`.
+Vous pouvez afficher les détails de votre achat d’instance réservée via le menu _Réservations_ sur le côté gauche du [portail Azure](https://aka.ms/reservations) ou à partir d’[Azure EA Portal](https://ea.azure.com/). Sélectionnez **Rapports** dans le menu de gauche et faites défiler la liste jusqu’à la section _Charges by Services_ (Frais par services) de l’onglet _Résumé de l’utilisation_. Faites défiler l’écran jusqu’au bas de la section. Les achats et l’utilisation de votre instance réservée sont listés à la fin, comme indiqué par la désignation `1 year` ou `3 years` en regard du nom du service, par exemple `Standard_DS1_v2 eastus 1 year` ou `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Comment modifier l’abonnement associé à l’instance réservée ou transférer mes avantages d’instance réservée vers un abonnement sous le même compte ?
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012269"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444530"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -43,7 +43,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
     + Documentation améliorée pour `OutputDatasetConfig.register_on_complete` afin d’inclure le comportement de ce qui se produit lorsque le nom existe déjà.
     + La spécification des noms d’entrée et de sortie de jeu de données susceptibles d’entrer en conflit avec des variables d’environnement communes génère désormais un avertissement
     + Réaffectation du paramètre `grant_workspace_access` lors de l’inscription des magasins de données. Affectez-lui la valeur `True` pour accéder aux données derrière le réseau virtuel à partir de Machine Learning Studio.
-      [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [En savoir plus](./how-to-enable-studio-virtual-network.md)
     + L’API de service liée est affinée. Au lieu de fournir l’ID de ressource, nous utilisons 3 paramètres distincts sub_id, rg, et name, définis dans la configuration.
     + Pour permettre aux clients de résoudre eux-mêmes les problèmes d’altération des jetons, activez la synchronisation des jetons de l’espace de travail en tant que méthode publique.
     + Cette modification permet d’utiliser une chaîne vide comme valeur pour script_param
@@ -109,8 +109,8 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour d’octobre)
 + **Nouvelles fonctionnalités**
-  + [Prise en charge de réseau virtuel complet](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Mode Focus](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Prise en charge de réseau virtuel complet](./how-to-enable-studio-virtual-network.md)
+  + [Mode Focus](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Enregistrer les blocs-notes Ctrl-S
   + Numéros de ligne
 

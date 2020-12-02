@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436689"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -32,7 +32,7 @@ L’attribution de l’utilisation de client prend en charge trois options de d�
 >
 >- L’attribution de l’utilisation de client est destinée aux nouveaux déploiements et ne prend PAS en charge le balisage des ressources existantes qui ont déjà été déployées.
 >
->- L’attribution de l’utilisation de client est obligatoire pour les offres [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) publiées sur la place de marché Azure.
+>- L’attribution de l’utilisation de client est obligatoire pour les offres [Azure Application](./create-new-azure-apps-offer.md) publiées sur la place de marché Azure.
 >
 >- Tous les services Azure ne sont pas compatibles avec l’attribution de l’utilisation du client. Azure Kubernetes Services (AKS) et Virtual Machine Scale Sets présentent actuellement des problèmes connus qui entraînent la production de rapports d’utilisation insuffisants.
 
@@ -64,7 +64,7 @@ Les GUID doivent être inscrits dans l’Espace partenaires pour activer l’att
 Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilisateur et inscrit le GUID dans l’Espace partenaires, les déploiements futurs font l’objet d’un suivi.
 
 > [!NOTE]
-> Si vous publiez votre offre [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) sur la Place de marché Azure via l’Espace partenaires, tout nouveau GUID utilisé dans votre modèle est automatiquement inscrit dans votre profil de l’Espace partenaires au moment où le modèle est chargé.  
+> Si vous publiez votre offre [Azure Application](./create-new-azure-apps-offer.md) sur la Place de marché Azure via l’Espace partenaires, tout nouveau GUID utilisé dans votre modèle est automatiquement inscrit dans votre profil de l’Espace partenaires au moment où le modèle est chargé.  
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 
@@ -90,7 +90,7 @@ De nombreuses solutions de partenaires sont déployées à l’aide des modèles
 > [!NOTE]
 > Pour plus d’informations sur la création et la publication de modèles de solution, consultez
 > * [Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
->* [Offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Offre d’application Azure](./create-new-azure-apps-offer.md).
 >* Vidéo : [Création de modèles de solution et d’applications managées pour la Place de marché Azure](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

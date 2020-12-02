@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
-ms.openlocfilehash: 30f9eac0a0e88092a243b4d9421d2a4f33b07841
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758674"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459327"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Préparer vos ressources techniques de conteneur Azure
 
@@ -20,7 +20,7 @@ Cet article fournit des ressources et recommandations techniques pour vous aider
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour accéder à des guides de démarrage rapide, didacticiels et autres exemples, consultez la [Documentation sur Azure Container Instances](/azure/container-instances/).
+Pour accéder à des guides de démarrage rapide, didacticiels et autres exemples, consultez la [Documentation sur Azure Container Instances](../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Connaissances techniques fondamentales
 
@@ -43,7 +43,7 @@ Choisissez l'un des environnements de script suivants, ou les deux, pour vous ai
 
 Nous vous recommandons d'ajouter les outils suivants à votre environnement de développement :
 
-- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +55,9 @@ Examinez les outils disponibles sur la page [Outils de développement Azure](htt
 
 Vous ne pouvez pas déployer une image sur Azure Container Instances à partir d’un registre local.
 
-- Si vous disposez déjà d’un conteneur fonctionnel dans votre registre local, créez un registre Azure, puis chargez votre image conteneur sur Azure Container Registry. Pour en savoir plus, consultez [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task.md).
+- Si vous disposez déjà d’un conteneur fonctionnel dans votre registre local, créez un registre Azure, puis chargez votre image conteneur sur Azure Container Registry. Pour en savoir plus, consultez [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
 
-- Si vous n’avez pas encore d’image conteneur et que vous devez conteneuriser votre application existante ou créer une application basée sur un conteneur, clonez le code source de l’application à partir de GitHub, créez une image conteneur à partir de la source de l’application, puis testez l’image dans un environnement Docker local. Pour en savoir plus, consultez [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md).
+- Si vous n’avez pas encore d’image conteneur et que vous devez conteneuriser votre application existante ou créer une application basée sur un conteneur, clonez le code source de l’application à partir de GitHub, créez une image conteneur à partir de la source de l’application, puis testez l’image dans un environnement Docker local. Pour en savoir plus, consultez [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

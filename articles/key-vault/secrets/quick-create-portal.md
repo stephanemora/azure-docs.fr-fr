@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685849"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445915"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -45,13 +45,13 @@ Pour ajouter un secret au coffre, procédez comme suit :
 1. Cliquez sur **Generate/Import (Générer/Importer)** .
 1. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
     - **Options de chargement** : Manuel.
-    - **Nom** : Entrez un nom pour le secret. Le nom du secret doit être unique dans le coffre de clés. Le nom doit être une chaîne comprise entre 1 et 127 caractères, commençant par une lettre et qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -). Pour plus d’informations sur le nommage, consultez [Objets, identificateurs et gestion de versions Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning).
+    - **Nom** : Entrez un nom pour le secret. Le nom du secret doit être unique dans le coffre de clés. Le nom doit être une chaîne comprise entre 1 et 127 caractères, commençant par une lettre et qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -). Pour plus d’informations sur le nommage, consultez [Objets, identificateurs et gestion de versions Key Vault](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
     - **Valeur** : Entrez une valeur pour le secret. Les API Key Vault acceptent et retournent des valeurs de secret sous forme de chaînes. 
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
 Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. 
 
-Pour plus d’informations sur les attributs des secrets, consultez [À propos des secrets Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets).
+Pour plus d’informations sur les attributs des secrets, consultez [À propos des secrets Azure Key Vault](./about-secrets.md).
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Récupérer un secret à partir de Key Vault
 
@@ -75,7 +75,7 @@ Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, 
 3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
 > [!NOTE]
-> Il est important de noter qu’après la suppression d’un secret, d’une clé, d’un certificat ou d’un coffre de clés, ces derniers restent récupérables pendant une période configurable de 7 à 90 jours civils. Si aucune configuration n’est spécifiée, la période de récupération par défaut est définie sur 90 jours. Les utilisateurs disposent ainsi de suffisamment de temps pour remarquer la suppression accidentelle d’un secret et y remédier. Pour plus d’informations sur la suppression et la récupération des coffres de clés et des objets de coffre de clés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+> Il est important de noter qu’après la suppression d’un secret, d’une clé, d’un certificat ou d’un coffre de clés, ces derniers restent récupérables pendant une période configurable de 7 à 90 jours civils. Si aucune configuration n’est spécifiée, la période de récupération par défaut est définie sur 90 jours. Les utilisateurs disposent ainsi de suffisamment de temps pour remarquer la suppression accidentelle d’un secret et y remédier. Pour plus d’informations sur la suppression et la récupération des coffres de clés et des objets de coffre de clés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../general/soft-delete-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

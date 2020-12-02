@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542284"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458120"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -114,7 +114,7 @@ Vous venez de créer un compte de la place de marché commerciale dans l’Espac
 >
 >Les comptes individuels sont destinés aux développeurs indépendants. Les comptes d’entreprise sont destinés aux organisations et aux entreprises. Les comptes d’entreprise permettent de soumettre des applications avec des fonctionnalités supplémentaires.
 >
-> Pour vous assurer que vous êtes autorisé à configurer le compte de votre société, nous avons besoin d’une vérification supplémentaire des comptes d’entreprise après l’inscription. Cette vérification peut prendre de quelques jours à quelques semaines, et comprend souvent un appel téléphonique à votre entreprise. Les deux types de comptes vous permettent de soumettre des applications, des compléments et des services. Pour plus d’informations, voir  [Types de compte, emplacements et frais](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> Pour vous assurer que vous êtes autorisé à configurer le compte de votre société, nous avons besoin d’une vérification supplémentaire des comptes d’entreprise après l’inscription. Cette vérification peut prendre de quelques jours à quelques semaines, et comprend souvent un appel téléphonique à votre entreprise. Les deux types de comptes vous permettent de soumettre des applications, des compléments et des services. Pour plus d’informations, voir  [Types de compte, emplacements et frais](/windows/uwp/publish/account-types-locations-and-fees).
 
 Lorsque vous vous inscrivez au programme de marketplace commercial avec le même compte que votre programme de développement, vous pouvez voir toutes vos inscriptions à un programme dans le volet gauche d’Espace partenaires.
 

@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006783"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352597"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gérer les lignes d’erreur de troncation SQL dans Data Factory en mappant les flux de données
 
@@ -23,7 +23,7 @@ Un scénario courant dans Data Factory lors de l’utilisation de flux de donné
 
 Il existe deux méthodes principales pour gérer correctement les erreurs lors de l’écriture de données vers votre récepteur de base de données dans les flux de données ADF :
 
-* Définissez le récepteur [Gestion des lignes d’erreur](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) sur « Continuer en cas d’erreur » lors du traitement des données de base de données. Cette méthode d’interception automatique ne nécessite pas de logique personnalisée dans votre flux de données.
+* Définissez le récepteur [Gestion des lignes d’erreur](./connector-azure-sql-database.md#error-row-handling) sur « Continuer en cas d’erreur » lors du traitement des données de base de données. Cette méthode d’interception automatique ne nécessite pas de logique personnalisée dans votre flux de données.
 * Vous pouvez également procéder comme suit pour fournir la journalisation des colonnes qui ne tiennent pas dans une colonne de chaîne cible. Cela permet à votre flux de données de se poursuivre.
 
 > [!NOTE]
