@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918789"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001090"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Guide pratique pour reconnaître des intentions vocales avec le SDK Speech pour C#
 
@@ -55,7 +55,7 @@ LUIS utilise trois types de clés :
 | Starter   | Permet de tester l’application LUIS en utilisant uniquement du texte   |
 | Point de terminaison  | Autorise l’accès à une application LUIS particulière            |
 
-Pour ce guide, vous avez besoin du type de clé du point de terminaison. Ce guide utilise l’exemple d’application domotique LUIS Home Automation, que vous pouvez créer en suivant le guide de démarrage rapide [Utiliser une application domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre application LUIS, vous pouvez aussi l’utiliser.
+Pour ce guide, vous avez besoin du type de clé du point de terminaison. Ce guide utilise l’exemple d’application domotique LUIS Home Automation, que vous pouvez créer en suivant le guide de démarrage rapide [Utiliser une application domotique prédéfinie](../luis/luis-get-started-create-app.md). Si vous avez créé votre propre application LUIS, vous pouvez aussi l’utiliser.
 
 Lors de la création d’une application LUIS, une clé de démarrage est générée automatiquement par LUIS pour que vous puissiez tester l’application à l’aide de requêtes de texte. Cette clé n’active pas l’intégration du service Speech et ne fonctionne pas avec ce guide. Créez une ressource LUIS dans le tableau de bord Azure et affectez-la à l’application LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour suivre ce guide.
 
@@ -201,4 +201,4 @@ Retrouvez le code de cet article dans le dossier **samples/csharp/sharedcontent/
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Reconnaître la voix à partir d’un microphone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Démarrage rapide : Reconnaître la voix à partir d’un microphone](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

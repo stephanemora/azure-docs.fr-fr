@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 967861363d5056a5a466aa88840cda2aafbeb86b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188316"
 ---
 Pour créer un projet Visual Studio pour le développement Desktop en C++, vous devez configurer les options de développement de Visual Studio, créer le projet, sélectionner l’architecture cible et installer le SDK Speech.
 
@@ -53,7 +53,7 @@ Ensuite, créez votre projet :
 
 1. Dans **Emplacement**, accédez au dossier où enregistrer votre projet et sélectionnez-le, ou bien créez ce dossier.
 
-Sélectionnez maintenant l’architecture de votre plateforme cible. Dans la barre d’outils de Visual Studio, recherchez la zone de liste déroulante **Plateformes Solution**. (Si vous ne la voyez pas, choisissez**Afficher** > **Barres d’outils** > **Standard** pour afficher la barre d’outils contenant **Plateformes Solution**.) Si vous exécutez Windows 64 bits, choisissez **x64** dans la zone de liste déroulante. Windows 64 bits peut aussi exécuter les applications 32 bits : vous pouvez donc choisir **x86** si vous préférez.
+Sélectionnez maintenant l’architecture de votre plateforme cible. Dans la barre d’outils de Visual Studio, recherchez la zone de liste déroulante **Plateformes Solution**. (Si vous ne la voyez pas, choisissez **Afficher** > **Barres d’outils** > **Standard** pour afficher la barre d’outils contenant **Plateformes Solution**.) Si vous exécutez Windows 64 bits, choisissez **x64** dans la zone de liste déroulante. Windows 64 bits peut aussi exécuter les applications 32 bits : vous pouvez donc choisir **x86** si vous préférez.
 
 ### <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 

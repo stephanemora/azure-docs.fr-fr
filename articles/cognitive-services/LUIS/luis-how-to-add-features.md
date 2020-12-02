@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999924"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Utiliser des fonctionnalités pour améliorer le signal de liste de mots
 
@@ -55,7 +55,7 @@ Passez en revue les [concepts](luis-concept-feature.md) pour comprendre quand et
 
 Une liste d’expressions doit être appliquée à l’intention ou à l’entité qu’elle est destinée à aider, mais il peut arriver qu’une liste d’expressions soit appliquée à l’application entière en tant que fonctionnalité **Globale**.
 
-Dans la page Fonctionnalités ML, sélectionnez la liste d’expressions, puis sélectionnez**Rendre global** dans la barre d’outils contextuelle supérieure.
+Dans la page Fonctionnalités ML, sélectionnez la liste d’expressions, puis sélectionnez **Rendre global** dans la barre d’outils contextuelle supérieure.
 
 ## <a name="model-as-a-feature"></a>Modèle en tant que fonctionnalité
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c36a47f99424b3d6e6b8ac6eca0d9dc5c6476e8b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 30e5d1802b93553be1b9437bea9aa0952b026f85
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997192"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Créer une ressource d’instance de conteneur Azure depuis Azure CLI
 
@@ -77,8 +77,8 @@ La sortie de la commande est `Running...` si valide. Un peu après, la sortie de
 > [!TIP]
 > Prêtez attention aux emplacements des offres d’Azure Cognitive Service en préversion, car le YAML devra être ajusté en conséquence pour correspondre à l’emplacement.
 
-[azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
+[azure-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md

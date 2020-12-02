@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026045"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -29,7 +29,7 @@ Le tableau ci-dessous présente les limites fonctionnelles d’Azure Digital Twi
 | Modèles | Nombre de modèles dans une même instance Azure Digital Twins | 10 000 | Oui |
 | Modèles | Nombre de modèles qui peuvent être chargés en un seul appel d’API | 250 | Non |
 | Modèles | Nombre d’éléments retournés sur une même page | 100 | Non |
-| Requête | Nombre d’éléments retournés sur une même page | 100 | Non |
+| Requête | Nombre d’éléments retournés sur une même page | 100 | Oui |
 | Requête | Nombre d’expressions `AND` / `OR` dans une requête | 50 | Oui |
 | Requête | Nombre d’éléments de tableau dans une clause `IN` / `NOT IN` | 50 | Oui |
 | Requête | Nombre de caractères dans une requête | 8,000 | Oui |
@@ -43,7 +43,7 @@ Le tableau suivant reflète les limites de débit de différentes API.
 | --- | --- | --- | --- |
 | API Modèles | Nombre de demandes par seconde | 100 | Oui |
 | API Digital Twins | Nombre de demandes par seconde | 2 000 | Oui |
-| API Digital Twins | Nombre d’opérations de création/suppression par seconde pour l’ **ensemble des jumeaux et des relations** | 50 | Oui |
+| API Digital Twins | Nombre d’opérations de création/suppression par seconde pour l’**ensemble des jumeaux et des relations** | 50 | Oui |
 | API Digital Twins | Nombre d’opérations de création/mise à jour/suppression par seconde sur un **jumeau unique** ou ses relations | 10 | Non |
 | API de requête | Nombre de demandes par seconde | 500 | Oui |
 | API de requête | [Unités de requête](../articles/digital-twins/concepts-query-units.md) par seconde | 4 000 | Oui |

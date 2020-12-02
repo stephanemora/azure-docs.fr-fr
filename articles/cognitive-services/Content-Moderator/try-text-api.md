@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912869"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001998"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
@@ -23,7 +23,7 @@ Utilisez l’[API Modération de texte](https://westus.dev.cognitive.microsoft.c
 
 ## <a name="get-your-api-key"></a>Obtenir votre clé API
 
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres** , dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
 
 ## <a name="navigate-to-the-api-reference"></a>Accéder aux informations de référence sur l’API
 
@@ -46,17 +46,17 @@ Pour l’option **Open API testing console** (Ouvrir la console de test d’API)
 Sélectionnez les paramètres de requête que vous voulez utiliser dans le passage au crible de votre texte. Pour cet exemple, utilisez la valeur par défaut pour le paramètre **language**. Vous pouvez également le laisser vide, car l’opération détecte automatiquement la langue probable dans le cadre de son exécution.
 
 > [!NOTE]
-> Pour le paramètre **langue** , attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
+> Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
 >
-> Pour la détection des **termes injurieux** , utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
+> Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 
-Pour les paramètres **autocorrect** , **PII** et **classify** (préversion), sélectionnez **true**. Laissez le champ **ListId** vide.
+Pour les paramètres **autocorrect**, **PII** et **classify** (préversion), sélectionnez **true**. Laissez le champ **ListId** vide.
 
   ![Paramètres de requête de la console Text - Screen (Texte - Passer au crible)](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Type de contenu
 
-Pour **Content-Type** , sélectionnez le type de contenu à passer au crible. Pour cet exemple, utilisez le type de contenu **text/plain** par défaut. Dans la zone **Ocp-Apim-abonnement-Key** , entrez votre clé d’abonnement.
+Pour **Content-Type**, sélectionnez le type de contenu à passer au crible. Pour cet exemple, utilisez le type de contenu **text/plain** par défaut. Dans la zone **Ocp-Apim-abonnement-Key**, entrez votre clé d’abonnement.
 
 ### <a name="sample-text-to-scan"></a>Exemple de texte à analyser
 

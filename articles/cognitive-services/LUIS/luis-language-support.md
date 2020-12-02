@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541388"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021569"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -28,7 +28,7 @@ Si vous avez besoin d’une application client LUIS multilingue, comme un chatb
 
 LUIS comprend les énoncés dans les langues suivantes :
 
-| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Recommandations de liste d’expression | \**[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment et<br>mots clés)|
+| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Recommandations de liste d’expression | \**[Analyse de texte](../text-analytics/language-support.md)<br>(Sentiment et<br>mots clés)|
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabe (préversion ; arabe standard moderne) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
 Consultez les [langues prises en charge](../speech-service/speech-to-text.md) par Speech pour connaître les langues du mode de dictée de Speech.
 
 ### <a name="bing-spell-check-supported-languages"></a>Langues prises en charge par la vérification orthographique Bing
-Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) par la vérification orthographique Bing pour obtenir la liste des langues prises en charge et leur état.
+Consultez les [langues prises en charge](../bing-spell-check/language-support.md) par la vérification orthographique Bing pour obtenir la liste des langues prises en charge et leur état.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Mots rares ou étrangers dans une application
 Dans la culture `en-us`, LUIS apprend à distinguer la plupart des mots anglais, y compris l’argot. Dans la culture `zh-cn`, LUIS apprend distinguer la plupart des caractères chinois. Si vous utilisez un mot rare en `en-us` ou caractère en `zh-cn`, et que LUIS semble incapable de distinguer ce mot ou ce caractère, vous pouvez ajouter le mot ou le caractère à une [fonctionnalité de la liste d’expressions](luis-how-to-add-features.md). Par exemple, les mots n’appartenant pas à la culture de l’application (autrement dit, les mots étrangers) doivent être ajoutés à une fonctionnalité de liste d’expressions.

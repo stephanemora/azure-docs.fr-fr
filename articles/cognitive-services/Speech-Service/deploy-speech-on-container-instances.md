@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 5a85086ea8d969dc70f4cd24b25a00765da285eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b77474d63cb47b561f9913ff06be5718aba4152
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425804"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96009639"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Déployer le conteneur du service Speech dans Azure Container Instances
 
-Découvrez comment déployer le conteneur [Service Speech](speech-container-howto.md) Cognitive Services dans Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Cette procédure montre la création d’une ressource du service Speech Azure. Puis nous aborderons l’extraction de l’image de conteneur associée. Enfin, nous mettrons en avant la possibilité d’exercer l’orchestration des deux à partir d’un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
+Découvrez comment déployer le conteneur [Service Speech](speech-container-howto.md) Cognitive Services dans Azure [Container Instances](../../container-instances/index.yml). Cette procédure montre la création d’une ressource du service Speech Azure. Puis nous aborderons l’extraction de l’image de conteneur associée. Enfin, nous mettrons en avant la possibilité d’exercer l’orchestration des deux à partir d’un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

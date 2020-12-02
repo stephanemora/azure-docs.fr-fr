@@ -14,11 +14,11 @@ ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: recherche de visage par image, recherche de reconnaissance faciale, reconnaissance faciale, application de reconnaissance faciale
 ms.openlocfilehash: de9467719c3e88d257edb64d2a9ac2a54412d6ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999327"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Visage
 

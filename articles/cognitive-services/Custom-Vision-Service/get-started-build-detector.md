@@ -13,11 +13,11 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, application de reconnaissance d’image, vision personnalisée
 ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018357"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Démarrage rapide : Créer un détecteur d’objets avec le site web Custom Vision
 

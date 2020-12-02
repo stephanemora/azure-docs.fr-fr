@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: f91d96732c872c6f93ee2de4c5c3eba5fe5ffbc4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9ca5229200b39f0a3c68da152f4d89f842d021ca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412236"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95996411"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -31,22 +31,22 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 > * Reconnaissance vocale standard
 > * Reconnaissance vocale personnalisée
 > * Synthèse vocale standard
-> 
+> * Synthèse vocale neuronale
+>
 > Les conteneurs Speech suivants sont en préversion contrôlée.
 > * Synthèse vocale personnalisée
 > * Détection de langue vocale 
-> * Synthèse vocale neuronale
 >
 > Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous.
 
 | Conteneur | Fonctionnalités | Latest |
 |--|--|--|
-| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.6.0 |
-| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.6.0 |
-| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.8.0 |
-| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.8.0 |
+| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.7.0 |
+| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.7.0 |
+| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.9.0 |
+| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.9.0 |
 | Détection de langue vocale | Permet de détecter la langue parlée en fichiers audio. | 1.0 |
-| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.2.0 |
+| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.3.0 |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
@@ -244,13 +244,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 Toutes les balises, à l’exception de `latest`, respectent le format suivant et sont sensibles à la casse :
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 La balise suivante illustre le format :
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 Pour tous les paramètres régionaux et les voix correspondantes pris en charge du conteneur de **synthèse vocale neuronale**, consultez les [étiquettes d’images de synthèse vocale neuronale](../containers/container-image-tags.md#neural-text-to-speech).

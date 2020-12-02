@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996121"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utiliser Docker Compose pour déployer plusieurs conteneurs
 
@@ -39,7 +39,7 @@ Cette procédure nécessite plusieurs outils qui doivent être installés et ex�
 
 ## <a name="docker-compose-file"></a>Fichier Docker Compose
 
-Le fichier YAML définit tous les services à déployer. Ces services s’appuient sur `DockerFile` ou sur une image conteneur existante. Dans ce cas, nous allons utiliser deux images en préversion. Copiez et collez le fichier YAML suivant, puis enregistrez-le sous le nom *docker-compose.yaml*. Entrez les valeurs appropriées pour **apikey** , **billing** et **EndpointUri** dans le fichier.
+Le fichier YAML définit tous les services à déployer. Ces services s’appuient sur `DockerFile` ou sur une image conteneur existante. Dans ce cas, nous allons utiliser deux images en préversion. Copiez et collez le fichier YAML suivant, puis enregistrez-le sous le nom *docker-compose.yaml*. Entrez les valeurs appropriées pour **apikey**, **billing** et **EndpointUri** dans le fichier.
 
 ```yaml
 version: '3.7'
@@ -80,15 +80,15 @@ services:
 Un fichier Docker Compose permet de gérer tous les étapes du cycle de vie du service défini : démarrage, arrêt et reconstruction des services, affichage de l’état du service et streaming de journaux. Ouvrez une interface de ligne de commande à partir du répertoire du projet (où le fichier docker-compose.yaml se trouve).
 
 > [!NOTE]
-> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si *E:\publicpreview* est utilisé comme répertoire dans le fichier *docker-compose.yaml* , partagez le lecteur  **E** avec Docker.
+> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si *E:\publicpreview* est utilisé comme répertoire dans le fichier *docker-compose.yaml*, partagez le lecteur **E** avec Docker.
 
-À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier *docker-compose.yaml*  :
+À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier *docker-compose.yaml* :
 
 ```console
 docker-compose up
 ```
 
-La première fois que Docker exécute la commande **docker-compose up** en utilisant cette configuration, il extrait les images configurées sous le nœud **services** , puis les télécharge et les monte :
+La première fois que Docker exécute la commande **docker-compose up** en utilisant cette configuration, il extrait les images configurées sous le nœud **services**, puis les télécharge et les monte :
 
 ```console
 Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
@@ -165,7 +165,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Conteneurs de test
 
-Ouvrez un navigateur sur la machine hôte, puis accédez à **localhost** en utilisant le port spécifié dans le fichier *docker-compose.yaml* , comme http://localhost:5021/swagger/index.html. Par exemple, vous pouvez utiliser la fonctionnalité **Essayer** de l’API pour tester le point de terminaison Form Recognizer. Les pages Swagger des deux conteneurs doivent être disponibles et testables.
+Ouvrez un navigateur sur la machine hôte, puis accédez à **localhost** en utilisant le port spécifié dans le fichier *docker-compose.yaml*, comme http://localhost:5021/swagger/index.html. Par exemple, vous pouvez utiliser la fonctionnalité **Essayer** de l’API pour tester le point de terminaison Form Recognizer. Les pages Swagger des deux conteneurs doivent être disponibles et testables.
 
 ![Conteneur Form Recognizer](media/form-recognizer-swagger-page.png)
 

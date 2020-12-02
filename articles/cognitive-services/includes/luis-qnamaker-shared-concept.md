@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78b93c05621754ae499e4ae8ca6b66c5bbfaad1b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87133826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028116"
 ---
 Cognitive Services fournit deux services de traitement en langage naturel, [Language Understanding](../luis/what-is-luis.md) et [QnA Maker](../qnamaker/overview/overview.md), chacun avec un objectif différent. Découvrez quand utiliser chaque service et comment ils se complètent.
 
@@ -71,7 +71,7 @@ Vous pouvez présenter cette réponse tierce à l’utilisateur pour la validati
 
 Si votre robot de conversation a besoin d’informations supplémentaires par rapport à l’un des services, pour poursuivre l’utilisation d’un arbre de décision, utilisez les deux services et traitez les deux réponses dans l’application cliente.
 
-Utilisez l'outil **[CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de l’infrastructure robot pour vous aider à créer un processus permettant de travailler avec les deux services. Cet outil crée une application d'intention LUIS de premier plan qui diffuse entre LUIS et QnA Maker en tant qu'applications enfants. [En savoir plus](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) sur l’intégration avec LUIS, QnA Maker et Bot Framework.
+Utilisez l'outil **[CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de l’infrastructure robot pour vous aider à créer un processus permettant de travailler avec les deux services. Cet outil crée une application d'intention LUIS de premier plan qui diffuse entre LUIS et QnA Maker en tant qu'applications enfants. [En savoir plus](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) sur l’intégration avec LUIS, QnA Maker et Bot Framework.
 
 Utilisez l’exemple de générateur de bot, **NLP avec Dispatch**, dans [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), pour implémenter ce type de robot de conversation.
 
@@ -88,6 +88,6 @@ Implémentez les meilleures pratiques pour chaque service :
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Exemples d’infrastructure robot](https://github.com/Microsoft/BotBuilder-Samples)
-* [Service Azure Bot](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Service Azure Bot](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Émulateur de bot Azure](https://github.com/Microsoft/BotFramework-Emulator)
 * [Conversation Web d’infrastructure de robot](https://github.com/microsoft/BotFramework-WebChat)

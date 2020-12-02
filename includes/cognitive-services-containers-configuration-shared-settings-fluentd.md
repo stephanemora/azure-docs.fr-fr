@@ -5,11 +5,11 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67712405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001160"
 ---
 Fluentd est un collecteur de données open source pour la journalisation unifiée. Les paramètres `Fluentd` gèrent la connexion du conteneur à un serveur [Fluentd](https://www.fluentd.org). Le conteneur comprend un fournisseur de journalisation Fluentd qui permet à votre conteneur d’écrire des données de journaux d’activité et, éventuellement, de métriques, sur un serveur Fluentd.
 

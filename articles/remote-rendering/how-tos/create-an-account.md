@@ -6,15 +6,15 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998530"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Créer un compte Azure Remote Rendering
 
-Ce chapitre vous guide tout au long de la création d’un compte pour le service **Azure Remote Rendering** . Vous devez disposer d’un compte valide pour suivre les différents guides de démarrage rapide et tutoriels.
+Ce chapitre vous guide tout au long de la création d’un compte pour le service **Azure Remote Rendering**. Vous devez disposer d’un compte valide pour suivre les différents guides de démarrage rapide et tutoriels.
 
 ## <a name="create-an-account"></a>Créer un compte
 
@@ -30,8 +30,8 @@ Vous devez effectuer les étapes suivantes afin de créer un compte pour le serv
     1. Sous « Groupe de ressources », spécifiez le groupe de ressources de votre choix.
     1. Sélectionnez une région dans la liste déroulante « Emplacement » dans laquelle cette ressource doit être créée. Consultez les notes sur [les régions de compte](create-an-account.md#account-regions) ci-dessous.
 1. Accédez au compte dès lors que celui-ci est créé, puis effectuez les opérations suivantes :
-    1. Dans l’onglet *Vue d’ensemble* , notez l’« ID de compte ».
-    1. Dans l’onglet *Paramètres > Clés d’accès* , notez la « Clé primaire », qui est la clé de compte secrète du compte.
+    1. Dans l’onglet *Vue d’ensemble*, notez l’« ID de compte ».
+    1. Dans l’onglet *Paramètres > Clés d’accès*, notez la « Clé primaire », qui est la clé de compte secrète du compte.
 
 ### <a name="account-regions"></a>Régions de compte
 L’emplacement spécifié lors de la création d’un compte détermine la région à laquelle la ressource de compte est affectée. Cette valeur ne peut pas être modifiée après la création. Toutefois, le compte peut être utilisé pour se connecter à une session Remote Rendering dans n’importe quelle [région prise en charge](./../reference/regions.md), indépendamment de l’emplacement du compte.
@@ -48,7 +48,7 @@ Pour accéder aux exemples et tutoriels, vous devez spécifier l’ID de compte 
 },
 ```
 
-Consultez la [liste des régions disponibles](../reference/regions.md) pour définir l’option de *région* .
+Consultez la [liste des régions disponibles](../reference/regions.md) pour définir l’option de *région*.
 
 Vous trouverez les valeurs de **`arrAccountId`** et **`arrAccountKey`** dans le portail comme décrit dans les étapes suivantes :
 
@@ -57,7 +57,7 @@ Vous trouverez les valeurs de **`arrAccountId`** et **`arrAccountKey`** dans le 
 
 ![Filtre d’abonnement](./media/azure-subscription-filter.png)
 
-Quand vous cliquez sur votre compte, l’écran suivant, dans lequel vous pouvez voir instantanément l’ **ID de compte** , s’affiche :
+Quand vous cliquez sur votre compte, l’écran suivant, dans lequel vous pouvez voir instantanément l’**ID de compte**, s’affiche :
 
 ![ID de compte Azure](./media/azure-account-id.png)
 
@@ -86,13 +86,13 @@ Vous devez effectuer les étapes de ce paragraphe pour chaque compte de stockage
 ![Compte de stockage IAM – Ajouter une attribution de rôle](./media/azure-add-role-assignment.png)
 
 * Le premier rôle à attribuer est **Propriétaire** comme indiqué dans la capture d’écran ci-dessus.
-* Sélectionnez **Compte Remote Rendering** dans la liste déroulante * **Attribuer l’accès à** .
+* Sélectionnez **Compte Remote Rendering** dans la liste déroulante ***Attribuer l’accès à**.
 * Sélectionnez votre abonnement et votre compte Remote Rendering dans les dernières listes déroulantes.
 
 > [!WARNING]
 > Si votre Remote Rendering n’est pas répertorié, consultez cette [section pour la résolution de problèmes](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Répétez deux fois la procédure d’ajout de rôles en effectuant les sélections suivantes dans la liste déroulante **Rôle**  :
+Répétez deux fois la procédure d’ajout de rôles en effectuant les sélections suivantes dans la liste déroulante **Rôle** :
 
 * **Contributeur de compte de stockage**
 * **Contributeur aux données Blob du stockage**

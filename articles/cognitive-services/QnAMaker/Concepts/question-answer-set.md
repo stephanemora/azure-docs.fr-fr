@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000111"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Concepts des paires question/réponse
 

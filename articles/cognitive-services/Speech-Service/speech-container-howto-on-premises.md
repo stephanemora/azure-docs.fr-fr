@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 277a3c1c53564d7c5dff6a87381680a7f41606de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c3791a9049a3eab3ddd6fc70073629c38830dbc7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131596"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002268"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Utiliser les conteneurs du service Speech avec Kubernetes et Helm
 
@@ -54,7 +54,7 @@ Visitez le [hub Microsoft Helm][ms-helm-hub] pour accéder à tous les graphique
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Ensuite, nous allons configurer nos valeurs de graphique Helm. Copiez et collez la configuration YAML suivante dans un fichier nommé `config-values.yaml`. Pour plus d’informations sur la personnalisation du **Graphique Helm pour Cognitive Services Speech local** , consultez [Personnaliser des graphiques Helm](#customize-helm-charts). Remplacez les commentaires `# {ENDPOINT_URI}` et `# {API_KEY}` par vos propres valeurs.
+Ensuite, nous allons configurer nos valeurs de graphique Helm. Copiez et collez la configuration YAML suivante dans un fichier nommé `config-values.yaml`. Pour plus d’informations sur la personnalisation du **Graphique Helm pour Cognitive Services Speech local**, consultez [Personnaliser des graphiques Helm](#customize-helm-charts). Remplacez les commentaires `# {ENDPOINT_URI}` et `# {API_KEY}` par vos propres valeurs.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -104,7 +104,7 @@ Les *graphiques Helm* fournis tirent (pull) les images Docker du service Speech 
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installer le graphique Helm sur le cluster Kubernetes
 
-Pour installer le *graphique helm* , nous allons devoir exécuter la commande [`helm install`][helm-install-cmd], en remplaçant `<config-values.yaml>` par l’argument de nom de chemin d’accès et de fichier approprié. Le graphique Helm `microsoft/cognitive-services-speech-onpremise` référencé ci-dessous est disponible sur le [hub Microsoft Helm][ms-helm-hub-speech-chart].
+Pour installer le *graphique helm*, nous allons devoir exécuter la commande [`helm install`][helm-install-cmd], en remplaçant `<config-values.yaml>` par l’argument de nom de chemin d’accès et de fichier approprié. Le graphique Helm `microsoft/cognitive-services-speech-onpremise` référencé ci-dessous est disponible sur le [hub Microsoft Helm][ms-helm-hub-speech-chart].
 
 ```console
 helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
@@ -189,7 +189,7 @@ horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-
 
 ### <a name="verify-helm-deployment-with-helm-tests"></a>Vérifier le déploiement de Helm avec des tests Helm
 
-Les graphiques Helm installés définissent les *tests Help* , qui sont proposés à des fins pratiques pour la vérification. Ces tests valident la disponibilité du service. Pour vérifier à la fois les services de **reconnaissance vocale** et de **synthèse vocale** , nous allons exécuter la commande [Help test][helm-test].
+Les graphiques Helm installés définissent les *tests Help*, qui sont proposés à des fins pratiques pour la vérification. Ces tests valident la disponibilité du service. Pour vérifier à la fois les services de **reconnaissance vocale** et de **synthèse vocale**, nous allons exécuter la commande [Help test][helm-test].
 
 ```console
 helm test onprem-speech
@@ -207,7 +207,7 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-Comme alternative à l’exécution des *tests Help* , vous pouvez recueillir les *adresses IP externes* et ports correspondants avec la commande `kubectl get all`. En utilisant l’adresse IP et le port, ouvrez un navigateur web et accédez à `http://<external-ip>:<port>:/swagger/index.html` pour voir la ou les pages Swagger de l’API.
+Comme alternative à l’exécution des *tests Help*, vous pouvez recueillir les *adresses IP externes* et ports correspondants avec la commande `kubectl get all`. En utilisant l’adresse IP et le port, ouvrez un navigateur web et accédez à `http://<external-ip>:<port>:/swagger/index.html` pour voir la ou les pages Swagger de l’API.
 
 ## <a name="customize-helm-charts"></a>Personnaliser des graphiques Helm
 
@@ -229,7 +229,7 @@ Pour plus d’informations sur l’installation d’applications avec Helm dans 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/

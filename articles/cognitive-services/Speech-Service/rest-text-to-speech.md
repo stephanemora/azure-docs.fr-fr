@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534979"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020158"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -34,7 +34,7 @@ Avant d’utiliser cette API, tenez compte du point suivant :
 * L’API REST de synthèse vocale nécessite un en-tête d’autorisation. Cela signifie que vous devez échanger un jeton pour accéder au service. Pour en savoir plus, consultez [Authentification](#authentication).
 
 > [!TIP]
-> Consultez la [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) Azure Government pour les points de terminaison Government Cloud (FairFax).
+> Consultez la [documentation](../../azure-government/compare-azure-government-global-azure.md) Azure Government pour les points de terminaison Government Cloud (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -222,9 +222,9 @@ Authorization: Bearer [Base64 access_token]
 
 Consultez nos guides de démarrage rapide pour obtenir des exemples propres aux langages :
 
-* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.JS](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C#](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.JS](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Codes d’état HTTP
 
@@ -245,5 +245,5 @@ Si l’état HTTP est `200 OK`, le corps de la réponse contient un fichier audi
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
-- [Synthèse asynchrone pour un contenu audio long](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Synthèse asynchrone pour un contenu audio long](./long-audio-api.md)
 - [Bien démarrer avec Custom Voice](how-to-custom-voice.md)
