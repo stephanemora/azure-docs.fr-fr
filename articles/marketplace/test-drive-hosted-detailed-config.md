@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751247"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462953"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuration détaillée pour les versions d'évaluation hébergées
 
@@ -29,7 +29,7 @@ Cet article explique comment configurer une version d’évaluation hébergée p
 
     - **Type of Test Drive** (Type de version d’évaluation) : choisissez **Microsoft Hosted (Dynamics 365 for Customer Engagement)** (Hébergé par Microsoft (Dynamics 365 for Customer Engagement)). Cela indique que Microsoft héberge et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.
 
-5. Accordez l’autorisation Microsoft AppSource pour approvisionner et déprovisionner les utilisateurs de la version d’évaluation dans votre locataire à l’aide [des instructions se trouvant ici](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). Au cours de cette étape, vous allez générer les valeurs **Azure AD App ID** (ID Azure AD App) et **Azure AD App Key** (Clé Azure AD App) mentionnées ci-dessous.
+5. Accordez l’autorisation Microsoft AppSource pour approvisionner et déprovisionner les utilisateurs de la version d’évaluation dans votre locataire à l’aide [des instructions se trouvant ici](./test-drive-azure-subscription-setup.md). Au cours de cette étape, vous allez générer les valeurs **Azure AD App ID** (ID Azure AD App) et **Azure AD App Key** (Clé Azure AD App) mentionnées ci-dessous.
 6. Renseignez les champs de la page **Configuration technique de la version d’évaluation**.
 
     [![La page Configuration technique de la version d’évaluation.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -81,7 +81,7 @@ Cet article explique comment configurer une version d’évaluation hébergée p
     - **Nom de locataire Azure Active Directory** : le nom du locataire Azure pour votre instance Dynamics 365. Utilisez le format `<tenantname>.onmicrosoft.com`. Valeur d'exemple : `testdrive.onmicrosoft.com`.
     - **ID d’application Azure Active Directory ID** : l’ID d’application Azure Active Directory (AD) que vous avez créé à l’étape 5. Valeur d'exemple : `53852862-a2ae-4e43-9461-faa49650a096`.
     - **Clé secrète client d’application Azure Active Directory** : le secret pour l’application Azure AD créée à l’étape 5. Valeur d'exemple : `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
-    - **Entité légale de la version d’essai** : fournissez une entité légale pour affecter un utilisateur à l’évaluation. Vous pouvez en créer une nouvelle dans [Créer ou modifier une entité légale](https://technet.microsoft.com/library/hh242184.aspx).
+    - **Entité légale de la version d’essai** : fournissez une entité légale pour affecter un utilisateur à l’évaluation. Vous pouvez en créer une nouvelle dans [Créer ou modifier une entité légale](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity).
     - **Nom du rôle** : nom de l’AOA (arborescence d’objets d’application) du rôle de sécurité Dynamics 365 personnalisé que vous avez créé pour la version d'évaluation. C’est le rôle qui sera assigné aux utilisateurs lors de leur utilisation de la version d’évaluation.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="La page de configuration de la sécurité.":::
