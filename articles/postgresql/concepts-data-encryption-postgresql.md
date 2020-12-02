@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242413"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493781"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
@@ -47,9 +47,9 @@ Les DEK, chiffrées avec les KEK, sont stockées séparément. Seule une entité
 
 Pour qu'un serveur PostgreSQL utilise les clés gérées par le client stockées dans Key Vault pour le chiffrement de la DEK, un administrateur Key Vault accorde les droits d'accès suivants au serveur :
 
-* **get**  : pour récupérer la partie publique et les propriétés de la clé dans Key Vault.
-* **wrapKey**  : pour pouvoir chiffrer la clé de chiffrement de données. La clé DEK chiffrée est stockée dans Azure Database pour PostgreSQL.
-* **unwrapKey**  : pour pouvoir déchiffrer la clé de chiffrement de données. Azure Database pour PostgreSQL a besoin de la clé DEK déchiffrée pour chiffrer/déchiffrer les données
+* **get** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault.
+* **wrapKey** : pour pouvoir chiffrer la clé de chiffrement de données. La clé DEK chiffrée est stockée dans Azure Database pour PostgreSQL.
+* **unwrapKey** : pour pouvoir déchiffrer la clé de chiffrement de données. Azure Database pour PostgreSQL a besoin de la clé DEK déchiffrée pour chiffrer/déchiffrer les données
 
 L'administrateur Key Vault peut également [activer la journalisation des événements d'audit Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) afin qu'ils puissent être audités ultérieurement.
 
@@ -77,7 +77,7 @@ Si vous utilisez le chiffrement de données à l'aide d'une clé gérée par le 
 * Définissez un verrou de ressource sur le coffre de clés pour déterminer qui peut supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée.
 * Activez l'audit et la création de rapports sur toutes les clés de chiffrement. Key Vault fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Azure Monitor Log Analytics est un exemple de service déjà intégré.
 * Assurez-vous que Key Vault et le serveur unique Azure Database pour PostgreSQL Serveur résident dans la même région pour garantir un accès plus rapide aux opérations wrap et unwrap de clé de chiffrement de données.
-* Verrouillez l’Azure Key Vault uniquement pour **le point de terminaison privé et les réseaux sélectionnés** , et autorisez uniquement des services *Microsoft approuvés* à sécuriser les ressources.
+* Verrouillez l’Azure Key Vault uniquement pour **le point de terminaison privé et les réseaux sélectionnés**, et autorisez uniquement des services *Microsoft approuvés* à sécuriser les ressources.
 
     :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
@@ -93,8 +93,8 @@ Lorsque vous configurez le chiffrement des données avec une clé gérée par le
 
 * Si nous créons un serveur de limite de restauration dans le temps pour votre serveur unique Azure Database pour PostgreSQL pour lequel le chiffrement des données est activé, le serveur nouvellement créé se trouve dans l’état *Inaccessible*. Vous pouvez modifier l’état du serveur via le [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Si nous créons un réplica en lecture pour votre serveur unique Azure Database pour PostgreSQL pour lequel le chiffrement des données est activé, le serveur de réplication se trouve dans l’état *Inaccessible*. Vous pouvez modifier l’état du serveur via le [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si vous supprimez le Key Vault, le serveur unique Azure Database pour PostgreSQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez le [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
-* Si nous supprimons la clé du Key Vault, le serveur unique Azure Database pour PostgreSQL ne peut pas accéder à la clé et passe à l’état *Inaccessible*. Récupérez la [clé](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
+* Si vous supprimez le Key Vault, le serveur unique Azure Database pour PostgreSQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez le [Key Vault](../key-vault/general/key-vault-recovery.md) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
+* Si nous supprimons la clé du Key Vault, le serveur unique Azure Database pour PostgreSQL ne peut pas accéder à la clé et passe à l’état *Inaccessible*. Récupérez la [clé](../key-vault/general/key-vault-recovery.md) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
 * Si la clé stockée dans Azure Key Vault expire, elle devient non valide et le serveur unique Azure Database pour PostgreSQL passe à l’état *Inaccessible*. Étendez la date d’expiration de la clé à l’aide de [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes), puis revalidez le chiffrement de données pour rendre le serveur *Disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Révocation accidentelle de l'accès aux clés de Key Vault
