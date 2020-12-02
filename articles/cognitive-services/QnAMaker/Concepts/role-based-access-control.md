@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147518"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346153"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborer avec d’autres auteurs et éditeurs
 
@@ -42,11 +42,11 @@ Le diagramme suivant illustre le flux, du point de vue de l’auteur, pour la co
 |3|L’API QnA Maker valide le jeton.|
 |4 |L’API QnA Maker appelle le service QnAMaker.|
 
-Si vous envisagez d’appeler les [API de création](../How-To/collaborate-knowledge-base.md), découvrez-en plus à propos de la configuration de l’authentification.
+Si vous envisagez d’appeler les [API de création](../index.yml), découvrez-en plus à propos de la configuration de l’authentification.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>S’authentifier à l’aide du portail QnA Maker
 
-Si vous créez et collaborez à l’aide du portail QnA Maker, après avoir [ajouté le rôle approprié à la ressource pour un collaborateur](../How-To/collaborate-knowledge-base.md), le portail QnA Maker gère toutes les autorisations d’accès.
+Si vous créez et collaborez à l’aide du portail QnA Maker, après avoir [ajouté le rôle approprié à la ressource pour un collaborateur](../index.yml), le portail QnA Maker gère toutes les autorisations d’accès.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>S’authentifier à l’aide des API et Kits de développement logiciel (SDK) QnA Maker
 
@@ -54,4 +54,4 @@ Si vous créez et collaborez à l’aide des API, via REST ou des Kits de dével
 
 ## <a name="next-step"></a>Étape suivante
 
-* Concevoir une base de connaissances pour les [langages](design-language-culture.md) et les [applications clientes](integration-with-other-applications.md)
+* Concevoir une base de connaissances pour les [langages](../index.yml) et les [applications clientes](../index.yml)

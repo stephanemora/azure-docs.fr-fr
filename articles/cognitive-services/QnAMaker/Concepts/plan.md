@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376675"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353168"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -94,13 +94,13 @@ Vous pouvez à présent avoir des bases de connaissances dans différentes langu
 
 ### <a name="ingest-data-sources"></a>Ingestion de sources de données
 
-Pour créer une base de connaissances, vous pouvez utiliser l’une des [sources de données](knowledge-base.md) ingérées suivantes :
+Pour créer une base de connaissances, vous pouvez utiliser l’une des [sources de données](../index.yml) ingérées suivantes :
 
 * Une URL publique
 * Une URL SharePoint privée
 * Fichier
 
-Le processus d’ingestion convertit les [types de contenu pris en charge](content-types.md) en Markdown. Toutes les modifications apportées à la *réponse* sont effectuées avec Markdown. Après avoir créé votre base de connaissances, vous pouvez modifier les [paires question/réponse](question-answer-set.md) dans le portail QnA Maker à l’aide de la [création de texte enrichi](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Le processus d’ingestion convertit les [types de contenu pris en charge](../index.yml) en Markdown. Toutes les modifications apportées à la *réponse* sont effectuées avec Markdown. Après avoir créé votre base de connaissances, vous pouvez modifier les [paires question/réponse](question-answer-set.md) dans le portail QnA Maker à l’aide de la [création de texte enrichi](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considérations relatives aux formats des données
 
@@ -124,17 +124,17 @@ Vous devez concevoir votre flux de conversation en utilisant une boucle pour qu�
 
 Les collaborateurs peuvent être des développeurs qui partagent la totalité de la pile de développement de l’application de base de connaissances, ou ils peuvent uniquement être affectés à la création de la base de connaissances.
 
-Lorsque vous créez une base de connaissances, vous pouvez appliquer différentes [autorisations d’accès en fonction du rôle](../how-to/collaborate-knowledge-base.md) dans le portail Azure afin de limiter les possibilités d’un collaborateur.
+Lorsque vous créez une base de connaissances, vous pouvez appliquer différentes [autorisations d’accès en fonction du rôle](../index.yml) dans le portail Azure afin de limiter les possibilités d’un collaborateur.
 
 ## <a name="integration-with-client-applications"></a>Intégration aux applications clientes
 
-L’intégration aux [applications clientes](integration-with-other-applications.md) s’effectue en envoyant une requête au point de terminaison du runtime de prédiction. Une requête est envoyée à votre base de connaissances, en même temps qu’une requête SDK ou REST envoyée au point de terminaison de l’application web QnA Maker.
+L’intégration aux [applications clientes](../index.yml) s’effectue en envoyant une requête au point de terminaison du runtime de prédiction. Une requête est envoyée à votre base de connaissances, en même temps qu’une requête SDK ou REST envoyée au point de terminaison de l’application web QnA Maker.
 
 Afin d’authentifier correctement une requête du client, l’application cliente doit envoyer les bonnes informations d’identification et le bon ID de la base de connaissances. Si vous utilisez Azure Bot Service, configurez ces paramètres dans le cadre de la configuration du bot dans le portail Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Flux de conversation dans une application cliente
 
-Dans une [application cliente](integration-with-other-applications.md) telle qu’un bot Azure, le flux de conversation peut nécessiter des fonctionnalités avant et après l’interaction avec la base de connaissances.
+Dans une [application cliente](../index.yml) telle qu’un bot Azure, le flux de conversation peut nécessiter des fonctionnalités avant et après l’interaction avec la base de connaissances.
 
 Votre application cliente prend-elle en charge le flux conversationnel, soit en fournissant d’autres moyens pour traiter les invites de suivi, soit en incluant chit-chat ? Si c’est le cas, concevez-les tôt et assurez-vous que la requête de l’application cliente est correctement traitée par un autre service ou lorsqu’elle est envoyée à votre base de connaissances.
 
@@ -152,7 +152,7 @@ QnA Maker utilise l’_apprentissage actif_ pour améliorer la qualité de votre
 
 ### <a name="providing-a-default-answer"></a>Fournir une réponse par défaut
 
-Si votre base de connaissances ne trouve pas de réponse, elle retourne une _réponse par défaut_. Cette réponse est configurable sur la page **Paramètres** du portail QnA Maker ou dans les [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Si votre base de connaissances ne trouve pas de réponse, elle retourne une _réponse par défaut_. Cette réponse est configurable sur la page **Paramètres** du portail QnA Maker ou dans les [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 Cette réponse par défaut est différente de la réponse par défaut du bot Azure. Vous configurez la réponse par défaut de votre bot Azure dans le portail Azure dans le cadre des paramètres de configuration. Elle est retournée lorsque le seuil de score n’est pas atteint.
 
@@ -197,7 +197,7 @@ Toutes les requêtes de votre base de connaissances sont stockées dans Applicat
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
-Dans le déploiement manage, la télémétrie est proposée par le biais du [service Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
+Dans le déploiement manage, la télémétrie est proposée par le biais du [service Azure Monitor](../../../azure-monitor/index.yml). Utilisez nos [requêtes les plus fréquentes](../how-to/get-analytics-knowledge-base.md) pour comprendre vos métriques.
 
 
 ---
@@ -217,7 +217,7 @@ Chaque paire peut contenir les éléments suivants :
 
 ### <a name="devops-development"></a>Développement DevOps
 
-Le développement d’une base de connaissances à insérer dans un pipeline DevOps nécessite que la base de connaissances soit isolée pendant les [tests par lots](../quickstarts/batch-testing.md).
+Le développement d’une base de connaissances à insérer dans un pipeline DevOps nécessite que la base de connaissances soit isolée pendant les [tests par lots](../index.yml).
 
 Une base de connaissances partage l’index Recherche cognitive avec toutes les autres bases de connaissances de la ressource QnA Maker. Si la base de connaissances est isolée par une partition, le partage de l’index peut entraîner une différence de score par rapport à celui de la base de connaissances publiée.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376755"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346356"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -18,7 +18,7 @@ Le [cycle de vie du développement d’une base de connaissances](../Concepts/de
 
 ## <a name="extraction"></a>Extraction
 
-Le service QnA Maker améliore en permanence les algorithmes qui extraient des entités QnA à partir du contenu, et étend la liste des formats HTML et des formats de fichiers pris en charge. Suivez les [instructions](../Concepts/content-types.md) d’extraction de données en fonction de votre type de document.
+Le service QnA Maker améliore en permanence les algorithmes qui extraient des entités QnA à partir du contenu, et étend la liste des formats HTML et des formats de fichiers pris en charge. Suivez les [instructions](../index.yml) d’extraction de données en fonction de votre type de document.
 
 En général, les pages FAQ doivent être autonomes et ne pas être combinées avec d’autres informations. Les manuels de produits doivent avoir des titres clairs et, si possible, une page d’index.
 
@@ -117,10 +117,10 @@ Les [métadonnées](../How-To/edit-knowledge-base.md) ajoutent à une applicatio
 
 ### <a name="use-synonyms"></a>Utiliser des synonymes
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
-Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et **partagés par toutes les bases de connaissances du service**.
+Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et **partagés par toutes les bases de connaissances du service**.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
-Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes dans QnA Maker managé (préversion) sont **ajoutés par base de connaissances**.
+Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes dans QnA Maker managé (préversion) sont **ajoutés par base de connaissances**.
 
 |Mot d’origine|Synonymes|
 |--|--|
@@ -141,7 +141,7 @@ Par exemple, vous pouvez avoir deux entités QnA distinctes avec les questions s
 Ces deux entités QnA employant des mots très similaires, elles pourraient générer des scores très similaires pour de nombreuses requêtes d’utilisateur utilisant la tournure de phrase *« où est l’emplacement de `<x>` ».* Essayez plutôt de les distinguer clairement avec des requêtes du type *« où est le parking »* et *« où est le distributeur automatique de billets »* , en évitant des mots comme « emplacement » susceptibles de figurer dans de nombreuses questions de la base de connaissances.
 
 ## <a name="collaborate"></a>Travailler en collaboration
-QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/collaborate-knowledge-base.md) sur une base de connaissances. Les utilisateurs doivent avoir accès au groupe de ressources Azure QnA Maker pour accéder à la base de connaissances. Certaines organisations souhaitent externaliser la mise à jour et la gestion des bases de connaissances tout en pouvant quand même protéger l’accès à leurs ressources Azure. Ce modèle éditeur-approbateur s’obtient en configurant deux [services QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identiques dans des abonnements différents et en sélectionnant l’un d’entre eux pour le cycle de modification-test. À la fin des tests, le contenu de la base de connaissances est transféré, par un processus [importation-exportation](../Tutorials/migrate-knowledge-base.md), au service QnA Maker de l’approbateur, qui publiera la base de connaissances et mettra à jour le point de terminaison.
+QnA Maker permet aux utilisateurs de [travailler en collaboration](../index.yml) sur une base de connaissances. Les utilisateurs doivent avoir accès au groupe de ressources Azure QnA Maker pour accéder à la base de connaissances. Certaines organisations souhaitent externaliser la mise à jour et la gestion des bases de connaissances tout en pouvant quand même protéger l’accès à leurs ressources Azure. Ce modèle éditeur-approbateur s’obtient en configurant deux [services QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identiques dans des abonnements différents et en sélectionnant l’un d’entre eux pour le cycle de modification-test. À la fin des tests, le contenu de la base de connaissances est transféré, par un processus [importation-exportation](../Tutorials/migrate-knowledge-base.md), au service QnA Maker de l’approbateur, qui publiera la base de connaissances et mettra à jour le point de terminaison.
 
 
 

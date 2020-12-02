@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95029378"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350362"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Créer une application d’inscription pour Android avec React
 
@@ -74,7 +74,7 @@ Pour étendre les fonctionnalités de l’application afin de couvrir toute l’
 
 ### <a name="android"></a>Android
 
-Pour commencer, vérifiez que votre application est prête pour le déploiement en production : supprimez les clés ou les secrets du code de l’application et vérifiez que vous avez suivi les [bonnes pratiques en matière de sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+Pour commencer, vérifiez que votre application est prête pour le déploiement en production : supprimez les clés ou les secrets du code de l’application et vérifiez que vous avez suivi les [bonnes pratiques en matière de sécurité](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 Quand vous êtes prêt à publier votre application en production, vous générez un fichier APK prêt pour la mise en production, qui correspond au format de fichier de package pour les applications Android. Ce fichier APK doit être signé avec une clé privée. Avec cette build, vous pouvez commencer à distribuer l’application directement à vos appareils. 
 

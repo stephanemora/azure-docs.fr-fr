@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376573"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352420"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtenir des analyses sur votre base de connaissances
 
@@ -52,7 +52,7 @@ QnA Maker stocke tous les journaux d’activité de conversation et d’autres d
 
 QnA Maker managé (préversion) utilise la journalisation des diagnostics Azure pour stocker les données de télémétrie et les journaux de conversation. Suivez les étapes ci-dessous pour exécuter des exemples de requêtes afin d’analyser l’utilisation de votre base de connaissances QnA Maker.
 
-1. [Activez la journalisation des diagnostics](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) pour votre service QnA Maker managé (préversion).
+1. [Activez la journalisation des diagnostics](../../diagnostic-logging.md) pour votre service QnA Maker managé (préversion).
 
 2. À l’étape précédente, sélectionnez **Trace** en plus d’**Audit, RequestResponse et AllMetrics** pour la journalisation.
 

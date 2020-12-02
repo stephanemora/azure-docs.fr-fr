@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 986a7c8f1282b76c2ae94eebcc2c31dc3b3e7cad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367588"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352012"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 La suggestion automatique personnalisée retourne une liste de suggestions de chaînes de requête qui correspondent à votre recherche. Les chaînes de requête suggérées sont basées sur la chaîne de requête partielle qui est fournie par l’utilisateur dans la zone de recherche. La liste contient un maximum de 10 suggestions. 
 
@@ -65,7 +65,7 @@ Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant l
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Activation de la suggestion automatique dans l’interface utilisateur hébergée
 
-Pour activer les suggestions de chaînes de requête pour votre interface utilisateur hébergée, cliquez sur **Hosted UI** (Interface utilisateur hébergée). Faites défiler jusqu’à la section **Additional Configuration** (Configuration supplémentaire). Sous **Recherche Web** , sélectionnez **Activé** pour l’option **Enable autosuggest** (Activer la suggestion automatique). Pour activer la suggestion automatique, vous devez sélectionner une disposition qui comprenne une zone de recherche.
+Pour activer les suggestions de chaînes de requête pour votre interface utilisateur hébergée, cliquez sur **Hosted UI** (Interface utilisateur hébergée). Faites défiler jusqu’à la section **Additional Configuration** (Configuration supplémentaire). Sous **Recherche Web**, sélectionnez **Activé** pour l’option **Enable autosuggest** (Activer la suggestion automatique). Pour activer la suggestion automatique, vous devez sélectionner une disposition qui comprenne une zone de recherche.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Appel de l’API Suggestion automatique

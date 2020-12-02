@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: d930543671a5328d76a38aa7e1b421c111e89e39
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381114"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349518"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Mise à niveau de l’API Recherche Web Bing v5 vers v7
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Recherche Web Bing. Utilisez-le pour identifier les parties de votre application que vous avez besoin de mettre à jour pour utiliser la version 7.
 
@@ -31,7 +31,7 @@ Ce guide de mise à niveau identifie les changements entre la version 5 et la ve
 
 ### <a name="endpoints"></a>Points de terminaison
 
-- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https:\/\/api.cognitive.microsoft.com/bing/ **v7.0** /search.
+- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objets de réponse d’erreur et codes d’erreur
 
@@ -86,7 +86,7 @@ Bloqué|InvalidRequest.Blocked
 
 - Ajout du paramètre de requête [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilisez ce paramètre pour spécifier le nombre de réponses que la réponse doit inclure. Les réponses sont choisies en fonction du classement. Par exemple, si vous définissez ce paramètre sur trois (3), la réponse inclut les trois réponses de rang supérieur.  
 
-- Ajout du paramètre de requête [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez la promo sur *vidéos, images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *vidéos, images* , la réponse peut inclure des pages web, des actualités, des vidéos et des images.
+- Ajout du paramètre de requête [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez la promo sur *vidéos, images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *vidéos, images*, la réponse peut inclure des pages web, des actualités, des vidéos et des images.
 
 ### <a name="object-changes"></a>Modifications d’objet
 

@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519521"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353678"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -76,7 +76,7 @@ Quand vous effectuez l’entraînement avec des données étiquetées, le modèl
 
 Form Recognizer utilise l’[API de disposition](#layout-api) pour connaître les tailles et les positions attendues des éléments de texte imprimés et manuscrits. Ensuite, il utilise des étiquettes spécifiées par l’utilisateur pour connaître les associations clé/valeur dans les documents. Nous vous recommandons d’utiliser cinq formulaires étiquetés manuellement du même type (même structure) pour commencer l’entraînement d’un nouveau modèle et d’ajouter des données étiquetées en fonction des besoins afin d’améliorer l’exactitude du modèle.
 
-[Bien démarrer avec l’entraînement avec des étiquettes](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+[Bien démarrer avec l’entraînement avec des étiquettes](./quickstarts/label-tool.md)
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]

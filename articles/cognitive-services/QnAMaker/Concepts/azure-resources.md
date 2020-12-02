@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376794"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351893"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -49,8 +49,8 @@ Lorsque vous passez à la phase de développement du projet, vous devez prendre 
 En général, il existe trois paramètres dont vous devez tenir compte :
 
 * **Débit dont vous avez besoin à partir du service** :
-    * sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance l’application.
-    * Ceci doit également influencer votre sélection de la référence SKU de la [Recherche cognitive](https://docs.microsoft.com/azure/search/search-sku-tier) Azure. Voir **ici** pour plus d’informations. En outre, vous devrez peut-être ajuster la [capacité](../../../search/search-capacity-planning.md) de la Recherche cognitive capacité avec des réplicas.
+    * sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](../../../app-service/manage-scale-up.md) ou faire descendre en puissance l’application.
+    * Ceci doit également influencer votre sélection de la référence SKU de la [Recherche cognitive](../../../search/search-sku-tier.md) Azure. Voir **ici** pour plus d’informations. En outre, vous devrez peut-être ajuster la [capacité](../../../search/search-capacity-planning.md) de la Recherche cognitive capacité avec des réplicas.
 
 * **Taille et nombre de bases de connaissances** : Choisissez la [référence SKU Recherche Azure](https://azure.microsoft.com/pricing/details/search/) adaptée à votre scénario. En règle générale, vous fixez le nombre de bases de connaissances dont vous avez besoin en fonction du nombre de domaines différents. Un domaine (pour une langue) doit se trouver dans une base de connaissances.
 
@@ -74,7 +74,7 @@ En général, il existe trois paramètres dont vous devez tenir compte :
 
 * **Débit dont vous avez besoin à partir du service** :
     * QnA Maker managé (préversion) est un service gratuit. Son débit est actuellement limité à 10 TPS pour à la fois les API de gestion et les API de prédiction.
-    * Ceci doit également influencer votre sélection de la référence SKU de la [Recherche cognitive](https://docs.microsoft.com/azure/search/search-sku-tier) Azure. Voir **ici** pour plus d’informations. En outre, vous devrez peut-être ajuster la [capacité](../../../search/search-capacity-planning.md) de la Recherche cognitive capacité avec des réplicas.
+    * Ceci doit également influencer votre sélection de la référence SKU de la [Recherche cognitive](../../../search/search-sku-tier.md) Azure. Voir **ici** pour plus d’informations. En outre, vous devrez peut-être ajuster la [capacité](../../../search/search-capacity-planning.md) de la Recherche cognitive capacité avec des réplicas.
 
 * **Taille et nombre de bases de connaissances** : Choisissez la [référence SKU Recherche Azure](https://azure.microsoft.com/pricing/details/search/) adaptée à votre scénario. En règle générale, vous fixez le nombre de bases de connaissances dont vous avez besoin en fonction du nombre de domaines différents. Un domaine (pour une langue) doit se trouver dans une base de connaissances.
 
@@ -240,7 +240,7 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
 |Nom|Emplacement|Objectif|
 |--|--|--|
-|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
 |Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
 
 ### <a name="subscription-keys"></a>Clés d’abonnement
@@ -251,11 +251,11 @@ Pour savoir quelle clé vous devez trouver, vous devez savoir à quoi la clé pe
 
 ### <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau
 
-* Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Protégez App Service (Runtime QnA) contre l’accès public :
     * Autorisez le trafic uniquement à partir des adresses IP Cognitive Services. Celles-ci sont déjà incluses dans l’étiquette de service « CognitiveServicesManagement ». Les API de création (création/mise à jour de base de connaissances) peuvent ainsi appeler le service d’application et mettre à jour le service Recherche Azure en conséquence.
     * Assurez-vous que vous autorisez également d’autres points d’entrée, tels que Bot Service ou le portail QnA Maker (éventuellement votre réseau d’entreprise), pour accéder à l’API de prédiction « GenerateAnswer ».
-    * Consultez d’[autres informations sur les étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+    * Consultez d’[autres informations sur les étiquettes de service](../../../virtual-network/service-tags-overview.md).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
@@ -317,8 +317,8 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
 |Nom|Emplacement|Objectif|
 |--|--|--|
-|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
-|Clé d’administration de Recherche cognitive Azure|[Azure portal](https://docs.microsoft.com/azure/search/search-security-api-keys)|Ces clés sont utilisées pour communiquer avec le service de recherche cognitive Azure déployé dans l’abonnement Azure de l’utilisateur. Quand vous associez une recherche cognitive Azure au service QnA Maker managé (préversion), la clé d’administration est automatiquement transmise au service QnA Maker. <br><br>Vous pouvez trouver ces clés sur la ressource **Recherche cognitive Azure** dans la page **Clés**.|
+|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé d’administration de Recherche cognitive Azure|[Azure portal](../../../search/search-security-api-keys.md)|Ces clés sont utilisées pour communiquer avec le service de recherche cognitive Azure déployé dans l’abonnement Azure de l’utilisateur. Quand vous associez une recherche cognitive Azure au service QnA Maker managé (préversion), la clé d’administration est automatiquement transmise au service QnA Maker. <br><br>Vous pouvez trouver ces clés sur la ressource **Recherche cognitive Azure** dans la page **Clés**.|
 
 ### <a name="subscription-keys"></a>Clés d’abonnement
 
@@ -328,13 +328,12 @@ Pour savoir quelle clé vous devez trouver, vous devez savoir à quoi la clé pe
 
 ### <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau 
 
-Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [base de connaissances](knowledge-base.md) QnA Maker
+* En savoir plus sur la [base de connaissances](../index.yml) QnA Maker
 * Comprendre un [cycle de vie de base de connaissances](development-lifecycle-knowledge-base.md)
 * Examiner les [limites](../limits.md) du service et de la base de connaissances
-

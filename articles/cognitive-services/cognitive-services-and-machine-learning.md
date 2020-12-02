@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368863"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349263"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et machine learning
 
@@ -44,7 +44,7 @@ Le Machine Learning consiste à associer des données et un algorithme pour rép
 
 Le processus de création d’un système de Machine Learning nécessite une certain connaissance en matière de Machine Learning ou de science des données.
 
-Le Machine Learning est fourni au travers des [produits et services Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Le Machine Learning est fourni au travers des [produits et services Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Qu’est-ce qu’un service cognitif ?
 

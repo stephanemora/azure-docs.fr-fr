@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427477"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346136"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -30,19 +30,19 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 2. Dans le portail QnA Maker, sélectionnez **Créer une base de connaissances**.
 
-3. Dans la page **Créer** , ignorez l’ **étape 1** si vous disposez déjà de votre ressource QnA Maker.
+3. Dans la page **Créer**, ignorez l’**étape 1** si vous disposez déjà de votre ressource QnA Maker.
 
     Si vous n’avez pas encore créé la ressource, sélectionnez **Créer un service QnA**. Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
-    Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’ **étape 2**.
+    Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’**étape 2**.
 
-4. À l’ **étape 2** , sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
+4. À l’**étape 2**, sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Capture d’écran de la sélection d’une base de connaissances du service QnA Maker":::
 
-5. À l’ **étape 3** , nommez votre base de connaissances **My Sample QnA KB**.
+5. À l’**étape 3**, nommez votre base de connaissances **My Sample QnA KB**.
 
-6. À l’ **étape 4** , configurez les paramètres à l’aide du tableau suivant :
+6. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
 
     |Paramètre|Valeur|
     |--|--|
@@ -51,7 +51,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
     |**+ Ajouter une URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
 
-7. À l’ **étape 5** , sélectionnez **Create your KB** (Créer votre base de connaissances).
+7. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
 
     Le processus d’extraction prend quelques minutes pour lire le document et identifier les questions et réponses.
 
@@ -63,21 +63,21 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 2. Dans le portail QnA Maker, sélectionnez **Créer une base de connaissances**.
 
-3. Dans la page **Créer** , ignorez l’ **étape 1** si vous disposez déjà de votre ressource QnA Maker.
+3. Dans la page **Créer**, ignorez l’**étape 1** si vous disposez déjà de votre ressource QnA Maker.
 
     Si vous n’avez pas encore créé la ressource, sélectionnez **Créer un service QnA**. Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Rappelez-vous l’ID Azure Active Directory, l’abonnement et le nom de ressource QnA que vous avez sélectionnés au moment de créer la ressource.
 
-    Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’ **étape 2**.
+    Lorsque vous avez terminé de créer la ressource dans le portail Azure, revenez au portail QnA Maker, actualisez la page du navigateur et passez à l’**étape 2**.
 
-4. À l’ **étape 2** , sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
+4. À l’**étape 2**, sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Capture d’écran de la sélection d’une base de connaissances du service QnA Maker (préversion managée)":::
 
-5. À l’ **étape 2** , si vous créez la première base de connaissances pour votre service, vous avez la possibilité de rendre le paramètre de langue spécifique à chaque base de connaissances. Une fois le paramètre de langue défini pour la première base de connaissances, vous ne pouvez plus modifier les paramètres du service.
+5. À l’**étape 2**, si vous créez la première base de connaissances pour votre service, vous avez la possibilité de rendre le paramètre de langue spécifique à chaque base de connaissances. Une fois le paramètre de langue défini pour la première base de connaissances, vous ne pouvez plus modifier les paramètres du service.
 
-6. À l’ **étape 3** , nommez votre base de connaissances  **My Sample QnA KB**. 
+6. À l’ **étape 3**, nommez votre base de connaissances  **My Sample QnA KB**. 
 
-7. À l’ **étape 4** , configurez les paramètres à l’aide du tableau suivant :
+7. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
 
     |Paramètre|Valeur|
     |--|--|
@@ -86,7 +86,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
     |**+ Ajouter une URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
 
-8. À l’ **étape 5** , sélectionnez **Create your KB** (Créer votre base de connaissances).
+8. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
 
     Le processus d’extraction prend quelques minutes pour lire le document et identifier les questions et réponses.
 
@@ -101,7 +101,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
     `How many Azure services are used by a knowledge base?`
 
-1. Ajoutez la réponse mise en forme avec la syntaxe _Markdown_  :
+1. Ajoutez la réponse mise en forme avec la syntaxe _Markdown_ :
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
@@ -167,7 +167,7 @@ Après la publication, vous pouvez créer un bot à partir de la page **Publish*
 
 Quand vous apportez des modifications à la base de connaissances et que vous republiez, aucune autre action n’est nécessaire avec le bot. Il est déjà configuré pour fonctionner avec la base de connaissances et il fonctionne avec toutes les modifications futures de la base de connaissances. Chaque fois que vous publiez une base de connaissances, tous les bots qui y sont connectés sont automatiquement mis à jour.
 
-1. Dans le portail QnA Maker, dans la page **Publish** , sélectionnez **Create bot**. Ce bouton apparaît seulement une fois que vous avez publié la base de connaissances.
+1. Dans le portail QnA Maker, dans la page **Publish**, sélectionnez **Create bot**. Ce bouton apparaît seulement une fois que vous avez publié la base de connaissances.
 
     ![Capture d’écran de la création d’un bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
@@ -183,8 +183,8 @@ Quand vous apportez des modifications à la base de connaissances et que vous re
 
 
 1. Une fois le bot créé, ouvrez la ressource **Service Bot**.
-1. Sous **Gestion du bot** , sélectionnez **Tester dans le Web Chat**.
-1. À l’invite de chat **Tapez votre message** , entrez :
+1. Sous **Gestion du bot**, sélectionnez **Tester dans le Web Chat**.
+1. À l’invite de chat **Tapez votre message**, entrez :
 
     `Azure services?`
 
@@ -212,5 +212,4 @@ Si vous ne passez pas au démarrage rapide suivant, supprimez les ressources de 
 Pour plus d'informations :
 
 * [Format Markdown dans les réponses](../reference-markdown-format.md)
-* [Sources de données](../concepts/knowledge-base.md) QnA Maker
-
+* [Sources de données](../index.yml) QnA Maker

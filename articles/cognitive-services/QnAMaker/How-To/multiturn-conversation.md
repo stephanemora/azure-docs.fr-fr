@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777798"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353219"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -82,7 +82,7 @@ Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites d
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
 
-Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`.
+Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Présenter les questions et les réponses avec du contexte
 
@@ -94,7 +94,7 @@ Sélectionnez **Options d’affichage**, puis **Afficher le contexte**. La liste
 
 Le contexte multitour s’affiche dans la première colonne.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Capture d'écran représentant un exemple de la structure dans un manuel d'utilisation." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Capture d'écran dans laquelle la section Context est mise en surbrillance." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Dans l’image précédente, **#1** désigne le texte en gras dans la colonne, qui représente la question actuelle. La question parente est le premier élément de la ligne. Les questions situées en dessous sont les paires de questions/réponses liées. Vous pouvez sélectionner ces éléments pour accéder immédiatement aux autres éléments contextuels.
 
@@ -161,7 +161,7 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
 
     Cette action a pour effet de créer une nouvelle paire de questions/réponses et de lier la question sélectionnée en tant qu’invite de suivi. La colonne **Context**, pour ces deux questions, indique une relation d’invite de suivi.
 
-1. Sélectionnez **View options**, puis [**Show context (PREVIEW)** ](#show-questions-and-answers-with-context).
+1. Sélectionnez **View options**, puis [**Show context (PREVIEW)**](#show-questions-and-answers-with-context).
 
     La nouvelle question montre comment elle est liée.
 
@@ -169,7 +169,7 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
 
     La question parente affiche une nouvelle question parmi ses différents choix.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Capture d'écran représentant un exemple de la structure dans un manuel d'utilisation." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Capture d'écran représentant la colonne Context, qui indique une relation d'invite de suivi pour les deux questions." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Une fois que vous avez ajouté l’invite de suivi, sélectionnez **Save and train** dans la barre de navigation supérieure.
 
@@ -357,11 +357,11 @@ Si vous créez une application personnalisée à l’aide de la fonctionnalité 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L’ordre d’affichage est pris en charge dans l’API Update
 
-Le [texte d’affichage et l’ordre d’affichage](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retournés dans la réponse JSON, sont pris en charge par l’[API Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) et peuvent être modifiés.
+Le [texte d’affichage et l’ordre d’affichage](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retournés dans la réponse JSON, sont pris en charge par l’[API Update](/rest/api/cognitiveservices/qnamaker/knowledgebase/update) et peuvent être modifiés.
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Ajouter ou supprimer des invites multitours à l’aide de l’API Update
 
-Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`.
+Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exporter la base de connaissances pour la gestion de versions
 
@@ -369,7 +369,7 @@ QnA Maker prend en charge la gestion de versions en incluant des étapes de conv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus en détail les conversations contextuelles à travers cet [exemple de boîte de dialogue](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) ou apprenez-en davantage sur la [conception de bots conceptuels pour les conversations multitours](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Découvrez plus en détail les conversations contextuelles à travers cet [exemple de boîte de dialogue](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) ou apprenez-en davantage sur la [conception de bots conceptuels pour les conversations multitours](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrer une base de connaissances](../Tutorials/migrate-knowledge-base.md)

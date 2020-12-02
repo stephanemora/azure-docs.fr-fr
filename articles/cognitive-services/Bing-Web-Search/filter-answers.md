@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: f4f001cdeb37ff760a01ac48d7efb41c0437fe5f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 571314009b6f58e5c2ab6aac02cfebc82c53f42f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380249"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351859"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Lorsque vous interrogez le web, Bing renvoie tout le contenu qu’il juge pertinent pour la recherche. Par exemple, si la requête de recherche est « sailing+dinghies », la réponse peut contenir les correspondances suivantes :
 
@@ -136,7 +136,7 @@ Les résultats peuvent inclure des pages web qui se situent en dehors de la pér
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitation du nombre de correspondances dans la réponse
 
-Bing peut retourner plusieurs types de réponses dans la réponse JSON. Par exemple, si votre requête porte sur *sailing+dinghies* , Bing peut retourner `webpages`, `images`, `videos` et `relatedSearches`.
+Bing peut retourner plusieurs types de réponses dans la réponse JSON. Par exemple, si votre requête porte sur *sailing+dinghies*, Bing peut retourner `webpages`, `images`, `videos` et `relatedSearches`.
 
 ```json
 {

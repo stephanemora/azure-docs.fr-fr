@@ -7,12 +7,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-js
 ms.topic: how-to
-ms.openlocfilehash: ef17f08677d715292a8ee49621156d130e2f5a6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 645f9ffb1d907eb576f5414b593ef57679d26daa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777499"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351144"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Démarrage rapide : QnA Maker avec les API REST pour Node.js
 
@@ -27,7 +27,7 @@ Utilisez QnA Maker avec les API REST pour Node.js dans le cadre des opérations 
 * Télécharger une base de connaissances
 * Obtenir l’état d’une opération
 
-[Documentation de référence](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Exemples Node.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentation de référence](/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Exemples Node.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -41,9 +41,9 @@ Utilisez QnA Maker avec les API REST pour Node.js dans le cadre des opérations 
 
 ### <a name="create-a-qna-maker-azure-resource"></a>Créer une ressource Azure QnA Maker
 
-Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour QnA Maker en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local.
+Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour QnA Maker en utilisant le [portail Azure](../../cognitive-services-apis-create-account.md) ou [Azure CLI](../../cognitive-services-apis-create-account-cli.md) sur votre ordinateur local.
 
-Après avoir obtenu une clé à partir de votre ressource, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la ressource, et nommez-les `QNAMAKER_RESOURCE_KEY` et `QNAMAKER_AUTHORING_ENDPOINT`. Utilisez les valeurs de clé et de point de terminaison qui se trouvent dans la page **Démarrage rapide** de la ressource dans le portail Azure.
+Après avoir obtenu une clé à partir de votre ressource, [créez des variables d’environnement](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour la ressource, et nommez-les `QNAMAKER_RESOURCE_KEY` et `QNAMAKER_AUTHORING_ENDPOINT`. Utilisez les valeurs de clé et de point de terminaison qui se trouvent dans la page **Démarrage rapide** de la ressource dans le portail Azure.
 
 ### <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 
@@ -107,13 +107,13 @@ Une base de connaissances stocke des paires question-réponse, créées à parti
 * **Fichiers** : fichiers locaux qui ne nécessitent pas d’autorisations.
 * **URL** : URL disponibles publiquement.
 
-Utilisez l’[API REST pour créer une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).
+Utilisez l’[API REST pour créer une base de connaissances](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="createKb":::
 
 ## <a name="replace-a-knowledge-base"></a>Remplacer une base de connaissances
 
-Utilisez l’[API REST pour remplacer une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
+Utilisez l’[API REST pour remplacer une base de connaissances](/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="replaceKb":::
 
@@ -121,13 +121,13 @@ Utilisez l’[API REST pour remplacer une base de connaissances](https://docs.mi
 
 Publier la base de connaissances. Ce processus rend la base de connaissances disponible à partir d’un point de terminaison de prédiction de requête HTTP.
 
-Utilisez l’[API REST pour publier une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
+Utilisez l’[API REST pour publier une base de connaissances](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="publishKb":::
 
 ## <a name="download-the-knowledge-base"></a>Télécharger la base de connaissances
 
-Utilisez l’[API REST pour télécharger une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
+Utilisez l’[API REST pour télécharger une base de connaissances](/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="downloadKb":::
 
@@ -135,7 +135,7 @@ Utilisez l’[API REST pour télécharger une base de connaissances](https://doc
 
 Lorsque vous avez fini d’utiliser la base de connaissances, supprimez-la.
 
-Utilisez l’[API REST pour supprimer une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
+Utilisez l’[API REST pour supprimer une base de connaissances](/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="deleteKb":::
 
@@ -143,7 +143,7 @@ Utilisez l’[API REST pour supprimer une base de connaissances](https://docs.mi
 
 Les processus de longue durée, tels que le processus de création, retournent un ID d’opération qui doit être vérifié à l’aide d’un appel d’API REST distinct. Cette fonction accepte le corps de la réponse Create. La clé importante est `operationState`, qui détermine si vous devez continuer l’interrogation.
 
-Utilisez l’[API REST pour superviser les opérations qui sont effectuées dans une base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
+Utilisez l’[API REST pour superviser les opérations qui sont effectuées dans une base de connaissances](/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="operationDetails":::
 
@@ -171,7 +171,7 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
->[Tutoriel : Créer et interroger une base de connaissances](../tutorials/create-publish-query-in-portal.md)
+>[Tutoriel : Créer et interroger une base de connaissances](./create-publish-knowledge-base.md)
 
 * [Qu’est-ce que l’API QnA Maker ?](../Overview/overview.md)
 * [Modifier une base de connaissances](../how-to/edit-knowledge-base.md)

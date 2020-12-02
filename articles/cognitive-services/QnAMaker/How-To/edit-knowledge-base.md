@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776542"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351705"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modifier des paires de Q/R dans votre base de connaissances
 
@@ -128,11 +128,11 @@ Sélectionnez régulièrement **Enregistrer et entraîner** après avoir apport�
 
 [Modifier le texte enrichi](#add-an-editorial-qna-set) de réponses vous permet, en tant qu’auteur, d’utiliser une barre d’outils de mise en forme pour sélectionner le texte et le mettre en forme rapidement.
 
-[Markdown](../reference-markdown-format.md) est un outil plus approprié lorsque vous devez générer automatiquement du contenu pour créer des bases de connaissances à importer dans le cadre d’un pipeline CI/CD ou pour des [tests par lots](../Quickstarts/batch-testing.md).
+[Markdown](../reference-markdown-format.md) est un outil plus approprié lorsque vous devez générer automatiquement du contenu pour créer des bases de connaissances à importer dans le cadre d’un pipeline CI/CD ou pour des [tests par lots](../index.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Collaborer sur une base de connaissances](./collaborate-knowledge-base.md)
+> [Collaborer sur une base de connaissances](../index.yml)
 
 * [Gérer les ressources Azure utilisées par QnA Maker](set-up-qnamaker-service-azure.md)

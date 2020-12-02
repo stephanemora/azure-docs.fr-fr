@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: 6bf9eb5fbb8604bca67279f5f41c8aed19a510c0
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376874"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345642"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -84,7 +84,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 <details>
 <summary><b>Quelle taille maximale peut avoir une base de connaissances ?</b></summary>
 
-**Réponse** : La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./Tutorials/choosing-capacity-qnamaker-deployment.md).
+**Réponse** : La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./concepts/azure-resources.md).
 
 </details>
 
@@ -98,7 +98,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 <details>
 <summary><b>Comment partager une base de connaissances avec d’autres utilisateurs ?</b></summary>
 
-**Réponse** : Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./How-To/collaborate-knowledge-base.md) comment collaborer sur une base de connaissances.
+**Réponse** : Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./index.yml) comment collaborer sur une base de connaissances.
 
 </details>
 
@@ -137,7 +137,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 <details>
 <summary><b>Pourquoi mon lien SharePoint n’est-il pas extrait ?</b></summary>
 
-**Réponse** : Pour plus d’informations, consultez la section [Emplacements des sources de données](./Concepts/knowledge-base.md#data-source-locations).
+**Réponse** : Pour plus d’informations, consultez la section [Emplacements des sources de données](./concepts/data-sources-and-content.md#data-source-locations).
 
 </details>
 
@@ -167,7 +167,7 @@ Une fois que les paires de Q/R sont dans la base de connaissances, vous pouvez m
 <details>
 <summary><b>QnA Maker prend-il en charge les langues autres que l’anglais ?</b></summary>
 
-**Réponse** : Affichez plus d’informations sur les [langues prises en charge](./Overview/languages-supported.md).
+**Réponse** : Affichez plus d’informations sur les [langues prises en charge](./overview/language-support.md).
 
 Si vous avez du contenu dans plusieurs langues, veillez à créer un service distinct pour chaque langue.
 
@@ -185,7 +185,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Quelle taille maximale peut avoir une base de connaissances ?</b></summary>
 
-**Réponse** : La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./Tutorials/choosing-capacity-qnamaker-deployment.md).
+**Réponse** : La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./concepts/azure-resources.md).
 
 </details>
 
@@ -199,7 +199,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Comment partager une base de connaissances avec d’autres utilisateurs ?</b></summary>
 
-**Réponse** : Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./How-To/collaborate-knowledge-base.md) comment collaborer sur une base de connaissances.
+**Réponse** : Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./index.yml) comment collaborer sur une base de connaissances.
 
 </details>
 
@@ -220,7 +220,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Pourquoi mon lien SharePoint n’est-il pas extrait ?</b></summary>
 
-**Réponse** : Pour plus d’informations, consultez la section [Emplacements des sources de données](./Concepts/knowledge-base.md#data-source-locations).
+**Réponse** : Pour plus d’informations, consultez la section [Emplacements des sources de données](./concepts/data-sources-and-content.md#data-source-locations).
 
 </details>
 
@@ -250,7 +250,7 @@ Une fois que les paires de Q/R sont dans la base de connaissances, vous pouvez m
 <details>
 <summary><b>QnA Maker prend-il en charge les langues autres que l’anglais ?</b></summary>
 
-**Réponse** : Affichez plus d’informations sur les [langues prises en charge](./Overview/languages-supported.md).
+**Réponse** : Affichez plus d’informations sur les [langues prises en charge](./overview/language-support.md).
 
 Si vous avez du contenu dans plusieurs langues, veillez à créer un service distinct pour chaque langue.
 
@@ -366,7 +366,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
 
-**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0&preserve-view=true). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
+**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
 
 </details>
 
@@ -405,7 +405,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 **Réponse** : Procédez comme suit pour incorporer le service QnA Maker en tant que contrôle de conversation web dans votre site web :
 
 1. Créez votre bot de FAQ en suivant les instructions [ici](./Quickstarts/create-publish-knowledge-base.md).
-2. Activez la conversation web en suivant [ces](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat) étapes
+2. Activez la conversation web en suivant [ces](/azure/bot-service/bot-service-channel-connect-webchat) étapes
 
 </details>
 
@@ -415,7 +415,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 <details>
 <summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
 
-**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0&preserve-view=true). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
+**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/?preserve-view=true&view=azure-bot-service-4.0). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
 
 </details>
 
@@ -454,7 +454,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 **Réponse** : Procédez comme suit pour incorporer le service QnA Maker en tant que contrôle de conversation web dans votre site web :
 
 1. Créez votre bot de FAQ en suivant les instructions [ici](./Quickstarts/create-publish-knowledge-base.md).
-2. Activez la conversation web en suivant [ces](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat) étapes
+2. Activez la conversation web en suivant [ces](/azure/bot-service/bot-service-channel-connect-webchat) étapes
 
 ---
 

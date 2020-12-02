@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot avec peu de code, invites multitours
-ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874422"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353134"
 ---
 # <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
 
@@ -22,14 +22,14 @@ QnA Maker est couramment utilisé pour créer des applications clientes conversa
 
 ## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 
-* **Quand vous avez des informations statiques** : utilisez QnA Maker quand vous avez des informations statiques dans votre base de connaissances de réponses. Cette base de connaissances, créée avec des documents tels que [des PDF et des contenus accessibles par des URL](../concepts/content-types.md), est personnalisée en fonction de vos besoins.
+* **Quand vous avez des informations statiques** : utilisez QnA Maker quand vous avez des informations statiques dans votre base de connaissances de réponses. Cette base de connaissances, créée avec des documents tels que [des PDF et des contenus accessibles par des URL](../index.yml), est personnalisée en fonction de vos besoins.
 * **Quand vous souhaitez fournir la même réponse à une requête, une question ou une commande** : quand différents utilisateurs soumettent la même question, la même réponse est retournée.
 * **Quand vous souhaitez filtrer des informations statiques en fonction de méta-informations** : ajoutez des balises de [métadonnées](../how-to/metadata-generateanswer-usage.md) pour fournir des options de filtrage supplémentaires relatives aux utilisateurs et informations de votre application cliente. Les [échanges](../how-to/chit-chat-knowledge-base.md), types ou formats de contenu, objets de contenu et actualisations de contenu représentent des informations de métadonnées courantes.
 * **Quand vous souhaitez gérer une conversation de bot incluant des informations statiques** : votre base de connaissances répond à une commande ou au texte conversationnel d’un utilisateur. Si la réponse fait partie d’un flux de conversation prédéterminé, représenté dans votre base de connaissances avec un [contexte multitour](../how-to/multiturn-conversation.md), le bot peut facilement fournir ce flux.
 
 ## <a name="what-is-a-knowledge-base"></a>Qu’est-ce qu’une base de connaissances ?
 
-QnA Maker [importe votre contenu](../concepts/knowledge-base.md) dans une base de connaissances comprenant des paires question/réponse. Le processus d’importation extrait des informations sur la relation entre les différentes parties de votre contenu structuré et semi-structuré pour définir des relations entre les paires question/réponse. Vous pouvez modifier ces paires question/réponse ou en ajouter de nouvelles.
+QnA Maker [importe votre contenu](../index.yml) dans une base de connaissances comprenant des paires question/réponse. Le processus d’importation extrait des informations sur la relation entre les différentes parties de votre contenu structuré et semi-structuré pour définir des relations entre les paires question/réponse. Vous pouvez modifier ces paires question/réponse ou en ajouter de nouvelles.
 
 Le contenu de la paire question/réponse comprend les éléments suivants :
 * Toutes les autres formes de la question

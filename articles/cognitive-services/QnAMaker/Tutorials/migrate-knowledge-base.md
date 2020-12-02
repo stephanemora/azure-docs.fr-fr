@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427664"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350923"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
@@ -34,7 +34,7 @@ La migration d’une base de connaissances nécessite son exportation d’une ba
 1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai).
 1. Sélectionnez la base de connaissances d'origine que vous souhaitez migrer.
 
-1. Sur la page **Paramètres**, sélectionnez **Exporter la base de connaissances** pour télécharger un fichier .tsv qui contient le contenu de votre base de connaissances : questions, réponses, métadonnées, invites de suivi et noms des sources de données à partir desquelles elles ont été extraites. Les ID QnA exportés avec les questions et réponses peuvent être utilisés pour mettre à jour une paire QnA spécifique à l’aide de l’[API de mise à jour](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L’ID QnA d’une paire QnA spécifique reste inchangé après plusieurs opérations d’exportation.
+1. Sur la page **Paramètres**, sélectionnez **Exporter la base de connaissances** pour télécharger un fichier .tsv qui contient le contenu de votre base de connaissances : questions, réponses, métadonnées, invites de suivi et noms des sources de données à partir desquelles elles ont été extraites. Les ID QnA exportés avec les questions et réponses peuvent être utilisés pour mettre à jour une paire QnA spécifique à l’aide de l’[API de mise à jour](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L’ID QnA d’une paire QnA spécifique reste inchangé après plusieurs opérations d’exportation.
 
 1. Sélectionnez **Créer une base de connaissances** dans le menu supérieur, puis créez une base de connaissances _vide_. Elle est vide car lorsque vous la créez, vous n'y ajoutez ni URL ni fichiers. Ceux-ci sont ajoutés lors de l’étape d’importation, après la création.
 
@@ -59,16 +59,16 @@ Le processus de migration est disponible par programmation à l’aide des API R
 
 **Export**
 
-* [API Télécharger la base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [API Télécharger la base de connaissances](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importer**
 
-* [API Remplacer (recharger avec le même ID de base de connaissances)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [API Créer (charger avec un nouvel ID de base de connaissances)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [API Remplacer (recharger avec le même ID de base de connaissances)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [API Créer (charger avec un nouvel ID de base de connaissances)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Conversations et modifications
-Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) pour déplacer les modifications dans nouvelle la base de connaissances.
+Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) pour déplacer les modifications dans nouvelle la base de connaissances.
 
 Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations.
 

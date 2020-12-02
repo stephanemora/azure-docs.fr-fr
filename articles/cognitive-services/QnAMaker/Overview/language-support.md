@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375638"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353117"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Prise en charge linguistique pour une ressource QnA Maker et bases de connaissances
 
@@ -140,7 +140,7 @@ La liste suivante contient les langues prises en charge pour une ressource QnA M
 |Vietnamien|
 
 ## <a name="query-matching-and-relevance"></a>Correspondance et pertinence des requêtes
-QnA Maker dépend des [analyseurs de langue Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) pour fournir des résultats.
+QnA Maker dépend des [analyseurs de langue Recherche cognitive Azure](/rest/api/searchservice/language-support) pour fournir des résultats.
 
 Même si les fonctionnalités de Recherche cognitive Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle d’outil de classement, nous utilisons une sémantique spéciale et des fonctionnalités basées sur des mots dans les langues suivantes.
 
@@ -166,4 +166,4 @@ Ce classement supplémentaire est un travail interne de l’outil de classement 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Sélection de la langue](../how-to/language-knowledge-base.md)
+> [Sélection de la langue](../index.yml)

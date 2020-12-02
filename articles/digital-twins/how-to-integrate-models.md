@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338663"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352879"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Intégrer des modèles standard du secteur à DTDL pour Azure Digital Twins
 
 L’utilisation de modèles basés sur des normes du secteur ou d’une représentation d’ontologie standard, comme RDF ou OWL, constitue un point de départ intéressant quand vous concevez vos modèles Azure Digital Twins. L’utilisation de modèles sectoriels facilite également la normalisation et le partage d’informations.
 
-Pour être utilisé avec Azure Digital Twins, un modèle doit être représenté à l’aide du [**langage DTDL (Digital Twins Definition Language)** ](concepts-models.md) basé sur JSON-LD. Par conséquent, cet article décrit comment représenter vos modèles standard du secteur en DTDL, en intégrant les concepts existants à la sémantique DTDL, de sorte qu’Azure Digital Twins puissent les utiliser. Le modèle DTDL sert alors de source de vérité pour le modèle dans Azure Digital Twins.
+Pour être utilisé avec Azure Digital Twins, un modèle doit être représenté à l’aide du [**langage DTDL (Digital Twins Definition Language)**](concepts-models.md) basé sur JSON-LD. Par conséquent, cet article décrit comment représenter vos modèles standard du secteur en DTDL, en intégrant les concepts existants à la sémantique DTDL, de sorte qu’Azure Digital Twins puissent les utiliser. Le modèle DTDL sert alors de source de vérité pour le modèle dans Azure Digital Twins.
 
 Il existe trois parcours possibles pour intégrer des modèles standard du secteur à DTDL :
 * **Adoption** : Vous pouvez démarrer votre solution avec une ontologie DTDL open source qui a été conçue sur des normes du secteur d’activité largement adoptées. 
@@ -111,7 +111,7 @@ Un exemple d’application disponible convertit un fichier de modèle RDF en [DT
 
 L’exemple est une application en ligne de commande .NET Core appelée **RdfToDtdlConverter**.
 
-Vous pouvez vous procurer l’exemple ici : [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Vous pouvez vous procurer l’exemple ici : [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
 Pour télécharger le code sur votre ordinateur, cliquez sur le bouton *Télécharger ZIP* sous le titre de la page d’accueil de l’exemple. Cela permet de télécharger un fichier *ZIP* sous le nom *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que vous pouvez ensuite décompresser et explorer.
 

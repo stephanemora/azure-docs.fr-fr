@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e1a8043912c984be46f85bd384a7049da27028b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445011"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353236"
 ---
 # <a name="active-learning-suggestions"></a>Suggestions d’apprentissage actif
 
@@ -137,7 +137,7 @@ QnA Maker a besoin de commentaires explicites pour savoir quelles réponses sont
 * La logique métier, par exemple déterminer une plage de score acceptable.
 * Une combinaison des commentaires des utilisateurs et de la logique métier.
 
-Utilisez l’[API Train](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) pour envoyer la réponse correcte à QnA Maker une fois que l’utilisateur l’a sélectionnée.
+Utilisez l’[API Train](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) pour envoyer la réponse correcte à QnA Maker une fois que l’utilisateur l’a sélectionnée.
 
 ## <a name="next-step"></a>Étape suivante
 

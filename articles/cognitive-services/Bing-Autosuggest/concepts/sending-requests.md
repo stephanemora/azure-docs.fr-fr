@@ -10,25 +10,25 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dd845c0fb877afa76b84eb5c2d86392f763eccf7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364035"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353389"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envoi de demandes à l’API Suggestion automatique Bing.
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche de votre application, vous pouvez afficher des suggestions dans une liste déroulante. Utilisez cet article pour savoir comment envoyer des requêtes de recherche cette API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Point de terminaison de l’API Suggestion automatique Bing
 
-L' **API Suggestion automatique Bing** inclut un point de terminaison, qui renvoie une liste de requêtes suggérées à partir d’un terme de recherche partielle.
+L'**API Suggestion automatique Bing** inclut un point de terminaison, qui renvoie une liste de requêtes suggérées à partir d’un terme de recherche partielle.
 
 Pour obtenir des suggestions de requête à l’aide de l’API Bing, envoyez une requête `GET` au point de terminaison suivant. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
@@ -110,7 +110,7 @@ Le groupe de suggestions web suivant est une réponse à la requête ci-dessus. 
 
 Le champ `displayText` correspond à la requête suggérée à utiliser dans la liste déroulante de la zone de recherche. Vous devez afficher toutes les suggestions incluses dans la réponse, dans l’ordre indiqué.  
 
-Si l’utilisateur sélectionne une requête dans la liste déroulante, vous pouvez l’utiliser pour appeler l’une des [API Recherche Bing](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) et afficher les résultats vous-même, ou bien renvoyer l’utilisateur vers la page de résultats de Bing à l’aide du champ `url`.
+Si l’utilisateur sélectionne une requête dans la liste déroulante, vous pouvez l’utiliser pour appeler l’une des [API Recherche Bing](../../bing-web-search/bing-api-comparison.md?bc=%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fen-us%2fazure%2fcognitive-services%2fbing-autosuggest%2ftoc.json) et afficher les résultats vous-même, ou bien renvoyer l’utilisateur vers la page de résultats de Bing à l’aide du champ `url`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

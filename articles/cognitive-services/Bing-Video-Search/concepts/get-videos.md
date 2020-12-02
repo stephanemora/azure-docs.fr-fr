@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 10277efe1f06de3633b2d614e2ee5ec0cc351c76
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351927"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Rechercher des vidéos avec l’API Recherche de vidéos Bing
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L’API Recherche de vidéos Bing facilite l’intégration des capacités de recherche de vidéos cognitive de Bing dans vos applications. Alors que l’API trouve et retourne surtout des vidéos pertinentes provenant du web, elle propose plusieurs fonctionnalités pour les récupérer de manière intelligente et pertinente.
 
@@ -149,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Développement de la requête
 
-Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête était le *nettoyage de gouttières* , les requêtes développées pourraient être : **outils** pour le nettoyage de gouttières, nettoyage de gouttières **à partir du sol** , **appareil** pour le nettoyage de gouttières et nettoyage de gouttières **facile**.
+Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête était le *nettoyage de gouttières*, les requêtes développées pourraient être : **outils** pour le nettoyage de gouttières, nettoyage de gouttières **à partir du sol**, **appareil** pour le nettoyage de gouttières et nettoyage de gouttières **facile**.
 
 L’exemple suivant montre les requêtes développées pour le *nettoyage de gouttières* (Cleaning Gutters).
 

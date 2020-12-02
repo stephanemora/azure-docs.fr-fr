@@ -11,19 +11,19 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e312265705161dd1cfa23856c9f6dfb71997ec82
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 7643486962df0516cc61857a7e31cf34bc41c732
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381097"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350634"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Qu’est-ce que l’API Recherche Web Bing ?
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L’API Recherche Web Bing est un service RESTful fournissant des réponses instantanées aux requêtes utilisateur. Les résultats de la recherche sont facilement configurés pour inclure des pages web, des images, des vidéos, des actualités, des traductions et bien davantage. Recherche Web Bing fournit les résultats au format JSON basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
 

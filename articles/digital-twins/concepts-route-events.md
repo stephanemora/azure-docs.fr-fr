@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279969"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350821"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -20,7 +20,7 @@ Azure Digital Twins utilise des **routes d’événements** pour envoyer des don
 
 Il existe deux cas principaux d’envoi de données Azure Digital Twins :
 * Envoi de données d’une représentation dans le graphique Azure Digital Twins vers une autre. Par exemple, lorsqu’une propriété au sein d’une représentation numérique change, vous souhaiterez peut-être notifier et mettre à jour une autre représentation numérique.
-* Envoi de données à des services de données en aval pour un stockage ou un traitement supplémentaire (également appelé *sortie de données* ). Par exemple,
+* Envoi de données à des services de données en aval pour un stockage ou un traitement supplémentaire (également appelé *sortie de données*). Par exemple,
   - Un hôpital peut vouloir envoyer des données d’événements Azure Digital Twins vers [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), pour enregistrer des données de série chronologique relatives à des événements liés au lavage de mains pour une analyse en masse.
   - Une entreprise qui utilise déjà [Azure Maps](../azure-maps/about-azure-maps.md) souhaite utiliser Azure Digital Twins pour améliorer sa solution. Ils peuvent rapidement activer une carte Azure après avoir configuré Azure Digital Twins, amener des entités Azure Maps dans Azure Digital Twins en tant que [représentations numériques](concepts-twins-graph.md) dans le graphique de représentation, ou exécuter des requêtes puissantes en tirant parti des données de Azure Maps et Azure Digital Twins.
 
@@ -103,7 +103,7 @@ Si l’une des conditions est remplie, l’événement est abandonné ou mis en 
 
 Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Pour en savoir plus sur les jetons SAP, consultez : [*Accorder un accès limité aux ressources Stockage Azure à l’aide des signatures d’accès partagé (SAP)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Pour en savoir plus sur les jetons SAP, consultez : [*Accorder un accès limité aux ressources Stockage Azure à l’aide des signatures d’accès partagé (SAP)*](../storage/common/storage-sas-overview.md).
 
 Pour savoir comment configurer un point de terminaison avec mise en file d’attente de lettres mortes, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505238"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345523"
 ---
 # <a name="whats-new-in-qna-maker"></a>Nouveautés de QnA Maker
 
@@ -56,17 +56,17 @@ Découvrez les nouveautés de QnA Maker.
 
 ### <a name="november-2019"></a>Novembre 2019
 
-* [Support cloud US Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) pour QnA Maker
-* Fonctionnalité [multitour](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) dans la version en disponibilité générale
-* [Support pour les échanges](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) disponible dans les langues de niveau 1
+* [Support cloud US Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) pour QnA Maker
+* Fonctionnalité [multitour](./how-to/multiturn-conversation.md) dans la version en disponibilité générale
+* [Support pour les échanges](./how-to/chit-chat-knowledge-base.md#language-support) disponible dans les langues de niveau 1
 
 ### <a name="october-2019"></a>2 octobre 2019
 
-* [Définition explicite de la langue](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) pour toutes les bases de connaissances du service QnA Maker.
+* [Définition explicite de la langue](./index.yml) pour toutes les bases de connaissances du service QnA Maker.
 
 ### <a name="september-2019"></a>Septembre 2019
 
-* Importer et exporter avec le [format de fichier XLS](concepts/content-types.md)
+* Importer et exporter avec le [format de fichier XLS](./index.yml)
 
 ### <a name="june-2019"></a>Juin 2019
 

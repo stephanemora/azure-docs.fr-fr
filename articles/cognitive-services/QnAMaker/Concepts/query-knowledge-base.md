@@ -3,12 +3,12 @@ title: Interroger une base de connaissances – QnA Maker
 description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376710"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346203"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Interroger la base de connaissances pour obtenir des réponses
 
@@ -18,7 +18,7 @@ Une base de connaissances doit être publiée. Une fois publiée, la base de con
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-Le base de connaissances QnA Maker entraînée et [publiée](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
+Le base de connaissances QnA Maker entraînée et [publiée](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
 
 ![Processus de modèle de classement par ordre de priorité pour une requête de l’utilisateur](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -28,7 +28,7 @@ Le processus est expliqué dans le tableau suivant.
 
 |Étape|Objectif|
 |--|--|
-|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
 |3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
 |4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
@@ -41,7 +41,7 @@ Les fonctionnalités utilisées incluent notamment la sémantique au niveau des 
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
-Le base de connaissances QnA Maker entraînée et [publiée](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
+Le base de connaissances QnA Maker entraînée et [publiée](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
 
 ![Processus de modèle de classement par ordre de priorité pour une requête de l’utilisateur (préversion)](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -51,7 +51,7 @@ Le processus est expliqué dans le tableau suivant.
 
 |Étape|Objectif|
 |--|--|
-|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
 |3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
 |4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|

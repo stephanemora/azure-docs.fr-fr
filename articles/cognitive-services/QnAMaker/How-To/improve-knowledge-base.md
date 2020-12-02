@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678377"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352403"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 
@@ -22,11 +22,11 @@ L’apprentissage actif modifie la base de connaissances ou Search Service aprè
 
 ## <a name="turn-on-active-learning"></a>Activation de l’apprentissage actif
 
-Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) pour votre ressource QnA Maker.
+Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](../concepts/active-learning-suggestions.md) pour votre ressource QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Afficher les questions suggérées
 
-1. Pour afficher les suggestions de questions, sur la page **Modifier** de la base de connaissances, sélectionnez **Afficher les options** , puis **Show active learning suggestions** (Afficher les suggestions d’apprentissage actif).
+1. Pour afficher les suggestions de questions, sur la page **Modifier** de la base de connaissances, sélectionnez **Afficher les options**, puis **Show active learning suggestions** (Afficher les suggestions d’apprentissage actif).
 
     [![Dans la section Modifier du portail, sélectionnez l’option d’affichage des suggestions afin de voir les nouvelles alternatives de question d’apprentissage actif.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
