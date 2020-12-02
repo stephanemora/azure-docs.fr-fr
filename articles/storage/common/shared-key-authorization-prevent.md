@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635209"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484887"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -77,7 +77,7 @@ Les journaux du stockage Azure capturent des détails sur les demandes effectué
 
 Pour journaliser les demandes adressées à votre compte Stockage Azure afin d’évaluer la manière dont elles sont autorisées, vous pouvez utiliser la journalisation du Stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../blobs/monitor-blob-storage.md).
 
-La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Créer un paramètre de diagnostic dans le portail Azure
 
@@ -217,7 +217,7 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 | AzCopy | Opération prise en charge pour le stockage blob. Pour plus d’informations sur l’autorisation des opérations AzCopy, consultez [Choisir comment vous allez fournir des informations d’identification d’autorisation](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) dans la documentation AzCopy. |
 | Explorateur de stockage Azure | Pris en charge uniquement pour le stockage Slob et Azure Data Lake Storage Gen2. L’accès Azure AD au stockage de file d’attente n’est pas pris en charge. Veillez à sélectionner le locataires Azure AD approprié. Pour plus d’informations, consultez [Prise en main de l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure). |
 | Azure PowerShell | Pris en charge. Pour plus d’informations sur l’autorisation des commandes PowerShell pour les opérations d’objet blob ou de file d’attente avec Azure AD, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-data-operations-powershell.md) ou [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données de la file d’attente](../queues/authorize-data-operations-powershell.md). |
-| Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](authorize-data-operations-cli.md). |
+| Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
 

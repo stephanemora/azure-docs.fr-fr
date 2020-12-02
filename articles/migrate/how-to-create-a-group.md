@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 420259929afc50b2884bf075212402d80b6b52f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549916"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483536"
 ---
 # <a name="create-a-group-for-assessment"></a>Créer un groupe pour l’évaluation
 
@@ -37,7 +37,7 @@ Si vous souhaitez créer un groupe manuellement en dehors de la création d’un
 
 1. Dans le projet Azure Migrate > **Vue d’ensemble**, cliquez sur **Évaluer et migrer des serveurs**. Dans **Azure Migrate : Évaluation de serveur**, cliquez sur **Groupes**
     - Si vous n’avez pas encore ajouté l’outil Azure Migrate : Évaluation de serveur, cliquez pour l’ajouter. [Plus d’informations](how-to-assess.md)
-    - Si vous n’avez pas encore créé de projet Azure Migrate, [cliquez ici pour en savoir plus](how-to-add-tool-first-time.md).
+    - Si vous n’avez pas encore créé de projet Azure Migrate, [cliquez ici pour en savoir plus](./create-manage-projects.md).
 
     ![Sélection de groupes](./media/how-to-create-a-group/select-groups.png)
 
@@ -89,4 +89,3 @@ Si vous avez déjà [configuré le mappage des dépendances](how-to-create-group
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer et utiliser le [mappage des dépendances](how-to-create-group-machine-dependencies.md) pour créer des groupes de confiance élevée.
-

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959167"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484428"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -138,7 +138,7 @@ Selon vos besoins en bande passante réseau, vous pouvez choisir différents typ
 - La latence réseau est supérieure par rapport à un déploiement local. La diminution des allers-retours réseau peut considérablement améliorer les performances.
 - Pour réduire le nombre d’allers-retours, regroupez les applications avec un nombre élevé de transactions et les applications « bavardes » sur une même machine virtuelle.
 - Utilisez des machines virtuelles avec la [mise en réseau accélérée](../../../virtual-network/create-vm-accelerated-networking-cli.md) pour améliorer les performances réseau.
-- Pour certaines distributions Linux, pensez à activer la [prise en charge de TRIM/UNMAP](../../linux/configure-lvm.md#trimunmap-support).
+- Pour certaines distributions Linux, pensez à activer la [prise en charge de TRIM/UNMAP](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installez [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) sur une machine virtuelle distincte.
 - Les Huge Pages ne sont pas activées par défaut sur Linux. Envisagez d’activer les Huge Pages et définissez `use_large_pages = ONLY` sur Oracle DB. Cela peut aider à améliorer les performances. Des informations supplémentaires sont disponibles [ici](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

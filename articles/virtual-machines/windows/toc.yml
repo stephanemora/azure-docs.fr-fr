@@ -300,7 +300,7 @@
         - name: Instances réservées
           items:
             - name: Prépayer pour des machines virtuelles
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: "Que sont les réservations Azure\_?"
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilité de taille d'instance des machines virtuelles
@@ -570,7 +570,7 @@
             - name: Créer un hôte Bastion
               items:
                 - name: Portail
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Interface de ligne de commande
@@ -650,6 +650,7 @@
         - name: Remplacer le disque de système d’exploitation
           href: os-disk-swap.md
         - name: Ajouter des balises à une machine virtuelle
+          href: time-sync.md
           items:
             - name: Portail
               href: ../tag-portal.md
@@ -660,7 +661,6 @@
             - name: Modèle
               href: ../tag-template.md
             - name: Synchronisation de l’heure
-          href: time-sync.md
         - name: Exécuter des scripts sur une machine virtuelle
           href: run-scripts-in-vm.md
           items:
@@ -863,8 +863,6 @@
           href: install-mongodb.md
         - name: SAP sur Azure
           href: ../workloads/sap/get-started.md
-        - name: Cluster MATLAB
-          href: matlab-mdcs-cluster.md
         - name: Visual Studio
           href: using-visual-studio-vm.md
         - name: 'HPC (High-Performance Computing, calcul haute performance)'

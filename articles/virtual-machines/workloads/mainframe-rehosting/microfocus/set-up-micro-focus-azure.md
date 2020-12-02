@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483060"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installer Micro Focus Enterprise Server 5.0 et Enterprise Developer 5.0 sur Azure
 
@@ -42,12 +42,12 @@ Avant de commencer, consultez les prérequis suivants :
     > [!Note]
     > Il existe plusieurs options de contrôle de l’accès à vos machines virtuelles :
     > -   Une meilleure pratique consiste à configurer [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Un tunnel de [réseau privé virtuel (VPN) site à site](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md).
+    > -   Un tunnel de [réseau privé virtuel (VPN) site à site](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
     > -   Une machine virtuelle Jumpbox.
 
 ## <a name="install-enterprise-server"></a>Installer Enterprise Server
 
-1.  Pour une sécurité améliorée et une plus grande facilité de gestion, vous pouvez créer un groupe de ressources uniquement pour ce projet (par exemple, **RGMicroFocusEntServer** ). Pour le type de ressource, utilisez la première partie du nom tel qu’il apparaît dans Azure afin de le repérer plus facilement dans une liste.
+1.  Pour une sécurité améliorée et une plus grande facilité de gestion, vous pouvez créer un groupe de ressources uniquement pour ce projet (par exemple, **RGMicroFocusEntServer**). Pour le type de ressource, utilisez la première partie du nom tel qu’il apparaît dans Azure afin de le repérer plus facilement dans une liste.
 
 2.  Création d’une machine virtuelle Dans la place de marché Azure, sélectionnez la machine virtuelle et le système d’exploitation de votre choix. Voici la configuration recommandée :
 
@@ -55,13 +55,13 @@ Avant de commencer, consultez les prérequis suivants :
 
     -   **Enterprise Developer :** sélectionnez une **machine virtuelle B2ms** (avec 2 processeurs virtuels et 8 Go de mémoire) où sont installés Windows 10 et Visual Studio. Cette image est disponible dans la Place de marché Azure.
 
-3.  Dans la section **Basics** (De base), entrez votre nom d’utilisateur et votre mot de passe. Sélectionnez l’abonnement ( **Subscription** ), ainsi que la région ou l’emplacement ( **Location/Region** ) à utiliser pour les machines virtuelles. Pour le groupe de ressources, sélectionnez **RGMicroFocusEntServer**.
+3.  Dans la section **Basics** (De base), entrez votre nom d’utilisateur et votre mot de passe. Sélectionnez l’abonnement (**Subscription**), ainsi que la région ou l’emplacement (**Location/Region**) à utiliser pour les machines virtuelles. Pour le groupe de ressources, sélectionnez **RGMicroFocusEntServer**.
 
 4.  Placez les deux machines virtuelles sur le même réseau virtuel, afin qu’elles puissent communiquer entre elles.
 
 5.  Acceptez les valeurs par défaut pour les autres paramètres. Notez le nom d’utilisateur et le mot de passe que vous avez créés pour l’administrateur de ces machines virtuelles.
 
-6.  Une fois les machines virtuelles créées, ouvrez les ports entrants  **9003, 86** et **80** pour HTTP, le port  **3389** pour RDP (Remote Desktop Protocol) sur la machine Enterprise Server, et le port  **3389** sur la machine Developer.
+6.  Une fois les machines virtuelles créées, ouvrez les ports entrants **9003, 86** et **80** pour HTTP, le port **3389** pour RDP (Remote Desktop Protocol) sur la machine Enterprise Server, et le port **3389** sur la machine Developer.
 
 7.  Pour vous connecter à la machine virtuelle Enterprise Server, dans le portail Azure, sélectionnez la machine virtuelle ES2 v3. Accédez à la section **Overview** (Vue d’ensemble), puis sélectionnez **Connect** (Se connecter) pour lancer une session RDP. Connectez-vous en utilisant les informations d’identification utilisateur que vous avez créées pour la machine virtuelle.
 
@@ -87,7 +87,7 @@ Après l’installation, vérifiez si des mises à jour supplémentaires sont di
 
 1.  Démarrez Micro Focus License Administration.
 
-2.  Sélectionnez **Start** (Démarrer) \> **Micro Focus License Manager** (Gestionnaire des licences Micro Focus) \> **License Administration** (Gestion des Licences), puis cliquez sur l’onglet **Install** (Installer). Choisissez le type de format de licence à charger : un fichier de licence ou un code de licence de 16 caractères. Par exemple, pour un fichier, dans **Fichier de licence** , accédez au fichier *`mflic` précédemment chargé dans la machine virtuelle, puis sélectionnez **Installer les licences**.
+2.  Sélectionnez **Start** (Démarrer) \> **Micro Focus License Manager** (Gestionnaire des licences Micro Focus) \> **License Administration** (Gestion des Licences), puis cliquez sur l’onglet **Install** (Installer). Choisissez le type de format de licence à charger : un fichier de licence ou un code de licence de 16 caractères. Par exemple, pour un fichier, dans **Fichier de licence**, accédez au fichier *`mflic` précédemment chargé dans la machine virtuelle, puis sélectionnez **Installer les licences**.
 
     ![Capture d’écran montrant la boîte de dialogue Micro Focus License Administration dans laquelle vous pouvez sélectionner Installer les licences.](media/install-image-3.png)
 
@@ -97,7 +97,7 @@ Après l’installation, vérifiez si des mises à jour supplémentaires sont di
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installer Enterprise Developer sur la machine de développement
 
-1.  Sélectionnez le groupe de ressources créé précédemment (par exemple, **RGMicroFocusEntServer** ), puis sélectionnez l’image Developer.
+1.  Sélectionnez le groupe de ressources créé précédemment (par exemple, **RGMicroFocusEntServer**), puis sélectionnez l’image Developer.
 
 2.  Pour vous connecter à la machine virtuelle, accédez à la section **Overview** (Vue d’ensemble), puis sélectionnez **Connect** (Se connecter). Cette connexion lance une session RDP. Connectez-vous en utilisant les informations d’identification utilisateur que vous avez créées pour la machine virtuelle.
 

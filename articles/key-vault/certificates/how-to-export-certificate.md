@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289559"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483693"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exporter des certificats depuis Azure Key Vault
 
@@ -33,8 +33,8 @@ Quand un certificat Key Vault est créé, une *clé* et un *secret* adressables 
 
 Une fois qu’un certificat Key Vault est créé, vous pouvez le récupérer auprès du secret adressable avec la clé privée. Récupérez le certificat au format PFX ou PEM.
 
-- **Exportable**  : La stratégie utilisée pour créer le certificat indique que la clé est exportable.
-- **Non exportable**  : La stratégie utilisée pour créer le certificat indique que la clé n’est pas exportable. Dans ce cas, la clé privée ne fait pas partie de la valeur quand elle est récupérée en tant que secret.
+- **Exportable** : La stratégie utilisée pour créer le certificat indique que la clé est exportable.
+- **Non exportable** : La stratégie utilisée pour créer le certificat indique que la clé n’est pas exportable. Dans ce cas, la clé privée ne fait pas partie de la valeur quand elle est récupérée en tant que secret.
 
 Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, oct (listés [ici](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) : « Exportable » est autorisé seulement avec RSA et EC. Les clés HSM sont non exportables.
 
@@ -79,11 +79,11 @@ Pour plus d’informations, consultez [Définitions de paramètres](/cli/azure/k
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilisez cette commande dans Azure PowerShell pour récupérer le certificat nommé **TestCert01** auprès du coffre de clés nommé **ContosoKV01**. Pour télécharger le certificat sous forme de fichier PFX, exécutez la commande suivante. Ces commandes accèdent à **SecretId** , puis enregistrent le contenu sous la forme d’un fichier PFX.
+Utilisez cette commande dans Azure PowerShell pour récupérer le certificat nommé **TestCert01** auprès du coffre de clés nommé **ContosoKV01**. Pour télécharger le certificat sous forme de fichier PFX, exécutez la commande suivante. Ces commandes accèdent à **SecretId**, puis enregistrent le contenu sous la forme d’un fichier PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {
@@ -102,11 +102,11 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 Cette commande exporte la chaîne entière de certificats avec la clé privée. Le certificat est protégé par un mot de passe.
-Pour plus d’informations sur la commande et les paramètres de **Get-AzKeyVaultCertificate** , consultez [Get-AzKeyVaultCertificate - Exemple 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+Pour plus d’informations sur la commande et les paramètres de **Get-AzKeyVaultCertificate**, consultez [Get-AzKeyVaultCertificate - Exemple 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Sur le portail Azure, après avoir créé/importé un certificat dans le panneau **Certificat** , vous recevez une notification indiquant que le certificat a été correctement créé. Sélectionnez le certificat et la version actuelle pour voir l’option de téléchargement.
+Sur le portail Azure, après avoir créé/importé un certificat dans le panneau **Certificat**, vous recevez une notification indiquant que le certificat a été correctement créé. Sélectionnez le certificat et la version actuelle pour voir l’option de téléchargement.
 
 Pour télécharger le certificat, sélectionnez **Télécharger au format CER** ou **Télécharger au format PFX/PEM**.
 

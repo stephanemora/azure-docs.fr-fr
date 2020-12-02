@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015517"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483298"
 ---
 # <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
 
@@ -132,7 +132,7 @@ Cette opération installe l’[agent Microsoft Monitoring](../extensions/oms-win
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Création d’une règle d’alerte avec Azure Monitor 
 
 
-Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](../../azure-monitor/log-query/get-started-portal.md) suivante pour rechercher les événements planifiés.
+Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [requête](../../azure-monitor/log-query/log-analytics-tutorial.md) suivante pour rechercher les événements planifiés.
 
 1. En haut de la page, sélectionnez **Journaux** et collez le code suivant dans la zone de texte :
 

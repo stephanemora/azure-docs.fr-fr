@@ -3,12 +3,12 @@ title: Découvrir les applications, rôles et fonctionnalités sur des serveurs 
 description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315207"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483451"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -23,7 +23,7 @@ La découverte de l’inventaire des applications, de rôles et de fonctionnalit
 ## <a name="before-you-start"></a>Avant de commencer
 
 - Assurez-vous d’avoir :
-    - [Créé ](how-to-add-tool-first-time.md) un projet Azure Migrate.
+    - [Créé ](./create-manage-projects.md) un projet Azure Migrate.
     - [Ajouté](how-to-assess.md) l’outil Azure Migrate : Évaluation de serveurs au projet.
 - Passez en revue [la prise en charge et les exigences de la découverte d’application](migrate-support-matrix-vmware.md#vmware-requirements).
 - Assurez-vous que PowerShell version 2.0 ou ultérieure est installé sur les machines virtuelles sur lesquelles vous exécutez la découverte d’application et que les outils VMware (versions ultérieures à 10.2.0) sont installés.

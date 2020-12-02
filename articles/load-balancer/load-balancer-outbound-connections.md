@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694778"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483587"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilisation de la SNAT pour les connexions sortantes
 
@@ -182,8 +182,6 @@ Pour plus d’informations sur le service NAT de réseau virtuel Azure, consulte
 
 ## <a name="constraints"></a>Contraintes
 
-*   Les ports seront libérés après 15 secondes si une **réinitialisation TCP** (TCP RST) est reçue ou envoyée
-*   Les ports seront libérés après 240 secondes si un paquet **FINACK** est reçu ou envoyé
 *   Lorsqu’une connexion est inactive et qu’aucun nouveau paquet n’est envoyé, les ports sont libérés après un délai allant de 4 à 120 minutes.
   * Ce délai peut être configuré à l’aide des règles de trafic sortant.
 *   Chaque adresse IP fournit 64 000 ports qui peuvent être utilisés pour la SNAT.

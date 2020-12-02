@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 385f747999bbdb408dd1c5d2f5f12717834e94da
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: af7cc9d83b87c8a772a190c431d6946eec4dda86
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844214"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483128"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -40,7 +40,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Guide pratique pour déployer et configurer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -52,7 +52,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Présentation de la sécurité réseau assurée par Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -76,7 +76,7 @@ Vous pouvez également déployer un pare-feu d’applications web (WAF) Azure de
 
 Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center pour limiter l’exposition des machines virtuelles Windows aux adresses IP approuvées pendant une période limitée. De plus, utilisez la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center pour recommander des configurations NSG qui brident les ports et les adresses IP sources en fonction du trafic réel et du renseignement sur les menaces.
 
-* [Guide pratique pour configurer la protection DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Guide pratique pour configurer la protection DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Guide pratique pour déployer le Pare-feu Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -98,7 +98,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour activer Network Watcher](../../network-watcher/network-watcher-create.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -112,7 +112,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../../firewall/threat-intel.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -274,7 +274,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -340,7 +340,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -360,7 +360,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -444,7 +444,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -452,7 +452,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Configurez des paramètres de diagnostic pour Azure Active Directory afin d’envoyer les journaux d’audit et de connexion à un espace de travail Log Analytics. Utilisez également Azure Monitor pour examiner les journaux et effectuer des requêtes sur des données de journal à partir de machines virtuelles Azure.
 
-* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -580,7 +580,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Conseils** : Les disques virtuels des machines virtuelles Windows sont chiffrés au repos à l’aide d’un chiffrement côté serveur ou d’Azure Disk Encryption (ADE). Azure Disk Encryption utilise la fonctionnalité BitLocker de Windows pour chiffrer des disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée. Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 
-* [Chiffrement côté serveur de disques managés Azure](./disk-encryption.md)
+* [Chiffrement côté serveur de disques managés Azure](../disk-encryption.md)
 
 * [Azure Disk Encryption pour les machines virtuelles Windows](./disk-encryption-overview.md)
 
@@ -620,11 +620,11 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Utilisez la solution Azure Update Management pour gérer les mises à jour et les correctifs de vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solution Update Management dans Azure](../../automation/update-management/overview.md)
 
-* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/manage-updates-for-vm.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -632,9 +632,9 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Vous pouvez utiliser une solution tierce de gestion des correctifs. Vous pouvez utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
-* [Solution Update Management dans Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solution Update Management dans Azure](../../automation/update-management/overview.md)
 
-* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -1095,7 +1095,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 * [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1127,7 +1127,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](../../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1147,7 +1147,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

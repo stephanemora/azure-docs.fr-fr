@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484377"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guide de planification et d’implémentation de la plateforme SAP BusinessObjects BI sur Azure
 
@@ -267,4 +267,4 @@ Pour l'offre DBaaS (Base de données en tant que service), toute base de donnée
 - [Déploiement de SAP BusinessObjects BI Platform sous Linux](businessobjects-deployment-guide-linux.md)
 - [Planification et implémentation de machines virtuelles Azure pour SAP](planning-guide.md)
 - [Déploiement de machines virtuelles Azure pour SAP](deployment-guide.md)
-- [Déploiement SGBD de machines virtuelles Azure pour SAP](dbms-guide.md)
+- [Déploiement SGBD de machines virtuelles Azure pour SAP](./dbms_guide_general.md)

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792886"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484530"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
  
@@ -65,7 +65,7 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Transférer des données avec AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
+- [Transférer des données avec AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Plus d’informations sur le transfert de données avec l’API REST Stockage](/dotnet/api/overview/azure/storage).
 - Comprendre comment :
     - [Transférer des données avec Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).

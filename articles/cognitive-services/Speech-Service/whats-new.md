@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024787"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483812"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Service Speech : nouveautés dans la documentation
 
@@ -32,7 +32,7 @@ Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du SDK
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-* [Améliorer un modèle pour Custom Speech](how-to-custom-speech-improve-accuracy.md)
+* [Améliorer un modèle pour Custom Speech](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
@@ -44,7 +44,7 @@ Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du SDK
 * [Démarrage rapide : Synthèse asynchrone pour un contenu audio long dans Python (préversion)](./long-audio-api.md) - Mise à jour avec la prise en charge des voix neuronales publiques et les paramètres associés.
 * [Démarrage rapide : Reconnaître la voix à partir d’un fichier audio](./get-started-speech-to-text.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Reconnaître la voix provenant d’un micro](./get-started-speech-to-text.md) - Instructions Go et JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Reconnaître la voix stockée dans Stockage Blob](quickstarts/from-blob.md) - Instructions JavaScript ajoutées à la documentation.
+* [Démarrage rapide : Reconnaître la voix stockée dans Stockage Blob](./batch-transcription.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Reconnaître la voix, les intentions et les entités avec LUIS](quickstarts/intent-recognition.md)
 * [Démarrage rapide : Configurer l’environnement de développement](quickstarts/setup-platform.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Synthétiser la voix vers un fichier audio](./get-started-text-to-speech.md) - Instructions JavaScript ajoutées à la documentation.

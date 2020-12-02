@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528888"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485193"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -49,7 +49,7 @@ Pour les étapes suivantes, vous devez disposer d'un compte Microsoft et d’un 
 Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft. Voici une vidéo montrant [comment s’inscrire pour obtenir un compte gratuit Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Quand vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours. Vos services Azure sont désactivés dès que vous avez épuisé tous vos crédits ou que les crédits arrivent à expiration à la fin des 30 jours. Pour continuer à utiliser les services Azure, vous devez alors mettre à niveau votre compte. Pour plus d’informations, consultez [Guide pratique pour mettre à niveau votre compte gratuit Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
+> Quand vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours. Vos services Azure sont désactivés dès que vous avez épuisé tous vos crédits ou que les crédits arrivent à expiration à la fin des 30 jours. Pour continuer à utiliser les services Azure, vous devez alors mettre à niveau votre compte. Pour plus d’informations, consultez [Guide pratique pour mettre à niveau votre compte gratuit Azure](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
 >
 > Le service Speech propose deux niveaux de service, gratuit (f0) et abonnement (s0), chacun présentant des limitations et des avantages différents. Si vous utilisez le niveau de service Speech gratuit à faible volume, vous pouvez conserver cet abonnement gratuit, même après l’expiration de votre évaluation gratuite ou de votre crédit de service. Pour plus d’informations, consultez [Tarifs de Cognitive Services - Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -70,8 +70,8 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 1. Sélectionnez **Créer**, puis :
 
    - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
-   - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés. Voici la présentation de la [marche à suivre pour créer un abonnement Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) dans le portail Azure.
-   - Choisissez la [région](regions.md) où la ressource sera utilisée. Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Pour obtenir des performances optimales, sélectionnez la région la plus proche de vous ou l’endroit où votre application s’exécute. Les disponibilités du service Speech varient selon les régions. Veillez à créer votre ressource dans une région prise en charge. Consultez la [prise en charge des régions pour les services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés. Voici la présentation de la [marche à suivre pour créer un abonnement Azure](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) dans le portail Azure.
+   - Choisissez la [région](regions.md) où la ressource sera utilisée. Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Pour obtenir des performances optimales, sélectionnez la région la plus proche de vous ou l’endroit où votre application s’exécute. Les disponibilités du service Speech varient selon les régions. Veillez à créer votre ressource dans une région prise en charge. Consultez la [prise en charge des régions pour les services Speech](./regions.md#speech-to-text-text-to-speech-and-translation).
    - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur les tarifs et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification** ou consultez les [tarifs des services vocaux](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Pour connaître les limites des ressources, consultez [Limites d’Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
    - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.  
@@ -112,7 +112,7 @@ Une fois que vous avez suivi le guide de démarrage rapide du service Speech, es
 
 - [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutoriel : Activer les fonctions vocales sur votre bot avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutoriel : Créer une application Flask pour la traduction de texte, l’analyse de sentiments et la synthèse vocale de texte traduit, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
+- [Tutoriel : Créer une application Flask pour la traduction de texte, l’analyse de sentiments et la synthèse vocale de texte traduit, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
 
 ## <a name="get-sample-code"></a>Obtenir un exemple de code
 

@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485244"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Affichez les résultats de vos séries de tests dans la fenêtre **Sortie** du c
 Après la réussite d’une série de tests, ajoutez d’autres activités à votre pipeline et continuez le débogage de façon itérative. Vous pouvez également **Annuler** une série de tests alors qu’elle est en cours d’exécution.
 
 > [!IMPORTANT]
-> En sélectionnant **Déboguer** , le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
+> En sélectionnant **Déboguer**, le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
 
 ### <a name="setting-breakpoints"></a>Définition de points d’arrêt
 
@@ -52,7 +52,7 @@ Pour définir un point d’arrêt, sélectionnez un élément du canevas du pipe
 
 ![Avant de définir un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-4.png)
 
-Après que vous avez sélectionné l’option *Déboguer jusqu’à* , elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
+Après que vous avez sélectionné l’option *Déboguer jusqu’à*, elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
 
 ![Après avoir défini un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-5.png)
 

@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073050"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483986"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analyse des modèles d’utilisation CDN Azure
 
@@ -31,7 +31,7 @@ Avec un profil Microsoft standard, vous pouvez activer les journaux bruts et cho
 
 Avec Azure Log Analytics vous pouvez afficher les métriques de surveillance et configurer des alertes. 
 
-Pour en savoir plus, voir [Journaux bruts HTTP Azure CDN](enable-raw-logs.md).
+Pour en savoir plus, voir [Journaux bruts HTTP Azure CDN](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analytique principale via les journaux de diagnostic Azure
@@ -61,6 +61,4 @@ Dans cet article, vous avez appris les différentes options pour les rapports d�
 Pour plus d’informations sur Azure CDN et les autres services Azure mentionnés dans cet article, consultez :
 
 * [Présentation d’Azure CDN](cdn-overview.md)
-* [Journaux bruts HTTP Azure CDN](enable-raw-logs.md)
-
-
+* [Journaux bruts HTTP Azure CDN](monitoring-and-access-log.md)

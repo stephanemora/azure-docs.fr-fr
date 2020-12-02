@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505255"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483625"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -51,7 +51,7 @@ Pour plus d’informations sur le mode De base de l’analyseur audio, consultez
 
 Les mises à jour de la plupart des propriétés sont désormais autorisées lorsque les événements en direct sont arrêtés. En outre, les utilisateurs sont autorisés à spécifier un préfixe pour le nom d’hôte statique des URL d’entrée et d’aperçu de l’événement en direct. VanityUrl est désormais appelé `useStaticHostName` pour mieux refléter l’objectif de la propriété.
 
-Les événements en direct disposent désormais d’un état En attente.  Consultez [Événements en direct et sorties en direct dans Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+Les événements en direct disposent désormais d’un état En attente.  Consultez [Événements en direct et sorties en direct dans Media Services](./live-events-outputs-concept.md).
 
 Un événement en direct prend en charge la réception de différentes proportions d’entrée. Le mode Extension permet aux clients de spécifier le comportement d’extension de la sortie.
 

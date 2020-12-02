@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386705"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485261"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -136,7 +136,7 @@ Stockage chaud| Non | Non
 Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| Oui | Oui
 Chiffrement au repos (CMK) <br></br> (Uniquement pour le basculement vers des disques managés)| Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
-Double chiffrement au repos <br></br> (Uniquement pour le basculement vers des disques managés) <br></br> En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/windows/disk-encryption.md) et [Linux](../virtual-machines/linux/disk-encryption.md) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
+Double chiffrement au repos <br></br> (Uniquement pour le basculement vers des disques managés) <br></br> En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/disk-encryption.md) et [Linux](../virtual-machines/disk-encryption.md) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
 Stockage Premium | Oui | Oui
 Stockage Standard | Oui | Oui
 Service d’importation/exportation | Non | Non

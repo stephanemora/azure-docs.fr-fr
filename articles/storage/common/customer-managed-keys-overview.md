@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782227"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483281"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -113,7 +113,7 @@ Pour révoquer l’accès aux clés gérées par le client, utilisez [PowerShell
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Clés gérées par le client pour les disques managés Azure
 
-Les clés gérées par le client sont également disponibles pour la gestion du chiffrement des disques managés Azure. Les clés gérées par le client se comportent différemment pour les disques managés que pour les ressources de stockage Azure. Pour plus d’informations, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/windows/disk-encryption.md) pour Windows ou [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/linux/disk-encryption.md) pour Linux.
+Les clés gérées par le client sont également disponibles pour la gestion du chiffrement des disques managés Azure. Les clés gérées par le client se comportent différemment pour les disques managés que pour les ressources de stockage Azure. Pour plus d’informations, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/disk-encryption.md) pour Windows ou [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/disk-encryption.md) pour Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

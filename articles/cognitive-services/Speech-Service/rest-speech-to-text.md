@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015356"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483918"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -58,7 +58,7 @@ Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
 | `language` | Identifie la langue parlée qui est reconnue. Voir [Langues prises en charge](language-support.md#speech-to-text). | Obligatoire |
 | `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent quatre représentations différentes du texte affiché. La valeur par défaut est `simple`. | Facultatif |
 | `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. La valeur par défaut est `masked`. | Facultatif |
-| `cid` | Lorsque vous utilisez le [portail Custom Speech](how-to-custom-speech.md) pour créer des modèles personnalisés, vous pouvez utiliser des modèles personnalisés à l’aide de leur **ID de point de terminaison** figurant sur la page **Déploiement**. Utilisez l’**ID de point de terminaison** comme argument pour le paramètre de chaîne de requête `cid`. | Facultatif |
+| `cid` | Lorsque vous utilisez le [portail Custom Speech](./custom-speech-overview.md) pour créer des modèles personnalisés, vous pouvez utiliser des modèles personnalisés à l’aide de leur **ID de point de terminaison** figurant sur la page **Déploiement**. Utilisez l’**ID de point de terminaison** comme argument pour le paramètre de chaîne de requête `cid`. | Facultatif |
 
 ## <a name="request-headers"></a>En-têtes de requête
 
