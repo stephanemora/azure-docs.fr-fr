@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 6133d838fa31919a37ddd633193e5559c50de9b6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790438"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488865"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,10 @@ Les options Intelligent Insights disponibles sont les suivantes :
 
 | Option Intelligent Insights | Prise en charge d’Azure SQL Database | Prise en charge d’Azure SQL Managed Instance |
 | :----------------------------- | ----- | ----- |
-| **Configurer Intelligent Insights**  : configurez l’analyse Intelligent Insights pour vos bases de données. | Oui | Oui |
-| **Diffuser en continu des insights vers Azure SQL Analytics**  : diffusez en continu des insights vers Azure SQL Analytics. | Oui | Oui |
-| **Diffuser en streaming des insights vers Azure Event Hubs**  : diffusez en streaming des insights vers Event Hubs pour d’autres intégrations personnalisées. | Oui | Oui |
-| **Diffuser en streaming des insights vers Stockage Azure**  : diffusez en streaming des insights vers Stockage Azure pour une analyse plus poussée et un archivage à long terme. | Oui | Oui |
+| **Configurer Intelligent Insights** : configurez l’analyse Intelligent Insights pour vos bases de données. | Oui | Oui |
+| **Diffuser en continu des insights vers Azure SQL Analytics** : diffusez en continu des insights vers Azure SQL Analytics. | Oui | Oui |
+| **Diffuser en streaming des insights vers Azure Event Hubs** : diffusez en streaming des insights vers Event Hubs pour d’autres intégrations personnalisées. | Oui | Oui |
+| **Diffuser en streaming des insights vers Stockage Azure** : diffusez en streaming des insights vers Stockage Azure pour une analyse plus poussée et un archivage à long terme. | Oui | Oui |
 
 > [!NOTE]
 > Intelligent Insights est une fonctionnalité en préversion qui n’est pas disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 1 et USA Est 1.

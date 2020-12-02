@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782958"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488828"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance avec Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -210,7 +210,7 @@ Dans Azure SQL Database, utilisez éventuellement [Query Performance Insight](qu
 
 Ce modèle de performances détectables indique une détérioration des performances de la charge de travail où les requêtes peu performantes sont identifiées par rapport à la base de référence de la charge de travail des sept jours précédents.
 
-Dans ce cas, le système ne peut pas classer les requêtes peu performantes dans une autre catégorie de performances détectables standard. Toutefois, il a détecté les statistiques d’attente responsables de la régression. Il les considère donc comme des requêtes qui connaissent une *augmentation des statistiques d’attente* . De plus, les statistiques d’attente responsables de la régression sont également exposées.
+Dans ce cas, le système ne peut pas classer les requêtes peu performantes dans une autre catégorie de performances détectables standard. Toutefois, il a détecté les statistiques d’attente responsables de la régression. Il les considère donc comme des requêtes qui connaissent une *augmentation des statistiques d’attente*. De plus, les statistiques d’attente responsables de la régression sont également exposées.
 
 ### <a name="troubleshooting"></a>Dépannage
 

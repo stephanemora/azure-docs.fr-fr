@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6d4e7f4ca7288b36f6801b9ddb362b7e936862d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9dda02e483f3437237837a9b3b8bdcbcf84fcd1d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843619"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489596"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de référence de sécurité Azure pour Service Bus
 
@@ -60,7 +60,7 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 **Conseils** : Activez le service Protection DDoS Standard sur les réseaux virtuels associés à vos espaces de noms Service Bus à des fins de protection contre les attaques par déni de service distribué (DDoS). Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
-- [Guide pratique pour configurer la protection DDoS](../virtual-network/manage-ddos-protection.md)
+- [Guide pratique pour configurer la protection DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
@@ -197,7 +197,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Conseils** : Analysez et supervisez les journaux pour détecter les comportements anormaux et examinez régulièrement les résultats liés à vos entités Service Bus. Utilisez Azure Monitor pour examiner les journaux et effectuer des requêtes sur leurs données liées à Service Bus.
 
-- [En savoir plus sur l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [En savoir plus sur l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -235,7 +235,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -267,7 +267,7 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -291,7 +291,7 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -315,7 +315,7 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -463,7 +463,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -777,7 +777,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

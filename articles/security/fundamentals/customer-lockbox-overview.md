@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331656"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489886"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -64,7 +64,7 @@ Customer Lockbox est actuellement activé pour les demandes d’accès Bureau à
 - Groupe de machines virtuelles identiques - Windows et Linux
 
 > [!NOTE]
-> Les instances IaaS Classic ne sont pas prises en charge par Customer Lockbox. Si vous avez des charges de travail exécutées sur des instances IaaS Classic, nous vous recommandons de les migrer vers des modèles de déploiement Resource Manager. Pour obtenir des instructions, voir [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+> Les instances IaaS Classic ne sont pas prises en charge par Customer Lockbox. Si vous avez des charges de travail exécutées sur des instances IaaS Classic, nous vous recommandons de les migrer vers des modèles de déploiement Resource Manager. Pour obtenir des instructions, voir [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
 
 #### <a name="detailed-audit-logs"></a>Journaux d’audit détaillés
 

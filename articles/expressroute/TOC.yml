@@ -162,6 +162,8 @@
           href: expressroute-howto-coexist-resource-manager.md
         - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
           href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Prévoir et gérer les coûts
+      href: plan-manage-cost.md
     - name: Passage de la version classique à Resource Manager
       items:
         - name: Migrer un circuit d’un déploiement classique vers Resource Manager

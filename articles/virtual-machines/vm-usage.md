@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322805"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488563"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../cost-management-billing/understand/review-individual-bill.md).
@@ -37,7 +37,7 @@ Pour commencer, [téléchargez vos détails d’utilisation](../cost-management-
 | Service consommé | Service de plateforme Azure que vous avez utilisé.| `Microsoft.Compute`|
 | Groupe de ressources | Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager.](../azure-resource-manager/management/overview.md)|`MyRG`|
 | ID de l’instance | Identificateur pour la ressource. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. Pour les machines virtuelles, l’ID de l’instance contient l’ID d’abonnement, le nom du groupe de ressources et le nom de la machine virtuelle (ou le nom du groupe identique en cas d’utilisation d’un groupe de machines virtuelles identiques).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| Balises| Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment baliser vos machines virtuelles à l’aide de [CLI](./linux/tag.md) ou de [PowerShell](./windows/tag.md). Disponible uniquement pour les machines virtuelles Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Balises| Balise que vous affectez à la ressource. Utilisez des balises pour regrouper les enregistrements de facturation. Découvrez comment baliser vos machines virtuelles à l’aide de [CLI](./tag-cli.md) ou de [PowerShell](./tag-portal.md). Disponible uniquement pour les machines virtuelles Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informations supplémentaires | Métadonnées relatives au service. Pour les machines virtuelles, nous renseignons les données suivantes dans le champ d’informations supplémentaires : <br><br> Type d’image : image spécifique que vous avez exécutée. Vous trouverez la liste complète des chaînes prises en charge dans la section Type d’image ci-dessous.<br><br> Type de service : taille que vous avez déployée.<br><br> VMName : nom de votre machine virtuelle. Ce champ est renseigné uniquement pour des machines virtuelles appartenant à un groupe identique. Si vous avez besoin du nom d’une machine virtuelle appartenant à un groupe identique, vous le trouverez dans la chaîne ID de l’instance ci-dessus.<br><br> UsageType : spécifie le type d’utilisation représenté.<br><br> ComputeHR est l’utilisation des Heures de calcul pour la machine virtuelle sous-jacente, comme Standard_D1_v2.<br><br> ComputeHR_SW correspond aux frais logiciels Premium si la machine virtuelle utilisent des logiciels Premium, comme Microsoft R Server. | Machines Virtuelles<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Logiciel Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Type d’image

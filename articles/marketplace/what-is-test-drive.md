@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489962"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490038"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
@@ -24,7 +24,7 @@ Vos clients bénéficient également d’une version d'évaluation. En les autor
 
 Les versions d’évaluation sont des instances gérées qui lancent votre solution ou application à la demande pour les clients qui le demandent. Une fois l’instance de version d'évaluation affectée, elle peut être utilisée par ce client pour une période définie. Une fois la période terminée, la version d’évaluation est supprimée afin de libérer de l’espace pour un autre client.
 
-En tant qu’éditeur, vous gérez et configurez les paramètres de la version d’évaluation dans Espace partenaires. Les détails de la configuration technique varient en fonction du type d’offre. Pour obtenir des instructions détaillées, consultez l’article [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+En tant qu’éditeur, vous gérez et configurez les paramètres de la version d’évaluation dans Espace partenaires. Les détails de la configuration technique varient en fonction du type d’offre. Pour obtenir des instructions détaillées, consultez l’article [Configuration technique de la version d’évaluation](./test-drive-technical-configuration.md).
 
 Les clients potentiels découvrent votre version d'évaluation en tant que CTA de votre offre sur [AppSource](https://appsource.microsoft.com/en-US/). Ils fournissent leurs coordonnées et acceptent les conditions générales et la politique de confidentialité de votre offre, puis accèdent à votre environnement préconfiguré pour l’essayer pendant une période déterminée. Les clients bénéficient d’un essai pratique et autonome des principaux avantages et fonctionnalités de votre produit et vous recevez un prospect de valeur.
 
@@ -43,7 +43,7 @@ Différentes versions d’évaluation sont disponibles sur le marketplace commer
 - Application logique (en mode de prise en charge uniquement)
 - Power BI
 
-Pour plus d’informations sur la configuration de l’une de ces versions d'évaluation, consultez [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Pour plus d’informations sur la configuration de l’une de ces versions d'évaluation, consultez [Configuration technique de la version d’évaluation](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -65,7 +65,7 @@ Une version d’évaluation hébergée simplifie la configuration en permettant 
 
 ### <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 
-Ce type de version d'évaluation n’est pas hébergé par Microsoft et utilise des modèles Azure Resource Manager (ARM) pour les types d’offres Dynamics AX/CRM. Vous devrez exécuter le modèle ARM pour créer les ressources requises dans votre abonnement Azure. La version d'évaluation d’application logique est actuellement en mode de prise en charge uniquement et n’est pas recommandée par Microsoft. Pour plus d’informations sur la configuration d’une version d'évaluation d’application logique, consultez [Configuration technique de la version d’évaluation](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Ce type de version d'évaluation n’est pas hébergé par Microsoft et utilise des modèles Azure Resource Manager (ARM) pour les types d’offres Dynamics AX/CRM. Vous devrez exécuter le modèle ARM pour créer les ressources requises dans votre abonnement Azure. La version d'évaluation d’application logique est actuellement en mode de prise en charge uniquement et n’est pas recommandée par Microsoft. Pour plus d’informations sur la configuration d’une version d'évaluation d’application logique, consultez [Configuration technique de la version d’évaluation](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Version d’évaluation de Power BI
 

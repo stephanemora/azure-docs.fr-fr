@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699863"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489766"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -332,7 +332,7 @@ Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme A
 
 En savoir plus :
 
-* [Présentation de la Protection DDoS](../../virtual-network/ddos-protection-overview.md)
+* [Présentation de la Protection DDoS](../../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
