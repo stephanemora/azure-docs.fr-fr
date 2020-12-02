@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536674"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186420"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -285,7 +285,7 @@ Les exemples ci-dessus définissent une liste des tables autorisées. Cet exempl
 
 ### <a name="custom-logs"></a>Journaux d’activité personnalisés
 
- Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](../log-query/get-started-portal.md#understand-the-schema).
+ Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](../log-query/log-analytics-tutorial.md#table-schema).
 
  Vous ne pouvez pas accorder l’accès à des journaux personnalisés individuels, mais vous pouvez accorder l’accès à tous les journaux personnalisés. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
 

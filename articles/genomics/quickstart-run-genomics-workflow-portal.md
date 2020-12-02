@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4beb1c31f34ec4e8d26228cfe4f30f5109a1b60c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 85665dbda2ed11ffa04b71e4317f2b34b83d317f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394541"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349365"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
@@ -74,7 +74,7 @@ Pour tester le client Microsoft Genomics, téléchargez le fichier de configurat
 
 ![Rechercher Microsoft Genomics sur le portail Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Rechercher Microsoft Genomics sur le portail Azure")
 
-Sélectionnez le compte Genomics créé, accédez à **Clés d’accès** , puis téléchargez le fichier de configuration.
+Sélectionnez le compte Genomics créé, accédez à **Clés d’accès**, puis téléchargez le fichier de configuration.
 
 ![Télécharger le fichier config à partir de Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Télécharger le fichier config à partir de Microsoft Genomics")
 
@@ -112,7 +112,7 @@ Le service Microsoft Genomics prend en charge des séquences appariées (fichier
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Au sein de votre compte de stockage, vous devez créer un conteneur d’objets blob pour vos données d’entrée et un second conteneur d’objets blob pour vos données de sortie.  Chargez les données d’entrée dans votre conteneur d’objets blob dédié. Pour ce faire, divers outils sont à votre disposition, notamment [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) ou [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+Au sein de votre compte de stockage, vous devez créer un conteneur d’objets blob pour vos données d’entrée et un second conteneur d’objets blob pour vos données de sortie.  Chargez les données d’entrée dans votre conteneur d’objets blob dédié. Pour ce faire, divers outils sont à votre disposition, notamment [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) ou [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Exécuter un workflow via le service Microsoft Genomics en utilisant le client Python `msgen`
 
@@ -123,9 +123,9 @@ Ouvrez le fichier *config.txt* téléchargé à partir de votre compte Genomics.
 
 Si vous souhaitez exécuter GATK4, définissez le paramètre `process_name` sur `gatk4`.
 
-Par défaut, le service Genomics génère des fichiers VCF. Si vous voulez une sortie gVCF plutôt qu’une sortie VCF (équivalent à `-emitRefConfidence` dans GATK 3.x et à `emit-ref-confidence` dans GATK 4.x), ajoutez le paramètre `emit_ref_confidence` à votre fichier *config.txt* , puis définissez-le sur `gvcf`, comme illustré dans la figure précédente.  Pour revenir à la sortie VCF, supprimez-le du fichier *config.txt* ou définissez le paramètre `emit_ref_confidence` sur `none`. 
+Par défaut, le service Genomics génère des fichiers VCF. Si vous voulez une sortie gVCF plutôt qu’une sortie VCF (équivalent à `-emitRefConfidence` dans GATK 3.x et à `emit-ref-confidence` dans GATK 4.x), ajoutez le paramètre `emit_ref_confidence` à votre fichier *config.txt*, puis définissez-le sur `gvcf`, comme illustré dans la figure précédente.  Pour revenir à la sortie VCF, supprimez-le du fichier *config.txt* ou définissez le paramètre `emit_ref_confidence` sur `none`. 
 
-`bgzip` est un outil qui compresse le fichier vcf ou gvcf et qui `tabix` crée un index pour le fichier compressé. Par défaut, le service Genomics exécute `bgzip` suivi de `tabix` sur la sortie « .g.vcf », mais il n’exécute pas ces outils par défaut pour la sortie « .vcf ». Lors de son exécution, le service génère des fichiers « .gz » (sortie bgzip) et « .tbi » (sortie tabix). L’argument est un booléen, qui est défini sur false par défaut pour la sortie « .vcf » et sur true par défaut pour la sortie « .g.vcf ». Pour l’utiliser sur la ligne de commande, spécifiez `-bz` ou `--bgzip-output` comme `true` (exécuter bgzip et tabix) ou `false`. Pour utiliser cet argument dans le fichier *config.txt* , ajoutez `bgzip_output: true` ou `bgzip_output: false` au fichier.
+`bgzip` est un outil qui compresse le fichier vcf ou gvcf et qui `tabix` crée un index pour le fichier compressé. Par défaut, le service Genomics exécute `bgzip` suivi de `tabix` sur la sortie « .g.vcf », mais il n’exécute pas ces outils par défaut pour la sortie « .vcf ». Lors de son exécution, le service génère des fichiers « .gz » (sortie bgzip) et « .tbi » (sortie tabix). L’argument est un booléen, qui est défini sur false par défaut pour la sortie « .vcf » et sur true par défaut pour la sortie « .g.vcf ». Pour l’utiliser sur la ligne de commande, spécifiez `-bz` ou `--bgzip-output` comme `true` (exécuter bgzip et tabix) ou `false`. Pour utiliser cet argument dans le fichier *config.txt*, ajoutez `bgzip_output: true` ou `bgzip_output: false` au fichier.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Soumettre votre workflow au service Microsoft Genomics en utilisant le client Python `msgen`
 

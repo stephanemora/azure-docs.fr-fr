@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 726caa0c4a7bbd6b8d0c17ffdfade5f9cc3c2a34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9cd92075c7e0c4450dbee750fd31efb394dd24f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020369"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186743"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Collecter des données à partir d’un ordinateur Windows dans un environnement hybride avec Azure Monitor
 
@@ -165,5 +165,4 @@ Maintenant que vous collectez des données opérationnelles et de performances �
 Pour savoir comment consulter et analyser les données, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Consulter ou analyser les données dans Log Analytics](../log-query/get-started-portal.md)
-
+> [Consulter ou analyser les données dans Log Analytics](../log-query/log-analytics-tutorial.md)

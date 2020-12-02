@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 73d951b3e85c170cf068693bb9b374349516ca8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253403"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183479"
 ---
 # <a name="azure-active-directory-authentication"></a>Authentification Azure Active Directory
 
@@ -54,7 +54,7 @@ L’autorité Azure AD est le point de terminaison utilisé pour acquérir un je
 
 ### <a name="authentication-libraries"></a>Bibliothèques d’authentification
 
-Azure fournit un ensemble de bibliothèques, nommées Bibliothèques d’authentification Azure Active Directory, pour simplifier le processus d’acquisition d’un jeton Azure AD. Azure les crée pour plusieurs langages. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+Azure fournit un ensemble de bibliothèques, nommées Bibliothèques d’authentification Azure Active Directory, pour simplifier le processus d’acquisition d’un jeton Azure AD. Azure les crée pour plusieurs langages. Pour plus d’informations, consultez la [documentation](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="errors"></a>Erreurs
 

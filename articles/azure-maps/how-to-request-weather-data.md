@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957110"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186335"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Demander des données météorologiques en temps réel et prévues à l’aide des services Météo Azure Maps
 
-Le [service Météo](https://docs.microsoft.com/rest/api/maps/weather) Azure Maps est un ensemble d’API RESTful qui permet aux développeurs d’intégrer des données météorologiques dynamiques, historiques, en temps réel et prévues, et des visualisations dans leurs solutions. Dans cet article, nous allons vous montrer comment demander des données météorologiques en temps réel et prévues.
+Le [service Météo](/rest/api/maps/weather) Azure Maps est un ensemble d’API RESTful qui permet aux développeurs d’intégrer des données météorologiques dynamiques, historiques, en temps réel et prévues, et des visualisations dans leurs solutions. Dans cet article, nous allons vous montrer comment demander des données météorologiques en temps réel et prévues.
 
 Dans cet article, vous allez apprendre à :
 
-* Demander des données météorologiques en temps réel (actuelles) à l’aide de [l’API Get Current Conditions](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview).
-* Demander des alertes météorologiques graves à l’aide de [l’API Get Severe Weather Alerts](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview).
-* Demander des prévisions quotidiennes à l’aide de [l’API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
-* Demander des prévisions horaires à l’aide de [l’API Get Hourly Forecast](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
-* Demander des prévisions minute par minute à l’aide de [l’API Get Minute Forecast](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+* Demander des données météorologiques en temps réel (actuelles) à l’aide de [l’API Get Current Conditions](/rest/api/maps/weather/getcurrentconditionspreview).
+* Demander des alertes météorologiques graves à l’aide de [l’API Get Severe Weather Alerts](/rest/api/maps/weather/getsevereweatheralertspreview).
+* Demander des prévisions quotidiennes à l’aide de [l’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview).
+* Demander des prévisions horaires à l’aide de [l’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecastpreview).
+* Demander des prévisions minute par minute à l’aide de [l’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecastpreview).
 
 Cette vidéo offre une vue d’ensemble des services météo dans Azure Maps et propose des exemples d’appels REST.
 
@@ -40,15 +40,15 @@ Cette vidéo offre une vue d’ensemble des services météo dans Azure Maps et 
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
     >[!IMPORTANT]
-    >[L’API Get Minute Forecast](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) requiert une clé de niveau tarifaire S1. Toutes les autres API requièrent une clé de niveau tarifaire S0.
+    >[L’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecastpreview) requiert une clé de niveau tarifaire S1. Toutes les autres API requièrent une clé de niveau tarifaire S0.
 
 Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vous pouvez choisir un autre environnement de développement d’API.
 
 ## <a name="request-real-time-weather-data"></a>Demander des données météorologiques en temps réel
 
-[L’API Get Current Conditions](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) retourne des conditions météorologiques détaillées telles que les précipitations, la température et le vent pour des coordonnées données. En outre, il est possible de récupérer les observations des dernières 6 heures ou 24 heures pour un emplacement spécifique. La réponse contient des détails tels que la date et l’heure de l’observation, une brève description des conditions météorologiques, une icône météo, des indicateurs de précipitation et la température. La température RealFeel™ et l’indice UV sont également retournés.
+[L’API Get Current Conditions](/rest/api/maps/weather/getcurrentconditionspreview) retourne des conditions météorologiques détaillées telles que les précipitations, la température et le vent pour des coordonnées données. En outre, il est possible de récupérer les observations des dernières 6 heures ou 24 heures pour un emplacement spécifique. La réponse contient des détails tels que la date et l’heure de l’observation, une brève description des conditions météorologiques, une icône météo, des indicateurs de précipitation et la température. La température RealFeel™ et l’indice UV sont également retournés.
 
-Dans cet exemple, vous allez utiliser [l’API Get Current Conditions](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) pour récupérer les conditions météorologiques actuelles pour des coordonnées situées à Seattle, WA.
+Dans cet exemple, vous allez utiliser [l’API Get Current Conditions](/rest/api/maps/weather/getcurrentconditionspreview) pour récupérer les conditions météorologiques actuelles pour des coordonnées situées à Seattle, WA.
 
 1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer). Vous utiliserez ce regroupement pour le reste des exemples de ce document.
 
@@ -235,9 +235,9 @@ Dans cet exemple, vous allez utiliser [l’API Get Current Conditions](https://d
 
 ## <a name="request-severe-weather-alerts"></a>Demander des alertes météorologiques graves
 
-[L’API Azure Maps Get Severe Weather Alerts](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) retourne les alertes météorologiques graves disponibles dans le monde entier à partir des agences météorologiques gouvernementales officielles et des fournisseurs d’alertes météorologiques globaux ou régionaux. Le service peut retourner des détails tels que le type d’alerte, la catégorie, le niveau et des descriptions détaillées sur les alertes graves actives pour l’emplacement demandé (ouragans, orages, foudre, canicule ou incendies de forêt). Par exemple, les responsables de la logistique peuvent visualiser des conditions météorologiques graves sur une carte, ainsi que les sites d’activité et les itinéraires planifiés, et mieux renseigner les chauffeurs et les travailleurs locaux.
+[L’API Azure Maps Get Severe Weather Alerts](/rest/api/maps/weather/getsevereweatheralertspreview) retourne les alertes météorologiques graves disponibles dans le monde entier à partir des agences météorologiques gouvernementales officielles et des fournisseurs d’alertes météorologiques globaux ou régionaux. Le service peut retourner des détails tels que le type d’alerte, la catégorie, le niveau et des descriptions détaillées sur les alertes graves actives pour l’emplacement demandé (ouragans, orages, foudre, canicule ou incendies de forêt). Par exemple, les responsables de la logistique peuvent visualiser des conditions météorologiques graves sur une carte, ainsi que les sites d’activité et les itinéraires planifiés, et mieux renseigner les chauffeurs et les travailleurs locaux.
 
-Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) pour récupérer les conditions météorologiques actuelles pour des coordonnées situées à Cheyenne, WY.
+Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](/rest/api/maps/weather/getsevereweatheralertspreview) pour récupérer les conditions météorologiques actuelles pour des coordonnées situées à Cheyenne, WY.
 
 >[!NOTE]
 >Cet exemple récupère des alertes météorologiques graves au moment de la rédaction de cet article. Il est probable qu’il n’y ait plus d’alertes météorologiques graves à l’emplacement demandé. Pour récupérer les données d’alerte grave réelles lors de l’exécution de cet exemple, vous devez récupérer les données d’un emplacement avec des coordonnées différentes.
@@ -287,12 +287,12 @@ Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](https:
 
 ## <a name="request-daily-weather-forecast-data"></a>Demander des données de prévisions météorologiques quotidiennes
 
-[L’API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) retourne des prévisions météorologiques quotidiennes détaillées, telles que la température et le vent. La demande peut spécifier le nombre de jours à retourner : 1, 5, 10, 15, 25 ou 45 jours pour des coordonnées données. La réponse comprend des détails tels que la température, le vent, les précipitations, la qualité de l’air et l’indice UV.  Dans cet exemple, nous avons demandé des données sur cinq jours en définissant `duration=5`.
+[L’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview) retourne des prévisions météorologiques quotidiennes détaillées, telles que la température et le vent. La demande peut spécifier le nombre de jours à retourner : 1, 5, 10, 15, 25 ou 45 jours pour des coordonnées données. La réponse comprend des détails tels que la température, le vent, les précipitations, la qualité de l’air et l’indice UV.  Dans cet exemple, nous avons demandé des données sur cinq jours en définissant `duration=5`.
 
 >[!IMPORTANT]
 >Dans le niveau tarifaire S0, vous pouvez demander des prévisions quotidiennes pour les 1, 5, 10 et 15 jours suivants. Dans le niveau tarifaire S1, vous pouvez aussi demander des prévisions quotidiennes pour les 25 et les 45 jours suivants.
 
-Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) pour récupérer les prévisions météorologiques sur cinq jours pour des coordonnées situées à Seattle, WA.
+Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview) pour récupérer les prévisions météorologiques sur cinq jours pour des coordonnées situées à Seattle, WA.
 
 1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
 
@@ -535,12 +535,12 @@ Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](https://docs.
 
 ## <a name="request-hourly-weather-forecast-data"></a>Demander des données de prévisions météorologiques horaires
 
-[L’API Get Hourly Forecast](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) retourne les prévisions météorologiques détaillées par heure pour les 1, 12, 24 (1 jour), 72 (3 jours), 120 (5 jours) et 240 (10 jours) prochaines heures pour les coordonnées données. L’API retourne des détails tels que la température, l’humidité, le vent, les précipitations et l’index UV.
+[L’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecastpreview) retourne les prévisions météorologiques détaillées par heure pour les 1, 12, 24 (1 jour), 72 (3 jours), 120 (5 jours) et 240 (10 jours) prochaines heures pour les coordonnées données. L’API retourne des détails tels que la température, l’humidité, le vent, les précipitations et l’index UV.
 
 >[!IMPORTANT]
 >Dans le niveau tarifaire S0, vous pouvez demander des prévisions horaires pour les 1, 12, 24 (1 jour) prochaines heures, et les 72 prochaines heures (3 jours). Dans le niveau tarifaire S1, vous pouvez aussi demander des prévisions horaires pour les 120 (5 jours) et les 240 (10 jours) prochaines heures.
 
-Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) pour récupérer les prévisions météorologiques horaires des 12 prochaines heures pour des coordonnées situées à Seattle, WA.
+Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecastpreview) pour récupérer les prévisions météorologiques horaires des 12 prochaines heures pour des coordonnées situées à Seattle, WA.
 
 1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
 
@@ -645,9 +645,9 @@ Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](https://docs
     ```
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>Demander des données de prévisions météorologiques minute par minute
 
- [L’API Get Minute Forecast](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) retourne des prévisions minute par minute pour un emplacement donné pour les 120 prochaines minutes. Les utilisateurs peuvent demander des prévisions météorologiques par intervalles de 1, 5 et 15 minutes. La réponse inclut des détails tels que le type de précipitation (y compris la pluie, la neige ou une combinaison des deux), l’heure de début et la valeur d’intensité des précipitations (dBZ).
+ [L’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecastpreview) retourne des prévisions minute par minute pour un emplacement donné pour les 120 prochaines minutes. Les utilisateurs peuvent demander des prévisions météorologiques par intervalles de 1, 5 et 15 minutes. La réponse inclut des détails tels que le type de précipitation (y compris la pluie, la neige ou une combinaison des deux), l’heure de début et la valeur d’intensité des précipitations (dBZ).
 
-Dans cet exemple, vous allez utiliser [l’API Get Minute Forecast](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) pour récupérer les prévisions météorologiques minute par minute pour des coordonnées situées à Seattle, WA. Les prévisions météorologiques sont fournies pour les 120 prochaines minutes. Notre requête demande que les prévisions soient données à des intervalles de 15 minutes, mais vous pouvez ajuster le paramètre sur une valeur de 1 ou 5 minutes.
+Dans cet exemple, vous allez utiliser [l’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecastpreview) pour récupérer les prévisions météorologiques minute par minute pour des coordonnées situées à Seattle, WA. Les prévisions météorologiques sont fournies pour les 120 prochaines minutes. Notre requête demande que les prévisions soient données à des intervalles de 15 minutes, mais vous pouvez ajuster le paramètre sur une valeur de 1 ou 5 minutes.
 
 1. Ouvrez l’application Postman, cliquez sur **New** (Nouveau), puis sélectionnez **Request** (Requête). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée dans la section précédente ou créez-en une, puis sélectionnez **Save** (Enregistrer).
 
@@ -751,8 +751,8 @@ Dans cet exemple, vous allez utiliser [l’API Get Minute Forecast](https://docs
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Concepts du service Météo Azure Maps](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts)
+> [Concepts du service Météo Azure Maps](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [API REST du service Météo Azure Maps](https://docs.microsoft.com/rest/api/maps/weather
+> [API REST du service Météo Azure Maps](/rest/api/maps/weather
 )

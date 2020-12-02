@@ -290,7 +290,7 @@ Les exemples suivants décrivent ce qui se produit lorsqu’une demande correspo
 | Demande... | Résultat... |
 |--|--|--|
 | _/profile_ | Les utilisateurs authentifiés reçoivent le fichier _/profile/index.html_. Utilisateurs non authentifiés redirigés vers _/login_. |
-| _/admin/reports_ | Les utilisateurs authentifiés dans le rôle _administrateurs_ reçoivent le fichier _/admin/reports/index.html_. Les utilisateurs authentifiés qui ne se trouvent pas dans le rôle _administrateurs_ reçoivent une erreur 401<sup>2</sup>. Utilisateurs non authentifiés redirigés vers _/login_. |
+| _/admin/reports_ | Les utilisateurs authentifiés dans le rôle _administrateurs_ reçoivent le fichier _/admin/reports/index.html_. Les utilisateurs authentifiés qui ne se trouvent pas dans le rôle _administrateurs_ reçoivent une erreur 401 <sup>2</sup>. Utilisateurs non authentifiés redirigés vers _/login_. |
 | _/api/admin_ | Les demandes des utilisateurs authentifiés dans le rôle _administrateurs_ sont envoyées à l’API. Les utilisateurs authentifiés qui ne se trouvent pas dans le rôle _administrateurs_ et les utilisateurs non authentifiés reçoivent une erreur 401. |
 | _/customers/contoso_ | Les utilisateurs authentifiés qui appartiennent aux rôles _administrateurs_ ou _clients\_contoso_ reçoivent le fichier _/customers/contoso/index.html_<sup>2</sup>. Les utilisateurs authentifiés qui ne se trouvent pas dans le rôle _administrateurs_ ou _clients\_contoso_ reçoivent une erreur 401. Utilisateurs non authentifiés redirigés vers _/login_. |
 | _/login_ | Les utilisateurs non authentifiés sont invités à s’authentifier auprès de GitHub. |

@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027072"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173071"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Présentation des identités externes dans Azure Active Directory
 
@@ -51,7 +51,7 @@ Sécurisez et gérez des clients et partenaires au-delà des limites de votre or
 
 ## <a name="about-multitenant-applications"></a>À propos des applications multilocataires
 
-Si vous fournissez une application en tant que service et que vous ne souhaitez pas gérer les comptes d’utilisateur de vos clients, une application multilocataire est probablement l’option qu’il vous faut. Lorsque vous développez des applications destinées à d’autres locataires Azure AD, vous pouvez cibler des utilisateurs d’une seule organisation (monolocataire) ou des utilisateurs de toute organisation ayant déjà un locataire Azure AD (applications multilocataires). Les inscriptions d’applications dans Azure AD sont de type monolocataire par défaut, mais vous pouvez rendre votre inscription multilocataire. Cette application multilocataire est inscrite une fois par vous-même dans votre propre annuaire Azure AD. Mais ensuite, tout utilisateur Azure AD de toute organisation peut utiliser l’application sans effort supplémentaire de votre part. Pour plus d’informations, consultez [Gérer l’identité dans les applications multilocataires](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [Guide pratique](../develop/howto-convert-app-to-be-multi-tenant.md).
+Si vous fournissez une application en tant que service et que vous ne souhaitez pas gérer les comptes d’utilisateur de vos clients, une application multilocataire est probablement l’option qu’il vous faut. Lorsque vous développez des applications destinées à d’autres locataires Azure AD, vous pouvez cibler des utilisateurs d’une seule organisation (monolocataire) ou des utilisateurs de toute organisation ayant déjà un locataire Azure AD (applications multilocataires). Les inscriptions d’applications dans Azure AD sont de type monolocataire par défaut, mais vous pouvez rendre votre inscription multilocataire. Cette application multilocataire est inscrite une fois par vous-même dans votre propre annuaire Azure AD. Mais ensuite, tout utilisateur Azure AD de toute organisation peut utiliser l’application sans effort supplémentaire de votre part. Pour plus d’informations, consultez [Gérer l’identité dans les applications multilocataires](/azure/architecture/multitenant-identity/), [Guide pratique](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

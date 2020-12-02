@@ -23,11 +23,11 @@ Cet article vous aide à mettre à jour les informations de contact d’un *comp
 
 Si vous voulez mettre à jour les informations de votre profil d’utilisateur Azure Active Directory, seul un administrateur d’utilisateurs peut apporter des modifications. Si vous n’avez pas le rôle d’administrateur d’utilisateurs, contactez la personne concernée. Pour plus d’informations sur la modification du profil d’utilisateur, consultez [Ajouter ou mettre à jour les informations du profil de l’utilisateur avec Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-*Adresse du donneur d’ordre*  : l’adresse du donneur d’ordre est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable d’un compte de facturation. Elle s’affiche dans toutes les factures générées pour le compte de facturation.
+*Adresse du donneur d’ordre* : l’adresse du donneur d’ordre est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable d’un compte de facturation. Elle s’affiche dans toutes les factures générées pour le compte de facturation.
 
-*Adresse de facturation*  : l’adresse de facturation est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable des factures générées pour un compte de facturation. Pour un compte de facturation d’un MOSP (Microsoft Online Service Program), il existe une seule adresse de facturation, elle s’affiche sur toutes les factures générées pour le compte. Pour un compte de facturation d’un contrat client Microsoft (MCA), une adresse de facturation existe pour chaque profil de facturation ; elle est affichée dans la facture générée pour le profil de facturation.
+*Adresse de facturation* : l’adresse de facturation est composée de l’adresse et des coordonnées de l’organisation ou de la personne responsable des factures générées pour un compte de facturation. Pour un compte de facturation d’un MOSP (Microsoft Online Service Program), il existe une seule adresse de facturation, elle s’affiche sur toutes les factures générées pour le compte. Pour un compte de facturation d’un contrat client Microsoft (MCA), une adresse de facturation existe pour chaque profil de facturation ; elle est affichée dans la facture générée pour le profil de facturation.
 
-*Adresse e-mail du contact pour les e-mails marketing et de service*  : vous pouvez spécifier une adresse e-mail différente de l’adresse avec laquelle vous vous connectez pour recevoir des notifications importantes de facturation, de service et de recommandation concernant votre compte Azure. Les e-mails de notification de service, tels que les problèmes de sécurité urgents, les changements de prix ou les changements cassants apportés aux services en cours d’utilisation par votre compte, sont toujours envoyés à votre adresse de connexion.
+*Adresse e-mail du contact pour les e-mails marketing et de service* : vous pouvez spécifier une adresse e-mail différente de l’adresse avec laquelle vous vous connectez pour recevoir des notifications importantes de facturation, de service et de recommandation concernant votre compte Azure. Les e-mails de notification de service, tels que les problèmes de sécurité urgents, les changements de prix ou les changements cassants apportés aux services en cours d’utilisation par votre compte, sont toujours envoyés à votre adresse de connexion.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Mettre à jour une adresse de compte de facturation MOSP
 
@@ -115,7 +115,7 @@ La modification du pays ou de la région d’un compte existant n’est pas pris
 ## <a name="change-the-subscription-name"></a>Modifier le nom d’abonnement
 
 1. Connectez-vous au portail Azure, sélectionnez **Abonnement** dans le volet gauche, puis sélectionnez l’abonnement que vous voulez renommer.
-1. Sélectionnez **Vue d’ensemble** , puis **Renommer** dans la barre de commandes.  
+1. Sélectionnez **Vue d’ensemble**, puis **Renommer** dans la barre de commandes.  
     ![Exemple de changement de nom d’un abonnement Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Après avoir modifié le nom, sélectionnez **Enregistrer**.
 

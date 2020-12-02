@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994160"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173934"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -123,7 +123,7 @@ Tenez compte des besoins de votre organisation lorsque vous déterminez la strat
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter ces pièges, [veillez à impliquer les parties prenantes appropriées](https://aka.ms/deploymentplans) et à ce qu’elles comprennent bien leurs rôles dans le projet. Pour ce faire, dressez une liste de leurs contributions et de leurs responsabilités.
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter ces pièges, [veillez à impliquer les parties prenantes appropriées](../fundamentals/active-directory-deployment-plans.md) et à ce qu’elles comprennent bien leurs rôles dans le projet. Pour ce faire, dressez une liste de leurs contributions et de leurs responsabilités.
 
 #### <a name="required-administrator-roles"></a>Rôles d’administrateur nécessaires
 
@@ -325,7 +325,7 @@ Les journaux d’audit pour l’inscription et la réinitialisation de mot de pa
 
 ### <a name="troubleshoot"></a>Dépanner
 
-* Consultez [Résoudre les problèmes liés à la réinitialisation de mot de passe en libre-service](./active-directory-passwords-troubleshoot.md) 
+* Consultez [Résoudre les problèmes liés à la réinitialisation de mot de passe en libre-service](./troubleshoot-sspr.md) 
 
 * Suivez [Forum Aux Questions sur la gestion des mots de passe](./active-directory-passwords-faq.md) 
 

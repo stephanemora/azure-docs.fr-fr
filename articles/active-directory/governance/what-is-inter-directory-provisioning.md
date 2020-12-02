@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbca2d00d10b6595b8a1d13251dd88c65667541
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134938"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168506"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Qu’est-ce que le provisionnement inter-annuaires ?
 
@@ -35,7 +35,7 @@ Azure AD prend actuellement en charge trois méthodes pour effectuer le provisi
 
 - [Provisionnement cloud Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) : nouvel agent Microsoft conçu pour vous permettre d’atteindre et de remplir vos objectifs en matière d’identité hybride.  Il propose une expérience de provisionnement inter-annuaires simplifiée entre Active Directory et Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) : solution de gestion des identités et des accès en local de Microsoft qui vous permet de gérer les utilisateurs, informations d’identification, stratégies et accès au sein de votre organisation. De plus, MIM propose un provisionnement inter-annuaires avancé pour obtenir des environnements d’identités hybrides pour Active Directory, Azure AD et d’autres annuaires.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) : solution de gestion des identités et des accès en local de Microsoft qui vous permet de gérer les utilisateurs, informations d’identification, stratégies et accès au sein de votre organisation. De plus, MIM propose un provisionnement inter-annuaires avancé pour obtenir des environnements d’identités hybrides pour Active Directory, Azure AD et d’autres annuaires.
 
 ### <a name="key-benefits"></a>Principaux avantages
 
@@ -45,7 +45,7 @@ Cette fonctionnalité de provisionnement inter-annuaires offre les avantages sig
 - [Authentification directe](../hybrid/how-to-connect-pta.md) : méthode d’authentification qui permet aux utilisateurs d’utiliser le même mot de passe localement et dans le cloud, mais sans nécessiter l’infrastructure supplémentaire d’un environnement fédéré.
 - [Intégration de fédération](../hybrid/how-to-connect-fed-whatis.md) : permet de configurer un environnement hybride à l’aide d’une infrastructure AD FS locale. Elle offre également des fonctionnalités de gestion AD FS telles que le renouvellement de certificat et les déploiements de serveurs AD FS supplémentaires.
 - [Synchronisation](../hybrid/how-to-connect-sync-whatis.md) : ce composant est chargé de créer des utilisateurs, des groupes et d’autres objets,  et également de s’assurer que les informations d’identité relatives aux utilisateurs et aux groupes dans votre environnement local correspondent à celles qui se trouvent dans le cloud.  Cette synchronisation inclut également des hachages de mot de passe.
-- [Analyse du fonctionnement](../hybrid/whatis-hybrid-identity-health.md) : peut assurer une supervision robuste et offrir un emplacement central dans le portail Azure pour la visualisation de cette activité. 
+- [Analyse du fonctionnement](../hybrid/whatis-azure-ad-connect.md) : peut assurer une supervision robuste et offrir un emplacement central dans le portail Azure pour la visualisation de cette activité. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

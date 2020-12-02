@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891280"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182833"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guide de résolution des problèmes Microsoft Azure Attestation
 
@@ -95,7 +95,7 @@ b. Vérifiez les paramètres d’attribution de rôle Azure.
  
   ```
 
-c. Si vous ne trouvez pas une attribution de rôle appropriée dans la liste, suivez les instructions indiquées [ici](/azure/role-based-access-control/role-assignments-powershell).
+c. Si vous ne trouvez pas une attribution de rôle appropriée dans la liste, suivez les instructions indiquées [ici](../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="2-http--400-errors"></a>2. Erreurs HTTP–400
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Envoyez une demande d’attestation d’API en fournissant le texte de la stratégie dans le paramètre « draftPolicyForAttestation ». L’API AttestSgxEnclave utilise ce document de stratégie lors de l’appel de l’attestation et celui-ci peut être utilisé pour tester les stratégies d’attestation avant qu’elles ne soient consommées. Quand ce champ est présent, le jeton d’attestation généré n’est pas sécurisé.
 
-Voir des [exemples de stratégie d’attestation](/azure/attestation/policy-examples)
+Voir des [exemples de stratégie d’attestation](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Échec de l’attestation en raison d’une entrée non valide
 
@@ -163,7 +163,7 @@ Assurez-vous que l’extension Basic Constraints du certificat racine est défin
 
 Sinon, la chaîne de certificat est considérée comme non valide.
 
-Voir des exemples de [signataire de stratégie](/azure/attestation/policy-signer-examples) et de [stratégie](/azure/attestation/policy-examples) 
+Voir des exemples de [signataire de stratégie](./policy-signer-examples.md) et de [stratégie](./policy-examples.md) 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Échec de l’ajout ou de la suppression du signataire de stratégie
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Étapes de dépannage** Pour ajouter/supprimer un nouveau certificat de signataire de stratégie, utilisez RFC7519 JSON Web Token (JWT) avec une revendication nommée « x-ms-policyCertificate ». La valeur de la revendication est une clé web JSON RFC7517, qui contient le certificat à ajouter. JWT doit être signé avec une clé privée de l’un des certificats de signataire de stratégie valides associés au fournisseur. Voir des [exemples de signataire de stratégie](/azure/attestation/policy-signer-examples).
+**Étapes de dépannage** Pour ajouter/supprimer un nouveau certificat de signataire de stratégie, utilisez RFC7519 JSON Web Token (JWT) avec une revendication nommée « x-ms-policyCertificate ». La valeur de la revendication est une clé web JSON RFC7517, qui contient le certificat à ajouter. JWT doit être signé avec une clé privée de l’un des certificats de signataire de stratégie valides associés au fournisseur. Voir des [exemples de signataire de stratégie](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Échec de la configuration de la stratégie d’attestation
 
@@ -255,7 +255,7 @@ Pour configurer une stratégie au format texte, spécifiez directement le texte 
 
 Dans PowerShell, pour PolicyFormat, spécifiez JWT afin de configurer la stratégie au format JWT. Le format de stratégie par défaut est Texte.
 
-Voir des [exemples de stratégie d’attestation](/azure/attestation/policy-examples) et [comment créer une stratégie d’attestation](/azure/attestation/author-sign-policy) 
+Voir des [exemples de stratégie d’attestation](./policy-examples.md) et [comment créer une stratégie d’attestation](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Problèmes d’installation d’Az.Attestation dans PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Si les versions ne correspondent pas à la configuration minimale requise, exécutez des commandes Update-Module.
 
 Par ex. : - Update-Module -Name Az.Attestation
-

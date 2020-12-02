@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012919"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302573"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Spécifier un réseau virtuel
 
-Pour les travaux apprentissage par renforcement qui utilisent plusieurs cibles de calcul, vous devez spécifier un réseau virtuel avec des ports ouverts qui permettent aux nœuds Worker et principal de communiquer entre eux. Le réseau virtuel peut se trouver dans n’importe quel groupe de ressources, mais celui-ci doit être situé dans la même région que votre espace de travail. Pour plus d’informations sur la configuration de votre réseau virtuel, consultez le [bloc-notes de configuration de l’espace de travail](https://aka.ms/azure-rl-env-setup) qui se trouve dans la section Prérequis. Vous spécifiez ici le nom du réseau virtuel dans votre groupe de ressources.
+Pour les travaux apprentissage par renforcement qui utilisent plusieurs cibles de calcul, vous devez spécifier un réseau virtuel avec des ports ouverts qui permettent aux nœuds Worker et principal de communiquer entre eux. Le réseau virtuel peut se trouver dans n’importe quel groupe de ressources, mais celui-ci doit être situé dans la même région que votre espace de travail. Pour plus d’informations sur la configuration de votre réseau virtuel, consultez le bloc-notes de configuration de l’espace de travail qui se trouve dans la section Prérequis. Vous spécifiez ici le nom du réseau virtuel dans votre groupe de ressources.
 
 ```python
 vnet = 'your_vnet'

@@ -4,12 +4,12 @@ description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classique
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536045"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186641"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -84,7 +84,7 @@ Les états d’alerte suivants sont pris en charge.
 
 L’*état d’alerte* est différent et indépendant de la *condition d’analyse*. L’état de l’alerte est défini par l’utilisateur. La condition de l’analyse est définie par le système. Quand une alerte se déclenche, la condition de surveillance de l’alerte est définie sur *« déclenchée »* et, lorsque la condition sous-jacente à l’origine du déclenchement de l’alerte disparaît, la condition de surveillance est définie sur *« résolue »* . 
 
-L’état de l’alerte n’est pas modifié jusqu’à ce que l’utilisateur la modifie. Découvrez comment [modifier l’état de vos alertes et de vos groupes intelligents](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+L’état de l’alerte n’est pas modifié jusqu’à ce que l’utilisateur la modifie. Découvrez comment [modifier l’état de vos alertes et de vos groupes intelligents](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="alerts-experience"></a>Expérience d’alertes 
 La page Alertes par défaut fournit un résumé des alertes qui sont créées dans un intervalle de temps spécifique. Elle affiche le nombre total d’alertes pour chaque niveau de gravité avec des colonnes identifiant le nombre total d’alertes dans chaque état pour chaque niveau de gravité. Sélectionnez l’un des niveaux de gravité pour ouvrir la page [Toutes les alertes](#all-alerts-page) filtrée sur ce niveau de gravité.
@@ -204,12 +204,12 @@ Vous pouvez interroger les alertes sur leurs champs [essentiels](alerts-common-s
 
 ## <a name="smart-groups"></a>Groupes intelligents
 
-Les groupes intelligents sont des agrégations d’alertes reposant sur des algorithmes de Machine Learning qui permettent de réduire le bruit des alertes et de faciliter la résolution des problèmes. [En savoir plus sur les groupes intelligents](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) et sur [leur gestion](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Les groupes intelligents sont des agrégations d’alertes reposant sur des algorithmes de Machine Learning qui permettent de réduire le bruit des alertes et de faciliter la résolution des problèmes. [En savoir plus sur les groupes intelligents](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) et sur [leur gestion](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur les groupes intelligents](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [En savoir plus sur les groupes intelligents](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [En savoir plus sur les groupes d’actions](./action-groups.md)
-- [Gestion des instances d’alertes dans Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Gestion des groupes intelligents](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Gestion des instances d’alertes dans Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Gestion des groupes intelligents](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Découvrir les tarifs des alertes Azure](https://azure.microsoft.com/pricing/details/monitor/)

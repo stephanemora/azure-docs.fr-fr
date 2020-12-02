@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3f84f3121d9982205ecf51ec64cfe332b6a5ad42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 786fcd1a0c6d7df2c38a086a830a63f7179d7d40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944762"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352505"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>Démarrage rapide : Intégrer le service Azure Defender pour IoT à IoT Hub
 
-Cet article explique comment activer le service Defender pour IoT sur votre hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal).
+Cet article explique comment activer le service Defender pour IoT sur votre hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
 
 > [!NOTE]
 > Actuellement, Defender pour IoT prend uniquement en charge les hubs IoT de niveau standard.

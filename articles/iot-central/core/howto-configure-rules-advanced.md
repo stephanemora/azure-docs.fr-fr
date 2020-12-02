@@ -75,7 +75,7 @@ Pour ajouter le connecteur **Azure IoT Central v3 – Préversion** en tant qu�
 1. Dans la liste des actions, sélectionnez l’action IoT Central que vous souhaitez utiliser.
 1. Dans l’étape d’action, terminez la configuration de l’action que vous avez choisie. Ensuite, sélectionnez **Enregistrer**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central – Préversion et choisir le déclencheur":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Rechercher le connecteur Azure IoT Central v3 et choisir une action":::
 
 ## <a name="list-of-actions"></a>Liste d’actions
 

@@ -3,12 +3,12 @@ title: Comment activer votre ressource Azure VMware Solution
 description: Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794712"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325075"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Comment activer la ressource Azure VMware Solution
 Découvrez comment envoyer une demande de support pour activer votre ressource [Azure VMware Solution](introduction.md). Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
@@ -76,7 +76,7 @@ Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Mic
 
 1. Sélectionnez **Plan Azure**, puis **Ajouter au panier**. 
 
-1. Passez en revue et terminez la configuration générale de l’abonnement au plan Azure pour votre client. Pour plus d’informations, consultez la [Documentation de l’Espace partenaires Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Passez en revue et terminez la configuration générale de l’abonnement au plan Azure pour votre client. Pour plus d’informations, consultez la [Documentation de l’Espace partenaires Microsoft](/partner-center/azure-plan-manage).
 
 Une fois le plan Azure configuré et les autorisations vSphere RBAC nécessaires en place en tant que CSP, vous devez contacter Microsoft afin d’activer le quota pour un abonnement à un plan Azure. Accédez au portail Azure à partir de l’Espace partenaires à l’aide de la procédure **Administrateur pour le compte de**.
 

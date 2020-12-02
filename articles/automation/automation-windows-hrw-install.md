@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906617"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182782"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -65,7 +65,7 @@ Pour connaître la configuration réseau requise pour le Runbook Worker hybride,
 Vous pouvez ajouter l’ordinateur Worker à un groupe de Runbook Workers hybrides dans l’un de vos comptes Automation. Pour les ordinateurs qui hébergent le Runbook Worker hybride système géré par Update Management, ils peuvent être ajoutés à un groupe de Runbook Workers hybrides. Toutefois, vous devez utiliser le même compte Automation pour Update Management et l’appartenance au groupe de Runbook Workers hybrides.
 
 >[!NOTE]
->Azure Automation [Update Management](update-management/update-mgmt-overview.md) installe automatiquement le Runbook Worker hybride système sur un ordinateur Azure ou non-Azure où la fonctionnalité Update Management est activée. Toutefois, ce Worker n’est inscrit auprès d’aucun des groupes de Runbook Workers hybrides figurant dans votre compte Automation. Pour exécuter vos runbooks sur ces ordinateurs, vous devez les ajouter à un groupe de Runbook Workers hybrides. Suivez l’étape 6 de la section [Déploiement manuel](#manual-deployment) pour l’ajouter à un groupe.
+>Azure Automation [Update Management](./update-management/overview.md) installe automatiquement le Runbook Worker hybride système sur un ordinateur Azure ou non Azure où la fonctionnalité Update Management est activée. Toutefois, ce Worker n’est inscrit auprès d’aucun des groupes de Runbook Workers hybrides figurant dans votre compte Automation. Pour exécuter vos runbooks sur ces ordinateurs, vous devez les ajouter à un groupe de Runbook Workers hybrides. Suivez l’étape 6 de la section [Déploiement manuel](#manual-deployment) pour l’ajouter à un groupe.
 
 ## <a name="enable-for-management-with-azure-automation-state-configuration"></a>Activer pour la gestion avec Azure Automation State Configuration
 
@@ -145,7 +145,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
     * Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Windows à l’aide de l’[extension de machine virtuelle pour Windows](../virtual-machines/extensions/oms-windows.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, PowerShell ou Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
     
-    * Pour les ordinateurs non-Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs avec Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
+    * Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs avec Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
     
         - Utilisation de l’infrastructure des extensions de machine virtuelle.
         
@@ -205,7 +205,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
     * Si nécessaire, définissez le paramètre `Verbose` pour recevoir des détails sur l’installation.
 
-7. Vérifiez le déploiement une fois la commande terminée. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le groupe nouveau ou existant et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner ce groupe dans la liste de cette page, dans le menu de gauche, choisissez **Workers hybrides**. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
+7. Vérifiez le déploiement une fois la commande terminée. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le groupe nouveau ou existant et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de cette page en choisissant **Workers hybrides** dans le menu de gauche. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
 
 ## <a name="install-powershell-modules"></a>Installer des modules PowerShell
 

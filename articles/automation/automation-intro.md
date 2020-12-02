@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état, gestion
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205334"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182816"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -43,7 +43,7 @@ La fonctionnalité Suivi des modifications et inventaire combine les fonctions d
 
 ## <a name="update-management"></a>Gestion des mises à jour
 
-Azure Automation comprend la fonctionnalité [Gestion des mises à jour](update-management/update-mgmt-overview.md) pour les systèmes Windows et Linux dans des environnements hybrides. La fonctionnalité Gestion des mises à jour vous permet de voir la conformité des mises à jour sur Azure et d’autres clouds, et en local. La fonctionnalité vous permet de créer des déploiements planifiés qui coordonnent l’installation de mises à jour dans une fenêtre de maintenance définie. Si une mise à jour ne doit pas être installée sur un ordinateur, vous pouvez utiliser la fonctionnalité Gestion des mises à jour pour l’exclure d’un déploiement.
+Azure Automation comprend la fonctionnalité [Gestion des mises à jour](./update-management/overview.md) pour les systèmes Windows et Linux dans des environnements hybrides. La fonctionnalité Gestion des mises à jour vous permet de voir la conformité des mises à jour sur Azure et d’autres clouds, et en local. La fonctionnalité vous permet de créer des déploiements planifiés qui coordonnent l’installation de mises à jour dans une fenêtre de maintenance définie. Si une mise à jour ne doit pas être installée sur un ordinateur, vous pouvez utiliser la fonctionnalité Gestion des mises à jour pour l’exclure d’un déploiement.
 
 ## <a name="shared-capabilities"></a>Fonctionnalités partagées
 

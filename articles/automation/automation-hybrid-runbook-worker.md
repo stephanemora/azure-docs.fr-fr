@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183768"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -29,7 +29,7 @@ Il existe deux types de Runbook Worker : système et utilisateur. Le tableau su
 
 Un Runbook Worker hybride peut s’exécuter sur le système d’exploitation Windows ou Linux, et ce rôle s’appuie sur [l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) créant des rapports dans un [espace de travail Log Analytics](../azure-monitor/platform/design-logs-deployment.md) Azure Monitor. L’espace de travail ne vise pas seulement à superviser la machine pour le système d’exploitation pris en charge ; il sert aussi à télécharger les composants nécessaires pour installer le Runbook Worker hybride.
 
-Quand la solution [Update Management](update-management/update-mgmt-overview.md) d’Azure Automation est activée, toute machine connectée à votre espace de travail Log Analytics est automatiquement configurée en tant que Runbook Worker hybride système.
+Quand la solution [Update Management](./update-management/overview.md) d’Azure Automation est activée, toute machine connectée à votre espace de travail Log Analytics est automatiquement configurée en tant que Runbook Worker hybride système.
 
 Chaque Runbook Worker hybride utilisateur est membre d'un groupe Runbook Worker hybride que vous spécifiez lorsque vous installez le worker. Un groupe peut inclure un seul worker, mais vous pouvez inclure plusieurs workers dans un groupe pour une haute disponibilité. Chaque machine peut héberger un Runbook Worker hybride créant des rapports dans un compte Automation. Vous ne pouvez pas inscrire le worker hybride dans plusieurs comptes Automation. En effet, un worker hybride ne peut écouter des travaux qu’à partir d’un seul compte Automation. Les machines qui hébergent le Runbook Worker hybride système géré par Update Management peuvent être ajoutées à un groupe Runbook Worker hybride. Toutefois, vous devez utiliser le même compte Automation pour Update Management et l’appartenance au groupe Runbook Worker hybride.
 
@@ -99,7 +99,7 @@ Le Runbook Worker hybride d’Azure Automation peut être utilisé dans Azure Go
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Adresses Update Management pour Runbook Worker hybride
 
-En plus des adresses et des ports standard requis pour le Runbook Worker hybride, Update Management a des exigences supplémentaires en matière de configuration du réseau décrites dans la section relative à la [planification du réseau](update-management/update-mgmt-overview.md#ports).
+En plus des adresses et des ports standard requis pour le Runbook Worker hybride, Update Management a des exigences supplémentaires en matière de configuration du réseau décrites dans la section relative à la [planification du réseau](./update-management/overview.md#ports).
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation State Configuration sur un Runbook Worker hybride
 

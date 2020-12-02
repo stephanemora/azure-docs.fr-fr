@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098941"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349093"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Xamarin.Forms avec le SDK .NET et l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -164,7 +164,7 @@ Les extraits de code suivants sont tirés de la classe `MongoService`, à l’em
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion** , puis sur **Clés en lecture-écriture**. Dans les prochaines étapes, vous allez utiliser les boutons de copie sur le côté droit de l’écran pour copier la Chaîne de connexion principale.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion**, puis sur **Clés en lecture-écriture**. Dans les prochaines étapes, vous allez utiliser les boutons de copie sur le côté droit de l’écran pour copier la Chaîne de connexion principale.
 
 2. Ouvrez le fichier **APIKeys.cs** dans le répertoire **Helpers** du projet **TaskList.Core**.
 
@@ -181,7 +181,7 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur chaque projet dans l’ **Explorateur de solutions** , puis cliquez sur **Gérer les packages NuGet**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur chaque projet dans l’**Explorateur de solutions**, puis cliquez sur **Gérer les packages NuGet**.
 2. Cliquez sur **Restaurer tous les packages NuGet**.
 3. Cliquez avec le bouton droit sur le projet **TaskList.Android** puis sélectionnez **Définir comme projet de démarrage**.
 4. Appuyez sur F5 pour lancer le débogage de l’application.
@@ -207,4 +207,4 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB et à exécuter une application Xamarin.Forms à l’aide de l’API de MongoDB. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importer des données dans Azure Cosmos DB configuré avec l’API Azure Cosmos DB pour MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importer des données dans Azure Cosmos DB configuré avec l’API Azure Cosmos DB pour MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

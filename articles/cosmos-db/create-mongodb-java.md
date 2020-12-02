@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8a8fa9e15630aea3fb92571fd88a0ce01d3c9211
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098959"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349110"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Démarrage rapide : Créer une application console avec Java et l’API MongoDB dans Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -112,9 +112,9 @@ Cette application de console utilise le [pilote Java MongoDB](https://docs.mongo
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. À partir de votre compte Azure Cosmos DB, sélectionnez **Démarrage rapide** et **Java** , puis copiez la chaîne de connexion dans le Presse-papiers.
+1. À partir de votre compte Azure Cosmos DB, sélectionnez **Démarrage rapide** et **Java**, puis copiez la chaîne de connexion dans le Presse-papiers.
 
-2. Ouvrez le fichier *Program.java* , puis remplacez l’argument au constructeur MongoClientURI par la chaîne de connexion. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+2. Ouvrez le fichier *Program.java*, puis remplacez l’argument au constructeur MongoClientURI par la chaîne de connexion. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
     
 ## <a name="run-the-console-app"></a>Exécution de l’application console
 
@@ -137,4 +137,4 @@ Vous pouvez maintenant utiliser [Robomongo](mongodb-robomongo.md) / [Studio 3T](
 Dans ce guide de démarrage rapide, vous avez appris à créer une API Azure Cosmos DB pour un compte Mongo DB, à ajouter une base de données et un conteneur avec l’Explorateur de données et à ajouter des données avec une application console Java. Vous pouvez maintenant importer des données supplémentaires dans votre base de données Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

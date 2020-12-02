@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023004"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350872"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -100,7 +100,7 @@ Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordr
 ![Capture d’écran montrant l’Ordre des récepteurs personnalisé.](media/data-flow/custom-sink-ordering.png "Capture d’écran montrant l’Ordre des récepteurs personnalisé.")
 
 > [!NOTE]
-> Lors de l’utilisation de [recherches mises en cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), assurez-vous que l’ordre des récepteurs mis en cache est défini sur 1, le plus bas (ou le premier) dans le classement.
+> Lors de l’utilisation de [recherches mises en cache](./concepts-data-flow-expression-builder.md#cached-lookup), assurez-vous que l’ordre des récepteurs mis en cache est défini sur 1, le plus bas (ou le premier) dans le classement.
 
 ![Ordre des récepteurs personnalisé](media/data-flow/cache-2.png "Ordre des récepteurs personnalisé")
 

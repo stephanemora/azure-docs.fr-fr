@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235398"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174728"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Qu’est ce que le provisionnement automatique des utilisateurs dans les applications SaaS dans Azure AD ?
 
@@ -59,7 +59,7 @@ Azure AD offre une prise en charge préintégrée de plusieurs applications SaaS
 
    ![Logo Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Si vous souhaitez demander une nouvelle application pour l’approvisionnement, vous pouvez [demander que votre application soit intégrée à notre galerie d’applications](../azuread-dev/howto-app-gallery-listing.md). Pour une demande d’approvisionnement d’utilisateurs, nous avons besoin que l’application dispose d’un point de terminaison compatible SCIM. Veuillez demander au fournisseur de l’application de suivre la norme SCIM afin que nous puissions intégrer rapidement l’application à notre plateforme.
+   Si vous souhaitez demander une nouvelle application pour l’approvisionnement, vous pouvez [demander que votre application soit intégrée à notre galerie d’applications](../develop/v2-howto-app-gallery-listing.md). Pour une demande d’approvisionnement d’utilisateurs, nous avons besoin que l’application dispose d’un point de terminaison compatible SCIM. Veuillez demander au fournisseur de l’application de suivre la norme SCIM afin que nous puissions intégrer rapidement l’application à notre plateforme.
 
 * **Applications prenant en charge SCIM 2.0**. Pour plus d’informations sur la connexion générique d’applications qui implémentent des API de gestion des utilisateurs SCIM 2.0, consultez [Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs](use-scim-to-provision-users-and-groups.md).
 

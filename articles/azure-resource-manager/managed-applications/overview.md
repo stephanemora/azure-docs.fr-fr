@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7641c1e3bc3620b294c2953b993e9179a4875536
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951806"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434564"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -49,7 +49,7 @@ Pour plus d’informations sur la publication d’une application managée de ca
 
 Les fournisseurs souhaitant facturer leurs services peuvent mettre une application managée à disposition sur la Place de marché Azure. Une fois que le fournisseur a publié une application, les utilisateurs peuvent y accéder en dehors de l’organisation. Avec cette approche, les fournisseurs de services managés, les éditeurs de logiciels indépendants et les intégrateurs de système peuvent proposer leurs solutions à tous les clients Azure.
 
-Pour plus d’informations sur la publication d’une application managée sur la Place de marché, consultez [Créer une application de Place de marché](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Pour plus d’informations sur la publication d’une application managée sur la Place de marché, consultez [Créer une application de Place de marché](../../marketplace/create-new-azure-apps-offer.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Groupes de ressources pour les applications managées
 
@@ -71,7 +71,7 @@ Le consommateur dispose d’un accès complet au groupe de ressources et l’uti
 
 Ce groupe de ressources contient toutes les ressources exigées par l’application managée. Il contient par exemple les machines virtuelles, les comptes de stockage et les réseaux virtuels pour la solution. Le consommateur dispose d’un accès limité à ce groupe de ressources, car il ne gère pas les ressources individuelles pour l’application managée. L’accès de l’éditeur à ce groupe de ressources correspond au rôle spécifié dans la définition de l’application managée. Par exemple, l’éditeur peut demander le rôle Propriétaire ou Contributeur pour ce groupe de ressources. L’accès est limité de façon permanente ou à une période spécifique.
 
-Lors de la publication de l’[application managée sur la Place de marché](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), l’éditeur peut donner aux consommateurs la possibilité d’effectuer des actions spécifiques sur les ressources du groupe de ressources managé. Par exemple, l’éditeur peut spécifier que les consommateurs peuvent redémarrer des machines virtuelles. Toutes les autres actions autres que les actions de lecture sont encore refusées. Les changements apportés aux ressources d’un groupe de ressources managé par un consommateur avec des actions accordées sont soumises aux affectations [Azure Policy](../../governance/policy/overview.md) dans le locataire de consommateurs dont la portée comprend le groupe de ressources managé.
+Lors de la publication de l’[application managée sur la Place de marché](../../marketplace/create-new-azure-apps-offer.md), l’éditeur peut donner aux consommateurs la possibilité d’effectuer des actions spécifiques sur les ressources du groupe de ressources managé. Par exemple, l’éditeur peut spécifier que les consommateurs peuvent redémarrer des machines virtuelles. Toutes les autres actions autres que les actions de lecture sont encore refusées. Les changements apportés aux ressources d’un groupe de ressources managé par un consommateur avec des actions accordées sont soumises aux affectations [Azure Policy](../../governance/policy/overview.md) dans le locataire de consommateurs dont la portée comprend le groupe de ressources managé.
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
 

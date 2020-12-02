@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932864"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349178"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide d’Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Les configurations `spark.cassandra.output.concurrent.writes` et `connections_per_executor_max` sont importantes pour éviter la [limitation du débit](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/) qui se produit lorsque les demandes de Cosmos DB dépassent le débit approvisionné ([unités de requête](https://docs.microsoft.com/azure/cosmos-db/request-units)). Vous devrez peut-être ajuster ces paramètres en fonction du nombre d’exécuteurs du cluster Spark, voire de la taille (et par conséquent du coût RU) de chaque enregistrement écrit dans les tables cibles.
+> Les configurations `spark.cassandra.output.concurrent.writes` et `connections_per_executor_max` sont importantes pour éviter la [limitation du débit](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/) qui se produit lorsque les demandes de Cosmos DB dépassent le débit approvisionné ([unités de requête](./request-units.md)). Vous devrez peut-être ajuster ces paramètres en fonction du nombre d’exécuteurs du cluster Spark, voire de la taille (et par conséquent du coût RU) de chaque enregistrement écrit dans les tables cibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

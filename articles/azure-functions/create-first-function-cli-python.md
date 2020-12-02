@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0aea0425123cab4da1939e85a2cfd6071f772737
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5f8bf6fb6f464bcb74d34e2d99fac16c24b12615
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795749"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175710"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Python dans Azure à partir de la ligne de commande
 
@@ -45,7 +45,7 @@ Vérifiez vos prérequis, selon que vous utilisez Azure CLI ou Azure PowerShell 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-+ Dans une fenêtre de terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
++ Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
 + Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.4 ou ultérieure.
 
@@ -55,7 +55,7 @@ Vérifiez vos prérequis, selon que vous utilisez Azure CLI ou Azure PowerShell 
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ Dans une fenêtre de terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
++ Dans une fenêtre de terminal ou de commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 3.x.
 
 + Exécutez `(Get-Module -ListAvailable Az).Version` et vérifiez la version 5.0 ou ultérieure. 
 
@@ -203,7 +203,7 @@ Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerS
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    La commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crée un groupe de ressources. Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible retournée par l’applet de commande [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation).
+    La commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crée un groupe de ressources. Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible retournée par l’applet de commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
     ---
 

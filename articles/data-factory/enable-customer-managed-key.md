@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650573"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348940"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Chiffrer Azure Data Factory avec des clés gérées par le client
 
@@ -47,8 +47,8 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 
 Pour utiliser des clés gérées par le client avec Data Factory, deux propriétés doivent être configurées sur le coffre de clés, __Suppression réversible__ et __Ne pas vider__. Ces propriétés peuvent être activées à l’aide de PowerShell ou d’Azure CLI sur un coffre de clés nouveau ou existant. Pour savoir comment activer ces propriétés sur un coffre de clés existant, consultez les sections intitulées _Activation de la suppression réversible_ et _Activation de la protection contre le vidage_ dans l’un des articles suivants :
 
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/general/soft-delete-powershell.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/general/soft-delete-cli.md)
+- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/general/key-vault-recovery.md)
+- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/general/key-vault-recovery.md)
 
 Si vous créez un coffre de clés Azure par le biais du portail Azure, les options __Suppression réversible__ et __Ne pas vider__ peuvent être activées comme suit :
 

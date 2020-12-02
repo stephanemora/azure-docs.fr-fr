@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836986"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168863"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -160,7 +160,7 @@ La fourniture d’un mécanisme d’authentification unique standardisé à l’
 > [!NOTE]
 > Si vous n’avez pas de mécanisme pour découvrir des applications non managées dans votre organisation, nous vous recommandons d’implémenter un processus de découverte en utilisant une solution CASB (Cloud Access Security Broker), comme [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Enfin, si vous disposez d’une galerie d’applications Azure AD et que vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD, nous vous recommandons de [placer les applications dans la galerie d’applications](../azuread-dev/howto-app-gallery-listing.md).
+Enfin, si vous disposez d’une galerie d’applications Azure AD et que vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD, nous vous recommandons de [placer les applications dans la galerie d’applications](../develop/v2-howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Lectures recommandées pour l’authentification unique
 
@@ -255,7 +255,7 @@ L’accès conditionnel est un outil essentiel pour améliorer l’attitude de v
 
 #### <a name="conditional-access-recommended-reading"></a>Lectures recommandées pour l’accès conditionnel
 
-- [Bonnes pratiques relatives à l’accès conditionnel dans Azure Active Directory](../conditional-access/best-practices.md)
+- [Bonnes pratiques relatives à l’accès conditionnel dans Azure Active Directory](../conditional-access/overview.md)
 - [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Informations de référence sur les paramètres d’accès conditionnel d’Azure Active Directory](../conditional-access/concept-conditional-access-conditions.md)
 - [Stratégies d’accès conditionnel courantes](../conditional-access/concept-conditional-access-policy-common.md)

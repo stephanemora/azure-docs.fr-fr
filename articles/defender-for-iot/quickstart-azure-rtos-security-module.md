@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759730"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351774"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Démarrage rapide : Module de sécurité pour Azure RTOS (préversion)
 
-Cet article décrit les prérequis avant de commencer et explique comment activer le module de sécurité pour le service Azure RTOS sur un hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal).
+Cet article décrit les prérequis avant de commencer et explique comment activer le module de sécurité pour le service Azure RTOS sur un hub IoT. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
 
 > [!NOTE]
 > Le module de sécurité pour Azure RTOS est uniquement pris en charge dans les hubs IoT de niveau standard.
@@ -63,10 +63,10 @@ L’ingestion Log Analytics dans IoT Hub est désactivée par défaut dans la so
 1. Sélectionnez **Collection de données**. 
 1. À partir de l’option **Configuration de l’espace de travail**, passez le bouton bascule sur **Activé**. 
 1. Créez un espace de travail Log Analytics où attachez-en un déjà existant. Assurez-vous que l’option **Accéder aux données de sécurité brutes** est sélectionnée. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Accéder à l’option Collecte de données pour Azure RTOS":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configuration Azure RTOS avec options de collecte de données et d’accès aux données de sécurité brutes toutes deux sélectionnées":::
 1. Sélectionnez **Enregistrer**.
 1. Revenez à votre liste de ressources Azure et vérifiez que l’espace de travail Log Analytics que vous avez créé ou attaché est activé pour le hub IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Accéder à l’option Collecte de données pour Azure RTOS"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Vérifier votre liste de ressources Azure pour confirmer l’ajout de l’espace de travail correct Log Analytics pour un hub IoT"::: 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

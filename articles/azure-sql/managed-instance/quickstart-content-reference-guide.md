@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788160"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325113"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Bien démarrer avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,7 @@ Les guides de démarrage rapide suivants vous permettent de créer rapidement un
 Dans un premier temps, vous devez créer votre première instance managée SQL avec l’environnement réseau dans lequel elle va être placée, puis activer la connexion à partir de l’ordinateur ou de la machine virtuelle où vous exécutez les requêtes vers l’instance. Vous pouvez utiliser les guides suivants :
 
 - [Créer une instance managée SQL à l’aide du portail Azure](instance-create-quickstart.md). Dans le portail Azure, vous configurez les paramètres nécessaires (nom d’utilisateur/mot de passe, nombre de cœurs et quantité de stockage maximal) pour créer automatiquement l’environnement réseau Azure, sans vous occuper des détails du réseau ni des besoins d’infrastructure. Vous devez simplement vérifier que vous avez un [type d’abonnement](resource-limits.md#supported-subscription-types) actuellement autorisé à créer une instance managée SQL. Si vous disposez de votre propre réseau à utiliser ou que vous souhaitez personnaliser le réseau, consultez [Configurer un réseau virtuel existant pour Azure SQL Managed Instance](vnet-existing-add-subnet.md) ou [Créer un réseau virtuel pour Azure SQL Managed Instance](virtual-network-subnet-create-arm-template.md).
-- Une instance managée SQL est créée dans son propre réseau virtuel sans aucun point de terminaison public. Pour l’accès aux applications clientes, vous pouvez **créer une machine virtuelle dans le même réseau virtuel (sous-réseau différent)** ou **créer une connexion VPN point à site au réseau virtuel à partir de votre ordinateur client** , à l’aide de l’un de ces guides de démarrage rapide :
+- Une instance managée SQL est créée dans son propre réseau virtuel sans aucun point de terminaison public. Pour l’accès aux applications clientes, vous pouvez **créer une machine virtuelle dans le même réseau virtuel (sous-réseau différent)** ou **créer une connexion VPN point à site au réseau virtuel à partir de votre ordinateur client**, à l’aide de l’un de ces guides de démarrage rapide :
   - Activez un [point de terminaison public](public-endpoint-configure.md) sur votre instance managée SQL pour accéder à vos données directement à partir de votre environnement.
   - Créez une [machine virtuelle Azure dans le réseau virtuel de l’instance managée SQL](connect-vm-instance-configure.md) pour la connectivité aux applications clientes, notamment SQL Server Management Studio.
   - Configurez une [connexion VPN de point à site à votre instance managée SQL](point-to-site-p2s-configure.md) à partir de votre ordinateur client où se trouvent SQL Server Management Studio et d’autres applications de connectivité clientes. Il s’agit là de l’une des deux options disponibles pour établir la connectivité à votre instance managée SQL et à son réseau virtuel.
@@ -72,7 +72,7 @@ Les guides de démarrage rapide mentionnés plus haut vous permettent de configu
 Toutefois, pour migrer votre base de données de production ou même des bases de données de Dev/Test à utiliser pour effectuer des tests de performances, vous devez envisager d’utiliser des techniques supplémentaires, telles que :
 
 - Test des performances : vous devez mesurer les métriques de performance de base sur votre instance SQL Server source et les comparer aux métriques de performance de l’instance managée SQL de destination où vous avez migré la base de données. Apprenez-en davantage sur les [meilleures pratiques en matière de comparaison des performances](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migration en ligne : avec la commande `RESTORE` native décrite dans cet article, vous devez attendre que les bases de données soient restaurées (et copiées vers Stockage Blob Azure si elles ne s’y trouvent pas déjà). Il en résulte des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, utilisez [Database Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) afin de migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données SQL Managed Instance en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
+- Migration en ligne : avec la commande `RESTORE` native décrite dans cet article, vous devez attendre que les bases de données soient restaurées (et copiées vers Stockage Blob Azure si elles ne s’y trouvent pas déjà). Il en résulte des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, utilisez [Database Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) afin de migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données SQL Managed Instance en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
 
 Apprenez-en davantage sur le [processus de migration recommandé](migrate-to-instance-from-sql-server.md).
 

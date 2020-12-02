@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4d74c3607610372fa6cd276dd0d72fa5ba37f391
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a885f027250a915347fea758c7c7978af0f45f49
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025088"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302514"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Base de référence de sécurité Azure pour Azure App Configuration
 
@@ -22,7 +22,7 @@ Pour voir la correspondance complète entre Azure App Configuration et le Benchm
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1 : Implémenter la sécurité pour le trafic interne
 
@@ -50,7 +50,7 @@ Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez le peeri
 
 - [Peering de réseau virtuel](../virtual-network/virtual-network-peering-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -64,7 +64,7 @@ L’accès privé est une mesure de défense renforcée qui vient s’ajouter à
 
 - [Guide pratique pour configurer une liaison privée dans Azure App Configuration](concept-private-endpoint.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -74,9 +74,9 @@ L’accès privé est une mesure de défense renforcée qui vient s’ajouter à
 
 Azure App Configuration n’est pas destiné à exécuter des applications web. Il en fournit simplement la configuration. Il n’est pas nécessaire de configurer des paramètres supplémentaires ni de déployer d’autres services réseau pour les protéger contre les attaques de réseau externe qui les visent.
 
-- [Documentation sur le pare-feu Azure](/azure/firewall/)
+- [Documentation sur le pare-feu Azure](../firewall/index.yml)
 
-- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](/azure/virtual-network/manage-ddos-protection)
+- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](../ddos-protection/manage-ddos-protection.md)
 
 - [Recommandations relatives à Azure Security Center](../security-center/recommendations-reference.md#recs-network)
 
@@ -90,11 +90,11 @@ Azure App Configuration n’est pas destiné à exécuter des applications web. 
 
 Remarque : Si l’utilisation des systèmes IDS/IPS s’accompagne d’une exigence réglementaire ou autre, vérifiez qu’elle est toujours paramétrée de façon à fournir des alertes de haute qualité à votre solution SIEM.
 
-- [Guide pratique pour déployer le Pare-feu Azure](/azure/firewall/tutorial-firewall-deploy-portal)
+- [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
 - [La Place de marché Azure comprend des fonctionnalités IDS tierces](https://azuremarketplace.microsoft.com/marketplace?search=IDS)
 
-- [Fonctionnalité de détection de point de terminaison et réponse (EDR) de Microsoft Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+- [Fonctionnalité de détection de point de terminaison et réponse (EDR) de Microsoft Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -112,15 +112,15 @@ Remarque : Si l’utilisation des systèmes IDS/IPS s’accompagne d’une exig
 
 ## <a name="identity-management"></a>Gestion des identités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1 : Normaliser Azure Active Directory comme système d’authentification et d’identité central
 
 **Conseils** : Azure App Configuration est compatible avec Azure Active Directory (Azure AD), le service de gestion des identités et des accès par défaut d’Azure. Vous devez normaliser Azure AD pour régir la gestion des identités et des accès de votre organisation dans :
-- Les ressources cloud Microsoft, comme le Portail Azure, le Stockage Azure, les Machines virtuelles Azure (Linux et Windows), Azure Key Vault et les applications PaaS et SaaS.
+- Les ressources cloud Microsoft, comme le portail Azure, le stockage Azure, les machines virtuelles Azure (Linux et Windows), les applications Azure Key Vault, PaaS et SaaS.
 - Les ressources de votre organisation, comme les applications sur Azure ou les ressources réseau de votre entreprise.
 
-La sécurisation d’Azure AD doit être d’une priorité élevée dans les pratiques de sécurité cloud de votre organisation. Azure AD fournit un score d’identité sécurisée qui aide à évaluer l’état de la sécurité des identités par rapport aux meilleures pratiques recommandées par Microsoft. Utilisez le score pour évaluer avec précision votre configuration par rapport aux meilleures pratiques recommandées et apporter des améliorations à votre posture de sécurité.
+La sécurisation d’Azure AD doit être d’une priorité élevée dans les pratiques de sécurité cloud de votre organisation. Azure AD fournit un score d'identité sécurisée pour vous aider à évaluer la sécurité des identités par rapport aux recommandations de Microsoft en matière de meilleures pratiques. Utilisez le score pour évaluer avec précision votre configuration par rapport aux meilleures pratiques recommandées et apporter des améliorations à votre posture de sécurité.
 
 Azure fournit les rôles Azure intégrés suivants pour autoriser l’accès aux données App Configuration à l’aide d’Azure AD et d’OAuth :
 
@@ -220,9 +220,9 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 
 - [Rapports d’activité d’audit dans Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -272,7 +272,7 @@ Pour GitHub, vous pouvez utiliser la fonctionnalité native d’analyse de secre
 
 ## <a name="privileged-access"></a>Accès privilégié
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1 : Protéger et limiter les utilisateurs disposant de privilèges élevés
 
@@ -285,11 +285,11 @@ Les clés d’accès sont très privilégiées. Elles doivent être renouvelées
 - [Meilleures pratiques App Configuration](howto-best-practices.md#app-configuration-bootstrap)
 
 - [Utiliser des identités managées pour accéder à App Configuration](howto-integrate-azure-managed-service-identity.md)
-- [Autorisations de rôle Administrateur dans Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Autorisations de rôle Administrateur dans Azure AD](../active-directory/roles/permissions-reference.md)
 
 - [Utiliser les alertes de sécurité Azure Privileged Identity Management](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../active-directory/roles/security-planning.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -327,7 +327,7 @@ Remarque : Les identités managées sont suggérées dans la mesure du possible
 
 - [Créer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- [Utilisation des révisions d’accès et des identités Azure AD](/azure/active-directory/governance/access-reviews-overvie)
+- [Utilisation des révisions d’accès et des identités Azure AD](/azure/active-directory/governance/access-reviews-overview)
 
 - [Autoriser l’accès à Azure App Configuration avec Azure AD](concept-enable-rbac.md)
 
@@ -341,7 +341,7 @@ Remarque : Les identités managées sont suggérées dans la mesure du possible
 
 Vous devez vous assurer que les informations d’identification (telles que le mot de passe, le certificat ou la carte à puce) des comptes d’accès d’urgence restent sécurisées et connues des seules personnes autorisées à les utiliser en cas d’urgence.
 
-- [Gérer des comptes d’accès d’urgence dans Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gérer des comptes d’accès d’urgence dans Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -351,7 +351,7 @@ Vous devez vous assurer que les informations d’identification (telles que le m
 
 **Conseils** : Azure App Configuration est compatible avec Azure Active Directory pour gérer ses ressources. Utilisez les fonctionnalités de gestion des droits d’utilisation d’Azure AD pour automatiser les workflows de demandes d’accès, notamment les attributions, les révisions et l’expiration des accès. L’approbation en deux ou plusieurs étapes est également prise en charge.
 
-- [Présentation des révisions d’accès Azure AD](/azure/active-directory/governance/access-reviews-overview)
+- [Présentation des révisions d’accès Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Présentation de la gestion des droits d’utilisation Azure AD](../active-directory/governance/entitlement-management-overview.md)
 
@@ -387,7 +387,7 @@ App Configuration prend en charge le stockage de la configuration de plusieurs a
 
 - [Configurer le contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Utilisation des révisions d’accès et des identités Azure AD](/azure/active-directory/governance/access-reviews-overview)
+- [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Autoriser l’accès à Azure App Configuration avec Azure AD](concept-enable-rbac.md)
 
@@ -405,7 +405,7 @@ App Configuration prend en charge le stockage de la configuration de plusieurs a
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-1-discover-classify-and-label-sensitive-data"></a>DP-1 : Découvrir, classer et étiqueter des données sensibles
 
@@ -471,7 +471,7 @@ Azure assure par défaut un chiffrement des données au repos. Pour les données
 
 - [Double chiffrement des données au repos dans Azure](../security/fundamentals/double-encryption.md#data-at-rest)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -493,7 +493,7 @@ Remarque : Des autorisations supplémentaires peuvent être nécessaires pour o
 
 - [Vue d'ensemble des groupes d'administration Azure](../governance/management-groups/overview.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -509,7 +509,7 @@ Appliquez des étiquettes à vos ressources Azure, groupes de ressources et abon
 
 - [Gestion de l’inventaire de sécurité dans Azure Security Center](../security-center/asset-inventory.md)
 
-- [Pour plus d’informations sur l’étiquetage des ressources, consultez le guide de décision concernant le nommage et l’étiquetage des ressources](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Pour plus d’informations sur l’étiquetage des ressources, consultez le guide de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -553,7 +553,7 @@ Supprimez les ressources Azure qui ne sont plus nécessaires. Veillez à ce que 
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2 : Activer la détection des menaces pour la gestion des identités et des accès Azure
 
@@ -634,7 +634,7 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 - [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Stockage des journaux des ressources dans un compte de stockage Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Stockage des journaux des ressources dans un compte de stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -642,7 +642,7 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1 : Préparation – mettre à jour le processus de réponse aux incidents pour Azure
 
@@ -668,9 +668,9 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 ### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3 : Détection et analyse – créer des incidents en fonction d’alertes de haute qualité
 
-**Conseils** : Veillez à disposer d’un processus de création d’alertes de haute qualité et de mesure de leur qualité. Cela vous permet de tirer les leçons des incidents passés et de classer par ordre de priorité les alertes pour les analystes, afin qu’ils ne perdent pas de temps sur les faux positifs. 
+**Instructions** : Veillez à avoir un processus de création d’alertes de bonne qualité et de mesure de la qualité des alertes. Cela vous permet de tirer les leçons des incidents passés et de classer par ordre de priorité les alertes pour les analystes, afin qu’ils ne perdent pas de temps sur les faux positifs. 
 
-Les alertes de haute qualité peuvent être créées à partir de l’expérience acquise lors des incidents passés, de sources validées de la communauté et d’outils conçus pour générer et nettoyer les alertes en fusionnant et en mettant en corrélation diverses sources de signaux. 
+Vous pouvez créer des alertes de bonne qualité en vous basant sur l’expérience des incidents passés, sur les sources validées par la communauté, et sur des outils conçus pour générer et nettoyer les alertes en fusionnant et en mettant en corrélation différentes sources de signaux. 
 
 Azure Security Center fournit des alertes de haute qualité sur de nombreuses ressources Azure. Vous pouvez utiliser le connecteur de données ASC pour diffuser en continu les alertes vers Azure Sentinel. Azure Sentinel vous permet de créer des règles d’alerte avancées pour générer automatiquement des incidents à des fins d’enquête. 
 
@@ -680,7 +680,7 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -724,9 +724,9 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -740,13 +740,13 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Configurer des réponses automatisées aux menaces dans Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1 : Établir des configurations sécurisées pour les services Azure 
 
@@ -766,7 +766,7 @@ Vous pouvez utiliser Azure Blueprints pour automatiser le déploiement et la con
 
 - [Azure Blueprints](../governance/blueprints/overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -780,7 +780,7 @@ Vous pouvez utiliser Azure Blueprints pour automatiser le déploiement et la con
 
 - [Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -801,13 +801,13 @@ Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous 
 
 ## <a name="backup-and-recovery"></a>Sauvegarde et récupération
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sauvegarde et récupération](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sauvegarde et récupération](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
 ### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4 : Atténuer les risques liés aux clés perdues
 
 **Conseils** : Assurez-vous que vous avez pris les mesures nécessaires pour empêcher la perte de clés et récupérer d’une telle perte. Activez la suppression réversible et la protection contre la purge dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Guide pratique pour activer la suppression réversible et la protection contre la purge dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -815,7 +815,7 @@ Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous 
 
 ## <a name="governance-and-strategy"></a>Gouvernance et stratégie
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1 : Définir la stratégie de gestion des ressources et de protection des données 
 
@@ -833,22 +833,22 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 -   Stratégie de contrôle d’accès requise conformément à la classification des données organisationnelles
 
--   Utilisation des fonctionnalités natives et tierces de protection des données Azure
+-   Utilisation des fonctionnalités de protection des données Azure natives et de tiers
 
 -   Exigences de chiffrement des données pour les cas d’utilisation en transit et au repos
 
 -   Normes de chiffrement appropriées
 
 Pour plus d’informations, consultez les références suivantes :
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -876,7 +876,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -917,7 +917,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 Pour plus d’informations, consultez les références suivantes :
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -945,9 +945,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -979,9 +979,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -995,5 +995,5 @@ Pour plus d’informations, consultez les références suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

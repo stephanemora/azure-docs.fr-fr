@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534498"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185893"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -230,7 +230,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 - [Clé managée par le client Azure Monitor](platform/customer-managed-keys.md) – Ajout de message d’erreur et d’une section sur la configuration de CMK pour les requêtes.
 - [API Collecte de données HTTP Azure Monitor](platform/data-collector-api.md) – Ajout d’une exemple Python 3.
 - [Optimiser les requêtes de journal dans Azure Monitor](log-query/query-optimization.md) – Ajout d’une section sur l’évitement d’analyses multiples de données lors de l’utilisation de sous-requêtes.
-- [Tutoriel : Bien démarrer avec les requêtes Log Analytics](log-query/get-started-portal.md) – Ajout de vidéo.
+- [Tutoriel : Bien démarrer avec les requêtes Log Analytics](./log-query/log-analytics-tutorial.md) – Ajout de vidéo.
 
 ### <a name="platform-logs"></a>Journaux de plateforme
 - [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](platform/diagnostic-settings.md) – Ajout de vidéo.

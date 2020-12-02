@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744566"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185910"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -78,7 +78,7 @@ Les frais liés à Log Analytics sont ajoutés à votre facture Azure. Les infor
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Consultation de l’utilisation de Log Analytics sur votre facture Azure 
 
-Azure fournit de nombreuses fonctionnalités utiles dans le hub [Azure Cost Management + facturation](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%252fazure%252fbilling%252fTOC.json). Par exemple, la fonctionnalité « Analyse des coûts » vous permet de voir vos dépenses en ressources Azure. Tout d’abord, l’ajout d’un filtre par « type de ressource » (microsoft.operationalinsights/workspace pour Log Analytics et microsoft.operationalinsights/workspace pour les clusters Log Analytics) vous permettra de suivre vos dépenses Log Analytics. Ensuite, pour « Regrouper par », sélectionnez « Catégorie du compteur » ou « Compteur ».  Notez que d’autres services tels qu’Azure Security Center et Azure Sentinel facturent également leur utilisation en fonction des ressources de l’espace de travail Log Analytics. Pour voir la correspondance avec le nom du service, vous pouvez sélectionner la vue Tableau au lieu d’un graphique. 
+Azure fournit de nombreuses fonctionnalités utiles dans le hub [Azure Cost Management + facturation](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Par exemple, la fonctionnalité « Analyse des coûts » vous permet de voir vos dépenses en ressources Azure. Tout d’abord, l’ajout d’un filtre par « type de ressource » (microsoft.operationalinsights/workspace pour Log Analytics et microsoft.operationalinsights/workspace pour les clusters Log Analytics) vous permettra de suivre vos dépenses Log Analytics. Ensuite, pour « Regrouper par », sélectionnez « Catégorie du compteur » ou « Compteur ».  Notez que d’autres services tels qu’Azure Security Center et Azure Sentinel facturent également leur utilisation en fonction des ressources de l’espace de travail Log Analytics. Pour voir la correspondance avec le nom du service, vous pouvez sélectionner la vue Tableau au lieu d’un graphique. 
 
 Vous pouvez mieux comprendre votre utilisation en [téléchargeant votre utilisation à partir du portail Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure (p. ex., espace de travail Log Analytics) par jour. Dans cette feuille de calcul Excel, vous trouverez l’utilisation de vos espaces de travail Log Analytics en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Log Analytics », « Insights and Analytics » (utilisé par certains niveaux tarifaires hérités) et « Azure Monitor » (utilisé par les niveaux tarifaires de réservation de capacité), puis en ajoutant sur la colonne « ID d’instance » le filtre « contient espace de travail » ou « contient cluster » (ce dernier pour inclure l’utilisation du cluster Log Analytics). L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ».  Plus de détails sont disponibles pour vous aider à [comprendre votre facture Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -128,7 +128,7 @@ Aucun des niveaux tarifaires hérités n’a de tarification régionale.
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics et Centre de sécurité
 
-La facturation du [Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/) est étroitement liée à la facturation de Log Analytics. Le Centre de sécurité fournit une allocation de 500 Mo/nœud/jour à un ensemble de [types de données de sécurité](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) et aux types de données Update et UpdateSummary lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou que le ciblage de solution est activé. Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations du Centre de sécurité et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.  
+La facturation du [Centre de sécurité Azure](../../security-center/index.yml) est étroitement liée à la facturation de Log Analytics. Le Centre de sécurité fournit une allocation de 500 Mo/nœud/jour à un ensemble de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) et aux types de données Update et UpdateSummary lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou que le ciblage de solution est activé. Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations du Centre de sécurité et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.  
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
@@ -481,7 +481,7 @@ Voici quelques suggestions pour réduire le volume de journaux d’activité col
 | Compteurs de performance       | Modifiez la [configuration du compteur de performances](data-sources-performance-counters.md) de façon à : <br> - Réduire la fréquence de collecte <br> - Réduire le nombre de compteurs de performance |
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
 | syslog                     | Modifiez la [configuration du syslog](data-sources-syslog.md) de façon à : <br> - Réduire le nombre d’installations collectées <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations* et *Débogage*. |
-| AzureDiagnostics           | Modifiez la [collection de journaux de ressources](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
+| AzureDiagnostics           | Modifiez la [collection de journaux de ressources](./diagnostic-settings.md#create-in-azure-portal) pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
 | Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../insights/solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtention des nœuds facturés au niveau tarifaire Par nœud

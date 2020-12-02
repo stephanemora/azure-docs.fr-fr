@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7bf78194b50e2e2335d807504ebca5f8a0e9f0eb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ef516e021b33c465139ecab621369223f61608f4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849125"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348549"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Base de référence de sécurité Azure pour Azure Data Share
 
@@ -46,7 +46,7 @@ Vous pouvez également activer et intégrer ces données dans Azure Sentinel ou 
 
 **Conseils** : Les journaux d’activité, disponibles automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources Azure Data Share, à l’exception des opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
-Activez les journaux de diagnostic pour Azure Data Share, en particulier les journaux de diagnostic pour MicrosoftDataShareSentShareSnapshotsLog et MicrosoftDataShareReceivedShareSnapshotsLog. Ces journaux vous permettent de capturer des informations clés telles que l’heure de début, l’heure de fin, l’état et d’autres détails de la synchronisation. Ces journaux peuvent être essentiels pour l’examen ultérieur des incidents de sécurité et des investigations légales.
+Activez les journaux de diagnostic pour Azure Data Share, en particulier les journaux de diagnostic pour MicrosoftDataShareSentShareSnapshotsLog et MicrosoftDataShareReceivedShareSnapshotsLog. Ces journaux vous permettent de capturer des informations clés telles que l’heure de début, l’heure de fin, l’état et d’autres détails de la synchronisation. Ces journaux peuvent être essentiels pour l’examen ultérieur des incidents de sécurité et l’exécution d’exercices légaux.
 
 - [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
@@ -78,7 +78,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Bien démarrer avec les requêtes Log Analytics](/azure/azure-monitor/log-query/get-started-portal) 
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
 
@@ -108,7 +108,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Azure Data Share prend en charge l’authentification unique auprès d’Azure Active Directory. Réduisez le nombre d’identités et d’informations d’identification devant être gérées par les utilisateurs en activant l’authentification unique pour le service avec les identités existantes de votre organisation.
 
-- [Présentation de l’authentification SSO avec Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-o)
+- [Présentation de l’authentification SSO avec Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -122,7 +122,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md) 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -155,13 +155,13 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès et des identités Azure AD pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès.
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md) 
 
 - [Azure Data Share fonctionne avec les rôles intégrés Azure](../role-based-access-control/built-in-roles.md#general)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -171,7 +171,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes souhaitées dans un espace de travail Log Analytics.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -181,7 +181,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Aide** : Utilisez les fonctionnalités d’Azure AD Identity Protection pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. Vous pouvez également ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -211,7 +211,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md) 
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -227,7 +227,7 @@ En général, suivez les recommandations d’Azure Security Center relatives à 
 
 Utilisez une solution tierce pour effectuer des évaluations des vulnérabilités sur les périphériques réseau et les applications Web. Lors de l’exécution d’analyses à distance, n’utilisez pas un compte d’administration unique et perpétuel. Envisagez d’implémenter une méthodologie d’approvisionnement JIT pour le compte d’analyse. Les informations d’identification du compte d’analyse doivent être protégées, surveillées et utilisées uniquement pour l’analyse des vulnérabilités.
 
-- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -257,11 +257,11 @@ Utilisez une solution tierce pour effectuer des évaluations des vulnérabilité
 
 **Aide** : Le cas échéant, utilisez des étiquettes, des groupes d’administration et des abonnements séparés pour organiser et suivre les ressources. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](/azure/billing/billing-create-subscription) 
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md) 
 
-- [Guide pratique pour créer des groupes d’administration](/azure/governance/management-groups/create) 
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md) 
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -292,7 +292,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 **Conseils** : Supprimez les ressources Azure lorsqu’elles ne sont plus nécessaires. Pour ce faire, vous pouvez utiliser le portail Azure, PowerShell ou CLI.
 
-- [Suppression de ressources et de groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Suppression de ressources et de groupes de ressources Azure](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure Data Share n’expose pas le système d’exploitation et ne vous permet pas d’installer des applications logicielles tierces sur ses ressources.
 
@@ -330,7 +330,7 @@ Azure Data Share n’expose pas le système d’exploitation et ne vous permet p
 
 **Aide** : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les définitions de stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. Pour accéder aux ressources que vous gérez dans Azure DevOps, vous pouvez accorder ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps, ou à Active Directory s’il est intégré à TFS.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions) 
 
@@ -356,11 +356,11 @@ Azure Data Share n’expose pas le système d’exploitation et ne vous permet p
 
 - [Guide pratique pour configurer des identités managées pour des ressources Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter le [benchmark de sécurité Azure](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consulter le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

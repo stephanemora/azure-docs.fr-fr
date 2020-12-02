@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337437"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187780"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Java et JDBC avec Azure Database pour MySQL
 
@@ -180,7 +180,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Ensuite, ajoutez le code Java qui utilisera JDBC pour stocker et récupérer des données à partir de votre serveur MySQL.
 
-Créez un fichier *src/main/java/DemoApplication.java* , qui contient :
+Créez un fichier *src/main/java/DemoApplication.java*, qui contient :
 
 ```java
 package com.example.demo;
@@ -330,7 +330,7 @@ Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez 
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Insertion des données dans Azure Database pour MySQL
 
-Dans le fichier *src/main/java/DemoApplication.java* , après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
+Dans le fichier *src/main/java/DemoApplication.java*, après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -368,7 +368,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons lire les données précédemment insérées pour valider le bon fonctionnement de notre code.
 
-Dans le fichier *src/main/java/DemoApplication.java* , après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
+Dans le fichier *src/main/java/DemoApplication.java*, après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -412,7 +412,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons mettre à jour les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -456,7 +456,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Enfin, nous allons supprimer les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

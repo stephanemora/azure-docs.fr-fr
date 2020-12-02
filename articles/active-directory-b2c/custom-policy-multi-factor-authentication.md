@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c150235dc6b867a69b539aba9c90d666122a210
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951891"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170444"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) s’intègre directement à [Azure AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
+Azure Active Directory B2C (Azure AD B2C) s’intègre directement à [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
 
 Cette fonctionnalité permet aux applications de gérer des scénarios tels que :
 

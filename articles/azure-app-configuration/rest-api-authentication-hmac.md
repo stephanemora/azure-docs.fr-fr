@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253352"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182629"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Authentification HMAC – Informations de référence sur l’API REST
 
@@ -22,7 +22,7 @@ Vous pouvez authentifier les requêtes HTTP à l’aide du schéma d’authentif
 - **Informations d’identification** - \<Access Key ID\>
 - **Secret** – Valeur de clé d’accès décodée en base64. ``base64_decode(<Access Key Value>)``
 
-La valeur des informations d’identification (également appelée `id`) et la valeur du secret (également appelée `value`) doivent être obtenues à partir de l’instance d’Azure App Configuration. Vous pouvez effectuer cette opération en utilisant le [portail Azure](https://portal.azure.com) ou l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+La valeur des informations d’identification (également appelée `id`) et la valeur du secret (également appelée `value`) doivent être obtenues à partir de l’instance d’Azure App Configuration. Vous pouvez effectuer cette opération en utilisant le [portail Azure](https://portal.azure.com) ou l’interface [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest).
 
 Fournissez chaque demande avec tous les en-têtes HTTP requis pour l’authentification. Voici le minimum requis :
 

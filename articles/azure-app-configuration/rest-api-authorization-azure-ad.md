@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 89c51e69a4274affcecb4d967deb96dcebcfd70f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 0229b1941e40345f35cb7409533e54b0c4ea7d5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253368"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182612"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorisation Azure Active Directory – Référence d’API REST
 
@@ -32,7 +32,7 @@ Les rôles contiennent une liste d’actions que les utilisateurs qui y sont ass
 - `Microsoft.AppConfiguration/configurationStores/keyValues/write` : cette action autorise l’accès en écriture aux ressources de clé-valeur d’App Configuration.
 - `Microsoft.AppConfiguration/configurationStores/keyValues/delete` : Cette action autorise la suppression de ressources de clé-valeur d’App Configuration. Notez que la suppression d’une ressource renvoie la clé-valeur supprimée.
 
-## <a name="error"></a>Erreur
+## <a name="error"></a>Error
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Gestion des attributions de rôles
 
-Vous pouvez gérer les attributions de rôles à l’aide des [procédures RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) qui sont standard dans l’ensemble des services Azure. Pour ce faire, vous pouvez utiliser l’interface Azure CLI, PowerShell ou le portail Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Vous pouvez gérer les attributions de rôles à l’aide des [procédures RBAC](../role-based-access-control/overview.md) qui sont standard dans l’ensemble des services Azure. Pour ce faire, vous pouvez utiliser l’interface Azure CLI, PowerShell ou le portail Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635549"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175676"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -34,7 +34,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
-+ [Java Developer Kit (JDK)](https://aka.ms/azure-jdks) version 8 ou 11. La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du kit JDK.     
++ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11. La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du kit JDK.     
 
 + [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 

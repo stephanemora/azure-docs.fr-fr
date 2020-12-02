@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594247"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169407"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web Node.js
 
@@ -51,7 +51,7 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
     - Dans la section **URI de redirection**, sélectionnez **Web** à partir de la zone de liste modifiable et entrez l'URI de redirection suivant : `http://localhost:3000/auth/openid/return`
     - Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `https://localhost:3000`.
-    - Dans la section **Paramètres avancés > Octroi implicite**, cochez  **Jetons d'ID** car cet exemple exige l'activation du [flux d'octroi implicite](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) pour permettre la connexion de l'utilisateur.
+    - Dans la section **Paramètres avancés > Octroi implicite**, cochez  **Jetons d'ID** car cet exemple exige l'activation du [flux d'octroi implicite](./v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l'utilisateur.
 
 1. Sélectionnez **Enregistrer**.
 

@@ -33,7 +33,7 @@ Cet article est axé sur les restrictions liées au locataire pour Microsoft 36
 
 La solution comprend les composants suivants :
 
-1. **Azure AD**  : si l’en-tête `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
+1. **Azure AD** : si l’en-tête `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
 
 2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection TLS (Transport Layer Security). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
 
@@ -76,12 +76,12 @@ Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com 
 
 Les éléments suivants doivent être inclus dans les en-têtes :
 
-- Pour *Restrict-Access-To-Tenants* , utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un locataire peut être utilisé pour identifier le locataire dans cette liste, ainsi que l’ID de répertoire proprement dit. Pour obtenir un exemple des trois façons de décrire un locataire, la paire nom/valeur pour autoriser Contoso, Fabrikam et Microsoft ressemble à ceci : `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
+- Pour *Restrict-Access-To-Tenants*, utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un locataire peut être utilisé pour identifier le locataire dans cette liste, ainsi que l’ID de répertoire proprement dit. Pour obtenir un exemple des trois façons de décrire un locataire, la paire nom/valeur pour autoriser Contoso, Fabrikam et Microsoft ressemble à ceci : `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Pour *Restrict-Access-Context* , utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit.
+- Pour *Restrict-Access-Context*, utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit.
 
 > [!TIP]
-> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory** , puis sélectionnez **Propriétés**. 
+> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**. 
 >
 > Pour vérifier qu’un ID de répertoire ou un nom de domaine fait référence au même locataire, utilisez cet ID ou ce domaine à la place de <tenant> dans cette URL : `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si les résultats avec le domaine et l’ID sont identiques, ils font référence au même locataire. 
 
@@ -115,7 +115,7 @@ L’administrateur du locataire spécifié en tant que locataire Restricted-Acce
 > [!NOTE]
 > Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, telles que le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires (« 00000000-0000-0000-0000-00000000@domain.com ») 
 
-Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes** , vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
+Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 
 - **Utilisateur**
 - **Application**

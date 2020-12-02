@@ -11,18 +11,16 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: f6078ed96106d6a53b55195ee950e2165334221d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d06e851390537bf94b59e656f84bf58fe7216410
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919014"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317350"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Augmenter la résilience des applications d’authentification et d’autorisation que vous développez
 
 Microsoft Identity utilise une authentification et une autorisation modernes basées sur des jetons. Cela signifie qu’une application acquiert des jetons auprès d’un fournisseur d’identité pour authentifier l’utilisateur et autoriser l’application à appeler des API protégées.
-
-![Image de l’application appelant Microsoft Identity](media/resilience-app-development-overview/app-overview.png)
 
 Un jeton est valide pendant un certain laps de temps avant que l’application ne doive en acquérir un nouveau. Dans de rares cas, un appel pour récupérer un jeton peut échouer en raison d’un problème comme une défaillance du réseau ou de l’infrastructure ou une interruption du service d’authentification. Dans ce document, nous décrivons les mesures qu’un développeur peut prendre pour renforcer la résilience de ses applications en cas d’échec de l’acquisition d’un jeton.
 
@@ -31,4 +29,4 @@ Ces articles fournissent des conseils sur l’amélioration de la résilience da
 - [Renforcer la résilience des applications qui permettent aux utilisateurs de se connecter](resilience-client-app.md)
 - [Renforcer la résilience des applications sans utilisateurs](resilience-daemon-app.md)
 - [Renforcer la résilience de votre infrastructure de gestion des identités et des accès](resilience-in-infrastructure.md)
-- [Renforcer la résilience de votre gestion des identités et des accès client avec Azure Active Directory B2C](resilience-b2c.md)
+- [Renforcer la résilience de vos systèmes CIAM](resilience-b2c.md)

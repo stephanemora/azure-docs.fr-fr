@@ -22,11 +22,11 @@ Dans cet article, vous allez apprendre à faire des choix de conception pour ré
 
 Pour mieux établir le cadre de la discussion, définissons certains concepts de base :
 
-- **Heure de l’événement**  : heure à laquelle l’événement d’origine s’est produit. Il peut s’agir, par exemple, du moment où une voiture s’est approchée d’un poste de péage.
+- **Heure de l’événement** : heure à laquelle l’événement d’origine s’est produit. Il peut s’agir, par exemple, du moment où une voiture s’est approchée d’un poste de péage.
 
-- **Temps de traitement**  : moment où l’événement atteint le système de traitement et est observé. Par exemple, il s’agit du laps de temps entre le moment où le capteur du poste péage détecte la voiture et où le système informatique finit de traiter les données.
+- **Temps de traitement** : moment où l’événement atteint le système de traitement et est observé. Par exemple, il s’agit du laps de temps entre le moment où le capteur du poste péage détecte la voiture et où le système informatique finit de traiter les données.
 
-- **Limite**  : marqueur d’heure d’événement qui indique jusqu’à quel point des événements ont été entrés dans le processeur de diffusion en continu. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
+- **Limite** : marqueur d’heure d’événement qui indique jusqu’à quel point des événements ont été entrés dans le processeur de diffusion en continu. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
 
    Le concept de limite est important. Les limites permettent à Stream Analytics de déterminer à quel moment le système peut générer des résultats complets, corrects et répétables qu’il n’est pas utile de retirer. Le traitement peut être effectué de façon prévisible et reproductible. Par exemple, s’il est nécessaire d’effectuer un nouveau calcul dans le cadre de la gestion des erreurs, les limites constituent des points de départ et d’arrivée fiables.
 
@@ -44,7 +44,7 @@ L’heure d’arrivée est utilisée par défaut et convient plus particulièrem
 
 ### <a name="application-time-also-named-event-time"></a>Heure de l’application (aussi appelée Heure de l’événement)
 
-L’heure de l’application est affectée quand l’événement est généré et qu’il fait partie de la charge utile d’événement. Pour traiter les événements selon l’heure de l’application, utilisez la clause **Timestamp by** dans la requête SELECT. En l’absence de **Timestamp by** , les événements sont traités par heure d’arrivée.
+L’heure de l’application est affectée quand l’événement est généré et qu’il fait partie de la charge utile d’événement. Pour traiter les événements selon l’heure de l’application, utilisez la clause **Timestamp by** dans la requête SELECT. En l’absence de **Timestamp by**, les événements sont traités par heure d’arrivée.
 
 Il est important d’utiliser un horodatage dans la charge utile lorsque la logique temporelle est impliquée pour tenir compte des retards dans le système source ou dans le réseau. L’heure attribuée à un événement est disponible dans [SYSTEM.TIMESTAMP](/stream-analytics-query/system-timestamp-stream-analytics).
 
@@ -72,11 +72,11 @@ Autre que la génération de limites, la conception tend vers deux objectifs sup
 
    La limite est dérivée de l’heure d’arrivée et de l’heure de l’application. Les deux sont conservées dans le répartiteur d’événements, et sont donc répétables. Lorsqu’une heure d’arrivée est estimée en l’absence d’événements, Azure Stream Analytics journalise l’heure d’arrivée estimée pour la répétabilité pendant la lecture à des fins de récupération après défaillance.
 
-Lorsque vous choisissez d’utiliser l’ **heure d’arrivée** comme heure de l’événement, vous n’avez pas besoin de configurer la tolérance de désordre ni la tolérance d’arrivée tardive. Comme l’ **heure d’arrivée** est vouée à progresser dans le répartiteur d’événements d’entrée, Azure Stream Analytics ignore simplement les configurations.
+Lorsque vous choisissez d’utiliser l’**heure d’arrivée** comme heure de l’événement, vous n’avez pas besoin de configurer la tolérance de désordre ni la tolérance d’arrivée tardive. Comme l’**heure d’arrivée** est vouée à progresser dans le répartiteur d’événements d’entrée, Azure Stream Analytics ignore simplement les configurations.
 
 ## <a name="late-arriving-events"></a>Événements tardifs
 
-Par définition de la fenêtre de tolérance d’arrivée tardive, pour chaque événement entrant, Azure Stream Analytics compare l’ **heure de l’événement** et l’ **heure d’arrivée**. Si l’heure de l’événement est en dehors de la fenêtre de tolérance, vous pouvez configurer le système pour qu’il supprime l’événement ou ajuste l’heure de l’événement de sorte qu’elle soit conforme à la tolérance.
+Par définition de la fenêtre de tolérance d’arrivée tardive, pour chaque événement entrant, Azure Stream Analytics compare l’**heure de l’événement** et l’**heure d’arrivée**. Si l’heure de l’événement est en dehors de la fenêtre de tolérance, vous pouvez configurer le système pour qu’il supprime l’événement ou ajuste l’heure de l’événement de sorte qu’elle soit conforme à la tolérance.
 
 Une fois les limites générées, le service peut recevoir des événements dont l’heure d’événement se trouve en dessous de la limite. Vous pouvez configurer le service afin qu’il **supprime** ces événements ou qu’il **ajuste** l’heure d’événement en fonction de la valeur limite.
 
@@ -86,7 +86,7 @@ Dans le cadre de l’ajustement, l’élément **System.Timestamp** de l’évé
 
 Le mécanisme de génération de limites heuristiques décrit fonctionne bien dans la plupart des cas où l’heure est essentiellement synchronisée entre les différents expéditeurs d’événements. Cependant, dans la réalité, surtout dans bon nombre de scénarios IoT, le système a peu de contrôle sur l’horloge des expéditeurs d’événements. Dans la pratique, ceux-ci peuvent correspondre à toutes sortes d’appareils, peut-être sur différentes versions de matériels et de logiciels.
 
-Au lieu d’utiliser une limite globale pour tous les événements d’une partition d’entrée, Stream Analytics propose un autre mécanisme appelé **sous-flux**. Vous pouvez utiliser des sous-flux dans votre travail en écrivant une requête de travail qui utilise la clause [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) et le mot clé **OVER**. Pour désigner le sous-flux, indiquez un nom de colonne clé après le mot clé **OVER** , comme `deviceid`, de sorte que le système applique les stratégies de temps en fonction de cette colonne. Chaque sous-flux obtient sa propre limite indépendante. Ce mécanisme est utile pour permettre une génération de sortie en temps voulu, quand il s’agit de faire face à des variations d’horloge importantes ou des retards réseau entre les expéditeurs d’événements.
+Au lieu d’utiliser une limite globale pour tous les événements d’une partition d’entrée, Stream Analytics propose un autre mécanisme appelé **sous-flux**. Vous pouvez utiliser des sous-flux dans votre travail en écrivant une requête de travail qui utilise la clause [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) et le mot clé **OVER**. Pour désigner le sous-flux, indiquez un nom de colonne clé après le mot clé **OVER**, comme `deviceid`, de sorte que le système applique les stratégies de temps en fonction de cette colonne. Chaque sous-flux obtient sa propre limite indépendante. Ce mécanisme est utile pour permettre une génération de sortie en temps voulu, quand il s’agit de faire face à des variations d’horloge importantes ou des retards réseau entre les expéditeurs d’événements.
 
 Les sous-flux sont une solution unique proposée uniquement par Azure Stream Analytics et par aucun autre système de traitement de données de streaming.
 
@@ -96,7 +96,7 @@ Lorsque vous utilisez des sous-flux, Stream Analytics applique la fenêtre de to
 
 Vous avez peut-être observé un autre concept appelé fenêtre d’arrivée précoce, qui est pour ainsi dire l’inverse de la fenêtre de tolérance d’arrivée tardive. Cette fenêtre est fixée à cinq minutes et joue un rôle différent de la fenêtre de tolérance d’arrivée tardive.
 
-Comme Azure Stream Analytics garantit des résultats complets, vous pouvez spécifier uniquement l’ **heure de début du travail** comme première heure de sortie du travail, et non l’heure d’entrée. L’heure de début du travail est nécessaire pour permettre le traitement de la plage entière, et pas seulement à partir du milieu de celle-ci.
+Comme Azure Stream Analytics garantit des résultats complets, vous pouvez spécifier uniquement l’**heure de début du travail** comme première heure de sortie du travail, et non l’heure d’entrée. L’heure de début du travail est nécessaire pour permettre le traitement de la plage entière, et pas seulement à partir du milieu de celle-ci.
 
 Stream Analytics dérive l’heure de début de la spécification de la requête. Cependant, sachant que le répartiteur d’événements d’entrée est indexé uniquement par heure d’arrivée, le système doit traduire l’heure de l’événement de début en heure d’arrivée. Le système peut commencer à traiter les événements à partir de cet instant dans le répartiteur d’événements d’entrée. Avec la limite de la fenêtre d’arrivée précoce, la traduction est simple : l’heure de l’événement de début moins la fenêtre d’arrivée précoce de cinq minutes. Ce calcul signifie aussi que le système supprime tous les événements dont l’heure a cinq  minutes d’avance sur l’heure d’arrivée. La [métrique des événements d’entrée précoces](stream-analytics-monitoring.md) est incrémentée lorsque les événements sont supprimés.
 
@@ -104,7 +104,7 @@ Ce concept vise à garantir la répétabilité du traitement, d’où que vous c
 
 ## <a name="side-effects-of-event-ordering-time-tolerances"></a>Effets secondaires des tolérances d’heures pour l’ordre des événements
 
-Les travaux Stream Analytics proposent plusieurs options **Ordre des événements**. Il est possible d’en configurer deux sur le portail Azure : le paramètre **Événements dans le désordre** (tolérance de désordre) et le paramètre **Événements qui arrivent en retard** (tolérance d’arrivée tardive). La tolérance d’ **arrivée précoce** est fixe et ne peut pas être ajustée. Ces stratégies de temps sont utilisées par Stream Analytics pour offrir des garanties solides. Cependant, ces paramètres ont parfois des incidences inattendues :
+Les travaux Stream Analytics proposent plusieurs options **Ordre des événements**. Il est possible d’en configurer deux sur le portail Azure : le paramètre **Événements dans le désordre** (tolérance de désordre) et le paramètre **Événements qui arrivent en retard** (tolérance d’arrivée tardive). La tolérance d’**arrivée précoce** est fixe et ne peut pas être ajustée. Ces stratégies de temps sont utilisées par Stream Analytics pour offrir des garanties solides. Cependant, ces paramètres ont parfois des incidences inattendues :
 
 1. Envoi accidentel d’événements trop précoces.
 

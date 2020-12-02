@@ -94,9 +94,9 @@ Si le flux du client Windows n’affiche pas les applications Windows Virtual De
 Si vous ne trouvez pas l’ID d’application 9cdead84-a844-4324-93f2-b2e6bb768d07 dans la liste, vous devez inscrire le fournisseur de ressources Windows Virtual Desktop. Pour inscrire le fournisseur de ressources :
 
 1. Connectez-vous au portail Azure.
-2. Accédez à **Abonnements** , puis sélectionnez votre abonnement.
-3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources** .
-4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization** , puis **Ré-inscrire** .
+2. Accédez à **Abonnements**, puis sélectionnez votre abonnement.
+3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources**.
+4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization**, puis **Ré-inscrire**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

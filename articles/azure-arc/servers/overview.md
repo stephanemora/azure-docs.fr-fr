@@ -4,12 +4,12 @@ description: Apprenez à utiliser les serveurs avec Azure Arc afin de gérer les
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578720"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183394"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
@@ -29,7 +29,7 @@ Lorsque vous connectez votre machine à des serveurs avec Azure Arc, vous pouvez
 
 - Simplifiez le déploiement avec d'autres services Azure tels qu'Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) et un espace de travail Azure Monitor Log Analytics à l'aide des [extensions de machine virtuelle Azure](manage-vm-extensions.md) prises en charge pour votre machine Windows ou Linux non Azure. Cela comprend l’exécution de la configuration après déploiement ou de l’installation de logiciels à l’aide de l’extension de script personnalisé.
 
-- Utilisez la fonctionnalité [Update Management](../../automation/update-management/update-mgmt-overview.md) d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux.
+- Utilisez la fonctionnalité [Update Management](../../automation/update-management/overview.md) d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux.
 
     > [!NOTE]
     > À ce stade, l’activation d’Update Management, directement à partir d’un serveur Azure Arc, n’est pas prise en charge. Pour connaître les conditions requises et la façon de l’activer pour votre serveur, consultez [Activer Update Management à partir de votre compte Automation](../../automation/update-management/enable-from-automation-account.md).

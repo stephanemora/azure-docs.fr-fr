@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134981"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172450"
 ---
 # <a name="what-is-provisioning"></a>Qu’est-ce que le provisionnement ?
 
@@ -42,10 +42,10 @@ Le provisionnement de RH vers Azure AD implique la création d’objets, géné
 
 Le scénario le plus courant correspond à un nouvel employé qui rejoint votre entreprise et qui est entré dans le système RH.  Une fois cette opération effectuée, il est automatiquement provisionné en tant que nouvel utilisateur dans Azure AD, sans la nécessité d’une implication administrative pour chaque nouvelle embauche.  En général, le provisionnement depuis le système RH peut couvrir les scénarios suivants.
 
-- **Nouvelles embauches**  : lorsqu’un nouvel employé est ajouté à un système RH, un compte d’utilisateur est automatiquement créé dans Active Directory, Azure AD et, éventuellement, dans les annuaires d’autres applications prises en charge par Azure AD, avec l’écriture différée de l’adresse e-mail pour le système RH.
-- **Mises à jour du profil et des attributs de l’employé**  : quand l’enregistrement d’un employé est mis à jour dans ce système RH (par exemple son nom, sa fonction ou son responsable), le compte d’utilisateur est mis à jour automatiquement dans Active Directory, Azure AD et, éventuellement, d’autres applications prises en charge par Azure AD.
-- **Résiliations de contrats d’employés**  : quand le contrat d’un employé est résilié dans le système RH, son compte d’utilisateur n’est plus autorisé à se connecter ou est supprimé automatiquement dans Active Directory, Azure AD et d’autres applications.
-- **Réembauches d’employés**  : lorsqu’un employé est réembauché dans le système RH cloud, son ancien compte peut être automatiquement réactivé ou reprovisionné (selon votre préférence).
+- **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à un système RH, un compte d’utilisateur est automatiquement créé dans Active Directory, Azure AD et, éventuellement, dans les annuaires d’autres applications prises en charge par Azure AD, avec l’écriture différée de l’adresse e-mail pour le système RH.
+- **Mises à jour du profil et des attributs de l’employé** : quand l’enregistrement d’un employé est mis à jour dans ce système RH (par exemple son nom, sa fonction ou son responsable), le compte d’utilisateur est mis à jour automatiquement dans Active Directory, Azure AD et, éventuellement, d’autres applications prises en charge par Azure AD.
+- **Résiliations de contrats d’employés** : quand le contrat d’un employé est résilié dans le système RH, son compte d’utilisateur n’est plus autorisé à se connecter ou est supprimé automatiquement dans Active Directory, Azure AD et d’autres applications.
+- **Réembauches d’employés** : lorsqu’un employé est réembauché dans le système RH cloud, son ancien compte peut être automatiquement réactivé ou reprovisionné (selon votre préférence).
 
 Il existe trois options de déploiement pour le provisionnement piloté par les RH avec Azure AD :
 
@@ -59,7 +59,7 @@ Pour plus d’informations, consultez [Qu’est-ce que le provisionnement pilot�
 
 ![provisionnement d’application](media/what-is-provisioning/cloud-3b.png)
 
-Dans Azure AD, le terme **[provisionnement d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** désigne la création automatique de copies d’identités utilisateur dans les applications auxquelles les utilisateurs doivent accéder, pour les applications qui ont leur propre magasin de données, distinct d’Azure AD ou d’Active Directory. En plus de créer des identités utilisateur, le provisionnement d’application comprend la maintenance et la suppression d’identités utilisateur dans ces applications en cas de changement de l’état ou des rôles de l’utilisateur. Les scénarios courants incluent le provisionnement d’un utilisateur Azure AD dans des applications comme [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), car chacune de ces applications a son propre dépôt utilisateur distinct d’Azure AD.
+Dans Azure AD, le terme **[provisionnement d’application](../app-provisioning/user-provisioning.md)** désigne la création automatique de copies d’identités utilisateur dans les applications auxquelles les utilisateurs doivent accéder, pour les applications qui ont leur propre magasin de données, distinct d’Azure AD ou d’Active Directory. En plus de créer des identités utilisateur, le provisionnement d’application comprend la maintenance et la suppression d’identités utilisateur dans ces applications en cas de changement de l’état ou des rôles de l’utilisateur. Les scénarios courants incluent le provisionnement d’un utilisateur Azure AD dans des applications comme [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), car chacune de ces applications a son propre dépôt utilisateur distinct d’Azure AD.
 
 Pour plus d’informations, consultez [Qu’est-ce que le provisionnement d’application ?](what-is-app-provisioning.md)
 

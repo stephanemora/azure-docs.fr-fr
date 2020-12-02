@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084428"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186760"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Superviser une machine virtuelle Azure avec Azure Monitor.
 [Azure Monitor](../overview.md) commence à collecter les données des machines virtuelles Azure dès leur création. Dans ce guide de démarrage rapide, vous allez découvrir brièvement comment les données sont collectées automatiquement pour une machine virtuelle Azure, et comment les voir dans le portail Azure. Vous allez ensuite activer [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) sur votre machine virtuelle, ce qui permet aux agents de la machine virtuelle de collecter et d’analyser les données du système d’exploitation invité, notamment les processus et leurs dépendances.
@@ -107,4 +107,4 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 Dans ce guide de démarrage rapide, vous avez activé Azure Monitor pour machines virtuelles dans le cadre d’une machine virtuelle, et vous avez configuré l’espace de travail Log Analytics pour collecter les événements du système d’exploitation invité. Pour savoir comment consulter et analyser les données, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [Consulter ou analyser les données dans Log Analytics](../log-query/get-started-portal.md)
+> [Consulter ou analyser les données dans Log Analytics](../log-query/log-analytics-tutorial.md)

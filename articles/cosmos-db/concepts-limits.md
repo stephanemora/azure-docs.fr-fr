@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964658"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349127"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -78,8 +78,8 @@ En résumé, voici les limites minimales de RU provisionnées.
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre minimal de RU/spar conteneur ([mode approvisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Valeur RU/s minimale par base de données ([mode approvisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s pour les 25 premiers conteneurs. 100 RU/s supplémentaires pour chaque conteneur ensuite. |
+| Nombre minimal de RU/spar conteneur ([mode approvisionné avec débit dédié](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Valeur RU/s minimale par base de données ([mode approvisionné avec débit partagé](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s pour les 25 premiers conteneurs. 100 RU/s supplémentaires pour chaque conteneur ensuite. |
 
 Cosmos DB prend en charge la mise à l’échelle par programmation du débit (RU/s) par conteneur ou base de données via les kits de développement logiciel (SDK) ou le portail.    
 
@@ -91,7 +91,6 @@ Selon les paramètres de valeur RU/s approvisionnée et de ressource, chaque res
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal d’unités de requête par conteneur | 5 000 |
 | Nombre maximal d’unités de requête par partition (logique) | 5 000 |
 | Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |

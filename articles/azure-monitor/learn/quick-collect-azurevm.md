@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448258"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186828"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Collecter des données à partir d’une machine virtuelle Azure avec Azure Monitor
 
@@ -141,4 +141,4 @@ Maintenant que vous collectez des données opérationnelles et de performances �
 Pour savoir comment consulter et analyser les données, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [Consulter ou analyser les données dans Log Analytics](../log-query/get-started-portal.md)
+> [Consulter ou analyser les données dans Log Analytics](../log-query/log-analytics-tutorial.md)

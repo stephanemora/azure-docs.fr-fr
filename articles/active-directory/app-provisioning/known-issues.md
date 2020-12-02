@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919678"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174830"
 ---
 # <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
@@ -28,7 +28,7 @@ Problèmes connus à prendre en compte lors de l’utilisation de l’approvisio
 
 **Enregistrement impossible après un test de connexion réussi**
 
-Si vous pouvez tester correctement une connexion, mais que vous ne pouvez pas l’enregistrer, vous avez dépassé la limite de stockage autorisée pour les informations d’identification. Pour plus d’informations, consultez [Problème d’enregistrement des informations d’identification de l’administrateur](application-provisioning-config-problem-storage-limit.md).
+Si vous pouvez tester correctement une connexion, mais que vous ne pouvez pas l’enregistrer, vous avez dépassé la limite de stockage autorisée pour les informations d’identification. Pour plus d’informations, consultez [Problème d’enregistrement des informations d’identification de l’administrateur](./user-provisioning.md).
 
 **Impossible d’enregistrer**
 
