@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 94f347cc24c675c69c69dad6a7d7a796b395c1a6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310940"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493609"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Créer un contrôleur de données Azure Arc à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -30,9 +30,9 @@ Pour créer le contrôleur de données Azure Arc à l'aide de [!INCLUDE [azure-d
 
 Quelle que soit la plateforme cible que vous choisissez, vous devez définir les variables d’environnement suivantes avant la création pour l’utilisateur administrateur du contrôleur de données. Vous pouvez fournir ces informations d’identification à d’autres personnes qui doivent disposer d’un accès administrateur au contrôleur de données si nécessaire.
 
-**AZDATA_USERNAME**  : nom d’utilisateur de votre choix pour l’utilisateur administrateur de contrôleur de données. Exemple : `arcadmin`
+**AZDATA_USERNAME** : nom d’utilisateur de votre choix pour l’utilisateur administrateur de contrôleur de données. Exemple : `arcadmin`
 
-**AZDATA_PASSWORD**  : mot de passe de votre choix pour l’utilisateur administrateur de contrôleur de données. Le mot de passe doit contenir au moins huit caractères appartenant à trois des quatre groupes suivants : lettres majuscules, lettres minuscules, chiffres et symboles.
+**AZDATA_PASSWORD** : mot de passe de votre choix pour l’utilisateur administrateur de contrôleur de données. Le mot de passe doit contenir au moins huit caractères appartenant à trois des quatre groupes suivants : lettres majuscules, lettres minuscules, chiffres et symboles.
 
 ### <a name="linux-or-macos"></a>Linux ou macOS
 
@@ -102,7 +102,7 @@ Si vous souhaitez utiliser la classe de stockage `default`, vous pouvez alors ex
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Une fois que vous avez exécuté la commande, passez à [Contrôle de l’état de la création](#monitoring-the-creation-status).

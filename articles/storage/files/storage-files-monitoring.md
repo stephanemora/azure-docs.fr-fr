@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c33771bc67a67d6b3b73769071126db6a913f702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492146"
 ---
 # <a name="monitoring-azure-files"></a>Supervision d’Azure Files
 
@@ -44,7 +44,7 @@ Azure Files collecte les mêmes types de données de supervision que d’autres 
 
 Pour obtenir des informations détaillées sur les métriques et les métriques de journaux créées par le service Azure Files, consultez [Informations de référence sur les données de supervision du service Azure Files](storage-files-monitoring-reference.md).
 
-Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 ## <a name="collection-and-routing"></a>Collecte et routage
 

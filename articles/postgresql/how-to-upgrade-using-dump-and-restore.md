@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493659"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Mettre à niveau votre base de données PostgreSQL par vidage et restauration
 
 Vous pouvez mettre à niveau votre serveur PostgreSQL déployé dans Azure Database pour PostgreSQL – Serveur unique en migrant vos bases de données vers un serveur de version principale plus récent à l’aide des méthodes suivantes.
 * Méthode **hors connexion** utilisant les utilitaires PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html), ce qui entraîne un temps d’arrêt pour la migration des données. Ce document traite de cette méthode de mise à niveau/de migration.
-* Méthode **en ligne** utilisant [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Cette méthode permet de réduire les temps d’arrêt et de maintenir la synchronisation de la base de données cible avec la source, et vous pouvez choisir le moment du basculement. Toutefois, il existe quelques conditions préalables et restrictions à prendre en compte pour l’utilisation de DMS. Pour plus de détails, consultez la [documentation de DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* Méthode **en ligne** utilisant [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Cette méthode permet de réduire les temps d’arrêt et de maintenir la synchronisation de la base de données cible avec la source, et vous pouvez choisir le moment du basculement. Toutefois, il existe quelques conditions préalables et restrictions à prendre en compte pour l’utilisation de DMS. Pour plus de détails, consultez la [documentation de DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  Le tableau suivant fournit quelques recommandations basées sur les tailles et les scénarios de base de données.
 
@@ -28,7 +28,7 @@ Vous pouvez mettre à niveau votre serveur PostgreSQL déployé dans Azure Datab
 | Petites et moyennes bases de données (10 Go – 100 Go) | X | X |
 | Bases de données volumineuses (> 100 Go) |  | X |
 | Peut prendre un temps d’arrêt pour la mise à niveau (quelle que soit la taille de la base de données) | X |  |
-| Peut respecter les [prérequis](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) de DMS, notamment un redémarrage ? |  | X |
+| Peut respecter les [prérequis](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites) de DMS, notamment un redémarrage ? |  | X |
 | Peut éviter les DDL et les tables non journalisées pendant le processus de mise à niveau ? | |  X |
 
 Ce guide fournit quelques méthodologies et exemples de migration hors connexion pour montrer la façon dont vous pouvez migrer de votre serveur source vers le serveur cible qui exécute une version plus récente de PostgreSQL.

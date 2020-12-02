@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187436"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491415"
 ---
 # <a name="what-is-routing-preference-preview"></a>Qu’est-ce qu’une préférence de routage (préversion) ?
 
@@ -70,19 +70,7 @@ Pour le stockage, les points de terminaison principaux utilisent toujours le **r
 * Azure Data Lake
 
 ## <a name="pricing"></a>Tarifs
-La différence de prix entre les deux options est reflétée dans la tarification du transfert de données de sortie Internet. Le prix du transfert de données via le **réseau Microsoft mondial** est identique au prix de sortie Internet actuel. Pour accéder aux dernières informations sur la tarification, visitez la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/). Le routage via l’**Internet public** est facturé comme indiqué dans le tableau ci-dessous :
-
-| Région source de sortie | 0-5 Go/mois | 5 Go-10 To/mois | 10-50 To/mois | 50-150 To/mois | 150-500 To/mois |
-| --- | --- | --- | --- | --- | --- |
-| Zone 1 | 0 USD/Go | 0,085 USD/Go | 0,065 USD/Go | 0,06 USD/Go | 0,04 USD/Go |
-| Zone 2 | 0 USD/Go | 0,11 USD/Go | 0,075 USD/Go | 0,07 USD/Go | 0,06 USD/Go  |
-
-Pour obtenir un volume mensuel supérieur à 500 To, [contactez-nous](https://azure.microsoft.com/overview/sales-number/).
-* Zone 1 : Australie Centrale, Australie Centre 2, Canada Centre, Canada Est, Europe Nord, Europe Ouest, France Centre, France Sud, Allemagne Nord (public), Allemagne Centre-Ouest (public), Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, USA Centre, USA Est, USA Est 2, USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2 et USA Centre-Ouest.
-
-* Zone 2 : Asie Est, Asie Sud-Est, Australie Est, Australie Sud-Est, Inde Centre, Inde Sud, Inde Ouest, Japon Est, Japon Ouest, Corée Centre et Corée Sud.
-
-* Zone 3 : Brésil Sud, Afrique du Sud Nord, Afrique du Sud Ouest, Émirats arabes unis Centre et Émirats arabes unis Nord.
+La différence de prix entre les deux options est reflétée dans la tarification du transfert de données de sortie Internet. Le prix du transfert de données via le **réseau Microsoft mondial** est identique au prix de sortie Internet actuel. Pour accéder aux dernières informations sur la tarification, visitez la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="availability"></a>Disponibilité
 

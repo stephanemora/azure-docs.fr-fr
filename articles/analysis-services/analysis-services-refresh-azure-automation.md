@@ -4,20 +4,20 @@ description: Cet article explique comment coder l’actualisation du modèle pou
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019135"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491245"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
 Azure Automation et les runbooks PowerShell vous permettent d’effectuer des opérations d’actualisation de données automatiques sur vos modèles tabulaires Azure Analysis.  
 
-L’exemple de cet article utilise le [module SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Un exemple de runbook PowerShell illustrant l’actualisation d’un modèle est fourni plus loin dans cet article.  
+L’exemple de cet article utilise le [module SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Un exemple de runbook PowerShell illustrant l’actualisation d’un modèle est fourni plus loin dans cet article.  
 
 ## <a name="authentication"></a>Authentification
 

@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791475"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493404"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
@@ -80,11 +80,11 @@ Vous pouvez annuler une modification du niveau de service ou une opération de r
 
 ### <a name="the-azure-portal"></a>Le portail Azure
 
-Dans le panneau de vue d’ensemble de la base de données, accédez à **Notifications** , puis cliquez sur la vignette indiquant qu’une opération est en cours :
+Dans le panneau de vue d’ensemble de la base de données, accédez à **Notifications**, puis cliquez sur la vignette indiquant qu’une opération est en cours :
 
 ![Opération en cours](./media/single-database-scale/ongoing-operations.png)
 
-Ensuite, cliquez sur le bouton intitulé **Annuler cette opération** .
+Ensuite, cliquez sur le bouton intitulé **Annuler cette opération**.
 
 ![Annulation de l’opération en cours](./media/single-database-scale/cancel-ongoing-operation.png)
 
@@ -107,10 +107,10 @@ else {
 
 - Si vous effectuez la mise à niveau vers un niveau de service ou une taille de calcul supérieurs, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande (maxsize).
 - Pour pouvoir passer à une version antérieure, l’espace utilisé par la base de données doit être inférieur à la taille maximale autorisée pour le service cible et la taille de calcul.
-- Lorsque vous rétrogradez du niveau **Premium** vers le niveau **Standard** , un coût de stockage supplémentaire s’applique si (1) la taille maximale de la base de données est prise en charge dans la taille de calcul cible et (2) la taille maximale dépasse la quantité de stockage incluse dans la taille de calcul cible. Par exemple, si une base de données P1 avec une taille maximale de 500 Go est rétrogradée en S3, un coût de stockage supplémentaire s’applique, car S3 prend en charge une taille maximale de 1 To et la quantité de stockage incluse est de seulement 250 Go. Par conséquent, la quantité de stockage supplémentaire est de 500 Go - 250 Go = 250 Go. Pour la tarification du stockage supplémentaire, consultez [Tarification d'Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse.
+- Lorsque vous rétrogradez du niveau **Premium** vers le niveau **Standard**, un coût de stockage supplémentaire s’applique si (1) la taille maximale de la base de données est prise en charge dans la taille de calcul cible et (2) la taille maximale dépasse la quantité de stockage incluse dans la taille de calcul cible. Par exemple, si une base de données P1 avec une taille maximale de 500 Go est rétrogradée en S3, un coût de stockage supplémentaire s’applique, car S3 prend en charge une taille maximale de 1 To et la quantité de stockage incluse est de seulement 250 Go. Par conséquent, la quantité de stockage supplémentaire est de 500 Go - 250 Go = 250 Go. Pour la tarification du stockage supplémentaire, consultez [Tarification d'Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse.
 - Lors de la mise à niveau d’une base de données pour laquelle la [géoréplication](active-geo-replication-configure-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de service et la taille de calcul souhaités avant de procéder à la mise à niveau de la base de données primaire (conseil général pour de meilleures performances). Lors de la mise à niveau vers une autre édition, il est impératif que la base de données secondaire soit mise à niveau en premier.
 - Lors de la mise à niveau descendante d’une base de données pour laquelle la [géoréplication](active-geo-replication-configure-portal.md) est activée, vous devez commencer par mettre à niveau les bases de données primaires associées vers le niveau de service et la taille de calcul inférieurs souhaités avant de procéder à la mise à niveau descendante de la base de données secondaire (conseil général pour de meilleures performances). Lors de la rétrogradation vers une autre édition, il est impératif que la base de données primaire soit rétrogradée en premier.
-- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous repassez au niveau de service **De base** , la rétention des fichiers de sauvegarde sera de plus courte durée. Consultez l’article relatif aux [sauvegardes Azure SQL Database](automated-backups-overview.md).
+- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous repassez au niveau de service **De base**, la rétention des fichiers de sauvegarde sera de plus courte durée. Consultez l’article relatif aux [sauvegardes Azure SQL Database](automated-backups-overview.md).
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
 ## <a name="billing"></a>Facturation

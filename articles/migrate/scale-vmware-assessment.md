@@ -3,12 +3,12 @@ title: Évaluer un grand nombre de machines virtuelles VMware pour la migration 
 description: Décrit comment évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure à l’aide du service Azure Migrate.
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0be7a7ea4afc400787456533689fe00b1db1c116
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492928"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure
 
@@ -88,7 +88,7 @@ Conformément à vos exigences de planification, procédez comme suit :
 1. Créez un projet Azure Migrate.
 2. Ajoutez l’outil Évaluation de serveur Azure Migrate aux projets.
 
-[En savoir plus](how-to-add-tool-first-time.md)
+[En savoir plus](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Créer et examiner une évaluation
 

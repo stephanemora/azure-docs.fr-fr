@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629799"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492090"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -368,7 +368,7 @@ Les solutions antivirus internes de Microsoft, Windows Defender et System Center
 > Les fournisseurs de logiciels antivirus peuvent vérifier la compatibilité entre leur produit et Azure File Sync en utilisant la [suite de tests de compatibilité des antivirus avec Azure File Sync](https://www.microsoft.com/download/details.aspx?id=58322), qui est disponible en téléchargement dans le Centre de téléchargement Microsoft.
 
 ## <a name="backup"></a>Sauvegarde 
-Si la hiérarchisation cloud est activée, vous ne devez pas utiliser de solutions qui sauvegardent directement le point de terminaison du serveur ou une machine virtuelle sur laquelle se trouve le point de terminaison de serveur. La hiérarchisation cloud entraîne le stockage d’un seul sous-ensemble de vos données sur le point de terminaison du serveur, avec le jeu de données complet résidant dans votre partage de fichiers Azure. Selon la solution de sauvegarde utilisée, les fichiers hiérarchisés soit sont ignorés et ne sont pas sauvegardés (parce qu’ils ont l’attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS défini), soit sont rappelés sur le disque, ce qui entraîne des frais de sortie élevés. Nous vous recommandons d’utiliser une solution de sauvegarde cloud pour sauvegarder le partage de fichiers Azure directement. Pour plus d’informations, consultez [À propos de la sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) ou contactez votre fournisseur de sauvegarde pour déterminer s’il prend en charge la sauvegarde des partages de fichiers Azure.
+Si la hiérarchisation cloud est activée, vous ne devez pas utiliser de solutions qui sauvegardent directement le point de terminaison du serveur ou une machine virtuelle sur laquelle se trouve le point de terminaison de serveur. La hiérarchisation cloud entraîne le stockage d’un seul sous-ensemble de vos données sur le point de terminaison du serveur, avec le jeu de données complet résidant dans votre partage de fichiers Azure. Selon la solution de sauvegarde utilisée, les fichiers hiérarchisés soit sont ignorés et ne sont pas sauvegardés (parce qu’ils ont l’attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS défini), soit sont rappelés sur le disque, ce qui entraîne des frais de sortie élevés. Nous vous recommandons d’utiliser une solution de sauvegarde cloud pour sauvegarder le partage de fichiers Azure directement. Pour plus d’informations, consultez [À propos de la sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contactez votre fournisseur de sauvegarde pour déterminer s’il prend en charge la sauvegarde des partages de fichiers Azure.
 
 Si vous préférez utiliser une solution de sauvegarde locale, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation pour lequel la hiérarchisation cloud est désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.
 

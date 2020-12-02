@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: cd2d3363b9c035987280eb27632c470c012b8bbb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d33734dc7404e49aed94dffae8644b2bc4386925
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92794973"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492826"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide du portail Azure
 
@@ -51,7 +51,7 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 6. Sélectionnez **OK** pour confirmer la création du réplica.
 
 > [!NOTE]
-> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources, le même emplacement et le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur source.
+> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources, le même emplacement et le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur source.
 
 Une fois le serveur réplica créé, il est affiché dans le panneau **Réplication**.
 
@@ -109,7 +109,7 @@ Pour supprimer un serveur source du portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, sélectionnez votre serveur flexible Azure Database pour MySQL source.
 
-2. Dans la **Vue d’ensemble** , sélectionnez **Supprimer**.
+2. Dans la **Vue d’ensemble**, sélectionnez **Supprimer**.
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database pour MySQL : Supprimer la source":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
@@ -121,7 +121,7 @@ Pour supprimer un serveur source du portail Azure, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le réplica de serveur flexible Azure Database pour MySQL à analyser.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Métriques**  :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Métriques** :
 
 3. Sélectionnez **Décalage de la réplication en secondes** dans la liste déroulante des métriques disponibles.
 

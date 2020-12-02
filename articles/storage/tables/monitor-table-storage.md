@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: da6a1f4590257d43d2604913f2cbcedf29ea1eb6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844827"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491772"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervision du stockage Table Azure
 
@@ -46,7 +46,7 @@ Le stockage Table Azure collecte les mêmes types de données de supervision que
 
 Pour plus d’informations sur les métriques et les métriques de journaux créées par le stockage Table Azure, consultez [Informations de référence sur les données de supervision du stockage Table Azure](monitor-table-storage-reference.md).
 
-Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Vous pouvez continuer à utiliser les métriques et les journaux classiques si vous le souhaitez. En fait, les métriques et les journaux classiques sont disponibles parallèlement aux métriques et journaux dans Azure Monitor. La prise en charge reste en place jusqu’à ce que le stockage Azure mette fin au service sur les métriques et les journaux hérités.
 

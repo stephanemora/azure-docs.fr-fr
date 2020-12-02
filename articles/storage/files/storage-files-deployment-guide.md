@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0415133bf3168c846e1105efe992c2c48c57ff2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629238"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492180"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -22,7 +22,7 @@ Avant de suivre les étapes décrites dans cet article, nous recommandons viveme
 ## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous avez déjà accompli les étapes suivantes :
 
-- Créé un compte de stockage Azure avec les options de chiffrement et de résilience, et dans la région de votre choix. Pour obtenir des instructions pas à pas concernant la création d’un compte de stockage, voir [Créer un compte de stockage](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+- Créé un compte de stockage Azure avec les options de chiffrement et de résilience, et dans la région de votre choix. Pour obtenir des instructions pas à pas concernant la création d’un compte de stockage, voir [Créer un compte de stockage](../common/storage-account-create.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 - Créé un partage de fichiers Azure avec le quota de votre choix dans votre compte de stockage. Pour obtenir des instructions pas à pas concernant la création d’un partage de fichiers, voir [Créer un partage de fichiers](storage-how-to-create-file-share.md).
 
 ## <a name="transfer-data-into-azure-files"></a>Transférer des données dans des fichiers Azure
@@ -63,7 +63,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Plusieurs partages peuvent être spécifiés avec un compte de stockage. Pour plus d’informations, voir [Préparer le fichier CSV du jeu de données](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    Plusieurs partages peuvent être spécifiés avec un compte de stockage. Pour plus d’informations, voir [Préparer le fichier CSV du jeu de données](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 5. Créez le fichier CSV du jeu de lecteurs. Le fichier CSV du jeu de lecteurs répertorie les disques disponibles pour l’agent d’exportation local. Par exemple, le fichier CSV du jeu de lecteurs suivant répertorie les lecteurs `X:`, `Y:` et `Z:` à utiliser dans le cadre de la tâche d’exportation locale :
 
@@ -74,7 +74,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Pour plus d’informations, voir [Préparer le fichier CSV du jeu de lecteurs](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    Pour plus d’informations, voir [Préparer le fichier CSV du jeu de lecteurs](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 6. Utilisez l’outil [WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) pour copier vos données sur un ou plusieurs disques durs.
 
@@ -120,7 +120,7 @@ AzCopy est un utilitaire de ligne de commande conçu pour copier des données à
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy offre un nombre significatif d’options pour modifier le comportement de copie. Pour plus d’informations, consultez [Bien démarrer avec AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+    AzCopy offre un nombre significatif d’options pour modifier le comportement de copie. Pour plus d’informations, consultez [Bien démarrer avec AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Monter automatiquement sur les PC/serveurs nécessaires
 Pour remplacer un partage de fichiers local, il est utile de pré-monter les partages sur les machines sur lesquelles il doit être utilisé. Cela peut être fait automatiquement sur une liste de machines.

@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e41be54ce2017b303543a2e53eabbecb3ddc2978
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 616cbb8f72a94868dbe283ba513947d8c7f9fd68
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843330"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492027"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -47,7 +47,7 @@ Le service Stockage File d'attente Azure collecte les mêmes types de données d
 
 Pour plus d'informations sur les métriques et les métriques de journaux créées par le service Stockage File d'attente Azure, consultez [Informations de référence sur les données de surveillance du service Stockage File d'attente Azure](monitor-queue-storage-reference.md).
 
-Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Vous pouvez continuer à utiliser les métriques et les journaux classiques si vous le souhaitez. En fait, les métriques et les journaux classiques sont disponibles parallèlement aux métriques et journaux dans Azure Monitor. La prise en charge reste en place jusqu’à ce que le stockage Azure mette fin au service sur les métriques et les journaux hérités.
 
@@ -107,7 +107,7 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
 
    > [!NOTE]
-   > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](/azure/azure-monitor/platform/resource-logs-collect-storage) pour comprendre les conditions préalables relatives au compte de stockage.
+   > Avant de choisir un compte de stockage comme destination d’exportation, consultez [Archiver les journaux de ressources Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) pour comprendre les conditions préalables relatives au compte de stockage.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Diffuser les journaux en continu vers Azure Event Hubs
 
@@ -157,7 +157,7 @@ Voici un exemple :
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources Azure via Azure PowerShell](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources Azure via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
 
@@ -171,7 +171,7 @@ Voici un exemple :
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via des cmdlets PowerShell](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via des cmdlets PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
 
@@ -185,11 +185,11 @@ Voici un exemple :
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Commencez par ouvrir [Azure Cloud Shell](/azure/cloud-shell/overview) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+1. Commencez par ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
 
 2. Si votre identité est associée à plusieurs abonnements, définissez l’abonnement du compte de stockage pour lequel vous souhaitez activer les journaux comme abonnement actif.
 
@@ -215,7 +215,7 @@ Voici un exemple :
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
 
@@ -229,7 +229,7 @@ Voici un exemple :
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via l’interface de ligne de commande Azure](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+Pour obtenir une description de chaque paramètre, consultez [Diffuser des données en continu vers Event Hubs via l’interface de ligne de commande Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
 
@@ -243,11 +243,11 @@ Voici un exemple :
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure en continu vers l’espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 # <a name="template"></a>[Modèle](#tab/template)
 
-Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
@@ -519,7 +519,7 @@ Vous pouvez accéder aux données de journal envoyées à votre hub d’événem
 
 Vous pouvez accéder aux journaux envoyés à un espace de travail Log Analytics en utilisant des requêtes de journal Azure Monitor.
 
-Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../../azure-monitor/log-query/get-started-portal.md).
+Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Les données sont stockées dans la table **StorageQueueLogs**.
 

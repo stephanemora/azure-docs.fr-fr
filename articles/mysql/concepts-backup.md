@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542335"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492809"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -38,13 +38,11 @@ Les sauvegardes des journaux des transactions se produisent toutes les cinq minu
 Le stockage à usage général est le stockage back-end qui prend en charge les serveurs de niveau [Usage général](concepts-pricing-tiers.md) et [Mémoire optimisée](concepts-pricing-tiers.md). Pour les serveurs avec un stockage à usage général jusqu’à 4 To, les sauvegardes complètes se produisent une fois par semaine. Les sauvegardes différentielles se produisent deux fois par jour. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. Les sauvegardes sur un stockage à usage général jusqu’à 4 To ne sont pas basées sur des captures instantanées et consomment de la bande passante en E/S. Pour les grandes bases de données (>1 To) sur un stockage de 4 To, nous vous recommandons d’envisager :
 
 - Le provisionnement de plus d’IOPS pour prendre en compte les E/S des sauvegardes OU
-- Une migration vers un stockage à usage général qui prend en charge jusqu’à 16 To de stockage si l’infrastructure de stockage sous-jacente est disponible dans vos [régions Azure](/azure/mysql/concepts-pricing-tiers#storage) favorites. Il n’existe aucun coût supplémentaire pour le stockage à usage général qui prend en charge jusqu’à 16 To de stockage. Pour obtenir de l’aide sur la migration vers un stockage de 16 To, veuillez ouvrir un ticket de support à partir du portail Azure.
+- Une migration vers un stockage à usage général qui prend en charge jusqu’à 16 To de stockage si l’infrastructure de stockage sous-jacente est disponible dans vos [régions Azure](./concepts-pricing-tiers.md#storage) favorites. Il n’existe aucun coût supplémentaire pour le stockage à usage général qui prend en charge jusqu’à 16 To de stockage. Pour obtenir de l’aide sur la migration vers un stockage de 16 To, veuillez ouvrir un ticket de support à partir du portail Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serveurs de stockage à usage général avec un stockage jusqu’à 16 To
 
-Dans un sous-ensemble de [régions Azure](/azure/mysql/concepts-pricing-tiers#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
-
-Dans un sous-ensemble de [régions Azure](concepts-pricing-tiers.md#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
+Dans un sous-ensemble de [régions Azure](./concepts-pricing-tiers.md#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
 
 Les sauvegardes de captures instantanées différentielles se produisent au moins une fois par jour. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Les sauvegardes de captures instantanées différentielles ont lieu toutes les 24 heures, à moins que le journal des transactions (binlog dans MySQL) dépasse 50 Go depuis la dernière sauvegarde différentielle. Au cours d’une journée, six captures instantanées différentielles maximum sont autorisées.
 

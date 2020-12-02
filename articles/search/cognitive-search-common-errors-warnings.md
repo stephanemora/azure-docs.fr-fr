@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362812"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492265"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -348,8 +348,8 @@ Pour contourner cet avertissement, déterminez l’encodage de texte pour ce blo
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avertissement : La collection « X » de Cosmos DB a une stratégie d’indexation différée. Certaines données peuvent être perdues.
 
-Les collections dotées de stratégies d’indexation [différée](/azure/cosmos-db/index-policy#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.
+Les collections dotées de stratégies d’indexation [différée](../cosmos-db/index-policy.md#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Avertissement : Le document contient des mots très longs (de plus de 64 caractères). Ces mots peuvent donner lieu à des prédictions de modèle tronquées et/ou non fiables.
 
-Cet avertissement provient du service Analyse de texte.  Dans certains cas, vous pouvez sans problème ignorer cet avertissement, par exemple quand votre document contient une URL longue (qui n’est sans doute pas une phrase clé, un sentiment de conduite, etc.).  Sachez que lorsqu’un mot dépasse 64 caractères, il est tronqué à 64 caractères, ce qui peut impacter les prédictions de modèle.  
+Cet avertissement provient du service Analyse de texte.  Dans certains cas, vous pouvez sans problème ignorer cet avertissement, par exemple quand votre document contient une URL longue (qui n’est sans doute pas une phrase clé, un sentiment de conduite, etc.).  Sachez que lorsqu’un mot dépasse 64 caractères, il est tronqué à 64 caractères, ce qui peut impacter les prédictions de modèle.

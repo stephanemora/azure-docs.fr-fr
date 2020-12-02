@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789554"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493638"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervision des performances de Microsoft Azure SQL Database et d’Azure SQL Managed Instance à l’aide de vues de gestion dynamique
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,14 +34,14 @@ Pour plus d’informations sur les vues de gestion dynamique, consultez [Fonctio
 
 ## <a name="permissions"></a>Autorisations
 
-Dans Azure SQL Database, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE** . L’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** renvoie des informations sur tous les objets de la base de données active.
+Dans Azure SQL Database, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE**. L’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** renvoie des informations sur tous les objets de la base de données active.
 Pour accorder l’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** à un utilisateur de base de données spécifique, exécutez la requête suivante :
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-Dans Azure SQL Managed Instance, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW SERVER STATE** . Pour plus d’informations, consultez [Vues de gestion dynamique de processus du système](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
+Dans Azure SQL Managed Instance, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW SERVER STATE**. Pour plus d’informations, consultez [Vues de gestion dynamique de processus du système](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
 Dans une instance de SQL Server et dans Azure SQL Managed Instance, des vues de gestion dynamique retournent des informations sur l’état du serveur. Dans Azure SQL Database, elles retournent des informations relatives à votre base de données logique actuelle.
 
@@ -123,7 +123,7 @@ Lors de l’identification des problèmes de performances d’E/S, les principau
 
 - `PAGEIOLATCH_*`
 
-  Pour les problèmes d’E/S de fichier de données (y compris `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Si le nom du type d’attente contient **IO** , cela indique un problème d’E/S. Si le nom d’attente de verrou de la page ne comporte aucun **IO** , cela indique un problème différent (par exemple, contention de tempdb).
+  Pour les problèmes d’E/S de fichier de données (y compris `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Si le nom du type d’attente contient **IO**, cela indique un problème d’E/S. Si le nom d’attente de verrou de la page ne comporte aucun **IO**, cela indique un problème différent (par exemple, contention de tempdb).
 
 - `WRITE_LOG`
 
@@ -517,7 +517,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Lorsque vous exécutez **sys.dm_exec_requests** et **sys.dm_exec_sessions views** , si vous disposez d’une autorisation **AFFICHER L’ÉTAT DE LA BASE DE DONNÉES** sur la base de données, vous voyez toutes les sessions en cours d’exécution sur la base de données. Sinon, vous voyez uniquement la session en cours.
+> Lorsque vous exécutez **sys.dm_exec_requests** et **sys.dm_exec_sessions views**, si vous disposez d’une autorisation **AFFICHER L’ÉTAT DE LA BASE DE DONNÉES** sur la base de données, vous voyez toutes les sessions en cours d’exécution sur la base de données. Sinon, vous voyez uniquement la session en cours.
 
 ## <a name="monitor-resource-use"></a>Surveiller l’utilisation des ressources
 
@@ -714,7 +714,7 @@ WHERE D.name = 'MyDatabase'
 
 Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous collectez plusieurs échantillons au fur et à mesure, vous bénéficierez d’une meilleure compréhension de l’utilisation de votre session.
 
-Vous pouvez obtenir des statistiques d’historique sur les sessions en interrogeant la vue [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) et en consultant la colonne **active_session_count** .
+Vous pouvez obtenir des statistiques d’historique sur les sessions en interrogeant la vue [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) et en consultant la colonne **active_session_count**.
 
 ## <a name="monitoring-query-performance"></a>Analyse des performances des requêtes
 

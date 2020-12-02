@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916489"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492010"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -196,7 +196,7 @@ Modifications récentes apportées aux paramètres de configuration de la foncti
 
 ### <a name="cause"></a>Cause  
 
-Un nombre élevé de notifications de modification de fichier sur des partages de fichiers peut entraîner des latences importantes. Cela se produit généralement avec des sites web hébergés sur des partages de fichiers avec une structure de répertoires imbriqués profonde. Un scénario classique est l’application web hébergée par IIS où la notification de modification de fichier est configurée pour chaque répertoire dans la configuration par défaut. Chaque modification ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) sur le partage pour lequel le client SMB est inscrit envoie une notification de modification du service de fichiers au client, ce qui mobilise des ressources du système, et le problème empire avec le nombre de modifications. Cela peut entraîner une limitation du partage et, par conséquent, une latence plus élevée côté client. 
+Un nombre élevé de notifications de modification de fichier sur des partages de fichiers peut entraîner des latences importantes. Cela se produit généralement avec des sites web hébergés sur des partages de fichiers avec une structure de répertoires imbriqués profonde. Un scénario classique est l’application web hébergée par IIS où la notification de modification de fichier est configurée pour chaque répertoire dans la configuration par défaut. Chaque modification ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) sur le partage pour lequel le client SMB est inscrit envoie une notification de modification du service de fichiers au client, ce qui mobilise des ressources du système, et le problème empire avec le nombre de modifications. Cela peut entraîner une limitation du partage et, par conséquent, une latence plus élevée côté client. 
 
 Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail : 
 

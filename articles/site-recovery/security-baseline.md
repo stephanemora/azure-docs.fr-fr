@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 095a97d27439c54e2ade96e3a40349a0d95b9c11
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843092"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492231"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Ligne de base de la sécurité Azure pour Site Recovery
 
@@ -52,7 +52,7 @@ Incorporez n’importe laquelle des définitions Azure Policy intégrées en lie
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes. 
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md) 
 
 - [Comment créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md) 
 
@@ -92,7 +92,7 @@ Ingérez les journaux du service Site Recovery dans Azure Monitor afin d’agré
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -110,7 +110,7 @@ Ingérez les journaux du service Site Recovery avec Azure Monitor afin d’agré
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -164,11 +164,11 @@ Visualisez et interrogez les résultats du journal, et configurez des alertes po
 
 **Conseils** : aucun rôle n’est attribué par défaut. Les rôles doivent être explicitement attribués en fonction des besoins de l’entreprise. Toutes les attributions de rôles peuvent être vérifiées à l’aide de l’interface de ligne de commande PowerShell ou d’Azure Active Directory (Azure AD) pour découvrir les comptes membres de groupes d’administration.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -189,7 +189,7 @@ Créez un processus pour effectuer le suivi des identités et du contrôle d’a
 
 - [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -239,7 +239,7 @@ Visualisez les alertes et rapports sur les comportements des utilisateurs à ris
 
 - [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -270,11 +270,11 @@ Gérez efficacement les appartenances de groupe, l’accès aux applications d�
 
 Créez un processus pour réviser régulièrement les accès utilisateur afin de vous assurer que seuls les utilisateurs dont les accès ont été révisés continuent d’avoir accès. 
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -286,7 +286,7 @@ Vous avez accès aux sources des journaux d’activités de connexion, d’audit
 
 Simplifiez davantage ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes souhaitées dans un espace de travail Log Analytics.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Procédure d’intégration d’Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -378,7 +378,7 @@ Microsoft gère la plateforme sous-jacente qu’utilise Site Recovery, traite to
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -431,7 +431,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -505,7 +505,7 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -530,7 +530,7 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour votre coffre Recovery Services à l’aide d’Azure Policy. 
 
 Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration des ressources de coffre Recovery Services du service Site Recovery.
-- [Affichage des alias Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.RecoverySe
 
 **Conseils** : choisissez des Azure Repos pour stocker et gérer en toute sécurité votre code si vous utilisez des définitions Azure Policy personnalisées pour vos coffres Recovery Services et les ressources associées.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentation Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -608,7 +608,7 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Key Vault, sans informations d’identification dans votre code.
 
-- [Intégration aux identités managées Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Intégration aux identités managées Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
 - [Comment activer l’identité gérée par le système sur un coffre Recovery Services](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
@@ -638,7 +638,7 @@ Utilisez la détection des menaces de Security Center pour les services de donn�
 
 - [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md)
 
-- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](/azure/security-center/threat-protection)
+- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](../security-center/azure-defender.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -656,7 +656,7 @@ Toutes les ressources de stockage qu’utilisent les services Site Recovery comp
 
 Cela est hors de portée du client et l’équipe du service Site Recovery s’en charge en interne. Le client peut sauvegarder les clés du Key Vault dans Azure.
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -666,7 +666,7 @@ Cela est hors de portée du client et l’équipe du service Site Recovery s’e
 
 **Conseils** : testez régulièrement la restauration des clés gérées par le client sauvegardées.
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -676,9 +676,9 @@ Cela est hors de portée du client et l’équipe du service Site Recovery s’e
 
 **Conseils** : les données sont chiffrées au repos à l’aide de la fonctionnalité Storage Service Encryption (SSE) avec des machines virtuelles basées sur l’infrastructure en tant que service (Infrastructure as a Service, IaaS) d’Azure. Activez la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Activation de la suppression réversible dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -712,7 +712,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -736,7 +736,7 @@ Créez un processus pour examiner les incidents a posteriori pour vous assurer q
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -778,5 +778,5 @@ Utilisez le connecteur de données du Security Center pour diffuser en continu l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

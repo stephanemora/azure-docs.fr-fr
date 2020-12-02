@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: fac0db7f8c94113ff87d1c0a3091e4c0cbd5ed2b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489844"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492333"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Journaux dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -24,15 +24,15 @@ Pour accéder aux journaux PostgreSQL d’un coordinateur Hyperscale (Citus) ou 
 
 :::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="Liste des nœuds":::
 
-Pour le nœud sélectionné, ouvrez **Paramètres de diagnostic** , puis cliquez sur **+Ajouter un paramètre de diagnostic** .
+Pour le nœud sélectionné, ouvrez **Paramètres de diagnostic**, puis cliquez sur **+Ajouter un paramètre de diagnostic**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Liste des nœuds":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Ajouter des paramètres de diagnostic - Bouton":::
 
-Choisissez un nom pour les nouveaux paramètres de diagnostic, puis cochez la case **PostgreSQLLogs** .  Choisissez la ou les destinations qui doivent recevoir les journaux.
+Choisissez un nom pour les nouveaux paramètres de diagnostic, puis cochez la case **PostgreSQLLogs**.  Choisissez la ou les destinations qui doivent recevoir les journaux.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Liste des nœuds":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Choisir des journaux PostgreSQL":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 - En savoir plus sur les [hubs d’événements Azure](../event-hubs/event-hubs-about.md)
