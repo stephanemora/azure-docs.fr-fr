@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950361"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500935"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -243,8 +243,8 @@ Au cours de cette phase, recueillez ce que vous avez appris dans vos déploiemen
     - Le Stockage Premium Azure est utilisé pour les disques sensibles à la latence ou lorsque le [Contrat de niveau de service garantissant une disponibilité de 99,9 % des machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) est requis.
     - L’Accélérateur d’écriture Azure est déployé correctement.
         - Assurez-vous que, dans les machines virtuelles, les espaces de stockage ou les jeux d’agrégats par bandes ont été correctement générés sur les disques nécessitant l’accélérateur d’écriture.
-        - Vérifiez la [configuration du logiciel RAID sur Linux](../../linux/configure-raid.md).
-        - Vérifiez la [configuration de LVM sur les machines virtuelles Linux dans Azure](../../linux/configure-lvm.md).
+        - Vérifiez la [configuration du logiciel RAID sur Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Vérifiez la [configuration de LVM sur les machines virtuelles Linux dans Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - Seuls des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/) sont utilisés.
     - Les machines virtuelles ont été déployées dans les groupes à haute disponibilité et dans les Zones de disponibilité appropriés.
     - La [mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est activée sur les machines virtuelles utilisées dans la couche Application SAP et la couche SGBD SAP.

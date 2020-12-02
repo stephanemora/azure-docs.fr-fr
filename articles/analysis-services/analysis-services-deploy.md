@@ -4,15 +4,15 @@ description: Découvrez comment déployer un modèle tabulaire sur un serveur Az
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018774"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501241"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Déployer un modèle à partir de Visual Studio
 
@@ -63,4 +63,4 @@ Si le déploiement échoue sur une table, il est probable que votre serveur n’
 
 Maintenant que votre modèle tabulaire est déployé sur votre serveur, vous êtes prêt à vous connecter à celui-ci. Vous pouvez vous [connecter avec SQL Server Management Studio (SSMS)](analysis-services-manage.md) pour le gérer. Vous pouvez également vous [connecter à celui-ci à l’aide d’un outil client](analysis-services-connect.md) tel que Power BI, Power BI Desktop ou Excel, et commencer à créer des rapports.   
 
-Pour en savoir plus sur les méthodes du déploiement avancé, consultez [Déploiement d’une solution de modèle tabulaire](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+Pour en savoir plus sur les méthodes du déploiement avancé, consultez [Déploiement d’une solution de modèle tabulaire](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

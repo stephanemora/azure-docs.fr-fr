@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5c00d08fcaeed8eba5b9732c9196b9abddc32b36
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843262"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500714"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Base de référence de sécurité Azure pour Virtual Machine Scale Sets
 
@@ -40,7 +40,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Guide pratique pour déployer et configurer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -52,7 +52,7 @@ Sinon, si vous avez un cas d’usage spécifique pour un pare-feu centralisé, P
 
 * [Présentation de la sécurité réseau assurée par Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -76,7 +76,7 @@ Vous pouvez également déployer un pare-feu d’applications web (WAF) Azure de
 
 Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center pour limiter l’exposition des machines virtuelles Windows aux adresses IP approuvées pendant une période limitée. De plus, utilisez la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center pour recommander des configurations NSG qui brident les ports et les adresses IP sources en fonction du trafic réel et du renseignement sur les menaces.
 
-* [Guide pratique pour configurer la protection DDoS](../virtual-network/manage-ddos-protection.md)
+* [Guide pratique pour configurer la protection DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -98,7 +98,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour activer Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -112,7 +112,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../firewall/threat-intel.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser l’accès réseau juste-à-temps d’Azure Security Center
 
 * [Présentation de l’équilibrage de charge de niveau 7 avec les passerelles d’applications web Azure](../application-gateway/overview.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -186,7 +186,7 @@ Utilisez Azure Policy pour valider (ou corriger) des configurations de ressource
 
 * [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -272,7 +272,7 @@ Si votre organisation souhaite conserver les données du journal des événement
 
 * [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -284,7 +284,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -318,7 +318,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Instructions pour l’intégration de serveurs Linux à Azure Security Center](../security-center/quickstart-onboard-machines.md)
 
-* [Le lien suivant présente les directives de sécurité recommandées par Microsoft, qui peuvent servir de liste de critères à prendre en compte dans le choix du logiciel de détection des vulnérabilités.](../virtual-machines/linux/security-recommendations.md)
+* [Le lien suivant présente les directives de sécurité recommandées par Microsoft, qui peuvent servir de liste de critères à prendre en compte dans le choix du logiciel de détection des vulnérabilités.](../virtual-machines/security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -328,7 +328,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Implémentez une solution tierce de journalisation DNS à partir de la Place de marché Azure en fonction des besoins de votre organisation.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -344,7 +344,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Sources de données Syslog dans Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -360,7 +360,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Informations sur Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -368,7 +368,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 **Aide** : Azure Virtual Machine Scale Sets et Azure Active Directory n’ont pas le concept de mots de passe par défaut. Le client est responsable des applications tierces et des services de marketplace susceptibles d’utiliser des mots de passe par défaut.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -404,7 +404,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -442,7 +442,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -464,7 +464,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -472,7 +472,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 **Aide** : Configurez des paramètres de diagnostic pour Azure Active Directory afin d’envoyer les journaux d’audit et de connexion à un espace de travail Log Analytics. Utilisez également Azure Monitor pour examiner les journaux et effectuer des requêtes sur des données de journal à partir de machines virtuelles Azure.
 
-* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -480,7 +480,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Comment surveiller des machines virtuelles dans Azure](../azure-monitor/insights/monitor-vm-azure.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -494,7 +494,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -518,7 +518,7 @@ En ce qui concerne les machines virtuelles Linux, vous pouvez configurer manuell
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -552,7 +552,7 @@ Pour la plateforme sous-jacente, gérée par Microsoft, Microsoft traite tout le
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -572,7 +572,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Utilisez un outil de découverte actif tiers pour identifier toutes les informations sensibles stockées, traitées ou transmises par les systèmes technologiques de l’organisation, qu’elles soient situées sur site ou chez un fournisseur de services distant, et mettez à jour l’inventaire des informations sensibles de l’organisation.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -584,7 +584,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Rôles intégrés Azure](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -592,7 +592,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Aide** : Implémentez un outil tiers, tel qu’une solution automatisée de prévention contre la perte de données basée sur l’hôte, pour appliquer des contrôles d’accès afin d’atténuer le risque de violations de données.
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -614,7 +614,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Journalisation Azure Storage Analytics](../storage/common/storage-analytics-logging.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -756,7 +756,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 * [Présentation d’Azure Automation](../automation/automation-intro.md)
 
-* [Suivre les changements dans votre environnement avec la solution Change Tracking](../automation/change-tracking.md)
+* [Suivre les changements dans votre environnement avec la solution Change Tracking](../automation/change-tracking/overview.md)
 
 * [Présentation d'Azure Automation State Configuration](../automation/automation-dsc-overview.md)
 
@@ -1000,7 +1000,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1022,7 +1022,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 **Aide** : Non applicable aux machines virtuelles Azure, car il s’agit d’une ressource de calcul.
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Non applicable
 
@@ -1036,7 +1036,7 @@ Vous aurez besoin d’un outil tiers pour la protection contre les programmes ma
 
 * [Microsoft Defender - Protection avancée contre les menaces](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../virtual-machines/linux/security-recommendations.md)
+* [Guide pratique pour configurer Microsoft Antimalware pour les services cloud et les machines virtuelles](../virtual-machines/security-recommendations.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1054,7 +1054,7 @@ Vous aurez besoin d’un outil tiers pour la protection contre les programmes ma
 
 * [Présentation d’Azure Automation](../automation/automation-intro.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1134,7 +1134,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1154,7 +1154,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

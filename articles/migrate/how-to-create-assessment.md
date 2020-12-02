@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534619ace09b4e11934062a591adf8d9ab6f77ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500799"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Créer une évaluation de machine virtuelle Azure
 
@@ -21,7 +21,7 @@ Cet article explique comment créer une évaluation de machine virtuelle Azure p
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
+- Assurez-vous que vous avez [créé](./create-manage-projects.md) un projet Azure Migrate.
 - Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
 - Pour créer une évaluation, vous devez configurer une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
 

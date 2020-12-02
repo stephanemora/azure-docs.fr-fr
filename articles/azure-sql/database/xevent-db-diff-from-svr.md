@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791271"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501207"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Événements étendus dans une base de données SQL Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Des rubriques connexes fournissent deux exemples de code :
 - Lorsque vous exécutez la commande [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) sur SQL Server, vous pouvez utiliser la clause **ON SERVER** . Mais sur Azure SQL Database, vous utilisez la clause **ON DATABASE** à la place.
 - La clause **ON DATABASE** s’applique également aux commandes Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) et [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION** .
+- Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
   - La valeur **= ON** prend en charge le redémarrage automatique après la reconfiguration de la base de données logique en raison d’un basculement.
 
 ## <a name="new-catalog-views"></a>Nouveaux affichages catalogue
@@ -95,9 +95,9 @@ Azure SQL Database a des [vues de gestion dynamique (DMV)](/sql/relational-datab
 | **sys.dm_xe_database_session_targets** |Renvoie des informations sur les cibles d’une session d’événements. |
 | **sys.dm_xe_database_sessions** |Renvoie une ligne pour chaque session d’événements incluse dans la base de données actuelle. |
 
-Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennent pas la partie *\_database* , par exemple :
+Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennent pas la partie *\_database*, par exemple :
 
-- **sys.dm_xe_sessions** , au lieu de name<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, au lieu de name<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Vues de gestion dynamique communes aux deux produits
 
@@ -151,11 +151,11 @@ L’API [ETW (suivi d’événements pour Windows)](/dotnet/framework/wcf/sample
 Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud d’Azure SQL Database :
 
 - Les événements étendus sont fondés sur le modèle d’isolement à locataire unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
-- Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master** .
+- Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master**.
 
 ## <a name="permission-model"></a>Modèle d’autorisation
 
-Vous devez disposer de l’autorisation **Contrôle** sur la base de données pour émettre une instruction **CREATE EVENT SESSION** . Le propriétaire de la base de données (dbo) possède l’autorisation **Contrôle** .
+Vous devez disposer de l’autorisation **Contrôle** sur la base de données pour émettre une instruction **CREATE EVENT SESSION**. Le propriétaire de la base de données (dbo) possède l’autorisation **Contrôle** .
 
 ### <a name="storage-container-authorizations"></a>Autorisations de conteneur de stockage
 
@@ -172,7 +172,7 @@ Il existe des scénarios où l’utilisation intensive des événements étendus
 Si vous recevez un message d’erreur indiquant qu’une quantité maximale de mémoire a été appliquée, vous pouvez envisager certaines actions correctives, notamment :
 
 - Exécuter moins de sessions d’événement simultanées.
-- À l’aide des instructions **CREATE** et **ALTER** pour les sessions d’événements, réduisez la quantité de mémoire spécifiée dans la clause **MAX\_MEMORY** .
+- À l’aide des instructions **CREATE** et **ALTER** pour les sessions d’événements, réduisez la quantité de mémoire spécifiée dans la clause **MAX\_MEMORY**.
 
 ### <a name="network-latency"></a>Latence du réseau
 

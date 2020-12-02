@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 1dcefefe02d91506c494cdf91e75ca951ccf43bb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365468"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500748"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -41,10 +41,10 @@ Lors de la création d’une machine virtuelle dans le portail Azure, le paramè
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Capture d’écran montrant l’activation des diagnostics de démarrage managé pendant la création d’une machine virtuelle.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Activer les diagnostics de démarrage managé à l’aide de l’interface de ligne de commande (CLI)
-Les diagnostics de démarrage avec un compte de stockage managé sont pris en charge dans Azure CLI 2.12.0 et versions ultérieures. Si vous n’entrez pas de nom ou d’URI pour un compte de stockage, un compte managé est utilisé. Pour plus d’informations et des exemples de code, consultez la [documentation de CLI pour les diagnostics de démarrage](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
+Les diagnostics de démarrage avec un compte de stockage managé sont pris en charge dans Azure CLI 2.12.0 et versions ultérieures. Si vous n’entrez pas de nom ou d’URI pour un compte de stockage, un compte managé est utilisé. Pour plus d’informations et des exemples de code, consultez la [documentation de CLI pour les diagnostics de démarrage](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Activer les diagnostics de démarrage managé à l’aide de modèles Azure Resource Manager (modèles ARM)
-Tout ce qui est postérieur à l’API version 2020-06-01 prend en charge les diagnostics de démarrage managé. Pour plus d’informations, consultez [affichage d’instance de diagnostics de démarrage](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+Tout ce qui est postérieur à l’API version 2020-06-01 prend en charge les diagnostics de démarrage managé. Pour plus d’informations, consultez [affichage d’instance de diagnostics de démarrage](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
 
 ```ARM Template
             "name": "[parameters('virtualMachineName')]",

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672114"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500850"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recommandations relatives aux performances de Database Advisor pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,8 +40,8 @@ Les options des recommandations en matière de performances disponibles dans Azu
 
 | Recommandation en matière de performances | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :----------------------------- | ----- | ----- |
-| **Recommandations de création d’index**  : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | Oui | Non |
-| **Recommandations de suppression d’index**  : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non |
+| **Recommandations de création d’index** : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | Oui | Non |
+| **Recommandations de suppression d’index** : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non |
 | **Recommandations de paramétrage de requêtes (préversion)**  : recommande le paramétrage forcé dans les cas où une ou plusieurs requêtes sont constamment recompilées mais ont en fin de compte le même plan d’exécution de requête. | Oui | Non |
 | **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent quand Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | Oui | Non |
 
@@ -88,7 +88,7 @@ Les requêtes incluant des valeurs non paramétrées peuvent entraîner une dét
 
 Le processus de recompilation des plans d’exécution utilise des ressources de base de données, augmente la durée des requêtes et dépasse la capacité du cache du plan. Ces événements entraînent à leur tour la suppression des plans de ce cache. Il est possible de modifier ce comportement en définissant l’option de paramétrage forcé au niveau de la base de données.
 
-Pour vous aider à évaluer l’impact de cette recommandation, nous vous fournissons une comparaison entre l’utilisation réelle de l’UC et son utilisation projetée (comme si la recommandation avait été appliquée). Cette recommandation peut vous aider à économiser les ressources d’UC. Elle peut également contribuer à réduire la durée des requêtes et les surcharges de cache du plan, permettant ainsi la conservation dans le cache et la réutilisation d’un plus grand nombre de plans. Vous pouvez appliquer cette recommandation rapidement en sélectionnant la commande **Appliquer** .
+Pour vous aider à évaluer l’impact de cette recommandation, nous vous fournissons une comparaison entre l’utilisation réelle de l’UC et son utilisation projetée (comme si la recommandation avait été appliquée). Cette recommandation peut vous aider à économiser les ressources d’UC. Elle peut également contribuer à réduire la durée des requêtes et les surcharges de cache du plan, permettant ainsi la conservation dans le cache et la réutilisation d’un plus grand nombre de plans. Vous pouvez appliquer cette recommandation rapidement en sélectionnant la commande **Appliquer**.
 
 Une fois cette recommandation appliquée, le paramétrage forcé est activé en l’espace de quelques minutes dans votre base de données. Il démarre le processus d’analyse, qui dure environ 24 heures. Au terme de cette période, vous pouvez consulter le rapport de validation. Ce rapport présente l’utilisation de l’UC par votre base de données 24 heures avant et après l’application de la recommandation. Azure SQL Database Advisor intègre un mécanisme de sécurité qui annule automatiquement la recommandation appliquée si une baisse des performances est détectée.
 

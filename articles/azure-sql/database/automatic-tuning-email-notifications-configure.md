@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: cdc43add2e57e45a32b0b42ead8c3107d93c193f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675248"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500952"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Procédez comme suit pour créer un compte Azure Automation par le biais de la m
 1. Une fois dans le volet « Créer un compte Automation », cliquez sur « **Créer** ».
 1. Fournissez les informations requises : entrez un nom pour ce compte Automation, sélectionnez votre ID d’abonnement Azure et les ressources Azure à utiliser pour l’exécution du script PowerShell.
 1. Pour l’option « **Créer un compte d’identification Azure** », sélectionnez **Oui** afin de configurer le type de compte sous lequel le script PowerShell s’exécute avec l’aide d’Azure Automation. Pour en savoir plus sur les types de comptes, consultez [Compte d’identification](../../automation/manage-runas-account.md).
-1. Terminez la création du compte Automation en cliquant sur **Créer** .
+1. Terminez la création du compte Automation en cliquant sur **Créer**.
 
 > [!TIP]
 > Prenez note du nom de votre compte Azure Automation, de l’ID d’abonnement et des ressources (par exemple en effectuant un copier-coller dans un bloc-notes) exactement comme vous les avez entrés lors de la création de l’application Automation. Vous aurez besoin de ces informations ultérieurement.
@@ -71,7 +71,7 @@ Suivez ces étapes pour créer un runbook Azure Automation :
 
 1. Accédez au compte Azure Automation créé à l’étape précédente.
 1. Une fois dans le volet du compte Automation, cliquez sur l’élément de menu « **Runbooks** » sur le côté gauche pour créer un runbook Azure Automation avec le script PowerShell. Pour en savoir plus sur la création de runbooks d’automation, consultez [Créer un runbook](../../automation/manage-runbooks.md#create-a-runbook).
-1. Pour ajouter un nouveau runbook, cliquez sur l’option de menu « **+ Ajouter un runbook** », puis sur « **Création rapide – Créer un runbook** ».
+1. Pour ajouter un nouveau runbook, cliquez sur l’option de menu « **+ Ajouter un runbook** », puis sur « **Création rapide – Créer un runbook**».
 1. Dans le volet Runbook, tapez le nom de votre runbook (pour les besoins de cet exemple, « **AutomaticTuningEmailAutomation** » est utilisé), sélectionnez **PowerShell** comme type de runbook et écrivez une description de ce runbook pour décrire sa fonction.
 1. Cliquez sur le bouton **Créer** pour terminer la création du runbook.
 
@@ -185,7 +185,7 @@ Grâce aux étapes ci-dessus, le script PowerShell visant à récupérer les rec
 
 Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Flow composé de trois actions (tâches) :
 
-- «  **Azure Automation – Créer un travail**  » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
+- « **Azure Automation – Créer un travail** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
 - « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
 - « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte professionnel ou scolaire de la personne qui crée le flux.
 
@@ -205,13 +205,13 @@ L’étape suivante consiste à ajouter trois tâches (créer, obtenir la sortie
 
    - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
    - Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Créer une tâche** » dans les résultats de recherche.
-   - Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation** . Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](/connectors/azureautomation/#create-job).
+   - Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation**. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](/connectors/azureautomation/#create-job).
    - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
 
 2. Créer une action pour récupérer la sortie du script PowerShell exécuté
 
    - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-   - Dans le champ de recherche, saisissez «  **automation**  » et sélectionnez «  **Azure Automation – Obtenir la sortie de la tâche**  » dans les résultats de la recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](/connectors/azureautomation/#get-job-output).
+   - Dans le champ de recherche, saisissez « **automation** » et sélectionnez « **Azure Automation – Obtenir la sortie de la tâche** » dans les résultats de la recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](/connectors/azureautomation/#get-job-output).
    - Renseignez les champs requis (comme lors de la création de la tâche précédente). Renseignez votre ID d’abonnement Azure, groupe de ressources et compte Automation (tels qu’ils figurent dans le volet Compte Automation).
    - Cliquez dans le champ « **ID de tâche** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sélectionnez l’option « **ID de tâche** ».
    - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
@@ -219,7 +219,7 @@ L’étape suivante consiste à ajouter trois tâches (créer, obtenir la sortie
 3. Créer une action pour envoyer un e-mail à l’aide de l’intégration d’Office 365
 
    - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-   - Dans le champ de recherche, saisissez «  **Envoyer un e-mail**  » et sélectionnez «  **Office 365 Outlook – Envoyer un e-mail**  » dans les résultats de la recherche.
+   - Dans le champ de recherche, saisissez « **Envoyer un e-mail** » et sélectionnez « **Office 365 Outlook – Envoyer un e-mail** » dans les résultats de la recherche.
    - Dans le champ « **À** », tapez l’adresse e-mail à laquelle vous devez envoyer l’e-mail de notification.
    - Dans le champ « **Objet** », tapez l’objet de votre e-mail, par exemple « Notification par e-mail concernant les recommandations de réglage automatique ».
    - Cliquez dans le champ « **Corps** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sous « **Obtenir la sortie de la tâche** », sélectionnez « **Contenu** ».
