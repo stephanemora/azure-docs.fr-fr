@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996676"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
 La gestion de la sécurité peut s’avérer ardue lorsque les attaques courantes liées aux identités, telles que la pulvérisation de mot de passe, la relecture et le hameçonnage, deviennent de plus en plus monnaie courante. Les paramètres de sécurité par défaut facilitent la protection de votre organisation contre ces attaques avec des paramètres de sécurité préconfigurés :
 
-- En exigeant que tous les utilisateurs s’inscrivent pour Azure Multi-Factor Authentication
+- En exigeant que tous les utilisateurs s’inscrivent à Azure AD Multi-Factor Authentication.
 - En exigeant des administrateurs qu’ils effectuent l’authentification multifacteur.
 - En restreignant les protocoles d’authentification hérités.
 - En exigeant des utilisateurs qu’ils effectuent l’authentification multifacteur, lorsque cela est nécessaire.
@@ -52,13 +52,13 @@ Microsoft met les paramètres de sécurité par défaut à la disposition de tou
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Inscription Multi-Factor Authentication unifiée
 
-Tous les utilisateurs de votre locataire doivent s’inscrire à l’authentification multifacteur (MFA) via le formulaire d’Azure Multi-Factor Authentication. Les utilisateurs disposent de 14 jours pour s’inscrire à Azure Multi-Factor Authentication à l’aide de l’application Microsoft Authenticator. Au bout de ces 14 jours, l’utilisateur ne sera plus en mesure de se connecter, jusqu’à ce que l’inscription soit effectuée. Ainsi, la période de 14 jours d’un utilisateur commence après la première connexion interactive réussie, une fois les paramètres de sécurité par défaut activés.
+Tous les utilisateurs de votre locataire doivent s’inscrire à l’authentification multifacteur (MFA) via le formulaire d’Azure AD Multi-Factor Authentication. Les utilisateurs disposent de 14 jours pour s’inscrire à Azure AD Multi-Factor Authentication à l’aide de l’application Microsoft Authenticator. Au bout de ces 14 jours, l’utilisateur ne sera plus en mesure de se connecter, jusqu’à ce que l’inscription soit effectuée. Ainsi, la période de 14 jours d’un utilisateur commence après la première connexion interactive réussie, une fois les paramètres de sécurité par défaut activés.
 
 ### <a name="protecting-administrators"></a>Protection des administrateurs
 
 Les utilisateurs disposant d’un accès privilégié ont un accès plus large à votre environnement. En raison de l’importance de ces comptes, vous devez leur accorder une attention particulière. Une méthode courante pour améliorer la protection de comptes privilégiés consiste à demander une forme de vérification de compte plus stricte pour se connecter. Dans Azure AD, vous pouvez obtenir une vérification plus sévère des comptes en exigeant l’authentification multifacteur.
 
-Une fois l’inscription avec Azure Multi-Factor Authentication terminée, les neuf rôles d’administrateur Azure AD suivants sont nécessaires pour effectuer une authentification supplémentaire chaque fois qu’ils se connectent :
+Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les neuf rôles Administrateur Azure AD suivants sont nécessaires pour effectuer une authentification supplémentaire chaque fois qu’ils se connectent :
 
 - Administrateur général
 - Administrateur SharePoint
@@ -120,7 +120,7 @@ Les considérations supplémentaires suivantes concernent le déploiement des pa
 
 ### <a name="authentication-methods"></a>Méthodes d’authentification
 
-Ces paramètres de sécurité par défaut gratuits permettent l’inscription et l’utilisation d’Azure Multi-Factor Authentication **à l'aide de l’application de Microsoft Authenticator uniquement avec notifications**. L’accès conditionnel permet l'utilisation de n’importe quelle méthode d’authentification que l’administrateur choisit d’activer.
+Ces paramètres de sécurité par défaut gratuits permettent l’inscription à Azure AD Multi-Factor Authentication et son utilisation **en utilisant uniquement l’application Microsoft Authenticator à l’aide de notifications**. L’accès conditionnel permet l'utilisation de n’importe quelle méthode d’authentification que l’administrateur choisit d’activer.
 
 | Méthode | Paramètres de sécurité par défaut | Accès conditionnel |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Ces paramètres de sécurité par défaut gratuits permettent l’inscription et
 | Code de vérification provenant d’une application mobile ou d’un jeton matériel | X** | X |
 | Message texte vers le téléphone |   | X |
 | Appel vers le téléphone |   | X |
-| Mots de passe d'application |   | X*** |
+| Mots de passe d'application |   | X**_ |
 
-- ** Les utilisateurs peuvent utiliser des codes de vérification de l’application Microsoft Authenticator, mais ils peuvent uniquement s’inscrire à l’aide de l’option de notification.
-- *** Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
+- _* Les utilisateurs peuvent utiliser des codes de vérification de l’application Microsoft Authenticator, mais ils peuvent uniquement s’inscrire à l’aide de l’option de notification.
+- **_ Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
 
 ### <a name="disabled-mfa-status"></a>État MFA désactivé
 
-Si votre organisation utilisait précédemment Azure Multi-Factor Authentication par utilisateur, ne vous inquiétez pas de ne pas voir les utilisateurs à l’état **Activé** ou **Appliqué** lorsque vous examinez la page d’état de MFA. L’état **Désactivé** est approprié pour les utilisateurs utilisant des paramètres de sécurité par défaut ou Microsoft Azure Multi-Factor Authentication basé sur l’accès conditionnel.
+Si votre organisation utilisait précédemment Azure AD Multi-Factor Authentication par utilisateur, ne vous inquiétez pas de ne pas voir les utilisateurs à l’état _ *Activé** ou **Appliqué** lorsque vous examinez la page d’état de MFA. L’état **Désactivé** est approprié pour les utilisateurs utilisant les paramètres de sécurité par défaut ou Azure AD Multi-Factor Authentication basé sur l’accès conditionnel.
 
 ### <a name="conditional-access"></a>Accès conditionnel
 
@@ -149,7 +149,7 @@ Voici des guides pas à pas sur la façon dont vous pouvez utiliser l’accès c
 - [Exiger MFA pour la gestion Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloquer l’authentification héritée](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Exiger MFA pour tous les utilisateurs](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Exiger l’inscription Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) : nécessite la fonctionnalité Azure AD Identity Protection faisant partie de l’offre Azure AD Premium P2.
+- [Exiger l’inscription Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) : nécessite la fonctionnalité Azure AD Identity Protection faisant partie de l’offre Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Activation des paramètres de sécurité par défaut
 

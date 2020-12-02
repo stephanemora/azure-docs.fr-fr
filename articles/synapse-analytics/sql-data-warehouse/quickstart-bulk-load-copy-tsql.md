@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213004"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024583"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Démarrage rapide : Charger en masse des données à l’aide de l’instruction COPY
 
-Dans ce guide de démarrage rapide, vous allez charger en masse des données dans votre pool SQL au moyen de l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simple et flexible pour l’ingestion de données à débit élevé. L’instruction COPY est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible en fournissant des fonctionnalités pour :
+Dans ce guide de démarrage rapide, vous allez charger en masse des données dans votre pool SQL dédié au moyen de l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simple et flexible pour l’ingestion de données à débit élevé. L’instruction COPY est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible en fournissant des fonctionnalités pour :
 
 - Autoriser le chargement aux utilisateurs avec privilèges plus restreints, sans avoir besoin d’autorisations CONTROL strictes sur l’entrepôt de données
 - Tirer parti uniquement d’une instruction T-SQL sans avoir à créer d’objets de base de données supplémentaires
@@ -34,7 +34,7 @@ Dans ce guide de démarrage rapide, vous allez charger en masse des données dan
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide part du principe que vous disposez déjà d’un pool SQL. Si aucun pool SQL n’a été créé, utilisez le démarrage rapide [Créer et se connecter - Portail](create-data-warehouse-portal.md).
+Ce guide de démarrage rapide part du principe que vous disposez déjà d’un pool SQL dédié. Si aucun pool SQL dédié n’a été créé, utilisez le guide démarrage rapide [Créer et se connecter - Portail](create-data-warehouse-portal.md).
 
 ## <a name="set-up-the-required-permissions"></a>Configurer les autorisations nécessaires
 

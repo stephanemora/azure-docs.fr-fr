@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902758"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 à l’aide d’Azure Active Directory (préversion)
 
@@ -29,7 +29,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 
 | Type d’appareil | Appareil joints Azure AD | Appareils joints Azure AD hybrides |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Inscription d’informations de sécurité combinée – Préversion](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN nécessite Windows 10 version 1903 ou plus | X | X |
@@ -134,7 +134,7 @@ Pour les **appareils joints à Azure AD Hybride**, les organisations peuvent con
 - La définition de cette stratégie sur **Activée** permet aux utilisateurs de se connecter avec des clés de sécurité.
 - La définition de cette stratégie sur **Désactivée** ou **Non configurée** empêche les utilisateurs de se connecter avec des clés de sécurité.
 
-Ce paramètre de stratégie de groupe requiert une version mise à jour du modèle de stratégie de groupe `credentialprovider.admx`. Ce nouveau modèle est disponible avec la prochaine version de Windows Server et avec Windows 10 20H1. Ce paramètre peut être géré à l’aide d’un appareil exécutant une de ces versions plus récentes de Windows ou de manière centralisée en suivant les instructions de la rubrique de support [Comment créer et gérer le magasin central pour les modèles d’administration de stratégie de groupe dans Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Ce paramètre de stratégie de groupe requiert une version mise à jour du modèle de stratégie de groupe `CredentialProviders.admx`. Ce nouveau modèle est disponible avec la prochaine version de Windows Server et avec Windows 10 20H1. Ce paramètre peut être géré à l’aide d’un appareil exécutant une de ces versions plus récentes de Windows ou de manière centralisée en suivant les instructions de la rubrique de support [Comment créer et gérer le magasin central pour les modèles d’administration de stratégie de groupe dans Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Se connecter avec une clé de sécurité FIDO2
 
@@ -164,4 +164,4 @@ Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes
 
 [En savoir plus sur l’inscription des appareils](../devices/overview.md)
 
-[En savoir plus sur Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[En savoir plus sur Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

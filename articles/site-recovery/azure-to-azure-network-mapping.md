@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: b5ae68dea228e834b2449152bd3ef357f2a74e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff1f80641dc3db1f6b69fc0223c60022f8cf8435
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069490"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811628"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
@@ -85,7 +85,7 @@ Espace d’adressage différent | L’adresse IP suivante disponible dans le sou
 **Réseau cible** | **Détails**
 --- | ---
 Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP. <br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau. Par exemple : si l’adresse IP source est 10.0.0.19 et si le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
-Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Par exemple : si l’adresse IP source est 10.0.0.19 et si le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible sera 10.0.0.0.19 si elle est disponible, et dans le cas contraire, elle sera 10.0.0.254.
+Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Exemple : si l’adresse IP statique source est 10.0.0.19 et que le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible est 10.0.0.19 si elle est disponible, et dans le cas contraire, 10.0.0.254.
 
 - Le réseau virtuel de basculement est le réseau cible que vous sélectionnez lorsque vous configurez la récupération d’urgence.
 - Nous vous recommandons de toujours utiliser un réseau de non production pour le test de basculement.

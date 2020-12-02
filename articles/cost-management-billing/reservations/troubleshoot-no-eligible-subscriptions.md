@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/16/2020
+ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115186"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887193"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Résoudre les problèmes liés à l’absence d’abonnements éligibles
 
@@ -21,15 +21,15 @@ Cet article vous aide à résoudre les problèmes liés au message d’erreur *A
 
 ## <a name="symptoms"></a>Symptômes
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Réservations** .
-1. Sélectionnez **Ajouter** , puis sélectionnez un service.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Réservations**.
+1. Sélectionnez **Ajouter**, puis sélectionnez un service.
 1. Le message d’erreur suivant s’affiche :
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
-1. Dans la zone **Sélectionner le produit que vous voulez acheter** , développez la liste **Abonnement de facturation** pour voir la raison pour laquelle un abonnement spécifique n’est pas éligible pour l’achat d’une instance réservée. L’image suivante montre des exemples expliquant pourquoi une réservation ne peut pas être achetée.  
+1. Dans la zone **Sélectionner le produit que vous voulez acheter**, développez la liste **Abonnement de facturation** pour voir la raison pour laquelle un abonnement spécifique n’est pas éligible pour l’achat d’une instance réservée. L’image suivante montre des exemples expliquant pourquoi une réservation ne peut pas être achetée.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Exemple indiquant pourquoi une réservation ne peut pas être achetée" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
 
 ## <a name="cause"></a>Cause
@@ -37,7 +37,7 @@ Cet article vous aide à résoudre les problèmes liés au message d’erreur *A
 Pour acheter une instance réservée Azure, vous devez disposer d’au moins un abonnement répondant aux conditions suivantes :
 
 - L’abonnement doit être un type d’offre pris en charge. Les types d’offre pris en charge sont : paiement à l’utilisation, fournisseur de solutions cloud (CSP), Microsoft Azure Enterprise ou Contrat client Microsoft.
-- Vous devez être un propriétaire de l’abonnement.
+- Vous devez être propriétaire ou acheteur de réservation sur l’abonnement.
 
 Lorsque vous n’avez pas d’abonnement conforme aux exigences, vous obtenez l’erreur `No eligible subscriptions`.
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemple indiquant pourquoi une réservation ne peut pas être achetée" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemple illustrant le message d’erreur L’abonnement ne peut pas faire l’objet d’un achat" :::
 
 ### <a name="cause-2"></a>Cause 2
 
-Vous devez être un propriétaire de l’abonnement. Vous n’êtes pas un propriétaire de l’abonnement. Lorsque vous sélectionnez un abonnement dont vous n’êtes pas propriétaire, vous voyez l’erreur suivante.
+Vous devez être propriétaire ou acheteur de réservation sur l’abonnement. Si vous ne disposez pas des autorisations suffisantes, l’erreur suivante s’affiche.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Exemple indiquant pourquoi une réservation ne peut pas être achetée" :::
 
 ## <a name="solution"></a>Solution
 
@@ -92,9 +90,9 @@ Le propriétaire de l’ordre de réservation ou le propriétaire de la réserva
 1. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 1. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire** . Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
+1. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
 1. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
-1. Sélectionnez l’utilisateur, puis **Enregistrer** .
+1. Sélectionnez l’utilisateur, puis **Enregistrer**.
 
 Pour plus d’informations, consultez la rubrique [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

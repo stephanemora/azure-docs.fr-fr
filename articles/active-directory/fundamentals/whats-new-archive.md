@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973692"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -189,7 +189,7 @@ La requête delta pour les applications est généralement disponible. Vous pouv
 
 **Fonctionnalité de produit :** Expérience de développement
 
-Ces API constituent un outil essentiel pour la gestion des méthodes d’authentification de vos utilisateurs. Vous pouvez désormais préinscrire et gérer par programme les authentificateurs utilisés pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service. Il s’agit de l’une des fonctionnalités les plus demandées dans les espaces Azure MFA, SSPR et Microsoft Graph. Les nouvelles API que nous avons publiées dans cette vague vous donnent la possibilité d’effectuer les opérations suivantes :
+Ces API constituent un outil essentiel pour la gestion des méthodes d’authentification de vos utilisateurs. Vous pouvez désormais préinscrire et gérer par programme les authentificateurs utilisés pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service. Il s’agit de l’une des fonctionnalités les plus demandées dans les espaces Azure AD MFA, SSPR et Microsoft Graph. Les nouvelles API que nous avons publiées dans cette vague vous donnent la possibilité d’effectuer les opérations suivantes :
 
 - Lire, ajouter, mettre à jour et supprimer les téléphones d’authentification d’un utilisateur
 - Réinitialiser le mot de passe d’un utilisateur
@@ -227,9 +227,9 @@ Pour plus d’informations, consultez [Gestion des unités administratives dans 
 
 **Fonctionnalité de produit :** Contrôle d’accès
 
-**Administrateur d’imprimantes**  : Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer tous les aspects liés aux configurations de celles-ci dans la solution Impression universelle de Microsoft, dont les paramètres du connecteur d’impression universelle. Ils peuvent consentir à toutes les demandes d’autorisation d’impression déléguée. Les administrateurs d’imprimantes ont également accès aux rapports d’impression. 
+**Administrateur d’imprimantes** : Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer tous les aspects liés aux configurations de celles-ci dans la solution Impression universelle de Microsoft, dont les paramètres du connecteur d’impression universelle. Ils peuvent consentir à toutes les demandes d’autorisation d’impression déléguée. Les administrateurs d’imprimantes ont également accès aux rapports d’impression. 
 
-**Technicien en charge des imprimantes**  : Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer leur statut dans la solution Impression universelle de Microsoft. Ils peuvent également lire toutes les informations du connecteur. L’une des tâches clés qu’un technicien en charge des imprimantes ne peut pas accomplir est la définition d’autorisations utilisateur sur les imprimantes et le partage d’imprimantes. [En savoir plus.](../roles/permissions-reference.md#printer-administrator)
+**Technicien en charge des imprimantes** : Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer leur statut dans la solution Impression universelle de Microsoft. Ils peuvent également lire toutes les informations du connecteur. L’une des tâches clés qu’un technicien en charge des imprimantes ne peut pas accomplir est la définition d’autorisations utilisateur sur les imprimantes et le partage d’imprimantes. [En savoir plus.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -352,7 +352,7 @@ Nous avons actualisé notre expérience d’approvisionnement pour créer une vu
 
 **Fonctionnalité de produit :** Collaboration
 
-Azure Active Directory (Azure AD) offre désormais la possibilité de valider les règles de groupe dynamique. Sous l’onglet **Valider les règles** , vous pouvez valider votre règle dynamique par rapport à des exemples de membres du groupe pour vérifier que la règle fonctionne comme prévu. Lors de la création ou de la mise à jour des règles de groupe dynamiques, les administrateurs veulent savoir si un utilisateur ou un appareil sera membre du groupe. Cela permet d’évaluer si un utilisateur ou un appareil répond aux critères de la règle et facilite la résolution des problèmes quand l’appartenance n’est pas attendue.
+Azure Active Directory (Azure AD) offre désormais la possibilité de valider les règles de groupe dynamique. Sous l’onglet **Valider les règles**, vous pouvez valider votre règle dynamique par rapport à des exemples de membres du groupe pour vérifier que la règle fonctionne comme prévu. Lors de la création ou de la mise à jour des règles de groupe dynamiques, les administrateurs veulent savoir si un utilisateur ou un appareil sera membre du groupe. Cela permet d’évaluer si un utilisateur ou un appareil répond aux critères de la règle et facilite la résolution des problèmes quand l’appartenance n’est pas attendue.
 
 Pour plus d’informations, consultez [Valider une règle d’appartenance à un groupe dynamique (préversion)](../enterprise-users/groups-dynamic-rule-validation.md).
 
@@ -397,7 +397,7 @@ Ces nouvelles actions d’amélioration nécessitent l’inscription de vos util
 **Catégorie de service :** B2B  
 **Fonctionnalité de produit :** B2B/B2C
  
-**À partir du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure Active Directory (Azure AD) non managés pour les scénarios de collaboration B2B. Dans cette optique, nous vous encourageons à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](../external-identities/one-time-passcode.md).
+**À partir du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure Active Directory (Azure AD) non managés pour les scénarios de collaboration B2B. Dans cette optique, nous vous encourageons à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](../external-identities/one-time-passcode.md).
 
 ---
 
@@ -1104,7 +1104,7 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Vous pouvez désormais accéder à toutes les fonctionnalités de sécurité Azure AD disponibles à partir du nouvel élément de menu **Sécurité** et de la barre **Rechercher** du portail Azure. En outre, la nouvelle page d’accueil **Sécurité** , appelée **Sécurité - Prise en main** , propose des liens vers notre documentation publique, des conseils de sécurité, ainsi que des guides de déploiement.
+Vous pouvez désormais accéder à toutes les fonctionnalités de sécurité Azure AD disponibles à partir du nouvel élément de menu **Sécurité** et de la barre **Rechercher** du portail Azure. En outre, la nouvelle page d’accueil **Sécurité**, appelée **Sécurité - Prise en main**, propose des liens vers notre documentation publique, des conseils de sécurité, ainsi que des guides de déploiement.
 
 Le nouveau menu **Sécurité** comprend ce qui suit :
 
@@ -1271,7 +1271,7 @@ Si vous êtes un client existant qui a activé le serveur MFA avant le 1er juill
 
 - corrigé d’autres bogues mineurs.
 
-À partir du 1er juillet 2019, Microsoft a cessé d’offrir un serveur MFA pour les nouveaux déploiements. Les nouveaux clients qui exigent une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Pour plus d’informations, consultez [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md).
+À partir du 1er juillet 2019, Microsoft a cessé d’offrir un serveur MFA pour les nouveaux déploiements. Les nouveaux clients qui exigent une authentification multifacteur doivent utiliser le service informatique Azure AD Multi-Factor Authentication. Pour plus d’informations, consultez [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1437,7 +1437,7 @@ Pour en savoir plus sur l’expérience d’informations de sécurité renforcé
 
 2. Accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres pour les fonctionnalités en préversion du volet d’accès**.
 
-3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré** , choisissez **Sélectionné** , puis un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
+3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré**, choisissez **Sélectionné**, puis un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
 
 4. Sous la zone **Users can use preview features for registering and managing security **info**,**(les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité), sélectionnez **None** (Aucun).
 
@@ -1573,7 +1573,7 @@ Pour plus d’informations, voir [Activer les audits de sécurité pour Azure Ac
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Réinitialisation du mot de passe libre-service **Fonctionnalité produit :** Monitoring et création de rapports
 
-Les nouveaux rapports sur l’utilisation et les enseignements des méthodes d’authentification peuvent vous aider à comprendre comment des fonctionnalités telles que Microsoft Azure Multi-Factor Authentication et la réinitialisation du mot de passe en libre-service sont inscrites et utilisées dans votre organisation, en indiquant notamment le nombre d’utilisateurs inscrits pour chaque fonctionnalité, la fréquence de réinitialisation du mot de passe en libre-service et la méthode utilisée pour la réinitialisation.
+Les nouveaux rapports sur l’utilisation et les enseignements des méthodes d’authentification peuvent vous aider à comprendre comment des fonctionnalités telles qu’Azure AD Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service sont inscrites et utilisées dans votre organisation, en indiquant notamment le nombre d’utilisateurs inscrits à chaque fonctionnalité, la fréquence de réinitialisation du mot de passe en libre-service et la méthode utilisée pour la réinitialisation.
 
 Pour plus d’informations, voir [Utilisation et enseignements des méthodes d’authentification (préversion)](../authentication/howto-authentication-methods-usage-insights.md).
 
@@ -1583,7 +1583,7 @@ Pour plus d’informations, voir [Utilisation et enseignements des méthodes d�
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Tous les administrateurs Azure AD peuvent désormais sélectionner la bannière en haut des rapports de sécurité existants, tels que le rapport **Utilisateurs avec indicateur de risque** , pour commencer à utiliser la nouvelle expérience de sécurité, comme indiqué dans les rapports **Utilisateurs à risque** et **Connexions à risque**. Au fil du temps, tous les rapports de sécurité seront migrés des anciennes versions vers les nouvelles versions, les nouveaux rapports offrant les fonctionnalités supplémentaires suivantes :
+Tous les administrateurs Azure AD peuvent désormais sélectionner la bannière en haut des rapports de sécurité existants, tels que le rapport **Utilisateurs avec indicateur de risque**, pour commencer à utiliser la nouvelle expérience de sécurité, comme indiqué dans les rapports **Utilisateurs à risque** et **Connexions à risque**. Au fil du temps, tous les rapports de sécurité seront migrés des anciennes versions vers les nouvelles versions, les nouveaux rapports offrant les fonctionnalités supplémentaires suivantes :
 
 - Filtrage et tri avancés
 
@@ -1747,9 +1747,9 @@ Pour plus d’informations sur la configuration de la marque de votre société,
 
 **Type :** Déprécié **Catégorie de service :** MFA **Fonctionnalité produit :** Protection et sécurité des identités
 
-À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent une authentification multifacteur dans leur organisation doivent utiliser la fonction Microsoft Azure Multi-Factor Authentication basée sur le cloud. Les clients ayant activé le serveur MFA avant le 1er juillet ne verront aucune modification. Vous serez toujours en mesure de télécharger la version la plus récente, d’obtenir les mises à jour ultérieures et de générer des informations d’identification d’activation.
+À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent une authentification multifacteur dans leur organisation doivent utiliser le service informatique Azure AD Multi-Factor Authentication. Les clients ayant activé le serveur MFA avant le 1er juillet ne verront aucune modification. Vous serez toujours en mesure de télécharger la version la plus récente, d’obtenir les mises à jour ultérieures et de générer des informations d’identification d’activation.
 
-Pour plus d’informations, consultez [Prise en main du serveur Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Pour plus d’informations sur la fonction Azure Multi-Factor Authentication basée sur le cloud, consultez [Planification d’un déploiement Azure multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md).
+Pour plus d’informations, consultez [Prise en main du serveur Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Pour plus d’informations sur le service informatique Azure AD Multi-Factor Authentication, consultez [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1989,7 +1989,7 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 Les nouvelles mises à jour des révisions d’accès Azure AD vous permettent d’effectuer les actions suivantes :
 
-- Modifier la fréquence de vos révisions d’accès et la définir sur une fréquence **semestrielle** , en plus des options existantes de fréquence hebdomadaire, mensuelle, trimestrielle et annuelle.
+- Modifier la fréquence de vos révisions d’accès et la définir sur une fréquence **semestrielle**, en plus des options existantes de fréquence hebdomadaire, mensuelle, trimestrielle et annuelle.
 
 - Sélectionnez plusieurs rôles de ressource Azure et Azure AD lors de la création d’une révision d’accès unique. Dans ce cas, tous les rôles sont configurés avec les mêmes paramètres et tous les réviseurs sont informés en même temps.
 
@@ -2121,11 +2121,11 @@ Cette mise à jour envoie une erreur `invalid_grant` : `AADSTS50196: The server 
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Création de rapports **Fonctionnalité produit :** Monitoring et création de rapports
 
-Nous avons créé une nouvelle page **Journaux d’audit** Azure AD pour aider à améliorer la lisibilité et la manière dont vous recherchez vos informations. Pour afficher la nouvelle page **Journaux d’audit** , sélectionnez **Journaux d’audit** dans la section **Activité** d’Azure AD.
+Nous avons créé une nouvelle page **Journaux d’audit** Azure AD pour aider à améliorer la lisibilité et la manière dont vous recherchez vos informations. Pour afficher la nouvelle page **Journaux d’audit**, sélectionnez **Journaux d’audit** dans la section **Activité** d’Azure AD.
 
 ![Nouvelle page Journaux d’audit, avec exemple d’informations](media/whats-new/audit-logs-page.png)
 
-Pour plus d’informations sur la nouvelle page **Journaux d’audit** , consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
+Pour plus d’informations sur la nouvelle page **Journaux d’audit**, consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
 
 ---
 
@@ -2223,7 +2223,7 @@ En réponse aux commentaires des clients, nous avons amélioré l’expérience 
 
 1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**.
 
-2. Dans l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité – actualiser** , choisissez d’activer les fonctionnalités pour un **Groupe sélectionné d’utilisateurs** ou pour **Tous les utilisateurs**.
+2. Dans l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité – actualiser**, choisissez d’activer les fonctionnalités pour un **Groupe sélectionné d’utilisateurs** ou pour **Tous les utilisateurs**.
 
 Au cours des prochaines semaines, nous supprimerons la possibilité d’activer l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les locataires sur lesquels elle n’est pas encore activée.
 
@@ -2231,7 +2231,7 @@ Au cours des prochaines semaines, nous supprimerons la possibilité d’activer 
 
 1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**.
 
-2. Si l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité** est définie sur **Aucun** , l’option sera supprimée de votre locataire.
+2. Si l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité** est définie sur **Aucun**, l’option sera supprimée de votre locataire.
 
 Que vous ayez précédemment activé l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les utilisateurs ou non, l’ancienne expérience sera désactivée à une date ultérieure. Pour cette raison, nous vous recommandons vivement d’opter pour la nouvelle expérience améliorée dès que possible.
 
@@ -2265,7 +2265,7 @@ Pour plus d’informations sur la sélection de versions spécifiques des élém
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** B2C - Gestion des identités **Fonctionnalité produit :** B2B/B2C
 
-Vous pouvez maintenant configurer la complexité du mot de passe de votre organisation pour les utilisateurs finaux, au lieu d’utiliser votre stratégie de mot de passe Azure AD native. À partir du panneau **Propriétés** de vos flux utilisateur (anciennement, les stratégies intégrées), vous pouvez choisir une complexité du mot de passe entre **Simple** ou **Forte** , ou vous pouvez créer un ensemble **Personnalisé** d’exigences.
+Vous pouvez maintenant configurer la complexité du mot de passe de votre organisation pour les utilisateurs finaux, au lieu d’utiliser votre stratégie de mot de passe Azure AD native. À partir du panneau **Propriétés** de vos flux utilisateur (anciennement, les stratégies intégrées), vous pouvez choisir une complexité du mot de passe entre **Simple** ou **Forte**, ou vous pouvez créer un ensemble **Personnalisé** d’exigences.
 
 Pour plus d’informations sur la configuration de la complexité du mot de passe, consultez [Configurer les exigences de complexité des mots de passe dans Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
 
@@ -2297,11 +2297,11 @@ Pour plus d'informations, consultez [Authentification à l'aide d'un code secret
 
 Nous avons introduit trois nouveaux paramètres de cookies, disponibles pour vos applications publiées via le proxy d’application :
 
-- **Utiliser un cookie HTTPOnly.** Définit l'indicateur **HTTPOnly** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et permet notamment d'éviter de copier ou de modifier les cookies via des scripts côté client. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui** ) pour bénéficier de ces avantages supplémentaires.
+- **Utiliser un cookie HTTPOnly.** Définit l'indicateur **HTTPOnly** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et permet notamment d'éviter de copier ou de modifier les cookies via des scripts côté client. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui**) pour bénéficier de ces avantages supplémentaires.
 
-- **Utiliser un cookie sécurisé.** Définit l'indicateur **Sécurisé** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et veille à ce que les cookies soient uniquement transmis via des canaux sécurisés TLS, tels que HTTPS. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui** ) pour bénéficier de ces avantages supplémentaires.
+- **Utiliser un cookie sécurisé.** Définit l'indicateur **Sécurisé** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et veille à ce que les cookies soient uniquement transmis via des canaux sécurisés TLS, tels que HTTPS. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui**) pour bénéficier de ces avantages supplémentaires.
 
-- **Utiliser un cookie persistant.** Empêche l'expiration des cookies d'accès lorsque le navigateur web est fermé. La durée de vie de ces cookies correspond à la durée de vie du jeton d'accès. Cela étant, les cookies sont réinitialisés une fois le délai d'expiration atteint ou si l’utilisateur supprime manuellement le cookie. Nous vous recommandons de conserver le paramètre par défaut **Non** , et de n'activer le paramètre que pour les applications plus anciennes qui ne partagent pas de cookies entre processus.
+- **Utiliser un cookie persistant.** Empêche l'expiration des cookies d'accès lorsque le navigateur web est fermé. La durée de vie de ces cookies correspond à la durée de vie du jeton d'accès. Cela étant, les cookies sont réinitialisés une fois le délai d'expiration atteint ou si l’utilisateur supprime manuellement le cookie. Nous vous recommandons de conserver le paramètre par défaut **Non**, et de n'activer le paramètre que pour les applications plus anciennes qui ne partagent pas de cookies entre processus.
 
 Pour plus d’informations sur les nouveaux cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
 
@@ -2376,7 +2376,7 @@ Ce correctif empêche donc des mises à jour directes de l’attribut ImmutableI
 
 - **Mise à jour d’ImmutableID à grande échelle pour de nombreux utilisateurs en suivant une approche par étapes**
 
-  Par exemple, vous devez effectuer une migration inter-forêts d’AD DS un peu longue. Solution : Utilisez Azure AD Connect pour **configurer l’ancre source** , puis, lorsque l’utilisateur migre, copiez les valeurs d’ImmutableID existantes d’Azure AD dans l’attribut ms-DS-Consistency-Guid de l’utilisateur d’AD DS local de la nouvelle forêt. Pour plus d’informations, voir [Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](../hybrid/plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
+  Par exemple, vous devez effectuer une migration inter-forêts d’AD DS un peu longue. Solution : Utilisez Azure AD Connect pour **configurer l’ancre source**, puis, lorsque l’utilisateur migre, copiez les valeurs d’ImmutableID existantes d’Azure AD dans l’attribut ms-DS-Consistency-Guid de l’utilisateur d’AD DS local de la nouvelle forêt. Pour plus d’informations, voir [Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](../hybrid/plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 - **Mises à jour d’ImmutableID à grande échelle pour de nombreux utilisateurs en une fois**
 
@@ -2391,7 +2391,7 @@ Ce correctif empêche donc des mises à jour directes de l’attribut ImmutableI
 Nous publions actuellement à la fois des flux de journaux d’audit et de connexion via Azure Monitor. Vous pouvez donc en toute transparence intégrer les fichiers journaux avec vos outils SIEM ou Log Analytics. En réponse à vos commentaires et en vue de l’annonce de la disponibilité générale de cette fonctionnalité, nous apportons les modifications suivantes à notre schéma. Ces modifications de schéma et les mises à jour de documentation connexes se produiront d’ici la première semaine de janvier.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nouveaux champs du schéma d’audit
-Nous ajoutons un nouveau champ **Type d’opération** , pour fournir le type d’opération effectuée sur la ressource. Par exemple, **Ajouter** , **Mettre à jour** ou **Supprimer**.
+Nous ajoutons un nouveau champ **Type d’opération**, pour fournir le type d’opération effectuée sur la ressource. Par exemple, **Ajouter**, **Mettre à jour** ou **Supprimer**.
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Champs modifiés du schéma d’audit
 Les champs suivants font l’objet de modifications dans le schéma d’audit :
@@ -2646,7 +2646,7 @@ Pour plus d’informations, consultez l’article [Qu’est-ce que le portail My
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Création de rapports **Fonctionnalité produit :** Monitoring et création de rapports
 
-Le nouvel onglet **Résolution des problèmes et support** de la page **Connexions** du Portail Azure est destinée à aider les administrateurs et les ingénieurs du support à résoudre les problèmes liés aux connexions Azure AD. Ce nouvel onglet fournit le code d’erreur, le message d’erreur et des recommandations de correction (le cas échéant) pour faciliter la résolution du problème. Si vous ne parvenez pas à résoudre le problème, nous vous indiquons également une nouvelle façon de créer un ticket de support à l’aide de l’expérience **Copier dans le Presse-papiers** , qui remplit les champs **ID de demande** et **Date (UTC)** pour le fichier journal dans votre ticket de support.
+Le nouvel onglet **Résolution des problèmes et support** de la page **Connexions** du Portail Azure est destinée à aider les administrateurs et les ingénieurs du support à résoudre les problèmes liés aux connexions Azure AD. Ce nouvel onglet fournit le code d’erreur, le message d’erreur et des recommandations de correction (le cas échéant) pour faciliter la résolution du problème. Si vous ne parvenez pas à résoudre le problème, nous vous indiquons également une nouvelle façon de créer un ticket de support à l’aide de l’expérience **Copier dans le Presse-papiers**, qui remplit les champs **ID de demande** et **Date (UTC)** pour le fichier journal dans votre ticket de support.
 
 ![Journaux d’activité de connexion présentant le nouvel onglet](media/whats-new/troubleshooting-and-support.png)
 
@@ -3034,10 +3034,10 @@ Si l’une de vos applications utilise des API de journal d’activité Azure AD
 
 **Pour mettre à jour les autorisations de votre application**
 
-1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory** , puis **Inscriptions des applications**.
-2. Sélectionnez l’application qui utilise l’API Journal d’activité Azure AD, sélectionnez **Paramètres** , **Autorisations requises** , puis l’API **Microsoft Azure Active Directory**.
-3. Dans la zone **Autorisations déléguées** du panneau **Activer l’accès** , cochez la case à côté **Lire les données d'annuaire** , puis sélectionnez **Enregistrer**.
-4. Sélectionnez **Accorder des autorisations** , puis **Oui**.
+1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory**, puis **Inscriptions des applications**.
+2. Sélectionnez l’application qui utilise l’API Journal d’activité Azure AD, sélectionnez **Paramètres**, **Autorisations requises**, puis l’API **Microsoft Azure Active Directory**.
+3. Dans la zone **Autorisations déléguées** du panneau **Activer l’accès**, cochez la case à côté **Lire les données d'annuaire**, puis sélectionnez **Enregistrer**.
+4. Sélectionnez **Accorder des autorisations**, puis **Oui**.
 
     >[!Note]
     >Vous devez être un administrateur général pour accorder des autorisations à l’application.
@@ -3061,20 +3061,20 @@ Les navigateurs obsolètes risquent de ne pas prendre en charge les versions les
 - **Microsoft Edge et Internet Explorer (les deux sont configurés à l’aide d’Internet Explorer)**
 
     1. Ouvrez Internet Explorer, sélectionnez **Outils** > **Options Internet** > **Avancé**.
-    2. Dans la zone **Sécurité** , sélectionnez **Utiliser TLS 1.2** , puis sélectionnez **OK**.
+    2. Dans la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
     3. Fermez toutes les fenêtres du navigateur, puis redémarrez Internet Explorer.
 
 - **Google Chrome**
 
     1. Ouvrez Google Chrome, tapez *chrome://settings/* dans la barre d’adresse, puis appuyez sur **Entrée**.
-    2. Développez les options de la section **Avancé** , accédez à la zone **Système** , puis sélectionnez **Ouvrir les paramètres proxy**.
-    3. Dans la boîte de dialogue **Propriétés Internet** , sélectionnez l’onglet **Avancé** , accédez à la zone **Sécurité** , sélectionnez **Utiliser TLS 1.2** , puis sélectionnez **OK**.
+    2. Développez les options de la section **Avancé**, accédez à la zone **Système**, puis sélectionnez **Ouvrir les paramètres proxy**.
+    3. Dans la boîte de dialogue **Propriétés Internet**, sélectionnez l’onglet **Avancé**, accédez à la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
     4. Fermez toutes les fenêtres du navigateur, puis redémarrez Google Chrome.
 
 - **Mozilla Firefox**
 
     1. Ouvrez Firefox, tapez *about:config* dans la barre d’adresses, puis appuyez sur **Entrée**.
-    2. Lancez une recherche sur *TLS* , puis sélectionnez l’entrée **security.tls.version.max**.
+    2. Lancez une recherche sur *TLS*, puis sélectionnez l’entrée **security.tls.version.max**.
     3. Définissez la valeur sur **3** pour forcer le navigateur à utiliser la version TLS 1.2, puis sélectionnez **OK**.
 
         >[!NOTE]
@@ -3132,11 +3132,11 @@ Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisatio
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nouvelles instructions plus complètes sur le déploiement d’Azure Multi-Factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-ad-multi-factor-authentication"></a>Nouvelles instructions plus complètes sur le déploiement d’Azure AD Multi-Factor Authentication
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Autre **Fonctionnalité produit :** Protection et sécurité des identités
 
-Nous avons publié de nouvelles instructions étape par étape sur le déploiement d’Azure Multi-Factor Authentication (MFA) dans une organisation.
+Nous avons publié de nouvelles instructions étape par étape sur le déploiement d’Azure AD Multi-Factor Authentication (MFA) dans une organisation.
 
 Pour consulter le guide de déploiement MFA, accédez au dépôt GitHub [Identity Deployment Guides](./active-directory-deployment-plans.md) (Guides de déploiement des identités). Pour envoyer vos commentaires sur les guides de déploiement, utilisez le [formulaire de commentaires Plan de déploiement](https://aka.ms/deploymentplanfeedback). Si vous avez des questions sur les guides de déploiement, contactez-nous ici : [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -3172,7 +3172,7 @@ Pour plus d’informations sur la préversion publique, consultez le blog [Azure
 
 **Type :** Modification planifiée **Catégorie de service :** Authentifications (connexions) **Fonctionnalité produit :** Plateforme
 
-Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour offrir de meilleures performances en accédant directement à Internet, sans passer par ExpressRoute ni par un autre tunnel VPN privé. Pour cette raison, à compter du **1er août 2018** , nous arrêtons la prise en charge d’ExpressRoute pour les services Azure AD qui utilisent le peering public Azure et les communautés Azure qui utilisent le peering Microsoft. Pour tous les services concernés par cette modification, vous remarquerez le passage progressif du trafic Azure AD d’ExpressRoute à Internet.
+Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour offrir de meilleures performances en accédant directement à Internet, sans passer par ExpressRoute ni par un autre tunnel VPN privé. Pour cette raison, à compter du **1er août 2018**, nous arrêtons la prise en charge d’ExpressRoute pour les services Azure AD qui utilisent le peering public Azure et les communautés Azure qui utilisent le peering Microsoft. Pour tous les services concernés par cette modification, vous remarquerez le passage progressif du trafic Azure AD d’ExpressRoute à Internet.
 
 Même si nous modifions la prise en charge, nous savons qu’il existe toujours des situations où vous devrez peut-être utiliser un ensemble dédié de circuits pour le trafic d’authentification. Pour cette raison, Azure AD continue à prendre en charge les restrictions de plage d’adresses IP par abonné avec ExpressRoute et les services qui utilisent déjà le peering Microsoft avec la communauté « Autres services en ligne Office 365 ». Si vos services sont concernés, mais que vous avez besoin d’ExpressRoute, vous devez procéder comme suit :
 
@@ -3433,7 +3433,7 @@ Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure 
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Autre **Fonctionnalité produit :** Intégration tierce
 
-Si une application qui est listée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant** , vous accédez au tutoriel sur l’intégration qui est associé à cette application.
+Si une application qui est listée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant**, vous accédez au tutoriel sur l’intégration qui est associé à cette application.
 
 ---
 
@@ -3654,9 +3654,9 @@ L’expérience de navigation pour la gestion des utilisateurs et groupes a ét�
 
 Les rapports du journal d’activité Azure AD sont maintenant disponibles dans Microsoft Azure géré par des instances 21Vianet (Azure China 21Vianet). Les journaux d’activité suivants sont inclus :
 
-- **Journaux d’activité des connexions**  : incluent tous les journaux d’activité des connexions associés à votre locataire.
+- **Journaux d’activité des connexions** : incluent tous les journaux d’activité des connexions associés à votre locataire.
 
-- **Journaux d’audit de mot de passe libre-service**  : comprennent tous les journaux d’audit SSPR.
+- **Journaux d’audit de mot de passe libre-service** : comprennent tous les journaux d’audit SSPR.
 
 - **Journaux d’audit de gestion des annuaires** : incluent tous les journaux d’audit liés à la gestion des annuaires, comme la gestion des utilisateurs, la gestion des applications, etc.
 
@@ -3936,7 +3936,7 @@ Procédez comme suit :
 
 2. Dans l’angle supérieur droit, sélectionnez votre nom puis **Profil** dans la liste.
 
-3. Dans votre **profil** , cliquez sur **Vérifier les conditions d’utilisation**.
+3. Dans votre **profil**, cliquez sur **Vérifier les conditions d’utilisation**.
 
 4. Vérifiez les conditions d’utilisation que vous avez acceptées.
 
@@ -4164,15 +4164,15 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ---
 
-### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Extension Network Policy Server pour Microsoft Azure Multi-Factor Authentication
+### <a name="network-policy-server-extension-for-azure-ad-multi-factor-authentication"></a>Extension Network Policy Server pour Azure AD Multi-Factor Authentication
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :**  Authentification multifacteur **Fonctionnalité produit :** Authentification utilisateur
 
-L’extension NPS (Network Policy Server) pour Microsoft Azure Multi-Factor Authentication ajoute des fonctionnalités d’authentification multifacteur à votre infrastructure d’authentification en utilisant vos serveurs. Avec cette extension NPS, vous pouvez ajouter des vérifications par appel téléphonique, SMS ou application téléphonique à votre flux d’authentification. Et ce, sans avoir à installer, configurer et gérer de nouveaux serveurs.
+L’extension NPS (Network Policy Server) pour Azure AD Multi-Factor Authentication ajoute des capacités informatiques Multi-Factor Authentication à votre infrastructure d’authentification en utilisant vos serveurs. Avec cette extension NPS, vous pouvez ajouter des vérifications par appel téléphonique, SMS ou application téléphonique à votre flux d’authentification. Et ce, sans avoir à installer, configurer et gérer de nouveaux serveurs.
 
-Cette extension a été créée pour les organisations qui souhaitent protéger des connexions VPN sans déployer le serveur Microsoft Azure Multi-Factor Authentication. L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA sur le cloud pour fournir un second facteur d’authentification aux utilisateurs fédérés ou synchronisés.
+Cette extension a été créée pour les organisations qui souhaitent protéger des connexions VPN sans déployer le serveur Microsoft Azure Multi-Factor Authentication. L’extension NPS joue le rôle d’adaptateur entre RADIUS et le service informatique Azure AD Multi-Factor Authentication pour fournir un second facteur d’authentification aux utilisateurs fédérés ou synchronisés.
 
-Pour plus d’informations, consultez [Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
+Pour plus d’informations, consultez [Intégrer votre infrastructure Network Policy Server à Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
 ---
 
@@ -4189,7 +4189,7 @@ Dans le centre d’administration Azure AD, vous pouvez désormais :
 
 1. Dans le centre d’administration Azure AD, sélectionnez [Tous les utilisateurs](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) dans la section **Gérer**.
 
-2. Dans la liste **Afficher** , sélectionnez **Utilisateurs supprimés récemment**.
+2. Dans la liste **Afficher**, sélectionnez **Utilisateurs supprimés récemment**.
 
 3. Sélectionnez un ou plusieurs utilisateurs supprimés récemment, puis restaurez-les ou supprimez-les définitivement.
 
@@ -4250,7 +4250,7 @@ En raison de ces nouvelles fonctionnalités, les API de rapport sous le point de
 
 **Type :** Corrigé **Catégorie de service :** Mes applications **Fonctionnalité produit :** Authentification unique
 
-Azure Active Directory prend en charge la détection automatique des champs de connexion pour les applications qui affichent un champ de nom d’utilisateur et un champ de mot de passe HTML. Ces étapes sont documentées sous [Comment capturer automatiquement les champs de connexion d’une application](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Vous pouvez rechercher cette fonctionnalité en ajoutant une application *ne provenant pas de la galerie* sur la page **Applications d’entreprise** du [portail Azure](https://aad.portal.azure.com). En outre dans cette nouvelle application, vous pouvez configurer le mode **Authentification unique** sur **Authentification unique avec mot de passe** , entrer une URL web, puis enregistrer la page.
+Azure Active Directory prend en charge la détection automatique des champs de connexion pour les applications qui affichent un champ de nom d’utilisateur et un champ de mot de passe HTML. Ces étapes sont documentées sous [Comment capturer automatiquement les champs de connexion d’une application](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Vous pouvez rechercher cette fonctionnalité en ajoutant une application *ne provenant pas de la galerie* sur la page **Applications d’entreprise** du [portail Azure](https://aad.portal.azure.com). En outre dans cette nouvelle application, vous pouvez configurer le mode **Authentification unique** sur **Authentification unique avec mot de passe**, entrer une URL web, puis enregistrer la page.
 
 En raison d’un problème de service, cette fonctionnalité a été temporairement désactivée. Le problème a été résolu et la détection automatique des champs de connexion est à nouveau disponible.
 

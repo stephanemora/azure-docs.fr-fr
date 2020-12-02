@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362465"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738140"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -66,7 +66,7 @@ Vous pouvez également lire les [scénarios courants](entitlement-management-sce
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>Que sont les packages d’accès et quelles ressources gérer avec eux ?
 
-La gestion des droits d’utilisation introduit sur Azure AD le concept de *package d’accès* . Un package d’accès regroupe toutes les ressources avec l’accès dont un utilisateur a besoin pour travailler sur un projet ou accomplir sa tâche. Les packages d'accès régissent l'accès de vos employés internes et des utilisateurs extérieurs à votre organisation.
+La gestion des droits d’utilisation introduit sur Azure AD le concept de *package d’accès*. Un package d’accès regroupe toutes les ressources avec l’accès dont un utilisateur a besoin pour travailler sur un projet ou accomplir sa tâche. Les packages d'accès régissent l'accès de vos employés internes et des utilisateurs extérieurs à votre organisation.
 
  La gestion des droits d’utilisation vous permet de gérer l’accès utilisateur aux types de ressources ci-dessous :
 
@@ -85,7 +85,7 @@ Vous pouvez également contrôler l’accès à d’autres ressources qui s’ap
 
 Avec un package d’accès, un administrateur ou un gestionnaire délégué de package d’accès liste les ressources (groupes, applications et sites) et les rôles dont les utilisateurs ont besoin pour ces ressources.
 
-Les packages d’accès incluent également une ou plusieurs *stratégies* . Une stratégie définit les règles ou barrières mises en place pour l’affectation d’un package d’accès. Chaque stratégie peut être utilisée pour s’assurer que seuls les utilisateurs appropriés sont en mesure de demander l’accès, qu’il existe des approbateurs pour leur requête, et que leur accès à ces ressources est limité dans le temps et qu’il expirera s’il n’est pas renouvelé.
+Les packages d’accès incluent également une ou plusieurs *stratégies*. Une stratégie définit les règles ou barrières mises en place pour l’affectation d’un package d’accès. Chaque stratégie peut être utilisée pour s’assurer que seuls les utilisateurs appropriés sont en mesure de demander l’accès, qu’il existe des approbateurs pour leur requête, et que leur accès à ces ressources est limité dans le temps et qu’il expirera s’il n’est pas renouvelé.
 
 ![Package d’accès et stratégies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Les packages d’accès ne remplacent pas d’autres mécanismes d’affectation
 
 ## <a name="how-do-i-delegate-access"></a>Comment déléguer l’accès ?
 
- Les packages d’accès sont définis dans des conteneurs appelés *catalogues* .  Vous pouvez disposer d’un seul catalogue pour tous vos packages d’accès, ou vous pouvez désigner des personnes pour créer et posséder leurs propres catalogues. Un administrateur peut ajouter des ressources à n’importe quel catalogue, mais un non-administrateur ne peut ajouter à un catalogue que les ressources dont il est propriétaire. Un propriétaire de catalogue peut ajouter d’autres utilisateurs en tant que copropriétaires de catalogue, ou en tant que gestionnaires de package d’accès.  Ces scénarios sont décrits plus en détail dans l’article [Délégation et rôles dans la gestion des droits d’utilisation Azure AD](entitlement-management-delegate.md).
+ Les packages d’accès sont définis dans des conteneurs appelés *catalogues*.  Vous pouvez disposer d’un seul catalogue pour tous vos packages d’accès, ou vous pouvez désigner des personnes pour créer et posséder leurs propres catalogues. Un administrateur peut ajouter des ressources à n’importe quel catalogue, mais un non-administrateur ne peut ajouter à un catalogue que les ressources dont il est propriétaire. Un propriétaire de catalogue peut ajouter d’autres utilisateurs en tant que copropriétaires de catalogue, ou en tant que gestionnaires de package d’accès.  Ces scénarios sont décrits plus en détail dans l’article [Délégation et rôles dans la gestion des droits d’utilisation Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Abrégé de terminologie
 
@@ -144,17 +144,22 @@ Les clouds spécialisés, tels qu’Azure Allemagne et Azure Chine - 21Vianet, 
 Vérifiez que votre annuaire comporte au moins autant de licences Azure AD Premium P2 que vous avez de :
 
 - Utilisateurs membres qui **peuvent** demander un package d’accès.
-- Utilisateurs membres et invités qui demandent un package d’accès.
-- Utilisateurs membres et invités qui approuvent les demandes de package d’accès.
-- Utilisateurs membres et invités qui ont une affectation directe à un package d’accès.
+- Utilisateurs membres qui <u>demandent</u> un package d’accès.
+- Utilisateurs membres qui <u>approuvent les demandes</u> de package d’accès.
+- Utilisateurs membres qui <u>passent en revue les affectations</u> pour un package d’accès. 
+- Utilisateurs membres qui ont une <u>affectation directe</u> à un package d’accès.
+
+Pour les utilisateurs invités, les besoins en licences dépendent du [modèle de licence](../external-identities/external-identities-pricing.md) que vous utilisez. Toutefois, les activités des utilisateurs invités ci-dessous sont considérées comme une utilisation d’Azure AD Premium P2 :
+- Utilisateurs invités qui <u>demandent</u> un package d’accès. 
+- Utilisateurs invités qui <u>approuvent les demandes</u> de package d’accès.
+- Utilisateurs invités qui <u>passent en revue les affectations</u> pour un package d’accès.
+- Utilisateurs invités qui ont une <u>affectation directe</u> à un package d’accès. 
 
 Les licences Azure AD Premium P2 ne sont **pas** nécessaires pour les tâches suivantes :
 
 - Aucune licence n’est requise pour les utilisateurs ayant le rôle d’administrateur général qui configurent les catalogues initiaux, les packages d’accès et les stratégies et délèguent des tâches d’administration à d’autres utilisateurs.
 - Aucune licence n’est requise pour les utilisateurs auxquels ont été délégués des tâches administratives, telles que le créateur du catalogue, le propriétaire du catalogue et le gestionnaire de package d’accès.
 - Aucune licence n’est requise pour les invités qui **peuvent** demander des packages d’accès, mais ne demandent **pas** de package d’accès.
-
-Les tarifs des identités externes Azure AD (utilisateur invité) sont basés sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle remplace le modèle de facturation selon le rapport 1:5, qui autorise jusqu’à cinq utilisateurs invités pour chaque licence de Azure AD Premium disponible dans votre locataire. Lorsque votre locataire est lié à un abonnement et que vous utilisez des fonctionnalités d’identités externes pour collaborer avec des utilisateurs invités, vous êtes automatiquement facturé à l’aide du modèle basé MAU. Pour plus d’informations, consultez [Modèle de facturation pour les identités externes Azure AD](../external-identities/external-identities-pricing.md).
 
 Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 

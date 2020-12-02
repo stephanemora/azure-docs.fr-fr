@@ -4,15 +4,15 @@ description: La base de référence de sécurité Azure Front Door fournit des i
 author: msmbaldwin
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2b5995478d1c9e65916f76c70c8af374ce82ca54
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6d6a392d25aa96ab9b4dbb7763b37c1021db71aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94631314"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026282"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Base de référence de sécurité Azure pour Azure Front Door Service
 
@@ -23,22 +23,6 @@ Pour voir comment Azure Front Door est entièrement mappé au Benchmark de sécu
 ## <a name="network-security"></a>Sécurité réseau
 
 *Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security).*
-
-### <a name="ns-2-connect-private-networks-together"></a>NS-2 : Interconnecter des réseaux privés
-
-**Conseils** : Non applicable ; Azure Front Door n’est pas conçu pour être déployée ou sécurisée sur un réseau privé, ce contrôle est destiné à décrire la connectivité réseau et ne s’applique pas.
-
-**Supervision d’Azure Security Center** : Non applicable
-
-**Responsabilité** : Non défini. Fournissez une valeur dans l’élément de travail.
-
-### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3 : Établir un accès réseau privé aux services Azure
-
-**Conseils** : Non applicable ; Azure Front Door n’est pas conçu pour être déployé dans ou sécurisé par un réseau virtuel dans le cadre de l’accès au réseau privé.
-
-**Supervision d’Azure Security Center** : Non applicable
-
-**Responsabilité** : Non défini. Fournissez une valeur dans l’élément de travail.
 
 ### <a name="ns-4-protect-applications-and-services-from-external-network-attacks"></a>NS-4 : Protégez les applications et les services contre les attaques réseau externes
 
@@ -52,7 +36,7 @@ Pour voir comment Azure Front Door est entièrement mappé au Benchmark de sécu
 
 ### <a name="ns-6-simplify-network-security-rules"></a>NS-6 : Simplifier les règles de sécurité réseau
 
-**Conseils** : Utilisez des balises de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau configurés pour vos ressources de l’offre Azure Front Door. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom de l’étiquette de service ( AzureFrontDoor.Frontend, AzureFrontDoor.Backend, AzureFrontDoor.FirstParty) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. 
+**Conseils** : Utilisez des balises de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau configurés pour vos ressources de l’offre Azure Front Door. Les étiquettes de service peuvent être utilisées à la place d’adresses IP spécifiques pendant la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (AzureFrontDoor.Frontend, AzureFrontDoor.Backend, AzureFrontDoor.FirstParty) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. 
 
 Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
@@ -134,19 +118,21 @@ Utilisez des rôles intégrés pour allouer les autorisations et créez des rôl
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4 : Chiffrement des informations sensibles en transit
 
-**Conseils** : Utilisez le chiffrement pour protéger le trafic sur les réseaux externes et publics, car cette technologie est essentielle pour la protection des données. De plus :
+**Conseils** : En complément des contrôles d’accès, les données en transit doivent être protégées contre les attaques « hors bande » (par exemple, la capture de trafic) à l’aide du chiffrement pour empêcher les attaquants de lire ou modifier facilement les données.
 
-- Utilisez des contrôles d’accès,
+Front Door prend en charge les versions TLS 1.0, 1.1 et 1.2. TLS 1.3 n’est pas encore pris en charge. Tous les profils Front Door créés après septembre 2019 utilisent TLS 1.2 comme configuration minimale par défaut.
 
-- protégez les données en transit contre les attaques « hors bande » (telles que la capture de trafic) à l’aide du chiffrement pour empêcher les attaquants de lire ou de modifier facilement les données.
-- Vérifiez que les clients se connectant à vos ressources Azure pour le trafic HTTP peuvent négocier TLS v1.2 ou une version ultérieure.
-- Utilisez SSH (pour Linux) ou RDP/TLS (pour Windows) pour la gestion à distance plutôt qu’un protocole non chiffré.
+C’est certes facultatif pour le trafic sur les réseaux privés, mais essentiel pour le trafic sur les réseaux externes et publics. Pour le trafic HTTP, vérifiez que les clients se connectant à vos ressources Azure peuvent négocier TLS v1.2 ou une version ultérieure. Pour la gestion à distance, utilisez SSH (pour Linux) ou RDP/TLS (pour Windows) plutôt qu’un protocole non chiffré. Les versions et protocoles SSL, TLS et SSH rendus obsolètes et les chiffrements faibles doivent être désactivés.
 
-- Désactivez les versions SSL, TLS et SSH rendues obsolètes, les protocoles et les chiffrements faibles
-
-Par défaut, Azure assure le chiffrement des données en transit pour les échanges de données entre les centres de données Azure. 
+Par défaut, Azure assure le chiffrement des données en transit entre les centres de données Azure.
 
 - [Didacticiel - Guide pratique de configuration HTTPS sur un domaine personnalisé Front Door](front-door-custom-domain-https.md)
+
+- [Présentation du chiffrement en transit avec Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
+
+- [Informations sur la sécurité TLS](/security/engineering/solving-tls1-problem) 
+
+- [Double chiffrement pour les données Azure en transit](../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -164,7 +150,7 @@ Selon la façon dont les responsabilités de l’équipe de sécurité sont stru
 
 Les autorisations de lecteur de sécurité peuvent être appliquées globalement à un locataire entier (groupe d’administration racine) ou étendues à des groupes d’administration ou à des abonnements spécifiques. 
 
-Remarque : des autorisations supplémentaires peuvent être nécessaires pour plus de visibilité sur les charges de travail et services. 
+Remarque : ces autorisations supplémentaires peuvent être nécessaires pour la visibilité des charges de travail et services. 
 
 - [Vue d’ensemble du rôle lecteur de sécurité](../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -206,7 +192,7 @@ Utilisez Azure Monitor pour créer des règles afin de déclencher des alertes l
 
 ### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4 : Garantir la sécurité de la gestion du cycle de vie des actifs
 
-**Conseils** : Non applicable ; Azure Front Door ne peut pas être utilisée pour garantir la sécurité des ressources dans un processus de gestion du cycle de vie. Il incombe au client de gérer les attributs et les configurations réseau des ressources considérées comme ayant un impact élevé. 
+**Conseils** : Il incombe au client de gérer les attributs et les configurations réseau des ressources Azure Front Door considérées comme ayant un impact élevé.
 
 Il est recommandé que le client crée un processus pour capturer les modifications des attributs et de la configuration du réseau, mesurer l’impact des modifications et créer des tâches de correction, le cas échéant.
 
@@ -216,7 +202,7 @@ Il est recommandé que le client crée un processus pour capturer les modificati
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3 : Activer la journalisation pour les activités réseau Azure
 
@@ -234,7 +220,7 @@ Azure Front Door consigne tout le trafic réseau qu’il traite pour l’accès 
 
 **Conseils** : Les journaux d’activité, disponibles automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources Azure Front Door, à l’exception des opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
-Activez les journaux des ressources Azure pour Azure Front Door. Vous pouvez utiliser Azure Security Center et Azure Policy pour activer la collecte des journaux de ressources et des données de journaux. Ces journaux peuvent être essentiels pour l’examen ultérieur des incidents de sécurité et l’exécution d’exercices légaux.
+Activez les journaux des ressources Azure pour Azure Front Door. Vous pouvez utiliser Azure Security Center et Azure Policy pour activer la collecte des journaux de ressources et des données de journaux. Ces journaux peuvent être essentiels pour l’examen ultérieur des incidents de sécurité et des investigations légales.
 
 - [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
@@ -352,7 +338,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3 : Établir des configurations sécurisées pour des ressources de calcul
 
@@ -423,7 +409,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -451,7 +437,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -493,7 +479,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -519,9 +505,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -553,9 +539,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les liens référencés.
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

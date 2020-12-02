@@ -3,18 +3,18 @@ title: Migrer une ressource Azure Monitor Application Insights classique vers un
 description: En savoir plus sur les étapes requises pour mettre à niveau votre Azure Monitor Application Insights ressource classique vers le nouveau modèle basé sur l’espace de travail.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930575"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536521"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
 Ce guide va vous guider tout au long du processus de migration d’une ressource de Application Insights classique vers une ressource basée sur un espace de travail. Les ressources basées sur un espace de travail prennent en charge l’intégration complète entre Application Insights et Log Analytics. Les ressources basées sur l’espace de travail envoient Application Insights télémétrie à un espace de travail Log Analytics commun, ce qui vous permet d’accéder aux [fonctionnalités les plus récentes de Azure Monitor](#new-capabilities) tout en conservant les journaux des applications, des infrastructures et des plateformes dans un emplacement consolidé unique.
 
-Les ressources basées sur l’espace de travail activent un contrôle d’accès en fonction du rôle (RBAC) commun sur vos ressources, et éliminent le besoin de requêtes inter-applications/espace de travail.
+Les ressources basées sur l’espace de travail activent le contrôle d’accès en fonction du rôle Azure (Azure RBAC) commun sur vos ressources, et éliminent le besoin de requêtes inter-applications/espace de travail.
 
 **Les ressources basées sur l’espace de travail sont actuellement disponibles dans toutes les régions commerciales et Azure US Government**
 

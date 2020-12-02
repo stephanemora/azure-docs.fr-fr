@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358325"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996591"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : Présentation technique approfondie
 Cet article propose une vue d’ensemble du fonctionnement de l’authentification directe Azure Active directory (Azure AD). Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez l’article [Présentation approfondie des fonctions de sécurité](how-to-connect-pta-security-deep-dive.md).
@@ -43,7 +43,7 @@ Quand un utilisateur tente de se connecter à une application sécurisée par Az
 8. L’agent valide le nom d’utilisateur et le mot de passe par rapport à votre annuaire Active Directory à l’aide des API Windows standard, un mécanisme similaire à celui utilisé par les services de fédération Active Directory (AD FS). Le nom d’utilisateur peut être soit le nom d’utilisateur sur site par défaut, généralement `userPrincipalName`, soit un autre attribut (appelé `Alternate ID`) configuré dans Azure AD Connect.
 9. Le contrôleur de domaine Active Directory sur site évalue la demande et retourne la réponse appropriée (succès, échec, mot de passe expiré ou utilisateur verrouillé) à l’agent.
 10. L’agent d’authentification retourne à son tour cette réponse à Azure AD.
-11. Azure AD évalue la réponse et répond à l’utilisateur comme il convient. Par exemple, Azure AD connecte immédiatement l'utilisateur ou demande une authentification multifacteur Azure.
+11. Azure AD évalue la réponse et répond à l’utilisateur comme il convient. Par exemple, Azure AD connecte immédiatement l’utilisateur ou demande une authentification Azure AD Multi-Factor Authentication.
 12. Si l’utilisateur parvient à se connecter, il peut accéder à l’application.
 
 Le schéma suivant illustre tous les composants et les étapes impliquées dans ce processus :

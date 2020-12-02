@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ea55762aa40360d8eea94223a030f08aad504206
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516813"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95485390"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutoriel : Créer une application de conversation sur un serveur Blazor Server
 
@@ -39,7 +39,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    
    Dans Visual Studio, choisissez Créer un projet -> Application Blazor -> (nommez l’application, puis choisissez un dossier) -> Application Blazor Server. Vérifiez que vous avez déjà installé le SDK .NET Core 3.0+ pour permettre à Visual Studio de reconnaître correctement le framework cible.
 
-   [ ![blazor-chat-create](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
+   [ ![Dans Créer un projet, les modèles Application Blazor sont sélectionnés.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
    
    Ou exécutez cmd
    ```dotnetcli
@@ -355,7 +355,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
 
 1. Cliquez sur <kbd>F5</kbd> pour exécuter l’application. Vous pouvez discuter comme indiqué ci-dessous.
 
-   [ ![blazor-chat](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   [ ![Une conversation animée entre Bob et Alice s’affiche. Alice dit Bonjour, Bob dit Salut.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
    
 [Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsblazor)
 
@@ -375,13 +375,13 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    * Cible spécifique : Tous les types de service **Azure App Service** sont pris en charge.
    * App Service : créez un service d’application ou sélectionnez-en un existant.
 
-   [ ![blazor-chat-profile](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [ ![L’animation montre la sélection d’Azure comme cible, puis d’Azure App Service en tant que cible spécifique.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Ajouter une dépendance du service Azure SignalR
 
    Une fois le profil de publication créé, vous pouvez voir un message recommandé sous **Dépendances de service**. Cliquez sur **Configurer** pour créer un service Azure SignalR ou en sélectionner un existant dans le volet.
 
-   [ ![blazor-chat-dependency](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
+   [ ![Dans Publier, le lien vers Configurer est mis en surbrillance.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
 
    La dépendance de service effectue les opérations mentionnées ci-dessous pour permettre à votre application de basculer automatiquement vers Azure SignalR Service quand vous êtes sur vous êtes sur Azure.
 
@@ -391,7 +391,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    * C’est vous qui choisissez de configurer, ou non, le magasin de secrets.
    * Ajoutez la configuration `appsettings` pour que votre application cible le service Azure SignalR Service sélectionné.
 
-   [ ![blazor-chat-dependency-summary](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
+   [ ![Dans Résumé des modifications, les cases à cocher permettent de sélectionner toutes les dépendances.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
 
 1. Publier l’application
 
@@ -400,7 +400,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    > Il est possible qu’elle ne fonctionne pas immédiatement lors de la première visite de page en raison du temps de latence au démarrage du déploiement d’Azure App Service. Essayez d’actualiser la page de temps à autre.
    > Par ailleurs, vous pouvez utiliser le mode de débogueur de navigateur avec <kbd>F12</kbd> pour valider que le trafic a déjà été redirigé vers Azure SignalR Service.
 
-   [ ![blazor-chat-azure](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   [ ![L’exemple de conversation Blazor SignalR est associé à une zone de texte pour votre nom et à un bouton Chat! (Conversation !) pour démarrer une conversation.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
    
 [Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsblazor)
 

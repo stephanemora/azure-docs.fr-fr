@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900417"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutoriel : Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
 Cet article explique comment utiliser Apache Spark [MLlib](https://spark.apache.org/mllib/) pour créer une application d’apprentissage automatique qui effectue une analyse prédictive simple sur un jeu de données ouvert Azure. Spark fournit des bibliothèques d’apprentissage automatique intégrées. Cet exemple utilise un *classification* par régression logistique.
 
-MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires pour l’exécution de tâches d’apprentissage automatique. Certains de ces utilitaires conviennent pour les tâches suivantes :
+SparkML et MLlib sont des bibliothèques principales Spark qui fournissent de nombreux utilitaires pour l’exécution de tâches de machine learning. Certains de ces utilitaires conviennent pour les tâches suivantes :
 
 - classification ;
 - régression ;
@@ -31,7 +31,7 @@ MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprendre la classification et la régression logistique
 
-Une *classification* , tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
+Une *classification*, tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
 
 Une *régression logistique* est un algorithme que vous utilisez pour effectuer une classification. L’API de régression logistique de Spark est utile pour la *classification binaire* ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
@@ -46,7 +46,7 @@ Dans cet exemple, vous utilisez Spark pour effectuer une analyse prédictive sur
 
 Dans les étapes suivantes, vous allez développer un modèle pour prédire si un voyage particulier inclut ou non un pourboire.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Créer une application de Machine Learning Apache Spark MLlib
+## <a name="create-an-apache-spark--machine-learning-model"></a>Créer un modèle de machine learning Apache Spark
 
 1. Créez un bloc-notes à l’aide du noyau PySpark. Pour obtenir des instructions, consultez [Créer un bloc-notes](../quickstart-apache-spark-notebook.md#create-a-notebook).
 2. Importez les types requis pour cette application. Copiez et collez le code suivant dans une cellule vide, puis appuyez sur **Maj + Entrée** ou exécutez la cellule en utilisant l’icône de lecture bleue à gauche du code.
@@ -110,44 +110,6 @@ La création d’une table ou d’un affichage temporaires fournit différents c
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
 
-## <a name="understand-the-data"></a>Comprendre les données
-
-En règle générale, à ce stade, vous devez passer par une phase d’ *analyse exploratoire des données* afin d’acquérir une compréhension de celles-ci. Le code suivant montre trois visualisations différentes des données relatives aux pourboires, qui conduisent à des conclusions quant à l’état et la qualité de celles-ci.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![Histogramme](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![Boîte à moustaches](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![Nuage de points](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
-
 ## <a name="prepare-the-data"></a>Préparer les données
 
 Les données dans leur forme brute sont souvent inappropriées pour passer directement à un modèle. Une série d’actions sur les données sont nécessaires afin de les rendre utilisables pour le modèle.
@@ -193,7 +155,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Créer un modèle de régression logistique
 
-La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-caractéristique* , où le *vecteur caractéristique* est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir les colonnes catégoriques en nombres. Les colonnes `trafficTimeBins` et `weekdayString` doivent être converties en représentations sous forme d’entiers. Il existe plusieurs approches de la conversion. Celle adoptée dans cet exemple est l’approche courante *OneHotEncoding*.
+La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-caractéristique*, où le *vecteur caractéristique* est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir les colonnes catégoriques en nombres. Les colonnes `trafficTimeBins` et `weekdayString` doivent être converties en représentations sous forme d’entiers. Il existe plusieurs approches de la conversion. Celle adoptée dans cet exemple est l’approche courante *OneHotEncoding*.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![Courbe ROC pour le modèle de régression logistique pourboires](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "Courbe ROC pour le modèle de régression logistique pourboires")
+![Courbe ROC pour le modèle de régression logistique pourboires](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Arrêter l’instance Spark
 
@@ -289,4 +251,4 @@ Une fois que vous avez exécuté l’application, arrêtez le bloc-notes pour li
 - [Documentation officielle Apache Spark](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
-> Une partie de la documentation Apache Spark officielle repose sur l’utilisation de la console Spark qui n’est pas disponible sur Azure Synapse Spark. Utilisez les interfaces [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) à la place.
+> Une partie de la documentation Apache Spark officielle repose sur l’utilisation de la console Spark qui n’est pas disponible sur Azure Synapse Spark. Utilisez à la place les expériences [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

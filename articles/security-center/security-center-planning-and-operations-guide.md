@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787905"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965117"
 ---
 # <a name="planning-and-operations-guide"></a>Guide Planification et opérations
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -71,12 +71,12 @@ Le Centre de sécurité permet à ces personnes d’assumer ces différentes res
 
 Security Center utilise le [contrôle d’accès en fonction du rôle d’Azure (RBAC)](../role-based-access-control/role-assignments-portal.md), qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure. Lorsqu’un utilisateur ouvre le Centre de sécurité, il voit uniquement les informations relatives aux ressources auxquelles il a accès. Autrement dit, l’utilisateur se voit attribuer le rôle de propriétaire, collaborateur ou lecteur, pour l’abonnement ou le groupe de ressources auquel appartiennent les ressources. Outre ces rôles, il existe deux rôles propres à Security Center :
 
-- **Lecteur de sécurité**  : un utilisateur qui appartient à ce rôle est en mesure d’afficher uniquement les configurations de Security Center, ce qui inclut les recommandations, les alertes, la stratégie et l’intégrité, mais il ne peut pas apporter de modifications.
-- **Administrateur de la sécurité**  : il a les mêmes droits que le lecteur de sécurité, mais il peut également mettre à jour la stratégie de sécurité, et rejeter des alertes et des recommandations.
+- **Lecteur de sécurité** : un utilisateur qui appartient à ce rôle est en mesure d’afficher uniquement les configurations de Security Center, ce qui inclut les recommandations, les alertes, la stratégie et l’intégrité, mais il ne peut pas apporter de modifications.
+- **Administrateur de la sécurité** : il a les mêmes droits que le lecteur de sécurité, mais il peut également mettre à jour la stratégie de sécurité, et rejeter des alertes et des recommandations.
 
 Les rôles de Security Center décrits ci-dessus n’ont pas accès à d’autres zones de service d’Azure (par exemple, stockage, web et mobile, ou Internet des objets).
 
-En considérant les personnes décrites dans le diagramme précédent, voici le RBAC qui serait nécessaire :
+En considérant les personnes décrites dans le diagramme précédent, voici le RBAC Azure qui serait nécessaire :
 
 **Jeff (propriétaire de la charge de travail)**
 
@@ -106,7 +106,7 @@ Autres informations importantes à prendre en compte :
 * Seuls les collaborateurs/propriétaires d’abonnement et les administrateurs de sécurité peuvent modifier une stratégie de sécurité.
 * Seuls les propriétaires et collaborateurs d’abonnement et de groupe de ressources peuvent appliquer les recommandations de sécurité pour une ressource.
 
-Lorsque vous planifiez le contrôle d’accès à l’aide de RBAC dans le Centre de sécurité, veillez à identifier qui dans votre entreprise utilisera le Centre de sécurité, ainsi que les types de tâches qu’ils effectueront, puis configurez RBAC en conséquence.
+Lorsque vous planifiez le contrôle d’accès à l’aide de RBAC Azure dans le Centre de sécurité, veillez à identifier qui dans votre entreprise utilisera le Centre de sécurité, ainsi que les types de tâches qu’ils effectueront, puis configurez RBAC Azure en conséquence.
 
 > [!NOTE]
 > Nous vous recommandons d’attribuer le rôle le moins permissif permettant aux utilisateurs d’effectuer leurs tâches. Par exemple, les utilisateurs qui n’ont besoin que de consulter des informations sur l’état de sécurité des ressources sans effectuer aucune action, telles que l’application des recommandations ou la modification des stratégies, doivent recevoir le rôle de lecteur.
@@ -207,9 +207,9 @@ Même si cet article ne vise pas à vous aider à créer votre propre plan de r�
 
 Vous pouvez utiliser les alertes du Centre de sécurité lors des étapes suivantes :
 
-* **Détecter** : identifier une activité suspecte dans une ou plusieurs ressources.
-* **Évaluer** : procéder à l’évaluation initiale pour obtenir plus d’informations sur l’activité suspecte.
-* **Diagnostiquer** : suivre les étapes techniques de résolution pour remédier au problème.
+* **Détecter**: identifier une activité suspecte dans une ou plusieurs ressources.
+* **Évaluer**: procéder à l’évaluation initiale pour obtenir plus d’informations sur l’activité suspecte.
+* **Diagnostiquer**: suivre les étapes techniques de résolution pour remédier au problème.
 
 Chaque alerte de sécurité fournit des informations permettant de mieux comprendre la nature de l’attaque et propose des solutions possibles. Certaines alertes fournissent également des liens vers des informations plus détaillées ou d’autres sources d’information dans Azure. Vous pouvez utiliser les informations fournies pour d’autres recherches et pour commencer l’atténuation. Vous pouvez également rechercher des données relatives à la sécurité qui sont stockées dans votre espace de travail.
 

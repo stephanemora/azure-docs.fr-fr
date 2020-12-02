@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596686"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489692"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -89,7 +89,8 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Les règles d'application échouent dans un hub sécurisé où un DNS personnalisé (préversion) est configuré.|Le DNS personnalisé (préversion) ne fonctionne pas dans les déploiements de hubs sécurisés et les déploiements de réseaux de hubs virtuels où le tunneling forcé est activé.|Correctif en cours d'examen.|
 |Protection DDoS Standard non prise en charge avec les hubs virtuels sécurisés|La protection DDoS Standard n’est pas intégrée aux réseaux WAN virtuels.|Enquête|
 |Journaux d’activité non entièrement pris en charge|La stratégie de pare-feu ne prend pas en charge les journaux d’activité.|Enquête|
-|Configuration de la traduction de l’adresse réseau source des plages d’adresses IP privées|Les [paramètres de plage d’adresses IP privées](../firewall/snat-private-range.md) sont ignorés si la stratégie de pare-feu Azure est configurée. Le comportement par défaut du Pare-feu Azure est utilisé : celui-ci ne traduit pas l’adresse réseau source avec des règles de réseau lorsque l’adresse IP de destination se trouve dans une plage d’adresses IP privées définie par la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Enquête
+|Configuration de la traduction de l’adresse réseau source des plages d’adresses IP privées|Les [paramètres de plage d’adresses IP privées](../firewall/snat-private-range.md) sont ignorés si la stratégie de pare-feu Azure est configurée. Le comportement par défaut du Pare-feu Azure est utilisé : celui-ci ne traduit pas l’adresse réseau source avec des règles de réseau lorsque l’adresse IP de destination se trouve dans une plage d’adresses IP privées définie par la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Enquête|
+|Certains paramètres de pare-feu ne sont pas migrés lorsque le pare-feu est migré pour utiliser la stratégie de pare-feu|Les adresses privées SNAT et zones de disponibilité ne sont pas migrées lorsque vous migrez vers la stratégie de pare-feu Azure.|Enquête| 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

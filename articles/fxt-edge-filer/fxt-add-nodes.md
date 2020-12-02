@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217811"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021875"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutoriel : Ajouter des nœuds de cluster à un cluster Azure FXT Edge Filer
 
@@ -73,7 +73,7 @@ Pour en savoir plus sur les options de cette page, consultez [**Cluster** > **FX
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Cliquer sur le bouton « Allow to Join »
 
-Cliquez sur le bouton **Allow to Join*** dans la colonne **Actions** correspondant au nœud que vous souhaitez ajouter.
+Cliquez sur le bouton **Allow to Join** _ (Autoriser à joindre) dans la colonne _ *Actions** correspondant au nœud que vous souhaitez ajouter.
 
 Une fois que vous avez cliqué sur le bouton, l’état du nœud peut changer tandis que son logiciel est mis à jour en vue de son ajout au cluster.
 

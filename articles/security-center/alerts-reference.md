@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372691"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014599"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -160,6 +160,9 @@ En bas de cette page, un tableau décrit la chaîne d’arrêt d’Azure Securit
 |**Exploitation de la vulnérabilité Xorg [constaté plusieurs fois]**|L’analyse des données de l’hôte sur %{Hôte compromis} a détecté l’utilisation de Xorg avec des arguments suspects. Les attaquants peuvent utiliser cette technique pour les tentatives de réaffectation de privilèges. Ce comportement a été observé [x] fois aujourd’hui sur les ordinateurs suivants : [noms des ordinateurs]|-|Moyenne|
 |**Démon Docker exposé détecté**|Les journaux de la machine indiquent que le démon Docker (dockerd) expose un socket TCP. Par défaut, la configuration Docker n’utilise pas le chiffrement ou l’authentification lorsqu’un socket TCP est activé. Toute personne ayant accès au port approprié peut alors obtenir un accès complet au démon Docker.|-|Moyenne|
 |**Échec d’une attaque par force brute SSH**|Des attaques par force brute ont échoué. Elles provenaient des attaquants suivants : %{Attaquants}. Des attaquants essaient d’accéder à l’hôte avec les noms d’utilisateur suivants : %{Comptes utilisés lors des échecs de connexion à l’hôte}.|-|Moyenne|
+| **Comportement d’attaque sans fichier détecté**<br>(AppServices_FilelessAttackBehaviorDetection)| La mémoire du processus spécifié ci-dessous contient des comportements fréquemment utilisés par les attaques sans fichier.<br>Les comportements spécifiques sont les suivants : {liste des comportements observés}                                                                                                                                                                                                                                                                                                                             | Exécution                             | Moyenne   |
+| **Technique d’attaque sans fichier détectée**<br>(VM_FilelessAttackTechnique.Linux)| La mémoire du processus spécifié ci-dessous contient une preuve de technique d’attaque sans fichier. Les attaques sans fichier sont utilisées par les attaquants pour exécuter du code tout en échappant à la détection par le logiciel de sécurité.<br>Les comportements spécifiques sont les suivants : {liste des comportements observés}                                                                                                                                                                                                                            | Exécution                             | Élevé     |
+| **Kit d’attaques sans fichier détecté**<br>(VM_FilelessAttackToolkit.Linux)| La mémoire du processus spécifié ci-dessous contient un kit d’attaques sans fichier : {NomKit}. Les kits d’attaques sans fichier ne sont généralement pas présents sur le système de fichiers, ce qui rend difficile la détection par un logiciel antivirus traditionnel.<br>Les comportements spécifiques sont les suivants : {liste des comportements observés}                                                                                                                                                                                    | Intrusion dans la défense, Exécution             | Importante     |
 |**Détection de l’exécution d’un fichier masqué**|L’analyse des données de l’hôte indique qu’un fichier masqué a été exécuté par %{nom d’utilisateur}. Il peut s’agir d’une activité légitime ou du signe que l’hôte est compromis.|-|Informationnel|
 |**Détection d’indicateurs associés à DDOS Toolkit [constaté plusieurs fois]**|L’analyse des données de l’hôte sur %{Hôte compromis} a détecté des noms de fichiers qui font partie d’une boîte à outils associée à un programme malveillant capable de lancer des attaques DDoS, d’ouvrir des ports et des services et de prendre le contrôle total du système infecté. Il peut également s’agir d’une activité légitime. Ce comportement a été observé [x] fois aujourd’hui sur les ordinateurs suivants : [noms des ordinateurs]|-|Moyenne|
 |**Détection d’indicateurs associés à DDOS Toolkit**|L’analyse des données de l’hôte sur %{Hôte compromis} a détecté des noms de fichiers qui font partie d’une boîte à outils associée à un programme malveillant capable de lancer des attaques DDoS, d’ouvrir des ports et des services et de prendre le contrôle total du système infecté. Il peut également s’agir d’une activité légitime.|-|Moyenne|
@@ -412,7 +415,7 @@ En bas de cette page, un tableau décrit la chaîne d’arrêt d’Azure Securit
 
 | Alerte                                   | Description                                                          | Intentionnel<br>([En savoir plus](#intentions)) | severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
-| **Détection d’une attaque DDoS pour l’adresse IP publique**  | Une attaque DDoS a été détectée et atténuée pour l’adresse IP publique (Adresse IP). | Détection                            | Élevé     |
+| **Détection d’une attaque DDoS pour l’adresse IP publique**  | Une attaque DDoS a été détectée et atténuée pour l’adresse IP publique (Adresse IP). | Détection                            | Importante     |
 | **Attaque DDoS atténuée pour l’adresse IP publique** | Attaque DDoS atténuée pour l’adresse IP publique (Adresse IP).                    | Détection                            | Faible      |
 |                                         |                                                                      |                                    |          |
 

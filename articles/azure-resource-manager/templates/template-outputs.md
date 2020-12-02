@@ -2,17 +2,19 @@
 title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460022"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911428"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Sorties dans un modèle Azure Resource Manager
 
 Cet article explique comment définir des valeurs de sortie dans votre modèle Azure Resource Manager. Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
+
+Le format de chaque valeur de sortie doit correspondre à l’un des [types de données](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Définir des valeurs de sortie
 

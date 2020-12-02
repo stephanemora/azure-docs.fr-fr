@@ -3,25 +3,25 @@ title: Utiliser des balises d’index de blob pour gérer et rechercher des donn
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371968"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541247"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure
 
 Les balises d’index de blob catégorisent les données de votre compte de stockage à l’aide d’attributs de balise clé-valeur. Ces balises sont automatiquement indexées et exposées en tant qu’index multidimensionnel pouvant faire l’objet d’une recherche pour trouver facilement des données. Cet article explique comment définir, obtenir et trouver des données à l’aide de balises d’index d’objets blob.
 
 > [!NOTE]
-> L’index de blobs est actuellement disponible en préversion publique dans les régions **Canada Centre** , **Canada Est** , **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](storage-manage-find-blobs.md).
+> L’index de blobs est actuellement disponible en préversion publique dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,9 +36,9 @@ L’index de blob étant disponible en préversion, le package de stockage .NET 
 
 1. Configurez votre projet Visual Studio pour prendre en main la bibliothèque de client Stockage Blob Azure v12 pour .NET. Pour en savoir plus, consultez [Démarrage rapide .NET](storage-quickstart-blobs-dotnet.md).
 
-2. Dans le Gestionnaire de package NuGet, recherchez le package **Azure.Storage.Blobs** , puis installez la version **12.7.0-preview.1** ou une version ultérieure pour votre projet. Vous pouvez également exécuter la commande PowerShell : `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`.
+2. Dans le Gestionnaire de package NuGet, recherchez le package **Azure.Storage.Blobs**, puis installez la version **12.7.0-preview.1** ou une version ultérieure pour votre projet. Vous pouvez également exécuter la commande PowerShell : `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`.
 
-   Pour savoir comment procéder, consultez [Rechercher et installer un package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Pour savoir comment procéder, consultez [Rechercher et installer un package](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Ajoutez les instructions using suivantes au début de votre fichier de code.
 
@@ -56,17 +56,17 @@ L’index de blob étant disponible en préversion, le package de stockage .NET 
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Charger un nouvel objet blob avec des balises d’index
 
-Le chargement d’un nouveau blob avec des balises d’index peut être effectué par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). En outre, les utilisateurs disposant de l’autorisation de [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` peuvent effectuer cette opération.
+Cette tâche peut être effectuée par un [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou un principal de sécurité qui a reçu l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` via un rôle Azure personnalisé.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **Service BLOB** , accédez à l’option **Conteneurs** , puis sélectionnez votre conteneur.
+2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Charger** et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs.
 
-4. Développez la liste déroulante **Avancé** , puis accédez à la section **Balises d’index d’objets blob**.
+4. Développez la liste déroulante **Avancé**, puis accédez à la section **Balises d’index d’objets blob**.
 
 5. Entrez les balises d’index d’objets blob clé/valeur que vous souhaitez appliquer à vos données.
 
@@ -114,15 +114,15 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Obtenir, définir et mettre à jour des balises d’index d’objets blob
 
-L’obtention de balises d’index de blob peut être effectuée par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). En outre, les utilisateurs disposant de l’autorisation de [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` peuvent effectuer cette opération.
+L’obtention de balises d’index blob peut être réalisée par un [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou un principal de sécurité qui a reçu l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` via un rôle Azure personnalisé.
 
-La définition et la mise à jour des balises d’index de blob peuvent être effectuées par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). En outre, les utilisateurs disposant de l’autorisation de [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` peuvent effectuer cette opération.
+La définition et la mise à jour de balises d’index blob peuvent être effectuées par un [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou un principal de sécurité qui a reçu l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` via un rôle Azure personnalisé.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **service BLOB** , accédez à l’option **Conteneurs** , puis sélectionnez votre conteneur.
+2. Sous **service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez votre blob dans la liste des blobs du conteneur sélectionné.
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrer et rechercher des données avec des balises d’index de blobs
 
-La recherche et le filtrage par balises d’index de blob peuvent être effectués par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). En outre, les utilisateurs disposant de l’autorisation de [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` peuvent effectuer cette opération.
+Cette tâche peut être effectuée par un [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ou un principal de sécurité qui a reçu l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` via un rôle Azure personnalisé.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ Dans le portail Azure, le filtre des balises d’index de blobs applique automat
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **Service BLOB** , accédez à l’option **Conteneurs** , puis sélectionnez votre conteneur.
+2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Filtre des balises d’index d’objets blob** pour filtrer à l’intérieur du conteneur sélectionné.
 
@@ -297,9 +297,9 @@ static async Task FindBlobsByTagsExample()
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **Service blob** , accédez à l’option **Gestion du cycle de vie**.
+2. Sous **Service blob**, accédez à l’option **Gestion du cycle de vie**.
 
-3. Sélectionnez *Ajouter une règle* , puis complétez les champs du formulaire Ensemble d’actions.
+3. Sélectionnez *Ajouter une règle*, puis complétez les champs du formulaire Ensemble d’actions.
 
 4. Sélectionnez **Ensemble de filtres** pour ajouter un filtre facultatif pour la correspondance des préfixes et des index de blob.
 

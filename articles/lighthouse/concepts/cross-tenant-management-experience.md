@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 95b9bcf6bb9530afc9f6a23c323b6931e8975ad1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905121"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -81,6 +81,8 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 [Azure Kubernetes Service (AKS)](../../aks/index.yml) :
 
 - Gérer des environnements Kubernetes hébergés, ainsi que déployer et gérer des applications en conteneur au sein des locataires du client
+- Déployer et gérer des clusters dans les locataires client
+-   Utiliser Azure Monitor pour les conteneurs afin de surveiller les performances des locataires clients
 
 [Azure Migrate](../../migrate/index.yml) :
 

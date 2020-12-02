@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972358"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014490"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
 
@@ -188,7 +188,7 @@ Sous l’onglet **Devices** (Appareils), sélectionnez **+ New** (Nouveau) pour 
 
 ## <a name="explore-and-configure-rules"></a>Explorer et configurer les règles
 
-Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiquement les données de télémétrie des appareils. Ces règles déclenchent une action lorsque l’une de leurs conditions est remplie. L’une des actions possibles consiste à envoyer des e-mails de notification. D’autres actions possibles incluent une action Microsoft Flow ou webhook pour envoyer des données à d’autres services.
+Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiquement les données de télémétrie des appareils. Ces règles déclenchent une action lorsque l’une de leurs conditions est remplie. L’une des actions possibles consiste à envoyer des e-mails de notification. D’autres actions possibles incluent une action Power Automate ou webhook pour envoyer des données à d’autres services.
 
 L’application de suivi de la qualité de l’eau que vous avez créée comporte deux règles préconfigurées.
 

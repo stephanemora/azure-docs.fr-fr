@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370251"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523278"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 
@@ -51,7 +51,7 @@ Ces blobs sont séparés à l’aide d’un préfixe de *nom de conteneur/dossie
 Les étiquettes d’un index d’objet blob sont des attributs clé-valeur pouvant être appliqués à des objets nouveaux ou existants dans votre compte de stockage. Vous pouvez spécifier des balises d’index pendant le processus de chargement en utilisant les opérations [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) ou [Copy Blob](/rest/api/storageservices/copy-blob) et l’en-tête `x-ms-tags` facultatif. Si vous avez déjà des blobs dans votre compte de stockage, appelez [Set Blob Tags](/rest/api/storageservices/set-blob-tags) en transmettant un document XML mis en forme avec les balises d’index de blob dans le corps de la demande.
 
 > [!IMPORTANT]
-> La définition des balises d’index de blob peut être effectuée par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation d’accéder aux balises du blob (l’autorisation SAP `t`).
+> La définition des balises d’index de blob peut être effectuée par le [propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation d’accéder aux balises du blob (l’autorisation SAP `t`).
 >
 > En outre, les utilisateurs RBAC dotés de l’autorisation `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` peuvent effectuer cette opération.
 
@@ -87,7 +87,7 @@ Les limites suivantes s’appliquent aux étiquettes d’un index d’objet blob
 Les balises d’index de blob sont stockées en tant que sous-ressource avec les données blob et peuvent être récupérées indépendamment du contenu sous-jacent des données blob. Les balises d’index de blob pour un seul blob peuvent être récupérées avec l’opération [Get Blob Tags](/rest/api/storageservices/get-blob-tags). L’opération [List Blobs](/rest/api/storageservices/list-blobs) avec le paramètre `include:tags` renverra également tous les blobs dans un conteneur avec leurs balises d’index de blob.
 
 > [!IMPORTANT]
-> L’obtention et l’affichage de la liste des balises d’index de blob peuvent être effectués par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation d’accéder aux balises du blob (l’autorisation SAP `t`).
+> L’obtention et l’affichage de la liste des balises d’index de blob peuvent être effectués par le [propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation d’accéder aux balises du blob (l’autorisation SAP `t`).
 >
 > En outre, les utilisateurs RBAC dotés de l’autorisation `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` peuvent effectuer cette opération.
 
@@ -100,7 +100,7 @@ Le moteur d’indexation expose ces attributs clé-valeur dans un index multidim
 L’opération [Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags) vous permet d’obtenir un ensemble filtré de blobs retournés dont les balises d’index correspondent à une expression de requête donnée. `Find Blobs by Tags` prend en charge le filtrage sur tous les conteneurs de votre compte de stockage, ou vous pouvez limiter le filtrage à un seul conteneur. Comme toutes les clés et valeurs des balises d’index sont des chaînes, les opérateurs de relation utilisent un tri lexicographique.
 
 > [!IMPORTANT]
-> La recherche de données à l’aide de balises d’index de blob peut être effectuée par le [propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation de rechercher des blobs par balise (l’autorisation SAP `f`).
+> La recherche de données à l’aide de balises d’index de blob peut être effectuée par le [propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) et par toute personne disposant d’une signature d’accès partagé qui a l’autorisation de rechercher des blobs par balise (l’autorisation SAP `f`).
 >
 > En outre, les utilisateurs RBAC dotés de l’autorisation `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` peuvent effectuer cette opération.
 
@@ -235,7 +235,7 @@ Les appelants utilisant une [identité Azure AD](../common/storage-auth-aad.md) 
 | [Obtenir les étiquettes d’objet blob](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Rechercher des objets blob par étiquettes](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Des autorisations supplémentaires, distinctes des données blob sous-jacentes, sont requises pour effectuer des opérations sur les balises d’index. Le rôle [Propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) dispose des autorisations pour les trois opérations de balises d’index de blob. Le [lecteur des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) reçoit uniquement des autorisations pour les opérations `Find Blobs by Tags` et `Get Blob Tags`.
+Des autorisations supplémentaires, distinctes des données blob sous-jacentes, sont requises pour effectuer des opérations sur les balises d’index. Le rôle [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) dispose des autorisations pour les trois opérations de balises d’index de blob. Le [lecteur des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reçoit uniquement des autorisations pour les opérations `Find Blobs by Tags` et `Get Blob Tags`.
 
 ### <a name="sas-permissions"></a>Autorisations SAS
 
@@ -327,6 +327,7 @@ Cette section décrit les problèmes connus et les conditions de la préversion 
 - Lorsque le filtrage est limité à un conteneur individuel, il est possible de passer `@container` seulement si toutes les étiquettes d’index dans l’expression de filtre sont des contrôles d’égalité (clé=valeur).
 - Lorsque vous utilisez l’opérateur de comparaison avec la condition `AND`, vous pouvez uniquement spécifier le même nom de clé de balise d’index (`"Age" > '013' AND "Age" < '100'`).
 - Le contrôle de version et l’index de blob ne sont pas pris en charge. Les balises d’index de blob sont conservées pour les versions, mais ne sont pas transmises au moteur d’index de blob.
+- Il n’existe aucune API permettant de déterminer si les balises d’index sont indexées.
 - Le basculement de compte n’est pas pris en charge. L’index d’objet blob peut ne pas être mis à jour correctement après le basculement.
 - La gestion du cycle de vie prend en charge uniquement les contrôles d’égalité avec correspondance d’index de blob.
 - `Copy Blob` ne copie pas les balises d’index de blob du blob source dans le nouveau blob de destination. Vous pouvez spécifier les étiquettes que vous souhaitez appliquer à l’objet blob de destination pendant l’opération de copie.

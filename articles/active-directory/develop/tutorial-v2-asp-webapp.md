@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627939"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996183"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
-Ce guide explique comment implémenter la connexion à Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel et OpenID Connect.
+Dans ce tutoriel, vous allez créer une application web ASP.NET MVC qui connecte les utilisateurs à l’aide du middleware OWIN (Open Web Interface for .NET) et de la plateforme d’identités Microsoft.
 
 Quand vous aurez suivi ce guide, votre application sera en mesure d’accepter les connexions de comptes personnels à partir des mentions « j’aime » d’outlook.com et de live.com. De plus, les comptes professionnels et scolaires de toute entreprise ou organisation ayant intégré la plateforme d’identités Microsoft pourra se connecter à votre application.
 
@@ -319,7 +319,7 @@ En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes
 
 Dans Visual Studio, créez une vue pour afficher les revendications de l’utilisateur dans une page web :
 
-1.  Cliquez avec le bouton droit sur le dossier **Views\Claims**, puis sélectionnez**Ajouter une vue**.
+1.  Cliquez avec le bouton droit sur le dossier **Views\Claims**, puis sélectionnez **Ajouter une vue**.
 2.  Nommez la nouvelle vue **Index**.
 3.  Ajoutez le code HTML suivant au fichier :
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127401"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985040"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -58,7 +58,7 @@ En tant que créateur de solution, vous utilisez les outils web pour créer un _
 
 Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivants :
 
-- Un _modèle de fonctions d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter. Les fonctionnalités de l’appareil sont les suivantes :
+- Un _modèle de capacité d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter. Les fonctionnalités de l’appareil sont les suivantes :
 
   - La télémétrie qu’il diffuse à IoT Central.
   - Les propriétés en lecture seule qu’il utilise pour signaler l’état à IoT Central.
@@ -72,9 +72,9 @@ Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivan
 
 Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
-- Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de fonctionnalité d’appareil dans le code de votre appareil.
-- Créez un modèle de capacité d’appareil avec du code Visual Studio et publiez le modèle dans un référentiel. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil à votre application IoT Central. IoT Central recherche le modèle de capacité d’appareil dans le référentiel et crée automatiquement un modèle d’appareil simple.
-- Créez un modèle de fonctionnalité d’appareil mobile avec Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de fonctionnalité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
+- Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de capacité d’appareil dans le code de votre appareil.
+- Créez un de capacité d’appareil avec du code Visual Studio et publiez le modèle de capacité dans un référentiel. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil à votre application IoT Central. IoT Central recherche le modèle de capacité d’appareil dans le référentiel et crée automatiquement un modèle d’appareil simple.
+- Créez un modèle de capacité d’appareil avec Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 
 En tant que créateur de solution, vous pouvez utiliser IoT Central pour générer du code pour les appareils de test afin de valider vos modèles d’appareil.
 
@@ -151,7 +151,6 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 - Les types de schémas de tableaux ne sont pas pris en charge.
 - Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
 - IoT Central est disponible aux États-Unis, en Europe, en Asie-Pacifique, en Australie, au Royaume-Uni et au Japon.
-- Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

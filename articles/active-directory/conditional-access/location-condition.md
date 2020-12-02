@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055375"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904101"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -37,7 +37,7 @@ L’emplacement réseau est déterminé par l’adresse IP publique fournie par 
 
 ## <a name="named-locations"></a>Emplacements nommés
 
-Les emplacements sont désignés dans le Portail Azure sous **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés** . Ces emplacements réseau nommés peuvent inclure les plages réseau du siège de l’organisation ou du VPN, ou les plages que vous souhaitez bloquer. 
+Les emplacements sont désignés dans le Portail Azure sous **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**. Ces emplacements réseau nommés peuvent inclure les plages réseau du siège de l’organisation ou du VPN, ou les plages que vous souhaitez bloquer. 
 
 ![Emplacements nommés dans le Portail Azure](./media/location-condition/new-named-location.png)
 
@@ -64,23 +64,23 @@ Cette option peut être prise en compte dans les stratégies d’accès conditio
 Certaines organisations peuvent choisir de définir les limites IP de régions ou pays entiers sous la forme d’emplacements nommés pour les stratégies d’accès conditionnel. Elles peuvent utiliser ces emplacements lors du blocage du trafic inutile, si elles sont certaines que les utilisateurs acceptés ne seront jamais issus d’un lieu tel que la Corée du Nord. Ces mappages d’adresses IP à des pays sont régulièrement mis à jour. 
 
 > [!NOTE]
-> Ces pays n’incluent pas de plages d’adresses IPv6, uniquement les plages d’adresses IPv4 connues, et ne peuvent pas être marqués comme étant approuvés.
+> Les plages d’adresses IPv6 ne peuvent pas être mappées à des pays. Seules les adresses IPv4 sont mappées à des pays.
 
 ![Créer un emplacement basé sur le pays ou la région dans le Portail Azure](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Inclure les zones inconnues
 
-Certaines adresses IP ne sont pas mappées à un pays ou une région spécifique. Pour capturer ces emplacements d’adresses IP, cochez la case **Inclure les zones inconnues** lors de la définition d’un emplacement. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
+Certaines adresses IP ne sont pas mappées à un pays ou une région spécifique, notamment toutes les adresses IPv6. Pour capturer ces emplacements d’adresses IP, cochez la case **Inclure les zones inconnues** lors de la définition d’un emplacement. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
 
 ### <a name="configure-mfa-trusted-ips"></a>Configurer des adresses IP approuvées MFA
 
 Vous pouvez également configurer des plages d’adresses IP représentant l’intranet local de votre organisation dans les [paramètres du service d’authentification multifacteur](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Cette fonctionnalité vous permet de configurer jusqu’à 50 plages d’adresses IP. Les plages d’adresses IP sont au format CIDR. Pour plus d’informations, consultez [Adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Si vous avez approuvé des adresses IP configurées, elles apparaissent en tant qu’ **adresses IP approuvées MFA** dans la liste des emplacements de la condition d’emplacement.
+Si vous avez approuvé des adresses IP configurées, elles apparaissent en tant qu’**adresses IP approuvées MFA** dans la liste des emplacements de la condition d’emplacement.
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorer l’authentification multifacteur
 
-Sur la page des paramètres du service d’authentification multifacteur, vous pouvez identifier les utilisateurs de l’intranet d’entreprise en sélectionnant **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** . Ce paramètre indique que la revendication de réseau d’entreprise interne, qui est émise par AD FS, doit être approuvée et utilisée pour identifier l’utilisateur comme étant sur le réseau d’entreprise. Pour plus d’informations, consultez [Activer la fonctionnalité Adresses IP approuvées à l’aide de l’accès conditionnel](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Sur la page des paramètres du service d’authentification multifacteur, vous pouvez identifier les utilisateurs de l’intranet d’entreprise en sélectionnant **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**. Ce paramètre indique que la revendication de réseau d’entreprise interne, qui est émise par AD FS, doit être approuvée et utilisée pour identifier l’utilisateur comme étant sur le réseau d’entreprise. Pour plus d’informations, consultez [Activer la fonctionnalité Adresses IP approuvées à l’aide de l’accès conditionnel](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Après avoir activé cette option, qui inclut l’emplacement nommé, les **Adresses IP approuvées MFA** s’appliqueront à toutes les stratégies contenant cette option sélectionnée.
 
@@ -114,7 +114,7 @@ Avec la préversion, il existe désormais deux options de création :
 - **Emplacement des plages d’adresses IP**
 
 > [!NOTE]
-> Ces pays n’incluent pas de plages d’adresses IPv6, uniquement les plages d’adresses IPv4 connues, et ne peuvent pas être marqués comme étant approuvés.
+> Les plages d’adresses IPv6 ne peuvent pas être mappées à des pays. Seules les adresses IPv4 sont mappées à des pays.
 
 ![Interface d’emplacement nommé en préversion](./media/location-condition/named-location-preview.png)
 
@@ -128,7 +128,7 @@ Lorsque vous configurez la condition d’emplacement, vous avez la possibilité 
 
 ### <a name="any-location"></a>N’importe quel emplacement
 
-Par défaut, la sélection de **N’importe quel emplacement** entraîne l’application d’une stratégie à toutes les adresses IP, à savoir n’importe quelle adresse sur Internet. Ce paramètre ne se limite pas aux adresses IP que vous avez configurées en tant qu’emplacement nommé. Lorsque vous sélectionnez **N’importe quel emplacement** , vous pouvez toujours exclure des emplacements spécifiques d’une stratégie. Par exemple, vous pouvez appliquer une stratégie à tous les emplacements, sauf des emplacements approuvés, afin de définir l’étendue à tous les emplacements, à l’exception du réseau d’entreprise.
+Par défaut, la sélection de **N’importe quel emplacement** entraîne l’application d’une stratégie à toutes les adresses IP, à savoir n’importe quelle adresse sur Internet. Ce paramètre ne se limite pas aux adresses IP que vous avez configurées en tant qu’emplacement nommé. Lorsque vous sélectionnez **N’importe quel emplacement**, vous pouvez toujours exclure des emplacements spécifiques d’une stratégie. Par exemple, vous pouvez appliquer une stratégie à tous les emplacements, sauf des emplacements approuvés, afin de définir l’étendue à tous les emplacements, à l’exception du réseau d’entreprise.
 
 ### <a name="all-trusted-locations"></a>Tous les emplacements approuvés
 
@@ -139,7 +139,7 @@ Cette option s’applique à :
 
 ### <a name="selected-locations"></a>Des emplacements sélectionnés
 
-Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommés. Pour une stratégie avec ce paramètre à appliquer, un utilisateur doit se connecter à partir de l’un des emplacements sélectionnés. Lorsque vous cliquez sur **Sélectionner** , le contrôle de sélection du réseau nommé qui affiche la liste des réseaux nommés s’ouvre. La liste indique également si l’emplacement réseau a été marqué comme approuvé. L’emplacement nommé appelé **Adresses IP approuvées MFA** est utilisé pour inclure les paramètres IP pouvant être configurés dans la page des paramètres du service d’authentification multifacteur.
+Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommés. Pour une stratégie avec ce paramètre à appliquer, un utilisateur doit se connecter à partir de l’un des emplacements sélectionnés. Lorsque vous cliquez sur **Sélectionner**, le contrôle de sélection du réseau nommé qui affiche la liste des réseaux nommés s’ouvre. La liste indique également si l’emplacement réseau a été marqué comme approuvé. L’emplacement nommé appelé **Adresses IP approuvées MFA** est utilisé pour inclure les paramètres IP pouvant être configurés dans la page des paramètres du service d’authentification multifacteur.
 
 ## <a name="ipv6-traffic"></a>Trafic IPv6
 
@@ -157,7 +157,7 @@ La majeure partie du trafic IPv6 qui est transférée par proxy à Azure AD prov
 Il s’agit des raisons les plus courantes pour lesquelles vous devrez peut-être configurer des plages IPv6 dans vos emplacements nommés. En outre, si vous utilisez des réseaux virtuels Azure, vous recevrez du trafic provenant d’une adresse IPv6. Si le trafic du réseau virtuel est bloqué par une stratégie d’accès conditionnel, vérifiez votre journal des connexions Azure AD. Une fois que vous avez identifié le trafic, vous pouvez obtenir l’adresse IPv6 utilisée et l’exclure de votre stratégie. 
 
 > [!NOTE]
-> Si vous souhaitez spécifier une plage CIDR IP pour une seule adresse, appliquez le masque de bits /32. Si vous indiquez que l’adresse IPv6 est 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a et si vous souhaitez exclure cette adresse unique en tant que plage, utilisez 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+> Si vous souhaitez spécifier une plage CIDR IP pour une seule adresse, appliquez le masque de bits /128. Si vous indiquez que l’adresse IPv6 est 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a et si vous souhaitez exclure cette adresse unique en tant que plage, utilisez 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identification du trafic IPv6 dans les rapports d’activité de connexion Azure AD
 

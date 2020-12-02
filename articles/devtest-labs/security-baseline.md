@@ -3,12 +3,12 @@ title: Base de sécurité Azure pour Azure DevTest Labs
 description: Base de sécurité Azure pour Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993650"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de sécurité Azure pour Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez les articles suivants :
 **Responsabilité :** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
-***Conseils :** Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure DevTest Labs conformément aux réglementations de conformité de votre organisation.
+**_Conseils :_* Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure DevTest Labs conformément aux réglementations de conformité de votre organisation.
 
 Pour plus d’informations, consultez l’article suivant : [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 - [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Surveillance d’Azure Security Center :** * Oui
+**Surveillance d’Azure Security Center :** _ Oui
 
-**Responsabilité :** Customer
+_ *Responsabilité :* * Client
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
@@ -387,16 +387,16 @@ Microsoft assure la gestion des vulnérabilités sur les ressources sous-jacents
 **Responsabilité :** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3 : Déployer une solution de gestion de correctif logiciel tiers automatisée
-***Conseils :*** En tant qu’administrateur de laboratoire, vous pouvez utiliser des [artefacts DevTest Labs](add-artifact-vm.md) pour automatiser les mises à jour des images personnalisées du labo, notamment des correctifs de sécurité et d’autres mises à jour. 
+**_Conseils :_* _ En tant qu’administrateur de laboratoire, vous pouvez utiliser des [artefacts DevTest Labs](add-artifact-vm.md) pour automatiser les mises à jour des images personnalisées du labo, notamment des correctifs de sécurité et d’autres mises à jour. 
 
 Apprenez-en davantage sur la [Fabrique d’images DevTest Labs](image-factory-create.md), solution de configuration en tant que code qui crée et distribue automatiquement des images à intervalles réguliers avec toutes les configurations souhaitées. 
 
 En tant qu’administrateur d’abonnements, vous pouvez également utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour les machines virtuelles DevTest Labs. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
 - [Solution Update Management dans Azure](../automation/update-management/update-mgmt-overview.md)
-- [Gestion des mises à jour et des correctifs des machines virtuelles](../automation/update-management/update-mgmt-overview.md)
+- [Gérer les mises à jour et les correctifs de vos machines virtuelles](../automation/update-management/update-mgmt-overview.md)
 
-**Surveillance d’Azure Security Center :** Non applicable
+_ *Surveillance d’Azure Security Center :* * Non applicable
 
 **Responsabilité :** Customer
 
@@ -692,7 +692,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 - [Configurer l’identité managée pour déployer des environnements Azure Resource Manager dans DevTest Labs](use-managed-identities-environments.md)
 - [Configurer l’identité gérée pour déployer des machines virtuelles dans DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
+- [Créer un coffre de clés](../key-vault/general/quick-create-portal.md)
 - [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
 - [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

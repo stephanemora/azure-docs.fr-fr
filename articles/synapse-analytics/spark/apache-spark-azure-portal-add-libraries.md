@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313536"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917123"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 
 Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. Pour mettre à la disposition de vos applications un code tiers ou construit localement, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless (préversion). Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
 
+## <a name="before-you-begin"></a>Avant de commencer
+- Pour installer et mettre à jour des bibliothèques, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.
+  
 ## <a name="default-installation"></a>Installation par défaut
 Apache Spark dans Azure Synapse Analytics propose une installation complète d’Anacondas, ainsi que de bibliothèques supplémentaires. Pour la liste complète des bibliothèques, consultez la [prise en charge des versions d’Apache Spark](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ Une fois que vous avez identifié les bibliothèques que vous souhaitez utiliser
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
 > - Les packages qui requièrent une prise en charge par le compilateur au moment de l’installation, tels que GCC, ne sont pas pris en charge.
 > - Il n’est pas possible de ramener les packages à une version antérieure, mais uniquement de les ajouter ou de les mettre à niveau.
+> - Pour installer des bibliothèques, vous devez disposer des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Synapse.
 
 ### <a name="requirements-format"></a>Format de la configuration requise
 
@@ -54,7 +58,7 @@ Pour installer des bibliothèques dans un pool Spark (préversion) pendant la cr
    
 1. Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.
    
-2. Sélectionnez **Créer un pool Apache Spark** , puis sélectionnez l’onglet **Paramètres supplémentaires**. 
+2. Sélectionnez **Créer un pool Apache Spark**, puis sélectionnez l’onglet **Paramètres supplémentaires**. 
    
 3. Chargez le fichier de configuration de l’environnement à l’aide du sélecteur de fichiers dans la section **Packages** de la page. 
    
@@ -79,7 +83,7 @@ Pour installer une bibliothèque sur un pool Spark (préversion) directement à 
    
  1. Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.
    
- 2. Sous la section **Ressources Synapse** , sélectionnez l’onglet **Pools Apache Spark** et sélectionnez un pool Spark dans la liste.
+ 2. Sous la section **Ressources Synapse**, sélectionnez l’onglet **Pools Apache Spark** et sélectionnez un pool Spark dans la liste.
    
  3. Sélectionnez **Packages** dans la section **Paramètres** du pool Spark. 
 
@@ -92,9 +96,9 @@ Pour installer une bibliothèque sur un pool Spark (préversion) directement à 
 Pour vérifier si les bonnes versions des bibliothèques appropriées sont installées, exécutez le code suivant :
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### <a name="update-python-packages"></a>Mettre à jour les packages Python
 Les packages peuvent être ajoutés ou modifiés à tout moment entre les sessions. Lors du chargement d’un nouveau fichier de configuration de package, les packages et versions existants sont remplacés.  
@@ -112,7 +116,7 @@ Pour mettre à jour ou désinstaller une bibliothèque :
    
 
 > [!IMPORTANT]
-> En sélectionnant l’option **Forcer les nouveaux paramètres** , vous terminez toutes les sessions actives pour le pool Spark sélectionné. Une fois les sessions terminées, vous devez attendre le redémarrage du pool. 
+> En sélectionnant l’option **Forcer les nouveaux paramètres**, vous terminez toutes les sessions actives pour le pool Spark sélectionné. Une fois les sessions terminées, vous devez attendre le redémarrage du pool. 
 >
 > Si ce paramètre est désactivé, vous devez attendre que la session Spark en cours se termine ou l’arrêter manuellement. Une fois la session terminée, vous devez laisser le pool redémarrer. 
 

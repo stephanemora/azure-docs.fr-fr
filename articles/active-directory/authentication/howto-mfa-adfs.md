@@ -1,6 +1,6 @@
 ---
-title: Sécurisation des ressources avec Azure MFA et AD FS - Azure Active Directory
-description: Voici la page d'authentification multifacteur Azure qui explique la prise en main de l'authentification multifacteur Azure et d’AD FS 2.0 dans le cloud.
+title: Sécurisation des ressources avec Azure AD MFA et AD FS – Azure Active Directory
+description: Voici la page d’Azure AD Multi-Factor Authentication qui explique la prise en main d’Azure AD MFA et d’AD FS dans le cloud.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999fb350aaa5f11510db0d4ecc036e188d76e20f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964585"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839333"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources cloud avec Azure AD Multi-Factor Authentication et AD FS
 
-Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
+Si votre organisation est fédérée avec Azure Active Directory, utilisez Azure AD Multi-Factor Authentication ou les services de fédération Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory à l’aide d’Azure AD Multi-Factor Authentication ou des services de fédération Active Directory (AD FS).
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Sécurisation des ressources Azure AD à l’aide d’AD FS
 
@@ -48,7 +48,7 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 
 ## <a name="trusted-ips-for-federated-users"></a>Adresses IP de confiance pour les utilisateurs fédérés
 
-Les adresses IP approuvées permettent aux administrateurs de contourner la vérification en deux étapes pour des adresses IP spécifiques ou pour les utilisateurs fédérés qui ont des requêtes provenant de leur propre intranet. Les sections suivantes décrivent comment configurer des adresses IP approuvées Azure Multi-Factor Authentication avec des utilisateurs fédérés et comment contourner la vérification en deux étapes, lorsqu’une requête provient d’un intranet d’utilisateurs fédérés. Pour cela, vous devez configurer AD FS pour utiliser un passthrough ou filtrer un modèle de revendication entrante avec le type de revendication Dans le périmètre du réseau d’entreprise.
+Les adresses IP approuvées permettent aux administrateurs de contourner la vérification en deux étapes pour des adresses IP spécifiques ou pour les utilisateurs fédérés qui ont des requêtes provenant de leur propre intranet. Les sections suivantes décrivent comment configurer des adresses IP approuvées Azure AD Multi-Factor Authentication avec des utilisateurs fédérés et comment contourner la vérification en deux étapes lorsqu’une requête provient d’un intranet d’utilisateurs fédérés. Pour cela, vous devez configurer AD FS pour utiliser un passthrough ou filtrer un modèle de revendication entrante avec le type de revendication Dans le périmètre du réseau d’entreprise.
 
 Cet exemple utilise Microsoft 365 pour nos approbations de la partie de confiance.
 
@@ -84,7 +84,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 15. Cliquez sur **OK**.
 16. Fermez Gestion AD FS.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuration d’adresses IP approuvées Azure AD Multi-Factor Authentication avec des utilisateurs fédérés
 
 Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP approuvées.
 

@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047656"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959592"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutoriel : Configurer un environnement - Machine Learning sur Azure IoT Edge
 
-> [!NOTE]
-> Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
-
 Cet article vous aide à préparer votre environnement pour le développement et le déploiement. Tout d’abord, configurez une machine de développement avec tous les outils dont vous avez besoin. Ensuite, créez les ressources cloud nécessaires dans Azure.
+
+## <a name="prerequisites"></a>Prérequis
+
+Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Chaque article de la série s’appuie sur le travail réalisé dans le cadre de l’article précédent. Si vous êtes tombé directement sur cet article, reportez-vous au [premier article](tutorial-machine-learning-edge-01-intro.md) de la série.
 
 ## <a name="set-up-the-development-vm"></a>Configurer la machine virtuelle de développement
 
@@ -217,7 +218,7 @@ Pour plus d’informations sur les étapes décrites dans cette partie du tutori
 
 * [Notions de base d’Azure IoT](../iot-fundamentals/index.yml)
 * [Configurer le routage des messages avec IoT Hub](../iot-hub/tutorial-routing.md)
-* [Créer un IoT Hub à l’aide du Portail Azure](../iot-hub/iot-hub-create-through-portal.md)
+* [Création d’un IoT Hub à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Passez à l’article suivant pour créer un appareil simulé à surveiller.
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149390"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965848"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Bien démarrer avec votre compte de facturation Azure mis à jour
 
@@ -42,7 +42,7 @@ Lorsque votre compte est mis à jour, un profil de facturation est automatiqueme
 
 Les rôles associés aux profils de facturation sont autorisés à afficher et à gérer les factures et les modes de paiement. Ces rôles sont à attribuer aux utilisateurs qui paient les factures tels que les membres du service de comptabilité d’une organisation. Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
 
-Lorsque votre compte est mis à jour, pour chaque abonnement pour lequel vous avez accordé à d’autres utilisateurs l’autorisation [d’afficher des factures](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), les utilisateurs dotés d’un rôle Azure RBAC propriétaire, contributeur, lecteur ou lecteur de facturation se voient attribuer le rôle lecteur sur le profil de facturation correspondant.
+Lorsque votre compte est mis à jour, pour chaque abonnement pour lequel vous avez accordé à d’autres utilisateurs l’autorisation d’[afficher des factures](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), les utilisateurs titulaires d’un rôle Azure propriétaire, contributeur, lecteur ou lecteur de facturation se voient attribuer le rôle lecteur sur le profil de facturation correspondant.
 
 ## <a name="invoice-sections"></a>Sections de facture
 

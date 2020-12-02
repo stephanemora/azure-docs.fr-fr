@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627888"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974389"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutoriel : Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
-Ce guide explique comment une application de bureau Windows .NET (XAML) native utilise un jeton d’accès pour appeler l’API Microsoft Graph. L’application peut également accéder aux autres API qui nécessitent des jetons d’accès d’un point de terminaison de la plateforme d’identité Microsoft.
+Dans ce tutoriel, vous allez créer une application Windows Desktop .NET (XAML) native qui connecte des utilisateurs et obtient un jeton d’accès pour appeler l’API Microsoft Graph. 
 
 À la fin de ce guide, votre application sera capable d’appeler une API protégée utilisant des comptes personnels (y compris outlook.com, live.com, etc.). L’application utilisera également des comptes professionnels et scolaires de toute entreprise ou organisation utilisant Azure Active Directory.
 

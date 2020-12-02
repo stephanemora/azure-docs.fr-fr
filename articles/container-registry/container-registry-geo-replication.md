@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486870"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810045"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -18,9 +18,9 @@ Les entreprises qui souhaitent une présence locale ou une sauvegarde à chaud c
 
 Un registre géorépliqué offre les avantages suivants :
 
-* Noms de registre/d’image/de balise uniques utilisables dans plusieurs régions
-* Accès au registre à proximité du réseau à partir des déploiements régionaux
-* Aucuns frais de sortie supplémentaires, les images étant extraites à partir d’un registre local répliqué dans la même région que l’hôte de votre conteneur
+* Noms de registre, d’image et d’étiquette uniques utilisables dans plusieurs régions
+* Amélioration des performances et de la fiabilité des déploiements régionaux avec un accès au registre en réseau
+* Réduction des coûts de transfert de données en extrayant des couches d’images d’un registre local répliqué dans la même région ou dans une région proche de celle où se trouve votre conteneur
 * Gestion unique d’un registre dans plusieurs régions
 
 > [!NOTE]
@@ -56,8 +56,9 @@ Voici les principaux défis liés à l’utilisation de plusieurs registres :
 La fonctionnalité de géoréplication d’Azure Container Registry permet de bénéficier des avantages suivants :
 
 * Gérer un registre unique dans toutes les régions : `contoso.azurecr.io`
-* Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
-* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. Vous pouvez configurer des [webhooks](container-registry-webhook.md) régionaux pour avertir des événements dans des réplicas spécifiques.
+* Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
+* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. ACR réplique uniquement les couches uniques, ce qui réduit le transfert de données entre les régions. 
+* Configurez des [webhooks](container-registry-webhook.md) régionaux pour vous avertir des événements dans des réplicas spécifiques.
 
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
 
@@ -85,9 +86,9 @@ Pour configurer un réplica, sélectionnez un hexagone vert, puis cliquez sur **
 
  ![Boîte de dialogue Créer une réplication dans le portail Azure](media/container-registry-geo-replication/create-replication.png)
 
-Pour configurer des réplicas supplémentaires, sélectionnez les hexagones verts pour les autres régions, puis cliquez sur **Créer** .
+Pour configurer des réplicas supplémentaires, sélectionnez les hexagones verts pour les autres régions, puis cliquez sur **Créer**.
 
-ACR commence la synchronisation des images entre les réplicas configurés. Une fois l’opération terminée, le portail affiche la mention *Prêt* . L’état du réplica dans le portail n’est pas mis à jour automatiquement. Utilisez le bouton Actualiser pour le mettre à jour.
+ACR commence la synchronisation des images entre les réplicas configurés. Une fois l’opération terminée, le portail affiche la mention *Prêt*. L’état du réplica dans le portail n’est pas mis à jour automatiquement. Utilisez le bouton Actualiser pour le mettre à jour.
 
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Considérations sur l’utilisation d’un registre géorépliqué
 
@@ -104,8 +105,8 @@ Une fois que vous avez configuré un réplica pour votre registre, vous pouvez l
 
 Pour supprimer un réplica dans le portail Azure :
 
-1. Accédez à votre registre de conteneurs Azure, puis sélectionnez **Réplications** .
-1. Sélectionnez le nom d’un réplica, puis sélectionnez **Supprimer** . Confirmez que vous souhaitez supprimer le réplica.
+1. Accédez à votre registre de conteneurs Azure, puis sélectionnez **Réplications**.
+1. Sélectionnez le nom d’un réplica, puis sélectionnez **Supprimer**. Confirmez que vous souhaitez supprimer le réplica.
 
 Pour utiliser Azure CLI afin de supprimer un réplica de *myregistry* dans la région USA Est :
 
@@ -121,7 +122,7 @@ Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en 
 
 ## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Résoudre les problèmes d’opérations Push avec des registres géorépliqués
  
-Un client Docker qui transmet une image à un registre géorépliqué peut ne pas envoyer toutes les couches d’images et le manifeste associé à une seule région répliquée. Cela peut se produire car Azure Traffic Manager route les demandes de registre vers le registre répliqué le plus proche du réseau. Si le registre a deux régions de réplication *proches* , les couches d’image et le manifeste peuvent être distribués aux deux sites, et l’opération Push échoue lors de la validation du manifeste. Ce problème se produit en raison de la façon dont le nom DNS du registre est résolu sur certains hôtes Linux. Ce problème ne se produit pas sur Windows, qui fournit un cache DNS côté client.
+Un client Docker qui transmet une image à un registre géorépliqué peut ne pas envoyer toutes les couches d’images et le manifeste associé à une seule région répliquée. Cela peut se produire car Azure Traffic Manager route les demandes de registre vers le registre répliqué le plus proche du réseau. Si le registre a deux régions de réplication *proches*, les couches d’image et le manifeste peuvent être distribués aux deux sites, et l’opération Push échoue lors de la validation du manifeste. Ce problème se produit en raison de la façon dont le nom DNS du registre est résolu sur certains hôtes Linux. Ce problème ne se produit pas sur Windows, qui fournit un cache DNS côté client.
  
 Si ce problème se produit, une solution consiste à appliquer un cache DNS côté client, par exemple `dnsmasq` sur l’hôte Linux. Cela permet de garantir que le nom du registre est résolu de manière cohérente. Si vous utilisez une machine virtuelle Linux dans Azure pour effectuer une transmission de type push vers un registre, consultez [Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/azure-dns.md).
 
@@ -131,7 +132,7 @@ Pour optimiser la résolution DNS sur le réplica le plus proche lors de la tran
 
 Pour résoudre les problèmes des opérations avec un registre géorépliqué, vous pouvez désactiver temporairement le routage Traffic Manager vers une ou plusieurs réplications. Depuis Azure CLI version 2.8, vous pouvez configurer une option `--region-endpoint-enabled` (préversion) quand vous créez ou mettez à jour une région répliquée. Lorsque vous affectez à l’option `--region-endpoint-enabled` d’une réplication la valeur `false`, Traffic Manager ne route plus les demandes d’envoi (push) ni de tirage (pull) de Docker vers cette région. Par défaut, le routage vers toutes les réplications est activé et la synchronisation des données entre celles-ci a lieu, que le routage soit activé ou désactivé.
 
-Pour désactiver le routage vers une réplication existante, exécutez d’abord [az acr replication list][az-acr-replication-list] pour lister les réplications dans le registre. Ensuite, exécutez [az acr replication update][az-acr-replication-update] et définissez `--region-endpoint-enabled false` pour une réplication spécifique. Par exemple, pour configurer le paramètre de la réplication *westus* dans *myregistry*  :
+Pour désactiver le routage vers une réplication existante, exécutez d’abord [az acr replication list][az-acr-replication-list] pour lister les réplications dans le registre. Ensuite, exécutez [az acr replication update][az-acr-replication-update] et définissez `--region-endpoint-enabled false` pour une réplication spécifique. Par exemple, pour configurer le paramètre de la réplication *westus* dans *myregistry* :
 
 ```azurecli
 # Show names of existing replications

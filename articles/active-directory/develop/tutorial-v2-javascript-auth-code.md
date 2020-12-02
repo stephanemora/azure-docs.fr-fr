@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216128"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980216"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
-Ce tutoriel montre comment créer une application monopage JavaScript qui utilise la bibliothèque d’authentification Microsoft (MSAL) pour JavaScript v2.0 pour :
+Dans ce tutoriel, vous créez une application monopage (SPA) JavaScript qui connecte les utilisateurs et appelle Microsoft Graph en utilisant le flux du code d’autorisation avec PKCE. L’application monopage que vous créez utilise la bibliothèque d’authentification Microsoft (MSAL) pour JavaScript v2.0.
 
+Dans ce tutoriel :
 > [!div class="checklist"]
 > * Effectuer le flux de code d’autorisation OAuth 2.0 avec PKCE.
 > * Connecter des comptes personnels Microsoft, ainsi que des comptes professionnels et scolaires.
@@ -619,23 +620,23 @@ Vous avez terminé la création de l’application, et êtes maintenant prêt à
 
 Une fois que le navigateur a chargé votre fichier *index.html*, sélectionnez **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison de la plateforme d’identités Microsoft :
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagramme montrant le flux de code d’autorisation dans une application monopage":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Navigateur web affichant la boîte de dialogue de connexion":::
 
 ### <a name="provide-consent-for-application-access"></a>Accorder les droits d’accès à l’application
 
 La première fois que vous vous connectez à votre application, vous êtes invité à lui accorder l’accès à votre profil et à vous connecter :
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagramme montrant le flux de code d’autorisation dans une application monopage":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Boîte de dialogue de contenu affichée dans le navigateur web":::
 
 Si vous consentez à accorder les autorisations demandées, l’application web affiche votre nom d’utilisateur, ce qui signifie que la connexion a réussi :
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagramme montrant le flux de code d’autorisation dans une application monopage":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Résultats d’une connexion réussie dans le navigateur web":::
 
 ### <a name="call-the-graph-api"></a>Appeler l’API Graph
 
 Une fois connecté, sélectionnez **See Profile** pour afficher les informations de profil utilisateur retournées dans la réponse à l’appel à l’API Microsoft Graph :
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagramme montrant le flux de code d’autorisation dans une application monopage":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informations de profil de Microsoft Graph affichées dans le navigateur":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 

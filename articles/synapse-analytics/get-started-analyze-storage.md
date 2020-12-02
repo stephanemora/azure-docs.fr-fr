@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592581"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917679"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analyser des données dans un compte de stockage
 
@@ -41,6 +41,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analyser des données dans un compte de stockage
+
+Vous pouvez analyser les données dans le compte ADLS Gen2 par défaut de votre espace de travail ou vous pouvez lier un compte ADLS Gen2 ou Stockage Blob à votre espace de travail via « **Gérer** » > « **Services liés** » > « **Nouveau** » (les étapes ci-dessous font référence au compte ADLS Gen2 principal).
 
 1. Dans Synapse Studio, accédez au hub **Données**, puis sélectionnez **Liées**.
 1. Accédez à **Comptes de stockage** > **myworkspace (Principal - contosolake)** .

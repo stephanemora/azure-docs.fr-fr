@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685424"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254236"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
@@ -33,8 +33,8 @@ Choisissez l’une des méthodes et ouvrez le **centre des connaissances**.
 ## <a name="overview"></a>Vue d’ensemble
 
 Le **centre des connaissances** vous permet d’effectuer trois opérations :
-* **Use samples immediately (Utiliser des exemples immédiatement)** . Cette option est optimisée pour vous permettre de voir les analytiques en action aussi rapidement que possible. Si vous souhaitez avoir un exemple rapide du fonctionnement de Synapse, choisissez cette option.
-* **Browser available sample (Parcourir les exemples disponibles)** . Cette option vous permet de lier des exemples de jeux de données et d’ajouter des exemples de code sous la forme de scripts SQL, de notebooks et de pipelines.
+* **Use samples immediately (Utiliser des exemples immédiatement)** . Si vous souhaitez avoir un exemple rapide du fonctionnement de Synapse, choisissez cette option.
+* **Parcourir la galerie**. Cette option vous permet de lier des exemples de jeux de données et d’ajouter des exemples de code sous la forme de scripts SQL, de notebooks et de pipelines.
 * **Tour Synapse studio (Visiter Synapse Studio)** . Cette option vous guide dans une brève présentation des composants de base de Synapse Studio. Elle est utile si vous n’avez jamais utilisé Synapse Studio.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploration du stockage Blob avec un pool SQL serverless
@@ -47,7 +47,7 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 1. Cliquez sur Exécuter. Le texte que vous avez sélectionné est exécuté.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Chargement d’autres données sur les taxis new-yorkais
-1. Accédez au **Centre des connaissances**, puis cliquez sur **Browse available samples (Parcourir les exemples disponibles)** . 
+1. Accédez au **Centre des connaissances**, puis cliquez sur **Parcourir la galerie**. 
 1. Sélectionnez l’onglet **SQL scripts (Scripts SQL)** en haut.
 1. Sélectionnez **Load the New York Taxicab dataset (Charger le jeu de données New York Taxicab)** .
 1. Sous **Inputs (Entrées)** , choisissez **Select an existing pool (Sélectionner un pool existant)** et sélectionnez **SQLDB1**.

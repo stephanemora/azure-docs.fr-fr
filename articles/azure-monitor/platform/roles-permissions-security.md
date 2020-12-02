@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533272"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975346"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
@@ -68,7 +68,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Autorisations de supervision et rôles personnalisés Azure
-Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle personnalisé Azure](../../role-based-access-control/custom-roles.md) avec des autorisations plus précises. Voici les opérations RBAC d’Azure Monitor courantes avec leurs descriptions.
+Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre équipe, vous pouvez [créer un rôle personnalisé Azure](../../role-based-access-control/custom-roles.md) avec des autorisations plus précises. Voici les opérations Azure RBAC courantes pour Azure Monitor avec leurs descriptions.
 
 | Opération | Description |
 | --- | --- |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Vous pouvez ensuite donner le jeton à l’entité qui doit lire à partir de ce compte de stockage, et elle pourra alors répertorier et lire à partir de tous les objets Blob dans ce compte de stockage.
 
-Si vous avez besoin de contrôler cette autorisation avec RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle personnalisé Azure suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
+Si vous avez besoin de contrôler cette autorisation avec Azure RBAC, vous pouvez également accorder à cette entité l’autorisation Microsoft.Storage/storageAccounts/listkeys/action sur ce compte de stockage particulier. Cela est nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour l’archivage sur un compte de stockage. Par exemple, vous pouvez créer le rôle personnalisé Azure suivant pour un utilisateur ou une application qui a uniquement besoin de lire à partir d’un compte de stockage :
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Un modèle similaire peut être suivi avec les hubs d’événements, mais vous devez d’abord créer une règle d’autorisation d’écoute dédiée. Si vous souhaitez accorder l’accès à une application qui doit seulement écouter les hubs d’événements liés à l’analyse, procédez comme suit :
 
 1. Créez une stratégie d’accès partagé sur les concentrateurs d’événements qui ont été créés pour la diffusion des données d’analyse avec uniquement les demandes d’écoute. Vous pouvez le faire dans le portail. Par exemple, vous pouvez l’appeler « monitoringReadOnly ». Si possible, donnez cette clé directement au consommateur et ignorez l’étape suivante.
-2. Si le consommateur doit être en mesure d’obtenir la clé ad hoc, accordez à l’utilisateur l’action ListKeys pour cet Event Hub. Cela est également nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour diffuser vers les hubs d’événements. Par exemple, vous pouvez créer une règle RBAC :
+2. Si le consommateur doit être en mesure d’obtenir la clé ad hoc, accordez à l’utilisateur l’action ListKeys pour cet Event Hub. Cela est également nécessaire pour les utilisateurs qui doivent être en mesure de définir un paramètre de diagnostic ou un profil de journalisation pour diffuser vers les hubs d’événements. Par exemple, vous pouvez créer une règle Azure RBAC :
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ Les données de supervision sont souvent écrites dans un compte de stockage. Vo
 Pour plus d’informations, consultez [Network security and Azure Storage](../../storage/common/storage-network-security.md) (Sécurité réseau et Stockage Azure).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur RBAC et les autorisations dans Resource Manager](../../role-based-access-control/overview.md)
+* [En savoir plus sur Azure RBAC et les autorisations dans Resource Manager](../../role-based-access-control/overview.md)
 * [Lire la vue d’ensemble de l’analyse dans Azure](../overview.md)
 

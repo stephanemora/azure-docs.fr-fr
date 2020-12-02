@@ -4,12 +4,12 @@ description: Apprenez rapidement à créer un registre de conteneurs Azure priv�
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 00ed6b4569d22739051198c5b0c60987f783a87f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746682"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020039"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs Azure à l’aide du portail Azure
 
@@ -25,27 +25,27 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry** .
+Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry**.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Accéder au registre de conteneurs dans le portail":::
 
-Sous l’onglet **Informations de base** , entrez les valeurs appropriées pour **Groupe de ressources** et **Nom du registre** . Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Pour ce guide de démarrage rapide, créez un groupe de ressources dans l’emplacement `West US` nommé `myResourceGroup`, et sélectionnez « De base » pour **SKU** .
+Sous l’onglet **Informations de base**, entrez les valeurs appropriées pour **Groupe de ressources** et **Nom du registre**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Pour ce guide de démarrage rapide, créez un groupe de ressources dans l’emplacement `West US` nommé `myResourceGroup`, et sélectionnez « De base » pour **SKU**.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Accéder au registre de conteneurs dans le portail":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Créer un registre de conteneurs dans le portail":::
 
-Acceptez les valeurs par défaut pour les autres paramètres. Sélectionnez ensuite **Passer en revue + créer** . Après avoir passé en revue les paramètres, sélectionnez **Créer** .
+Acceptez les valeurs par défaut pour les autres paramètres. Sélectionnez ensuite **Passer en revue + créer** . Après avoir passé en revue les paramètres, sélectionnez **Créer**.
 
-Dans ce guide de démarrage rapide, vous allez créer un registre *De base* . Il s’agit d’une option à coût optimisé pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles (SKU), consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
+Dans ce guide de démarrage rapide, vous allez créer un registre *De base*. Il s’agit d’une option à coût optimisé pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles (SKU), consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
 
 Quand le message **Déploiement réussi** s’affiche, sélectionnez le registre de conteneurs dans le portail. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Accéder au registre de conteneurs dans le portail":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Vue d’ensemble du registre de conteneurs dans le portail":::
 
-Prenez note du nom du registre et de la valeur du **serveur de connexion** . Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
+Prenez note du nom du registre et de la valeur du **serveur de connexion**. Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
 
 ## <a name="log-in-to-registry"></a>Se connecter au registre
 
-Avant d’envoyer (push) et de tirer (pull) des images conteneur, vous devez vous connecter à l’instance du registre. [Connectez-vous à Azure CLI][get-started-with-azure-cli] sur votre machine locale, puis exécutez la commande [az acr login][az-acr-login]. (Spécifiez uniquement le nom du registre au moment de la connexion à Azure CLI. N’incluez pas le suffixe de domaine « azurecr.io ».)
+Avant d’envoyer (push) et de tirer (pull) des images conteneur, vous devez vous connecter à l’instance du registre. [Connectez-vous à Azure CLI][get-started-with-azure-cli] sur votre machine locale, puis exécutez la commande [az acr login][az-acr-login]. Spécifiez uniquement le nom du registre au moment de la connexion à Azure CLI. N’utilisez pas le nom du serveur de connexion, qui comprend un suffixe de domaine comme `azurecr.io`.
 
 ```azurecli
 az acr login --name <registry-name>
@@ -65,9 +65,9 @@ Une fois l’opération terminée, la commande renvoie `Login Succeeded`.
 
 Pour lister les images de votre registre, accédez à ce dernier dans le portail, puis sélectionnez **Référentiels** et le référentiel **hello-world** que vous avez créé avec `docker push`.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Accéder au registre de conteneurs dans le portail":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Lister les images conteneur dans le portail":::
 
-En sélectionnant le référentiel **hello-world** , vous voyez l’image étiquetée `v1` sous **Étiquettes** .
+En sélectionnant le référentiel **hello-world**, vous voyez l’image étiquetée `v1` sous **Étiquettes**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
@@ -75,7 +75,7 @@ En sélectionnant le référentiel **hello-world** , vous voyez l’image étiqu
 
 Pour supprimer vos ressources, accédez au groupe de ressources **myResourceGroup** dans le portail. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources, le registre de conteneurs et les images conteneur stockées à cet endroit.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Accéder au registre de conteneurs dans le portail":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Supprimer un groupe de ressources dans le portail":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

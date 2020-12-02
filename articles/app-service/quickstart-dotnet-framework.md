@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Créer une application C# ASP.NET'
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant le modèle d’application web C# ASP.NET par défaut à partir de Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f7ba288bc27d6079deea9caf0ea315a55d0745
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88212548"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004053"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
@@ -55,20 +55,21 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp**, puis sélectionnez **Publier**.
 
-1. Choisissez **App Service** et sélectionnez **Créer un profil**.
+1. Dans **Publier**, sélectionnez **Azure** et cliquez sur **Suivant**.
 
-   ![Publier à partir de la page de présentation du projet](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Sélectionnez **Azure App Service (Windows)** et cliquez sur **Suivant**.
 
-1. Dans **Créer un App Service**, vos options varient si vous êtes déjà connecté à Azure et si vous avez un compte Visual Studio lié à un compte Azure. Sélectionnez **Ajouter un compte** ou **Connexion** pour vous connecter à votre abonnement Azure. Si vous êtes déjà connecté, sélectionnez le compte souhaité.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > Si vous êtes déjà connecté, ne sélectionnez pas encore **Créer**.
-   >
-   >
+1. Vos options varient si vous êtes déjà connecté à Azure et si vous avez un compte Visual Studio lié à un compte Azure. Sélectionnez **Ajouter un compte** ou **Connexion** pour vous connecter à votre abonnement Azure. Si vous êtes déjà connecté, sélectionnez le compte souhaité.
 
    ![Connexion à Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+
+1. À droite de **Instances d’App Service**, cliquez sur **+** .
+
+   ![Nouvelle application App Service](./media/quickstart-dotnet-framework/publish-new-app-service.png)
 
 1. Pour **Groupe de ressources**, sélectionnez **Nouveau**.
 
@@ -78,7 +79,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Pour **Plan d’hébergement**, sélectionnez **Nouveau**.
 
-1. Dans la boîte de dialogue **Configurer le plan d’hébergement**, entrez les valeurs du tableau suivant, puis sélectionnez **OK**.
+1. Dans la boîte de dialogue **Plan d’hébergement**, entrez les valeurs du tableau suivant, puis sélectionnez **OK**.
 
    | Paramètre | Valeur suggérée | Description |
    |-|-|-|
@@ -90,11 +91,13 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Dans **Nom**, entrez un nom d’application unique qui inclut uniquement les caractères valides `a-z`, `A-Z`, `0-9` et `-`. Vous pouvez accepter le nom unique généré automatiquement. L’URL de l’application web est `http://<app-name>.azurewebsites.net`, où `<app-name>` est le nom de votre application.
 
-2. Sélectionnez **Créer** pour commencer à créer les ressources Azure.
+2. Sélectionnez **Créer** pour créer les ressources Azure.
 
    ![Configurer le nom de l’application](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Une fois l’Assistant terminé, les ressources Azure sont créées pour vous et vous êtes prêt à publier.
+
+3. Sélectionnez **Terminer** pour fermer l’Assistant.
 
 3. Dans la page **Publier**, cliquez sur **Publier**. Visual Studio génère, empaquète et publie l’application sur Azure, puis la démarre dans le navigateur par défaut.
 

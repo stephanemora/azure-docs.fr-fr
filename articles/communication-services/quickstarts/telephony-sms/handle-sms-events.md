@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357468"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888842"
 ---
 # <a name="quickstart-handle-sms-events"></a>Démarrage rapide : Gérer les événements SMS
 
@@ -24,7 +24,7 @@ Commencez avec Azure Communication Services en utilisant Azure Event Grid pour g
 
 ## <a name="about-azure-event-grid"></a>À propos d’Azure Event Grid
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) est un service d’événement cloud. Dans cet article, vous allez apprendre à vous abonner à des [événements de service de communication](../../concepts/event-handling.md) et à déclencher un événement pour voir le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Dans cet article, nous allons envoyer les événements à une application web qui collecte et affiche les messages.
+[Azure Event Grid](../../../event-grid/overview.md) est un service d’événement cloud. Dans cet article, vous allez apprendre à vous abonner à des [événements de service de communication](../../concepts/event-handling.md) et à déclencher un événement pour voir le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Dans cet article, nous allons envoyer les événements à une application web qui collecte et affiche les messages.
 
 ## <a name="prerequisites"></a>Prérequis
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -49,7 +49,7 @@ L’inscription peut prendre un certain temps. Sélectionnez **Actualiser** pour
 
 ### <a name="event-grid-viewer-deployment"></a>Déploiement de la visionneuse Event Grid
 
-Pour ce guide de démarrage rapide, nous allons utiliser l’[exemple de la visionneuse Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) pour voir les événements en quasi-temps réel. Cela offre à l’utilisateur l’expérience d’un flux en temps réel. De plus, la charge utile de chaque événement doit également être disponible pour inspection.  
+Pour ce guide de démarrage rapide, nous allons utiliser l’[exemple de la visionneuse Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) pour voir les événements en quasi-temps réel. Cela offre à l’utilisateur l’expérience d’un flux en temps réel. De plus, la charge utile de chaque événement doit également être disponible pour inspection.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>S’abonner aux événements SMS à l’aide de webhooks
 
@@ -63,7 +63,7 @@ Dans la page **Créer un abonnement aux événements**, entrez un **nom** pour l
 
 Vous pouvez vous abonner à des événements spécifiques pour indiquer à Event Grid les événements SMS que vous voulez suivre, et où les envoyer. Dans le menu déroulant, sélectionnez les événements auxquels vous voulez vous abonner. Pour les SMS, vous avez le choix entre `SMS Received` et `SMS Delivery Report Received`. 
 
-Si vous êtes invité à indiquer un **nom de rubrique système**, n’hésitez pas à fournir un identificateur unique que vous pouvez, le cas échéant, utiliser pour filtrer les événements après leur émission.
+Si vous êtes invité à fournir un **Nom de rubrique système**, n’hésitez pas à fournir une chaîne unique. Ce champ n’a aucun impact sur votre expérience et est utilisé à des fins de télémétrie interne.
 
 Consultez la liste complète des [événements pris en charge par Azure Communication Services](../../concepts/event-handling.md).
 
@@ -75,7 +75,7 @@ Sélectionnez **Webhook** pour **Type de point de terminaison**.
 
 Pour **Point de terminaison**, cliquez sur **Sélectionner un point de terminaison**, puis entrez l’URL de votre application web.
 
-Dans le cas présent, nous allons utiliser l’URL de l’[exemple de la visionneuse Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que nous avons configurée précédemment dans le guide de démarrage rapide. L’URL de l’exemple sera au format suivant : `https://{{site-name}}.azurewebsites.net/api/updates`
+Dans le cas présent, nous allons utiliser l’URL de l’[exemple de la visionneuse Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que nous avons configurée précédemment dans le guide de démarrage rapide. L’URL de l’exemple sera au format suivant : `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Sélectionnez ensuite **Confirmer la sélection**.
 
@@ -94,7 +94,7 @@ Consultez la liste complète des [événements pris en charge par Azure Communic
 
 ### <a name="receiving-sms-events"></a>Réception d’événements SMS
 
-Une fois que vous avez effectué l’une des actions ci-dessus, vous remarquerez que les événements `SMS Received` et `SMS Delivery Report Received` sont envoyés à votre point de terminaison. Ces événements s’affichent dans l’[exemple de la visionneuse Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que nous avons configuré au début. Vous pouvez appuyer sur l’icône représentant un œil en regard de l’événement pour voir l’intégralité de la charge utile. Les événements se présentent comme suit :
+Une fois que vous avez effectué l’une des actions ci-dessus, vous remarquerez que les événements `SMS Received` et `SMS Delivery Report Received` sont envoyés à votre point de terminaison. Ces événements s’affichent dans l’[exemple de la visionneuse Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que nous avons configuré au début. Vous pouvez appuyer sur l’icône représentant un œil en regard de l’événement pour voir l’intégralité de la charge utile. Les événements se présentent comme suit :
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Capture d’écran montrant le schéma Event Grid pour un événement SMS Received (SMS reçu).":::
 
@@ -104,7 +104,7 @@ Découvrez-en plus sur les [schémas d’événements et d’autres concepts li�
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -116,4 +116,4 @@ Dans ce guide de démarrage rapide, vous avez appris comment consommer des évé
 Vous voudrez peut-être aussi :
 
  - [Découvrir les concepts de gestion des événements](../../concepts/event-handling.md)
- - [Découvrir Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Découvrir Event Grid](../../../event-grid/overview.md)

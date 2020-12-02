@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972428"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014473"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutoriel : Créer une application de gestion connectée des déchets dans IoT Central
 
@@ -92,18 +92,18 @@ En tant que créateur, vous pouvez créer et personnaliser des vues dans le tabl
 
 Le tableau de bord est constitué de différents types de vignettes :
 
-* ***Vignette d’image Wide World Waste utility*** (Utilitaire Wide World Waste) : la première vignette du tableau de bord est une vignette d’image d’un utilitaire fictif de gestion des déchets « Wide World Waste ». Vous pouvez personnaliser cette vignette et fournir votre propre image, ou la supprimer. 
+* ***Vignette d’image Wide World Waste utility** _ (Utilitaire Wide World Waste) : la première vignette du tableau de bord est une vignette d’image d’un utilitaire fictif de gestion des déchets « Wide World Waste ». Vous pouvez personnaliser cette vignette et fournir votre propre image, ou la supprimer. 
 
-* ***Vignette d’image Waste bin*** (Conteneur de déchets) : vous pouvez utiliser des vignettes d’image et de contenu pour créer une représentation visuelle de l’appareil supervisé et y ajouter un texte descriptif. 
+_ ***Vignette d’image Waste bin** _ (Conteneur de déchets) : vous pouvez utiliser des vignettes d’image et de contenu pour créer une représentation visuelle de l’appareil supervisé et y ajouter un texte descriptif. 
 
-* ***Vignette de KPI de niveau de remplissage*** : la vignette affiche une valeur signalée par un capteur de *niveau de remplissage* dans un conteneur de déchets. Le capteur *Fill level* (Niveau de remplissage) et d’autres capteurs, comme *Odor meter* (Mesure des odeurs) ou *Weight* (Poids), peuvent être supervisés à distance dans un conteneur de déchets. Un opérateur peut entreprendre une action, comme envoyer un camion de ramassage des ordures. 
+_ ***Vignette de KPI de niveau de remplissage** _ : la vignette affiche une valeur signalée par un capteur de _niveau de remplissage* dans un conteneur de déchets. Le capteur *Fill level* (Niveau de remplissage) et d’autres capteurs, comme *Odor meter* (Mesure des odeurs) ou *Weight* (Poids), peuvent être supervisés à distance dans un conteneur de déchets. Un opérateur peut entreprendre une action, comme envoyer un camion de ramassage des ordures. 
 
-*  ***Waste monitoring area map*** (Carte des zones de supervision des déchets) : la carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de carte affiche l’emplacement des appareils. Essayez de survoler la carte et essayez les contrôles sur la carte, comme le zoom avant, le zoom arrière ou développer.
+*  ***Waste monitoring area map** _ (Carte des zones de supervision des déchets) : la carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de carte affiche l’emplacement des appareils. Essayez de survoler la carte et essayez les contrôles sur la carte, comme le zoom avant, le zoom arrière ou développer.
 
      ![Carte du tableau de bord de gestion connectée des déchets](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Graphique à barres des niveaux de remplissage, d’odeur et de poids** : vous pouvez visualiser les données de télémétrie d’un ou de plusieurs appareils dans un graphique à barres. Vous pouvez également développer le graphique à barres.  
+_ ***Graphique à barres des niveaux de remplissage, d’odeur et de poids** : vous pouvez visualiser les données de télémétrie d’un ou de plusieurs appareils dans un graphique à barres. Vous pouvez également développer le graphique à barres.  
 
   ![Graphique à barres du tableau de bord de gestion connectée des déchets](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -197,7 +197,7 @@ L’application **Connected waste management** (Gestion connectée des déchets)
 
 ## <a name="explore-and-configure-rules"></a>Explorer et configurer les règles
 
-Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiquement les données de télémétrie des appareils et déclencher des actions quand une ou plusieurs conditions sont remplies. Ces actions peuvent inclure l’envoi d’e-mails de notification, le déclenchement d’une action Microsoft Flow ou une action webhook pour envoyer des données à d’autres services.
+Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiquement les données de télémétrie des appareils et déclencher des actions quand une ou plusieurs conditions sont remplies. Ces actions peuvent inclure l’envoi d’e-mails de notification, le déclenchement d’une action Power Automate ou une action webhook pour envoyer des données à d’autres services.
 
 L’application **Connected Waste Management** (Gestion connectée des déchets) possède quatre exemples de règles.
 

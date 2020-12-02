@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 061dce01d2437d04d371ac65c115a1d95136fb5d
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425318"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874693"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser JavaScript pour créer une salle de conversation avec Azure Functions et SignalR Service
 
@@ -32,21 +32,21 @@ Azure SignalR Service vous permet d’ajouter facilement des fonctionnalités en
 > [!NOTE]
 > Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compte Azure.
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurer et exécuter l’application de fonction Azure
 
@@ -64,7 +64,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
 
 1. Renommez *local.settings.sample.json* en *local.settings.json*.
 
-1. Dans le fichier **local.settings.json** , collez la chaîne de connexion dans la valeur du paramètre **AzureSignalRConnectionString**. Enregistrez le fichier .
+1. Dans le fichier **local.settings.json**, collez la chaîne de connexion dans la valeur du paramètre **AzureSignalRConnectionString**. Enregistrez le fichier .
 
 1. Les fonctions JavaScript sont organisées dans des dossiers. Deux fichiers se trouvent dans chaque dossier : le fichier *function.json* définit les liaisons utilisées dans la fonction et le fichier *index.js* correspond au corps de la fonction. Il existe deux fonctions déclenchées par HTTP dans cette application de fonction :
 
@@ -78,16 +78,16 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
     ```
 
     ![Créer un service SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
-
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+    
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -96,4 +96,3 @@ Dans ce démarrage rapide, vous avez généré et exécuté une application serv
 > [!div class="nextstepaction"]
 > [Déployer Azure Functions avec VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjs)

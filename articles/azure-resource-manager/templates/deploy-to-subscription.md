@@ -2,13 +2,13 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668882"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807706"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 
@@ -126,25 +126,41 @@ Pour plus d’informations sur les commandes et options de déploiement de modè
 * [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](deploy-to-azure-button.md)
 * [Déployer des modèles ARM à partir de Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
+
+Pour les déploiements au niveau de l’abonnement, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement. Les déploiements de [groupes d’administration](deploy-to-management-group.md) et de [locataires](deploy-to-tenant.md) nécessitent également un emplacement. Pour les déploiements de [groupes de ressources](deploy-to-resource-group.md), l’emplacement du groupe de ressources est utilisé pour stocker les données de déploiement.
+
+Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+
+Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Par exemple, si vous créez un déploiement d’abonnement avec le nom **deployment1** dans **centralus**, vous ne pouvez pas créer par la suite un autre déploiement avec le nom **deployment1**, mais à l’emplacement **westus**. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+
 ## <a name="deployment-scopes"></a>Étendues de déploiement
 
 Lors du déploiement dans un abonnement, vous pouvez déployer des ressources vers :
 
 * l’abonnement cible de l’opération
-* des groupes de ressources dans l’abonnement
+* tout abonnement dans le locataire
+* des groupes de ressources dans le même abonnement ou dans d’autres abonnements
+* le locataire de l’abonnement
 * les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
 
-Vous ne pouvez déployer sur un abonnement différent de l’abonnement cible. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
+L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
 Cette section montre comment spécifier des étendues différentes. Vous pouvez combiner ces différentes étendues dans un seul modèle.
 
-### <a name="scope-to-subscription"></a>Étendue à l’abonnement
+### <a name="scope-to-target-subscription"></a>Étendue à l’abonnement cible
 
 Pour déployer des ressources dans l’abonnement cible, ajoutez ces ressources à la section des ressources du modèle.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Pour obtenir des exemples de déploiement sur l’abonnement, consultez [Créer des groupes de ressources](#create-resource-groups) et [Affecter une définition de stratégie](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Étendue à un autre abonnement
+
+Pour déployer des ressources dans un abonnement différent de l’abonnement de l’opération, ajoutez un déploiement imbriqué. Définissez la propriété `subscriptionId` sur l’ID de l’abonnement sur lequel vous souhaitez effectuer le déploiement. Définissez la propriété `location` pour le déploiement imbriqué.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Étendue au groupe de ressources
 
@@ -154,13 +170,17 @@ Pour déployer des ressources dans un groupe de ressources au sein de l’abonne
 
 Pour obtenir un exemple de déploiement dans un groupe de ressources, consultez [Créer un groupe de ressources et des ressources](#create-resource-group-and-resources).
 
-## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
+### <a name="scope-to-tenant"></a>Étendue au locataire
 
-Pour les déploiements au niveau de l’abonnement, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement.
+Vous pouvez créer des ressources au niveau du locataire en définissant `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
 
-Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `location`.
 
-Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## <a name="resource-groups"></a>Groupes de ressources
 

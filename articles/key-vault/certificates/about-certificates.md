@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289785"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919928"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -44,8 +44,17 @@ Lorsqu’un certificat Key Vault est créé, il peut être récupéré dans le s
 
 La clé adressable est plus pertinente avec des certificats KV non exportables. Les opérations de la clé KV adressable sont mappées à partir du champ *keyusage* de la stratégie de certificat KV utilisée pour créer le certificat KV.  
 
+Type de paire de clés pris en charge pour les certificats
+
  - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, oct (listés [ici](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) : « Exportable » est autorisé seulement avec RSA et EC. Les clés HSM sont non exportables.
 
+|Type de clé|À propos de|Sécurité|
+|--|--|--|
+|**RSA**| clé RSA « protégée par logiciel »|FIPS 140-2 niveau 1|
+|**RSA-HSM**| Clé RSA « protégée par HSM » (référence SKU Premium uniquement)|HSM FIPS 140-2 niveau 2|
+|**EC**| clé Elliptic Curve « protégée par logiciel »|FIPS 140-2 niveau 1|
+|**EC-HSM**| Clé à courbe elliptique « protégée par HSM » (référence SKU Premium uniquement)|HSM FIPS 140-2 niveau 2|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>Attributs et balises de certificat
 
@@ -57,14 +66,14 @@ Les attributs de certificat sont reproduits dans des attributs de la clé et du 
 
 Un certificat Key Vault comprend les attributs suivants :  
 
--   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp*. Quand une opération se produit entre *nbf* et *exp* , elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
+-   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp*. Quand une opération se produit entre *nbf* et *exp*, elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
 
 Des attributs supplémentaires en lecture seule sont inclus dans la réponse :
 
--   *created*  : IntDate, indique quand cette version du certificat a été créée.  
--   *updated*  : IntDate, indique quand cette version du certificat a été mise à jour.  
--   *exp*  : IntDate, contient la valeur de la date d’expiration du certificat X.509.  
--   *nbf*  : IntDate, contient la valeur de la date du certificat X.509.  
+-   *created* : IntDate, indique quand cette version du certificat a été créée.  
+-   *updated* : IntDate, indique quand cette version du certificat a été mise à jour.  
+-   *exp* : IntDate, contient la valeur de la date d’expiration du certificat X.509.  
+-   *nbf* : IntDate, contient la valeur de la date du certificat X.509.  
 
 > [!Note] 
 > Si un certificat Key Vault expire, sa clé et son secret adressables ne sont plus utilisables.  

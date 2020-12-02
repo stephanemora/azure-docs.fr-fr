@@ -1,5 +1,5 @@
 ---
-title: Créer un peering de réplication pour Azure NetApp Files | Microsoft Docs
+title: Créer une réplication de volume pour Azure NetApp Files | Microsoft Docs
 description: Décrit comment créer un peering de réplication de volume pour Azure NetApp Files afin de configurer la réplication inter-région.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708321"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249935"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Créer un peering de réplication pour Azure NetApp Files
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Créer une réplication de volume pour Azure NetApp Files
 
 > [!IMPORTANT]
 > La fonctionnalité de réplication inter-région est actuellement disponible en préversion publique. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
@@ -113,5 +113,6 @@ Pour autoriser la réplication, vous devez obtenir l’ID de ressource du volume
 * [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md)
 * [Métriques de réplication de volume](azure-netapp-files-metrics.md#replication)
 * [Gérer la reprise d’activité après sinistre](cross-region-replication-manage-disaster-recovery.md)
+* [Supprimer des volumes ou des réplications de volume](cross-region-replication-delete.md)
 * [Résoudre les problèmes de réplication entre régions](troubleshoot-cross-region-replication.md)
 

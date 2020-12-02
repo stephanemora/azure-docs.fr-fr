@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131137"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026554"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Ajouter ou mettre à jour une carte de crédit pour Azure
 
 Ce document s’applique aux clients qui se sont inscrits à Azure Online avec une carte de crédit.
 
-Dans le portail Azure, vous pouvez remplacer votre mode de paiement par défaut par une nouvelle carte de crédit et mettre à jour les informations de votre carte de crédit. Vous devez être [administrateur de compte](../understand/subscription-transfer.md#whoisaa) pour effectuer ces changements.
+Dans le portail Azure, vous pouvez remplacer votre mode de paiement par défaut par une nouvelle carte de crédit et mettre à jour les informations de votre carte de crédit. Vous devez être [Administrateur de compte](../understand/subscription-transfer.md#whoisaa) ou disposer des [autorisations MCA](understand-mca-roles.md) appropriées pour effectuer ces modifications.
 
 Si vous voulez supprimer une carte de crédit, consultez [Supprimer un mode de paiement pour la facturation Azure](delete-azure-payment-method.md).
 
@@ -82,11 +82,11 @@ Si le numéro de votre carte bancaire reste le même en cas de renouvellement, m
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gérer les cartes de crédit pour un Contrat client Microsoft
 
-Les sections suivantes s’appliquent aux clients qui disposent d’un Contrat client Microsoft et qui sont inscrits à Azure Online avec une carte de crédit. [Découvrez comment vérifier si vous avez un Contrat client Microsoft](#check-the-type-of-your-account).
+Les sections suivantes s’appliquent aux clients qui disposent d’un Contrat client Microsoft et qui sont inscrits à Azure Online avec une carte de crédit, et à ceux qui disposent des [autorisations MCA](understand-mca-roles.md) appropriées. [Découvrez comment vérifier si vous avez un Contrat client Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Changer la carte de crédit par défaut
 
-Si vous avez un Contrat client Microsoft, votre carte de crédit est associée à un profil de facturation. Pour changer le mode de paiement d’un profil de facturation, vous devez être la personne qui s’est inscrite à Azure et qui a créé le compte de facturation.
+Si vous avez un Contrat client Microsoft, votre carte de crédit est associée à un profil de facturation. Pour changer le mode de paiement d’un profil de facturation, vous devez être la personne qui s’est inscrite à Azure et qui a créé le compte de facturation, ou vous devez disposer des [autorisations MCA](understand-mca-roles.md) appropriées.
 
 Si vous voulez changer le mode de paiement par défaut de votre profil de facturation en chèque/virement, consultez [Payer pour les abonnements Azure par facture](pay-by-invoice.md).
 
@@ -98,7 +98,7 @@ Pour changer votre carte de crédit, effectuez les étapes suivantes :
 1. Sélectionnez un profil de facturation.
 1. Dans le menu de gauche, sélectionnez **Méthodes de paiement**.  
    ![Capture d’écran montrant les modes de paiement dans le menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Dans la section **Mode de paiement par défaut** , sélectionnez **Remplacer**.  
+1. Dans la section **Mode de paiement par défaut**, sélectionnez **Remplacer**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Capture d’écran montrant l’option Remplacer" :::
 1. Dans la nouvelle zone de droite, sélectionnez une carte existante dans la liste déroulante ou ajoutez-en une en sélectionnant le lien de couleur bleue **Ajouter un nouveau mode de paiement**.
 
@@ -114,7 +114,7 @@ Pour modifier une carte de crédit, effectuez les étapes suivantes :
 1. Sélectionnez un profil de facturation.
 1. Dans le menu de gauche, sélectionnez **Méthodes de paiement**.  
    ![Capture d’écran montrant les modes de paiement dans le menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Dans la section **Vos cartes de crédit** , recherchez la carte de crédit que vous voulez modifier.
+1. Dans la section **Vos cartes de crédit**, recherchez la carte de crédit que vous voulez modifier.
 1. Sélectionnez les points de suspension (`...`) à la fin de la ligne.  
     :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Capture d’écran montrant les points de suspension" :::
 1. Pour modifier les informations de votre carte de crédit, sélectionnez **Modifier** dans le menu contextuel.

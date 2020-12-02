@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030864"
 ---
 # <a name="container-security-in-security-center"></a>Sécurité des conteneurs dans Security Center
 
@@ -78,11 +78,11 @@ Pour plus d’informations sur les recommandations pertinentes de Security Cente
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Meilleures pratiques pour la protection de charge de travail à l’aide du contrôle d’admission Kubernetes
 
-Installez le **module complémentaire Azure Policy pour Kubernetes** pour obtenir un ensemble de recommandations pour la protection des charges de travail de vos conteneurs Kubernetes.
+Pour obtenir un ensemble de recommandations pour la protection des charges de travail de vos conteneurs Kubernetes, installez le **module complémentaire Azure Policy pour Kubernetes**. Vous pouvez également déployer automatiquement ce module complémentaire comme cela est expliqué dans [Activer le provisionnement automatique des extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Lorsque le provisionnement automatique du module complémentaire est défini sur « activé », l’extension est activée par défaut dans tous les clusters existants et futurs (qui répondent à la configuration requise de l’installation du module complémentaire).
 
 Comme expliqué dans [cette page Azure Policy pour page Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), le module complémentaire étend le webhook de contrôleur d’admission open source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)  pour  [Open Policy Agent](https://www.openpolicyagent.org/). Les contrôleurs d’admission Kubernetes sont des modules complémentaires qui appliquent la manière dont vos clusters sont utilisés. Le module complémentaire s’inscrit en tant que webhook pour le contrôle d’admission Kubernetes et permet d’appliquer une mise en œuvre et une protection à grande échelle sur vos clusters, de manière centralisée et cohérente. 
 
-Lorsque vous avez installé le module complémentaire sur votre cluster AKS, toutes les demandes adressées au serveur d’API Kubernetes sont analysées par rapport à l’ensemble prédéfini de meilleures pratiques avant d’être conservées sur le cluster. Vous pouvez ensuite configurer l’**application** des meilleures pratiques et les imposer aux charges de travail futures. 
+Avec le module complémentaire sur votre cluster AKS, chaque demande adressée au serveur d’API Kubernetes est analysée par rapport à l’ensemble prédéfini de bonnes pratiques, avant d’être conservée sur le cluster. Vous pouvez ensuite configurer l’**application** des meilleures pratiques et les imposer aux charges de travail futures. 
 
 Par exemple, vous pouvez faire en sorte que des conteneurs privilégiés ne soient pas créés, et que toutes les demandes ultérieures soient bloquées.
 

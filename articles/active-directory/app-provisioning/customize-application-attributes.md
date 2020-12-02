@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441951"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955514"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -202,7 +202,7 @@ Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisate
   - **Points importants à prendre en compte**
     - Assurez-vous que plusieurs rôles ne sont pas attribués à un utilisateur. Nous ne pouvons pas garantir le rôle qui sera approvisionné.
     
-  - **Exemple de sortie** 
+  - **Exemple de requête (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisate
    }
    ```
   
+  - **Exemple de sortie (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Le format diffère entre les requêtes PATCH et POST. Pour vous assurer que les requêtes POST et PATCH sont envoyées au même format, vous pouvez utiliser l’indicateur de fonctionnalité décrit [ici](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **Quand l’utiliser** : Utilisez l’expression AppRoleAssignmentsComplex pour approvisionner plusieurs rôles pour un utilisateur. 
   - **Comment configurer :** Modifiez la liste des attributs pris en charge comme décrit ci-dessus pour inclure un nouvel attribut pour les rôles : 

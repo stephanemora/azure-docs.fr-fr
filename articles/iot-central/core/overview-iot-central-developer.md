@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812350"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990752"
 ---
 # <a name="iot-central-device-development-overview"></a>Vue d’ensemble du développement d’appareils IoT Central
 
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Se connecter à Azure IoT Central](./conc
 
 ### <a name="security"></a>Sécurité
 
-La connexion entre un appareil et votre application IoT Central est sécurisée à l’aide de [signatures d’accès partagé](./concepts-get-connected.md#connect-devices-at-scale-using-sas) ou de [certificats X.509](./concepts-get-connected.md#connect-devices-using-x509-certificates) standard.
+La connexion entre un appareil et votre application IoT Central est sécurisée à l’aide de [signatures d’accès partagé](./concepts-get-connected.md#sas-group-enrollment) ou de [certificats X.509](./concepts-get-connected.md#x509-group-enrollment) standard.
 
 ### <a name="communication-protocols"></a>Protocoles de communication
 
@@ -80,12 +80,58 @@ Les protocoles de communication qu’un appareil peut utiliser pour se connecter
 
 ## <a name="implement-the-device"></a>Implémenter l’appareil
 
+Un modèle d’appareil IoT Central comprend un _modèle de capacité_ qui spécifie les comportements qu’un appareil de ce type doit implémenter. Les comportements incluent une télémétrie, des propriétés et des commandes.
+
+> [!TIP]
+> Vous pouvez exporter le modèle de capacité à partir d’IoT Central en tant que fichier JSON [DTDL (Digital Twins Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl).
+
+Chaque modèle de capacité a un _identificateur de modèle de capacité de jumeau d’appareil unique_ (DTMI), tel que `dtmi:com:example:Thermostat;1`. Lorsqu’un appareil se connecte à IoT Central, il envoie le DTMI du modèle de capacité qu’il implémente. IoT Central peut ensuite associer le modèle d’appareil approprié à l’appareil.
+
+[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) définit un ensemble de conventions qu’un appareil doit suivre lorsqu’il implémente un modèle DTDL.
+
+Les kits [Azure IoT device SDK](#languages-and-sdks) incluent la prise en charge des conventions IoT Plug-and-Play.
+
+### <a name="device-model"></a>Modèle de l'appareil
+
+Un modèle de capacité d’appareil est défini à l’aide du langage [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Ce langage vous permet de définir :
+
+- La télémétrie envoyée par l’appareil. La définition comprend le nom et le type de données de la télémétrie. Par exemple, un appareil peut envoyer une télémétrie de température en tant que double.
+- Les propriétés signalées par l’appareil à IoT Central. Une définition de propriété comprend son nom et son type de données. Par exemple, un appareil peut signaler l’état d’une vanne en tant que valeur booléenne.
+- Les propriétés que l’appareil peut recevoir d’IoT Central. Si vous le souhaitez, vous pouvez marquer une propriété comme étant accessible en écriture. Par exemple, IoT Central peut envoyer une température cible en tant que double à un appareil.
+- Les commandes auxquelles un appareil répond. La définition comprend le nom de la commande ainsi que les noms et les types de données des éventuels paramètres. Par exemple, un appareil peut répondre à une commande de redémarrage qui spécifie le nombre de secondes à attendre avant le redémarrage.
+
+Un modèle DTDL peut être un modèle _sans composant_ ou _à plusieurs composants_ :
+
+- Modèle sans composant : un modèle simple n’utilise pas de composants incorporés ou en cascade. Toutes les données de télémétrie, propriétés et commandes sont définies en tant que _composant par défaut_ unique. Pour obtenir un exemple, consultez le modèle [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
+- Modèle à plusieurs composants : modèle plus complexe qui inclut deux composants ou plus. Ces composants incluent un composant unique par défaut et un ou plusieurs composants imbriqués supplémentaires. Pour obtenir un exemple, consultez le modèle [Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+
+Pour plus d’informations, consultez [Composants IoT Plug-and-Play dans les modèles](../../iot-pnp/concepts-components.md).
+
+### <a name="conventions"></a>Conventions
+
+Un appareil doit respecter les conventions IoT Plug-and-Play lorsqu’il échange des données avec IoT Central. Ces conventions sont les suivantes :
+
+- Envoyer le DTMI lorsqu’il se connecte à IoT Central
+- Envoyer des charges utiles JSON et des métadonnées correctement mises en forme à IoT Central
+- Répondre correctement aux commandes et aux propriétés accessibles en écriture d’IoT Central
+- Respecter les conventions de nommage pour les commandes de composant
+
+> [!NOTE]
+> Actuellement, IoT Central ne prend pas entièrement en charge les types de données DTDL **Array** et **Geospatial**.
+
+Pour en savoir plus sur le format des messages JSON qu’un appareil échange avec IoT Central, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md).
+
+Pour en savoir plus sur les conventions IoT Plug-and-Play, consultez [Conventions IoT Plug-and-Play](../../iot-pnp/concepts-convention.md).
+
+### <a name="device-sdks"></a>Kits de développement logiciel (SDK) d’appareil
+
 Utilisez l’un des [kits Azure IoT device SDK](#languages-and-sdks) pour implémenter le comportement de votre appareil. Le code doit :
 
 - Inscrire l’appareil auprès de DPS et utiliser les informations de DPS pour se connecter au hub IoT interne de votre application IoT Central.
-- Envoyer des données de télémétrie au format spécifié par le modèle d’appareil dans IoT Central. IoT Central utilise le modèle d’appareil afin de déterminer comment utiliser les données de télémétrie pour les visualisations et l’analyse.
-- Synchroniser les valeurs de propriété entre l’appareil et IoT Central. Le modèle d’appareil spécifie les noms de propriété et les types de données afin qu’IoT Central puisse afficher les informations.
-- Implémenter des gestionnaires de commandes pour les commandes spécifiées dans le modèle d’appareil. Le modèle d’appareil spécifie les noms de commande et les paramètres que l’appareil doit utiliser.
+- Annoncer le DTMI du modèle de capacité implémenté par l’appareil.
+- Envoyer la télémétrie au format spécifié par le modèle de capacité d’appareil. IoT Central utilise le modèle de capacité spécifié dans le modèle d’appareil afin de déterminer comment utiliser les données de télémétrie pour les visualisations et l’analyse.
+- Synchroniser les valeurs de propriété entre l’appareil et IoT Central. Le modèle de capacité spécifie les noms des propriétés et les types de données afin qu’IoT Central puisse afficher les informations.
+- Implémenter des gestionnaires de commandes pour les commandes spécifiées dans le modèle de capacité. Le modèle de capacité spécifie les noms des commandes et les paramètres que l’appareil doit utiliser.
 
 Pour plus d’informations sur le rôle des modèles d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
 

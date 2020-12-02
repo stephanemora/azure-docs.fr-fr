@@ -2,14 +2,14 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086757"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972558"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -240,107 +240,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>Appliquer des étiquettes
 
-Lors de l’ajout d’étiquettes à un groupe de ressources ou à une ressource, vous pouvez remplacer les étiquettes existantes ou ajouter de nouvelles étiquettes à des étiquettes existantes.
+Azure CLI propose deux commandes pour appliquer des étiquettes : [az tag create](/cli/azure/tag#az_tag_create) et [az tag update](/cli/azure/tag#az_tag_update). Vous devez disposer d’Azure CLI 2.10.0 ou version ultérieure. Vous pouvez vérifier votre version avec `az version`. Pour la mise à jour ou l’installation, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
-Pour remplacer les étiquettes d’une ressource, utilisez :
+La commande **az tag create** remplace toutes les étiquettes de la ressource, du groupe de ressources ou de l’abonnement. Lors de l’appel de la commande, transmettez l’ID de ressource de l’entité que vous souhaitez étiquetter.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Pour ajouter une étiquette aux étiquettes existantes d’une ressource, utilisez :
+L’exemple suivant applique un ensemble d’étiquettes à un compte de stockage :
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-Pour remplacer les étiquettes existantes dans un groupe de ressources, utilisez :
+Une fois la commande terminée, notez que la ressource a deux étiquettes.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+Si vous réexécutez la commande, mais cette fois avec des étiquettes différentes, vous remarquerez que les étiquettes précédentes sont supprimées.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-Pour ajouter une étiquette aux étiquettes existantes dans un groupe de ressources, utilisez :
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+Pour ajouter des étiquettes à une ressource qui a déjà des étiquettes, utilisez **az tag update**. Définissez le paramètre **--operation** sur **Fusionner**.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-Actuellement, Azure CLI n’a pas de commande pour l’application d’étiquettes aux abonnements. Toutefois, vous pouvez utiliser l’interface CLI pour déployer un modèle ARM qui applique les étiquettes à un abonnement. Voir [Appliquer des étiquettes à des groupes de ressources ou à des abonnements](#apply-tags-to-resource-groups-or-subscriptions).
+Notez que les deux nouvelles étiquettes ont été ajoutées aux deux étiquettes existantes.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Chaque nom d’étiquette ne peut avoir qu’une seule valeur. Si vous fournissez une nouvelle valeur pour une étiquette, l’ancienne valeur est remplacée même si vous utilisez l’opération de fusion. L’exemple suivant modifie l’étiquette d’état normal en vert.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+Lorsque vous définissez le paramètre **--operation** sur **Remplacer**, les étiquettes existantes sont remplacées par le nouvel ensemble d’étiquettes.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Seules les nouvelles étiquettes restent sur la ressource.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+Les mêmes commandes fonctionnent également avec les groupes de ressources ou les abonnements. Vous transmettez l’identificateur pour le groupe de ressources ou l’abonnement que vous souhaitez baliser.
+
+Pour ajouter un nouvel ensemble d’étiquettes à un groupe de ressources, utilisez :
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+Pour mettre à jour les étiquettes d’un groupe de ressources, utilisez :
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+Pour ajouter un nouvel ensemble d’étiquettes à un abonnement, utilisez :
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+Pour mettre à jour les étiquettes d’un abonnement, utilisez :
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>Répertorier les balises
 
-Pour afficher les étiquettes existantes d'une ressource, utilisez :
+Pour obtenir les étiquettes d’une ressource, d’un groupe de ressources ou d’un abonnement, utilisez la commande [az tag list](/cli/azure/tag#az_tag_list) et transmettez l’ID de ressource de l’entité.
+
+Pour afficher les étiquettes d’une ressource, utilisez :
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-Pour afficher les étiquettes existantes d'un groupe de ressources, utilisez :
+Pour voir les étiquettes d’un groupe de ressources, utilisez :
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-Le script retourne les informations au format suivant :
+Pour afficher les étiquettes d’un abonnement, utilisez :
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>Liste par étiquette
 
-Pour obtenir toutes les ressources contenant une étiquette et une valeur spécifiques, utilisez `az resource list` :
+Pour obtenir des ressources qui ont un nom et une valeur d’étiquette spécifiques, utilisez :
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-Pour obtenir des groupes de ressources contenant une étiquette spécifique, utilisez `az group list` :
+Pour obtenir des ressources qui ont un nom et une valeur d’étiquette spécifiques avec une valeur d’étiquette, utilisez :
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+Pour obtenir des groupes de ressources qui ont un nom et une valeur d’étiquette spécifiques, utilisez :
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>Supprimer des étiquettes
+
+Pour supprimer des étiquette spécifiques, utilisez **az tag update** et définissez **--operation** sur **Supprimer**. Transmettez les étiquettes que vous souhaitez supprimer.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+Les étiquettes spécifiées sont supprimées.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+Pour supprimer toutes les étiquettes, utilisez la commande [az tag delete](/cli/azure/tag#az_tag_delete).
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>Gestion des espaces
 
-Si les noms ou valeurs de vos étiquettes incluent des espaces, vous devez accomplir quelques étapes supplémentaires. 
-
-Les paramètres `--tags` dans Azure CLI peuvent accepter une chaîne constituée d’un tableau de chaînes. L’exemple suivant remplace les étiquettes d’un groupe de ressources où les étiquettes contiennent des espaces et des traits d’union : 
+Si les noms ou les valeurs de vos étiquettes comportent des espaces, mettez-les entre guillemets.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-Vous pouvez utiliser la même syntaxe lors de la création ou de la mise à jour d’un groupe de ressources ou de ressources à l’aide du paramètre `--tags` .
-
-Pour mettre à jour les étiquettes à l’aide du paramètre `--set`, vous devez passer la clé et la valeur en tant que chaîne. L’exemple suivant ajoute une étiquette unique à un groupe de ressources :
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-Dans ce cas, la valeur de l’étiquette est marquée avec des apostrophes car elle comporte un trait d’union.
-
-Il se peut que vous deviez également appliquer des étiquettes à de nombreuses ressources. L’exemple suivant applique toutes les étiquettes d’un groupe de ressources à ses ressources quand les étiquettes pourraient contenir des espaces :
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## <a name="templates"></a>Modèles

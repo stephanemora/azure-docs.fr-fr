@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857246"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959303"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutoriel : Envoyer des données via une passerelle transparente
-
-> [!NOTE]
-> Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
 
 Dans cet article, nous utilisons une fois de plus la machine virtuelle de développement comme appareil simulé. Toutefois, au lieu d’envoyer des données directement au hub IoT, l’appareil les envoie à l’appareil IoT Edge configuré en tant que passerelle transparente.
 
 Nous surveillons le fonctionnement de l’appareil IoT Edge pendant que l’appareil simulé envoie des données. Une fois que l’appareil a terminé son exécution, nous examinons les données dans notre compte de stockage pour valider que tout a fonctionné comme prévu.
 
 Cette étape est généralement effectuée par un développeur d’appareil.
+
+## <a name="prerequisites"></a>Prérequis
+
+Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Chaque article de la série s’appuie sur le travail réalisé dans le cadre de l’article précédent. Si vous êtes tombé directement sur cet article, reportez-vous au [premier article](tutorial-machine-learning-edge-01-intro.md) de la série.
 
 ## <a name="review-device-harness"></a>Passer en revue le projet Device Harness
 

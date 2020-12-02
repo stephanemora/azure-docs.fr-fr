@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927236"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012116"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer un service Private Link en utilisant le portail Azure
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 
 1. Sélectionnez **Suivant : Sécurité des accès**.
 
-1. Sous **Créer un service de liaison privée - Sécurité d’accès**, sélectionnez **Visibilité**, puis choisissez **Contrôle d’accès en fonction du rôle (RBAC) uniquement**.
+1. Sous **Créer un service de liaison privée – Sécurité d’accès**, sélectionnez **Visibilité**, puis choisissez **Contrôle d’accès en fonction du rôle (RBAC) uniquement**.
   
 1. Sélectionnez **Suivant : Étiquettes** > **Vérifier + créer** ou choisissez l’onglet **Vérifier + créer** en haut de la page.
 
@@ -182,4 +182,4 @@ Quand vous avez terminé d’utiliser le service Private Link, supprimez le grou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un équilibreur de charge Azure interne et un service Private Link. Vous pouvez aussi apprendre à [créer un point de terminaison privé en utilisant le portail Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Dans ce guide de démarrage rapide, vous avez créé un équilibreur de charge Azure interne et un service Private Link. Vous pouvez aussi apprendre à [créer un point de terminaison privé en utilisant le portail Azure](./create-private-endpoint-portal.md).

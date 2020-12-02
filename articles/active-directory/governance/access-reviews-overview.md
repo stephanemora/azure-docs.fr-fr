@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096000"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743155"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -74,10 +74,18 @@ Selon ce que vous voulez réviser, vous créez votre révision d’accès dans R
 
 Votre répertoire a besoin d’au moins autant de licences Azure AD Premium P2 que d’employés effectuant les tâches suivantes :
 
-- Utilisateurs membres et utilisateurs invités auxquels le rôle de réviseur a été attribué
-- Utilisateurs membres et utilisateurs invités qui effectuent une auto-révision
-- Propriétaires de groupe qui effectuent une révision d’accès
-- Propriétaires d’applications qui effectuent une révision d’accès
+-   Utilisateurs membres auxquels le rôle de réviseur a été attribué
+-   Utilisateurs membres qui effectuent une révision indépendante
+-   Utilisateurs membres en tant que propriétaires de groupes qui effectuent une révision d’accès
+-   Utilisateurs membres en tant que propriétaires d’applications qui effectuent une révision d’accès
+
+Pour les utilisateurs invités, les besoins en licences dépendent du modèle de licence que vous utilisez. Toutefois, les activités des utilisateurs invités ci-dessous sont considérées comme une utilisation d’Azure AD Premium P2 :
+
+-   Utilisateurs invités auxquels le rôle de réviseur a été attribué
+-   Utilisateurs invités qui effectuent une révision indépendante
+-   Utilisateurs invités en tant que propriétaires de groupes qui effectuent une révision d’accès
+-   Utilisateurs invités en tant que propriétaires d’applications qui effectuent une révision d’accès
+
 
 Les licences Azure AD P2 ne sont **pas** nécessaires pour les utilisateurs disposant des rôles Administrateur général ou Administrateur d’utilisateurs qui configurent des révisions d’accès et des paramètres, ou qui appliquent les décisions prises à partir des révisions.
 

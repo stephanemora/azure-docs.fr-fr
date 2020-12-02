@@ -3,13 +3,13 @@ title: Déployer des modèles Resource Manager à l’aide de GitHub Actions
 description: Décrit comment déployer des modèles Azure Resource Manager à l’aide de GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746096"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905257"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Déployer des modèles Azure Resource Manager à l’aide de GitHub Actions
 
@@ -28,7 +28,7 @@ Utilisez l’action [Déployer un modèle Azure Resource Manager](https://github
 
 Un workflow est défini par un fichier YAML (.yml) situé dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres qui composent le workflow.
 
-Le fichier comporte deux sections :
+Le fichier comporte deux sections :
 
 |Section  |Tâches  |
 |---------|---------|
@@ -38,7 +38,7 @@ Le fichier comporte deux sections :
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
 
-Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 Créez un groupe de ressources si vous n’en avez pas déjà un. 
 
@@ -75,7 +75,7 @@ Vous devez créer des secrets pour vos informations d’identification, votre gr
 
 1. Dans [GitHub](https://github.com/), accédez à votre référentiel.
 
-1. Sélectionnez **Paramètres > Secrets > Nouveau secret** .
+1. Sélectionnez **Paramètres > Secrets > Nouveau secret**.
 
 1. Collez l’intégralité de la sortie JSON de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret `AZURE_CREDENTIALS`.
 
@@ -95,12 +95,12 @@ Vous pouvez placer le fichier n’importe où dans le référentiel. L’exemple
 
 ## <a name="create-workflow"></a>Créer un workflow
 
-Le fichier de workflow doit être stocké dans le dossier **.github/workflows** à la racine de votre référentiel. L’extension du fichier de workflow peut être **.yml** ou **.yaml** .
+Le fichier de workflow doit être stocké dans le dossier **.github/workflows** à la racine de votre référentiel. L’extension du fichier de workflow peut être **.yml** ou **.yaml**.
 
 1. À partir de votre référentiel GitHub, sélectionnez **Actions** dans le menu supérieur.
-1. Sélectionnez **Nouveau workflow** .
-1. Sélectionnez **Configurer vous-même un workflow** .
-1. Renommez le fichier de workflow si vous préférez utiliser un autre nom que **main.yml** . Par exemple : **deployStorageAccount.yml** .
+1. Sélectionnez **Nouveau workflow**.
+1. Sélectionnez **Configurer vous-même un workflow**.
+1. Renommez le fichier de workflow si vous préférez utiliser un autre nom que **main.yml**. Par exemple : **deployStorageAccount.yml**.
 1. Remplacez le contenu du fichier yml par ce qui suit :
 
     ```yml
@@ -112,7 +112,7 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -136,23 +136,22 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
 
     La première section du fichier de workflow comprend les éléments suivants :
 
-    - **nom**  : Nom du workflow.
-    - **on**  : nom des événements GitHub qui déclenchent le workflow. Le workflow est déclenché lorsqu’il y a un événement push sur la branche maître, qui modifie au moins l’un des deux fichiers spécifiés. Les deux fichiers sont le fichier de workflow et le modèle de fichier.
+    - **nom** : Nom du workflow.
+    - **on** : nom des événements GitHub qui déclenchent le workflow. Le workflow est déclenché lorsqu’il y a un événement push sur la branche primaire, qui modifie au moins l’un des deux fichiers spécifiés. Les deux fichiers sont le fichier de workflow et le modèle de fichier.
 
-1. Sélectionnez **Démarrer la validation** .
-1. Sélectionnez **Valider directement sur la branche maître** .
-1. Sélectionnez **Valider un nouveau fichier** (ou **Valider les modifications** ).
+1. Sélectionnez **Démarrer la validation**.
+1. Sélectionnez **Valider directement sur la branche primaire**.
+1. Sélectionnez **Valider un nouveau fichier** (ou **Valider les modifications**).
 
 Étant donné que le workflow est configuré pour être déclenché par le fichier de workflow ou le modèle de fichier mis à jour, le workflow démarre juste après la validation des modifications.
 
 ## <a name="check-workflow-status"></a>Vérifier l’état du workflow
 
-1. Sélectionnez l’onglet **Actions** . Un workflow **Créer deployStorageAccount.yml** s’affiche. L’exécution du workflow prend 1 à 2 minutes.
+1. Sélectionnez l’onglet **Actions**. Un workflow **Créer deployStorageAccount.yml** s’affiche. L’exécution du workflow prend 1 à 2 minutes.
 1. Sélectionnez le workflow pour l’ouvrir.
 1. Sélectionnez **Exécuter le déploiement ARM** dans le menu pour vérifier le déploiement.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
-
 Lorsque votre groupe de ressource et référentiel ne sont plus nécessaires, nettoyez les ressources que vous avez déployées en supprimant le groupe de ressources et votre référentiel GitHub. 
 
 ## <a name="next-steps"></a>Étapes suivantes

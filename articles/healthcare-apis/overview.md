@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635141"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527817"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Qu’est-ce que l’API Azure pour FHIR&reg; ?
 
@@ -24,7 +24,7 @@ L’API Azure pour FHIR permet d’échanger rapidement des données via les API
 - Haute performance, faible latence
 - Gestion sécurisée des données PHI (informations médicales protégées) dans un environnement cloud conforme
 - SMART sur FHIR pour les implémentations mobiles et web
-- Contrôle de vos propres données à grande échelle avec la fonctionnalité RBAC (contrôle d’accès en fonction du rôle)
+- Contrôler vos propres données à grande échelle avec la fonctionnalité RBAC (contrôle d’accès en fonction du rôle)
 - Suivi des journaux d’audit pour l’accès, la création, la modification et les lectures dans chaque magasin de données
 
 L’API Azure pour FHIR vous permet de créer et de déployer un service FHIR en quelques minutes pour tirer profit de la mise à l’échelle élastique du cloud.  Vous payez uniquement pour le débit et le stockage dont vous avez besoin. Les services Azure sur lesquels reposent l’API Azure pour FHIR sont conçus pour des performances rapides, quelle que soit la taille des jeux de données que vous gérez.
@@ -108,4 +108,4 @@ Pour tester la fonctionnalité Connecteur Azure IoT pour FHIR, consultez le guid
 >[!div class="nextstepaction"]
 >[Déployer le Connecteur Azure IoT pour FHIR](iot-fhir-portal-quickstart.md)
 
-*Sur le portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7. 
+*Sur le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion). Le sigle FHIR est une marque déposée de HL7 et est utilisé avec l’autorisation de HL7. 

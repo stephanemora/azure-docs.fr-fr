@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579468"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026659"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -23,7 +23,7 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |------------------------------|----------|-------------|---------------|
-|[chiffrement à clé gérée par le client sur des indexeurs, des sources de données et des compétences](search-security-manage-encryption-keys.md) | Sécurité | Cet ajout étend le chiffrement géré par le client sur l’ensemble des ressources créées et gérées par un service de recherche. Rappelez-vous que la prise en charge des clés CMK ajoute une couche de chiffrement supplémentaire au chiffrement de base effectué et géré par Microsoft. | Disponible en général à l’aide de la version d’API REST 2020-06-30 |  
+|[Chiffrement à clé gérée par le client sur des indexeurs, des sources de données et des compétences](search-security-manage-encryption-keys.md) | Sécurité | Cet ajout étend le chiffrement géré par le client sur l’ensemble des ressources créées et gérées par un service de recherche. Rappelez-vous que la prise en charge des clés gérées par le client ajoute une couche de chiffrement supplémentaire au chiffrement de base effectué et managé par Microsoft. | Disponible en général à l’aide de la version d’API REST 2020-06-30 |  
 
 ## <a name="september-2020"></a>Septembre 2020
 
@@ -41,7 +41,7 @@ Créez une identité pour un service de recherche dans Azure Active Directory, p
 
 |Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Disponibilité  |
 |---------|------------------|-------------|---------------|
-| [double chiffrement](search-security-overview.md#encryption) | Sécurité | Activez le double chiffrement au niveau de la couche de stockage en configurant le chiffrement de clé gérée par le client (CMK) sur les nouveaux services de recherche. Créez un service, [configurez et appliquez des clés gérées par le client](search-security-manage-encryption-keys.md) à des index ou à des cartes de synonymes, et bénéficiez du double chiffrement sur ce contenu. | En disponibilité générale sur tous les services de recherche créés après le 1er août 2020 dans les régions suivantes : USA Ouest 2, USA Est, USA Centre Sud, US Gov Virginie, US Gov Arizona. Utilisez le portail, les API REST de gestion ou les SDK pour créer le service. |
+| [double chiffrement](search-security-overview.md#encryption) | Sécurité | Activez le double chiffrement au niveau de la couche de stockage en configurant le chiffrement à clé gérée par le client sur les nouveaux services de recherche. Créez un service, [configurez et appliquez des clés gérées par le client](search-security-manage-encryption-keys.md) à des index ou à des cartes de synonymes, et bénéficiez du double chiffrement sur ce contenu. | En disponibilité générale sur tous les services de recherche créés après le 1er août 2020 dans les régions suivantes : USA Ouest 2, USA Est, USA Centre Sud, US Gov Virginie, US Gov Arizona. Utilisez le portail, les API REST de gestion ou les SDK pour créer le service. |
 
 ## <a name="july-2020"></a>Juillet 2020
 

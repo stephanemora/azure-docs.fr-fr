@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916163"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -99,25 +99,25 @@ Pour plus d’informations comparant les utilisateurs membres et les utilisateur
 
 Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, quand vous vous inscrivez à un abonnement Azure, l’Administrateur de services est le même que l’Administrateur de compte. L’utilisateur avec le rôle Administrateur de compte n’a pas accès au portail Azure. L’utilisateur avec le rôle Administrateur de service a un accès complet au portail Azure. Si l’Administrateur de compte et l’Administrateur de service sont le même utilisateur et que vous remplacez l’Administrateur de service par un autre utilisateur, alors l’Administrateur de compte perd l’accès au portail Azure. Toutefois, l’administrateur de compte peut toujours utiliser le centre des comptes pour se réaffecter le rôle d’administrateur de services fédérés à lui-même.
 
-Procédez comme suit pour modifier l’administrateur de services fédérés dans le **centre des comptes**.
-
-### <a name="account-center"></a>Centre des comptes
+Procédez comme suit pour modifier l’administrateur de services fédérés dans le portail Azure.
 
 1. Vérifiez que votre scénario est pris en charge en vérifiant les [limites de modification de l’administrateur de services fédérés](#limitations-for-changing-the-service-administrator).
 
-1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 
-1. Cliquez sur un abonnement.
+1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
-1. Sur le côté droit, cliquez sur **Modifier les détails de l’abonnement**.
+1. Dans le volet de navigation gauche, cliquez sur **Propriétés**.
 
-    ![Capture d’écran montrant le bouton Modifier l’abonnement dans le Centre des comptes](./media/classic-administrators/editsub.png)
+1. Cliquez sur **Administrateur de services fédérés**.
 
-1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse de messagerie du nouvel administrateur de services fédérés.
+    ![Capture d’écran montrant les propriétés de l’abonnement dans le portail Azure](./media/classic-administrators/service-admin.png)
 
-    ![Capture d’écran montrant la zone de modification de l’adresse e-mail de l’administrateur de services fédérés](./media/classic-administrators/change-service-admin.png)
+1. Dans la page **Modifier l’administrateur de services fédérés**, entrez l’adresse e-mail du nouvel administrateur de services fédérés.
 
-1. Cliquez sur la coche pour enregistrer la modification.
+    ![Capture d’écran montrant la page Modifier l’administrateur de services fédérés](./media/classic-administrators/service-admin-edit.png)
+
+1. Cliquez sur **OK** pour enregistrer la modification.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limites de modification de l’Administrateur de service
 
@@ -142,7 +142,7 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 
 1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
-1. Cliquez sur **Propriétés**.
+1. Dans le volet de navigation gauche, cliquez sur **Propriétés**.
 
     L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
 

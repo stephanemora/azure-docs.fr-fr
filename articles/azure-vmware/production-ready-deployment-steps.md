@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888978"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529726"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -48,7 +48,7 @@ Identifiez les tailles d’hôtes que vous souhaitez utiliser lors du déploieme
 
 ## <a name="number-of-hosts"></a>Nombre d’hôtes
 
-Définissez le nombre d’hôtes que vous souhaitez déployer dans le cloud privé Azure VMware Solution.  Le nombre minimal de nœuds est de trois, et la valeur maximale est de 16 par cluster.  Pour plus d’informations, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
+Définissez le nombre d’hôtes que vous souhaitez déployer dans le cloud privé Azure VMware Solution.  Le nombre minimal d’hôtes est de trois, et la valeur maximale est de 16 par cluster.  Pour plus d’informations, consultez la documentation relative aux [clouds privés et clusters Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
 
 Vous pouvez toujours étendre le cluster ultérieurement si vous devez aller au-delà du chiffre de déploiement initial.
 

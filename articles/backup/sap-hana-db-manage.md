@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377452"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811947"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -86,20 +86,39 @@ Ces sauvegardes complètes figurent aussi dans la liste des points de restaurati
 
 Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données avec Sauvegarde Azure activée
+### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur le disque local d’une base de données avec Sauvegarde Azure activé
 
 Si vous souhaitez sauvegarder localement (à l’aide de HANA Studio/Cockpit) une base de données qui est sauvegardée par Sauvegarde Azure, procédez comme suit :
 
 1. Attendez la fin de toute sauvegarde complète ou de fichier journal de la base de données. Vérifiez l’état dans SAP HANA Studio/Cockpit.
-2. Désactivez les sauvegardes de fichiers journaux, puis définissez le catalogue de sauvegarde sur le système de fichiers pour la base de données appropriée.
-3. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
-4. Définissez **enable_auto_log_backup** sur **No (Non)** .
-5. Définissez **log_backup_using_backint** sur **False (Faux)** .
-6. Effectuez une sauvegarde complète à la demande de la base de données.
-7. Attendez la fin de la sauvegarde complète et de la sauvegarde du catalogue.
-8. Rétablissez les paramètres précédents sur les valeurs pour Azure :
-   * Définissez **enable_auto_log_backup** sur **Yes (Oui)** .
-   * Définissez **log_backup_using_backint** sur **True (Vrai)** .
+2. pour la base de données pertinente
+    1. Annulez les paramètres backint. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
+        * enable_auto_log_backup : Non
+        * log_backup_using_backint : False
+        * catalog_backup_using_backint:False
+3. Effectuez une sauvegarde complète à la demande de la base de données.
+4. Inversez ensuite les étapes. Pour la même base de données pertinente mentionnée ci-dessus,
+    1. réactivez les paramètres backint
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint : True
+        1. enable_auto_log_backup : Oui
+
+### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Gérer ou nettoyer le catalogue HANA pour une base de données avec Sauvegarde Azure activé
+
+Si vous souhaitez modifier ou nettoyer le catalogue de sauvegarde, procédez comme suit :
+
+1. Attendez la fin de toute sauvegarde complète ou de fichier journal de la base de données. Vérifiez l’état dans SAP HANA Studio/Cockpit.
+2. pour la base de données pertinente
+    1. Annulez les paramètres backint. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
+        * enable_auto_log_backup : Non
+        * log_backup_using_backint : False
+        * catalog_backup_using_backint:False
+3. Modifiez le catalogue et supprimez les entrées les plus anciennes.
+4. Inversez ensuite les étapes. Pour la même base de données pertinente mentionnée ci-dessus,
+    1. réactivez les paramètres backint
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint : True
+        1. enable_auto_log_backup : Oui
 
 ### <a name="change-policy"></a>Changer la stratégie
 
@@ -217,6 +236,10 @@ Découvrez comment continuer la sauvegarde d’une base de données SAP HANA [ap
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Mise à niveau de SDC à MDC sans modification du SID
 
 Découvrez comment continuer la sauvegarde d’une base de données SAP HANA dont [le SID n’a pas été modifié après la mise à niveau de SDC vers MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+
+### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>Mise à niveau vers une nouvelle version dans SDC ou MDC
+
+Découvrez comment continuer la sauvegarde d’une base de données SAP HANA dont [la version est mise à niveau](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Désinscrire une instance SAP HANA
 

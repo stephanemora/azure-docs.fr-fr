@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818342"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904033"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -194,7 +194,7 @@ En sélectionnant **Autres clients**, vous pouvez spécifier une condition affec
 Une organisation peut utiliser la condition État de l’appareil pour exclure de ses stratégies d’accès conditionnel les appareils joints à une version hybride d’Azure AD et/ou les appareils marqués comme conformes à une stratégie de conformité Microsoft Intune.
 
 Par exemple, *Tous les utilisateurs* qui accèdent à l’application cloud *Microsoft Azure Management*, incluant **Tous les états d’appareils**, mais excluant **Appareil joint à une version hybride d’Azure AD** et **Appareil marqué comme conforme**, et pour *Contrôles d’accès*, **Bloquer**. 
-   - Cet exemple crée une stratégie qui autorise l’accès à Microsoft Azure Management uniquement à partir d’appareils joints à une version hybride d’Azure AD et/ou d’appareils marqués comme conformes.
+   - Cet exemple crée une stratégie qui autorise l’accès à Microsoft Azure Management uniquement à partir d’appareils avec jointure hybride Azure AD ou d’appareils marqués comme étant conformes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

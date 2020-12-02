@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042801"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904016"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -34,7 +34,7 @@ Le blocage est un puissant contrôle qui doit être utilisé moyennant les conna
 
 Les administrateurs peuvent choisir d’appliquer un ou plusieurs contrôles lors de l’octroi de l’accès. Ces contrôles incluent les options suivantes : 
 
-- [Exiger une authentification multifacteur (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Exiger une authentification multifacteur (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Exiger que l’appareil soit marqué comme conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Exiger un appareil joint à une version hybride d’Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Demander une application cliente approuvée](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Par défaut, l’accès conditionnel exige tous les contrôles sélectionnés.
 
 ### <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
 
-Quand cette case est cochée, les utilisateurs doivent effectuer une authentification multifacteur Azure MFA. Pour plus d’informations sur le déploiement d’Azure Multi-Factor Authentication (MFA), consultez l’article [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md).
+Quand cette case est cochée, les utilisateurs doivent effectuer une authentification Azure AD Multi-Factor Authentication. Pour plus d’informations sur le déploiement d’Azure AD Multi-Factor Authentication (MFA), consultez l’article [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exiger que l’appareil soit marqué comme conforme
 
@@ -70,7 +70,7 @@ Lorsque le [flux OAuth de code d’appareil](../develop/v2-oauth2-device-code.md
 
 Les organisations peuvent exiger que toute tentative d’accès aux applications cloud sélectionnées provienne d’une application cliente approuvée. Ces applications clientes approuvées prennent en charge les [stratégies de protection des applications Intune](/intune/app-protection-policy), quelle que soit votre solution de gestion des périphériques mobiles (GPM).
 
-Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store/Play Store approprié pour installer l’application de répartiteur requise.
+Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers le magasin d’applications approprié pour installer l’application de répartiteur requise.
 
 Ce paramètre s’applique aux applications iOS et Android suivantes :
 
@@ -106,7 +106,7 @@ Ce paramètre s’applique aux applications iOS et Android suivantes :
 **Remarques**
 
 - Les applications clientes approuvées prennent en charge la fonctionnalité de gestion des applications mobiles Intune.
-- Exigence **Nécessite une application cliente approuvée**  :
+- Exigence **Nécessite une application cliente approuvée** :
    - elle prend uniquement en charge iOS et Android pour la condition de plateforme d’appareil.
    - Une application de répartiteur est nécessaire pour inscrire l’appareil. Sur iOS, l’application de répartiteur est Microsoft Authenticator, sur Android, il s’agit de l’application Portail d’entreprise Intune.
 - L’accès conditionnel ne peut considérer Microsoft Edge en mode InPrivate en tant qu'application cliente approuvée.

@@ -4,12 +4,12 @@ description: Découvrez le service Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314761"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746878"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -18,7 +18,7 @@ Cet article donne une vue d’ensemble du service Azure Migrate.
 Azure Migrate fournit un hub centralisé pour évaluer et migrer les serveurs, l’infrastructure, les applications et les données locales vers Azure. Il procure les éléments suivants :
 
 - **Plateforme de migration unifiée** : un portail unique pour démarrer, exécuter et effectuer le suivi de votre migration vers Azure.
-- **Panoplie d’outils** : Panoplie d’outils d’évaluation et de migration. Les outils Azure Migrate incluent Server Assessment et Azure Migrate : Server Migration. Azure Migrate s’intègre aussi avec d’autres services et outils Azure, et avec des offres d’éditeur de logiciels indépendant.
+- **Panoplie d’outils** : Panoplie d’outils d’évaluation et de migration. Les outils Azure Migrate incluent Azure Migrate : Server Assessment et Azure Migrate : Server Migration. Azure Migrate s’intègre aussi avec d’autres services et outils Azure, et avec des offres d’éditeur de logiciels indépendant.
 - **Évaluation et migration** : dans le hub Azure Migrate, vous pouvez évaluer et migrer les éléments suivants :
     - **Serveurs** : Évaluez les serveurs locaux et migrez-les vers des machines virtuelles Azure ou Azure VMware Solution (AVS) (en préversion).
     - **Bases de données** : Évaluez vos bases de données locales et migrez-les vers Azure SQL Database ou SQL Managed Instance.
@@ -82,9 +82,9 @@ Azure Migrate : Server Migration vous aide à migrer vers Azure les éléments 
 
 **Migrer** | **Détails**
 --- | ---
-Machines virtuelles VMware locales | Migrez des machines virtuelles vers Azure à l’aide d’une migration sans agent ou basée sur un agent.<br/><br/> Pour la migration sans agent, Server Migration utilise une appliance Azure Migrate que vous déployez localement. Il s’agit du même type d’appliance que celui utilisé pour Server Assessment.<br/><br/> Pour la migration basée sur un agent, Server Assessment utilise une appliance de réplication.
-Machines virtuelles Hyper-V en local | Migrez des machines virtuelles vers Azure.<br/><br/> Server Assessment utilise des agents de fournisseur installés sur l’hôte Hyper-V pour la migration.
-Serveurs physiques locaux | Vous pouvez migrer des machines physiques vers Azure. Vous pouvez également migrer d’autres machines virtualisées et des machines virtuelles à partir d’autres clouds publics, en les traitant comme des machines virtuelles à des fins de migration. | Server Assessment utilise une appliance de réplication pour la migration.
+Machines virtuelles VMware locales | Migrez des machines virtuelles vers Azure à l’aide d’une migration sans agent ou basée sur un agent.<br/><br/> Pour la migration sans agent, Server Migration utilise la même appliance Azure Migrate que celle qui peut également être utilisée par Server Assessment pour la découverte et l’évaluation des machines virtuelles VMware.<br/><br/> Pour la migration basée sur un agent, Server Migration utilise une appliance de réplication.
+Machines virtuelles Hyper-V en local | Migrez des machines virtuelles vers Azure.<br/><br/> Server Migration utilise des agents de fournisseur installés sur l’hôte Hyper-V pour la migration.
+Serveurs physiques locaux | Vous pouvez migrer des machines physiques vers Azure. Vous pouvez également migrer d’autres machines virtualisées et des machines virtuelles à partir d’autres clouds publics, en les traitant comme des serveurs physiques à des fins de migration. | Server Migration utilise une appliance de réplication pour la migration.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Sélection des outils d’évaluation et de migration

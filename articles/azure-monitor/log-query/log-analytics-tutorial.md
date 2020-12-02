@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94495362"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756211"
 ---
 # <a name="log-analytics-tutorial"></a>Tutoriel Log Analytics
 Log Analytics est un outil du portail Azure permettant de modifier et d’exécuter des requêtes de journal à partir de données collectées par les journaux Azure Monitor et d’analyser leurs résultats de manière interactive. Vous pouvez utiliser des requêtes Log Analytics pour récupérer des enregistrements correspondant à des critères particuliers, identifier des tendances, analyser des modèles et fournir divers insights sur vos données. 
@@ -23,7 +23,7 @@ Ce tutoriel vous guide dans l’interface Log Analytics, présente quelques requ
 > * Écrire et exécuter des requêtes simples, et modifier l’intervalle de temps pour les requêtes
 > * Filtrer, trier et regrouper les résultats de requête
 > * Afficher, modifier et partager des visuels des résultats de requête
-> * Enregistrer, charger, exporter et copier des requêtes et des résultats
+> * Charger, exporter et copier des requêtes et des résultats
 
 > [!IMPORTANT]
 > Ce tutoriel utilise des fonctionnalités de Log Analytics pour générer et exécuter une requête au lieu d’utiliser la requête elle-même. Vous tirerez parti des fonctionnalités de Log Analytics pour générer une requête et utiliser un autre exemple de requête. Lorsque vous êtes prêt à apprendre la syntaxe des requêtes et à commencer à modifier directement la requête, parcourez le [tutoriel sur le langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). Ce tutoriel présente plusieurs exemples de requêtes que vous pouvez modifier et exécuter dans Log Analytics, en tirant parti de plusieurs des fonctionnalités que vous allez découvrir dans ce tutoriel.

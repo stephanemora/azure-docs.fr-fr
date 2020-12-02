@@ -1,14 +1,14 @@
 ---
 title: Configurer votre environnement pour l’opérateur Blueprint
 description: Découvrez comment configurer votre environnement Azure pour l’utiliser avec le rôle intégré Azure « Opérateur Blueprint ».
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535779"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804919"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurer votre environnement pour un opérateur Blueprint
 
@@ -28,7 +28,9 @@ La première étape consiste à attribuer le rôle d'**opérateur Blueprint** au
 
 Une définition de blueprint peut utiliser des identités managées affectées par le système ou par l’utilisateur. Cela étant, lorsque vous utilisez le rôle d'**opérateur Blueprint**, la définition de blueprint doit être configurée pour utiliser une identité managée affectée par l’utilisateur. De plus, le compte ou groupe de sécurité qui se voit attribuer le rôle d'**opérateur Blueprint** doit se voir attribuer le rôle d'**opérateur d'identité managée** sur l'identité managée affectée par l'utilisateur. Sans cette autorisation, les affectations de blueprint échouent.
 
-1. [Créer une identité managée affectée par l'utilisateur](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) à des fins d'utilisation par un plan affecté
+1. [Créez une identité managée affectée par l’utilisateur](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) pour l’utiliser dans le cadre d’un blueprint attribué.
+
+1. Accordez à l’identité managée affectée par l’utilisateur toutes les autorisations ou tous les rôles requis par la définition de blueprint pour l’étendue prévue.
 
 1. [Ajoutez une attribution de rôle](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)**Opérateur d'identité managée** au compte ou groupe de sécurité. Étendez l’attribution de rôle à la nouvelle identité managée affectée par l’utilisateur.
 

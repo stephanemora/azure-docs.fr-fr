@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: b9afb35a0e8a1c2513ce032030271599d181cd14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792682"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985856"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,20 +73,20 @@ Les règles de pare-feu IP au niveau du serveur s’appliquent à toutes les bas
 
 Pour configurer une règle de pare-feu au niveau du serveur :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
     ![règle de pare-feu de serveur](./media/secure-database-tutorial/server-name.png)
 
     > [!NOTE]
-    > Veillez à copier le nom complet de votre serveur (comme *votreserveur.basededonnées.windows.net* ) pour pouvoir l’utiliser ultérieurement au cours du tutoriel.
+    > Veillez à copier le nom complet de votre serveur (comme *votreserveur.basededonnées.windows.net*) pour pouvoir l’utiliser ultérieurement au cours du tutoriel.
 
-1. Dans la page **Vue d’ensemble** , sélectionnez **Définir le pare-feu du serveur** . La page **Paramètres de pare-feu** du serveur s’ouvre.
+1. Dans la page **Vue d’ensemble**, sélectionnez **Définir le pare-feu du serveur**. La page **Paramètres de pare-feu** du serveur s’ouvre.
 
-   1. Dans la barre d’outils, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP. Sélectionnez **Enregistrer** .
+   1. Dans la barre d’outils, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP. Sélectionnez **Enregistrer**.
 
       ![définir la règle de pare-feu de serveur](./media/secure-database-tutorial/server-firewall-rule2.png)
 
-   1. Sélectionnez **OK** pour fermer la page **Paramètres de pare-feu** .
+   1. Sélectionnez **OK** pour fermer la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter à n’importe quelle base de données du serveur avec l’adresse IP ou la plage d’adresses IP spécifiée.
 
@@ -98,7 +98,7 @@ Pour configurer une règle de pare-feu au niveau de la base de données :
 
 1. Connectez-vous à la base de données, par exemple à l’aide de [SQL Server Management Studio](connect-query-ssms.md).
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête**.
 
 1. Dans la fenêtre de requête, ajoutez cette instruction et remplacez l’adresse IP par votre adresse IP publique :
 
@@ -109,7 +109,7 @@ Pour configurer une règle de pare-feu au niveau de la base de données :
 1. Dans la barre d’outils, sélectionnez **Exécuter** pour créer la règle de pare-feu.
 
 > [!NOTE]
-> Vous pouvez également créer une règle de pare-feu au niveau du serveur dans SSMS à l’aide de la commande [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), même si vous devez être connecté à la base de données *master* .
+> Vous pouvez également créer une règle de pare-feu au niveau du serveur dans SSMS à l’aide de la commande [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), même si vous devez être connecté à la base de données *master*.
 
 ## <a name="create-an-azure-ad-admin"></a>Créer une application Azure AD
 
@@ -119,26 +119,26 @@ Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approp
 
 Pour définir l’administrateur Azure AD :
 
-1. Dans la page **Serveur SQL** du portail Azure, sélectionnez **Administrateur Active Directory** . Sélectionnez ensuite **Définir l’administrateur** .
+1. Dans la page **Serveur SQL** du portail Azure, sélectionnez **Administrateur Active Directory**. Sélectionnez ensuite **Définir l’administrateur**.
 
     ![Sélectionner Active Directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
     > Vous devez avoir le rôle « Administrateur d’entreprise » ou « Administrateur général » pour effectuer cette tâche.
 
-1. Dans la page **Ajouter un administrateur** , recherchez et sélectionnez l’utilisateur ou le groupe AD, puis choisissez **Sélectionner** . Tous les membres et groupes de votre annuaire Active Directory sont listés. Les entrées grisées ne sont pas prises en charge en tant qu’administrateurs Azure AD. Consultez [Limitations et fonctionnalités Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
+1. Dans la page **Ajouter un administrateur**, recherchez et sélectionnez l’utilisateur ou le groupe AD, puis choisissez **Sélectionner**. Tous les membres et groupes de votre annuaire Active Directory sont listés. Les entrées grisées ne sont pas prises en charge en tant qu’administrateurs Azure AD. Consultez [Limitations et fonctionnalités Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
     ![sélectionner l’administrateur](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > Le contrôle d’accès en fonction du rôle (RBAC) s’applique uniquement au portail et n’est pas propagé à SQL Server.
+    > Le contrôle d’accès en fonction du rôle Azure (RBAC Azure) s’applique uniquement au portail et n’est pas étendu à SQL Server.
 
-1. En haut de la page **Administrateur Active Directory** , sélectionnez **Enregistrer** .
+1. En haut de la page **Administrateur Active Directory**, sélectionnez **Enregistrer**.
 
-    La procédure de changement d’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaît dans la zone **Administrateur Active Directory** .
+    La procédure de changement d’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaît dans la zone **Administrateur Active Directory**.
 
 > [!NOTE]
-> Quand vous définissez un administrateur Azure AD, son nom (utilisateur ou groupe) ne peut pas exister en tant qu’utilisateur ou compte de connexion SQL Server dans la base de données *master* . Le cas échéant, le programme d’installation échoue et annule les modifications, ce qui indique que le nom d’administrateur existe déjà. Dans la mesure où l’utilisateur ou le compte de connexion SQL Server ne fait pas partie d’Azure AD, tout effort pour connecter l’utilisateur à l’aide de l’authentification Azure AD échoue.
+> Quand vous définissez un administrateur Azure AD, son nom (utilisateur ou groupe) ne peut pas exister en tant qu’utilisateur ou compte de connexion SQL Server dans la base de données *master*. Le cas échéant, le programme d’installation échoue et annule les modifications, ce qui indique que le nom d’administrateur existe déjà. Dans la mesure où l’utilisateur ou le compte de connexion SQL Server ne fait pas partie d’Azure AD, tout effort pour connecter l’utilisateur à l’aide de l’authentification Azure AD échoue.
 
 Pour plus d’informations sur la configuration d’Azure AD, consultez :
 
@@ -155,9 +155,9 @@ Gérez l’accès à la base de données en ajoutant des utilisateurs à la base
 
 Pour ajouter des utilisateurs, choisissez le type d’authentification de base de données :
 
-- **Authentification SQL**  : utilisez un nom d’utilisateur et un mot de passe pour les connexions qui sont uniquement valides dans le contexte d’une base de données spécifique au sein du serveur.
+- **Authentification SQL** : utilisez un nom d’utilisateur et un mot de passe pour les connexions qui sont uniquement valides dans le contexte d’une base de données spécifique au sein du serveur.
 
-- **Authentification Azure AD**  : utilisez des identités gérées par Azure AD.
+- **Authentification Azure AD** : utilisez des identités gérées par Azure AD.
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
@@ -165,7 +165,7 @@ Pour ajouter un utilisateur avec l’authentification SQL :
 
 1. Connectez-vous à la base de données, par exemple à l’aide de [SQL Server Management Studio](connect-query-ssms.md).
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
 
 1. Dans la fenêtre de requête, entrez la commande suivante :
 
@@ -187,7 +187,7 @@ Pour ajouter un utilisateur avec l’authentification SQL :
 
 ### <a name="azure-ad-authentication"></a>Authentification Azure AD
 
-Avec l’authentification Azure Active Directory, les utilisateurs de base de données doivent être créés en tant qu’utilisateurs de base de données autonomes. Un utilisateur de base de données autonome est mappé à une identité dans l’annuaire Azure AD associé à la base de données et ne dispose d’aucune connexion dans la base de données *master* . L’identité Azure AD peut correspondre à un utilisateur individuel ou à un groupe. Pour plus d’informations, consultez [Utilisateurs de base de données autonome, rendez votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) et suivez le [tutoriel Azure AD](authentication-aad-configure.md) sur la façon de s’authentifier avec Azure AD.
+Avec l’authentification Azure Active Directory, les utilisateurs de base de données doivent être créés en tant qu’utilisateurs de base de données autonomes. Un utilisateur de base de données autonome est mappé à une identité dans l’annuaire Azure AD associé à la base de données et ne dispose d’aucune connexion dans la base de données *master*. L’identité Azure AD peut correspondre à un utilisateur individuel ou à un groupe. Pour plus d’informations, consultez [Utilisateurs de base de données autonome, rendez votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) et suivez le [tutoriel Azure AD](authentication-aad-configure.md) sur la façon de s’authentifier avec Azure AD.
 
 > [!NOTE]
 > Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l’aide du portail Azure. Les rôles Azure ne se propagent pas aux entrepôts de données, bases de données ou serveurs SQL. Ils servent uniquement à gérer les ressources Azure et ne s’appliquent pas aux autorisations de base de données.
@@ -199,9 +199,9 @@ Avec l’authentification Azure Active Directory, les utilisateurs de base de do
 
 Pour ajouter un utilisateur avec l’authentification Azure AD :
 
-1. Connectez-vous à votre serveur dans Azure à l’aide d’un compte Azure AD doté au minimum de l’autorisation *MODIFIER UN UTILISATEUR* .
+1. Connectez-vous à votre serveur dans Azure à l’aide d’un compte Azure AD doté au minimum de l’autorisation *MODIFIER UN UTILISATEUR*.
 
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête** .
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête**.
 
 1. Dans la fenêtre de requête, entrez la commande suivante et remplacez `<Azure_AD_principal_name>` par le nom principal de l’utilisateur Azure AD ou le nom d’affichage du groupe Azure AD :
 
@@ -223,9 +223,9 @@ La connexion est établie à l’aide du protocole TLS (Transport Layer Security
 
 Pour copier une chaîne de connexion sécurisée :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la page **Vue d’ensemble** , sélectionnez **Afficher les chaînes de connexion de la base de données** .
+1. Dans la page **Vue d’ensemble**, sélectionnez **Afficher les chaînes de connexion de la base de données**.
 
 1. Sélectionnez un onglet de pilote, puis copiez la chaîne de connexion complète.
 
@@ -244,19 +244,19 @@ La fonctionnalité Azure Defender pour SQL détecte les menaces potentielles qua
 
 Pour activer Azure Defender pour SQL :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la page **Vue d’ensemble** , sélectionnez le lien **Nom du serveur** . La page du serveur s’ouvre.
+1. Dans la page **Vue d’ensemble**, sélectionnez le lien **Nom du serveur**. La page du serveur s’ouvre.
 
-1. Dans la page **Serveur SQL** , recherchez la section **Sécurité** et sélectionnez **Centre de sécurité** .
+1. Dans la page **Serveur SQL**, recherchez la section **Sécurité** et sélectionnez **Centre de sécurité**.
 
-   1. Sélectionnez **ACTIVÉ** sous **Azure Defender pour SQL** pour activer la fonctionnalité. Choisissez un compte de stockage pour l’enregistrement des résultats de l’évaluation de la vulnérabilité. Ensuite, sélectionnez **Enregistrer** .
+   1. Sélectionnez **ACTIVÉ** sous **Azure Defender pour SQL** pour activer la fonctionnalité. Choisissez un compte de stockage pour l’enregistrement des résultats de l’évaluation de la vulnérabilité. Ensuite, sélectionnez **Enregistrer**.
 
       ![Volet de navigation](./media/secure-database-tutorial/threat-settings.png)
 
       Vous pouvez également configurer des e-mails pour recevoir des alertes de sécurité, des détails de stockage et des types de détection des menaces.
 
-1. Revenez à la page **Bases de données SQL** de votre base de données, puis sélectionnez **Centre de sécurité** dans la section **Sécurité** . Vous y trouverez divers indicateurs de sécurité disponibles pour la base de données.
+1. Revenez à la page **Bases de données SQL** de votre base de données, puis sélectionnez **Centre de sécurité** dans la section **Sécurité**. Vous y trouverez divers indicateurs de sécurité disponibles pour la base de données.
 
     ![État de la menace](./media/secure-database-tutorial/threat-status.png)
 
@@ -270,29 +270,29 @@ La fonctionnalité d’audit effectue le suivi des événements de la base de do
 
 Pour activer l’audit :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la section **Sécurité** , sélectionnez **Audit** .
+1. Dans la section **Sécurité**, sélectionnez **Audit**.
 
-1. Sous les paramètres **Audit** , définissez les valeurs suivantes :
+1. Sous les paramètres **Audit**, définissez les valeurs suivantes :
 
-   1. Définissez **Audit** sur **ACTIVÉ** .
+   1. Définissez **Audit** sur **ACTIVÉ**.
 
    1. Sélectionnez l’une des **destinations du journal d’audit** suivantes :
 
-       - **Stockage** , un compte de stockage Azure où les journaux des événements sont enregistrés et peuvent être téléchargés sous forme de fichiers *.xel* .
+       - **Stockage**, un compte de stockage Azure où les journaux des événements sont enregistrés et peuvent être téléchargés sous forme de fichiers *.xel*.
 
           > [!TIP]
           > Utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
 
-       - **Log Analytics** , qui stocke automatiquement les événements à des fins de requête ou d’analyse plus approfondie.
+       - **Log Analytics**, qui stocke automatiquement les événements à des fins de requête ou d’analyse plus approfondie.
 
            > [!NOTE]
            > Un **espace de travail Log Analytics** est nécessaire pour prendre en charge des fonctionnalités avancées comme l’analytique, les règles d’alerte personnalisées et les exportations Excel ou Power BI. Sans espace de travail, seul l’éditeur de requête est disponible.
 
-       - **Hub d’événements** , qui permet de router des événements pour une utilisation dans d’autres applications.
+       - **Hub d’événements**, qui permet de router des événements pour une utilisation dans d’autres applications.
 
-   1. Sélectionnez **Enregistrer** .
+   1. Sélectionnez **Enregistrer**.
 
       ![Paramètre d’audit](./media/secure-database-tutorial/audit-settings.png)
 
@@ -309,15 +309,15 @@ La fonctionnalité de masquage des données permet de masquer automatiquement le
 
 Pour activer le masquage des données :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la section **Sécurité** , sélectionnez **Dynamic Data Masking** .
+1. Dans la section **Sécurité**, sélectionnez **Dynamic Data Masking**.
 
-1. Sous les paramètres de **masquage dynamique des données** , sélectionnez **Ajouter un masque** pour ajouter une règle de masquage. Azure renseigne automatiquement les schémas, tables et colonnes de base de données disponibles que vous pouvez sélectionner.
+1. Sous les paramètres de **masquage dynamique des données**, sélectionnez **Ajouter un masque** pour ajouter une règle de masquage. Azure renseigne automatiquement les schémas, tables et colonnes de base de données disponibles que vous pouvez sélectionner.
 
     ![Paramètres du masque](./media/secure-database-tutorial/mask-settings.png)
 
-1. Sélectionnez **Enregistrer** . Les informations sélectionnées sont maintenant masquées à des fins de confidentialité.
+1. Sélectionnez **Enregistrer**. Les informations sélectionnées sont maintenant masquées à des fins de confidentialité.
 
     ![Exemple de masque](./media/secure-database-tutorial/mask-query.png)
 
@@ -327,11 +327,11 @@ La fonctionnalité de chiffrement permet de chiffrer automatiquement vos donnée
 
 Pour activer ou vérifier le chiffrement :
 
-1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** .
+1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la section **Sécurité** , sélectionnez **Transparent Data Encryption** .
+1. Dans la section **Sécurité**, sélectionnez **Transparent Data Encryption**.
 
-1. Si nécessaire, définissez **Chiffrement des données** sur **ACTIVÉ** . Sélectionnez **Enregistrer** .
+1. Si nécessaire, définissez **Chiffrement des données** sur **ACTIVÉ**. Sélectionnez **Enregistrer**.
 
     ![chiffrement transparent des données](./media/secure-database-tutorial/encryption-settings.png)
 

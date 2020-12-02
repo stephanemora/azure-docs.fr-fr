@@ -2,17 +2,17 @@
 title: Résoudre les problèmes du runtime d’intégration auto-hébergé dans Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés au runtime d’intégration auto-hébergé dans Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928108"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013449"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -26,7 +26,7 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 
 1. Accédez à la page **Exécutions d’activités**.
 
-1. Sous la colonne **ERREUR** , cliquez sur le bouton ci-dessous.
+1. Sous la colonne **ERREUR**, cliquez sur le bouton ci-dessous.
 
     ![Page Exécutions d’activités](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
 
@@ -34,7 +34,7 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 
     ![Envoyer les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Vous pouvez choisir les journaux que vous souhaitez envoyer. Pour *IR auto-hébergé* , vous pouvez charger les journaux relatifs à l’activité ayant échoué ou tous les journaux sur le nœud de l’IR auto-hébergé. Pour *IR partagé* , vous pouvez uniquement charger les journaux relatifs à l’activité ayant échoué.
+1. Vous pouvez choisir les journaux que vous souhaitez envoyer. Pour *IR auto-hébergé*, vous pouvez charger les journaux relatifs à l’activité ayant échoué ou tous les journaux sur le nœud de l’IR auto-hébergé. Pour *IR partagé*, vous pouvez uniquement charger les journaux relatifs à l’activité ayant échoué.
 
     ![Choisir les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -48,11 +48,26 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Erreur générale ou échec général de l’IR auto-hébergé
 
+### <a name="out-of-memory-issue"></a>Problème de mémoire insuffisante
+
+#### <a name="symptoms"></a>Symptômes
+
+Le problème « OutOfMemoryException » se produit lorsque vous tentez d’exécuter une activité de recherche avec un IR lié ou auto-hébergé.
+
+#### <a name="cause"></a>Cause
+
+Une nouvelle activité peut rencontrer le problème OOM (OutOfMemory) si l’utilisation de la mémoire de la machine IR est élevée pour le moment. Le problème peut être dû à l’exécution d’une activité simultanée à grande échelle, et l’erreur est due à la conception.
+
+#### <a name="resolution"></a>Résolution
+
+Vérifiez l’utilisation des ressources et l’exécution simultanée d’une activité sur le nœud IR. Ajustez l’heure interne et l’heure de déclenchement des exécutions d’activité pour éviter une trop grande exécution sur le même nœud IR en même temps.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problème certificat TLS/SSL
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous tentez d’activer le certificat TLS/SSL (avancé) à partir de **Configuration Manager IR auto-hébergé** -> **Accès à distance à partir de l’intranet** , après avoir sélectionné le certificat TLS/SSL, l’erreur ci-dessous s’affiche :
+Lorsque vous tentez d’activer le certificat TLS/SSL (avancé) à partir de **Configuration Manager IR auto-hébergé** -> **Accès à distance à partir de l’intranet**, après avoir sélectionné le certificat TLS/SSL, l’erreur ci-dessous s’affiche :
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +80,7 @@ Il s'agit d'un problème connu dans WCF. La validation TLS/SSL WCF vérifie uniq
 #### <a name="resolution"></a>Résolution
 
 Le certificat générique est pris en charge dans le runtime d’intégration Azure Data Factory v2 IR auto-hébergé. Ce problème se produit généralement parce que le certificat SSL n’est pas correct. Le dernier DNSName dans le SAN doit être valide. Suivez les étapes ci-dessous pour le vérifier. 
-1.  Ouvrez la console de gestion, vérifiez à la fois le *Sujet* et le *Nom alternatif du sujet* dans les Détails du Certificat. Dans le cas ci-dessus, par exemple, le dernier élément de *Autre nom de l’objet* , qui est « DNS Name = microsoft.com.com », n’est pas légitime.
+1.  Ouvrez la console de gestion, vérifiez à la fois le *Sujet* et le *Nom alternatif du sujet* dans les Détails du Certificat. Dans le cas ci-dessus, par exemple, le dernier élément de *Autre nom de l’objet*, qui est « DNS Name = microsoft.com.com », n’est pas légitime.
 2.  Contactez l’entreprise émettrice du certificat pour supprimer le nom DNS incorrect.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problème lié à la limite de tâches simultanées
@@ -73,7 +88,7 @@ Le certificat générique est pris en charge dans le runtime d’intégration Az
 #### <a name="symptoms"></a>Symptômes
 
 Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour*.
-La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton *Mettre à jour* , dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
+La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton *Mettre à jour*, dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
 
 ![Mise à jour de l'état](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
@@ -164,8 +179,8 @@ Si vous prenez Process Monitor, vous pouvez voir le résultat suivant :
 
 > [!TIP] 
 > Vous pouvez définir le filtre comme indiqué dans la capture d’écran ci-dessous.
-> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
-> En fait, cela chargera d’abord la dll à partir du dossier *GAC* , puis du dossier *Partagé* et enfin du dossier de la *Passerelle*. Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
+> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
+> En fait, cela chargera d’abord la dll à partir du dossier *GAC*, puis du dossier *Partagé* et enfin du dossier de la *Passerelle*. Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
 
 ![Configurer des filtres](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -210,7 +225,7 @@ Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier�
 
 #### <a name="symptoms"></a>Symptômes
 
-Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination*  ; *la source n’est pas accessible par l’IR de destination*.
+Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination* ; *la source n’est pas accessible par l’IR de destination*.
  
 #### <a name="cause"></a>Cause
 
@@ -288,7 +303,7 @@ Accédez au journal des événements Microsoft Integration Runtime pour vérifie
 
 ![Journal des événements](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez les instructions ci-dessous :
+Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException*, suivez les instructions ci-dessous :
 
 
 1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
@@ -305,7 +320,7 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez
         1. Désinstallez correctement le runtime d’intégration IR auto-hébergé actuel.
         1. Installez le runtime d’intégration IR auto-hébergé bits.
         1. Suivez les instructions ci-dessous pour modifier le compte de service : 
-            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared*.
+            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez sur le dossier : *Microsoft Integration Runtime\4.0\Shared*.
             1. Démarrez une ligne de commande avec des privilèges élevés. Remplacez *\<user>* et *\<password>* par vos propres nom d’utilisateur et mot de passe, puis exécutez la commande suivante :
                        
                 ```
@@ -325,7 +340,7 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez
             1. Vous pouvez utiliser un utilisateur local/de domaine pour le compte d’ouverture de session du service IR.            
         1. Inscrire le runtime d’intégration.
 
-Si l’erreur s’affiche comme suit : *Échec du démarrage du service « Integration Runtime Service » (DIAHostService). Vérifiez que vous disposez des droits nécessaires pour démarrer les services système* , suivez les instructions ci-dessous :
+Si l’erreur s’affiche comme suit : *Échec du démarrage du service « Integration Runtime Service » (DIAHostService). Vérifiez que vous disposez des droits nécessaires pour démarrer les services système*, suivez les instructions ci-dessous :
 
 1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
    
@@ -351,7 +366,7 @@ Impossible de trouver le bouton de **Inscription** dans l’interface utilisateu
 
 #### <a name="cause"></a>Cause
 
-Depuis la sortie d’ *Integration Runtime 3.0* , le bouton **Register** sur un nœud IR existant a été supprimé pour permettre un environnement plus propre et plus sécurisé. Si un nœud a été inscrit sur un IR (qu’il soit en ligne ou non), pour le réinscrire dans un autre IR, vous devez désinstaller le nœud précédent, puis installer et inscrire le nœud.
+Depuis la sortie d’*Integration Runtime 3.0*, le bouton **Register** sur un nœud IR existant a été supprimé pour permettre un environnement plus propre et plus sécurisé. Si un nœud a été inscrit sur un IR (qu’il soit en ligne ou non), pour le réinscrire dans un autre IR, vous devez désinstaller le nœud précédent, puis installer et inscrire le nœud.
 
 #### <a name="resolution"></a>Résolution
 
@@ -402,6 +417,47 @@ L’installation dépend du service Windows Installer. Plusieurs raisons peuvent
 - Utilisation du processeur trop élevée
 - Le fichier MSI est hébergé dans un emplacement réseau lent
 - Certains registres ou fichiers système ont été touchés par inadvertance
+
+
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>Le compte de service IR n’a pas pu récupérer l’accès au certificat
+
+#### <a name="symptoms"></a>Symptômes
+
+Lors de l’installation du runtime d’intégration auto-hébergé via le gestionnaire de configuration Microsoft Integration Runtime, un certificat avec une autorité de certification approuvée est généré. Le certificat n’a pas pu être appliqué pour chiffrer les communications entre deux nœuds. 
+
+Les informations d’erreur s’affichent comme indiqué ci-dessous : 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Échec de l’octroi de l’accès au certificat au compte de service IR](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Cause
+
+Le certificat utilise le fournisseur de stockage de clés (KSP), qui n’est pas encore pris en charge. SHIR ne prend en charge que le certificat CSP (fournisseur de services de chiffrement) pour l’instant.
+
+#### <a name="resolution"></a>Résolution
+
+Le certificat CSP est recommandé dans ce cas.
+
+**Solution 1 :** Utilisez la commande suivante pour importer le certificat :
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Utiliser certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solution 2 :** Conversion des certificats :
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass: *\<EnterPassword>*
+
+openssl pkcs12 -export -in .\xxxx_new.pem -out xxxx_new.pfx
+
+Conversion avant et après :
+
+![Avant la modification du certificat](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Après la modification du certificat](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problème de connexion de l’IR auto-hébergé
@@ -476,7 +532,7 @@ Voici la réponse attendue :
 
 #### <a name="cause"></a>Cause 
 
-Le nœud Runtime intégré auto-hébergé peut avoir un État **inactif** , comme indiqué dans la capture d’écran suivante :
+Le nœud Runtime intégré auto-hébergé peut avoir un État **inactif**, comme indiqué dans la capture d’écran suivante :
 
 ![Nœud du runtime d’intégration auto-hébergé inactif](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
@@ -484,7 +540,7 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
 
 #### <a name="resolution"></a>Résolution
 
-1. Connectez-vous à la machine virtuelle hébergée sur un nœud. Sous **Journaux des applications et des services** > **Runtime d’intégration** , ouvrez Observateur d’événements, puis filtrez tous les journaux d’erreurs.
+1. Connectez-vous à la machine virtuelle hébergée sur un nœud. Sous **Journaux des applications et des services** > **Runtime d’intégration**, ouvrez Observateur d’événements, puis filtrez tous les journaux d’erreurs.
 
 1. Vérifiez si un journal des erreurs contient l’erreur suivante : 
     
@@ -569,7 +625,7 @@ Prenez la trace netmon et analysez-la plus en détail.
  
     *Package réseau provenant du système Linux A avec TTL 64 -> B TTL 64 moins 1 = 63 -> C TTL 63 moins 1 = 62 -> TTL 62 moins 1 = 61 Runtime d’intégration auto-hébergé*
 
-- Dans le cas idéal, la durée de vie (TTL) sera de 128, ce qui signifie que le système Windows exécute notre Data Factory. Comme indiqué dans l’exemple ci-dessous, *128 – 107 = 21 tronçons* , ce qui signifie que 21 tronçons pour le package ont été envoyés depuis Data Factory vers le runtime d’intégration auto-hébergé au cours de la négociation TCP 3.
+- Dans le cas idéal, la durée de vie (TTL) sera de 128, ce qui signifie que le système Windows exécute notre Data Factory. Comme indiqué dans l’exemple ci-dessous, *128 – 107 = 21 tronçons*, ce qui signifie que 21 tronçons pour le package ont été envoyés depuis Data Factory vers le runtime d’intégration auto-hébergé au cours de la négociation TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,7 +643,7 @@ Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec l
 ![trace netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888** , de sorte que vous y voyez deux packages supplémentaires **SynReTransmit**. Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
+Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888**, de sorte que vous y voyez deux packages supplémentaires **SynReTransmit**. Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
 
 > [!TIP]
 > - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4**.
@@ -675,7 +731,7 @@ Deux raisons possibles à ce problème :
 - L’autorité de certification racine du certificat de serveur de service ADF n’est pas approuvée sur l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé. 
 - Vous utilisez un proxy dans votre environnement et le certificat de serveur du service ADF est remplacé par le proxy, tandis que le certificat de serveur remplacé n’est pas approuvé par l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé.
 
-#### <a name="solution"></a>Solution
+#### <a name="resolution"></a>Résolution
 
 - Pour la raison 1, assurez-vous que le certificat de serveur ADF et sa chaîne de certificats sont approuvés par l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé.
 - Pour la raison 2, approuvez l’autorité de certification racine remplacée sur l’ordinateur du runtime d’intégration auto-hébergé ou configurez le proxy pour qu’il ne remplace pas le certificat de serveur ADF.
@@ -688,6 +744,7 @@ Nous déployons un nouveau certificat SSL, qui est signé par DigiCert. Vérifie
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 Si ce n’est pas le cas, téléchargez-le [ici](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Partage du runtime d’intégration auto-hébergé
 

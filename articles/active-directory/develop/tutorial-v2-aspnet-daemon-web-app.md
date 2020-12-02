@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611093"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406597"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft
 
-Ce tutoriel vous montre comment utiliser la plateforme d’identités Microsoft pour accéder aux données de clients professionnels Microsoft dans un processus non interactif de longue durée. L’exemple de démon utilise l’[octroi d’informations d’identification de client OAuth2](v2-oauth2-client-creds-grant-flow.md) pour acquérir un jeton d’accès. Le démon utilise ensuite le jeton pour appeler [Microsoft Graph](https://graph.microsoft.io) et accéder aux données organisationnelles.
+Dans ce tutoriel, vous téléchargez et exécutez une application web démon ASP.NET qui illustre l’utilisation de l’octroi d’informations d’identification du client OAuth 2.0 pour qu’un jeton d’accès appelle l’API Microsoft Graph.
+
+Dans ce tutoriel :
 
 > [!div class="checklist"]
 > * Intégrer une application démon à la plateforme d’identités Microsoft

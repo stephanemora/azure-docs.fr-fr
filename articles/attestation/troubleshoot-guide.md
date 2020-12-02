@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95891280"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guide de résolution des problèmes Microsoft Azure Attestation
 
@@ -64,7 +64,7 @@ Pour vérifier les rôles dans PowerShell, exécutez la commande ci-dessous :
 
 a. Lancez PowerShell et connectez-vous à Azure via la cmdlet « Connect-AzAccount ».
 
-b. Vérifiez les paramètres d’attribution de rôle RBAC.
+b. Vérifiez les paramètres d’attribution de rôle Azure.
 
 
   ```powershell

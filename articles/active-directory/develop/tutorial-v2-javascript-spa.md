@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825919"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979944"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 
-Dans ce tutoriel, vous allez créer une application monopage dans JavaScript qui peut connecter des utilisateurs avec des comptes Microsoft personnels ou des comptes professionnels et scolaires, puis obtenir un jeton d’accès pour appeler l’API Microsoft Graph.
+Dans ce tutoriel, vous créez une application monopage (SPA) JavaScript qui connecte les utilisateurs et appelle Microsoft Graph en utilisant le flux implicite. L’application monopage que vous créez utilise la bibliothèque d’authentification Microsoft (MSAL) pour JavaScript v1.0.
 
 Dans ce tutoriel, vous allez :
 
@@ -513,4 +513,3 @@ Approfondissez le développement d’applications monopages sur la plateforme d�
 
 > [!div class="nextstepaction"]
 > [Scénario : Application monopage](scenario-spa-overview.md)
-

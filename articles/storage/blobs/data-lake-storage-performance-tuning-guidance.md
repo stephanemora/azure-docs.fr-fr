@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677356"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913043"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimiser Azure Data Lake Storage Gen2 pour les performances
 
@@ -47,7 +47,7 @@ Après avoir traité les goulots d’étranglement du matériel source et de la 
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mappeur)   | [Lien](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Lien](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mappeur)    |   [Lien](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mappeur)    |   [Lien](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Structure de votre jeu de données
 
@@ -57,7 +57,7 @@ Quand les données sont stockées dans Data Lake Storage Gen2, la taille du fich
 
 En règle générale, les moteurs d’analytique comme HDInsight et Azure Data Lake Analytics affichent une surcharge par fichier. Si vous stockez vos données sous forme de petits fichiers nombreux, cela peut nuire aux performances. De manière générale, organisez vos données dans de grands fichiers pour des performances optimales (taille allant de 256 Mo à 100 Go). Certains moteurs et applications peuvent avoir des difficultés à traiter efficacement les fichiers supérieurs à 100 Go.
 
-Parfois, les pipelines de données ont un contrôle limité sur les données brutes qui possèdent un grand nombre de petits fichiers. Il est recommandé de faire appel à un processus de préparation pour générer les fichiers de grande taille à utiliser pour les applications en aval.
+Parfois, les pipelines de données ont un contrôle limité sur les données brutes qui possèdent un grand nombre de petits fichiers. En général, nous recommandons que votre système dispose d’une sorte de processus permettant d’agréger des fichiers de petite taille en fichiers plus volumineux pour les utiliser dans des applications en aval.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organisation des données de série chronologique dans des dossiers
 

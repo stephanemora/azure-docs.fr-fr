@@ -1,62 +1,31 @@
 ---
-title: Modifier les performances des disques managés Azure
-description: Découvrez les niveaux de performances pour les disques managés et apprenez à modifier les niveaux de performances des disques managés existants.
+title: Modifier les performances des disques managés Azure – CLI/PowerShell
+description: Découvrez comment modifier les niveaux de performances des disques managés existants à l’aide du module Azure PowerShell ou de l’interface Azure CLI.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 11/19/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 8a21a78bf27847b41c0af7bc4361f7c6c8071949
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348693"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96016513"
 ---
-# <a name="performance-tiers-for-managed-disks-preview"></a>Niveaux de performance des disques managés (préversion)
+# <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Changer votre niveau de performance à l’aide du module Azure PowerShell ou de l’interface Azure CLI
 
-La fonctionnalité Stockage sur disque Azure offre actuellement des fonctionnalités de bursting intégrées afin d’améliorer les performances pour la gestion du trafic inattendu à court terme. Les disques SSD Premium offrent la possibilité d’augmenter les performances du disque sans augmenter sa taille réelle. Cette fonctionnalité vous permet de répondre aux besoins en performances de votre charge de travail et de réduire les coûts. 
-
-> [!NOTE]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. 
-
-Cette fonctionnalité est idéale pour les événements qui nécessitent temporairement un niveau de performances systématiquement plus élevé, comme les achats pendant les fêtes, les tests de performance ou l’exécution d’un environnement d’entraînement. Pour gérer ces événements, vous pouvez utiliser un niveau de performance plus élevé aussi longtemps que vous en avez besoin. Vous pouvez ensuite revenir au niveau d’origine lorsque vous n’avez plus besoin de performances supplémentaires.
-
-## <a name="how-it-works"></a>Fonctionnement
-
-Quand vous déployez ou provisionnez un disque pour la première fois, le niveau de performance de base de référence pour ce disque est défini en fonction de la taille de disque provisionnée. Vous pouvez utiliser un niveau de performances supérieur pour répondre à une demande plus élevée. Lorsque vous n’avez plus besoin de ce niveau de performance, vous pouvez revenir au niveau de performance initial.
-
-Votre facturation change à mesure que votre niveau change. Par exemple, si vous provisionnez un disque P10 (128 Gio), votre niveau de performance de base de référence est défini comme P10 (500 IOPS et 100 Mo/s). Vous êtes facturé au tarif P10. Vous pouvez augmenter le niveau pour qu’il corresponde aux performances P50 (7 500 E/S par seconde et 250 Mbits/s) sans que la taille du disque soit augmentée. Au moment de la mise à niveau, vous êtes facturé au tarif P50. Lorsque vous n’avez plus besoin de performances supérieures, vous pouvez revenir au niveau P10. Le disque sera à nouveau facturé au tarif P10.
-
-| Taille du disque | Niveau de performance de base de référence | Mise à niveau possible vers |
-|----------------|-----|-------------------------------------|
-| 4 Gio | P1 | P2, P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 8 Gio | P2 | P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 16 Gio | P3 | P4, P6, P10, P15, P20, P30, P40, P50 | 
-| 32 Gio | P4 | P6, P10, P15, P20, P30, P40, P50 |
-| 64 Gio | P6 | P10, P15, P20, P30, P40, P50 |
-| 128 Go | P10 | P15, P20, P30, P40, P50 |
-| 256 Gio | P15 | P20, P30, P40, P50 |
-| 512 Go | P20 | P30, P40, P50 |
-| 1 Tio | P30 | P40, P50 |
-| 2 Tio | P40 | P50 |
-| 4 Tio | P50 | Aucun |
-| 8 Tio | P60 |  P70, P80 |
-| 16 Tio | P70 | P80 |
-| 32 Tio | P80 | Aucun |
-
-Pour plus d’informations sur la facturation, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
+[!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
 ## <a name="restrictions"></a>Restrictions
 
-- Cette fonctionnalité est actuellement prise en charge uniquement pour les disques SSD Premium.
-- Vous devez libérer votre machine virtuelle ou détacher votre disque d'une machine virtuelle en cours d'exécution avant de pouvoir modifier le niveau du disque.
-- L’utilisation des niveaux de performance P60, P70 et P80 est limitée aux disques de 4 096 Gio ou plus.
-- Le niveau de performance d'un disque ne peut être rétrogradé qu'une fois toutes les 24 heures.
+[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Créez un disque de données vide avec un niveau supérieur au niveau de base de référence
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 subscriptionId=<yourSubscriptionIDHere>
@@ -83,8 +52,30 @@ image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
-     
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$subscriptionId='yourSubscriptionID'
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$diskSizeInGiB=4
+$performanceTier='P50'
+$sku='Premium_LRS'
+$region='westcentralus'
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
+New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+```
+---
+
 ## <a name="update-the-tier-of-a-disk"></a>Mettre à jour le niveau d’un disque
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
@@ -93,11 +84,36 @@ performanceTier=<yourDesiredPerformanceTier>
 
 az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$performanceTier='P1'
+
+$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+```
+---
+
 ## <a name="show-the-tier-of-a-disk"></a>Afficher le niveau d’un disque
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
+
+$disk.Tier
+```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147453"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887210"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez [Échanges et remboursements en libre-serv
 - **Instance de machine virtuelle réservée** : une réservation couvre uniquement les coûts de calcul de machine virtuelle et de services cloud. Une réservation ne couvre pas les frais de logiciels, de réseau, de stockage ou liés à Windows.
 - **Capacité réservée de stockage Azure** : une réservation couvre la capacité de stockage pour les comptes de stockage standard pour le stockage d’objets blob ou le stockage Azure Data Lake Gen2. La réservation ne couvre pas les taux de bande passante ou de transaction.
 - **La capacité réservée Azure Cosmos DB** : une réservation couvre le débit provisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau.
-- **vCore réservé de SQL Database** : seuls les coûts de calcul sont inclus dans une réservation. La licence SQL est facturée séparément.
+- **vCore réservé SQL Database** : couvre à la fois SQL Managed Instance et les pools élastiques/bases de données uniques SQL Database. seuls les coûts de calcul sont inclus dans une réservation. La licence SQL est facturée séparément. 
 - **Azure Synapse Analytics** : une réservation couvre l’utilisation de cDWU. Elle ne couvre pas les frais de stockage ou de réseau associés à l’utilisation d’Azure Synapse Analytics.
 - **Azure Databricks** : une réservation couvre uniquement l’utilisation de DBU. Les autres frais, comme le calcul, le stockage et le réseau, sont facturés séparément.
 - **Frais de timbre App service** : Une réservation couvre l’utilisation des timbres. Elle ne s’applique pas aux workers, si bien que toutes les autres ressources associées aux timbres sont facturées séparément.

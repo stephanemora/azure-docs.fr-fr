@@ -2,13 +2,13 @@
 title: Déployer des ressources sur des groupes de ressources
 description: Explique comment définir des ressources dans un modèle Azure Resource Manager. Montre comment cibler plusieurs groupes de ressources.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681269"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807724"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Déploiements de groupes de ressources avec des modèles Resource Manager
 
@@ -83,6 +83,8 @@ Lors du déploiement dans un groupe de ressources, vous pouvez déployer des res
 
 * le groupe de ressources cible de l’opération
 * d’autres groupes de ressources dans le même abonnement ou dans d’autres abonnements
+* tout abonnement dans le locataire
+* le locataire pour le groupe de ressources
 * les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
@@ -95,6 +97,8 @@ Pour déployer des ressources dans la ressource cible, ajoutez ces ressources à
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+Pour obtenir un exemple de modèle, consultez [Déployer dans le groupe de ressources cible](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Étendue au groupe de ressources dans le même abonnement
 
 Pour déployer des ressources dans un autre groupe de ressources du même abonnement, ajoutez un déploiement imbriqué et incluez la propriété `resourceGroup`. Si vous ne spécifiez pas l’ID d’abonnement ni le groupe de ressources, ce sont l’abonnement et le groupe de ressources du modèle parent qui sont utilisés. Tous les groupes de ressources doivent exister avant l’exécution du déploiement.
@@ -103,13 +107,43 @@ Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressource
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Pour obtenir un exemple de modèle, consultez [Déployer sur plusieurs groupes de ressources](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Étendue au groupe de ressources dans un abonnement différent
 
 Pour déployer des ressources dans un groupe de ressources sous un abonnement différent, ajoutez un déploiement imbriqué et incluez les propriétés `subscriptionId` et `resourceGroup`. Dans l’exemple suivant, le déploiement imbriqué cible un groupe de ressources nommé `demoResourceGroup`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Groupes inter-ressources
+Pour obtenir un exemple de modèle, consultez [Déployer sur plusieurs groupes de ressources](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Étendue à l’abonnement
+
+Pour déployer des ressources dans un abonnement, ajoutez un déploiement imbriqué et incluez la propriété `subscriptionId`. L’abonnement peut être l’abonnement pour le groupe de ressources cible ou tout autre abonnement dans le locataire. En outre, définissez la propriété `location` pour le déploiement imbriqué.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Pour obtenir un exemple de modèle, consultez [Créer un groupe de ressources](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Étendue au locataire
+
+Vous pouvez créer des ressources au niveau du locataire en définissant `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
+
+Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `location`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Déployer dans le groupe de ressources cible
+
+Pour déployer des ressources dans le groupe de ressources cible, définissez ces ressources dans la section **Ressources** du modèle. Le modèle suivant crée un compte de stockage dans le groupe de ressources qui est spécifié dans l’opération de déploiement.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Déployer dans plusieurs groupes de ressources
 
 Vous pouvez déployer plusieurs groupes de ressources dans un seul et même modèle Resource Manager. Pour cibler un groupe de ressources différent de celui du modèle parent, utilisez un modèle [imbriqué ou lié](linked-templates.md). Dans le type de ressource du déploiement, spécifiez des valeurs pour l’ID d’abonnement et le groupe de ressources sur lequel vous souhaitez déployer le modèle imbriqué. Les groupes de ressources peuvent exister dans différents abonnements.
 
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Créer un groupe de ressources
+
+À partir du déploiement d’un groupe de ressources, vous pouvez basculer sur le niveau d’un abonnement et créer un groupe de ressources. Le modèle suivant déploie un compte de stockage dans le groupe de ressources cible et crée un nouveau groupe de ressources dans l’abonnement spécifié.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

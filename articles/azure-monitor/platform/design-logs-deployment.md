@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107876"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536776"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -60,7 +60,7 @@ Si vous utilisez System Center Operations Manager 2012 R2 ou une version ultér
 
 ## <a name="access-control-overview"></a>Présentation du contrôle d’accès
 
-Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez accorder aux utilisateurs et aux groupes uniquement le type d’accès dont ils ont besoin pour travailler avec les données de surveillance dans un espace de travail. Vous pouvez ainsi vous aligner sur le modèle d’exploitation de votre service informatique en utilisant un espace de travail unique pour stocker les données collectées activées sur toutes vos ressources. Par exemple, vous accordez l’accès à votre équipe responsable des services d’infrastructure hébergés sur des machines virtuelles Azure et par conséquent, les membres de l’équipe ont accès uniquement aux journaux générés par les machines virtuelles. Le nouveau modèle de journal Contexte de ressource est le suivant. La base de ce modèle est, pour chaque enregistrement de journal émis par une ressource Azure, qu’il est automatiquement associé à cette ressource. Les journaux sont transférés vers un espace de travail central qui respecte la portée et le contrôle d’accès en fonction du rôle, en fonction des ressources.
+Avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC), vous pouvez accorder aux utilisateurs et aux groupes uniquement le type d’accès dont ils ont besoin pour travailler avec les données de surveillance dans un espace de travail. Vous pouvez ainsi vous aligner sur le modèle d’exploitation de votre service informatique en utilisant un espace de travail unique pour stocker les données collectées activées sur toutes vos ressources. Par exemple, vous accordez l’accès à votre équipe responsable des services d’infrastructure hébergés sur des machines virtuelles Azure et par conséquent, les membres de l’équipe ont accès uniquement aux journaux générés par les machines virtuelles. Le nouveau modèle de journal Contexte de ressource est le suivant. La base de ce modèle est, pour chaque enregistrement de journal émis par une ressource Azure, qu’il est automatiquement associé à cette ressource. Les journaux sont transférés vers un espace de travail central qui respecte la délimitation et Azure RBAC, en fonction des ressources.
 
 Les données auxquelles un utilisateur a accès sont déterminées par plusieurs facteurs, listés dans le tableau suivant. Chacun est décrit dans les sections ci-dessous.
 
@@ -69,7 +69,7 @@ Les données auxquelles un utilisateur a accès sont déterminées par plusieurs
 | [Mode d’accès](#access-mode) | Méthode utilisée par l’utilisateur pour accéder à l’espace de travail.  Définit l’étendue des données disponibles et le mode de contrôle d’accès qui est appliqué. |
 | [Mode de contrôle d’accès](#access-control-mode) | Paramètre de l’espace de travail qui détermine si des autorisations sont appliquées au niveau de la ressource ou de l’espace de travail. |
 | [autorisations](manage-access.md) | Autorisations appliquées à des utilisateurs spécifiques ou à des groupes d’utilisateurs pour l’espace de travail ou la ressource. Définit les données auxquelles l’utilisateur a accès. |
-| [RBAC au niveau table](manage-access.md#table-level-rbac) | Autorisations granulaires facultatives qui s’appliquent à tous les utilisateurs, quel que soit leur mode d’accès ou mode de contrôle d’accès. Définit les types de données auxquels un utilisateur peut accéder. |
+| [Azure RBAC au niveau de la table](manage-access.md#table-level-azure-rbac) | Autorisations granulaires facultatives qui s’appliquent à tous les utilisateurs, quel que soit leur mode d’accès ou mode de contrôle d’accès. Définit les types de données auxquels un utilisateur peut accéder. |
 
 ## <a name="access-mode"></a>Mode d’accès
 
@@ -81,7 +81,7 @@ Les utilisateurs disposent de deux options pour accéder aux données :
 
     ![Contexte Log Analytics de l’espace de travail](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contexte de ressource** : lorsque vous accédez à l’espace de travail pour une ressource, un groupe de ressources ou un abonnement spécifique, par exemple, lorsque vous sélectionnez **Journaux** à partir d’un menu de ressources dans le portail Azure, vous pouvez voir les journaux pour les ressources dans toutes les tables auxquelles vous avez accès uniquement. Dans ce mode, l’étendue des requêtes englobe uniquement les données associées à cette ressource. Ce mode autorise également le contrôle d’accès en fonction du rôle (RBAC) granulaire.
+* **Contexte de ressource** : lorsque vous accédez à l’espace de travail pour une ressource, un groupe de ressources ou un abonnement spécifique, par exemple, lorsque vous sélectionnez **Journaux** à partir d’un menu de ressources dans le portail Azure, vous pouvez voir les journaux pour les ressources dans toutes les tables auxquelles vous avez accès uniquement. Dans ce mode, l’étendue des requêtes englobe uniquement les données associées à cette ressource. Ce mode autorise également le contrôle d’accès en fonction du rôle Azure (Azure RBAC) granulaire.
 
     ![Contexte Log Analytics de la ressource](./media/design-logs-deployment/query-from-resource.png)
 
@@ -103,22 +103,22 @@ Le tableau suivant récapitule les modes d’accès :
 |:---|:---|:---|
 | À qui chaque modèle s’adresse-t-il ? | Administration centrale. Les administrateurs qui ont besoin de configurer une collecte de données et les utilisateurs qui ont besoin d’accéder à un large éventail de ressources. Également nécessaire pour les utilisateurs qui doivent accéder aux journaux des ressources situées en dehors d’Azure. | Équipes d’application. Administrateurs de ressources Azure en cours de supervision. |
 | De quoi un utilisateur a-t-il besoin pour voir les journaux ? | Autorisations sur l’espace de travail. Consultez **Autorisations d’espace de travail** dans [Gérer l’accès à l’aide d’autorisations au niveau de l’espace de travail](manage-access.md#manage-access-using-workspace-permissions). | Accès en lecture à la ressource. Consultez **Autorisations de ressources** dans [Gérer l’accès à l’aide d’autorisations Azure](manage-access.md#manage-access-using-azure-permissions). Les autorisations peuvent être héritées (par exemple du groupe de ressources les contenant) ou directement attribuées à la ressource. L’autorisation sur les journaux pour la ressource est automatiquement attribuée. |
-| Quelle est l’étendue des autorisations ? | Espace de travail. Les utilisateurs ayant accès à l’espace de travail peuvent interroger tous les journaux dans cet espace de travail à partir des tables sur lesquelles ils ont des autorisations. Consultez [Contrôle d’accès aux tables](manage-access.md#table-level-rbac). | Ressource Azure. L’utilisateur peut interroger les journaux à propos de ressources, groupes de ressources ou abonnements auxquels il a accès à partir de n’importe quel espace de travail, mais il ne peut pas interroger les journaux associés à d’autres ressources. |
+| Quelle est l’étendue des autorisations ? | Espace de travail. Les utilisateurs ayant accès à l’espace de travail peuvent interroger tous les journaux dans cet espace de travail à partir des tables sur lesquelles ils ont des autorisations. Consultez [Contrôle d’accès aux tables](manage-access.md#table-level-azure-rbac). | Ressource Azure. L’utilisateur peut interroger les journaux à propos de ressources, groupes de ressources ou abonnements auxquels il a accès à partir de n’importe quel espace de travail, mais il ne peut pas interroger les journaux associés à d’autres ressources. |
 | Comment l’utilisateur peut-il accéder aux journaux ? | <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../visualizations.md#workbooks) Azure Monitor.</li></ul> | <ul><li>Démarrez **Journaux** dans le menu associé à la ressource Azure.</li></ul> <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../visualizations.md#workbooks) Azure Monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Mode de contrôle d’accès
 
 Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail qui définit comment les autorisations sont déterminées pour l’espace de travail.
 
-* **Exiger des autorisations d’espace de travail** : ce mode de contrôle n’autorise pas un contrôle RBAC précis. Pour qu’un utilisateur puisse accéder à l’espace de travail, il doit avoir des autorisations sur l’espace de travail ou sur des tables spécifiques.
+* **Exiger des autorisations d’espace de travail** : Ce mode de contrôle n’autorise pas un contrôle Azure RBAC granulaire. Pour qu’un utilisateur puisse accéder à l’espace de travail, il doit avoir des autorisations sur l’espace de travail ou sur des tables spécifiques.
 
     Si un utilisateur accède à l’espace de travail dans le contexte de l’espace de travail, il a accès à toutes les données de toutes les tables auxquelles il est autorisé à accéder. Si un utilisateur accède à l’espace de travail dans le contexte de la ressource, il a accès uniquement aux données de cette ressource dans les tables auxquelles il est autorisé à accéder.
 
     Il s’agit du paramétrage par défaut pour tous les espaces de travail créés avant mars 2019.
 
-* **Utiliser les autorisations de ressource ou d’espace de travail** : ce mode de contrôle autorise un contrôle RBAC précis. Les utilisateurs peuvent être autorisés à accéder uniquement aux données associées aux ressources qu’ils peuvent afficher en attribuant l’autorisation `read` Azure. 
+* **Utiliser les autorisations de ressource ou d’espace de travail** : Ce mode de contrôle autorise un contrôle Azure RBAC granulaire. Les utilisateurs peuvent être autorisés à accéder uniquement aux données associées aux ressources qu’ils peuvent afficher en attribuant l’autorisation `read` Azure. 
 
-    Quand un utilisateur accède à l’espace de travail dans le contexte de l’espace de travail, les autorisations d’espace de travail s’appliquent. Quand un utilisateur accède à l’espace de travail dans le contexte de la ressource, seules les autorisations de ressource sont vérifiées, les autorisations d’espace de travail étant ignorées. Activez le contrôle RBAC pour un utilisateur en le supprimant des autorisations d’espace de travail et en permettant à ses autorisations de ressource d’être reconnues.
+    Quand un utilisateur accède à l’espace de travail dans le contexte de l’espace de travail, les autorisations d’espace de travail s’appliquent. Quand un utilisateur accède à l’espace de travail dans le contexte de la ressource, seules les autorisations de ressource sont vérifiées, les autorisations d’espace de travail étant ignorées. Activez Azure RBAC pour un utilisateur en le supprimant des autorisations d’espace de travail et en permettant à ses autorisations de ressource d’être reconnues.
 
     Il s’agit du paramétrage par défaut pour tous les espaces de travail créés après mars 2019.
 

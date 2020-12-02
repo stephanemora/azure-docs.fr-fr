@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36d3fdbe05a4fac63415e34aea879a9ef576b725
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127095"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842905"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de référence de sécurité Azure pour Azure Data Box
 
@@ -271,11 +271,11 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Conseils** : Utilisez une station de travail à accès privilégié avec le service Azure Multi-Factor Authentication (MFA) activé pour vous se connecter et configurer vos commandes Azure Data Box.
+**Conseils** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure AD Multi-Factor Authentication (MFA) activé pour vous connecter à vos commandes Azure Data Box et les configurer.
 
 * [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planifier un déploiement informatique d’Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -615,7 +615,7 @@ Azure Data Box implémente le chiffrement AES 256 bits pour les données au repo
 
 **Conseils** : non applicable. Le service Data Box service ne prend pas en charge l’exécution de scripts.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

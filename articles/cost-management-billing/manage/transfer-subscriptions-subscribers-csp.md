@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744236"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962108"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -58,7 +58,7 @@ Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offr
 
 1. Créer des abonnements Azure cibles.
 1. Vérifiez que les abonnements source et cible sont dans le même locataire Azure Active Directory (Azure AD). Pour plus d’informations sur la modification d’un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    Notez que l’annuaire à changer n’est pas celui de l’abonnement CSP. Par exemple, vous passez d’un abonnement CSP à un abonnement avec paiement à l’utilisation. Vous devez changer l’annuaire de l’abonnement Paiement à l’utilisation pour qu’il corresponde à l’annuaire CSP.
+    Notez que l’option de changement d’annuaire n’est pas prise en charge pour l’abonnement CSP. Par exemple, vous passez d’un abonnement CSP à un abonnement avec paiement à l’utilisation. Vous devez changer l’annuaire de l’abonnement Paiement à l’utilisation pour qu’il corresponde à l’annuaire CSP.
 
     > [!IMPORTANT]
     >  - Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [RBAC Azure](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.

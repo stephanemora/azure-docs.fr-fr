@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630292"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537133"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -38,7 +38,7 @@ Pour participer à ce programme, vous devez passer en revue et accepter les term
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à signer des contrats juridiques.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
+1. Sélectionnez **Paramètres** (icône d’engrenage) > **Paramètres de compte**.
 1. Sélectionnez **Contrats**.
 1. Sélectionnez le lien de la version et affichez l'accord.
 1. Pour accepter les termes du contrat, sélectionnez **Accepter le contrat**.
@@ -51,8 +51,8 @@ Définissez vos informations de facturation pour le programme Business Applicati
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à mettre à jour vos informations de facturation.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
-1. Sous **Paramètres du compte**, sélectionnez **Profil de facturation**.
+1. Sélectionnez **Paramètres** (icône d’engrenage) > **Paramètres de compte**.
+1. Sous **Profil de l’organisation**, sélectionnez **Profil de facturation**, puis l’onglet **Développeur**.
 1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique.
 1. Pour apporter des modifications, sélectionnez **Mettre à jour**.
 1. Le cas échéant, spécifiez vos paramètres d’identifiant fiscal / de n° de TVA.

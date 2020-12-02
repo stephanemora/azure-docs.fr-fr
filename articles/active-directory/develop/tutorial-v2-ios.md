@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611110"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746725"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
-Dans ce tutoriel, vous allez apprendre à intégrer une application iOS ou macOS avec la plateforme d’identités Microsoft. L’application va connecter un utilisateur, obtenir un jeton d’accès pour appeler l’API Microsoft Graph et envoyer une requête à l’API Microsoft Graph.
+Dans ce tutoriel, vous allez créer une application iOS ou macOS qui s’intègre à la plateforme d’identités Microsoft afin de connecter des utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph.
 
 À la fin de ce guide, votre application acceptera les connexions de comptes Microsoft personnels (y compris outlook.com, live.com et d’autres) et de comptes professionnels ou scolaires de n’importe quelle entreprise ou organisation utilisant Azure Active Directory. Ce tutoriel est applicable aux applications iOS et macOS. Certaines étapes varient d’une plateforme à l’autre.
 

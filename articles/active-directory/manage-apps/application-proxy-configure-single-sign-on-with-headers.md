@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663227"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503171"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Authentification unique basée sur l’en-tête pour les applications locales avec le Proxy d’application Azure AD (préversion)
 
@@ -85,7 +85,7 @@ Avant de commencer à utiliser l’authentification unique pour des applications
 ## <a name="test-your-app"></a>Test de l'application 
 
 Une fois toutes ces étapes accomplies, votre application doit être opérationnelle. Pour tester l’application : 
-1. Ouvrez un navigateur et accédez à l’ **URL externe** à partir des paramètres du Proxy d’application. 
+1. Ouvrez une nouvelle fenêtre de navigateur ou une fenêtre de navigation privée pour que les en-têtes précédemment mis en cache soient bien effacés. Ensuite, accédez à  **l’URL externe** à partir des paramètres du Proxy d’application.
 2. Connectez-vous au compte de test que vous avez attribué à l’application. Si vous pouvez charger l’application et vous y connecter à l’aide de l’authentification unique, tout va bien. 
 
 

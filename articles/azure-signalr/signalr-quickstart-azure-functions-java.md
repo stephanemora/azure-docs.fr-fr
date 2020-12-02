@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa300122ab6c448862d46579d6e9ce1e5fc06a79
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151034"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874404"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser Java pour créer une salle de conversation avec Azure Functions et le service SignalR
 
@@ -37,21 +37,21 @@ Azure SignalR Service vous permet d’ajouter facilement des fonctionnalités en
 > [!NOTE]
 > Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compte Azure.
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurer et exécuter l’application de fonction Azure
 
@@ -87,15 +87,16 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
     ```bash
     mvn azure-functions:run
     ```
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+    
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)
+Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsjava).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -103,5 +104,3 @@ Dans ce démarrage rapide, vous avez généré et exécuté une application serv
 
 > [!div class="nextstepaction"]
 > [Créer votre première fonction avec Java et Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
-
-[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qsjava)

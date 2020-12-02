@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488335"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986537"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -100,7 +100,7 @@ Pour ajouter un domaine personnalisé à votre application, vous devez vérifier
 ![Capture d’écran montrant l’ID dans le champ ID de vérification des domaines personnalisés.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> L’ajout d’ID de vérification de domaines à votre domaine personnalisé peut empêcher les entrées DNS non résolues et éviter les acquisitions de sous-domaine. Pour plus d’informations sur cette menace critique courante, consultez [Acquisition de sous-domaine](../security/fundamentals/subdomain-takeover.md).
+> L’ajout d’ID de vérification de domaines à votre domaine personnalisé peut empêcher les entrées DNS non résolues et éviter les acquisitions de sous-domaine. Pour les domaines personnalisés que vous avez précédemment configurés sans cet ID de vérification, vous devez les protéger du même risque en ajoutant l’ID de vérification à votre enregistrement DNS. Pour plus d’informations sur cette menace critique courante, consultez [Acquisition de sous-domaine](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Mapper votre domaine
 

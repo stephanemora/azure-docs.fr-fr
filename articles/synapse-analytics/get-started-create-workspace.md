@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/21/2020
+ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592445"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241928"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -65,9 +65,9 @@ Tant qu’il est actif, un pool SQL dédié consomme des ressources facturables.
 
 Le pool Spark indique à Azure Synapse la quantité de ressources Spark à utiliser. Vous payez uniquement les ressources consommées. Quand vous cessez d’utiliser activement le pool, les ressources expirent automatiquement et sont recyclées.
 
-## <a name="the-serverless-sql-pool"></a>Pool SQL serverless
+## <a name="the-built-in-serverless-sql-pool"></a>Pool SQL serverless intégré
 
-Chaque espace de travail est fourni avec un pool prédéfini dit **intégré**. Ce pool ne peut pas être supprimé. Le pool SQL serverless vous permet d’utiliser SQL sans devoir créer ni gérer un pool SQL serverless dans Azure Synapse. Contrairement aux pools SQL dédiés, la facturation du pool SQL serverless est basée sur la quantité de données analysées pour exécuter la requête, et non sur le nombre de ressources utilisées pour exécuter la requête.
+Chaque espace de travail est fourni avec un pool SQL serverless prédéfini dit **intégré**. Ce pool ne peut pas être supprimé. Les pools SQL serverless vous permettent d’utiliser SQL sans avoir à réserver de capacité avec des pools SQL dédiés. Contrairement aux pools SQL dédiés, la facturation d’un pool SQL serverless est basée sur la quantité de données analysées pour exécuter la requête, et non sur le nombre d’unités de capacité allouées au pool.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

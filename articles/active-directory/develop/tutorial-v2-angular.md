@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096247"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979927"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage Angular
 
-Ce tutoriel vous guide dans la création d’une application monopage Angular qui peut connecter des utilisateurs avec des comptes Microsoft personnels et des comptes professionnels ou scolaires, et appeler l’API Microsoft Graph en leur nom.
+Dans ce tutoriel, vous créez une application monopage (SPA) Angular qui connecte les utilisateurs et appelle l’API Microsoft Graph.
 
 Dans ce tutoriel, vous allez :
 
@@ -78,7 +78,7 @@ Inscrivez la valeur de votre **URI de redirection** sous la forme **http://local
 
 ## <a name="configure-the-application"></a>Configuration de l'application
 
-1. Dans le dossier *src/app* , modifiez *app.module.ts* et ajoutez `MSALModule` à `imports` ainsi que la constante `isIE` :
+1. Dans le dossier *src/app*, modifiez *app.module.ts* et ajoutez `MSALModule` à `imports` ainsi que la constante `isIE` :
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -124,7 +124,7 @@ Inscrivez la valeur de votre **URI de redirection** sous la forme **http://local
     |---------|---------|
     |Enter_the_Application_Id_Here|Dans la page **Vue d’ensemble** de l’inscription de votre application, il s’agit de la valeur de votre **ID d’application (client)** . |
     |Enter_the_Cloud_Instance_Id_Here|Il s’agit de l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez **https://login.microsoftonline.com** . Pour les clouds nationaux (par exemple Chine), consultez [Clouds nationaux](./authentication-national-cloud.md).|
-    |Enter_the_Tenant_Info_Here| Définissez cette valeur sur une des options suivantes : Si votre application prend en charge les *comptes dans cet annuaire organisationnel* , remplacez cette valeur par l’ID de l’annuaire (locataire) ou le nom du locataire (par exemple, **contoso.microsoft.com** ). Si votre application prend en charge les *Comptes dans un annuaire organisationnel* , remplacez cette valeur par **organizations** . Si votre application prend en charge les *Comptes dans un annuaire organisationnel et comptes personnels Microsoft* , remplacez cette valeur par **common** . Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement* , remplacez cette valeur par **consumers** . |
+    |Enter_the_Tenant_Info_Here| Définissez cette valeur sur une des options suivantes : Si votre application prend en charge les *comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’ID de l’annuaire (locataire) ou le nom du locataire (par exemple, **contoso.microsoft.com**). Si votre application prend en charge les *Comptes dans un annuaire organisationnel*, remplacez cette valeur par **organizations**. Si votre application prend en charge les *Comptes dans un annuaire organisationnel et comptes personnels Microsoft*, remplacez cette valeur par **common**. Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement*, remplacez cette valeur par **consumers**. |
     |Enter_the_Redirect_Uri_Here|À remplacer par **http://localhost:4200** .|
 
     Pour plus d’informations sur les options configurables disponibles, consultez [Initialiser les applications clientes](msal-js-initializing-client-applications.md).

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540788"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542080"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Informations de référence sur l’analyse des données Azure Machine Learning
 
@@ -79,7 +79,7 @@ Azure Machine Learning a les dimensions suivantes associées à ses métriques.
 
 | Dimension | Description |
 | ---- | ---- |
-| Nom du cluster | Nom de l’instance de calcul. Disponible pour toutes les métriques de quota. |
+| Nom du cluster | Nom de la ressource de cluster de calcul. Disponible pour toutes les métriques de quota. |
 | Nom de la famille de machines virtuelles | Nom de la famille de machines virtuelles utilisée par le cluster. Pourcentage Disponible pour l’utilisation du quota. |
 | Priorité de la machine virtuelle | Priorité de la machine virtuelle. Pourcentage Disponible pour l’utilisation du quota.
 | CreatedTime | Disponible uniquement pour CpuUtilization et GpuUtilization. |

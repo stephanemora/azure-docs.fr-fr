@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903710"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinq étapes pour l’intégration de toutes vos applications à Azure AD
 
@@ -46,7 +46,7 @@ Enfin, vous pouvez également intégrer les applications que vous développez en
 
 Découvrez ensuite les applications que les employés utilisent fréquemment, et hiérarchisez votre travail pour les intégrer à Azure AD.
 
-Vous pouvez commencer par utiliser les [outils de découverte cloud](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security pour détecter et gérer l’&quot;informatique fantôme&quot; dans votre réseau (autrement dit, les applications qui ne sont pas gérées par le service informatique). Vous pouvez [utiliser Microsoft Defender - Protection avancée contre les menaces](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) pour simplifier et étendre le processus de découverte.
+Vous pouvez commencer par utiliser les [outils de découverte cloud](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security pour détecter et gérer l’informatique « fantôme » dans votre réseau (autrement dit, les applications qui ne sont pas gérées par le service informatique). Vous pouvez [utiliser Microsoft Defender - Protection avancée contre les menaces](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) pour simplifier et étendre le processus de découverte.
 
 En outre, vous pouvez utiliser le [rapport d’activité des applications AD FS](../manage-apps/migrate-adfs-application-activity.md) dans le Portail Azure pour découvrir toutes les applications AD FS de votre organisation, le nombre d’utilisateurs uniques qui s’y sont connectés et la compatibilité pour les intégrer à Azure AD.
 
@@ -66,7 +66,7 @@ Au cours de votre processus de découverte, vous avez peut-être trouvé des app
 - Faire des économies en éliminant le besoin d’approvisionnement et d’authentification des utilisateurs locaux, ainsi que les frais de licence payés aux autres fournisseurs d’identité cloud pour le même service.
 - Réduire la charge administrative et activer une sécurité plus étroite avec moins de redondances dans votre processus de gestion des identités et des accès.
 - Permettre aux employés d’obtenir un accès sécurisé à l’authentification unique pour toutes les applications dont ils ont besoin via le [portail MyApps](../manage-apps/access-panel-collections.md).
-- Améliorer l’intelligence des services liés à la [protection des identités](../identity-protection/overview-identity-protection.md) d’Azure AD, comme l’accès conditionnel, en augmentant la quantité de données que la fonctionnalité reçoit de l’utilisation de votre application, et étendre ses avantages aux applications nouvellement ajoutées.
+- Améliorer l’intelligence des services liés à la [protection des identités](../identity-protection/overview-identity-protection.md) d’Azure AD, comme l’accès conditionnel, en augmentant la quantité de données que la fonctionnalité reçoit de l’utilisation de votre application, et étendre ses avantages aux applications nouvellement ajoutées.
 
 Nous avons publié des conseils dans le cadre de la gestion du processus métier d’intégration des applications dans Azure AD, notamment une [affiche](https://aka.ms/AppOnePager) et une [présentation](https://aka.ms/AppGuideline) que vous pouvez utiliser pour sensibiliser et intéresser les entreprises et les propriétaires d’applications. Vous pouvez modifier ces exemples avec votre personnalisation et les publier dans votre organisation par le biais du portail d’entreprise, du bulletin d’informations ou d’un autre support au cours de l’exécution de ce processus.
 
@@ -103,7 +103,7 @@ En outre, vous pouvez intégrer des contrôleurs de livraison d’application, t
 
 En ce qui concerne les applications produites au sein de votre entreprise, vos développeurs peuvent utiliser la [Plateforme d’identité Microsoft](../develop/index.yml) afin d’implémenter l’authentification et l’autorisation. Les applications intégrées à la plateforme sont [inscrites auprès d’Azure AD](../develop/quickstart-register-app.md) et gérées comme n’importe quelle autre application de votre portefeuille.
 
-Les développeurs peuvent utiliser la plateforme pour les applications à usage interne et les applications orientées client, mais les avantages conférés par la plateforme ne s’arrêtent pas là. [Les bibliothèques d’authentification Microsoft (MSAL)](../develop/msal-overview.md), qui font partie de la plateforme, permettent aux développeurs de mettre en place des expériences modernes, telles que l’authentification multifacteur et l’utilisation de clés de sécurité, pour accéder à leurs applications sans avoir à les implémenter eux-mêmes. En outre, les applications intégrées à la plate-forme d’identité de Microsoft peuvent accéder à [Microsoft Graph](../develop/microsoft-graph-intro.md) - un point de terminaison d’API unifié fournissant les données Microsoft 365 qui décrivent les modèles de productivité, d’identité et de sécurité dans une organisation. Les développeurs peuvent utiliser ces informations pour implémenter des fonctionnalités qui augmentent la productivité de vos utilisateurs. Par exemple, en identifiant les personnes avec lesquelles l’utilisateur a récemment interagi et en les mettant en avant dans l’interface utilisateur des applications.
+Les développeurs peuvent utiliser la plateforme pour les applications à usage interne et les applications orientées client, mais les avantages conférés par la plateforme ne s’arrêtent pas là. [Les bibliothèques d’authentification Microsoft (MSAL)](../develop/msal-overview.md), qui font partie de la plateforme, permettent aux développeurs de mettre en place des expériences modernes, telles que l’authentification multifacteur et l’utilisation de clés de sécurité, pour accéder à leurs applications sans avoir à les implémenter eux-mêmes. En outre, les applications intégrées à la plate-forme d’identité de Microsoft peuvent accéder à [Microsoft Graph](../develop/microsoft-graph-intro.md) - un point de terminaison d’API unifié fournissant les données Microsoft 365 qui décrivent les modèles de productivité, d’identité et de sécurité dans une organisation. Les développeurs peuvent utiliser ces informations pour implémenter des fonctionnalités qui augmentent la productivité de vos utilisateurs. Par exemple, en identifiant les personnes avec lesquelles l’utilisateur a récemment interagi et en les mettant en avant dans l’interface utilisateur de l’application.
 
 Nous avons une [série de vidéos](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) qui offre une introduction complète à la plateforme, ainsi que [de nombreux exemples de code](../develop/sample-v2-code.md) dans les langages et les plateformes pris en charge.
 

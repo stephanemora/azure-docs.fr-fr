@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660081"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237474"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Démarrage rapide : Chargement en masse avec Synapse SQL
 
@@ -39,7 +39,8 @@ Vous pouvez désormais facilement charger des données en masse à l’aide de p
 
 ### <a name="steps"></a>Étapes
 
-1. Sélectionnez le compte de stockage et le fichier ou dossier à partir duquel vous effectuez le chargement dans le volet Emplacement de stockage source. L’Assistant tente automatiquement de détecter les fichiers Parquet. Si le type de fichier Parquet ne peut pas être confirmé, le format de texte délimité (CSV) est utilisé par défaut. 
+1. Sélectionnez le compte de stockage et le fichier ou dossier à partir duquel vous effectuez le chargement dans le volet Emplacement de stockage source. L’Assistant tente automatiquement de détecter les fichiers Parquet. Si le type de fichier Parquet ne peut pas être confirmé, le format de texte délimité (CSV) est utilisé par défaut.
+
    ![Sélection de l’emplacement source](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Sélectionnez les paramètres de format de fichier, notamment le compte de stockage dans lequel vous souhaitez écrire les lignes rejetées (fichier d’erreur). Actuellement, seuls les fichiers CSV et Parquet sont pris en charge.

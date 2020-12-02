@@ -2,19 +2,21 @@
 title: Paramètres dans les modèles
 description: Explique comment définir des paramètres dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122421"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911411"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Paramètres dans les modèles Azure Resource Manager
 
 Cet article explique comment définir et utiliser des paramètres dans votre modèle Azure Resource Manager. En fournissant des valeurs différentes pour les paramètres, vous pouvez réutiliser un modèle pour différents environnements.
 
 Resource Manager résout les valeurs des paramètres avant de démarrer les opérations de déploiement. Chaque fois que le paramètre est utilisé dans le modèle, Resource Manager le remplace par la valeur résolue.
+
+Chaque paramètre doit être défini sur l’un des [types de données](template-syntax.md#data-types).
 
 ## <a name="define-parameter"></a>Définir un paramètre
 

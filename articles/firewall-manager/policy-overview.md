@@ -5,18 +5,18 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075461"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802024"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Vue d’ensemble de la stratégie Azure Firewall Manager
 
-Une stratégie de pare-feu est une ressource Azure qui contient des collections de règles NAT, de réseau et d’application ainsi que des paramètres du renseignement sur les menaces. Cette ressource globale peut s’utiliser sur plusieurs instances du Pare-feu Azure dans des hubs virtuels sécurisés et des réseaux virtuels hubs. Les stratégies sont applicables sur plusieurs régions et abonnements.
+Une stratégie de pare-feu est une ressource Azure qui contient des collections de règles NAT, de réseau et d’application ainsi que des paramètres de renseignement sur les menaces. Cette ressource globale peut s’utiliser sur plusieurs instances du Pare-feu Azure dans des hubs virtuels sécurisés et des réseaux virtuels hubs. Les stratégies sont applicables sur plusieurs régions et abonnements.
 
 ![Stratégie Azure Firewall Manager](media/policy-overview/policy-overview.png)
 

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847004"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524196"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurer un RBAC local pour FHIR 
 
@@ -23,7 +23,7 @@ Cet article explique comment configurer l’API Azure pour FHIR afin d’utilise
 
 ## <a name="add-service-principal"></a>Ajouter un principal du service
 
-Le RBAC local vous permet d’utiliser un locataire Azure Active Directory externe avec votre serveur FHIR. Afin d’autoriser le système RBAC à vérifier les appartenances de groupe dans ce locataire, l’API Azure pour FHIR doit avoir un principal de service dans le locataire. Ce principal de service sera créé automatiquement dans les locataires liés aux abonnements qui ont déployé l’API Azure pour FHIR. Toutefois, si aucun abonnement n’est lié à votre locataire, un administrateur de locataire doit créer ce principal de service avec l’une des commandes suivantes :
+Le RBAC local vous permet d’utiliser un locataire Azure Active Directory externe avec votre serveur FHIR. Afin d’autoriser le système RBAC local à vérifier les appartenances de groupe dans ce locataire, l’API Azure pour FHIR doit avoir un principal de service dans le locataire. Ce principal de service sera créé automatiquement dans les locataires liés aux abonnements qui ont déployé l’API Azure pour FHIR. Toutefois, si aucun abonnement n’est lié à votre locataire, un administrateur de locataire doit créer ce principal de service avec l’une des commandes suivantes :
 
 En utilisant le module PowerShell `Az` :
 

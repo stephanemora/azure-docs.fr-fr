@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683643"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893356"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -146,7 +146,7 @@ Avant d’effectuer le transfert de propriété, comprenez les stratégies de co
 - Lorsque vous effectuez des transferts d’abonnement ou de propriété de compte entre deux ID d’organisation dans le même locataire, les stratégies Azure RBAC ainsi que les attributions de rôles d’administrateur et de coadministrateur de service existantes sont conservées.
 - Les transferts d’abonnement ou de propriété de compte inter-locataires entraînent la perte de vos stratégies Azure RBAC et de vos attributions de rôles.
 - Les stratégies et les rôles d’administrateur ne sont pas transférés entre les annuaires. Les administrateurs de service sont mis à jour pour refléter le propriétaire du compte de destination.
-- Pour éviter la perte des stratégies RBAC et des attributions de rôles lors du transfert de l’abonnement entre les locataires, assurez-vous que la case à cocher **Déplacer les abonnements vers le locataire Azure AD du destinataire** reste **désactivée**. Cela permet de conserver les services, les rôles RBAC et les stratégies sur le locataire Azure AD actuel et de transférer uniquement la propriété de facturation pour le compte.  
+- Pour éviter la perte des stratégies Azure RBAC et des attributions de rôles lors du transfert de l’abonnement entre les locataires, veillez à ce que la case **Déplacer les abonnements vers le locataire Azure AD du destinataire** reste **décochée**. Cela permet de conserver les services, les rôles Azure et les stratégies sur le locataire Azure AD actuel, et de transférer uniquement la propriété de facturation pour le compte.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image représentant la case non cochée permettant de déplacer les abonnements vers le locataire Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ Le portail Azure EA vous permet de gérer vos coûts et votre utilisation d’A
 
 Chaque rôle a un niveau d’accès et une autorité différents.
 
-Pour plus d’informations sur les rôles d’utilisateur, consultez [Rôles d’utilisateur Entreprise](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Pour plus d’informations sur les rôles d’utilisateur, consultez [Rôles d’utilisateur Entreprise](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Ajouter un compte Azure EA
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006958"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Si vous ne parvenez pas à effectuer une opération, il est possible que vous ne disposiez pas des autorisations appropriées. Si vous souhaitez accéder en écriture à des clés, vous devez utiliser un rôle RBAC tel que Contributeur de compte DocumentDB ou créer un rôle personnalisé. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle dans Azure Cosmos DB](../../cosmos-db/role-based-access-control.md).
+> Si vous ne parvenez pas à effectuer une opération, il est possible que vous ne disposiez pas des autorisations appropriées. Si vous souhaitez accéder en écriture à des clés, vous devez utiliser un rôle Azure, tel que Contributeur de compte DocumentDB, ou créer un rôle personnalisé. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB](../../cosmos-db/role-based-access-control.md).
 
 ## <a name="access-data"></a>Accéder aux données
 

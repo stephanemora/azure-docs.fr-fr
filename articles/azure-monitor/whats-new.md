@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555615"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534498"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -43,7 +43,7 @@ Cet article liste les nouveaux articles Azure Monitor et ceux qui ont fait l’o
 ### <a name="autoscale"></a>Mise à l’échelle automatique
 - [Bien démarrer avec la mise à l’échelle automatique dans Azure](platform/autoscale-get-started.md) - Ajout d’une section sur le déplacement de la mise à l’échelle automatique vers une autre région.
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a>Containers
 - [Configurer la supervision de volumes persistants avec Azure Monitor pour conteneurs](insights/container-insights-persistent-volumes.md) - Nouvel article.
 - [Guide pratique pour la gestion de l’agent Azure Monitor pour conteneurs](insights/container-insights-manage-agent.md) - Ajout de la prise en charge des clusters Kubernetes où Azure Arc est activé.
 - [Alertes sur les métriques d’Azure Monitor pour conteneurs](insights/container-insights-metric-alerts.md) - Ajout de la prise en charge des clusters Kubernetes où Azure Arc est activé.
@@ -296,7 +296,7 @@ Articles nouveaux et mis à jour à partir de la restructuration d’Azure Monit
 
 ### <a name="logs"></a>Journaux
 - [Supprimer et récupérer un espace de travail Azure Log Analytics](platform/delete-workspace.md) – Ajout d’une commande PowerShell. Mise à jour de la résolution des problèmes.
-- [Gérer les espaces de travail Log Analytics dans Azure Monitor](platform/manage-access.md) - Ajout d’un exemple pour les tables non autorisées dans la section RBAC.
+- [Gérer les espaces de travail Log Analytics dans Azure Monitor](platform/manage-access.md) – Ajout d’un exemple pour les tables non autorisées dans la section Azure RBAC.
 - [Gérer l’utilisation et les coûts à l’aide des journaux d’activité Azure Monitor](platform/manage-cost-storage.md) - Détails supplémentaires sur le calcul de la taille des données. Mise à jour des alertes de volume de données de configuration. Détails sur les données de sécurité collectées par Azure Sentinel. Clarification sur la limite de données.
 - [Utiliser Azure Monitor Logs avec Azure Logic Apps et Power Automate](platform/logicapp-flow-connector.md) - Ajout de limites de connecteur.
 
@@ -571,7 +571,7 @@ Plusieurs mises à jour effectuées dans le cadre de la réécriture du contenu 
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor pour conteneurs
 
-- [Intégrer Azure Active Directory dans Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Ajout d’une note concernant la création d’une application cliente pour prendre en charge le cluster RBAC afin de prendre en charge Azure Monitor pour les conteneurs.
+- [Intégrer Azure Active Directory dans Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) – Ajout d’une note concernant la création d’une application cliente pour prendre en charge un cluster sur lequel Kubernetes RBAC est activé, afin de prendre en charge Azure Monitor pour les conteneurs.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles
 

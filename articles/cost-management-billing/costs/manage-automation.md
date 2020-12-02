@@ -3,17 +3,17 @@ title: Gérer les coûts Azure avec l’automatisation
 description: Cet article explique comment gérer les coûts Azure avec l’automatisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131970"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956090"
 ---
 # <a name="manage-costs-with-automation"></a>Gérer les coûts avec l’automatisation
 
@@ -63,11 +63,18 @@ Les exemples de demande suivants sont utilisés par les clients Microsoft pour r
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>Obtenir les détails d’utilisation d’une étendue pendant une plage de dates spécifique
 
-Les données retournées par la requête correspondent à la date à laquelle l’utilisation a été reçue par le système de facturation. Elles peuvent inclure des coûts issus de plusieurs factures.
+Les données retournées par la requête correspondent à la date à laquelle l’utilisation a été reçue par le système de facturation. Elles peuvent inclure des coûts issus de plusieurs factures. L’appel à utiliser varie en fonction de votre type d’abonnement.
+
+Pour les clients hérités disposant d’un Accord Entreprise (EA) ou d’un abonnement avec paiement à l’utilisation, utilisez l’appel suivant :
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+Pour les clients modernes disposant d’un Contrat client Microsoft, utilisez l’appel suivant :
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>Recevoir des détails sur les coûts amortis

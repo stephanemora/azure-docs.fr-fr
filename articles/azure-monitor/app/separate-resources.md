@@ -3,12 +3,12 @@ title: 'Guide pratique pour concevoir votre déploiement Application Insights :
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258717"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536351"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Combien de ressources Application Insights déployer
 
@@ -26,7 +26,7 @@ Chaque ressource Application Insights est accompagnée de métriques prêtes à 
 
 -   Pour les composants d’application qui sont déployés ensemble. Habituellement développés par une équipe unique, gérés par le même ensemble d’utilisateurs DevOps/ITOps.
 -   S’il semble plus logique d’agréger des indicateurs de performance clés (KPI), tels que les durées de réponse, les taux d’échec dans le tableau de bord, et ainsi de suite, pour tous les composants par défaut (vous pouvez choisir de segmenter par nom de rôle dans l’expérience Metrics Explorer).
--   Si vous n’avez pas besoin de gérer le contrôle d’accès en fonction du rôle (RBAC) différemment entre les composants d’application.
+-   Si vous n’avez pas besoin de gérer le contrôle d’accès en fonction du rôle Azure (Azure RBAC) différemment entre les composants d’application.
 -   Si vous n’avez pas besoin de critères d’alerte de métriques différents entre les composants.
 -   Si vous n’avez pas besoin de gérer les exportations continues différemment entre les composants.
 -   Si vous n’avez pas besoin de gérer la facturation/les quotas différemment entre les composants.
