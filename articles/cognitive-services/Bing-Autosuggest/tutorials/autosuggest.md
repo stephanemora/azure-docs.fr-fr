@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a2c69735c36c06cdf72efc812aa1ac4020ff00a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367571"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342224"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutoriel : Obtention de suggestions de recherche sur une page web
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Dans ce didacticiel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Suggestion automatique Bing.
 
@@ -124,7 +124,7 @@ La fonction d’assistance getSubscriptionKeyLocalStorage tente d’abord de ré
     }
 ```
 
-La fonction d’assistance getSubscriptionKey accepte un paramètre, **invalidate**. Si **invalidate** a la valeur **true** , getSubscriptionKey supprime le cookie qui contient la clé API Suggestion automatique Bing. Si **invalidate** a la valeur **false** , getSubscriptionKey retourne la valeur de la clé API Suggestion automatique Bing.
+La fonction d’assistance getSubscriptionKey accepte un paramètre, **invalidate**. Si **invalidate** a la valeur **true**, getSubscriptionKey supprime le cookie qui contient la clé API Suggestion automatique Bing. Si **invalidate** a la valeur **false**, getSubscriptionKey retourne la valeur de la clé API Suggestion automatique Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {

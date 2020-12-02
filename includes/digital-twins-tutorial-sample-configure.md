@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
 ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023252"
 ---
 ## <a name="configure-the-sample-project"></a>Configurer l’exemple de projet
 
@@ -32,7 +32,7 @@ Dans le corps du fichier, remplacez `instanceUrl` par l’URL *hostName* de votr
 
 Enregistrez et fermez le fichier. 
 
-Ensuite, configurez le fichier *appsettings.json* à copier dans le répertoire de sortie lorsque vous créez *SampleClientApp*. Pour ce faire, sélectionnez avec le bouton droit le fichier *appsettings.json* , puis choisissez *Propriétés*. Dans l’inspecteur *Propriétés* , remplacez la valeur de la propriété *Copier dans le répertoire de sortie* par *Copier si plus récent*.
+Ensuite, configurez le fichier *appsettings.json* à copier dans le répertoire de sortie lorsque vous créez *SampleClientApp*. Pour ce faire, sélectionnez avec le bouton droit le fichier *appsettings.json*, puis choisissez *Propriétés*. Dans l’inspecteur *Propriétés*, remplacez la valeur de la propriété *Copier dans le répertoire de sortie* par *Copier si plus récent*.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extrait de la fenêtre Visual Studio, qui affiche le volet Explorateur de solutions avec le fichier appsettings.json mis en évidence, ainsi que le volet Propriétés avec la propriété « Copier dans le répertoire de sortie » définie sur « Copier si plus récent »" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

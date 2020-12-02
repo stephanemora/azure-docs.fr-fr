@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375452"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350957"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutoriel : Créer un bot de forum aux questions avec Azure Bot Service
 Créez un bot de forum aux questions avec QnA Maker et Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sans code.
@@ -47,7 +47,7 @@ Après la publication, vous pouvez créer un bot à partir de la page **Publish*
 
 Quand vous apportez des modifications à la base de connaissances et que vous republiez, aucune autre action n’est nécessaire avec le bot. Il est déjà configuré pour fonctionner avec la base de connaissances et il fonctionne avec toutes les modifications futures de la base de connaissances. Chaque fois que vous publiez une base de connaissances, tous les bots qui y sont connectés sont automatiquement mis à jour.
 
-1. Dans le portail QnA Maker, dans la page **Publish** , sélectionnez **Create bot**. Ce bouton apparaît seulement une fois que vous avez publié la base de connaissances.
+1. Dans le portail QnA Maker, dans la page **Publish**, sélectionnez **Create bot**. Ce bouton apparaît seulement une fois que vous avez publié la base de connaissances.
 
      # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
@@ -72,12 +72,12 @@ Quand vous apportez des modifications à la base de connaissances et que vous re
 
 
 1. Une fois le bot créé, ouvrez la ressource **Service Bot**.
-1. Sous **Gestion du bot** , sélectionnez **Tester dans le Web Chat**.
-1. À l’invite de chat **Tapez votre message** , entrez :
+1. Sous **Gestion du bot**, sélectionnez **Tester dans le Web Chat**.
+1. À l’invite de chat **Tapez votre message**, entrez :
 
     `Azure services?`
 
     Le chatbot répond avec une réponse provenant de votre base de connaissances.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Entrez une requête d’utilisateur dans le web chat de test.":::
-1. Activez le bot dans des [canaux supplémentaires](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&preserve-view=true) pris en charge.
+1. Activez le bot dans des [canaux supplémentaires](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0) pris en charge.

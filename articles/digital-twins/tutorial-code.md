@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280288"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011256"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -43,7 +43,7 @@ Pour commencer, il vous faut :
 
 Une fois que vous êtes prêt à utiliser votre instance Azure Digital Twins, commencez à configurer le projet d’application cliente. 
 
-Ouvrez une invite de commandes ou une autre fenêtre de console sur votre ordinateur, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *TutorielCodeDigitalTwins* ).
+Ouvrez une invite de commandes ou une autre fenêtre de console sur votre ordinateur, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *TutorielCodeDigitalTwins*).
 
 Accédez au nouveau répertoire.
 
@@ -105,7 +105,7 @@ La première chose que votre application doit faire, c’est s’authentifier au
 
 Pour vous authentifier, vous avez besoin du *nom d’hôte* de votre instance Azure Digital Twins.
 
-Dans *Program.cs* , collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Définissez la valeur de `adtInstanceUrl` sur le *hostName* de votre instance Azure Digital Twins.
+Dans *Program.cs*, collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Définissez la valeur de `adtInstanceUrl` sur le *hostName* de votre instance Azure Digital Twins.
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -128,7 +128,7 @@ Cette opération restaure les dépendances lors de la première exécution, puis
 
 ### <a name="upload-a-model"></a>Charger un modèle
 
-Azure Digital Twins n’a aucun vocabulaire de domaine intrinsèque. C’est vous qui définissez, à l’aide de **modèles** , les types d’éléments de votre environnement que vous pouvez représenter dans Azure Digital Twins. Les [modèles](concepts-twins-graph.md) sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-models.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language)** .
+Azure Digital Twins n’a aucun vocabulaire de domaine intrinsèque. C’est vous qui définissez, à l’aide de **modèles**, les types d’éléments de votre environnement que vous pouvez représenter dans Azure Digital Twins. Les [modèles](concepts-twins-graph.md) sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-models.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language)** .
 
 La première étape de la création d’une solution Azure Digital Twins consiste à définir au moins un modèle dans un fichier DTDL.
 
@@ -213,7 +213,7 @@ await foreach (DigitalTwinsModelData md in modelDataList)
 }
 ```
 
-**Avant de réexécuter le programme pour tester ce nouveau code** , rappelez-vous que la dernière fois que vous avez exécuté le programme, vous avez déjà chargé votre modèle. Azure Digital Twins ne vous permet pas de charger deux fois le même modèle. Par conséquent, si vous tentez de charger à nouveau le même modèle, le programme doit lever une exception.
+**Avant de réexécuter le programme pour tester ce nouveau code**, rappelez-vous que la dernière fois que vous avez exécuté le programme, vous avez déjà chargé votre modèle. Azure Digital Twins ne vous permet pas de charger deux fois le même modèle. Par conséquent, si vous tentez de charger à nouveau le même modèle, le programme doit lever une exception.
 
 Avec cela à l’esprit, réexécutez le programme avec cette commande dans votre fenêtre de commande :
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez les messages print indiquant que *sampleTwin-0* , *sampleTwin-1* et *sampleTwin-2* ont été créés. 
+Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Dans la sortie, recherchez les messages print indiquant que *sampleTwin-0*, *sampleTwin-1* et *sampleTwin-2* ont été créés. 
 
 Ensuite, réexécutez le programme. 
 

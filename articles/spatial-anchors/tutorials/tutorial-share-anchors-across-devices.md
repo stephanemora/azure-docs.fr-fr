@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel : Partager des ancres entre plusieurs sessions et appareils'
 description: Dans ce tutoriel, vous allez apprendre à partager des identificateurs Azure Spatial Anchor entre des appareils Android/iOS dans Unity avec un service back-end.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097284"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185393"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Tutoriel : Partager des ancres spatiales entre plusieurs sessions et appareils
 

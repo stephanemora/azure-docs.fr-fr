@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: bd01eaefa457c5ade10a5f1f4b8389d90ed60adf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364732"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351944"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutoriel : Générer une page web pour le client de vérification orthographique
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Vérification orthographique Bing. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -128,7 +128,7 @@ La fonction d’assistance getSubscriptionKeyLocalStorage tente d’abord de ré
     }
 ```
 
-La fonction d’assistance getSubscriptionKey accepte un paramètre, **invalidate**. Si **invalidate** a la valeur **true** , getSubscriptionKey supprime le cookie qui contient la clé API Vérification orthographique Bing. Si **invalidate** a la valeur **false** , getSubscriptionKey retourne la valeur de la clé API Vérification orthographique Bing.
+La fonction d’assistance getSubscriptionKey accepte un paramètre, **invalidate**. Si **invalidate** a la valeur **true**, getSubscriptionKey supprime le cookie qui contient la clé API Vérification orthographique Bing. Si **invalidate** a la valeur **false**, getSubscriptionKey retourne la valeur de la clé API Vérification orthographique Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {

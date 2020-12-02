@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380328"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349501"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ce tutoriel montre comment générer une application console .NET Core simple qui permet aux utilisateurs d’interroger l’API Recherche web Bing et d’afficher les résultats classés.
 
@@ -45,16 +45,16 @@ Pour suivre le tutoriel, vous avez besoin des éléments suivants :
 
 Dans Visual Studio, créez un projet avec `Ctrl`+`Shift`+`N`.
 
-Dans la boîte de dialogue **Nouveau projet** , cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)** .
+Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)** .
 
-Nommez l’application **MyConsoleSearchApp** , puis cliquez sur **OK**.
+Nommez l’application **MyConsoleSearchApp**, puis cliquez sur **OK**.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Ajouter le package NuGet JSON.net au projet
 
 Json.NET vous permet d’utiliser les réponses JSON retournées par l’API. Ajoutez son package NuGet à votre projet :
 
-- Dans **l’Explorateur de solutions** , cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...** .
-- Sous l’onglet **Parcourir** , recherchez `Newtonsoft.Json`. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
+- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...** .
+- Sous l’onglet **Parcourir**, recherchez `Newtonsoft.Json`. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
 - Cliquez sur le bouton **OK** dans la fenêtre **Examiner les modifications**.
 - Fermez l’onglet de Visual Studio intitulé **NuGet : MyConsoleSearchApp**.
 
@@ -62,8 +62,8 @@ Json.NET vous permet d’utiliser les réponses JSON retournées par l’API. Aj
 
 Ce tutoriel s’appuie sur l’assembly `System.Web`. Ajoutez une référence à cet assembly à votre projet :
 
-- Dans **l’Explorateur de solutions** , cliquez avec le bouton droit sur **Références** , puis sélectionnez **Ajouter une référence...**
-- Sélectionnez **Assemblys > Framework** , puis faites défiler vers le bas et cochez **System.Web**
+- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Références**, puis sélectionnez **Ajouter une référence...**
+- Sélectionnez **Assemblys > Framework**, puis faites défiler vers le bas et cochez **System.Web**
 - Sélectionnez **OK**.
 
 ## <a name="add-some-necessary-using-statements"></a>Ajouter quelques instructions using nécessaires
@@ -77,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Demander une requête à l’utilisateur
 
-Dans **l’Explorateur de solutions** , ouvrez **Program.cs**. Mettez à jour la méthode `Main()` :
+Dans **l’Explorateur de solutions**, ouvrez **Program.cs**. Mettez à jour la méthode `Main()` :
 
 ```csharp
 static void Main()
@@ -236,7 +236,7 @@ L’objet JSON `rankingResponse` ([documentation](/rest/api/cognitiveservices-bi
 
 La réponse de classement JSON peut inclure un ou plusieurs des groupes.
 
-Dans **Program.cs** , ajoutez la méthode suivante pour afficher les résultats dans un ordre de classement correct :
+Dans **Program.cs**, ajoutez la méthode suivante pour afficher les résultats dans un ordre de classement correct :
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -283,7 +283,7 @@ Cette méthode :
 - Effectue une boucle sur les groupes `rankingResponse` contenus dans la réponse
 - Affiche les éléments dans chaque groupe en appelant `DisplaySpecificResults(...)`
 
-Dans **Program.cs** , ajoutez les deux méthodes suivantes :
+Dans **Program.cs**, ajoutez les deux méthodes suivantes :
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)

@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
 ms.openlocfilehash: 3cb053f9673532ac19e2098678ec341f2f676486
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011252"
 ---
 Avec `DefaultAzureCredential`, l’exemple recherche les informations d’identification dans votre environnement local, comme une connexion Azure dans une [interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) locale ou dans Visual Studio ou Visual Studio Code. C’est la raison pour laquelle vous devez *vous connecter à Azure localement* via l’un de ces mécanismes afin de configurer les informations d’identification pour l’exemple.
 
