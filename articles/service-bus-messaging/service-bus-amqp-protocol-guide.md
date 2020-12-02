@@ -3,26 +3,26 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064534"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736712"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
-Advanced Message Queueing Protocol 1.0 est un protocole de transfert et de tramage normalisé permettant de transférer de manière asynchrone, sécurisée et fiable des messages entre deux parties. Il est le principal protocole de messagerie Azure Service Bus et Azure Event Hubs. Les deux services prennent également en charge le protocole HTTPS. Le protocole SBMP propriétaire qui est également pris en charge est progressivement supprimé en faveur du protocole AMQP.
+Advanced Message Queueing Protocol 1.0 est un protocole de transfert et de tramage normalisé permettant de transférer de manière asynchrone, sécurisée et fiable des messages entre deux parties. Il est le principal protocole de messagerie Azure Service Bus et Azure Event Hubs.  
 
-AMQP 1.0 est le résultat d’une vaste collaboration au sein du secteur entre des fournisseurs de middleware, tels que Microsoft et Red Hat et de nombreux utilisateurs de middleware de messagerie, tels que JP Morgan Chase représentant le secteur des services financiers. OASIS est le forum de normalisation technique destiné au protocole AMQP et aux spécifications d’extension ayant été approuvé officiellement comme norme internationale nommée ISO/IEC 19494.
+AMQP 1.0 est le résultat d’une vaste collaboration au sein du secteur entre des fournisseurs de middleware, tels que Microsoft et Red Hat et de nombreux utilisateurs de middleware de messagerie, tels que JP Morgan Chase représentant le secteur des services financiers. OASIS est le forum de normalisation technique destiné au protocole AMQP et aux spécifications d’extension ayant été approuvé officiellement comme norme internationale nommée ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Objectifs
 
-Cet article résume brièvement les concepts fondamentaux de la spécification relative à la messagerie AMQP 1.0 et un petit ensemble de spécifications d’extension à l’état de projet, en cours de finalisation par le comité technique AMQP d’OASIS, et explique comment Azure Service Bus implémente et s’appuie sur ces spécifications.
+Cet article récapitule les concepts fondamentaux de la spécification relative à la messagerie AMQP 1.0 et des spécifications d’extension développées par le [comité technique AMQP d’OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp), et explique comment Azure Service Bus implémente ces spécifications et s’appuie dessus.
 
 L’objectif est de permettre à tout développeur utilisant une pile de client AMQP 1.0 existante sur n’importe quelle plateforme d’interagir avec Azure Service Bus via AMQP 1.0.
 
-Les piles AMQP 1.0 courantes à usage général, telles que Apache Proton ou AMQP.NET Lite, implémentent déjà tous les protocoles AMQP 1.0 de base. Ces mouvements fondamentaux sont parfois encapsulés dans une API de niveau plus élevé. Apache Proton offre même les deux, l’API Messenger impérative et l’API Reactor réactive.
+Les piles AMQP 1.0 courantes à usage général, comme [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) ou [AMQP.NET Lite](https://github.com/Azure/amqpnetlite), implémentent tous les principaux éléments de protocole AMQP 1.0 comme des sessions ou des liens. Ces éléments fondamentaux sont parfois wrappés avec une API de niveau supérieur. Apache Proton offre même les deux : l’API Messenger impérative et l’API Reactor réactive.
 
 Dans la discussion suivante, nous allons supposer que la gestion des connexions, des sessions et des liens AMQP, ainsi que le traitement des transferts de trame et de contrôle de flux sont effectués par la pile respective (telle qu’Apache Proton-C) et qu’ils nécessitent peu d’attention, si ce n’est celle des développeurs d’applications. Nous allons supposer l’existence de quelques API primitives, telles que la possibilité de se connecter et de créer une certaine forme d’objets d’abstraction *expéditeur* et *destinataire*, qui ont respectivement une forme d’opérations `send()` et `receive()`.
 
@@ -42,7 +42,7 @@ Le protocole AMQP 1.0 est conçu pour être extensible et autoriser d’autres s
 
 Cette section explique l’utilisation de base d’AMQP 1.0 avec Azure Service Bus, qui inclut la création de connexions, de sessions et de liens et le transfert de messages vers et depuis des entités Service Bus, telles que des files d’attente, des rubriques et des abonnements.
 
-La source faisant le plus autorité pour découvrir comment fonctionne AMQP est la spécification AMQP 1.0. La spécification a été élaborée pour guider de manière précise l’implémentation et non pour être formé au protocole. Cette section se concentre sur la présentation de toute la terminologie nécessaire à la description de l’utilisation d’AMQP 1.0 par Service Bus. Pour une présentation plus complète d’AMQP, et pour aborder plus largement AMQP 1.0, vous pouvez consulter [ce cours vidéo][this video course].
+La source faisant le plus autorité pour découvrir comment le protocole AMQP fonctionne est la [spécification AMQP 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html). La spécification a été élaborée pour guider de manière précise l’implémentation, et non pour former au protocole. Cette section se concentre sur la présentation de toute la terminologie nécessaire à la description de l’utilisation d’AMQP 1.0 par Service Bus. Pour une présentation plus complète d’AMQP, et pour aborder plus largement AMQP 1.0, vous pouvez consulter [ce cours vidéo][this video course].
 
 ### <a name="connections-and-sessions"></a>Connexions et sessions
 
@@ -67,7 +67,7 @@ Les sessions disposent d’un modèle de contrôle de flux utilisant une fenêtr
 
 Ce modèle utilisant une fenêtre est à peu près semblable au concept de contrôle de flux utilisant une fenêtre, mais au niveau de la session à l’intérieur du socket. Le concept du protocole visant à autoriser plusieurs sessions simultanées consiste à ce que le trafic à priorité élevée soit prioritaire sur un trafic normal ralenti, comme sur une voie expresse.
 
-Azure Service Bus utilise actuellement une session pour chaque connexion. La taille maximale de trame de Service Bus est de 262 144 octets (256 Ko) pour la version Standard de Service Bus et Event Hubs. Elle est de 1 048 576 (1 Mo) pour la version Premium de Service Bus. Service Bus n’impose pas de fenêtre de limitation spécifique au niveau de la session, mais réinitialise la fenêtre régulièrement dans le cadre du contrôle de flux au niveau du lien (voir [la section suivante](#links)).
+Azure Service Bus utilise actuellement une session pour chaque connexion. La taille maximale de trame de Service Bus est de 262 144 octets (256 Ko) pour la version Standard de Service Bus. Elle est de 1 048 576 (1 Mo) pour Service Bus Premium et Event Hubs. Service Bus n’impose pas de fenêtre de limitation spécifique au niveau de la session, mais réinitialise la fenêtre régulièrement dans le cadre du contrôle de flux au niveau du lien (voir [la section suivante](#links)).
 
 Les connexions, les canaux et les sessions sont éphémères. En cas de coupure de la connexion sous-jacente, les connexions, le tunnel TLS, le contexte d’autorisation SASL et les sessions doivent être rétablis.
 
@@ -84,7 +84,7 @@ Un client .NET échoue avec un message d’erreur SocketException (« Une tenta
 
 AMQP transfère les messages via des liens. Un lien est un chemin de communication créé sur une session qui permet le transfert de messages dans une seule direction ; la négociation du statut de transfert s’effectue sur le lien et est bidirectionnelle entre les parties connectées.
 
-![Capture d’écran montrant une session établissant une connexion de liaison entre deux conteneurs.][2]
+![Capture d’écran montrant une session qui établit une connexion de liaison entre deux conteneurs.][2]
 
 Des liens peuvent être créés par un conteneur à tout moment et sur une session existante, ce qui rend AMQP différent de nombreux protocoles, y compris HTTP et MQTT, où le lancement de transferts et le chemin d’accès de transfert sont un privilège exclusif de la partie créant la connexion de socket.
 
@@ -120,7 +120,7 @@ Pour compenser les potentiels envois en double, Service Bus prend en charge la d
 
 Outre le modèle de contrôle de flux au niveau de la session indiqué précédemment, chaque lien a son propre modèle de contrôle de flux. Le contrôle de flux au niveau de la session évite au conteneur de devoir gérer un trop grand nombre de trames en une seule fois. Le contrôle de flux au niveau du lien charge l’application de décider du nombre de messages qu’elle souhaite gérer à partir d’un lien et à quel moment.
 
-![Capture d’écran d’un journal montrant la source, la destination, le port source, le port de destination et le nom du protocole. Dans la première ligne, le port de destination 10401 (0x28 A 1) est mis en évidence en noir.][4]
+![Capture d’écran d’un journal montrant la source, la destination, le port source, le port de destination et le nom du protocole. Dans la première ligne, le port de destination 10401 (0x28 A 1) est mis en évidence en noir.][4]
 
 Les transferts ne peuvent se produire sur un lien que lorsque l’expéditeur dispose d’un « *crédit de lien* » suffisant. Le crédit de lien est un compteur défini par le récepteur à l’aide du performatif de *flux*, qui est limité à un lien. Dès que l’expéditeur se voit attribuer un crédit de lien, il tente de l’utiliser en envoyant des messages. Chaque remise de message décrémente d’autant (1) le crédit de lien restant. Lorsque le crédit de lien est épuisé, les remises s’interrompent.
 

@@ -6,33 +6,33 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423657"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253352"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Authentification HMAC – Informations de référence sur l’API REST
 
-Les requêtes HTTP peuvent être authentifiées à l’aide du schéma d’authentification **HMAC-SHA256**. Ces demandes doivent être transmises via le protocole TLS.
+Vous pouvez authentifier les requêtes HTTP à l’aide du schéma d’authentification HMAC-SHA256. (HMAC fait référence au code d’authentification de message basé sur le hachage.) Ces demandes doivent être transmises via le protocole TLS.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - **Informations d’identification** - \<Access Key ID\>
 - **Secret** – Valeur de clé d’accès décodée en base64. ``base64_decode(<Access Key Value>)``
 
-Les valeurs d’informations d’identification (également appelées « ID ») et de secret (également appelé « valeur ») doivent être obtenues de l’instance Azure App Configuration, ce qui peut être effectué à l’aide du [portail Azure](https://portal.azure.com) ou de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+La valeur des informations d’identification (également appelée `id`) et la valeur du secret (également appelée `value`) doivent être obtenues à partir de l’instance d’Azure App Configuration. Vous pouvez effectuer cette opération en utilisant le [portail Azure](https://portal.azure.com) ou l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Fournissez chaque demande avec tous les en-têtes HTTP requis pour l’authentification. Voici le minimum requis :
 
 |  En-tête de requête | Description  |
 | --------------- | ------------ |
-| **Hôte** | Hôte Internet et numéro de port. Consultez la section [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
-| **Date** | Date et heure de la demande. Ne peut pas être décalé de plus de 15 minutes par rapport à l’heure GMT actuelle. La valeur est une date HTTP, telle que décrite dans la section [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
-| **x-ms-date** | Identique à l’en-tête ```Date``` ci-dessus. Peut être utilisé à la place de celui-ci quand l’agent ne peut pas accéder directement à l’en-tête de demande ```Date``` ou quand un proxy le modifie. Si les en-têtes ```x-ms-date``` et ```Date``` sont tous deux fournis, l’en-tête ```x-ms-date``` est prioritaire. |
+| **Hôte** | Hôte Internet et numéro de port. Pour plus d’informations, consultez la section [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Date** | Date et heure de l’origine de la demande. Cette valeur ne peut pas être décalée de plus de 15 minutes par rapport à l’heure GMT actuelle. La valeur est au format HTTP-date, tel qu’il est décrit dans la section [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-ms-date** | Identique à l’en-tête ```Date``` ci-dessus. Vous pouvez l’utiliser à la place de celui-ci quand l’agent ne peut pas accéder directement à l’en-tête de demande ```Date``` ou quand un proxy le modifie. Si les en-têtes ```x-ms-date``` et ```Date``` sont tous deux fournis, l’en-tête ```x-ms-date``` est prioritaire. |
 | **x-ms-content-sha256** | Hachage SHA256 encodé en base64 du corps de la demande. Doit être fourni, même s’il n’y a pas de corps. ```base64_encode(SHA256(body))```|
-| **Autorisation** | Informations d’authentification requises par le schéma **HMAC-SHA256**. Le format et les détails sont expliqués ci-dessous. |
+| **Autorisation** | Informations d’authentification requises par le schéma HMAC-SHA256. Le format et les détails sont expliqués plus loin dans cet article. |
 
 **Exemple :**
 
@@ -43,7 +43,7 @@ x-ms-content-sha256: {SHA256 hash of the request body}
 Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={Signature}
 ```
 
-## <a name="authorization-header"></a>En-tête d’autorisation
+## <a name="authorization-header"></a>En-tête d’autorisation.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -51,18 +51,18 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HMAC-SHA256** | Schéma d’autorisation _(obligatoire)_ |
+| **HMAC-SHA256** | Schéma d’autorisation. _(obligatoire)_ |
 | **Informations d'identification** | ID de la clé d’accès utilisée pour calculer la signature. _(obligatoire)_ |
 | **SignedHeaders** | En-têtes de requête HTTP ajoutés à la signature. _(obligatoire)_ |
-| **Signature** | HMACSHA256 encodé en base64 de **String-To-Sign**. _(obligatoire)_|
+| **Signature** | HMACSHA256 encodé en base64 de String-To-Sign. _(obligatoire)_|
 
 ### <a name="credential"></a>Informations d'identification
 
-ID de la clé d’accès utilisée pour calculer la **Signature**.
+ID de la clé d’accès utilisée pour calculer la signature.
 
 ### <a name="signed-headers"></a>En-têtes signés
 
-Noms d’en-têtes de requête HTTP séparés par des points-virgules requis pour signer la demande. Ces en-têtes HTTP doivent également être correctement fournis avec la demande. **N’utilisez pas d’espaces blancs**.
+Noms d’en-têtes de requête HTTP, séparés par des points-virgules, requis pour signer la demande. Ces en-têtes HTTP doivent également être correctement fournis avec la demande. N’utilisez pas d’espaces blancs.
 
 ### <a name="required-http-request-headers"></a>En-têtes de requête HTTP pris en charge
 
@@ -76,7 +76,7 @@ x-ms-date;host;x-ms-content-sha256;```Content-Type```;```Accept```
 
 ### <a name="signature"></a>Signature
 
-Hachage HMACSHA256 encodé en base64 de **String-To-Sign** utilisant la clé d’accès identifiée par `Credential`.
+Hachage HMACSHA256 encodé en base64 de la chaîne de signature String-To-Sign. Il utilise la clé d’accès identifiée par `Credential`.
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>String-To-Sign
@@ -89,9 +89,9 @@ _String-To-Sign=_
 
 |  Argument | Description  |
 | ------ | ------ |
-| **HTTP_METHOD** | Nom de méthode HTTP en majuscules utilisé avec la demande. Voir [section 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
-|**path_and_query** | Concaténation du chemin d’accès de l’URI absolu et de la chaîne de requête. Voir [section 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Valeurs séparées par des points-virgules de tous les en-têtes de requête HTTP répertoriés dans **SignedHeaders**. Le format suit la sémantique **SignedHeaders**. |
+| **HTTP_METHOD** | Nom de méthode HTTP en majuscules utilisé avec la demande. Pour plus d’informations, consultez la [section 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Concaténation du chemin d’accès de l’URI absolu et de la chaîne de requête. Pour plus d’informations, consultez la [section 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Valeurs séparées par des points-virgules de tous les en-têtes de requête HTTP listés dans `SignedHeaders`. Le format suit la sémantique `SignedHeaders`. |
 
 **Exemple :**
 
@@ -111,7 +111,8 @@ WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
 **Raison :** l’en-tête de demande d’autorisation avec le schéma HMAC-SHA256 n’est pas fourni.
-**Solution :** fournissez un en-tête de demande HTTP ```Authorization``` valide.
+
+**Solution :** fournissez un en-tête de requête HTTP ```Authorization``` valide.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -119,6 +120,7 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The acces
 ```
 
 **Raison :** l’en-tête de demande ```Date``` ou ```x-ms-date``` est décalé de plus de 15 minutes par rapport à l’heure GMT actuelle.
+
 **Solution :** fournissez la date et l’heure correctes.
 
 
@@ -127,22 +129,23 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Raison :** en-tête de demande ```Date``` ou ```x-ms-date``` manquant ou non valide.
+**Raison :** l’en-tête de demande ```Date``` ou ```x-ms-date``` est manquant ou non valide.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Raison :** paramètre obligatoire manquant dans l’en-tête de demande ```Authorization```.
+**Raison :** un paramètre obligatoire est manquant dans l’en-tête de demande ```Authorization```.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid Credential", Bearer
 ```
 
-**Raison :** [```Host```]/[ID de clé d’accès] fournis introuvables.
-**Solution :** vérifiez le paramètre ```Credential``` de l’en-tête de demande ```Authorization```, et assurez-vous qu’il s’agit d’un ID de clé d’accès valide. Assurez-vous que l’en-tête ```Host``` pointe vers le compte inscrit.
+**Raison :** la valeur [```Host```]/[ID de clé d’accès] fournie est introuvable.
+
+**Solution :** vérifiez le paramètre ```Credential``` de l’en-tête de demande ```Authorization```. Assurez-vous qu’il s’agit d’un ID de clé d’accès valide et que l’en-tête ```Host``` pointe vers le compte inscrit.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,14 +153,16 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Raison :** la ```Signature``` fournie ne correspond pas à ce que le serveur attend.
-**Solution :** assurez-vous que la valeur ```String-To-Sign``` est correcte. Assurez-vous que le ```Secret``` est correct et correctement utilisé (décodé de base64 avant l’utilisation). Consultez la section **Exemples**.
+
+**Solution :** assurez-vous que la valeur ```String-To-Sign``` est correcte. Assurez-vous que le ```Secret``` est correct et correctement utilisé (décodé de base64 avant l’utilisation).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Raison :** en-tête de demande manquant requis par le paramètre ```SignedHeaders``` dans l’en-tête ```Authorization```.
+**Raison :** l’en-tête de demande requis par le paramètre ```SignedHeaders``` est manquant dans l’en-tête ```Authorization```.
+
 **Solution :** fournissez l’en-tête requis avec la valeur correcte.
 
 ```http
@@ -166,7 +171,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Raison :** paramètre manquant dans ```SignedHeaders```.
-**Solution :** vérifiez les exigences minimales relatives aux **en-têtes signés**.
+
+**Solution :** vérifiez les exigences minimales relatives aux en-têtes signés.
 
 ## <a name="code-snippets"></a>Extraits de code
 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host

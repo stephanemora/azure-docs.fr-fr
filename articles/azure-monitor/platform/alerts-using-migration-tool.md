@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358659"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536028"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utiliser l’outil de migration volontaire pour migrer vos règles d’alerte classiques
 
@@ -83,7 +83,7 @@ Quand un abonnement est prêt pour la migration, le propriétaire de l’abonnem
 
 ### <a name="who-can-trigger-the-migration"></a>Qui peut déclencher la migration ?
 
-Les utilisateurs qui ont le rôle Contributeur de surveillance au niveau de l’abonnement peuvent déclencher la migration. [En savoir plus sur le contrôle d’accès en fonction du rôle pour le processus de migration](alerts-understand-migration.md#who-can-trigger-the-migration).
+Les utilisateurs qui ont le rôle Contributeur de surveillance au niveau de l’abonnement peuvent déclencher la migration. [Apprenez-en davantage sur le contrôle d’accès en fonction du rôle Azure pour le processus de migration](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Combien de temps prendra la migration ?
 

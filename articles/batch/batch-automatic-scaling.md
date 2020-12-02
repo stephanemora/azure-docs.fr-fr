@@ -2,14 +2,14 @@
 title: Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
 description: Activer la mise à l’échelle automatique sur un pool de cloud pour ajuster dynamiquement le nombre de nœuds de calcul dans le pool.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849790"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737290"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -134,6 +134,9 @@ Vous pouvez obtenir la valeur des variables définies par le service ci-après p
 
 > [!TIP]
 > Ces variables en lecture seule définies par le service sont des *objets* qui fournissent diverses méthodes pour accéder aux données qui leur sont associées. Pour plus d’informations, consultez la section [Obtenir des échantillons de données](#obtain-sample-data) dans la suite de cet article.
+
+> [!NOTE]
+> Utilisez `$RunningTasks` lors d’une mise à l’échelle en fonction du nombre de tâches exécutées à un moment donné, et `$ActiveTasks` lors d’une mise à l’échelle en fonction du nombre de tâches mises en file d’attente pour s’exécuter.
 
 ## <a name="types"></a>Types
 
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Si vous le souhaitez, vous pouvez inclure des commentaires et des sauts de ligne dans des chaînes de formule.
+> Si vous le souhaitez, vous pouvez inclure des commentaires et des sauts de ligne dans des chaînes de formule. Sachez également que des points-virgules manquants peuvent entraîner des erreurs d’évaluation.
 
 ## <a name="automatic-scaling-interval"></a>Intervalle de mise à l’échelle automatique
 

@@ -3,14 +3,14 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360783"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528242"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -76,10 +76,10 @@ Le tableau suivant liste les systèmes d’exploitation pris en charge pour les 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM et SP1 Standard)| Update Management prend uniquement en charge les évaluations et les mises à jour correctives pour ce système d’exploitation. La fonctionnalité [Runbook Worker hybride](../automation-windows-hrw-install.md) est prise en charge pour Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
+|CentOS 6 et 7 (x64)      | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6 et 7 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
-|Ubuntu 14.04 LTS, 16.04 LTS et 18.04 (x86/x64)      |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
+|Ubuntu 14.04 LTS, 16.04 LTS et 18.04 (x64)      |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
 
 > [!NOTE]
 > Les groupes de machines virtuelles identiques Azure peuvent être gérés via Update Management. Update Management fonctionne sur les instances, mais pas sur l’image de base. Vous devez planifier les mises à jour de façon incrémentielle, afin que toutes les instances de machines virtuelles ne soient pas mises à jour en même temps. Vous pouvez ajouter des nœuds pour les groupes de machines virtuelles identiques en suivant la procédure décrite sous [Ajouter une machine non-Azure à Change Tracking and Inventory](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
@@ -132,7 +132,7 @@ Update Management utilise les ressources décrites dans cette section. Ces resso
 
 Après avoir activé Update Management, toute machine Windows directement connectée à votre espace de travail Log Analytics est automatiquement configurée en tant que runbook Worker hybride, afin de gérer les runbooks qui prennent en charge Update Management.
 
-Chaque machine Windows gérée par Update Management est répertoriée dans le volet Groupes de Workers hybrides en tant que Groupe de Workers hybrides système pour le compte Automation. Les groupes utilisent la convention d’affectation de noms `Hostname FQDN_GUID`. Vous ne pouvez pas cibler ces groupes avec des Runbooks dans votre compte. Si vous essayez, la tentative échoue. Ces groupes sont destinés à prendre uniquement en charge Update Management. Pour en savoir plus sur l’affichage de la liste des machines Windows configurées en tant que Runbook Worker hybride, consultez [Afficher les Runbooks Workers hybrides](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
+Chaque machine Windows gérée par Update Management est répertoriée dans le volet Groupes de Workers hybrides en tant que Groupe de Workers hybrides système pour le compte Automation. Les groupes utilisent la convention d’affectation de noms `Hostname FQDN_GUID`. Vous ne pouvez pas cibler ces groupes avec des Runbooks dans votre compte. Si vous essayez, la tentative échoue. Ces groupes sont destinés à prendre uniquement en charge Update Management. Pour en savoir plus sur l’affichage de la liste des machines Windows configurées en tant que Runbook Worker hybride, consultez [Afficher les Runbooks Workers hybrides](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Vous pouvez ajouter la machine Windows à un groupe de runbooks Workers hybrides dans votre compte Automation, afin de prendre en charge des runbooks Automation, à condition d’utiliser le même compte pour Update Management et pour l’appartenance au groupe de runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du Runbook Worker hybride.
 

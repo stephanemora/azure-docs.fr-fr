@@ -2,13 +2,13 @@
 title: Travaux et tâches dans Azure Batch
 description: En savoir plus sur les travaux et les tâches et sur leur utilisation dans un workflow Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955367"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808591"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Travaux et tâches dans Azure Batch
 
@@ -18,30 +18,32 @@ Dans Azure Batch, une *tâche* représente une unité de calcul. Un *travail* es
 
 Un travail est une collection de tâches. Il gère la façon dont le calcul est effectué par ses tâches sur les nœuds de calcul d’un pool.
 
-Un travail spécifie le [pool](nodes-and-pools.md#pools) sur lequel l’opération doit être exécutée. Vous pouvez créer un nouveau pool pour chaque tâche, ou utiliser un pool pour plusieurs travaux. Vous pouvez créer un pool pour chaque travail associé à une planification de travail, ou pour tous les travaux associés à une planification de travail.
+Un travail spécifie le [pool](nodes-and-pools.md#pools) sur lequel l’opération doit être exécutée. Vous pouvez créer un nouveau pool pour chaque tâche, ou utiliser un pool pour plusieurs travaux. Vous pouvez créer un pool pour chaque travail associé à une [planification de travail](#scheduled-jobs), ou un pool unique pour tous les travaux associés à une planification de travail.
 
 ### <a name="job-priority"></a>priorité de travail
 
-Vous pouvez attribuer une priorité facultative aux travaux que vous créez. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte (à ne pas confondre avec le [travail planifié](#scheduled-jobs)). Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail](/rest/api/batchservice/job/update) (REST Batch) ou modifiez la propriété [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.NET Batch).
+Vous pouvez attribuer une priorité facultative aux travaux que vous créez. Le service Batch utilise la valeur de priorité du travail pour déterminer l’ordre de planification (pour toutes les tâches au sein du travail) dans chaque pool.
 
-Dans un même compte, les travaux de priorité supérieure sont prioritaires en termes de planification sur les travaux de priorité inférieure. Un travail à priorité supérieure dans un compte n’est pas prioritaire en termes de planification sur un autre travail à priorité inférieure dans un autre compte. Les tâches des travaux de priorité inférieure qui sont déjà en cours d’exécution ne sont pas reportées.
+Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail](/rest/api/batchservice/job/update) (REST Batch) ou modifiez [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.NET Batch). Les valeurs de priorité sont comprises entre –1000 (priorité la plus basse) et 1000 (priorité la plus élevée).
 
-La planification de travail entre pools est indépendante. Entre des pools différents, un travail à priorité supérieure n’est pas systématiquement planifié en premier si le pool auquel il est associé n’a pas suffisamment de nœuds inactifs. Dans le même pool, les travaux avec le même niveau de priorité ont autant de chance d’être planifiés.
+Dans un même pool, les travaux de priorité supérieure sont prioritaires en termes de planification sur les travaux de priorité inférieure. Les tâches des travaux de priorité inférieure qui sont déjà en cours d’exécution ne sont pas devancées par les tâches d’un travail de priorité plus élevée. Des travaux avec le même niveau de priorité ont la même chance d’être planifiés et l’ordre d’exécution des tâches n’est pas défini.
+
+Un travail avec une valeur de priorité élevée en cours d’exécution dans un pool n’affecte pas la planification des travaux en cours d’exécution dans un pool distinct ou dans un autre compte Batch. La priorité des travaux ne s’applique pas aux [pools automatiques](nodes-and-pools.md#autopools), qui sont créés lors de l’envoi du travail.
 
 ### <a name="job-constraints"></a>Contraintes de travail
 
 Vous pouvez utiliser des contraintes de travail pour spécifier certaines limites pour vos travaux :
 
-- Vous pouvez définir une **durée maximale**pour les travaux ; si la durée d’exécution du travail est supérieure à la durée maximale spécifiée, le travail et toutes les tâches qui lui sont associées seront terminés.
+- Vous pouvez définir une **durée maximale** pour les travaux ; si la durée d’exécution du travail est supérieure à la durée maximale spécifiée, le travail et toutes les tâches qui lui sont associées seront terminés.
 - Vous pouvez spécifier le **nombre maximal de nouvelles tentatives de tâche** en tant que contrainte et indiquer notamment si une tâche doit toujours faire ou non l’objet d’une nouvelle tentative. Une nouvelle tentative de tâche signifie que, si la tâche échoue, elle est replacée dans la file d’attente pour s’exécuter à nouveau.
 
 ### <a name="job-manager-tasks-and-automatic-termination"></a>Tâches du gestionnaire de travaux et arrêt automatique
 
 Votre application cliente peut ajouter des tâches à un travail. Vous pouvez également spécifier une [tâche du gestionnaire de travaux](#job-manager-task). Une tâche de ce type contient les informations nécessaires à la création des tâches requises pour un travail et elle s’exécute sur l’un des nœuds de calcul du pool. La tâche du gestionnaire de travaux est gérée spécifiquement par Batch : elle est mise en file d’attente dès que le travail est créé et elle est redémarrée en cas d’échec. Une tâche du gestionnaire de travaux est requise pour les travaux créés dans le cadre d’une [planification de travail](#scheduled-jobs), car il s’agit du seul moyen de définir les tâches avant que le travail soit instancié.
 
-Par défaut, l’état des tâches est maintenu comme actif lorsque toutes les tâches du travail sont terminées. Vous pouvez modifier cette configuration pour terminer automatiquement le travail lorsque toutes les tâches afférentes ont été accomplies. Définissez la propriété **onAllTasksComplete** du travail ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) dans .NET Batch) sur *terminatejob* pour terminer automatiquement le travail lorsque l’état de toutes les tâches afférentes est défini comme terminé.
+Par défaut, l’état des tâches est maintenu comme actif lorsque toutes les tâches du travail sont terminées. Vous pouvez modifier cette configuration pour terminer automatiquement le travail lorsque toutes les tâches afférentes ont été accomplies. Définissez la propriété **onAllTasksComplete** du travail ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) dans .NET Batch) sur `terminatejob`*` pour terminer automatiquement le travail lorsque l’état de toutes les tâches afférentes est défini comme terminé.
 
-Le service Batch considère les travaux ne présentant *aucune* tâche comme des travaux dont toutes les tâches sont terminées. C’est la raison pour laquelle cette option est généralement utilisée avec une [tâche de gestionnaire de travaux](#job-manager-task). Si vous souhaitez définir l’arrêt automatique d’un travail sans utiliser de gestionnaire de travaux, définissez initialement la propriété **onAllTasksComplete** d’un nouveau travail sur *noaction*, puis sur *terminatejob* seulement une fois que vous avez terminé d’ajouter des tâches au travail.
+Le service Batch considère les travaux ne présentant *aucune* tâche comme des travaux dont toutes les tâches sont terminées. C’est la raison pour laquelle cette option est généralement utilisée avec une [tâche de gestionnaire de travaux](#job-manager-task). Si vous souhaitez utiliser l’arrêt automatique d’un travail sans utiliser de gestionnaire de travaux, définissez initialement la propriété **onAllTasksComplete** d’un nouveau travail sur `noaction`, puis sur `terminatejob`*` seulement une fois que vous avez terminé d’ajouter des tâches au travail.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 

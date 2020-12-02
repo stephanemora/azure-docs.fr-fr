@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309881"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486124"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
-**S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -30,10 +30,10 @@ La galerie contient diverses ressources que vous pouvez utiliser pour développe
 
 Azure AI Gallery contient un certain nombre de ressources différentes qui ont été fournies par Microsoft et des membres de la communauté de science des données. notamment :
 
-* **Expériences**  : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
-* **Tutoriels**  : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
-* **Collections**  : une collection vous permet de regrouper des expériences, des API et d’autres ressources de la galerie qui répondent à une solution ou à un concept spécifiques.
-* **Modules personnalisés**  : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio (classique) à utiliser dans vos propres expériences.
+* **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+* **Tutoriels** : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
+* **Collections** : une collection vous permet de regrouper des expériences, des API et d’autres ressources de la galerie qui répondent à une solution ou à un concept spécifiques.
+* **Modules personnalisés** : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio (classique) à utiliser dans vos propres expériences.
 
 ## <a name="discover-and-contribute"></a>Découvrir et contribuer
 
@@ -48,12 +48,12 @@ Vous pouvez même partager une ressource d’intérêt avec vos amis ou collègu
 
 Lorsque vous vous connectez, vous devenez membre de la communauté de la galerie. Cela vous permet de télécharger des ressources ou de partager vos propres éléments de galerie afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
 
-Vous pouvez télécharger des **expériences** , des **modules personnalisés** en vue de les utiliser dans le développement de vos propres solutions d’analytique.
-Vous pouvez partager des **expériences** , des **tutoriels** et des **collections** dans la galerie.
+Vous pouvez télécharger des **expériences**, des **modules personnalisés** en vue de les utiliser dans le développement de vos propres solutions d’analytique.
+Vous pouvez partager des **expériences**, des **tutoriels** et des **collections** dans la galerie.
 
 ## <a name="download-experiments-modules"></a>Télécharger des expériences, des modules
 
-Vous pouvez télécharger des **expériences** , des **modules personnalisés** dans votre espace de travail Machine Learning Studio (classique) en vue de les utiliser dans le développement de vos propres solutions.
+Vous pouvez télécharger des **expériences**, des **modules personnalisés** dans votre espace de travail Machine Learning Studio (classique) en vue de les utiliser dans le développement de vos propres solutions.
 
 Pour télécharger une ressource à partir de AI Gallery :
 
@@ -65,7 +65,7 @@ Pour télécharger une ressource à partir de AI Gallery :
 Pour télécharger une ressource à partir de Studio (classique) :
 
 1. Dans Studio (classique), sélectionnez **NOUVEAU**.
-1. Sélectionnez **Module** , **Expérience** ou **Bloc-notes**.
+1. Sélectionnez **Module**, **Expérience** ou **Bloc-notes**.
 1. Parcourez ou recherchez une ressource dans la galerie.
 1. Pointez votre souris sur la ressource, puis sélectionnez **Ouvrir dans Studio**.
     ![Ouvrir une expérience de la galerie dans Machine Learning Studio (classique)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -93,7 +93,7 @@ De plus, vous pouvez vous connecter avec un outil de discussion comme Disqus pou
 
 1. Dans la zone **RÉSUMÉ** , entrez un résumé de votre expérience. Décrivez brièvement le problème que résout l’expérience et comment vous l’avez abordé.
 
-1. Dans la zone **DESCRIPTION DÉTAILLÉE** , décrivez les étapes que vous avez suivies dans chaque partie de votre expérience. Certaines rubriques utiles à inclure ici sont les suivantes :
+1. Dans la zone **DESCRIPTION DÉTAILLÉE**, décrivez les étapes que vous avez suivies dans chaque partie de votre expérience. Certaines rubriques utiles à inclure ici sont les suivantes :
    * Capture d’écran de graphique d’expérience
    * Sources de données et explication
    * Traitement des données
@@ -106,12 +106,12 @@ De plus, vous pouvez vous connecter avec un outil de discussion comme Disqus pou
    > [!TIP]
    > Les zones de texte fournies pour l’édition avec Markdown et l’aperçu sont petites. Nous vous recommandons d’écrire la documentation de votre expérience dans un éditeur Markdown, (comme [Visual Studio Code](https://aka.ms/vscode)), puis de la copier-coller dans la zone de texte dans la galerie.
 
-1. Sur la page **Sélection de l’image** , choisissez une image miniature pour votre expérience. L’image miniature apparaît en haut de la page de détails de l’expérience et dans le titre de l’expérience. Les autres utilisateurs voient alors l’image miniature lorsqu’ils parcourent la galerie. Vous pouvez télécharger une image à partir de votre ordinateur ou sélectionner une image stockée dans la galerie.
+1. Sur la page **Sélection de l’image**, choisissez une image miniature pour votre expérience. L’image miniature apparaît en haut de la page de détails de l’expérience et dans le titre de l’expérience. Les autres utilisateurs voient alors l’image miniature lorsqu’ils parcourent la galerie. Vous pouvez télécharger une image à partir de votre ordinateur ou sélectionner une image stockée dans la galerie.
 
-1. Sur la page **Paramètres** , sous **Visibilité** , choisissez si vous souhaitez publier votre contenu publiquement ( **Visible au public** ) ou si vous souhaitez qu’il ne soit accessible qu’aux personnes qui disposent d’un lien vers la page ( **Non visible au public** ).
+1. Sur la page **Paramètres**, sous **Visibilité**, choisissez si vous souhaitez publier votre contenu publiquement (**Visible au public**) ou si vous souhaitez qu’il ne soit accessible qu’aux personnes qui disposent d’un lien vers la page (**Non visible au public**).
 
    > [!TIP]
-   > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience. Notez qu’après avoir défini une expérience comme **Visible au public** , vous ne pouvez pas la changer ensuite en **Non visible au public**.
+   > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience. Notez qu’après avoir défini une expérience comme **Visible au public**, vous ne pouvez pas la changer ensuite en **Non visible au public**.
 
 1. Cochez la case **OK** pour publier l’expérience dans la galerie.
 
@@ -125,13 +125,13 @@ Vous pouvez modifier les informations suivantes pour votre expérience directeme
 * Résumé ou description
 * Balises
 * Image
-* Réglage de visibilité ( **Visible au public** ou **Non visible au public** )
+* Réglage de visibilité (**Visible au public** ou **Non visible au public**)
 
 Vous pouvez également supprimer l’expérience de la galerie.
 
 Vous pouvez apporter ces modifications, ou supprimer l’expérience, à partir de la page de détails de l’expérience ou à partir de votre page de profil dans la galerie.
 
-* Sur la page de détails de l’expérience, cliquez sur **Modifier** pour modifier les détails de votre expérience. La page Détails entre en mode édition. Pour apporter des modifications, sélectionnez l’option **Modifier** située à côté du nom, du résumé ou des balises de l’expérience. Lorsque vous avez terminé d’apporter des modifications, sélectionnez **Terminé**. Pour modifier le réglage de visibilité de l’expérience ( **Visible au public** ou **Non visible au public** ) ou supprimer l’expérience de la galerie, sélectionnez l’icône **Paramètres**.
+* Sur la page de détails de l’expérience, cliquez sur **Modifier** pour modifier les détails de votre expérience. La page Détails entre en mode édition. Pour apporter des modifications, sélectionnez l’option **Modifier** située à côté du nom, du résumé ou des balises de l’expérience. Lorsque vous avez terminé d’apporter des modifications, sélectionnez **Terminé**. Pour modifier le réglage de visibilité de l’expérience (**Visible au public** ou **Non visible au public**) ou supprimer l’expérience de la galerie, sélectionnez l’icône **Paramètres**.
 
 * Sur la page de votre profil, sélectionnez la flèche bas de l’expérience, puis sélectionnez **Modifier**. Vous accédez alors à la page de détails de votre expérience en mode édition. Une fois que vous avez terminé d’apporter des modifications, sélectionnez **Terminé**. Pour supprimer l’expérience de la galerie, sélectionnez **Supprimer**.
 
@@ -152,14 +152,14 @@ Vous pouvez aider d’autres utilisateur en écrivant un **tutoriel** dans la ga
 
 1. Sélectionnez **Nouvel élément**.
 
-1. Sur la page **Description** , pour **TYPE D’ÉLÉMENT** , sélectionnez **Tutoriel** ou **Collection**. Entrez un nom, un bref résumé, une description détaillée et toutes les balises susceptibles d’aider les autres utilisateurs à trouver votre contribution. Cliquez ensuite sur **Suivant**.
+1. Sur la page **Description**, pour **TYPE D’ÉLÉMENT**, sélectionnez **Tutoriel** ou **Collection**. Entrez un nom, un bref résumé, une description détaillée et toutes les balises susceptibles d’aider les autres utilisateurs à trouver votre contribution. Cliquez ensuite sur **Suivant**.
 
-1. Sur la page **Sélection de l’image** , sélectionnez une image qui est affichée avec votre contribution. Vous pouvez charger votre propre fichier image ou sélectionner une image de banque d’images. Choisissez une image qui peut aider les utilisateurs à identifier le contenu et l’objectif de votre contribution. Cliquez ensuite sur **Suivant**.
+1. Sur la page **Sélection de l’image**, sélectionnez une image qui est affichée avec votre contribution. Vous pouvez charger votre propre fichier image ou sélectionner une image de banque d’images. Choisissez une image qui peut aider les utilisateurs à identifier le contenu et l’objectif de votre contribution. Cliquez ensuite sur **Suivant**.
 
-1. Dans la page **Paramètres** , pour le paramètre **Visibilité** , indiquez si le tutoriel est **Visible au public** (tout le monde peut le consulter) ou **Non visible au public** (seules les personnes bénéficiant d’un lien direct peuvent le consulter).
+1. Dans la page **Paramètres**, pour le paramètre **Visibilité**, indiquez si le tutoriel est **Visible au public** (tout le monde peut le consulter) ou **Non visible au public** (seules les personnes bénéficiant d’un lien direct peuvent le consulter).
 
    > [!TIP]
-   > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience. Notez qu’après avoir défini une expérience comme **Visible au public** , vous ne pouvez pas la changer ensuite en **Non visible au public**.
+   > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience. Notez qu’après avoir défini une expérience comme **Visible au public**, vous ne pouvez pas la changer ensuite en **Non visible au public**.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -169,7 +169,7 @@ Votre contribution figure désormais dans Azure AI Gallery. Vos contributions s
 
 Il existe deux méthodes pour ajouter des éléments à votre collection :
 
-* Ouvrez la collection, sélectionnez **Modifier** , puis sélectionnez **Ajouter un élément**. Vous pouvez ajouter des éléments que vous avez fournis à la galerie ou vous pouvez rechercher dans la galerie des éléments à ajouter. Une fois que vous avez sélectionné les éléments à ajouter, cliquez sur **Ajouter**.
+* Ouvrez la collection, sélectionnez **Modifier**, puis sélectionnez **Ajouter un élément**. Vous pouvez ajouter des éléments que vous avez fournis à la galerie ou vous pouvez rechercher dans la galerie des éléments à ajouter. Une fois que vous avez sélectionné les éléments à ajouter, cliquez sur **Ajouter**.
 
 * Si vous trouvez un élément que vous voulez ajouter pendant que vous parcourez la galerie, ouvrez-le, puis sélectionnez **Ajouter à la collection**. Sélectionnez la collection à laquelle vous souhaitez ajouter l’élément.
 
@@ -202,6 +202,6 @@ Après avoir entré une balise, appuyez sur la touche Tab pour entrer une autre 
 
 Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utilisateurs. Utilisez l'émoticône sur la droite pour nous dire ce que vous adorez ou ce que vous détestez à propos de la galerie.  
 
-![Commentaires](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Une fenêtre de commentaires vous permet d’envoyer un sourire, d’envoyer un Smiley mécontent ou d’entrer du texte. Il y a un bouton Envoyer.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[ALLER À LA GALERIE &gt;&gt;](https://gallery.azure.ai)**

@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646370"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808853"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -113,6 +113,9 @@ SUSE Linux Enterprise Server 11 | SP3<br/><br/> La mise à niveau des machines d
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/)  <br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>L’exécution sur tous les noyaux UEK et le noyau RedHat <= 3.10.0-1062.* est prise en charge dans la version [9.35](https://support.microsoft.com/help/4573888/). La prise en charge des autres noyaux RedHat est disponible dans la version [9.36](https://support.microsoft.com/help/4578241/)
 
+> [!NOTE]
+> Vérifiez que pour les versions de Linux, Azure Site Recovery ne prend pas en charge les images de système d’exploitation personnalisées. Seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de distribution sont pris en charge.
+
 **Remarque : Pour prendre en charge les noyaux Linux les plus récents dans un délai de 15 jours à partir de la publication, Azure Site Recovery déploie le correctif logiciel à chaud en plus de la dernière version de l’agent de mobilité. Ce correctif est déployé dans les deux versions majeures de la publication. Pour effectuer une mise à jour vers la dernière version de l’agent de mobilité (y compris le correctif logiciel à chaud), suivez les étapes mentionnées dans [cet article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Ce correctif est actuellement déployé pour les agents de mobilité utilisés dans le scénario de reprise d’activité Azure vers Azure.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versions du noyau Ubuntu prises en charge pour les machines virtuelles Azure
@@ -172,7 +175,7 @@ SUSE Linux Enterprise Server 15 et 15 SP1 | [9.34](https://support.microsoft.c
 * Gestionnaire de volume : LVM2
 
 > [!NOTE]
-> Le logiciel multichemin n’est pas pris en charge. 
+> Le logiciel multichemin n’est pas pris en charge.
 
 
 ## <a name="replicated-machines---compute-settings"></a>Machines répliquées - Paramètres de calcul
@@ -213,7 +216,7 @@ Ce tableau récapitule la prise en charge du disque du système d’exploitation
 --- | --- | ---
 Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/managed-disks-overview.md) sur les disques de machines virtuelles.
 Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/managed-disks-overview.md)
-Taille maximale du disque de données | 8192 Go pour les disques managés<br></br>4095 Go pour les disques non managés|
+Taille maximale du disque de données | 32 To pour les disques managés<br></br>4 To pour les disques non managés|
 Taille minimale du disque de données | Aucune restriction pour les disques non managés. 2 Go pour les disques managés |
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/sizes.md) sur les tailles de machines virtuelles.
 Taux de modification du disque de données | 20 Mbit/s maximum par disque pour le Stockage Premium. 2 Mbits/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.

@@ -4,12 +4,12 @@ description: Cet article décrit la configuration de la vue en temps réel des �
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116699"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530180"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Guide pratique pour configurer la fonctionnalité Live Data (préversion)
 
@@ -19,14 +19,14 @@ Cette fonctionnalité prend en charge les méthodes suivantes de contrôle d’a
 
 - AKS sans autorisation Kubernetes RBAC activée
 - AKS activé avec autorisation Kubernetes RBAC
-    - AKS configuré avec la liaison de rôle de cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configuré avec la liaison de rôle de cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS activé avec authentification unique SAML Azure Active Directory (AD)
 
 Ces instructions demandent un accès administrateur à votre cluster Kubernetes et, si vous configurez en vue d’utiliser Azure Active Directory (AD) pour l’authentification utilisateur, l’accès administrateur à Azure AD.
 
 Cet article explique comment configurer l’authentification pour contrôler l’accès à la fonctionnalité Live Data (préversion) à partir du cluster :
 
-- Cluster AKS prenant en charge le contrôle d’accès en fonction du rôle (RBAC)
+- Cluster AKS prenant en charge le contrôle d’accès en fonction du rôle Kubernetes (Kubernetes RBAC)
 - Cluster AKS intégré à Azure Active Directory
 
 >[!NOTE]
@@ -39,20 +39,20 @@ La fonctionnalité Live Data (préversion) utilise l’API Kubernetes, et est id
 Le portail Azure vous invite à valider vos informations d’identification de connexion à un cluster Azure Active Directory, et vous redirige vers la configuration de l’inscription cliente lors de la création du cluster (et reconfigurée dans cet article). Ce comportement est similaire au processus d’authentification exigé par `kubectl`.
 
 >[!NOTE]
->L’autorisation d’accès à votre cluster est managée par Kubernetes et le modèle de sécurité avec lequel elle est configurée. Les utilisateurs accédant à cette fonctionnalité nécessitent l’autorisation de télécharger la configuration Kubernetes (*kubeconfig*), ce qui équivaut à exécuter `az aks get-credentials -n {your cluster name} -g {your resource group}`. Ce fichier de configuration contient le jeton d’autorisation et d’authentification du **Rôle utilisateur de cluster Azure Kubernetes Service**, dans le cas où RBAC Azure est activé avec des clusters AKS sans autorisation RBAC activée. Il contient des informations sur Azure AD et des détails de l’inscription cliente, lorsque AKS est activé avec l’authentification unique basée sur SAML Azure Active Directory (AD).
+>L’autorisation d’accès à votre cluster est managée par Kubernetes et le modèle de sécurité avec lequel elle est configurée. Les utilisateurs accédant à cette fonctionnalité nécessitent l’autorisation de télécharger la configuration Kubernetes (*kubeconfig*), ce qui équivaut à exécuter `az aks get-credentials -n {your cluster name} -g {your resource group}`. Ce fichier de configuration contient le jeton d’autorisation et d’authentification du **Rôle utilisateur de cluster Azure Kubernetes Service**, dans le cas où Azure RBAC est activé avec des clusters AKS sans autorisation Kubernetes RBAC activée. Il contient des informations sur Azure AD et des détails de l’inscription cliente, lorsque AKS est activé avec l’authentification unique basée sur SAML Azure Active Directory (AD).
 
 >[!IMPORTANT]
 >L’utilisateur de cette fonctionnalité nécessite le [Rôle utilisateur de cluster Azure Kubernetes](../../role-based-access-control/built-in-roles.md) sur le cluster pour télécharger le fichier `kubeconfig` et utiliser cette fonctionnalité. Les utilisateurs n’ont **pas** besoin d’un accès contributeur au cluster pour utiliser cette fonctionnalité.
 
-## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Utilisation de clusterMonitoringUser avec des clusters où RBAC est activé
+## <a name="using-clustermonitoringuser-with-kubernetes-rbac-enabled-clusters"></a>Utilisation de clusterMonitoringUser avec des clusters prenant en charge Kubernetes RBAC
 
-Pour éviter d’avoir à appliquer des modifications de configuration supplémentaires afin de permettre à la liaison de rôle d’utilisateur Kubernetes **clusterUser** d’accéder à la fonctionnalité Live Data (préversion) après l’[activation de l’autorisation RBAC](#configure-kubernetes-rbac-authorization), AKS a ajouté une nouvelle liaison de rôle de cluster Kubernetes appelée **clusterMonitoringUser**. Cette liaison de rôle de cluster dispose par défaut de toutes les autorisations nécessaires pour accéder à l’API Kubernetes et aux points de terminaison en vue de l’utilisation de la fonctionnalité Live Data (préversion).
+Pour éviter d’avoir à appliquer des modifications de configuration supplémentaires afin de permettre à la liaison de rôle d’utilisateur Kubernetes **clusterUser** d’accéder à la fonctionnalité Live Data (préversion) après l’[activation de l’autorisation Kubernetes RBAC](#configure-kubernetes-rbac-authorization), AKS a ajouté une nouvelle liaison de rôle de cluster Kubernetes appelée **clusterMonitoringUser**. Cette liaison de rôle de cluster dispose par défaut de toutes les autorisations nécessaires pour accéder à l’API Kubernetes et aux points de terminaison en vue de l’utilisation de la fonctionnalité Live Data (préversion).
 
 Pour utiliser la fonctionnalité Live Data (préversion) avec ce nouvel utilisateur, vous devez être membre du rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) sur la ressource de cluster AKS. Quand la fonctionnalité Azure Monitor pour conteneurs est activée, elle est configurée pour s’authentifier à l’aide de cet utilisateur par défaut. Si la liaison de rôle clusterMonitoringUser n’existe pas sur un cluster, **clusterUser** est utilisée à des fins d’authentification à la place.
 
 AKS ayant publié cette nouvelle liaison de rôle en janvier 2020, les clusters créés avant janvier 2020 ne l’ont pas. Si vous avez un cluster qui a été créé avant janvier 2020, vous pouvez y ajouter la nouvelle liaison **clusterMonitoringUser** en y effectuant une opération PUT, ou en effectuant toute autre opération sur le cluster qui opère une opération PUT sur ce dernier, telle que la mise à jour de la version du cluster.
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes sans RBAC activé
+## <a name="kubernetes-cluster-without-kubernetes-rbac-enabled"></a>Cluster Kubernetes sans contrôle Kubernetes RBAC activé
 
 Si votre cluster Kubernetes n’est pas configuré avec l’autorisation Kubernetes RBAC ni intégré dans l’authentification unique Azure AD, il est inutile de suivre ces étapes. C’est parce que vous disposez d’autorisations d’administration par défaut dans une configuration non-RBAC.
 
@@ -108,7 +108,7 @@ L’inscription cliente Azure AD doit être reconfigurée pour permettre au port
 Pour plus d’informations sur la configuration de la sécurité avancée dans Kubernetes, consultez la [documentation de Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Si vous créez un cluster prenant en charge RBAC, consultez [Intégrer Azure Active Directory à Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) et suivez les étapes de configuration de l’authentification Azure AD. Pendant les étapes de création de l’application cliente, une remarque dans cette section met en évidence les deux URL de redirection que vous devez créer pour Azure Monitor pour conteneurs, correspondant à celles spécifiées à l’étape 3 ci-dessous.
+>Si vous créez un cluster prenant en charge Kubernetes RBAC, consultez [Intégrer Azure Active Directory à Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) et suivez les étapes de configuration de l’authentification Azure AD. Pendant les étapes de création de l’application cliente, une remarque dans cette section met en évidence les deux URL de redirection que vous devez créer pour Azure Monitor pour conteneurs, correspondant à celles spécifiées à l’étape 3 ci-dessous.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguration de l’inscription cliente
 
@@ -134,9 +134,9 @@ Pour plus d’informations sur la configuration de la sécurité avancée dans K
 Chaque compte Azure AD doit disposer de l’autorisation d’accès à la fonctionnalité Live Data (préversion) sur les API appropriées dans Kubernetes. Les étapes de cet octroi au compte Azure Active Directory sont similaires à celles décrites dans la section [Authentification RBAC de Kubernetes](#configure-kubernetes-rbac-authorization). Avant d’appliquer le modèle de configuration yaml à votre cluster, remplacez **clusterUser** sous **ClusterRoleBinding** par l’utilisateur souhaité.
 
 >[!IMPORTANT]
->Si l’utilisateur pour lequel vous accordez la liaison RBAC figure dans le même locataire Azure AD, attribuez les autorisations en fonction de userPrincipalName. Si l’utilisateur se trouve dans un autre locataire Azure AD, recherchez et utilisez la propriété objectId.
+>Si l’utilisateur pour lequel vous accordez la liaison Kubernetes RBAC figure dans le même locataire Azure AD, attribuez les autorisations en fonction d’userPrincipalName. Si l’utilisateur se trouve dans un autre locataire Azure AD, recherchez et utilisez la propriété objectId.
 
-Pour obtenir de l’aide supplémentaire lors de la configuration de **ClusterRoleBinding** de votre cluster AKS, consultez [Créer une liaison RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Pour obtenir de l’aide supplémentaire lors de la configuration de **ClusterRoleBinding** de votre cluster AKS, consultez [Créer une liaison RBAC Kubernetes](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

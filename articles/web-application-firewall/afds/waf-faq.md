@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563645"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545667"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Forum aux questions sur le pare-feu d’applications web Azure sur Azure Front Door Service
 
@@ -57,6 +57,17 @@ Vous pouvez configurer une liste de contrôle d’accès dans votre back-end pou
 
 Il y a deux options lors de l’application de stratégies de pare-feu d’applications web dans Azure. Le pare-feu d’applications web avec Azure Front Door est une solution distribuée mondialement de sécurité en périphérie. Le pare-feu d’applications web avec Application Gateway est une solution dédiée et régionale. Nous vous recommandons de choisir une solution basée sur vos exigences générales en matière de performances et de sécurité. Pour en savoir plus, consultez [Équilibrage de charge avec la suite de livraison d’application Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Quelle est l’approche recommandée pour activer le WAF sur Front Door ?
+
+Lorsque vous activez le WAF sur une application existante, il est courant d’obtenir des détections de faux positifs, dans lesquels les règles WAF identifient le trafic légitime comme une menace. Pour réduire le risque d’impact sur vos utilisateurs, nous vous recommandons le processus suivant :
+
+* Activez le WAF en mode [**Détection**](./waf-front-door-create-portal.md#change-mode) pour être sûr qu’il ne bloque pas les requêtes tandis que vous mettez en œuvre ce processus.
+  > [!IMPORTANT]
+  > Ce processus explique comment activer le WAF sur une solution nouvelle ou existante lorsque votre priorité est de réduire les perturbations pour les utilisateurs de votre application. En cas d’attaque ou de menace imminente, vous pouvez préférer déployer immédiatement le WAF en mode **Prévention**, et utiliser le processus de paramétrage pour superviser et ajuster le WAF au fil du temps. Le blocage d’une partie de votre trafic légitime en découlera probablement, c’est pourquoi nous vous recommandons d’agir ainsi uniquement lorsque vous êtes confronté à une menace.
+* Suivez nos [conseils en matière de paramétrage du WAF](./waf-front-door-tuning.md). Ce processus nécessite l’activation de la journalisation des diagnostics, la consultation régulière des journaux et l’ajout d’exclusions de règles ainsi que d’autres solutions de contournement.
+* Répétez ce processus dans son intégralité, en vérifiant les journaux régulièrement, jusqu’à être certain qu’aucun trafic légitime n’est bloqué. Le déroulement du processus entier peut prendre plusieurs semaines. Dans l’idéal, vous devriez constater moins de détections de faux positifs après chaque modification de paramétrage que vous effectuez.
+* Au final, activez le WAF en **mode Prévention**.
+* Même lorsque vous exécutez le WAF en production, il est impératif de continuer à superviser les journaux, afin d’identifier d’autres détections de faux positifs. En examinant régulièrement les journaux, vous pourrez également identifier les tentatives d’attaque réelle qui ont été bloquées.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Prenez-vous en charge les mêmes fonctionnalités de pare-feu d’applications web dans toutes les plateformes intégrées ?
 

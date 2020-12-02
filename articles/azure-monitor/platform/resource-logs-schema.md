@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2a66f90043e0f544dd86d2ab1245a3d8cbaff3d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543408"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534566"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -28,7 +28,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
 | tenantId | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux d’activité de niveau abonné ; elle n’apparaît pas dans les journaux d’activité de niveau ressource. |
-| operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération RBAC, il s’agit du nom de l’opération RBAC (par exemple, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération Azure RBAC, il s’agit du nom de l’opération Azure RBAC (par exemple, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par exemple `http://myservice.windowsazure.net/object?api-version=2016-06-01`). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
 | catégorie | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Ls catégories de journaux classiques sont « Audit », « Opérationnel », « Exécution » et « Demande ». |
 | resultType | Facultatif | État de l’événement. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |

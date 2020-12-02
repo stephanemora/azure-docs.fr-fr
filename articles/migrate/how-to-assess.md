@@ -2,62 +2,82 @@
 title: Ajouter des outils d’évaluation dans Azure Migrate
 description: Découvrez comment ajouter des outils d’évaluation dans Azure Migrate.
 ms.topic: how-to
-ms.date: 04/26/2020
-ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/23/2020
+ms.openlocfilehash: 17113d167476c62a97031721b73183d0b0da18af
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317366"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534992"
 ---
 # <a name="add-assessment-tools"></a>Ajouter des outils d’évaluation
 
 Cet article explique comment ajouter des outils d’évaluation dans [Azure Migrate](./migrate-services-overview.md). 
 
-- Si vous souhaitez ajouter un outil d’évaluation et que vous n’avez pas encore de projet Azure Migrate, suivez cet [article](how-to-add-tool-first-time.md).
+- Si vous souhaitez ajouter un outil d’évaluation et que vous n’avez pas encore de projet Azure Migrate, suivez cet [article](create-manage-projects.md).
 - Si vous avez ajouté un outil ISV ou Movere, pour l’évaluation, [suivez les étapes](prepare-isv-movere.md) de préparation à l’utilisation de l’outil.
 
 ## <a name="select-an-assessment-scenario"></a>Sélectionnez un scénario d’évaluation
 
 1. Dans le projet Azure Migrate, cliquez sur **Vue d’ensemble**.
-2. Sélectionnez le scénario d’évaluation que vous souhaitez utiliser :
+2. Sélectionnez le scénario d’évaluation :
 
     - Pour découvrir et évaluer les machines et les charges de travail pour la migration vers Azure, sélectionnez **Évaluer et migrer des serveurs**.
     - Pour évaluer les bases de données SQL Server locales, sélectionnez **Évaluer et migrer des bases de données**.
-    - Pour évaluer les applications web locales, sélectionnez **Évaluer et migrer des applications web**.
+    - Pour évaluer ou migrer des applications web locales, sélectionnez **Explorer davantage** > **Web Apps**.
+    - Pour évaluer votre infrastructure de bureau virtuel, sélectionnez **Explorer davantage** > **Virtual Desktop Infrastructure**.
 
-    ![Scénario d’évaluation](./media/how-to-assess/assess-scenario.png)
+    ![Options de sélection d’un scénario d’évaluation](./media/how-to-assess/assess-scenario.png)
 
 ## <a name="select-a-server-assessment-tool"></a>Sélectionnez un outil d’évaluation de serveur 
 
-1. Cliquez sur **Évaluer et migrer des serveurs**.
-2. Dans **Azure Migrate - Serveurs**, si vous n’avez pas ajouté d’outil d’évaluation, sous **Outils d’évaluation**, sélectionnez **Cliquez ici pour ajouter un outil d’évaluation**. Si vous avez déjà ajouté des outils d’évaluation dans **Ajouter plus d’outils d’évaluation**, sélectionnez **Modifier**.
 
-    > [!NOTE]
-    > Si vous devez accéder à un autre projet, dans **Azure Migrate - Serveurs**, cliquez sur **Cliquer ici** qui se trouve à côté de **Consulter les détails pour un projet de migration différent**.
+1. Ajoutez un outil :
 
-3. Dans **Azure Migrate**, sélectionnez l’outil d’évaluation que vous souhaitez utiliser.
+    - Si vous avez créé un projet Azure Migrate à l’aide de l’option **Évaluer et migrer des serveurs** du portail, l’outil Évaluation de serveur Azure Migrate est automatiquement ajouté au projet. Pour ajouter des outils d’évaluation supplémentaires, dans **Serveurs**, en regard d’**Outils d’évaluation**, sélectionnez **Ajouter d’autres outils**.
+    
+         ![Bouton permettant d’ajouter d’autres outils d’évaluation](./media/how-to-assess/add-assessment-tool.png)
 
-    - Si vous utilisez Azure Migrate Server Assessment, vous pouvez configurer, exécuter et afficher les évaluations directement dans le projet Azure Migrate.
-    - Si vous utilisez un outil d’évaluation différent, accédez au lien fourni pour son site et exécutez l’évaluation conformément aux instructions fournies.
+    - Si vous avez utilisé une autre option pour créer un projet et que vous n’avez pas encore d’outils d’évaluation, dans **Serveurs** > **Outils d’évaluation**, sélectionnez **Cliquez ici**.
+
+        ![Bouton permettant d’ajouter le premier outil d’évaluation](./media/how-to-assess/no-assessment-tool.png)
+
+2. Dans **Azure Migrate** > **Ajouter des outils**, sélectionnez les outils que vous voulez ajouter. Sélectionnez ensuite **Ajouter un outil**.
+
+    ![Sélectionner des outils d’évaluation dans la liste](./media/how-to-assess/select-assessment-tool.png)
+
 
 
 ## <a name="select-a-database-assessment-tool"></a>Sélectionnez un outil d’évaluation de base de données
 
-1. Cliquez sur **Évaluer et migrer des bases de données**
-2. Dans **Bases de données**, cliquez sur **Ajouter des outils**.
-3. Dans Ajouter un outil > **Sélectionner un outil d’évaluation**, sélectionnez l’outil que vous souhaitez utiliser pour évaluer votre base de données.
+1. Ajoutez un outil :
+
+    - Si vous avez créé un projet Azure Migrate à l’aide de l’option **Évaluer et migrer des bases de données** du portail, l’outil Évaluation de base de données est automatiquement ajouté au projet. Pour ajouter des outils d’évaluation supplémentaires, dans **Bases de données**, en regard d’**Outils d’évaluation**, sélectionnez **Ajouter d’autres outils**.
+
+    - Si vous avez utilisé une autre option pour créer un projet et que vous n’avez pas encore d’outils d’évaluation de base de données, dans **Bases de données** > **Outils d’évaluation**, sélectionnez **Cliquez ici**.
+
+2. Dans **Azure Migrate** > **Ajouter des outils**, sélectionnez les outils que vous voulez ajouter. Sélectionnez ensuite **Ajouter un outil**.
+
+    ![Sélectionner des outils d’évaluation de base de données dans la liste](./media/how-to-assess/select-database-assessment-tool.png)
+
 
 ## <a name="select-a-web-app-assessment-tool"></a>Sélectionner un outil d’évaluation des applications web
 
-1. Cliquez sur **Évaluer et migrer des applications web**.
-2. Suivez le lien vers l’outil de migration pour le Azure App Service. Utiliser l’outil de migration pour :
+Si vous avez créé un projet Azure Migrate à l’aide de l’option **Explorer davantage** > **Applications web** du portail, l’outil d’évaluation des applications web est automatiquement ajouté au projet. 
 
-    - **Évaluer les applications en ligne** : Vous pouvez évaluer des applications avec une URL publique en ligne, à l’aide de l’Assistant Migration de Azure App Service.
-    - **.NET/PHP** : Pour les applications internes .NET et PHP, vous pouvez télécharger et exécuter l’Assistant Migration.
 
+1. Si l’outil d’évaluation des applications web ne se trouve pas dans le projet, dans **Web Apps** > **Outils d’évaluation**, sélectionnez **Cliquez ici**.
+    
+    ![Ajouter des outils d’évaluation des applications web](./media/how-to-assess/no-web-app-assessment-tool.png)
+
+
+2. Dans **Azure Migrate** > **Ajouter des outils**, sélectionnez l’outil d’évaluation des applications web. Sélectionnez ensuite **Ajouter un outil**.
+
+    ![Sélectionner l’outil de migration de base de données dans la liste](./media/how-to-assess/select-web-app-assessment-tool.png)
+
+ 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez une évaluation avec Azure Migrate Server Assessment pour les machines virtuelles [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) ou les [serveur physiques](./tutorial-discover-physical.md).
+Découvrir les machines locales pour l’évaluation avec l’outil d’évaluation de serveur Azure Migrate pour les machines virtuelles [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) ou les [serveurs physiques](./tutorial-discover-physical.md)

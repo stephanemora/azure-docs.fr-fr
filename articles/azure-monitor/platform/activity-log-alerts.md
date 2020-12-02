@@ -4,12 +4,12 @@ description: Recevez des notifications par SMS, webhook, e-mail, etc. lors de la
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86516122"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536079"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité
 
@@ -40,7 +40,7 @@ Les alertes de journal d’activité ont quelques options communes :
     - Au niveau de l’abonnement : par exemple, toutes les machines virtuelles d’un abonnement (ou) toutes les ressources d’un abonnement
 - **Groupe de ressources** : par défaut, la règle d’alerte est enregistrée dans le même groupe de ressources que celui de la cible définie dans l’étendue. L’utilisateur peut également définir le groupe de ressources où la règle d’alerte doit être stockée.
 - **Type de ressource** : Resource Manager a défini l’espace de noms pour la cible de l’alerte.
-- **Nom de l'opération** : [nom d’opération Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilisé pour le Contrôle d’accès en fonction du rôle. Les opérations non inscrites auprès d’Azure Resource Manager ne peuvent pas être utilisées dans une règle d’alerte du journal d’activité.
+- **Nom de l'opération** : nom d’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md) utilisé pour le contrôle d’accès en fonction du rôle Azure. Les opérations non inscrites auprès d’Azure Resource Manager ne peuvent pas être utilisées dans une règle d’alerte du journal d’activité.
 - **Niveau** : niveau de gravité de l’événement (Information, Avertissement, Erreur ou Critique).
 - **État** : l’état de l’événement, généralement « Démarré », « Échoué » ou « Réussi ».
 - **Événement lancé par** : également appelé l’« appelant». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.

@@ -4,12 +4,12 @@ description: Les API classiques de métriques et de mise à l’échelle automat
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317380"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536691"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Suppression par Azure Monitor d’API du modèle de déploiement classique pour les métriques et la mise à l’échelle automatique
 
@@ -31,7 +31,7 @@ Cet article vous concerne si vous utilisez les composants suivants :
 
 - **Mise à l’échelle automatique classique** - Si vous appelez les [API de paramètres de mise à l’échelle automatique classique](/previous-versions/azure/reference/mt348562(v=azure.100)) à partir de vos outils personnalisés ou à l’aide du [SDK Azure Insights classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), vous devriez adopter l’utilisation de [l’API REST Azure Monitor Resource Manager](/rest/api/monitor/autoscalesettings).
 
-- **Métriques classiques** - Si vous consommez des métriques à l’aide des [API REST classiques](/previous-versions/azure/reference/dn510374(v=azure.100)) ou du [SDK Azure Insights classique ](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) à partir d’outils personnalisés, vous devriez adopter l’utilisation de [l’API Azure Monitor Resource Manager](/rest/api/monitor/autoscalesettings). 
+- **Métriques classiques** - Si vous consommez des métriques à l’aide des [API REST classiques](/previous-versions/azure/reference/dn510374(v=azure.100)) ou du [SDK Azure Insights classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) à partir d’outils personnalisés, vous devriez adopter l’utilisation de [l’API Azure Monitor Resource Manager](/rest/api/monitor/autoscalesettings). 
 
 Si vous ne savez pas si votre code ou vos outils personnalisés appellent les API classiques, examinez les éléments suivants :
 
@@ -53,7 +53,7 @@ Si vous ne savez pas si votre code ou vos outils personnalisés appellent les AP
 
 Toutes les fonctionnalités existantes pour la mise à l’échelle automatique et les métriques continueront de fonctionner via les nouvelles API.  
 
-La migration vers des API plus récentes donne accès à des fonctionnalités Resource Manager, comme la prise en charge du contrôle d'accès en fonction du rôle (RBAC) cohérent sur tous vos services de surveillance. Vous bénéficiez également de fonctionnalités supplémentaires pour les métriques : 
+La migration vers des API plus récentes donne accès à des fonctionnalités Resource Manager, comme la prise en charge du contrôle d’accès en fonction du rôle Azure (Azure RBAC) cohérent sur tous vos services de surveillance. Vous bénéficiez également de fonctionnalités supplémentaires pour les métriques : 
 
 - prise en charge des dimensions
 - granularité métrique 1 minute cohérente sur tous les services 

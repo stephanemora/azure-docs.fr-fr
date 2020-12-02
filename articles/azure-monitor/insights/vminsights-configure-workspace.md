@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747687"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95750526"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurer l’espace de travail Log Analytics pour Azure Monitor pour machines virtuelles
 Azure Monitor pour machines virtuelles collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour Azure Monitor pour machines virtuelles.
@@ -68,7 +68,7 @@ Azure Monitor pour machines virtuelles prend en charge les espaces de travail Lo
 - Australie Est
 - Sud-Australie Est
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 Pour activer les fonctionnalités et y accéder dans Azure Monitor pour les machines virtuelles, vous devez avoir le rôle [Contributeur Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail. Pour afficher les données de performances, d’intégrité et de mappage, vous devez avoir le rôle [Lecteur d’analyse](../platform/roles-permissions-security.md#built-in-monitoring-roles) pour la machine virtuelle Azure. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../platform/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Ajout de la solution VMInsights à l’espace de travail
@@ -80,7 +80,7 @@ Pour pouvoir utiliser un espace de travail Log Analytics avec Azure Monitor pour
 ### <a name="azure-portal"></a>Portail Azure
 Il existe trois options pour configurer un espace de travail existant à l’aide du portail Azure. Chacune est décrite ci-dessous.
 
-Pour configurer un espace de travail unique, sélectionnez **Autres options d’intégration** puis **Configurer un espace de travail**. Sélectionnez un abonnement et un espace de travail, puis cliquez sur **Configurer**.
+Pour configurer un espace de travail individuel, accédez à l’option **Machines virtuelles** dans le menu **Azure Monitor**, puis sélectionnez **Autres options d’intégration** et **Configurer un espace de travail**. Sélectionnez un abonnement et un espace de travail, puis cliquez sur **Configurer**.
 
 [![Configurer l’espace de travail](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

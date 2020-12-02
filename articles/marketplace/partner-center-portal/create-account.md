@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628779"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542284"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -67,7 +67,7 @@ Votre profil d’éditeur inclut le nom de votre entreprise et l’identifiant M
 
     Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
 
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** (icône d’engrenage) dans le coin supérieur droit > **Paramètres de développeur** > **Programmes**.
+1. Pour vérifier que le compte de la Place de marché commerciale est indiqué comme inscrit, sélectionnez **Paramètres** (icône d’engrenage) en haut à droite > **Paramètres du compte** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Continuez vers [Ajouter de nouveaux éditeurs au programme de marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,7 +91,7 @@ Lorsque vous utilisez votre compte Microsoft Partner Network, il lie le domaine 
 > Pour vous connecter à Microsoft Partner Network, vous devez avoir un rôle d’**administrateur de compte** ou d’**administrateur général**.
 
 1. Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/) avec votre compte Microsoft Partner Network.
-1. Sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main**.
+1. Sélectionnez **Paramètres** > **Paramètres du compte** > **Programmes** > **Démarrage**.
 
    Microsoft Partner Network détecte votre abonnement et affiche le volet **Profil de l’éditeur**.
 
@@ -103,7 +103,7 @@ Lorsque vous utilisez votre compte Microsoft Partner Network, il lie le domaine 
 
     Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
 
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes**.
+1. Pour vérifier que le compte de la Place de marché commerciale est indiqué comme inscrit, sélectionnez **Paramètres** > **Paramètres du compte** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Continuez vers [Ajouter de nouveaux éditeurs au programme de marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ Vous venez de créer un compte de la place de marché commerciale dans l’Espac
 Lorsque vous vous inscrivez au programme de marketplace commercial avec le même compte que votre programme de développement, vous pouvez voir toutes vos inscriptions à un programme dans le volet gauche d’Espace partenaires.
 
 1. Connectez-vous à [Espace partenaires](https://partner.microsoft.com/dashboard/) avec votre compte existant.
-1. Sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes** > **Prise en main**, puis entrez votre adresse e-mail professionnelle.
+1. Sélectionnez **Paramètres** > **Paramètres du compte** > **Programmes** > **Démarrage**, puis entrez votre adresse e-mail professionnelle.
 1. Renseignez les détails sur la page de votre **profil d’éditeur**.
 2. Lisez les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
@@ -128,7 +128,7 @@ Lorsque vous vous inscrivez au programme de marketplace commercial avec le même
 
     Une fois inscrit, vous allez être dirigé vers la page de vue d’ensemble de la place de marché commerciale. Le compte de la place de marché commerciale s’affiche dans le volet de gauche.
 
-1. Pour vérifier que le compte de la place de marché commerciale est répertorié comme inscrit, sélectionnez **Paramètres** > **Paramètres de développeur** > **Programmes**.
+1. Pour vérifier que le compte de la Place de marché commerciale est indiqué comme inscrit, sélectionnez **Paramètres** > **Paramètres du compte** > **Programmes**.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Pour obtenir de l’aide sur l’ajout d’éditeurs, continuez vers [Ajouter de nouveaux éditeurs au marketplace commercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ Le contrat d’éditeur et les informations sur le profil de l’entreprise ont 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Ajouter de nouveaux éditeurs au programme place de marché commerciale
 
-Une organisation peut avoir plusieurs éditeurs associés à un compte de la place de marché commerciale. Un utilisateur existant peut ajouter d’autres éditeurs après s’être connecté à l’Espace partenaires, en sélectionnant **Paramètres** > **Paramètres de développeur** > **Éditeur** > **Ajouter un éditeur**.
+Une organisation peut avoir plusieurs éditeurs associés à un compte de la place de marché commerciale. Un utilisateur existant peut ajouter d’autres éditeurs après s’être connecté à l’Espace partenaires, en sélectionnant **Paramètres** > **Paramètres du compte** > **Profil de l’organisation** > **Identificateurs** > **Ajouter un éditeur**.
 
 >[!NOTE]
 >Avant d’ajouter un nouvel éditeur, affichez la liste des éditeurs existants en vous connectant à l’Espace partenaires et en sélectionnant **Paramètres du compte** > **Éditeurs**.

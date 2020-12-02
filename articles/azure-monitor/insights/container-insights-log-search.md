@@ -3,12 +3,12 @@ title: Guide pratique pour interroger des journaux à partir d’Azure Monitor p
 description: Azure Monitor pour conteneurs collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994017"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747677"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs
 
@@ -16,7 +16,7 @@ Azure Monitor pour conteneurs collecte des métriques de performances, des donn�
 
 ## <a name="container-records"></a>Enregistrements de conteneur
 
-Le tableau suivant présente en détail les enregistrements collectés par Azure Monitor pour conteneurs. 
+Le tableau suivant présente en détail les enregistrements collectés par Azure Monitor pour conteneurs. Pour obtenir la liste des descriptions de colonne, consultez la référence pour les tables [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) et [ContainerLog](/azure/azure-monitor/reference/tables/containerlog).
 
 | Données | Source de données | Type de données | Champs |
 |------|-------------|-----------|--------|

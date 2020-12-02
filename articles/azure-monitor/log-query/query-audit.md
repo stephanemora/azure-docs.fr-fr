@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760159"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536198"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Requêtes d’audit dans les journaux Azure Monitor (préversion)
 Les journaux d’audit des requêtes de journaux fournissent des données de télémétrie sur les requêtes de journal exécutées dans Azure Monitor : par exemple, le moment où la requête a été exécutée, l’utilisateur qui l’a exécutée, l’outil utilisé, le texte de la requête et les statistiques de performances qui décrivent l’exécution de la requête.
@@ -66,7 +66,7 @@ Un enregistrement d’audit est créé chaque fois qu’une requête s’exécut
 
 - Les requêtes sont journalisées uniquement lorsqu’elles sont exécutées dans un contexte utilisateur. Aucune requête de service à service dans Azure n’est journalisée. Les deux principaux ensembles de requêtes que cette exclusion englobe sont les calculs de facturation et les exécutions d’alertes automatisées. Dans le cas des alertes, seule la requête d’alerte planifiée elle-même n’est pas journalisée. L’exécution initiale de l’alerte dans l’écran de création d’alerte est effectuée dans un contexte utilisateur et disponible à des fins d’audit. 
 - Les statistiques de performances ne sont pas disponibles pour les requêtes provenant du proxy Azure Data Explorer. L’intégralité des autres données pour ces requêtes seront quand même remplies.
-- L’indicateur *h* sur les chaînes, qui [obfusque les littéraux de chaîne](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals), n’aura pas d’effet sur les journaux d’audit de requête. Les requêtes sont capturées exactement comme elles sont envoyées, sans que la chaîne soit obfusquée. Vous devez vous assurer que seuls les utilisateurs disposant de droits de conformité pour voir ces données, peuvent le faire au moyen des différents modes RBAC disponibles dans les espaces de travail Log Analytics.
+- L’indicateur *h* sur les chaînes, qui [obfusque les littéraux de chaîne](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals), n’aura pas d’effet sur les journaux d’audit de requête. Les requêtes sont capturées exactement comme elles sont envoyées, sans que la chaîne soit obfusquée. Vous devez vous assurer que seuls les utilisateurs disposant de droits de conformité pour voir ces données peuvent le faire au moyen des différents modes Kubernetes RBAC ou Azure RBAC disponibles dans les espaces de travail Log Analytics.
 - Pour les requêtes qui comportent des données provenant de plusieurs espaces de travail, la requête sera uniquement capturée dans les espaces de travail auxquels l’utilisateur a accès.
 
 ## <a name="costs"></a>Coûts  

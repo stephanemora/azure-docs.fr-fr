@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996514"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530231"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
@@ -39,7 +39,7 @@ Si vous avez activé le Débogueur de capture instantanée et que vous ne voyez 
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-L’accès aux captures instantanées est protégé par le contrôle d’accès en fonction du rôle (RBAC). Pour que vous puissiez examiner une capture instantanée, un propriétaire d’abonnement doit d’abord vous ajouter au rôle nécessaire.
+L’accès aux captures instantanées est protégé par le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour que vous puissiez examiner une capture instantanée, un propriétaire d’abonnement doit d’abord vous ajouter au rôle nécessaire.
 
 > [!NOTE]
 > Les propriétaires et contributeurs ne disposent pas automatiquement de ce rôle. S’ils souhaitent afficher des captures instantanées, ils doivent s’ajouter eux-mêmes au rôle.

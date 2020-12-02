@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444161"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748646"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
@@ -36,9 +36,9 @@ Ces bibliothèques Microsoft prenant en charge les applications démon :
 
 Les applications démon utilisent des permissions d’application plutôt que des permissions déléguées. Le type de compte pris en charge ne peut donc pas être un compte dans un annuaire organisationnel ou un compte Microsoft personnel (par exemple, Skype, Xbox, Outlook.com). Aucun administrateur client n’octroie de consentement à une application démon pour un compte Microsoft personnel. Vous devez choisir des *comptes dans mon organisation* ou des *comptes dans une organisation*.
 
-Ainsi, l’autorité spécifiée dans la configuration de l’application doit avoir des locataires (en spécifiant un ID de locataire ou un nom de domaine associé à votre organisation).
+L’autorité spécifiée dans la configuration de l’application doit avoir des locataires (en spécifiant un ID de locataire ou un nom de domaine associé à votre organisation).
 
-Si vous êtes éditeur de logiciels indépendant et souhaitez fournir un outil multilocataire, vous pouvez utiliser `organizations`. Mais n’oubliez pas que vous devrez aussi expliquer à vos clients comment accorder le consentement administrateur. Pour plus d’informations, consultez [Demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). De plus, il existe actuellement une limitation dans la bibliothèque MSAL : le paramètre `organizations` est autorisé uniquement quand les informations d’identification du client correspondent à un secret d’application (et non à un certificat).
+Même si vous souhaitez fournir un outil multilocataire, vous devez utiliser un ID de locataire ou un nom de domaine, et **non pas** `common` ou `organizations` avec ce flux, car le service ne peut pas déduire de manière fiable le locataire à utiliser.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurer et instancier l’application
 

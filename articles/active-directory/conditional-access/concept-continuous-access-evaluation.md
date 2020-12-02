@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992812"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520660"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -26,7 +26,9 @@ Des clients nous ont fait par de leur préoccupation concernant le décalage ent
 
 Une réponse en temps utile aux violations de stratégie ou autres problèmes de sécurité nécessite vraiment une « conversation » entre l’émetteur du jeton, comme Azure AD, et la partie de confiance, comme Exchange Online. Cette conversation bidirectionnelle nous offre deux capacités importantes. La partie de confiance peut détecter des changements, comme un client provenant d’un nouvel emplacement, et en informer l’émetteur du jeton. Et l’émetteur du jeton peut demander à la partie de confiance d’arrêter de respecter les jetons pour un utilisateur donné en raison d’une compromission ou d’une désactivation de compte ou d’autres soucis. Le mécanisme de cette conversation est l’évaluation continue de l’accès. L’objectif est que la réponse soit en quasi-temps réel mais, dans certains cas, une latence pouvant atteindre 15 minutes peut être observée en raison du temps de propagation de l’événement.
 
-L’implémentation initiale de l’évaluation continue de l’accès se concentre sur Exchange, Teams et SharePoint Online. 
+L’implémentation initiale de l’évaluation continue de l’accès se concentre sur Exchange, Teams et SharePoint Online.
+
+Pour préparer vos applications à utiliser l’évaluation continue de l’accès, consultez [Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Principaux avantages
 
@@ -140,7 +142,7 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 Pour l’évaluation continue de l’accès, nous n’avons d’insights que sur les emplacements nommés sur la base de l’adresse IP. Nous n’avons pas d’insights sur d’autres paramètres d’emplacement, tels que des [adresses IP approuvées pour l’authentification multifacteur](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou des emplacements basés sur le pays. Quand la provenance de l’utilisateur est une adresse IP approuvée pour l’authentification multifacteur ou un emplacement approuvé, à savoir une adresse IP approuvée pour l’authentification multifacteur ou un emplacement de pays, l’évaluation continue de l’accès n’est pas appliquée après le déplacement de l’utilisateur vers un autre emplacement. Dans ce cas, nous émettons un jeton d’évaluation continue de l’accès d’une heure sans vérification de l’application d’adresse IP instantanée.
 
 > [!IMPORTANT]
-> Quand vous configurez des emplacements pour l’évaluation continue de l’accès, utilisez uniquement la [condition d’emplacement d’accès conditionnel basé sur l’adresse IP](../conditional-access/location-condition.md#preview-features), et configurez toutes les adresses IP, **y compris IPv4 et IPv6**, que votre fournisseur d’identité et votre fournisseur de ressources peuvent voir. N’utilisez pas de conditions d’emplacement de pays ou la fonctionnalité d’adresses IP approuvées disponibles dans la page des paramètres de service d’Azure Multi-Factor Authentication.
+> Quand vous configurez des emplacements pour l’évaluation continue de l’accès, utilisez uniquement la [condition d’emplacement d’accès conditionnel basé sur l’adresse IP](../conditional-access/location-condition.md#preview-features), et configurez toutes les adresses IP, **y compris IPv4 et IPv6**, que votre fournisseur d’identité et votre fournisseur de ressources peuvent voir. N’utilisez pas les conditions d’emplacement de pays ni la fonctionnalité d’adresses IP approuvées disponibles dans la page des paramètres de service Authentification multifacteur Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuration de l'adresse IP
 

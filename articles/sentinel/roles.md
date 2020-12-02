@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517299"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498467"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -46,7 +46,7 @@ Il existe trois rôles Azure Sentinel intégrés dédiés.
 >
 > - Pour de meilleurs résultats, ces rôles doivent être attribués sur le **groupe de ressources** contenant l’espace de travail Azure Sentinel. De cette façon, les rôles s’appliquent à toutes les ressources déployées pour prendre en charge Azure Sentinel, car ces ressources doivent également être placées dans ce même groupe de ressources.
 >
-> - Une autre option consiste à attribuer les rôles directement sur l’ **espace de travail** Azure Sentinel lui-même. Dans ce cas, vous devez également attribuer les mêmes rôles sur la **ressource de solution** SecurityInsights dans cet espace de travail. Il peut être nécessaire de les attribuer également sur d’autres ressources, et vous devrez constamment gérer les attributions de rôles sur les ressources.
+> - Une autre option consiste à attribuer les rôles directement sur l’**espace de travail** Azure Sentinel lui-même. Dans ce cas, vous devez également attribuer les mêmes rôles sur la **ressource de solution** SecurityInsights dans cet espace de travail. Il peut être nécessaire de les attribuer également sur d’autres ressources, et vous devrez constamment gérer les attributions de rôles sur les ressources.
 
 ### <a name="additional-roles-and-permissions"></a>Rôles et autorisations supplémentaires
 
@@ -58,11 +58,11 @@ Il peut être nécessaire d’affecter des rôles supplémentaires ou des autori
 
 - Connexion de sources de données à Azure Sentinel
 
-    Pour qu’un utilisateur ajoute des **connecteurs de données** , vous devez attribuer les autorisations d’accès en écriture à l’utilisateur sur l’espace de travail Azure Sentinel. Notez également les autorisations supplémentaires nécessaires pour chaque connecteur, comme indiqué dans la page du connecteur approprié.
+    Pour qu’un utilisateur ajoute des **connecteurs de données**, vous devez attribuer les autorisations d’accès en écriture à l’utilisateur sur l’espace de travail Azure Sentinel. Notez également les autorisations supplémentaires nécessaires pour chaque connecteur, comme indiqué dans la page du connecteur approprié.
 
 - Utilisateurs invités attribuant des incidents
 
-    Si un utilisateur invité doit être en mesure d’attribuer des incidents, il doit se voir attribuer le rôle [Lecteur de répertoire](../active-directory/roles/permissions-reference.md#directory-readers) en plus du rôle Répondeur Azure Sentinel. Notez que ce rôle *n'est pas* un rôle Azure, mais un rôle **Azure Active Directory** , et qu'il est attribué par défaut aux utilisateurs ordinaires (non invités). 
+    Si un utilisateur invité doit être en mesure d’attribuer des incidents, il doit se voir attribuer le rôle [Lecteur de répertoire](../active-directory/roles/permissions-reference.md#directory-readers) en plus du rôle Répondeur Azure Sentinel. Notez que ce rôle *n'est pas* un rôle Azure, mais un rôle **Azure Active Directory**, et qu'il est attribué par défaut aux utilisateurs ordinaires (non invités). 
 
 Pour une comparaison côte à côte, consultez le [tableau ci-dessous](#roles-and-allowed-actions).
 
@@ -74,7 +74,7 @@ En attribuant des rôles Azure spécifiques à Azure Sentinel, vous pouvez renco
 
 - **Rôles Log Analytics :** [Contributeur Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor) et [Lecteur Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Les rôles Log Analytics accordent l’accès à vos espaces de travail Log Analytics. 
 
-Par exemple, un utilisateur auquel est attribué le rôle **Lecteur Azure Sentinel** , mais pas le rôle **Contributeur Azure Sentinel** , pourra quand même modifier des éléments dans Azure Sentinel si le rôle **Contributeur** au niveau d’Azure lui est attribué. Par conséquent, si vous voulez accorder des autorisations à un utilisateur seulement dans Azure Sentinel, vous devez supprimer soigneusement les autorisations antérieures de cet utilisateur, en veillant à ne pas supprimer un accès nécessaire à une autre ressource.
+Par exemple, un utilisateur auquel est attribué le rôle **Lecteur Azure Sentinel**, mais pas le rôle **Contributeur Azure Sentinel**, pourra quand même modifier des éléments dans Azure Sentinel si le rôle **Contributeur** au niveau d’Azure lui est attribué. Par conséquent, si vous voulez accorder des autorisations à un utilisateur seulement dans Azure Sentinel, vous devez supprimer soigneusement les autorisations antérieures de cet utilisateur, en veillant à ne pas supprimer un accès nécessaire à une autre ressource.
 
 ## <a name="roles-and-allowed-actions"></a>Rôles et actions autorisées
 
@@ -91,7 +91,7 @@ Le tableau suivant récapitule les rôles et les actions autorisées dans Azure 
 
 - En plus d’utiliser des rôles intégrés Azure, ou au lieu d’en utiliser, vous pouvez créer des rôles personnalisés Azure pour Azure Sentinel. Les rôles personnalisés Azure pour Azure Sentinel sont créés de la même façon que les autres [rôles personnalisés Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), c'est-à-dire en fonction des [autorisations spécifiques à Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) et aux [ressources Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Vous pouvez utiliser le contrôle d’accès en fonction du rôle avancé Log Analytics sur les données de votre espace de travail Azure Sentinel. Cela comprend à la fois le contrôle Azure RBAC basé sur le type de données et le contrôle Azure RBAC centré sur les ressources. Pour plus d'informations sur les rôles Log Analytics, consultez [Gérer les données du journal et les espaces de travail dans Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure avancé Log Analytics sur les données de votre espace de travail Azure Sentinel. Cela comprend à la fois le contrôle Azure RBAC basé sur le type de données et le contrôle Azure RBAC centré sur les ressources. Pour plus d'informations sur les rôles Log Analytics, consultez [Gérer les données du journal et les espaces de travail dans Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

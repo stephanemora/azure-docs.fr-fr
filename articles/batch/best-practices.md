@@ -1,18 +1,18 @@
 ---
 title: Meilleures pratiques
-description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-ms.date: 08/12/2020
+description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913226"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254661"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
-Cet article présente une collection de meilleures pratiques pour utiliser le service Azure Batch de manière efficace, basée sur une expérience réelle avec Batch. Lisez cet article pour éviter les pièges de conception, les problèmes de performances potentiels et les anti-modèles lors du développement et de l’utilisation de Batch.
+Cet article présente une collection de bonnes pratiques et de conseils utiles pour utiliser le service Azure Batch de manière efficace, basée sur des expériences réelles avec Batch. Ces conseils peuvent vous aider à améliorer les performances et à éviter les pièges de conception dans vos solutions Azure Batch.
 
 ## <a name="pools"></a>Pools
 
@@ -38,10 +38,10 @@ Les [pools](nodes-and-pools.md#pools) sont les ressources de calcul pour l’ex�
 
 ### <a name="pool-lifetime-and-billing"></a>Durée de vie et facturation d’un pool
 
-La durée de vie d’un pool peut varier en fonction de la méthode de répartition et des options appliquées à la configuration du pool. À tout moment, les pools peuvent avoir une durée de vie arbitraire et un nombre variable de nœuds de calcul dans le pool. Il vous incombe de gérer les nœuds de calcul dans le pool, soit explicitement, soit par le biais de fonctionnalités fournies par le service (mise à l’échelle automatique ou pool automatique).
+La durée de vie d’un pool peut varier en fonction de la méthode de répartition et des options appliquées à la configuration du pool. À tout moment, les pools peuvent avoir une durée de vie arbitraire et un nombre variable de nœuds de calcul dans le pool. Il vous incombe de gérer les nœuds de calcul dans le pool, soit explicitement, soit par le biais de fonctionnalités fournies par le service ([mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy) ou [pool automatique](nodes-and-pools.md#autopools)).
 
 - **Maintenez les pools à jour.**
-    Redimensionnez vos pools à zéro tous les quelques mois pour bénéficier systématiquement des [derniers correctifs de bogues et mises à jour de l’agent de nœud](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Votre pool ne reçoit pas les mises à jour de l’agent de nœud à moins qu’il ne soit recréé ou redimensionné à 0 nœud de calcul. Avant de recréer ou de redimensionner votre pool, il est recommandé de télécharger tous les journaux de l’agent de nœud à des fins de débogage, comme indiqué dans la section [Nœuds](#nodes).
+    Redimensionnez vos pools à zéro régulièrement après quelques mois pour bénéficier des [derniers correctifs de bogues et mises à jour de l’agent de nœud](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Votre pool ne reçoit pas les mises à jour de l’agent de nœud à moins qu’il ne soit recréé ou redimensionné à 0 nœud de calcul. Avant de recréer ou de redimensionner votre pool, il est recommandé de télécharger tous les journaux de l’agent de nœud à des fins de débogage, comme indiqué dans la section [Nœuds](#nodes).
 
 - **Recréation de pool** Dans le même ordre d’idées, il n’est pas recommandé de supprimer et recréer vos pools quotidiennement. Au lieu de cela, créez un nouveau pool, mettez à jour vos travaux existants pour qu’ils pointent vers le nouveau pool. Une fois que toutes les tâches ont été déplacées vers le nouveau pool, supprimez l’ancien pool.
 
@@ -93,7 +93,7 @@ Les [tâches](jobs-and-tasks.md#tasks) sont des unités fonctionnelles individue
 
 ### <a name="save-task-data"></a>Enregistrer des données de tâche
 
-Les nœuds de calcul sont éphémères par nature. Il existe de nombreuses fonctionnalités dans Batch, telles que le pool automatique et la mise à l’échelle automatique, qui facilitent la disparition des nœuds. Lorsque les nœuds quittent le pool (en raison d’un redimensionnement ou d’une suppression de pool), tous les fichiers sur ces nœuds sont également supprimés. Pour cette raison, une tâche devrait déplacer sa sortie du nœud sur lequel elle s’exécute vers un magasin durable avant de se terminer. De même, si une tâche échoue, elle devrait déplacer les journaux requis pour diagnostiquer l’échec dans un magasin durable.
+Les nœuds de calcul sont éphémères par nature. Il existe de nombreuses fonctionnalités dans Batch, telles que le [pool automatique](nodes-and-pools.md#autopools) et la [mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy), qui facilitent la disparition des nœuds. Lorsque les nœuds quittent un pool (en raison d’un redimensionnement ou d’une suppression de pool), tous les fichiers figurant sur ces nœuds sont également supprimés. Pour cette raison, une tâche devrait déplacer sa sortie du nœud sur lequel elle s’exécute vers un magasin durable avant de se terminer. De même, si une tâche échoue, elle devrait déplacer les journaux requis pour diagnostiquer l’échec dans un magasin durable.
 
 Batch prend en charge Stockage Azure afin de charger des données via [OutputFiles](batch-task-output-files.md), ainsi qu’un large éventail de systèmes de fichiers partagés, ou vous pouvez effectuer le chargement vous-même dans vos tâches.
 
@@ -175,7 +175,7 @@ Pour plus d’informations sur Resource Manager et les modèles, consultez [Dém
 
 ## <a name="connectivity"></a>Connectivité
 
-Passez en revue les recommandations suivantes en ce qui concerne la connectivité dans vos solutions Batch.
+Passez en revue les recommandations suivantes associées à la connectivité dans vos solutions Batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Groupes de sécurité réseau (NSG) et Itinéraires définis par l’utilisateur (UDR)
 
@@ -198,6 +198,10 @@ Assurez-vous que les clients de votre service Batch disposent de stratégies de 
 
 En règle générale, les machines virtuelles d’un pool batch sont accessibles par le biais d’adresses IP publiques qui peuvent changer au cours de la durée de vie du pool. Cela peut compliquer l’interaction avec une base de données ou un autre service externe qui limite l’accès à certaines adresses IP. Pour vous assurer que les adresses IP publiques de votre pool ne changent pas de manière inattendue, vous pouvez créer un pool à l’aide d’un ensemble d’adresses IP publiques statiques que vous contrôlez. Pour plus d’informations, consultez [Créer un pool Azure Batch avec des adresses IP publiques spécifiées](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Test de la connectivité avec la configuration des services cloud
+
+Vous ne pouvez pas utiliser le protocole « ping »/ICMP normal avec les services cloud, car le protocole ICMP n’est pas autorisé via l’équilibreur de charge Azure. Pour plus d’informations, consultez [Connectivité et mise en réseau pour Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+
 ## <a name="batch-node-underlying-dependencies"></a>Dépendances sous-jacentes du nœud Batch
 
 Tenez compte des dépendances et restrictions suivantes lors de la conception de vos solutions Batch.
@@ -206,12 +210,12 @@ Tenez compte des dépendances et restrictions suivantes lors de la conception de
 
 Azure Batch crée et gère un ensemble d’utilisateurs et de groupes sur la machine virtuelle, qui ne doit pas être modifié. Les voici :
 
-#### <a name="windows"></a>Windows
+Windows :
 
 - Un utilisateur nommé **PoolNonAdmin**
 - Un groupe d’utilisateurs nommé **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux :
 
 - Un utilisateur nommé **_azbatch**
 
@@ -220,3 +224,9 @@ Azure Batch crée et gère un ensemble d’utilisateurs et de groupes sur la mac
 Batch tente activement de nettoyer le répertoire de travail dans lequel les tâches sont exécutées, une fois leur durée de rétention expirée. Il [vous incombe de nettoyer](#manage-task-lifetime) tous les fichiers écrits en dehors de ce répertoire afin d’éviter de saturer l’espace disque.
 
 Le nettoyage automatisé du répertoire de travail sera bloqué si vous exécutez un service sur Windows à partir du répertoire de travail startTask, du fait que le dossier est toujours en cours d’utilisation. Cela entraîne une dégradation des performances. Pour résoudre ce problème, remplacez le répertoire de ce service par un répertoire distinct qui n’est pas géré par Batch.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Créer un compte Azure Batch à l’aide du portail Azure](batch-account-create-portal.md).
+- Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
+- Apprenez-en davantage sur les [contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota](batch-quota-limit.md).

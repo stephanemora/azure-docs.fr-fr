@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317852"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531353"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 ### <a name="partition-key-options"></a>Options de clé de partition
 
-La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être NVARCHAR(MAX).
+La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être de type NVARCHAR (MAX), BIGINT, FLOAT ou BIT (niveau de compatibilité 1.2 ou supérieur). Pour plus d’informations, consultez [Types de données Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemple
 
@@ -62,6 +62,8 @@ Notez que chaque enregistrement dans l’objet blob comporte une colonne **clien
 2. Les clés de partition ignorant la casse, les clés « John » et « john » sont équivalentes. En outre, des expressions ne peuvent pas être utilisées comme clés de partition. Par exemple, **{columnA + columnB}** ne fonctionne pas.  
 
 3. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.
+
+4. Si la sortie d’objet blob est [configurée comme non modifiable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics crée un objet blob chaque fois que des données sont envoyées.
 
 ## <a name="custom-datetime-path-patterns"></a>Modèles de chemin DateTime personnalisés
 

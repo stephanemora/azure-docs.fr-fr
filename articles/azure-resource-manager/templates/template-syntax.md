@@ -2,13 +2,13 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911496"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
@@ -45,6 +45,62 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 | [outputs](#outputs) |Non |Valeurs retournées après le déploiement. |
 
 Chaque élément a des propriétés que vous pouvez définir. Cet article décrit les sections du modèle de manière plus approfondie.
+
+## <a name="data-types"></a>Types de données
+
+Dans un modèle ARM, vous pouvez utiliser les types de données suivants :
+
+* string
+* securestring
+* int
+* bool
+* objet
+* secureObject
+* tableau
+
+Le modèle suivant montre le format des types de données. Chaque type a une valeur par défaut au format approprié.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+La chaîne sécurisée utilise le même format que la chaîne, et l’objet sécurisé utilise le même format que l’objet. Lorsque vous définissez un paramètre sur une chaîne sécurisée ou un objet sécurisé, la valeur du paramètre n’est pas enregistrée dans l’historique de déploiement et n’est pas consignée. Toutefois, si vous définissez cette valeur sécurisée sur une propriété qui n’attend pas une valeur sécurisée, la valeur n’est pas protégée. Par exemple, si vous définissez une chaîne sécurisée sur une balise, cette valeur est stockée sous forme de texte brut. Utilisez des chaînes sécurisées pour les mots de passe et les secrets.
+
+Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un modèle, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
+
+Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles.
+
+Les objets commencent par une accolade ouvrante et se terminent par une accolade fermante. Les tableaux commencent par un crochet ouvrant et se terminent par un crochet fermant.
 
 ## <a name="parameters"></a>Paramètres
 
@@ -83,21 +139,9 @@ Les propriétés disponibles pour un paramètre sont :
 
 Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
 
-### <a name="data-types"></a>Types de données
-
-Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un modèle, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
-
-Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles.
-
-Les objets commencent par une accolade ouvrante et se terminent par une accolade fermante. Les tableaux commencent par un crochet ouvrant et se terminent par un crochet fermant.
-
-Lorsque vous définissez un paramètre sur une chaîne sécurisée ou un objet sécurisé, la valeur du paramètre n’est pas enregistrée dans l’historique de déploiement et n’est pas consignée. Toutefois, si vous définissez cette valeur sécurisée sur une propriété qui n’attend pas une valeur sécurisée, la valeur n’est pas protégée. Par exemple, si vous définissez une chaîne sécurisée sur une balise, cette valeur est stockée sous forme de texte brut. Utilisez des chaînes sécurisées pour les mots de passe et les secrets.
-
-Pour obtenir des exemples de mise en forme de types de données, consultez [Formats de types de paramètres](parameter-files.md#parameter-type-formats).
-
 ## <a name="variables"></a>Variables
 
-Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
+Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes. Le format de chaque variable correspond à l’un des [types de données](#data-types).
 
 L’exemple suivant montre les options disponibles pour la définition d’une variable :
 
@@ -277,8 +321,8 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 | output-name |Oui |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
 | condition |Non | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
 | type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stockez la clé secrète dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](key-vault-parameter.md). |
-| value |Non |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. Spécifiez **value**ou **copy**. |
-| copy |Non | Utilisé pour retourner plusieurs valeurs pour une sortie. Spécifiez **value**ou **copy**. Pour plus d’informations, voir [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md). |
+| value |Non |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. Spécifiez **value** ou **copy**. |
+| copy |Non | Utilisé pour retourner plusieurs valeurs pour une sortie. Spécifiez **value** ou **copy**. Pour plus d’informations, voir [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md). |
 
 Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans un modèle Azure Resource Manager](template-outputs.md).
 

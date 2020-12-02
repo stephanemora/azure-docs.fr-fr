@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017669"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui 
 
 ## <a name="about-acls"></a>À propos des listes de contrôle d’accès
 
-Vous pouvez associer un [principal de sécurité](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans une *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès. Lorsqu’un principal de sécurité tente une opération sur un fichier ou un répertoire, une vérification de la liste de contrôle d’accès détermine si ce principal de sécurité (utilisateur, groupe, principal du service ou identité managée) a le niveau d’autorisation approprié pour effectuer l’opération.
+Vous pouvez associer un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans une *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès. Lorsqu’un principal de sécurité tente une opération sur un fichier ou un répertoire, une vérification de la liste de contrôle d’accès détermine si ce principal de sécurité (utilisateur, groupe, principal du service ou identité managée) a le niveau d’autorisation approprié pour effectuer l’opération.
 
 > [!NOTE]
 > Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité dans le même locataire et ne s’appliquent pas aux utilisateurs qui utilisent l’authentification par jeton de clé partagée ou de signature d’accès partagé (SAS). En effet, aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.  
@@ -40,14 +40,14 @@ Pour définir des autorisations au niveau des fichiers et des répertoires, cons
 |Python|[Utilisez Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Azure CLI|[Utiliser Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|API REST |[Chemin d’accès – Mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API REST |[Chemin d’accès – Mise à jour](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Si le principal de sécurité est un principal de *service* , il est important d’utiliser l’ID d’objet du principal du service et non l’ID d’objet de l’inscription d’application connexes. Pour obtenir l’ID d’objet du principal du service, ouvrez l’interface Azure CLI, puis utilisez cette commande : `az ad sp show --id <Your App ID> --query objectId`. Veillez à remplacer l’espace réservé `<Your App ID>` par l’ID d’application de l’inscription de votre application.
+> Si le principal de sécurité est un principal de *service*, il est important d’utiliser l’ID d’objet du principal du service et non l’ID d’objet de l’inscription d’application connexes. Pour obtenir l’ID d’objet du principal du service, ouvrez l’interface Azure CLI, puis utilisez cette commande : `az ad sp show --id <Your App ID> --query objectId`. Veillez à remplacer l’espace réservé `<Your App ID>` par l’ID d’application de l’inscription de votre application.
 
 ## <a name="types-of-acls"></a>Types de listes de contrôle d'accès
 
-Il existe deux types de listes de contrôle d’accès : les *ACL d’accès* et les *ACL par défaut* .
+Il existe deux types de listes de contrôle d’accès : les *ACL d’accès* et les *ACL par défaut*.
 
 Les ACL d’accès contrôlent l’accès à un objet. Les fichiers et les répertoires ont tous des ACL d’accès.
 
@@ -60,7 +60,7 @@ Les ACL d’accès et les ACL par défaut ont la même structure.
 
 ## <a name="levels-of-permission"></a>Niveaux d’autorisation
 
-Les autorisations sur un objet conteneur sont **Lecture** , **Écriture** et **Exécution** . Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
+Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Exécution**. Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
 
 |            |    Fichier     |   Répertoire |
 |------------|-------------|----------|
@@ -73,7 +73,7 @@ Les autorisations sur un objet conteneur sont **Lecture** , **Écriture** et **E
 
 ### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 
-**RWX** correspond à **Lecture + Écriture + Exécution** . Il existe une forme numérique plus condensée dans laquelle **Lecture = 4** , **Écriture = 2** et **Exécution = 1** . Les autorisations sont représentées par la somme de ces chiffres. Voici quelques exemples.
+**RWX** correspond à **Lecture + Écriture + Exécution**. Il existe une forme numérique plus condensée dans laquelle **Lecture = 4**, **Écriture = 2** et **Exécution = 1**. Les autorisations sont représentées par la somme de ces chiffres. Voici quelques exemples.
 
 | Forme numérique | Forme abrégée |      Signification     |
 |--------------|------------|------------------------|
@@ -88,11 +88,12 @@ Dans le modèle POSIX utilisé par Data Lake Storage Gen2, les autorisations d�
 
 ## <a name="common-scenarios-related-to-acl-permissions"></a>Scénarios courants liés aux autorisations de liste de contrôle d'accès
 
-Le tableau suivant vous montre les entrées de liste de contrôle d’accès requises pour permettre à un principal de sécurité d’effectuer les opérations indiquées dans la colonne **Opérations** . 
+Le tableau suivant vous montre les entrées de liste de contrôle d’accès requises pour permettre à un principal de sécurité d’effectuer les opérations indiquées dans la colonne **Opérations**. 
 
-Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`\`), un sous-répertoire nommé **Oregon** , un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt** . 
+Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`\`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**. 
 
-> [IMPORTANT] Ce tableau suppose que vous utilisez **uniquement** des ACL sans attributions de rôle RBAC Azure. Pour voir une table similaire qui combine Azure RBAC avec des ACL, consultez [Tableau des autorisations : Combinaison d’Azure RBAC et ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> Ce tableau suppose que vous utilisez **uniquement** des ACL sans attributions de rôle Azure. Pour voir une table similaire qui combine Azure RBAC avec des ACL, consultez [Tableau des autorisations : Combinaison d’Azure RBAC et ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Opération             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -133,11 +134,11 @@ L’utilisateur qui a créé l’élément est automatiquement l’utilisateur p
 
 ### <a name="the-owning-group"></a>Le groupe propriétaire
 
-Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal* . Par exemple, l’utilisateur « Alice » peut appartenir au groupe « Finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
+Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Par exemple, l’utilisateur « Alice » peut appartenir au groupe « Finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Affectation du groupe propriétaire pour un nouveau fichier ou répertoire
 
-* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un conteneur Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le conteneur si l’opération est réalisée avec OAuth. Si le conteneur est créé à l’aide d’une clé partagée, d’une SAS de compte ou d’une SAS de service, le propriétaire et le groupe propriétaire sont définis avec la valeur **$superuser** .
+* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un conteneur Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le conteneur si l’opération est réalisée avec OAuth. Si le conteneur est créé à l’aide d’une clé partagée, d’une SAS de compte ou d’une SAS de service, le propriétaire et le groupe propriétaire sont définis avec la valeur **$superuser**.
 * **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
 
 #### <a name="changing-the-owning-group"></a>Modification du groupe propriétaire
@@ -197,7 +198,7 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 Comme illustré dans l’algorithme de vérification des accès, le masque limite l’accès pour les utilisateurs nommés, le groupe propriétaire et les groupes nommés.  
 
-Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masque d’ACL du répertoire racine ("/") est de **750**  pour les répertoires et **640**  pour les fichiers. Le tableau suivant présente la notation symbolique de ces niveaux d’autorisation.
+Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masque d’ACL du répertoire racine ("/") est de **750** pour les répertoires et **640** pour les fichiers. Le tableau suivant présente la notation symbolique de ces niveaux d’autorisation.
 
 |Entité|Répertoires|Files|
 |--|--|--|
@@ -224,7 +225,7 @@ Lorsqu’un nouveau fichier ou répertoire est créé dans un dossier existant, 
 
 ### <a name="umask"></a>umask
 
-Quand vous créez un fichier ou répertoire, l’umask est utilisé pour modifier la façon dont les ACL par défaut sont définies sur l’élément enfant. L’umask est une valeur 9 bits sur les répertoires parents qui contient une valeur RWX pour **l’utilisateur propriétaire** , le **groupe propriétaire** et **d’autres rôles** .
+Quand vous créez un fichier ou répertoire, l’umask est utilisé pour modifier la façon dont les ACL par défaut sont définies sur l’élément enfant. L’umask est une valeur 9 bits sur les répertoires parents qui contient une valeur RWX pour **l’utilisateur propriétaire**, le **groupe propriétaire** et **d’autres rôles**.
 
 L’umask pour Azure Data Lake Storage Gen2 est une valeur constante définie sur 007. Cette valeur se traduit par :
 
@@ -234,7 +235,7 @@ L’umask pour Azure Data Lake Storage Gen2 est une valeur constante définie su
 | umask.owning_group  |    0         |   `---`      | Pour le groupe propriétaire, copiez l’ACL par défaut du parent dans l’ACL d’accès de l’enfant | 
 | umask.other         |    7         |   `RWX`      | Pour d’autres rôles, supprimez toutes les autorisations de l’ACL d’accès de l’enfant |
 
-La valeur umask utilisée par Azure Data Lake Storage Gen2 signifie effectivement que la valeur pour d’ **autres** rôles n’est jamais transmise par défaut sur les nouveaux enfants, sauf si une ACL par défaut est définie sur le répertoire parent. Dans ce cas, umask est effectivement ignoré et les autorisations définies par l’ACL par défaut sont appliquées à l’élément enfant. 
+La valeur umask utilisée par Azure Data Lake Storage Gen2 signifie effectivement que la valeur pour d’**autres** rôles n’est jamais transmise par défaut sur les nouveaux enfants, sauf si une ACL par défaut est définie sur le répertoire parent. Dans ce cas, umask est effectivement ignoré et les autorisations définies par l’ACL par défaut sont appliquées à l’élément enfant. 
 
 Le pseudocode suivant montre comment l’umask est appliqué lors de la création des ACL pour un élément enfant.
 
@@ -270,7 +271,7 @@ Si cette fonctionnalité est désactivée, les règles d’autorisation Azure RB
 
 Pour savoir comment le système évalue le RBAC et les ACL Azure pour prendre des décisions d’autorisation pour les ressources de compte de stockage, consultez [Comment les autorisations sont évaluées](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quelles sont les limites sur les affectations de rôle Azure RBAC et les entrées ACL ?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quelles sont les limites sur les affectations de rôle Azure et les entrées ACL ?
 
 Le tableau suivant fournit une vue de synthèse des limites à prendre en compte lors de l’utilisation d’Azure RBAC pour gérer les autorisations « grossièrement granulaires » (autorisations qui s’appliquent aux comptes de stockage ou aux conteneurs) et l’utilisation des ACL pour gérer les autorisations « affinées » (autorisations qui s’appliquent aux fichiers et aux répertoires). Utilisez des groupes de sécurité pour les attributions des ACL. En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACl par fichier ou par répertoire. 
 
@@ -324,13 +325,13 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 L’OID s’affiche.
 
-Si vous avez le bon OID pour le principal du service, accédez à la page **Gérer l’accès** de l’Explorateur Stockage pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **Enregistrer** .
+Si vous avez le bon OID pour le principal du service, accédez à la page **Gérer l’accès** de l’Explorateur Stockage pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **Enregistrer**.
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>Puis-je définir la liste de contrôle d’accès d’un conteneur ?
 
 Non. Un conteneur n’a pas de liste de contrôle d'accès. Toutefois, vous pouvez définir la liste de contrôle d’accès du répertoire racine du conteneur. Chaque conteneur possède un répertoire racine et il partage le même nom que le conteneur. Par exemple, si le conteneur est nommé `my-container`, le répertoire racine est nommé `myContainer/`. 
 
-L’API REST de stockage Azure contient une opération nommée [Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), mais cette opération ne peut pas être utilisée pour définir la liste de contrôle d’accès d’un conteneur ou le répertoire racine d’un conteneur. Au lieu de cela, cette opération est utilisée pour indiquer si les objets blob dans un conteneur [sont accessibles publiquement](anonymous-read-access-configure.md). 
+L’API REST de stockage Azure contient une opération nommée [Set Container ACL](/rest/api/storageservices/set-container-acl), mais cette opération ne peut pas être utilisée pour définir la liste de contrôle d’accès d’un conteneur ou le répertoire racine d’un conteneur. Au lieu de cela, cette opération est utilisée pour indiquer si les objets blob dans un conteneur [sont accessibles publiquement](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Comment en savoir plus sur le modèle de contrôle d’accès POSIX ?
 

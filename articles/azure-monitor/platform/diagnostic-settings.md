@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489436"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535790"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -52,7 +52,7 @@ Il est possible d’envoyer des journaux et métriques de plateforme aux destina
 
 ### <a name="destination-requirements"></a>Exigences de destination
 
-Les destinations du paramètre de diagnostic doivent être créées avant les paramètres de diagnostic. Cette destination ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements. Le tableau suivant fournit des exigences uniques pour chaque destination, y compris des restrictions régionales.
+Les destinations du paramètre de diagnostic doivent être créées avant les paramètres de diagnostic. Cette destination ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès Azure RBAC approprié aux deux abonnements. Le tableau suivant fournit des exigences uniques pour chaque destination, y compris des restrictions régionales.
 
 | Destination | Spécifications |
 |:---|:---|
@@ -77,15 +77,15 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
         ![Capture d’écran de la section Surveillance d’un menu de ressources dans le portail Azure avec les Paramètres de diagnostic en surbrillance.](media/diagnostic-settings/menu-resource.png)
 
-   - Pour une ou plusieurs ressources, dans le menu Azure Monitor, sous **Paramètres** , cliquez sur **Paramètres de diagnostic** , puis sur la ressource.
+   - Pour une ou plusieurs ressources, dans le menu Azure Monitor, sous **Paramètres**, cliquez sur **Paramètres de diagnostic**, puis sur la ressource.
 
         ![Capture d’écran de la section Paramètres dans le menu d’Azure Monitor avec les Paramètres de diagnostic en surbrillance.](media/diagnostic-settings/menu-monitor.png)
 
-   - Pour le journal d’activité, dans le menu **Azure Monitor** , cliquez sur **Journal d’activité** , puis sur **Paramètres de diagnostic** . Veillez à désactiver toute configuration héritée pour le journal d’activité. Pour plus d’informations, voir [Désactiver des paramètres existants](./activity-log.md#legacy-collection-methods).
+   - Pour le journal d’activité, dans le menu **Azure Monitor**, cliquez sur **Journal d’activité**, puis sur **Paramètres de diagnostic**. Veillez à désactiver toute configuration héritée pour le journal d’activité. Pour plus d’informations, voir [Désactiver des paramètres existants](./activity-log.md#legacy-collection-methods).
 
         ![Capture d’écran du menu d’Azure Monitor avec le Journal d’activité sélectionné et les Paramètres de diagnostic en surbrillance dans la barre de menus du journal d’activité.](media/diagnostic-settings/menu-activity-log.png)
 
-2. S’il n’existe aucun paramètre sur la ressource que vous avez sélectionnée, vous êtes invité à créer un paramètre. Cliquez sur **Ajouter le paramètre de diagnostic** .
+2. S’il n’existe aucun paramètre sur la ressource que vous avez sélectionnée, vous êtes invité à créer un paramètre. Cliquez sur **Ajouter le paramètre de diagnostic**.
 
    ![Ajouter le paramètre de diagnostic - aucun paramètre existant](media/diagnostic-settings/add-setting.png)
 
@@ -99,7 +99,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
 4. **Détails des catégories (éléments à acheminer)**  : cochez la case pour chaque catégorie de données que vous voulez envoyer aux destinations spécifiées plus tard. La liste des catégories varie pour chaque service Azure.
 
-     - **AllMetrics** achemine les métriques de plateforme d’une ressource dans le magasin Azure Logs, mais sous forme de journal. Ces métriques sont généralement envoyées uniquement à la base de données de série chronologique des métriques d’Azure Monitor. En les envoyant au magasin Azure Monitor Logs (qui peut faire l’objet d’une recherche via Log Analytics), vous pouvez les intégrer dans des requêtes qui effectuent des recherches dans d’autres journaux. Cette option peut ne pas être disponible pour tous les types de ressources. Lorsqu’elle est prise en charge, la catégorie [Métriques prises en charge par Azure Monitor](metrics-supported.md) répertorie les métriques collectées pour les types de ressources.
+     - **AllMetrics** achemine les métriques de plateforme d’une ressource dans le magasin Azure Logs, mais sous forme de journal. Ces métriques sont généralement envoyées uniquement à la base de données de série chronologique des métriques d’Azure Monitor. Les envoyer au magasin Azure Monitor Logs (qui peut faire l’objet d’une recherche via Log Analytics) vous aide à les intégrer dans des requêtes qui effectuent des recherches dans d’autres journaux. Cette option peut ne pas être disponible pour tous les types de ressources. Lorsqu’elle est prise en charge, la catégorie [Métriques prises en charge par Azure Monitor](metrics-supported.md) répertorie les métriques collectées pour les types de ressources.
 
        > [!NOTE]
        > Voir la limitation relative à l’acheminement de métriques vers les journaux Azure Monitor, plus haut dans cet article.  
@@ -107,19 +107,19 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
 
      - **Journaux** répertorie les différentes catégories disponibles en fonction du type de ressource. Cochez chaque catégorie que vous souhaitez acheminer vers une destination.
 
-5. **Détails de la destination**  : cochez la case pour chaque destination. Lorsque vous cochez chaque case, des options s’affichent pour vous permettre d’ajouter des informations supplémentaires.
+5. **Détails de la destination** : cochez la case pour chaque destination. Lorsque vous cochez chaque case, des options s’affichent pour vous permettre d’ajouter des informations supplémentaires.
 
       ![Envoyer à Log Analytics ou à Event Hubs](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics**  : entrez l’abonnement et l’espace de travail.  Si vous n’avez pas d’espace de travail, vous devez [en créer un avant de continuer](../learn/quick-create-workspace.md).
+    1. **Log Analytics** : entrez l’abonnement et l’espace de travail.  Si vous n’avez pas d’espace de travail, vous devez [en créer un avant de continuer](../learn/quick-create-workspace.md).
 
-    1. **Event Hubs**  : spécifiez les critères suivants :
+    1. **Event Hubs** : spécifiez les critères suivants :
        - Abonnement auquel appartient l’Event Hub.
        - Espace de noms Event Hub : si vous n’en avez pas encore, vous devez [en créer un](../../event-hubs/event-hubs-create.md).
        - Nom Event Hub (facultatif) auquel envoyer toutes les données. Si vous ne spécifiez pas de nom, un hub d’événements est créé pour chaque catégorie de journal. Si vous envoyez plusieurs catégories, vous pouvez spécifier un nom pour limiter le nombre de hubs d’événements créés. Pour plus de détails, voir [Quotas et limites d’Azure Event Hubs](../../event-hubs/event-hubs-quotas.md).
        - Stratégie Event Hub (facultatif) : une stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. Pour plus d’informations, consultez [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy).
 
-    1. **Stockage**  : choisissez l’abonnement, le compte de stockage et la stratégie de rétention.
+    1. **Stockage** : choisissez l’abonnement, le compte de stockage et la stratégie de rétention.
 
         ![Envoyer à Stockage](media/diagnostic-settings/storage-settings-new.png)
 
@@ -130,7 +130,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
         >
         > Par exemple, si vous définissez la stratégie de rétention pour *WorkflowRuntime* sur 180 jours, puis que vous la définissez 24 heures plus tard sur 365 jours, les journaux stockés pendant ces 24 heures sont automatiquement supprimés après 180 jours, tandis que tous les journaux suivants de ce type seront automatiquement supprimés après 365 jours. La modification ultérieure de la stratégie de rétention ne permet pas de conserver les journaux des premières 24 heures pendant 365 jours.
 
-6. Cliquez sur **Enregistrer** .
+6. Cliquez sur **Enregistrer**.
 
 Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux sont envoyés aux destinations spécifiées au fur et à mesure de la génération de nouvelles données d’événement. Un délai de 15 minutes peut s’écouler entre le moment où un événement est émis et celui où il [s’affiche dans un espace de travail Log Analytics](data-ingestion-time.md).
 

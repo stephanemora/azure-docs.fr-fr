@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 9260f2892bdcc6a694e1e54e29cb06bae90298eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010569"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gérer les ressources Azure Cosmos DB à l’aide de l’Explorateur Stockage Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,15 +34,15 @@ Pour installer la dernière version de l’Explorateur Stockage Azure, consultez
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
-1. Après avoir installé l’ **Explorateur de stockage Azure** , sélectionnez l’icône du **plug-in** dans le volet de gauche.
+1. Après avoir installé l’**Explorateur de stockage Azure**, sélectionnez l’icône du **plug-in** dans le volet de gauche.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Capture d’écran montrant l’icône de plug-in dans le volet de gauche.":::
 
-1. Sélectionnez **Ajouter un compte Azure** , puis **Connexion**.
+1. Sélectionnez **Ajouter un compte Azure**, puis **Connexion**.
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Capture d’écran de la fenêtre Se connecter au stockage Azure montrant la case d’option Ajouter un compte Azure sélectionnée et le menu déroulant Environnement Azure.":::
 
-1. Dans la boîte de dialogue **Connexion à Azure** , sélectionnez **Se connecter** , puis entrez vos informations d’identification Azure.
+1. Dans la boîte de dialogue **Connexion à Azure**, sélectionnez **Se connecter**, puis entrez vos informations d’identification Azure.
 
     :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Capture d’écran de la fenêtre de connexion montrant où entrer vos informations d’identification pour votre abonnement Azure.":::
 
@@ -60,17 +60,20 @@ Pour installer la dernière version de l’Explorateur Stockage Azure, consultez
 
 Vous pouvez utiliser une chaîne de connexion pour vous connecter à Azure Cosmos DB. Cette méthode ne prend en charge que les API SQL et Table. Pour vous connecter avec une chaîne de connexion, procédez comme suit :
 
-1. Recherchez **Locaux et joints** dans l’arborescence de gauche, cliquez avec le bouton droit sur **Comptes Cosmos DB** , puis sélectionnez **Connect to Cosmos DB** (Se connecter à Cosmos DB).
+1. Recherchez **Locaux et joints** dans l’arborescence de gauche, cliquez avec le bouton droit sur **Comptes Cosmos DB**, puis sélectionnez **Connect to Cosmos DB** (Se connecter à Cosmos DB).
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Capture d’écran montrant le menu déroulant après un clic droit, avec la mise en surbrillance de la connexion à Azure Cosmos DB.":::
 
-2. Dans la fenêtre **Se connecter à Cosmos DB**  :
+2. Dans la fenêtre **Se connecter à Cosmos DB** :
    1. Sélectionnez l’API dans le menu déroulant.
    1. Chaîne de connexion interne dans la zone **Chaîne de connexion**. Pour plus d’informations sur la récupération de la chaîne de connexion principale, consultez [Obtenir la chaîne de connexion](manage-with-powershell.md#list-keys).
-   1. Entrez un **Libellé de compte** , puis sélectionnez **Suivant** pour vérifier le résumé.
+   1. Entrez un **Libellé de compte**, puis sélectionnez **Suivant** pour vérifier le résumé.
    1. Sélectionnez **Se connecter** pour connecter le compte Azure Cosmos DB.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Capture d’écran de la fenêtre Se connecter à Cosmos DB, qui présente le menu déroulant API, la zone Chaîne de connexion et la zone Libellé de compte.":::
+
+> [!NOTE]
+> Si l’Explorateur Stockage Azure indique que le format de la chaîne de connexion Azure Cosmos DB n’est pas valide, vérifiez que la chaîne de connexion se termine par un point-virgule (`;`). Voici un exemple de chaîne de connexion Azure Cosmos DB valide : `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Utiliser un émulateur local pour se connecter à Azure Cosmos DB
 
@@ -78,13 +81,13 @@ Procédez comme suit pour vous connecter à Azure Cosmos DB avec un émulateur. 
 
 1. Installez l’émulateur Cosmos DB, puis ouvrez-le. Pour savoir comment installer l’émulateur, consultez [Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test](./local-emulator.md).
 
-1. Recherchez **Locaux et joints** dans l’arborescence de gauche, cliquez avec le bouton droit sur **Comptes Cosmos DB** , puis sélectionnez **Connect to Cosmos DB Emulator** (Se connecter à l’émulateur Cosmos DB).
+1. Recherchez **Locaux et joints** dans l’arborescence de gauche, cliquez avec le bouton droit sur **Comptes Cosmos DB**, puis sélectionnez **Connect to Cosmos DB Emulator** (Se connecter à l’émulateur Cosmos DB).
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Capture d’écran montrant le menu qui s’affiche après un clic droit, avec la mise en surbrillance de la connexion à l’émulateur Azure Cosmos DB.":::
 
-1. Dans la fenêtre **Se connecter à Cosmos DB**  :
+1. Dans la fenêtre **Se connecter à Cosmos DB** :
    1. Chaîne de connexion interne dans la zone **Chaîne de connexion**. Pour plus d’informations sur la récupération de la chaîne de connexion principale, voir [Obtenir la chaîne de connexion](manage-with-powershell.md#list-keys).
-   1. Entrez un **Libellé de compte** , puis sélectionnez **Suivant** pour vérifier le résumé.
+   1. Entrez un **Libellé de compte**, puis sélectionnez **Suivant** pour vérifier le résumé.
    1. Sélectionnez **Se connecter** pour connecter le compte Azure Cosmos DB.
 
       :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Capture d’écran de la fenêtre Se connecter à Cosmos DB, qui présente la zone Chaîne de connexion et la zone Libellé de compte.":::
@@ -141,7 +144,7 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Capture d’écran montrant le menu qui s’affiche après un clic droit, avec la mise en surbrillance de Créer une collection.":::
 
-1. Dans la fenêtre créer une collection, entrez les informations demandées, par exemple **ID de collection** , **Capacité de stockage** , et ainsi de suite. Sélectionnez **OK** pour terminer.
+1. Dans la fenêtre créer une collection, entrez les informations demandées, par exemple **ID de collection**, **Capacité de stockage**, et ainsi de suite. Sélectionnez **OK** pour terminer.
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Capture d’écran de la fenêtre Créer une collection, montrant la zone de ID de collection et les boutons de capacité de stockage.":::
 
@@ -154,7 +157,7 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 
 #### <a name="delete-a-collection"></a>Supprimer une collection
 
-- Cliquez avec le bouton droit sur la collection, sélectionnez **Supprimer la collection** , puis **Oui** dans la fenêtre contextuelle.
+- Cliquez avec le bouton droit sur la collection, sélectionnez **Supprimer la collection**, puis **Oui** dans la fenêtre contextuelle.
 
     Le nœud de collection est supprimé et la base de données s’actualise automatiquement.
 
@@ -164,7 +167,7 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 
 #### <a name="create-and-modify-documents"></a>Créer et modifier des documents
 
-- Ouvrez **Documents** dans le volet de gauche, sélectionnez **Nouveau document** , modifiez le contenu dans le volet droit, puis sélectionnez **Enregistrer**.
+- Ouvrez **Documents** dans le volet de gauche, sélectionnez **Nouveau document**, modifiez le contenu dans le volet droit, puis sélectionnez **Enregistrer**.
 - Vous pouvez également mettre à jour un document existant, puis sélectionner **Enregistrer**. Pour ignorer les modifications, sélectionnez **Ignorer**.
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="Capture d’écran montrant les documents mis en surbrillance dans le volet de gauche. Dans le volet droit, Nouveau document, Enregistrer et Ignorer sont mis en surbrillance.":::
@@ -183,7 +186,7 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 
 #### <a name="create-and-modify-a-vertex"></a>Créer et modifier un sommet
 
-* Pour créer un sommet, ouvrez **Graphe** dans le volet de gauche, sélectionnez **Nouveau sommet** , modifiez le contenu, puis sélectionnez **OK**.
+* Pour créer un sommet, ouvrez **Graphe** dans le volet de gauche, sélectionnez **Nouveau sommet**, modifiez le contenu, puis sélectionnez **OK**.
 * Pour modifier un sommet existant, sélectionnez l’icône de crayon dans le volet droit.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Capture d’écran montrant le graphique sélectionné dans le volet de gauche et le nouveau sommet et l’icône de stylet en surbrillance dans le volet droit.":::
@@ -203,14 +206,14 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 #### <a name="create-and-modify-a-table"></a>Créer et modifier une table
 
 * Pour créer une table :
-   1. Dans le volet de gauche, ouvrez **Entités** , puis sélectionnez **Ajouter**.
-   1. Dans la boîte de dialogue **Ajouter une entité** , modifiez le contenu.
+   1. Dans le volet de gauche, ouvrez **Entités**, puis sélectionnez **Ajouter**.
+   1. Dans la boîte de dialogue **Ajouter une entité**, modifiez le contenu.
    1. Sélectionnez le bouton **Ajouter une propriété** pour ajouter une propriété.
    1. Sélectionnez **Insérer**.
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="Capture d’écran montrant Entités en surbrillance dans le volet de gauche, et Ajouter, Modifier, Ajouter une propriété et Insérer en surbrillance dans le volet droit.":::
 
-* Pour modifier une table, sélectionnez **Modifier** , modifiez le contenu, puis sélectionnez **Mettre à jour**.
+* Pour modifier une table, sélectionnez **Modifier**, modifiez le contenu, puis sélectionnez **Mettre à jour**.
 
    
 
@@ -229,14 +232,14 @@ Vous pouvez cliquer avec le bouton droit sur un abonnement dans le volet Explora
 
 #### <a name="query-a-table"></a>Interrogation d’une table
 
-- Sélectionnez le bouton **Requête** , entrez une condition de requête, puis sélectionnez le bouton **Exécuter la requête**. Pour fermer le volet de requête, sélectionnez le bouton **Fermer la requête**.
+- Sélectionnez le bouton **Requête**, entrez une condition de requête, puis sélectionnez le bouton **Exécuter la requête**. Pour fermer le volet de requête, sélectionnez le bouton **Fermer la requête**.
 
   :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Capture d’écran du volet droit, montrant le bouton Exécuter la requête et le bouton Fermer la requête en surbrillance.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gérer les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur
 
 * Pour créer une procédure stockée :
-  1. Dans l’arborescence de gauche, cliquez avec le bouton droit sur **Procédures stockées** , puis sélectionnez **Créer une procédure stockée**.
+  1. Dans l’arborescence de gauche, cliquez avec le bouton droit sur **Procédures stockées**, puis sélectionnez **Créer une procédure stockée**.
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Capture d’écran du volet de gauche montrant le menu qui s’affiche après un clic droit, avec la mise en surbrillance de Créer une procédure stockée.":::
   
@@ -337,7 +340,7 @@ Il n’y a pas de réponse après avoir sélectionné le nœud **Développement*
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Erreur lors de l’attachement d’un compte Azure Cosmos DB dans le nœud **Local et attaché**
 
-Si l’erreur suivante s’affiche après l’attachement d’un compte Azure Cosmos DB dans le nœud **Local et attaché** , vérifiez que vous utilisez la bonne chaîne de connexion.
+Si l’erreur suivante s’affiche après l’attachement d’un compte Azure Cosmos DB dans le nœud **Local et attaché**, vérifiez que vous utilisez la bonne chaîne de connexion.
 
 :::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Capture d’écran de la fenêtre contextuelle Impossible de récupérer les ressources enfants, indiquant getaddrinfo ENOTFOUND.":::
 
@@ -350,7 +353,7 @@ L’erreur suivante peut s’afficher lorsque vous tentez de développer des nœ
 Essayez les suggestions suivantes :
 
 * Vérifiez si le compte Azure Cosmos DB est en cours d’approvisionnement. Réessayez lorsque le compte est créé avec succès.
-* Si le compte se trouve sous les nœuds **Accès rapide** ou **Accès rapide** , vérifiez si le compte est supprimé. Si c’est le cas, vous devez supprimer le nœud manuellement.
+* Si le compte se trouve sous les nœuds **Accès rapide** ou **Accès rapide**, vérifiez si le compte est supprimé. Si c’est le cas, vous devez supprimer le nœud manuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

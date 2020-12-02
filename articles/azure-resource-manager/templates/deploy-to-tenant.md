@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668702"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807634"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
 
@@ -36,11 +36,19 @@ Pour créer des groupes d’administration, utilisez :
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+Pour créer des abonnements, utilisez :
+
+* [aliases](/azure/templates/microsoft.subscription/aliases)
+
 Pour la gestion des coûts, utilisez :
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+Pour la configuration du portail, utilisez :
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>schéma
 
@@ -117,18 +125,26 @@ Pour plus d’informations sur les commandes et options de déploiement de modè
 * [Déployer des ressources avec des modèles ARM et le Portail Azure](deploy-portal.md)
 * [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](deploy-cli.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md)
-* [Déployer des ressources avec des modèles Resource Manager et l’API REST Azure Resource Manager](deploy-rest.md)
+* [Déployer des ressources avec des modèles ARM et l’API REST Azure Resource Manager](deploy-rest.md)
 * [Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub](deploy-to-azure-button.md)
-* [Déployer des modèles Resource Manager à partir de Cloud Shell](deploy-cloud-shell.md)
+* [Déployer des modèles ARM à partir de Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
+
+Pour les déploiements au niveau du locataire, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement. Les déploiements d’[abonnement](deploy-to-subscription.md) et de [groupe d’administration](deploy-to-management-group.md) nécessitent également un emplacement. Pour les déploiements d’un [groupe de ressources](deploy-to-resource-group.md), l’emplacement du groupe de ressources est utilisé pour stocker les données de déploiement.
+
+Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+
+Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Par exemple, si vous créez un déploiement de locataire avec le nom **deployment1** dans **centralus**, vous ne pouvez pas créer par la suite un autre déploiement avec le nom **deployment1** mais un emplacement **westus**. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
 
 ## <a name="deployment-scopes"></a>Étendues de déploiement
 
-Lors du déploiement sur un groupe d’administration, vous pouvez déployer des ressources vers :
+Lors du déploiement dans un locataire, vous pouvez déployer des ressources vers :
 
 * le locataire
 * des groupes d’administration dans le locataire
 * subscriptions
-* des groupes de ressources (par le biais de deux déploiements imbriqués)
+* groupes de ressources
 * les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
@@ -145,7 +161,7 @@ Les ressources définies dans la section Ressources du modèle sont appliquées 
 
 Pour cibler un groupe d’administration au sein du locataire, ajoutez un déploiement imbriqué et spécifiez la propriété `scope`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Étendue à l’abonnement
 
@@ -153,83 +169,27 @@ Vous pouvez également cibler des abonnements dans le locataire. L’utilisateur
 
 Pour cibler un abonnement au sein du locataire, utilisez un déploiement imbriqué et la propriété `subscriptionId`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
-## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
+### <a name="scope-to-resource-group"></a>Étendue au groupe de ressources
 
-Pour les déploiements au niveau du locataire, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement.
+Vous pouvez également cibler des groupes de ressources au sein du locataire. L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
-Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+Pour cibler un groupe de ressources au sein du locataire, utilisez un déploiement imbriqué. Définissez les propriétés `subscriptionId` et `resourceGroup`. Ne définissez pas un emplacement pour le déploiement imbriqué, car il est déployé à l’emplacement du groupe de ressources.
 
-Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
 
 ## <a name="create-management-group"></a>Créer un groupe d’administration
 
-Le [modèle suivant](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) crée un groupe d'administration.
+Le modèle suivant crée un groupe d'administration.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
 ## <a name="assign-role"></a>Affecter le rôle
 
-Le [modèle suivant](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) attribue un rôle au niveau du locataire.
+Le modèle suivant attribue un rôle au niveau du locataire.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

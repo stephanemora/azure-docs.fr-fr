@@ -3,12 +3,12 @@ title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377682"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411323"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -153,7 +153,7 @@ Les mises à niveau du système d’exploitation et les changements de version d
 - Assurez-vous que les nouvelles versions du système d’exploitation, de SDC ou de MDC sont actuellement [prises en charge par Sauvegarde Azure](sap-hana-backup-support-matrix.md#scenario-support).
 - [Arrêtez la protection avec données conservées](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) pour la base de données.
 - Effectuez la mise à niveau ou la mise à jour.
-- Réexécutez le script de préinscription. En règle générale, le processus de mise à niveau supprime les rôles nécessaires. L’exécution du script de préinscription permet de vérifier tous les rôles requis.
+- Réexécutez le script de préinscription. Souvent, le processus de mise à niveau peut supprimer [les rôles nécessaires](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). L’exécution du script de préinscription permet de vérifier tous les rôles requis.
 - Réactivez la protection de la base de données.
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>Mise à niveau de SDC vers MDC sans modification du SID

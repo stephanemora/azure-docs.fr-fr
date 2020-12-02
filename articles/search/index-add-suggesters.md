@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445334"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013579"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Créer un suggesteur pour activer l’autocomplétion et les résultats suggérés dans une requête
 
@@ -40,7 +40,9 @@ Un suggesteur est une structure de données interne prenant en charge des compor
 
 Pour créer un suggesteur, ajoutez-en un à une [définition d’index](/rest/api/searchservice/create-index). Un suggesteur obtient un nom et une collection de champs sur lesquels l’expérience autocomplétion est activée. et [définissez chaque propriété](#property-reference). Le meilleur moment pour créer un suggesteur est lorsque vous définissez également le champ qui va l’utiliser.
 
-+ Utiliser uniquement des champs de chaîne
++ Utilisez uniquement des champs de chaîne.
+
++ Si le champ de chaîne fait partie d’un type complexe, par exemple, un champ City (Ville) dans Address (Adresse), incluez le parent dans le champ : `"Address/City"` (REST, C# et Python), ou `["Address"]["City"]` (JavaScript).
 
 + Utilisez l’analyseur Lucene standard par défaut (`"analyzer": null`) ou un [analyseur de langage](index-add-language-analyzers.md) (par exemple, `"analyzer": "en.Microsoft"`) sur le champ.
 
@@ -117,7 +119,7 @@ Dans l’API REST, ajoutez des suggesteurs via [Créer un index](/rest/api/searc
 
 ## <a name="create-using-net"></a>Créer à l’aide de .NET
 
-En C#, définissez un [objet SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` est une collection sur un objet SearchIndex, mais elle ne peut recevoir qu’un seul élément. 
+En C#, définissez un [objet SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` est une collection sur un objet SearchIndex, mais elle ne peut recevoir qu’un seul élément. Ajoutez un suggesteur à une définition d’index.
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient indexClient)
@@ -125,12 +127,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
     FieldBuilder fieldBuilder = new FieldBuilder();
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
     var definition = new SearchIndex(indexName, searchFields);
 
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
 
     indexClient.CreateOrUpdateIndex(definition);

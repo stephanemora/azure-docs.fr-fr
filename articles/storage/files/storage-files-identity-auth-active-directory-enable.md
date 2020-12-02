@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628847"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739993"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
@@ -24,7 +24,7 @@ Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de 
 
 - Les identités AD DS utilisées pour l’authentification AD DS en local Azure Files doivent être synchronisées avec Azure AD. La synchronisation de hachage de mot de passe est facultative. 
 - Prend en charge les partages de fichiers Azure gérés par Azure File Sync.
-- Prend en charge l’authentification Kerberos avec AD, ainsi qu’avec le [chiffrement AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) et le chiffrement RC4-HMAC. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
+- Prend en charge l’authentification Kerberos avec AD, ainsi qu’avec le [chiffrement AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) et le chiffrement RC4-HMAC. La prise en charge du chiffrement AES 256 est actuellement limitée aux comptes de stockage dont les noms n’excèdent pas 15 caractères. Le chiffrement Kerberos AES 128 n’est pas encore pris en charge.
 - Prend en charge l’authentification unique.
 - Pris en charge uniquement sur les clients exécutant des systèmes d’exploitation ultérieurs à Windows 7 ou Windows Server 2008 R2.
 - Pris en charge uniquement sur la forêt AD auprès de laquelle le compte de stockage est inscrit. Vous pouvez uniquement accéder aux partages de fichiers Azure avec les informations d’identification AD DS à partir d’une forêt unique par défaut. Si vous avez besoin d’accéder à votre partage de fichiers Azure à partir d’une autre forêt, vérifiez que l’approbation de forêt appropriée est configurée. Pour plus d’informations, consultez le [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).

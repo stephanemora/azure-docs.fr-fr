@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395034"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808625"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notes de publication Azure SQL Edge 
 
 Cet article décrit les nouveautés et les modifications apportées à chaque nouvelle build d’Azure SQL Edge.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge - 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>Numéro de build du moteur SQL - 15.0.2000.1553
+
+### <a name="whats-new"></a>Nouveautés
+
+- Autoriser l’expression Datebucket définie dans les colonnes calculées
+
+### <a name="fixes"></a>Correctifs
+
+- Correction de la stratégie de rétention pour la suppression de la table avec la stratégie de rétention activée avec un délai d’expiration infini
+- Prise en charge dans le déploiement DacFx des fonctionnalités de streaming et de stratégie de rétention 
+- Correction du déploiement DacFx pour activer le déploiement à partir d’un dossier imbriqué dans l’URL SAS 
+- Correction PREDICT pour prendre en charge les noms de colonnes longs dans les messages d’erreur
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
 

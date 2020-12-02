@@ -3,18 +3,18 @@ title: Créer une ressource Azure Monitor Application Insights basée sur un esp
 description: En savoir plus sur les étapes requises pour activer les nouvelles ressources Azure Monitor Application Insights basées sur un espace de travail.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945411"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536912"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
 Les ressources basées sur un espace de travail prennent en charge l’intégration complète entre Application Insights et Log Analytics. Vous pouvez maintenant choisir d’envoyer votre télémétrie Application Insights à un espace de travail Log Analytics commun, ce qui vous permet d’accéder entièrement à toutes les fonctionnalités de Log Analytics tout en conservant les journaux des applications, des infrastructures et des plateformes dans un emplacement consolidé unique.
 
-Cela permet également de disposer d’un contrôle d’accès en fonction du rôle (RBAC) commun sur vos ressources et élimine le besoin de requêtes entre des applications ou des espaces de travail.
+Cela permet également de disposer d’un contrôle d’accès en fonction du rôle Azure (Azure RBAC) commun sur vos ressources et élimine le besoin de requêtes entre des applications ou des espaces de travail.
 
 > [!NOTE]
 > L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont facturées dans l’espace de travail Log Analytics où se trouvent les données. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.

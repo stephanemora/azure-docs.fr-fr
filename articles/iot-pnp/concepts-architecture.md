@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 2cccb1fdfe775250f80da6cc2ecdcc4ddaa3d88e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574317"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484081"
 ---
 # <a name="iot-plug-and-play-architecture"></a>Architecture IoT Plug-and-Play
 
@@ -36,7 +36,7 @@ Le [référentiel de modèles](./concepts-model-repository.md) est un magasin de
 
 L’interface utilisateur web vous permet de gérer les modèles et les interfaces.
 
-Le référentiel de modèles utilise RBAC pour vous permettre de limiter l’accès aux définitions d’interface.
+Le référentiel de modèles dispose de contrôles d’accès en fonction du rôle intégrés qui vous permettent de limiter l’accès aux définitions d’interface.
 
 ## <a name="devices"></a>Appareils
 
@@ -98,4 +98,4 @@ Maintenant que vous disposez d’une vue d’ensemble de l’architecture d’un
 
 - [Référentiel de modèles](./concepts-model-repository.md)
 - [Intégration de modèles de jumeau numérique](./concepts-model-discovery.md)
-- [Développement d’IoT Plug-and-Play](./concepts-developer-guide-device-csharp.md)
+- [Développement d’IoT Plug-and-Play](./concepts-developer-guide-device.md)

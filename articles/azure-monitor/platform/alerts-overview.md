@@ -4,12 +4,12 @@ description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classique
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108794"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536045"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -173,7 +173,7 @@ La page Détails de l’alerte comprend les sections suivantes :
 | Historique | Répertorie chaque action effectuée par l’alerte et toutes les modifications apportées à l’alerte. Actuellement limité aux changements d’état. |
 | Diagnostics | Informations sur le groupe intelligent contenant l’alerte. Le *nombre d’alertes* fait référence au nombre d’alertes incluses dans le groupe intelligent. Cela comprend les autres alertes du même groupe intelligent qui ont été créées au cours des 30 derniers jours, quel que soit le filtre de temps dans la page de la liste des alertes. Sélectionnez une alerte pour afficher ses détails. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Contrôle d’accès en fonction du rôle (RBAC) pour vos instances d’alertes
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour vos instances d’alertes
 
 Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit disposer du rôle Azure intégré [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [Lecteur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-reader). Ces rôles sont pris en charge à tout niveau de Microsoft Azure Resource Manager, du niveau de l’abonnement aux affectations granulaires, en passant par le niveau des ressources. Par exemple, si un utilisateur dispose uniquement d’un accès de type Contributeur d’analyse à la machine virtuelle `ContosoVM1`, il ne peut utiliser et gérer que les alertes générées sur `ContosoVM1`.
 

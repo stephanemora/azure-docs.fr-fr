@@ -6,20 +6,20 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: bebab7c06062726f7b5c7868f984cadda3b4c98e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89c51e69a4274affcecb4d967deb96dcebcfd70f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423656"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253368"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorisation Azure Active Directory – Référence d’API REST
 
-Quand l’authentification Azure Active Directory (Azure AD) est utilisée, l’autorisation est gérée par un contrôle d’accès en fonction du rôle (RBAC) Azure. Un RBAC Azure requiert que les utilisateurs soient assignés à des rôles pour leur accorder l’accès aux ressources. Chaque rôle contient un ensemble d’actions que les utilisateurs assignés au rôle pourront effectuer.
+Quand vous utilisez l’authentification Azure Active Directory (Azure AD), l’autorisation est gérée par le contrôle d’accès en fonction du rôle (RBAC). Le contrôle d’accès en fonction du rôle exige l’attribution des utilisateurs à des rôles pour accorder l’accès aux ressources. Chaque rôle contient un ensemble d’actions que les utilisateurs attribués au rôle sont en mesure d’effectuer.
 
 ## <a name="roles"></a>Rôles
 
-Les rôles suivants sont des rôles intégrés disponibles dans les abonnements Azure par défaut :
+Les rôles suivants sont disponibles dans les abonnements Azure par défaut :
 
 - **Propriétaire des données Azure App Configuration** : ce rôle donne un accès complet à toutes les opérations.
 - **Lecteur des données Azure App Configuration** : ce rôle permet les opérations de lecture.
@@ -28,11 +28,11 @@ Les rôles suivants sont des rôles intégrés disponibles dans les abonnements 
 
 Les rôles contiennent une liste d’actions que les utilisateurs qui y sont assignés peuvent effectuer. Azure App Configuration prend en charge les actions suivantes :
 
-- `Microsoft.AppConfiguration/configurationStores/keyValues/read` : cette action autorise l’accès en lecture aux ressources de clé-valeur d’App Configuration telles que /kv et /labels.
+- `Microsoft.AppConfiguration/configurationStores/keyValues/read` : cette action autorise l’accès en lecture aux ressources de clé-valeur d’App Configuration, telles que /kv et /labels.
 - `Microsoft.AppConfiguration/configurationStores/keyValues/write` : cette action autorise l’accès en écriture aux ressources de clé-valeur d’App Configuration.
 - `Microsoft.AppConfiguration/configurationStores/keyValues/delete` : Cette action autorise la suppression de ressources de clé-valeur d’App Configuration. Notez que la suppression d’une ressource renvoie la clé-valeur supprimée.
 
-## <a name="errors"></a>Erreurs
+## <a name="error"></a>Erreur
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Gestion des attributions de rôles
 
-La gestion des attributions de rôles s’effectue à l’aide des procédures de [RBAC Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) qui sont identiques dans tous les services Azure. Vous pouvez l’effectuer notamment via Azure CLI, PowerShell et le portail Azure. La documentation officielle sur la façon d’effectuer les attributions de rôles est disponible [ici](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Vous pouvez gérer les attributions de rôles à l’aide des [procédures RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) qui sont standard dans l’ensemble des services Azure. Pour ce faire, vous pouvez utiliser l’interface Azure CLI, PowerShell ou le portail Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

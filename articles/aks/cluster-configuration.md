@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698068"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736528"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 Si vous souhaitez créer des pools de nœuds Gen1 ordinaires, vous pouvez omettre la balise `--aks-custom-headers` personnalisée.
 
 
-## <a name="ephemeral-os-preview"></a>Système d’exploitation éphémère (préversion)
+## <a name="ephemeral-os"></a>Système d’exploitation éphémère
 
-Par défaut, le disque du système d’exploitation d’une machine virtuelle Azure est automatiquement répliqué sur le stockage Azure pour éviter la perte de données si la machine virtuelle devait être déplacée vers un autre hôte. Toutefois, comme les conteneurs ne sont pas conçus pour conserver l’état local, ce comportement offre une valeur limitée tout en présentant certains inconvénients, notamment un approvisionnement plus lent des nœuds et une latence en lecture/écriture plus élevée.
+Par défaut, Azure réplique automatiquement le disque de système d’exploitation d’une machine virtuelle dans Stockage Azure pour éviter toute perte de données si la machine virtuelle doit être déplacée vers un autre hôte. Toutefois, comme les conteneurs ne sont pas conçus pour conserver l’état local, ce comportement offre une valeur limitée tout en présentant certains inconvénients, notamment un approvisionnement plus lent des nœuds et une latence en lecture/écriture plus élevée.
 
 En revanche, les disques de système d’exploitation éphémères sont stockés uniquement sur l’ordinateur hôte, comme un disque temporaire. Cela permet de réduire la latence en lecture/écriture, tout en accélérant la mise à l’échelle des nœuds et la mise à niveau des clusters.
 
 À l’instar du disque temporaire, un disque de système d’exploitation éphémère est inclus dans le prix de la machine virtuelle, ce qui signifie que vous n’encourez aucun coût de stockage supplémentaire.
 
-Inscrivez la fonctionnalité `EnableEphemeralOSDiskPreview` :
+> [!IMPORTANT]
+>Lorsqu’un utilisateur ne demande pas explicitement de disques managés pour le système d’exploitation, AKS utilise par défaut le système d’exploitation éphémère si possible pour une configuration de pool de nœuds donnée.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+Lorsque vous utilisez le système d’exploitation éphémère, le disque de système d’exploitation doit tenir dans le cache de la machine virtuelle. Les tailles du cache de la machine virtuelle sont disponibles dans la [documentation Azure](../virtual-machines/dv3-dsv3-series.md) entre parenthèses à côté du débit d’E/S (« taille du cache en Gio »).
 
-Quelques minutes peuvent être nécessaires pour que l’état **Inscrit** s’affiche. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+En prenant comme exemple la taille de machine virtuelle AKS par défaut Standard_DS2_v2 avec la taille de disque de système d’exploitation par défaut de 100 Go, cette taille de machine virtuelle prend en charge le système d’exploitation éphémère mais n’a que 86 Go de taille de cache. Cette configuration utile par défaut des disques managés si l’utilisateur ne le spécifie pas explicitement. Si un utilisateur a explicitement demandé le système d’exploitation éphémère, il reçoit une erreur de validation.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+Si un utilisateur demande la même référence Standard_DS2_v2 avec un disque de système d’exploitation de 60 Go, la configuration utilise par défaut le système d’exploitation éphémère : la taille demandée de 60 Go est inférieure à la taille de cache maximale de 86 Go.
 
-Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) :
+En utilisant la référence Standard_D8s_v3 avec un disque de système d’exploitation de 100 Go, cette taille de machine virtuelle prend en charge le système d’exploitation éphémère et dispose de 200 Go d’espace de cache. Si un utilisateur ne spécifie pas le type de disque de système d’exploitation, le pool de nœuds reçoit le système d’exploitation éphémère par défaut. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+Le système d’exploitation éphémère nécessite au moins la version 2.15.0 de l’interface de ligne de commande Azure.
 
-Un système d’exploitation éphémère nécessite au moins la version 0.4.63 de l’extension CLI aks-preview.
-
-Pour installer l’extension CLI aks-preview, utilisez les commandes Azure CLI suivantes :
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Pour mettre à jour l’extension CLI aks-preview, utilisez les commandes Azure CLI suivantes :
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Utiliser un système d’exploitation éphémère sur les nouveaux clusters (préversion)
+### <a name="use-ephemeral-os-on-new-clusters"></a>Utiliser un système d’exploitation éphémère sur les nouveaux clusters
 
 Configurez le cluster pour qu’il utilise des disques de système d’exploitation éphémères lors de sa création. Utilisez l’indicateur `--node-osdisk-type` pour définir le système d’exploitation éphémère comme type de disque de système d’exploitation pour le nouveau cluster.
 
@@ -285,9 +266,9 @@ Configurez le cluster pour qu’il utilise des disques de système d’exploitat
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Si vous souhaitez créer un cluster ordinaire à l’aide de disques de système d’exploitation attachés au réseau, vous pouvez le faire en omettant la balise `--node-osdisk-type` personnalisée ou en spécifiant `--node-osdisk-type=Managed`. Vous pouvez également choisir d’ajouter des pools de nœuds de système d’exploitation éphémère comme indiqué ci-dessous.
+Si vous souhaitez créer un cluster ordinaire à l’aide de disques de système d’exploitation attachés au réseau, vous pouvez le faire en spécifiant `--node-osdisk-type=Managed`. Vous pouvez également choisir d’ajouter des pools de nœuds de système d’exploitation éphémère comme indiqué ci-dessous.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Utiliser un système d’exploitation éphémère sur les clusters existants (préversion)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Utiliser un système d’exploitation éphémère sur les clusters existants
 Configurez un nouveau pool de nœuds pour utiliser les disques de système d’exploitation éphémères. Utilisez l’indicateur `--node-osdisk-type` pour définir le système d’exploitation éphémère comme type de disque de système d’exploitation pour ce pool de nœuds.
 
 ```azurecli
@@ -295,9 +276,9 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> Grâce au système d’exploitation éphémère, vous pouvez déployer des images de machine virtuelle et d’instance jusqu’au maximum de la capacité du cache de la machine virtuelle. Dans le cas d’AKS, la configuration de disque de système d’exploitation du nœud par défaut utilise 100 Gio, ce qui signifie que vous avez besoin d’une taille de machine virtuelle dont le cache est supérieur à 100 Gio. La référence Standard_DS2_v2 par défaut a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Vous pouvez également réduire la taille par défaut du disque du système d’exploitation en utilisant `--node-osdisk-size`. La taille minimale des images AKS est 30 Gio. 
+> Grâce au système d’exploitation éphémère, vous pouvez déployer des images de machine virtuelle et d’instance jusqu’au maximum de la capacité du cache de la machine virtuelle. Dans le cas d’AKS, la configuration du disque de système d’exploitation du nœud par défaut utilise 128 Go, ce qui signifie que vous avez besoin d’une taille de machine virtuelle dont le cache est supérieur à 128 Go. La référence Standard_DS2_v2 par défaut a une taille de cache de 86 Go, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Go, ce qui est suffisant. Vous pouvez également réduire la taille par défaut du disque du système d’exploitation en utilisant `--node-osdisk-size`. La taille minimale des images AKS est 30 Go. 
 
-Si vous souhaitez créer des pools de nœuds avec des disques de système d’exploitation attachés au réseau, vous pouvez le faire en omettant la balise `--node-osdisk-type` personnalisée.
+Si vous souhaitez créer des pools de nœuds avec des disques de système d’exploitation attachés au réseau, vous pouvez le faire en spécifiant `--node-osdisk-type Managed`.
 
 ## <a name="custom-resource-group-name"></a>Nom du groupe de ressources personnalisé
 

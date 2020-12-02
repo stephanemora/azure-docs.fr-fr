@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445300"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495421"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
@@ -40,7 +40,7 @@ Accédez aux [versions de l’explorateur Azure IOT](https://github.com/Azure/az
 
 ## <a name="use-azure-iot-explorer"></a>Utilisez l’explorateur Azure IoT
 
-Concernant l’appareil, vous pouvez connecter votre propre appareil ou utiliser l’un des exemples d’appareils simulés. Pour obtenir des exemples d’appareils simulés écrits en différents langages, consultez les démarrages rapides [Connecter un exemple d’application d’appareil IoT Plug-and-Play à IoT Hub](quickstart-connect-device-node.md).
+Concernant l’appareil, vous pouvez connecter votre propre appareil ou utiliser l’un des exemples d’appareils simulés. Pour obtenir des exemples d’appareils simulés écrits en différents langages, consultez le guide de démarrage rapide [Connecter un exemple d’application pour appareil IoT Plug-and-Play à IoT Hub](quickstart-connect-device.md).
 
 ### <a name="connect-to-your-hub"></a>Connectez-vous à votre hub
 

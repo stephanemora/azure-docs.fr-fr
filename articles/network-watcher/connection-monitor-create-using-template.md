@@ -1,5 +1,5 @@
 ---
-title: Créer un Moniteur de connexion – ARMClient
+title: Créer un Moniteur de connexion - Modèle ARM
 titleSuffix: Azure Network Watcher
 description: Découvrez comment créer un Moniteur de connexion à l’aide de l’ARMClient.
 services: network-watcher
@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699098"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544001"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>Créer un Moniteur de connexion à l’aide de l’ARMClient
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>Créer un Moniteur de connexion à l’aide du modèle ARM
 
 Découvrez comment créer un Moniteur de connexion pour surveiller la communication entre vos ressources à l’aide de l’ARMClient. Elle prend en charge les déploiements cloud hybrides et Azure.
+
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
@@ -368,7 +369,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Groupes de test
     * name - Donnez un nom à votre groupe de test.
     * testConfigurations - Configurations de test basées sur les points de terminaison sources qui se connectent aux points de terminaison de destination.
-    * sources - Choisissez parmi les points de terminaison créés ci-dessus. Les points de terminaison sources basés sur Azure doivent être dotés de l’extension Azure Network Watcher, et les points de terminaison sources non basés sur Azure doivent avoir l’agent Azure Log Analytics installé. Pour installer un agent pour votre source, consultez [Installer des agents de surveillance](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * sources - Choisissez parmi les points de terminaison créés ci-dessus. Les points de terminaison sources basés sur Azure doivent être dotés de l’extension Azure Network Watcher, et les points de terminaison sources non basés sur Azure doivent avoir l’agent Azure Log Analytics installé. Pour installer un agent pour votre source, consultez [Installer des agents de surveillance](./connection-monitor-overview.md#install-monitoring-agents).
     * destinations - Choisissez parmi les points de terminaison créés ci-dessus. Vous pouvez surveiller la connectivité aux machines virtuelles Azure ou aux points de terminaison (adresses IP publiques, URL ou FQDN) en les spécifiant en tant que destinations. Au sein d'un même groupe de tests, vous pouvez ajouter des machines virtuelles Azure, des URL Office 365, des URL Dynamics 365 et des points de terminaison personnalisés.
     * disable - Utilisez ce champ pour désactiver la surveillance de toutes les sources et destinations spécifiées par le groupe de tests.
 
@@ -400,5 +401,5 @@ Les moniteurs de connexion présentent les limites suivantes en termes de mise �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez [comment analyser les données de surveillance et définir des alertes](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Découvrez [comment diagnostiquer des problèmes dans votre réseau](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Découvrez [comment analyser les données de surveillance et définir des alertes](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Découvrez [comment diagnostiquer des problèmes dans votre réseau](./connection-monitor-overview.md#diagnose-issues-in-your-network).
