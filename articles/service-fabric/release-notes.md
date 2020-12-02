@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 01574407801c0a6b0a5e0ddc438af4d3965dc090
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9960f15f2f91b51b73727ab421eb58dddc5bb2b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131545"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485567"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -29,17 +29,17 @@ Nous sommes ravis d’annoncer que la version 7.2 du runtime Service Fabric a c
 ## <a name="what-is-new-in-service-fabric-7"></a>Nouveautés de Service Fabric 7.2
 Cette version regorge de fonctionnalités et d’améliorations clés. Certaines des fonctionnalités clés sont mises en avant ci-dessous :
 ## <a name="key-announcements-in-72"></a>Principales annonces dans 7.2
-- **Préversion** : [**Les clusters managés Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) sont désormais disponibles en préversion publique. Les clusters managés Service Fabric visent à simplifier le déploiement et la gestion des clusters en encapsulant les ressources sous-jacentes qui composent un cluster Service Fabric dans une ressource ARM unique. Pour plus d’informations, consultez [Vue d’ensemble des clusters managés Service Fabric](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster).
-- **Préversion** : [**La prise en charge des services sans état avec un nombre d’instances supérieur au nombre de nœuds**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) est désormais disponible en préversion publique. Une stratégie de positionnement permet la création de plusieurs instances sans état d’une partition sur un nœud.
+- **Préversion** : [**Les clusters managés Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) sont désormais disponibles en préversion publique. Les clusters managés Service Fabric visent à simplifier le déploiement et la gestion des clusters en encapsulant les ressources sous-jacentes qui composent un cluster Service Fabric dans une ressource ARM unique. Pour plus d’informations, consultez [Vue d’ensemble des clusters managés Service Fabric](./overview-managed-cluster.md).
+- **Préversion** : [**La prise en charge des services sans état avec un nombre d’instances supérieur au nombre de nœuds**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) est désormais disponible en préversion publique. Une stratégie de positionnement permet la création de plusieurs instances sans état d’une partition sur un nœud.
 - [**FabricObserver (FO) 3.0**](https://aka.ms/sf/fabricobserver) est maintenant disponible.
     - Vous pouvez désormais exécuter FabricObserver dans des clusters Linux et Windows.
     - Vous pouvez désormais créer des plug-ins d’observation personnalisés. Pour plus d’informations et de code, consultez le [fichier Lisez-moi relatif aux plug-ins](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) et l’[exemple de projet de plug-in](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin).
     - Vous pouvez maintenant modifier n’importe quel paramètre d’observation via la mise à niveau des paramètres d’application. Cela signifie que vous n’avez plus besoin de redéployer FO pour modifier des paramètres d’observation spécifiques. Consultez cet [exemple](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
 - [**Prise en charge des images conteneur Ubuntu 18.04 OneBox**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
-- **Préversion** : [**La référence au coffre de clés pour les applications Service Fabric prend en charge **UNIQUEMENT les secrets avec version**. Les secrets sans versions ne sont pas pris en charge.** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- **Préversion** : [**La référence au coffre de clés pour les applications Service Fabric prend en charge **UNIQUEMENT les secrets avec version**. Les secrets sans versions ne sont pas pris en charge.**](./service-fabric-keyvault-references.md)
 - Le Kit de développement logiciel (SDK) SF requiert la mise à jour la plus récente de VS 2019, 16.7.6 ou 16.8 Preview 4, pour pouvoir créer des projets .NET Framework sans état/avec état/d’acteurs. Si vous ne disposez pas de la dernière mise à jour de VS, après avoir créé le projet de service, utilisez le gestionnaire de package pour installer Microsoft.ServiceFabric.Services (version 4.2.x) pour les projets avec état/sans état et Microsoft.ServiceFabric.Actors (version 4.2.x) pour les projets d’acteur de nuget.org.
-- **RunToCompletion**  : Service Fabric prend en charge le concept d’exécution jusqu’à l’achèvement pour les exécutables invités. Avec cette mise à jour, une fois l’exécution du réplica terminée, les ressources de cluster allouées à ce réplica seront libérées.
-- [**La prise en charge de la gouvernance des ressources a été améliorée**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance) : elle autorise les requêtes et limite les spécifications pour les ressources de processeur et de mémoire.
+- **RunToCompletion** : Service Fabric prend en charge le concept d’exécution jusqu’à l’achèvement pour les exécutables invités. Avec cette mise à jour, une fois l’exécution du réplica terminée, les ressources de cluster allouées à ce réplica seront libérées.
+- [**La prise en charge de la gouvernance des ressources a été améliorée**](./service-fabric-resource-governance.md) : elle autorise les requêtes et limite les spécifications pour les ressources de processeur et de mémoire.
 
 ### <a name="service-fabric-72-releases"></a>Mises en production Service Fabric 7.2
 | Date de publication | Libérer | En savoir plus |
@@ -110,13 +110,13 @@ Il s’agit de la dernière version de Service Fabric qui est chargée avec des 
 ### <a name="key-announcements"></a>Principales annonces
  - [**Prise en charge de KeyVaultReference pour les secrets de l’application (préversion)**](./service-fabric-keyvault-references.md) : Les applications Service Fabric qui ont activé [Identités managées](./concepts-managed-identity.md) peuvent désormais référencer directement une URL de secret Key Vault en tant que variable d’environnement, paramètre d’application ou informations d’identification de référentiel de conteneur. Service Fabric résoudra automatiquement le secret à l’aide de l’identité managée de l’application. 
      
-- **Amélioration de la sécurité de la mise à niveau pour les services sans état**  : Pour garantir la disponibilité lors de la mise à niveau d’une application, nous avons introduit de nouvelles configurations pour définir le [nombre minimal d’instances pour les services sans état](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) à considérer comme disponibles. Auparavant, cette valeur était 1 pour tous les services et n’était pas modifiable. Grâce à cette nouvelle vérification de la sécurité par service, vous pouvez vous assurer que vos services conservent un nombre minimal d’instances lors des mises à niveau de l’application, des mises à niveau de cluster et d’autres opérations de maintenance qui s’appuient sur les contrôles d’intégrité et de sécurité de Service Fabric.
+- **Amélioration de la sécurité de la mise à niveau pour les services sans état** : Pour garantir la disponibilité lors de la mise à niveau d’une application, nous avons introduit de nouvelles configurations pour définir le [nombre minimal d’instances pour les services sans état](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) à considérer comme disponibles. Auparavant, cette valeur était 1 pour tous les services et n’était pas modifiable. Grâce à cette nouvelle vérification de la sécurité par service, vous pouvez vous assurer que vos services conservent un nombre minimal d’instances lors des mises à niveau de l’application, des mises à niveau de cluster et d’autres opérations de maintenance qui s’appuient sur les contrôles d’intégrité et de sécurité de Service Fabric.
   
 - [**Limites des ressources des services utilisateur**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services) : Les utilisateurs peuvent configurer des limites de ressources pour les services utilisateur sur un nœud afin d’éviter des scénarios tels que l’épuisement des ressources des services système Service Fabric. 
   
 - [**Coût de déplacement de service très élevé**](./service-fabric-cluster-resource-manager-movement-cost.md) pour un type de réplica. Les réplicas avec un coût de déplacement « très élevé » sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon. Reportez-vous au document lié pour plus d’informations sur l’utilisation raisonnable du coût de déplacement « très élevé » et sur les considérations supplémentaires.
   
--  **Vérifications supplémentaires de la sécurité des clusters**  : Dans cette version, nous avons introduit une vérification de la sécurité du quorum de nœuds initiaux configurables. Cela vous permet de personnaliser le nombre de nœuds initiaux qui doivent être disponibles pendant les scénarios de gestion et de cycle de vie du cluster. Les opérations qui prennent le cluster en dessous de la valeur configurée sont bloquées. Aujourd’hui la valeur par défaut est toujours un quorum de nœuds initiaux. Par exemple, si vous avez 7 nœuds initiaux, une opération qui nécessiterait en dessous de 5 nœuds initiaux serait bloquée par défaut. Avec cette modification, vous pourriez définir la valeur de sécurité minimale sur 6, ce qui permettrait d’autoriser seulement un nœud initial d’être en panne à la fois.
+-  **Vérifications supplémentaires de la sécurité des clusters** : Dans cette version, nous avons introduit une vérification de la sécurité du quorum de nœuds initiaux configurables. Cela vous permet de personnaliser le nombre de nœuds initiaux qui doivent être disponibles pendant les scénarios de gestion et de cycle de vie du cluster. Les opérations qui prennent le cluster en dessous de la valeur configurée sont bloquées. Aujourd’hui la valeur par défaut est toujours un quorum de nœuds initiaux. Par exemple, si vous avez 7 nœuds initiaux, une opération qui nécessiterait en dessous de 5 nœuds initiaux serait bloquée par défaut. Avec cette modification, vous pourriez définir la valeur de sécurité minimale sur 6, ce qui permettrait d’autoriser seulement un nœud initial d’être en panne à la fois.
    
 - Support ajouté pour [**gérer le service de sauvegarde et de restauration dans Service Fabric Explorer**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md). Cela rend les activités suivantes possibles directement depuis SFX : découverte du service de sauvegarde et de restauration, création d’une politique de sauvegarde, activation des sauvegardes automatiques, prise de sauvegardes ad hoc, déclenchement d’opération de restauration et recherche de sauvegarde existantes.
 
@@ -152,7 +152,7 @@ Voici les nouveautés de Service Fabric 6.5 :
 
 - Ajout d’[événements de cycle de vie des réplicas](service-fabric-diagnostics-event-generation-operational.md#replica-events) pour les services avec état.
 
-- [Meilleure visibilité de l’état du nœud initial](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), y compris des avertissements au niveau du cluster si un nœud initial est incorrect ( *Inactif* , *Supprimé* ou *Inconnu* ).
+- [Meilleure visibilité de l’état du nœud initial](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), y compris des avertissements au niveau du cluster si un nœud initial est incorrect (*Inactif*, *Supprimé* ou *Inconnu*).
 
 - L’[outil de récupération d’urgence de l’application Service Fabric](https://github.com/Microsoft/Service-Fabric-AppDRTool) permet une récupération rapide en cas d’incident sur le cluster principal. Les données du cluster principal sont synchronisées en continu sur l’application secondaire de secours à l’aide de la restauration et de sauvegarde périodiques.
 

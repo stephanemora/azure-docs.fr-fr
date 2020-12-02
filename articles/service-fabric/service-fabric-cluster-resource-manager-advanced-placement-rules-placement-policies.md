@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485499"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Stratégies de positionnement pour les services Service Fabric
 Les stratégies de positionnement sont des règles supplémentaires qui peuvent être utilisées pour régir le positionnement des services dans certains scénarios spécifiques moins courants. Voici quelques exemples de ces scénarios :
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Actuellement, la stratégie est uniquement prise en charge pour les services sans état avec le [mode d’activation du package de service](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) ExclusiveProcess.
+> Actuellement, la stratégie est uniquement prise en charge pour les services sans état avec le [mode d’activation du package de service](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) ExclusiveProcess.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> L’utilisation d’une valeur élevée de [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) avec cette stratégie de positionnement peut mener à des mises à niveau d’application bloquées. Par exemple, si vous disposez d’un cluster à cinq nœuds et que vous définissez InstanceCount=10, vous aurez deux instances sur chaque nœud. Si vous définissez MinInstanceCount=9, une tentative de mise à niveau d’application peut être bloquée avec MinInstanceCount=8, cela peut être évité.
+> L’utilisation d’une valeur élevée de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) avec cette stratégie de positionnement peut mener à des mises à niveau d’application bloquées. Par exemple, si vous disposez d’un cluster à cinq nœuds et que vous définissez InstanceCount=10, vous aurez deux instances sur chaque nœud. Si vous définissez MinInstanceCount=9, une tentative de mise à niveau d’application peut être bloquée avec MinInstanceCount=8, cela peut être évité.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
