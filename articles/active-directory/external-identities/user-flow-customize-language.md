@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576510"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837088"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personnalisation de la langue dans Azure Active Directory (préversion)
 
@@ -146,7 +146,7 @@ Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d
 
 ## <a name="supported-languages"></a>Langues prises en charge
 
-Azure AD inclut la prise en charge des langues suivantes. Les langues de flux utilisateur sont fournies par Azure AD. Les langues de notification d’authentification multifacteur (MFA) sont fournies par [Azure MFA](../authentication/concept-mfa-howitworks.md).
+Azure AD inclut la prise en charge des langues suivantes. Les langues de flux utilisateur sont fournies par Azure AD. Les langues de notification d’authentification multifacteur (MFA) sont fournies par [Azure AD MFA](../authentication/concept-mfa-howitworks.md).
 
 | Langage              | Code langue | Flux d’utilisateurs         | Notifications MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

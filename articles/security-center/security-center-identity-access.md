@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371067"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967140"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -30,7 +30,7 @@ Le fait de surveiller les activités et les paramètres de configuration liés �
 
 Le Centre de sécurité Azure dispose de deux contrôles de sécurité dédiés pour vous assurer de respecter les exigences en matière d’identité et de sécurité de votre organisation : 
 
- - **Gérer l’accès et les autorisations** : nous vous encourageons à adopter le [modèle d’accès Privilège minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et à accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour effectuer leur travail. Ce contrôle comprend également des recommandations pour implémenter le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) pour contrôler l’accès à vos ressources.
+ - **Gérer l’accès et les autorisations** : nous vous encourageons à adopter le [modèle d’accès Privilège minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et à accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour effectuer leur travail. Ce contrôle comprend également des recommandations pour implémenter le [contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md) pour contrôler l’accès à vos ressources.
  
  - **Activer la MFA** : lorsque [MFA](https://www.microsoft.com/security/business/identity/mfa) est activée, vos comptes sont plus sûrs et les utilisateurs peuvent toujours s’authentifier auprès de presque n’importe quelle application avec l’authentification unique.
 
@@ -52,7 +52,7 @@ Il existe certaines limitations à la protection de l’identité et de l’acc�
 
 - Les recommandations d’identité ne sont pas disponibles pour les abonnements avec plus de 600 comptes. Dans ce cas, ces recommandations sont répertoriées sous « évaluations non disponibles ».
 - Les recommandations d’identité ne sont pas disponibles pour les agents d’administration du partenaire fournisseur de solutions Cloud (CSP).
-- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations** .
+- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations**.
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Authentification multifacteur (MFA) et Azure Active Directory 
 
@@ -65,11 +65,11 @@ L’activation de MFA nécessite des [autorisations de locataire Azure Active Di
 
 Pour connaître les comptes pour lesquels la MFA n’est pas activée, utilisez la requête Azure Resource Graph suivante. La requête retourne toutes les ressources défectueuses (comptes) de la recommandation « la MFA doit être activée sur les comptes avec des autorisations de propriétaire sur votre abonnement ». 
 
-1. Ouvrez l’ **Explorateur Azure Resource Graph** .
+1. Ouvrez l’**Explorateur Azure Resource Graph**.
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Lancement de la page de recommandations de l’Explorateur Azure Resource Graph**" :::
 
-1. Entrez la requête suivante et sélectionnez **Exécuter la requête** .
+1. Entrez la requête suivante et sélectionnez **Exécuter la requête**.
 
     ```kusto
     securityresources

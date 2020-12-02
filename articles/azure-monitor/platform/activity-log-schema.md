@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bda92667cfc3afb44a55adf3f3c12798a734ddc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522717"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 
@@ -40,7 +40,7 @@ Chaque événement dans le journal d’activité est associé à l’une des cat
 
 | Catégorie | Description |
 |:---|:---|
-| [Administrative](#administrative-category) | Contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais de Resource Manager. Les événements _créer une machine virtuelle_ et _supprimer un groupe de sécurité réseau_ sont deux exemples d’événements Administratif.<br><br>Chaque action effectuée par un utilisateur ou une application avec Resource Manager est modélisée comme une opération effectuée sur un type de ressource spécifique. Si le type d’opération est _Écrire_, _Supprimer_ ou _Action_, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administratif. Les événements de la catégorie Administratif incluent également les changements apportés au contrôle d’accès en fonction du rôle dans un abonnement. |
+| [Administrative](#administrative-category) | Contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais de Resource Manager. Les événements _créer une machine virtuelle_ et _supprimer un groupe de sécurité réseau_ sont deux exemples d’événements Administratif.<br><br>Chaque action effectuée par un utilisateur ou une application avec Resource Manager est modélisée comme une opération effectuée sur un type de ressource spécifique. Si le type d’opération est _Écrire_, _Supprimer_ ou _Action_, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administratif. Les événements de la catégorie Administratif incluent également les changements apportés au contrôle d’accès Azure en fonction du rôle dans un abonnement. |
 | [Service Health](#service-health-category) | Contient l’enregistrement de tous les incidents d’intégrité du service qui se sont produits dans Azure. L’événement _SQL Azure dans la région USA Est rencontre des temps d’arrêt_ est un exemple d’événement d’intégrité du service. <br><br>Les événements Service Health se présentent sous six types : _Action requise_, _Récupération assistée_, _Incident_, _Maintenance_, _Information_ ou _Sécurité_. Ces événements sont créés uniquement si une ressource dans l’abonnement est impactée par l’événement.
 | [Resource Health](#resource-health-category) | Contient l’enregistrement de tous les événements d’intégrité de ressource survenus dans vos ressources Azure. L’événement _L’état d’intégrité de la machine virtuelle est passé à Indisponible_ est un exemple d’événement d’intégrité de ressource.<br><br>Les événements d’intégrité de ressource peuvent représenter l’un de ces quatre états d’intégrité : _Disponible_, _Indisponible_, _Détérioré_ et _Inconnu_. En outre, les événements d’intégrité de ressource peuvent être classés dans la catégorie _Lancé par la plateforme_ ou _Lancé par l’utilisateur_. |
 | [Alert](#alert-category) | Contient l’enregistrement des activations d’alertes Azure. L’événement _Le % processeur sur ma machine virtuelle a dépassé 80 au cours des 5 dernières minutes_.|
@@ -50,7 +50,7 @@ Chaque événement dans le journal d’activité est associé à l’une des cat
 | [Stratégie](#policy-category) | Contient les enregistrements de toutes les opérations d’action à effet effectuées par Azure Policy. Les événements _Audit_ et _Refuser_ sont des exemples d’événements de stratégie. Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource. |
 
 ## <a name="administrative-category"></a>Catégorie Administrative
-Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
+Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès Azure en fonction du rôle dans un abonnement.
 
 ### <a name="sample-event"></a>Exemple d’événement
 ```json
@@ -143,7 +143,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 ### <a name="property-descriptions"></a>Description des propriétés
 | Nom de l’élément | Description |
 | --- | --- |
-| autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
+| autorisation |Objet blob des propriétés Azure RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
 | caller |Adresse e-mail de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
 | channels |L’une des valeurs suivantes : « Admin », « Opération » |
 | réclamations |Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
@@ -774,7 +774,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 
 | Nom de l’élément | Description |
 | --- | --- |
-| autorisation | Tableau de propriétés RBAC de l’événement. Pour les nouvelles ressources, il s’agit de l’action et de l’étendue de la requête ayant déclenché l’évaluation. Pour les ressources existantes, l’action est « Microsoft.Resources/checkPolicyCompliance/read ». |
+| autorisation | Tableau de propriétés Azure RBAC de l’événement. Pour les nouvelles ressources, il s’agit de l’action et de l’étendue de la requête ayant déclenché l’évaluation. Pour les ressources existantes, l’action est « Microsoft.Resources/checkPolicyCompliance/read ». |
 | caller | Pour les nouvelles ressources, il s’agit de l’identité qui a lancé un déploiement. Pour les ressources existantes, il s’agit du GUID du fournisseur de ressources Microsoft Azure Policy Insights. |
 | channels | Les événements Azure Policy utilisent uniquement le canal « Operation ». |
 | réclamations | Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378752"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834436"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -33,7 +33,7 @@ Cet article fournit des instructions pour la gestion des comptes d’accès d’
 Une organisation peut avoir recours à un compte d’accès d’urgence dans les situations décrites ici.
 
 - Les comptes d’utilisateurs sont fédérés, et la fédération est actuellement indisponible en raison d’un dysfonctionnement du réseau cellulaire ou d’une panne du fournisseur d’identité. Par exemple, si l’hôte du fournisseur d’identité dans votre environnement s’est arrêté de fonctionner, les utilisateurs risquent de ne pas pouvoir se connecter lors de la redirection d’Azure AD vers leur fournisseur d’identité.
-- Les administrateurs sont inscrits par le biais d’Azure Multi-Factor Authentication, et tous leurs appareils individuels ou le service sont indisponibles. Les utilisateurs peuvent se retrouver dans l’incapacité de procéder à l’authentification multifacteur pour activer un rôle. Par exemple, une panne de réseau cellulaire les empêche de répondre aux appels téléphoniques ou de recevoir des SMS, les deux seuls mécanismes d’authentification à leur disposition qu’ils ont enregistrés pour leur appareil.
+- Les administrateurs sont inscrits par le biais de l’authentification multifacteur Azure AD. Tous leurs appareils individuels ou le service sont indisponibles. Les utilisateurs peuvent se retrouver dans l’incapacité de procéder à l’authentification multifacteur pour activer un rôle. Par exemple, une panne de réseau cellulaire les empêche de répondre aux appels téléphoniques ou de recevoir des SMS, les deux seuls mécanismes d’authentification à leur disposition qu’ils ont enregistrés pour leur appareil.
 - La personne disposant de l’accès administrateur général le plus récent a quitté l’organisation. Azure AD empêche la suppression du dernier compte d’administrateur général, mais n’empêche pas ce compte d’être supprimé ou désactivé localement. Chacune de ces situations peut rendre impossible la récupération du compte par l’organisation.
 - Un événement imprévu, comme une catastrophe naturelle, au cours duquel les téléphones mobiles ou d’autres réseaux sont indisponibles. 
 
@@ -44,7 +44,7 @@ Créez plusieurs comptes d’accès d’urgence. Ces comptes doivent être des c
 Lors de la configuration de ces comptes, les conditions suivantes doivent être remplies :
 
 - Les comptes d’accès d’urgence ne doivent être associés à aucun utilisateur au sein de l’organisation. Veillez à ce que vos comptes d’accès d’urgence ne soient pas connectés à un matériel fourni à un employé et voyageant avec celui-ci, tel un téléphone mobile, un module de sécurité matériel, ou d’autres informations d’identification propres à l’employé. Cette précaution de sécurité couvre les cas où un employé n’est pas joignable alors que les informations d’identification doivent être fournies. Il est important de s’assurer que tous les appareils inscrits sont conservés dans un endroit sûr et connu, disposant de plusieurs moyens de communication avec Azure AD.
-- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte via une MFA locale, Azure MFA devrait être un mécanisme différent.  En revanche, si Azure MFA est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, telle que l’utilisation d’un accès conditionnel avec un fournisseur MFA tiers via des contrôles personnalisés.
+- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte par authentification MFA locale, l’authentification multifacteur Azure AD sera un mécanisme différent.  En revanche, si l’authentification multifacteur Azure AD est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, par exemple l’accès conditionnel avec un fournisseur MFA tiers au moyen de contrôles personnalisés.
 - L’appareil ou les informations d’identification ne doivent pas expirer ou faire potentiellement l’objet d’un nettoyage automatisé en raison d’une utilisation insuffisante.  
 - Vous devez rendre l’attribution de rôle d’administrateur général permanente pour vos comptes d’accès d’urgence. 
 
@@ -87,34 +87,34 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 ### <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle Contributeur de surveillance dans Azure Monitor.
-1. Sélectionnez **Tous les services** , entrez « log analytics » dans Rechercher, puis sélectionnez **Espaces de travail Log Analytics**.
+1. Sélectionnez **Tous les services**, entrez « log analytics » dans Rechercher, puis sélectionnez **Espaces de travail Log Analytics**.
 1. Sélectionnez un espace de travail.
 1. Dans votre espace de travail, sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
-    1. Sous **Ressource** , vérifiez que l’abonnement est celui auquel vous souhaitez associer la règle d’alerte.
-    1. Sous **Condition** , sélectionnez **Ajouter**.
+    1. Sous **Ressource**, vérifiez que l’abonnement est celui auquel vous souhaitez associer la règle d’alerte.
+    1. Sous **Condition**, sélectionnez **Ajouter**.
     1. Sélectionnez **Recherche de journal personnalisée** sous **Nom du signal**.
-    1. Sous **Requête de recherche** , entrez la requête suivante, en insérant les ID d’objet des deux comptes de secours.
+    1. Sous **Requête de recherche**, entrez la requête suivante, en insérant les ID d’objet des deux comptes de secours.
         > [!NOTE]
         > Pour chaque compte de secours supplémentaire que vous souhaitez inclure, ajoutez une autre valeur « or UserId == "ObjectGuid" » à la requête.
 
         ![Ajouter les ID d’objet des comptes de secours à une règle d’alerte](./media/security-emergency-access/query-image1.png)
 
-    1. Sous **Logique d’alerte** , entrez ce qui suit :
+    1. Sous **Logique d’alerte**, entrez ce qui suit :
 
         - Basé sur : Nombre de résultats
         - Opérateur : Supérieur à
         - Valeur de seuil : 0
 
-    1. Sous **Évalué en fonction de** , sélectionnez **Durée (en minutes)** pour indiquer la durée pendant laquelle la requête doit s’exécuter et **Fréquence (en minutes)** pour indiquer à quelle fréquence la requête doit s’exécuter. La fréquence doit être inférieure ou égale à la durée.
+    1. Sous **Évalué en fonction de**, sélectionnez **Durée (en minutes)** pour indiquer la durée pendant laquelle la requête doit s’exécuter et **Fréquence (en minutes)** pour indiquer à quelle fréquence la requête doit s’exécuter. La fréquence doit être inférieure ou égale à la durée.
 
         ![logique d’alerte](./media/security-emergency-access/alert-image2.png)
 
     1. Sélectionnez **Terminé**. Vous pouvez maintenant voir le coût mensuel estimé de cette alerte.
 1. Sélectionnez un groupe d’actions d’utilisateurs devant être avertis par l’alerte. Si vous souhaitez en créer un, consultez [Créer un groupe d’actions](#create-an-action-group).
 1. Pour personnaliser les notifications par e-mail envoyées aux membres du groupe d’actions, sélectionnez Actions sous **Personnaliser les actions**.
-1. Sous **Détails de l’alerte** , spécifiez le nom de la règle d’alerte et ajoutez une description facultative.
+1. Sous **Détails de l’alerte**, spécifiez le nom de la règle d’alerte et ajoutez une description facultative.
 1. Définissez le **Niveau de gravité** de l’événement. Nous vous recommandons de le définir sur **Critique(Grav 0)** .
-1. Sous **Activer la règle lors de la création** , conserver la valeur **Oui**.
+1. Sous **Activer la règle lors de la création**, conserver la valeur **Oui**.
 1. Pour désactiver les alertes pendant un certain temps, activez la case à cocher **Supprimer les alertes** et entrez la durée d’attente avant que les alertes ne soient à nouveau activées, puis sélectionnez **Enregistrer**.
 1. Cliquez sur **Créer une règle d'alerte**.
 

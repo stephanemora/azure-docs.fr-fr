@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629646"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015661"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -209,7 +209,7 @@ Maintenant que vous savez comment vous connecter au répartiteur IoT Edge MQTT, 
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Publier dans des rubriques définies par l’utilisateur et s’y abonner
 
-Dans cet article, vous allez utiliser un client nommé **sub_client** qui s’abonne à une rubrique et un autre client nommé **pub_client** qui publie dans une rubrique. Nous allons utiliser [l’authentification par clé symétrique](how-to-authenticate-downstream-device.md#symmetric-key-authentication) mais vous pouvez le faire avec [l’authentification par certificat X.509 autosigné](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou [l’authentification par certificat X.509 autosigné](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+Dans cet article, vous allez utiliser un client nommé **sub_client** qui s’abonne à une rubrique et un autre client nommé **pub_client** qui publie dans une rubrique. Nous allons utiliser [l’authentification par clé symétrique](how-to-authenticate-downstream-device.md#symmetric-key-authentication), mais vous pouvez le faire avec [l’authentification par certificat X.509 auto-signé](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou [l’authentification par certificat X.509 signé par autorité de certification](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Créer des clients Serveur de publication et Abonné
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745681"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239548"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Résoudre les problèmes de réplication interrégion
 
@@ -50,6 +50,12 @@ Cet article décrit les messages d’erreur et les résolutions qui peuvent vous
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Vérifiez si la réplication a été arrêtée ou si elle n’est pas initialisée et inactive (échec d’initialisation).    |
 |     `Cannot delete   source replication`    |     La suppression de la réplication du côté source n’est pas autorisée. Veillez à supprimer la réplication du côté destination.    |
+
+## <a name="errors-deleting-volume"></a>Erreurs de suppression du volume
+
+|     Message d’erreur    |     Résolution    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Supprimez la réplication avant de supprimer le volume. Consultez [Supprimer des réplications](cross-region-replication-delete.md). Cette opération nécessite de supprimer l’appairage avant de supprimer la réplication du volume. |
 | `Volume with replication cannot be deleted`  |  Supprimez la réplication avant de supprimer le volume. Consultez [Supprimer des réplications](cross-region-replication-delete.md). Cette opération nécessite de supprimer l’appairage avant de supprimer la réplication du volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erreurs de resynchronisation de volume
@@ -69,7 +75,7 @@ Cet article décrit les messages d’erreur et les résolutions qui peuvent vous
 
 * [Réplication entre régions](cross-region-replication-introduction.md)
 * [Configuration requise et considérations pour la réplication inter-région](cross-region-replication-requirements-considerations.md)
-* [Créer un peering de réplication](cross-region-replication-create-peering.md)
+* [Créer une réplication de volume](cross-region-replication-create-peering.md)
 * [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md)
 * [Gérer la reprise d’activité après sinistre](cross-region-replication-manage-disaster-recovery.md)
 * [Résoudre les problèmes de réplication inter-région](troubleshoot-cross-region-replication.md)

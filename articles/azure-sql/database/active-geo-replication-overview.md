@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125340"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985754"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -244,7 +244,7 @@ Pour mesurer le décalage ayant trait aux modifications de la base de données p
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestion de la géo-réplication active par programmation
 
-Comme indiqué plus haut, la géoréplication active peut aussi être gérée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](/rest/api/sql/) et les [applets de commande Azure PowerShell](/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
+Comme indiqué plus haut, la géoréplication active peut aussi être gérée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](/rest/api/sql/) et les [applets de commande Azure PowerShell](/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge du contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL : Gérer le basculement des bases de données uniques et mises en pool
 

@@ -5,19 +5,19 @@ description: Découvrez comment vous connecter à SQL Database, SQL Managed Inst
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 99af4d5711c70523053b37e19b08173f32bd117b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675124"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990106"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurer et gérer l’authentification Azure AD avec Azure SQL
 
@@ -61,7 +61,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 
 ## <a name="azure-ad-admin-with-a-server-in-sql-database"></a>Administrateur Azure AD avec serveur dans SQL Database
 
-Dans Azure (qui héberge SQL Database ou Azure Synapse), chaque [serveur](logical-servers.md) démarre avec un compte d’administrateur de serveur unique qui est l’administrateur de l’ensemble du serveur. Créez un deuxième compte Administrateur en tant que compte Azure AD. Cet utilisateur principal est créé en tant qu’utilisateur de base de données autonome dans la base de données MASTER du serveur. Les comptes administrateur de serveur sont des membres du rôle **db_owner** de chaque base de données utilisateur, puis saisissez chaque base de données utilisateur en tant utilisateur **dbo** . Pour plus d'informations sur les comptes administrateur, consultez [Gestion des bases de données et des connexions](logins-create-manage.md).
+Dans Azure (qui héberge SQL Database ou Azure Synapse), chaque [serveur](logical-servers.md) démarre avec un compte d’administrateur de serveur unique qui est l’administrateur de l’ensemble du serveur. Créez un deuxième compte Administrateur en tant que compte Azure AD. Cet utilisateur principal est créé en tant qu’utilisateur de base de données autonome dans la base de données MASTER du serveur. Les comptes administrateur de serveur sont des membres du rôle **db_owner** de chaque base de données utilisateur, puis saisissez chaque base de données utilisateur en tant utilisateur **dbo**. Pour plus d'informations sur les comptes administrateur, consultez [Gestion des bases de données et des connexions](logins-create-manage.md).
 
 Lorsque vous utilisez Azure Active Directory avec la géo-réplication, le compte administrateur de Microsoft Azure Active Directory doit être configuré pour le serveur principal et le serveur secondaire. Si un serveur ne dispose pas d’un administrateur Azure Active Directory, les utilisateurs Azure Active Directory reçoivent un message d’erreur `Cannot connect` au serveur.
 
@@ -73,7 +73,7 @@ Lorsque vous utilisez Azure Active Directory avec la géo-réplication, le com
 > [!IMPORTANT]
 > Suivez ces étapes uniquement si vous approvisionnez une instance Azure SQL Managed Instance. Cette opération peut être exécutée uniquement par l’administrateur global/de la société ou un administrateur de rôle privilégié dans Azure AD.
 >
-> Dans la **préversion publique** , vous pouvez affecter le rôle **Lecteurs de répertoire** à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité de l’instance gérée en tant que membre de ce groupe, ce qui vous permet d’approvisionner un administrateur Azure AD pour SQL Managed Instance. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
+> Dans la **préversion publique**, vous pouvez affecter le rôle **Lecteurs de répertoire** à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité de l’instance gérée en tant que membre de ce groupe, ce qui vous permet d’approvisionner un administrateur Azure AD pour SQL Managed Instance. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
 
 Votre instance SQL Managed Instance a besoin d’autorisations de lecture pour Azure AD afin d’effectuer correctement des tâches telles que l’authentification des utilisateurs via l’appartenance au groupe de sécurité ou la création de nouveaux utilisateurs. Pour ce faire, vous devez accorder l’autorisation SQL Managed Instance de lecture pour Azure AD. Vous pouvez effectuer cette opération dans le portail Azure ou à l’aide de PowerShell.
 
@@ -99,17 +99,17 @@ Pour accorder à votre instance SQL Managed Instance Azure AD une autorisation d
 
     ![Capture d'écran d'une notification confirmant que les autorisations de lecture Active Directory ont été correctement mises à jour pour l'instance gérée.](./media/authentication-aad-configure/success.png)
 
-6. Vous pouvez maintenant choisir votre administrateur Azure AD pour votre Instance SQL Managed Instance. Pour cela, à la page Administrateur Active Directory, sélectionnez la commande **Définir l’administrateur** .
+6. Vous pouvez maintenant choisir votre administrateur Azure AD pour votre Instance SQL Managed Instance. Pour cela, à la page Administrateur Active Directory, sélectionnez la commande **Définir l’administrateur**.
 
     ![Capture d'écran représentant la commande Définir l'administrateur en surbrillance sur la page d'administration d'Active Directory pour l'instance SQL Managed Instance sélectionnée.](./media/authentication-aad-configure/set-admin.png)
 
-7. Sur la page d’administration Azure AD, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner** .
+7. Sur la page d’administration Azure AD, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner**.
 
-   La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. Voir la liste des administrateurs pris en charge dans [Fonctionnalités et limitations Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations). Le contrôle d’accès basé sur les rôles (RBAC) s'applique uniquement au portail Azure et n’est pas propagé vers SQL Database, SQL Managed Instance ou Azure Synapse.
+   La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. Voir la liste des administrateurs pris en charge dans [Fonctionnalités et limitations Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations). Le contrôle d’accès basé sur les rôles Azure (Azure RBAC) s'applique uniquement au portail Azure et n’est pas propagé vers SQL Database, SQL Managed Instance ou Azure Synapse.
 
     ![Ajouter un administrateur Azure Active Directory](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
-8. En haut de la page Administrateur Active Directory, sélectionnez **Enregistrer** .
+8. En haut de la page Administrateur Active Directory, sélectionnez **Enregistrer**.
 
     ![Capture d'écran de la page d'administration d'Active Directory, avec le bouton Enregistrer sur la ligne supérieure en regard des boutons Définir l'administrateur et Supprimer l'administrateur.](./media/authentication-aad-configure/save.png)
 
@@ -118,7 +118,7 @@ Pour accorder à votre instance SQL Managed Instance Azure AD une autorisation d
 Après avoir approvisionné un administrateur Azure AD pour votre instance SQL Managed Instance, vous pouvez commencer à créer des principaux de serveur (connexions) Azure AD avec la syntaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Pour plus d’informations, consultez [Vue d’ensemble de SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
-> Pour supprimer un administrateur, en haut de la page Administrateur Active Directory, sélectionnez **Supprimer l’administrateur** , puis **Enregistrer** .
+> Pour supprimer un administrateur, en haut de la page Administrateur Active Directory, sélectionnez **Supprimer l’administrateur**, puis **Enregistrer**.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -240,24 +240,24 @@ Les deux procédures suivantes vous montrent comment approvisionner un administr
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans le coin supérieur droit, sélectionnez votre connexion pour développer une liste déroulante de répertoires Active Directories potentiels. Choisissez l’annuaire Active Directory approprié en tant qu’Azure AD par défaut. Cette étape lie l’association de l’abonnement avec Active Directory et le serveur, ce qui garantit que le même abonnement est utilisé à la fois pour Azure AD et le serveur.
 
-2. Recherchez et sélectionnez **Serveur SQL** .
+2. Recherchez et sélectionnez **Serveur SQL**.
 
     ![Rechercher et sélectionner des serveurs SQL](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
-    > Dans cette page, avant de choisir **Serveurs SQL** , vous pouvez sélectionner l **’étoile** en regard du nom pour ajouter la catégorie à vos *favoris* puis placer **Serveurs SQL** dans la barre de navigation gauche.
+    > Dans cette page, avant de choisir **Serveurs SQL**, vous pouvez sélectionner l **’étoile** en regard du nom pour ajouter la catégorie à vos *favoris* puis placer **Serveurs SQL** dans la barre de navigation gauche.
 
-3. Sur la page **SQL Server** , sélectionnez **Administrateur Active Directory** .
+3. Sur la page **SQL Server**, sélectionnez **Administrateur Active Directory**.
 
-4. À la page **Administrateur Active Directory** , sélectionnez **Définir l’administrateur** .
+4. À la page **Administrateur Active Directory**, sélectionnez **Définir l’administrateur**.
 
     ![Les serveurs SQL définissent l’administrateur Active Directory](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
 
-5. À la page **Ajouter un administrateur** , recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner** . (La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Consultez la liste des administrateurs de prise en charge dans la section **Fonctionnalités et limitations d’Azure AD** de l’article [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou d’Azure Synapse](authentication-aad-overview.md).) Le contrôle d'accès basé sur les rôles (RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server.
+5. À la page **Ajouter un administrateur**, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner**. (La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Consultez la liste des administrateurs de prise en charge dans la section **Fonctionnalités et limitations d’Azure AD** de l’article [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou d’Azure Synapse](authentication-aad-overview.md).) Le contrôle d'accès basé sur les rôles Azure (Azure RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server.
 
     ![Sélectionner un administrateur Azure Active Directory](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
-6. En haut de la page **Administrateur Active Directory** , sélectionnez **ENREGISTRER** .
+6. En haut de la page **Administrateur Active Directory**, sélectionnez **ENREGISTRER**.
 
     ![enregistrer l’administrateur](./media/authentication-aad-configure/save-admin.png)
 
@@ -266,7 +266,7 @@ La procédure de changement de l’administrateur peut prendre plusieurs minutes
    > [!NOTE]
    > Lors de la configuration de l’administrateur Azure AD, le nom du nouvel administrateur (utilisateur ou groupe) ne peut pas déjà être présent dans la base de données MASTER virtuelle en tant qu’utilisateur de l’authentification serveur. Si tel est le cas, la configuration de l’administrateur d’Azure AD échoue, annulant sa création et indiquant que cet administrateur (ce nom) existe déjà. Dans la mesure où un utilisateur de l’authentification serveur ne fait pas partie d’Azure AD, tout effort pour se connecter au serveur à l’aide de l’authentification Azure AD échoue.
 
-Pour supprimer un administrateur, en haut de la page **Administrateur Active Directory** , sélectionnez **Supprimer l’administrateur** , puis **Enregistrer** .
+Pour supprimer un administrateur, en haut de la page **Administrateur Active Directory**, sélectionnez **Supprimer l’administrateur**, puis **Enregistrer**.
 
 ### <a name="powershell-for-sql-database-and-azure-synapse"></a>PowerShell pour SQL Database et Azure Synapse
 
@@ -306,7 +306,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Serve
 ```
 
 > [!NOTE]
-> **L’ObjectID** Azure AD est requis lorsque le **DisplayName** n’est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName** , utilisez la section Active Directory du portail Azure Classic et affichez les propriétés d’un utilisateur ou d’un groupe.
+> **L’ObjectID** Azure AD est requis lorsque le **DisplayName** n’est pas unique. Pour récupérer les valeurs **ObjectID** et **DisplayName**, utilisez la section Active Directory du portail Azure Classic et affichez les propriétés d’un utilisateur ou d’un groupe.
 
 L’exemple suivant renvoie des informations sur l’administrateur Azure AD admin pour le serveur :
 
@@ -343,7 +343,7 @@ Pour plus d’informations sur les commandes CLI, consultez [az sql server](/cli
 Sur toutes les machines clientes à partir desquelles vos applications ou utilisateurs se connectent à SQL Database ou Azure Synapse à l’aide d’identités Azure AD, vous devez installer les logiciels suivants :
 
 - .NET Framework 4.6 ou version ultérieure à partir de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers).
-- Bibliothèque d’authentification Microsoft Active Directory pour SQL Server ( *ADAL.DLL* ). Voici les liens de téléchargement permettant d’installer la dernière version de SSMS, ODBC et le pilote OLE DB contenant la bibliothèque *ADAL.DLL* .
+- Bibliothèque d’authentification Microsoft Active Directory pour SQL Server (*ADAL.DLL*). Voici les liens de téléchargement permettant d’installer la dernière version de SSMS, ODBC et le pilote OLE DB contenant la bibliothèque *ADAL.DLL*.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
@@ -351,9 +351,9 @@ Sur toutes les machines clientes à partir desquelles vos applications ou utilis
 Vous pouvez répondre à ces exigences en procédant comme suit :
 
 - L’installation de la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) respecte la configuration requise de .NET Framework 4.6.
-  - SSMS installe la version x86 de *ADAL.DLL* .
-  - SSDT installe la version amd64 de *ADAL.DLL* .
-  - La dernière version de Visual Studio dans les [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n’installe pas la version amd64 nécessaire de *ADAL.DLL* .
+  - SSMS installe la version x86 de *ADAL.DLL*.
+  - SSDT installe la version amd64 de *ADAL.DLL*.
+  - La dernière version de Visual Studio dans les [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n’installe pas la version amd64 nécessaire de *ADAL.DLL*.
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD
 
@@ -367,7 +367,7 @@ Toutefois, l’utilisation de l’authentification Azure Active Directory avec S
 > [!WARNING]
 > Les caractères spéciaux comme le deux-points `:` ou l’esperluette `&`, lorsqu’ils sont inclus dans les instructions T-SQL `CREATE LOGIN` et `CREATE USER`, ne sont pas pris en charge.
 
-Pour créer un utilisateur de base de données autonome Azure AD (autre que l’administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD en tant qu’utilisateur avec au moins l’autorisation **MODIFIER UN UTILISATEUR** . Utilisez ensuite la syntaxe Transact-SQL suivante :
+Pour créer un utilisateur de base de données autonome Azure AD (autre que l’administrateur du serveur propriétaire de la base de données), connectez-vous à la base de données avec une identité Azure AD en tant qu’utilisateur avec au moins l’autorisation **MODIFIER UN UTILISATEUR**. Utilisez ensuite la syntaxe Transact-SQL suivante :
 
 ```sql
 CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
@@ -406,9 +406,9 @@ Pour plus d’informations sur la création d’utilisateurs de base de données
 > La suppression de l’administrateur Azure Active Directory pour le serveur empêche tout utilisateur de l’authentification Azure AD de se connecter au serveur. Si nécessaire, des utilisateurs Azure AD inutilisables peuvent être supprimés manuellement par un administrateur du service Base de données SQL.
 
 > [!NOTE]
-> Si vous recevez le message **Délai d’expiration de la connexion dépassé** , vous devrez peut-être définir le paramètre `TransparentNetworkIPResolution` de la chaîne de connexion sur la valeur false. Pour plus d’informations, consultez [Problème lié au délai d’expiration de la connexion avec .NET Framework 4.6.1 - TransparentNetworkIPResolution](/archive/blogs/dataaccesstechnologies/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution).
+> Si vous recevez le message **Délai d’expiration de la connexion dépassé**, vous devrez peut-être définir le paramètre `TransparentNetworkIPResolution` de la chaîne de connexion sur la valeur false. Pour plus d’informations, consultez [Problème lié au délai d’expiration de la connexion avec .NET Framework 4.6.1 - TransparentNetworkIPResolution](/archive/blogs/dataaccesstechnologies/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution).
 
-Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC** . À l'origine, les seules autorisations disponibles pour l'utilisateur sont celles qui sont accordées au rôle **PUBLIC** ou aux groupes Azure AD dont il est membre. Une fois que vous avez configuré un utilisateur de base de données autonome Azure AD, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d'informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](logins-create-manage.md).
+Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT** et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l'origine, les seules autorisations disponibles pour l'utilisateur sont celles qui sont accordées au rôle **PUBLIC** ou aux groupes Azure AD dont il est membre. Une fois que vous avez configuré un utilisateur de base de données autonome Azure AD, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d'informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](logins-create-manage.md).
 Un compte d’utilisateur de domaine fédéré importé dans un domaine managé comme utilisateur externe doit utiliser l’identité de domaine managé.
 
 > [!NOTE]
@@ -430,11 +430,11 @@ Les procédures suivantes vous montrent comment se connecter à SQLDatabase avec
 
 Utilisez cette méthode si vous vous êtes connecté à Windows à l’aide de vos informations d’identification Azure Active Directory à partir d’un domaine fédéré ou d’un domaine managé configuré pour une authentification unique fluide à des fins d’authentification directe et d’authentification par hachage du mot de passe. Pour plus d’informations, consultez la page [Authentification unique transparente Azure Active Directory](../../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Démarrez Management Studio ou Data Tools et, dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données** ), dans la zone **Authentification** , sélectionnez **Azure Active Directory – Authentification intégrée** . Aucun mot de passe n’est nécessaire ou ne peut être saisi, car les informations d’identification existantes sont présentées pour la connexion.
+1. Démarrez Management Studio ou Data Tools et, dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données**), dans la zone **Authentification**, sélectionnez **Azure Active Directory – Authentification intégrée**. Aucun mot de passe n’est nécessaire ou ne peut être saisi, car les informations d’identification existantes sont présentées pour la connexion.
 
    ![Sélectionner l’authentification intégrée AD][11]
 
-2. Sélectionnez le bouton **Options** puis, la page **Propriétés de connexion** , dans la zone **Se connecter à la base de données** , tapez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter. Pour plus d’informations, consultez l’article [Authentification Azure AD multifacteur](authentication-mfa-ssms-overview.md#azure-ad-domain-name-or-tenant-id-parameter) concernant les différences entre les propriétés de connexion pour SSMS 17.x et 18.x.
+2. Sélectionnez le bouton **Options** puis, la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, tapez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter. Pour plus d’informations, consultez l’article [Authentification Azure AD multifacteur](authentication-mfa-ssms-overview.md#azure-ad-domain-name-or-tenant-id-parameter) concernant les différences entre les propriétés de connexion pour SSMS 17.x et 18.x.
 
    ![Sélectionner le nom de la base de données][13]
 
@@ -444,15 +444,15 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 
 Utilisez cette méthode pour authentifier auprès de la base de données dans SQL Database ou SQL Managed Instance des utilisateurs d’identité uniquement cloud Azure AD, ou des personnes utilisant des identités hybrides Azure AD. Cette méthode prend en charge les utilisateurs désireux d’utiliser leurs informations d’identification Windows, mais dont l’ordinateur local n’est pas joint au domaine (par exemple, à l’aide d’un accès à distance). Dans ce cas, un utilisateur Windows peut indiquer ses compte de domaine et mot de passe, et s’authentifier auprès de la base de données dans SQL Database, SQL Managed Instance ou Azure Synapse.
 
-1. Démarrez Management Studio ou Data Tools et, dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données** ), dans la zone **Authentification** , sélectionnez **Azure Active Directory – Authentification par mot de passe** .
+1. Démarrez Management Studio ou Data Tools et, dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données**), dans la zone **Authentification**, sélectionnez **Azure Active Directory – Authentification par mot de passe**.
 
-2. Dans la zone **Nom d’utilisateur** tapez votre nom d’utilisateur Azure Active Directory au format **nom_utilisateur\@domaine.com** . Les noms d’utilisateurs doivent correspondre à un compte Azure Active Directory ou à un compte d’un domaine managé ou fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** tapez votre nom d’utilisateur Azure Active Directory au format **nom_utilisateur\@domaine.com**. Les noms d’utilisateurs doivent correspondre à un compte Azure Active Directory ou à un compte d’un domaine managé ou fédéré avec Azure Active Directory.
 
 3. Dans la zone **Mot de passe** , tapez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine managé/fédéré.
 
     ![Sélectionner l’authentification par mot de passe AD][12]
 
-4. Sélectionnez le bouton **Options** puis, la page **Propriétés de connexion** , dans la zone **Se connecter à la base de données** , tapez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter. (Voir le graphique dans l’option précédente.)
+4. Sélectionnez le bouton **Options** puis, la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, tapez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter. (Voir le graphique dans l’option précédente.)
 
 ### <a name="active-directory-interactive-authentication"></a>Authentification interactive Active Directory
 

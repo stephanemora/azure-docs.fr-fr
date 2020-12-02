@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535331"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920370"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -130,26 +130,24 @@ Voici quelques exemples :
 1. Expérience de classification utilisant l’AUC pondéré comme métrique principale avec le délai d’expiration (exprimé en minutes) défini sur 30 minutes et 2 plis de validation croisée.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec cinq plis de validation croisée.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Critères de sortie
+
+Vous pouvez définir quelques options dans votre AutoMLConfig pour terminer votre expérience.
+
+|Critères| description
+|----|----
+Aucun&nbsp;critère | si vous ne définissez pas de paramètres de sortie, l’expérience continuera jusqu’à ce que votre métrique principale ne progresse plus.
+Après&nbsp;une&nbsp;quantité&nbsp;de&nbsp;temps| Utilisez `experiment_timeout_minutes` dans vos paramètres pour définir la durée, en minutes, pendant laquelle votre expérience doit continuer à s’exécuter. <br><br> Pour éviter les échecs d’expiration du délai d’expérience, il y a un minimum de 15 minutes, ou de 60 minutes si la taille de ligne par colonne dépasse 10 millions.
+Un&nbsp;score&nbsp;a&nbsp;été&nbsp;atteint| Si vous utilisez `experiment_exit_score`, l’expérience se termine après qu’un score de métrique principal spécifié a été atteint.
+
 ## <a name="run-experiment"></a>Exécuter une expérience
 
 Pour le Machine Learning automatisé, vous devez créer un objet `Experiment`, qui est un objet nommé d’un `Workspace`, utilisé pour exécuter des expériences.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >Les dépendances sont d’abord installées sur une nouvelle machine.  Jusqu’à 10 minutes peuvent être nécessaires avant l’affichage de la sortie.
 >La définition de `show_output` sur `True` fait que la sortie est affichée sur la console.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Plusieurs exécutions enfants sur des clusters
 
-### <a name="exit-criteria"></a>Critères de sortie
+Les exécutions enfants d’expérimentation ML automatisé peuvent intervenir sur un cluster exécutant déjà une autre expérience. Toutefois, le minutage dépend du nombre de nœuds du cluster et de la disponibilité de ces nœuds pour exécuter une expérience différente.
 
-Vous pouvez définir quelques options pour terminer votre expérience.
+Chaque nœud du cluster fait office de machine virtuelle individuelle capable d’effectuer une seule exécution d’apprentissage ; en termes de ML automatisé, cela signifie une exécution enfant. Si tous les nœuds sont occupés, la nouvelle expérience est mise en file d’attente. Cela étant, si des nœuds sont disponibles, la nouvelle expérience procède à des exécutions enfants de ML automatisé en parallèle dans les nœuds/machines virtuelles disponibles.
 
-|Critères| description
-|----|----
-Aucun&nbsp;critère | si vous ne définissez pas de paramètres de sortie, l’expérience continuera jusqu’à ce que votre métrique principale ne progresse plus.
-Après&nbsp;une&nbsp;quantité&nbsp;de&nbsp;temps| Utilisez `experiment_timeout_minutes` dans vos paramètres pour définir la durée, en minutes, pendant laquelle votre expérience doit continuer à s’exécuter. <br><br> Pour éviter les échecs d’expiration du délai d’expérience, il y a un minimum de 15 minutes, ou de 60 minutes si la taille de ligne par colonne dépasse 10 millions.
-Un&nbsp;score&nbsp;a&nbsp;été&nbsp;atteint| Si vous utilisez `experiment_exit_score`, l’expérience se termine après qu’un score de métrique principal spécifié a été atteint.
+Pour faciliter la gestion des exécutions enfants et le moment où elles peuvent intervenir, nous vous recommandons de créer un cluster dédié par expérience et de faire correspondre le nombre de `max_concurrent_iterations` de votre expérience avec le nombre de nœuds du cluster. Ainsi, vous utilisez tous les nœuds du cluster en même temps que les exécutions/itérations enfants simultanées de votre choix.
+
+Configurez `max_concurrent_iterations` dans votre objet `AutoMLConfig`. S’il n’est pas configuré, par défaut, une seule exécution/itération enfant simultanée est autorisée par expérience.  
 
 ## <a name="explore-models-and-metrics"></a>Explorer les modèles et les métriques
 
@@ -348,7 +356,7 @@ Consultez [Évaluer les résultats d’expérience du machine learning automatis
 Pour obtenir un résumé de caractérisation et comprendre les fonctionnalités qui ont été ajoutées à un modèle particulier, consultez [Transparence de la caractérisation](how-to-configure-auto-features.md#featurization-transparency). 
 
 > [!NOTE]
-> Les algorithmes utilisés par le ML automatisé ont un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final des modèles recommandés, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que le fractionnement de test de formation, le fractionnement de validation de formation ou la validation croisée, le cas échéant. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences en raison de ces facteurs. 
+> Les algorithmes utilisés par le ML automatisé présentent un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final de modèle recommandé, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que les opérations train-test split, train-validation split ou la validation croisée, si nécessaire. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences, en raison de ces facteurs. 
 
 ## <a name="register-and-deploy-models"></a>Inscrire et déployer des modèles
 

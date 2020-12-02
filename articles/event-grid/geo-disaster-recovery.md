@@ -2,21 +2,21 @@
 title: Géorécupération d’urgence dans Azure Event Grid | Microsoft Docs
 description: Décrit comment Azure Event Grid prend en charge la géorécupération d’urgence (GeoDR) automatiquement.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105844"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980846"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Géorécupération d’urgence côté serveur dans Azure Event Grid
 Event Grid comprend à présent la géorécupération d’urgence (GeoDR) des métadonnées, non seulement pour les nouveaux, mais également pour tous les domaines, rubriques et abonnements aux événements existants. Si une région Azure entière tombe en panne, Event Grid disposera déjà de toutes vos métadonnées d’infrastructure liées aux événements synchronisées avec une région jumelée. Les nouveaux événements recommenceront à circuler sans intervention de votre part. 
 
 La récupération d’urgence est mesurée à l’aide de deux métriques :
 
-- [Objectif de point de récupération (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective) : minutes ou heures de données pouvant être perdues.
-- [Objectif de temps de récupération (RTO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective) : nombre d’heures pendant lesquelles le service peut être arrêté.
+- Objectif de point de récupération (RPO) : minutes ou heures de données pouvant être perdues.
+- Objectif de temps de récupération (RTO) : nombre de minutes ou d’heures pendant lesquelles le service peut être arrêté.
 
 Le basculement automatique d’Event Grid utilise différents objectifs RPO et RTO pour vos métadonnées (abonnements aux événements, etc.) et vos données (événements). Si vous avez besoin d’une spécification différente de celles ci-dessous, vous pouvez toujours implémenter votre propre [basculement côté client à l’aide des API d’intégrité de rubrique](custom-disaster-recovery.md).
 

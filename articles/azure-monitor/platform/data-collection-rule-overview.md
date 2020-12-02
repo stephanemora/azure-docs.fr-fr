@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107961"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315530"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Règles de collecte de données dans Azure Monitor (version préliminaire)
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
@@ -49,19 +49,7 @@ Chaque source de données a un type de source de données. Chaque type définit 
 
 
 ## <a name="limits"></a>Limites
-Le tableau suivant répertorie les limites qui s’appliquent actuellement à chaque règle de collecte de données.
-
-| Limite | Valeur |
-|:---|:---|
-| Nombre maximal de sources de données | 10 |
-| Nombre maximal de spécificateurs de compteur du compteur de performances | 100 |
-| Nombre maximal de caractères des noms des installations dans SysLog | 20 |
-| Nombre maximal de requêtes XPath dans le journal des événements | 100 |
-| Nombre maximal de flux de données | 10 |
-| Nombre maximal de flux de données | 10 |
-| Nombre maximal d’extensions | 10 |
-| Taille maximale des paramètres d’extension | 32 Kb |
-| Nombre maximal d’espaces de travail Log Analytics | 10 |
+Pour connaître les limites qui s’appliquent à chaque règle de collecte des données, consultez [Limites du service Azure Monitor](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Créer une DCR

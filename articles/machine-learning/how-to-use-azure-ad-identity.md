@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660149"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952537"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utiliser Azure AD Identity avec votre service web de machine learning dans Azure Kubernetes Service
 
@@ -32,13 +32,13 @@ Dans cette rubrique de guide pratique, vous allez apprendre à attribuer une ide
 
 ## <a name="create-and-install-an-azure-identity"></a>Créer et installer une identité Azure
 
-1. Pour déterminer si le contrôle d’accès en fonction du rôle (RBAC) est activé dans votre cluster AKS, utilisez la commande suivante :
+1. Pour déterminer si le contrôle d’accès en fonction du rôle (RBAC) Kubernetes est activé dans votre cluster AKS, utilisez la commande suivante :
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    Cette commande retourne la valeur `true` si le contrôle d’accès en fonction du rôle est activé. Cette valeur détermine la commande à utiliser à l’étape suivante.
+    Cette commande retourne la valeur `true` si le contrôle Kubernetes RBAC est activé. Cette valeur détermine la commande à utiliser à l’étape suivante.
 
 1. Installez [Azure AD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) dans votre cluster AKS.
 

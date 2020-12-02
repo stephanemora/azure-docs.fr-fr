@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595530"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016749"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -32,11 +32,11 @@ Il est essentiel de sélectionner un ID de série chronologique approprié. Le c
 > * Une *propriété immuable* : une fois créée, elle ne peut pas être modifiée.
 
 > [!TIP]
-> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-Connection-Device-ID***.
+> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-connection-device-id** _.
 
 Les bonnes pratiques principales à suivre sont les suivantes :
 
-* Sélectionnez une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). Dans de nombreux cas, il peut s'agir de l'ID de l’appareil, de l'ID du capteur ou de l'ID de l'étiquette de votre JSON.
+_ Sélectionnez une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). Dans de nombreux cas, il peut s'agir de l'ID de l’appareil, de l'ID du capteur ou de l'ID de l'étiquette de votre JSON.
 * L’ID de série chronologique doit être unique au niveau du nœud de feuille de votre [modèle de série chronologique](./concepts-model-overview.md).
 * La limite de caractères pour la chaîne de nom de propriété de l’ID de série chronologie est 128. Pour la valeur de propriété de l’ID de série chronologie, la limite de caractères est de 1 024.
 * Si une valeur de propriété unique pour l'ID de série chronologique est manquante, elle est traitée comme une valeur nulle et suit la même règle de la contrainte d'unicité.
@@ -86,4 +86,4 @@ Dans le portail Azure, vous pouvez ensuite saisir cette clé composite sous la f
 
 * Lisez les [Règles de mise à plat et d’échappement JSON](./concepts-json-flattening-escaping-rules.md) pour comprendre comment les événements seront stockés.
 
-* Planifier votre [environnement Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Planifier votre [environnement Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

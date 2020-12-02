@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487906"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920251"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notification de maintenance planifiée dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -46,22 +46,22 @@ Vous pouvez consulter la notification de maintenance planifiée sur le portail A
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Vérifier les notifications de maintenance planifiée à partir du portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Intégrité du service** .
+1. Dans le [portail](https://portal.azure.com) Azure, sélectionnez **Intégrité du service**.
 2. Sélectionnez l’onglet **Maintenance planifiée**
-3. Sélectionnez **Abonnement** , puis la **Région et le **Service** pour lesquels vous souhaitez vérifier la notification de maintenance planifiée. 
+3. Sélectionnez **Abonnement**, puis la **Région et le **Service** pour lesquels vous souhaitez vérifier la notification de maintenance planifiée. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
 
-1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service** .
-2. Dans la section **Alertes** , sélectionnez **Alertes d’intégrité** .
+1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
+2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
 3. Sélectionnez **+ Ajouter une alerte d’intégrité de service** et renseignez les champs.
 4. Renseignez les champs obligatoires. 
-5. Choisissez le **type d’événement** , puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner** .
-6. Dans **Groupes d’actions** , définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
+5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
+6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
 7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
 8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
 
-Pour obtenir des instructions détaillées sur la création d’ **alertes d’intégrité de service** , consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md).
+Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Puis-je annuler ou reporter la maintenance planifiée ?
 
@@ -78,7 +78,7 @@ Une erreur temporaire, aussi connue sous le nom de défaut temporaire, est une e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour toute question ou suggestion au sujet d’Azure Database pour PostgreSQL, envoyez un e-mail à l’équipe Azure Database pour PostgreSQL à l’adresse *AskAzureDBforMySQL@service.microsoft.com* .
+- Pour toute question ou suggestion ayant trait à l’utilisation d’Azure Database pour PostgreSQL, envoyez un e-mail à l’équipe Azure Database pour PostgreSQL à l’adresse AskAzureDBforPostgreSQL@service.microsoft.com.
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
 - [Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique](howto-troubleshoot-common-connection-issues.md)
 - [Gérer les erreurs temporaires et se connecter efficacement à Azure Database pour PostgreSQL](concepts-connectivity.md)

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016858"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004770"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connecter des appareils Azure IoT Edge à une application Azure IoT Central
 
@@ -63,9 +63,9 @@ Dans Azure IoT Central, vous pouvez importer un manifeste de déploiement pour c
 
 IoT Central modélise ainsi un appareil IoT Edge :
 
-* À chaque modèle d’appareil IoT Edge correspond un modèle de capacité d’appareil.
+* À chaque modèle d’appareil IoT Edge correspond un modèle d’appareil.
 * Un modèle de capacité de module est généré pour chaque module personnalisé listé dans le manifeste de déploiement.
-* Une relation est établie entre chaque modèle de capacité de module et un modèle de capacité d’appareil.
+* Une relation est établie entre chaque modèle de capacité de module et un modèle d’appareil.
 * Un modèle de capacité de module implémente des interfaces de module.
 * Chaque interface de module contient des données de télémétrie, des propriétés et des commandes.
 
@@ -73,7 +73,7 @@ IoT Central modélise ainsi un appareil IoT Edge :
 
 ## <a name="iot-edge-gateway-devices"></a>Appareils de passerelle IoT Edge
 
-Si vous avez sélectionné un appareil IoT Edge comme appareil de passerelle, vous pouvez ajouter des relations en aval aux modèles de capacité d’appareil pour les appareils que vous souhaitez connecter à l’appareil de passerelle.
+Si vous avez sélectionné un appareil IoT Edge comme appareil de passerelle, vous pouvez ajouter des relations en aval aux modèles d’appareil pour les appareils que vous souhaitez connecter à l’appareil de passerelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

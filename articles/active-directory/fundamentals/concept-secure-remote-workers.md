@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370200"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836680"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Répondre rapidement aux identités sécurisées avec Azure AD
 
@@ -75,7 +75,7 @@ Le tableau fournit les principales actions à entreprendre pour les abonnements 
 
 | Action recommandée | Detail |
 | --- | --- |
-| [Activer l’expérience d’inscription combinée pour Azure MFA et SSPR afin de simplifier l’inscription des utilisateurs](../authentication/howto-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. |
+| [Activer l’expérience d’inscription combinée pour Azure AD MFA et SSPR afin de simplifier l’inscription des utilisateurs](../authentication/howto-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. |
 | [Configurer les paramètres MFA pour votre organisation](../authentication/howto-mfa-getstarted.md) | Garantissez la protection des comptes contre toute compromission avec l’authentification multifacteur. |
 | [Activer la réinitialisation du mot de passe libre-service](../authentication/tutorial-enable-sspr.md) | Cette fonctionnalité réduit le nombre d’appels au support technique, ainsi que la perte de productivité, quand l’utilisateur ne parvient pas à se connecter à son appareil ou à une application. |
 | [Implémenter la réécriture du mot de passe](../authentication/tutorial-enable-sspr-writeback.md) (si vous utilisez des identités hybrides) | Autorisez la réécriture des changements de mot de passe dans le cloud vers un environnement local Windows Server Active Directory. |
@@ -105,11 +105,11 @@ Le tableau fournit les principales actions à entreprendre pour les abonnements 
 
 | Action recommandée | Detail |
 | --- | --- |
-| [Activer l’expérience d’inscription combinée pour Azure MFA et SSPR afin de simplifier l’inscription des utilisateurs](../authentication/howto-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. |
+| [Activer l’expérience d’inscription combinée pour Azure AD MFA et SSPR afin de simplifier l’inscription des utilisateurs](../authentication/howto-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. |
 | [Configurer les paramètres MFA pour votre organisation](../authentication/howto-mfa-getstarted.md) | Garantissez la protection des comptes contre toute compromission avec l’authentification multifacteur. |
 | [Activer la réinitialisation du mot de passe libre-service](../authentication/tutorial-enable-sspr.md) | Cette fonctionnalité réduit le nombre d’appels au support technique, ainsi que la perte de productivité, quand l’utilisateur ne parvient pas à se connecter à son appareil ou à une application. |
 | [Implémenter la réécriture du mot de passe](../authentication/tutorial-enable-sspr-writeback.md) (si vous utilisez des identités hybrides) | Autorisez la réécriture des changements de mot de passe dans le cloud vers un environnement local Windows Server Active Directory. |
-| [Activer les stratégies de protection des identités pour appliquer l’inscription MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gérez le déploiement d’Azure Multi-Factor Authentication (MFA). |
+| [Activer les stratégies de protection des identités pour appliquer l’inscription MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gérez le déploiement d’Azure AD Multi-Factor Authentication (MFA). |
 | [Activer les stratégies de risques liés aux utilisateurs et aux connexions d’Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Activez les stratégies relatives aux utilisateurs et aux connexions d’Identity Protection. La stratégie de connexion recommandée consiste à cibler des connexions à risque moyen et à exiger l’authentification MFA. Pour les stratégies d’utilisateur, il faut cibler les utilisateurs à risque élevé qui nécessitent un changement de mot de passe. |
 | Créer et activer des stratégies d’accès conditionnel | [MFA pour les administrateurs en vue de protéger les comptes auxquels sont attribués des droits d’administration.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Bloquez les protocoles d’authentification hérités en raison des risques accrus associés aux protocoles d’authentification hérités.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Exigez MFA pour la gestion Azure afin de protéger vos ressources privilégiées en exigeant une authentification multifacteur pour tous les utilisateurs qui accèdent aux ressources Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Activer la synchronisation du hachage de mot de passe](../hybrid/how-to-connect-password-hash-synchronization.md) (si vous utilisez des identités hybrides) | Fournir une redondance pour l’authentification et améliorer la sécurité (verrouillage intelligent, verrouillage IP et possibilité de détecter les fuites d’informations d’identification). |

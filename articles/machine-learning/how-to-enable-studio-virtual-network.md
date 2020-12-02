@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554663"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960000"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 

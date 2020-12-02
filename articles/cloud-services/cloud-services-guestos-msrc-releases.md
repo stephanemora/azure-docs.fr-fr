@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e84342bff0d2bbc3b034afc1b3c5e8a7dc4a9eb1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737827"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015525"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -29,10 +29,10 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 20-11 |  [4586793]  |  Dernière mise à jour cumulative | 6.25 | 10 novembre 2020 |
+|  Version 20-11 OOB |  [4594442]  |  Dernière mise à jour cumulative | 6.25 | 17 novembre 2020 |
+|  Version 20-11 OOB |  [4594441]  |  Dernière mise à jour cumulative | 5.49 | 19 novembre 2020 |
 |  Version 20-11 |  [4580325]  |  Mise à jour de Flash | 3.91, 4.84, 5.49, 6.25 | 13 octobre 2020 |
 |  Version 20-11 |  [4586768]  |  Mise à jour cumulative d’IE | 2.104, 3.91, 4.84 | 10 novembre 2020 |
-|  Version 20-11 |  [4586830]  |  Dernière mise à jour cumulative | 5.49 | 10 novembre 2020 |
 |  Version 20-11 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 2.104 | 10 novembre 2020 |
 |  Version 20-11 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.104 | 10 novembre 2020 |
 |  Version 20-11 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 4,84 | 10 novembre 2020 |
@@ -52,10 +52,10 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 20-11 |  [4494175]  |  Microcode | 5.49 | 1er septembre 2020 |
 |  Version 20-11 |  [4494174]  |  Microcode | 6.25 | 3 septembre 2020 |
 
-[4586793]: https://support.microsoft.com/kb/4586793
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
 [4580325]: https://support.microsoft.com/kb/4580325
 [4586768]: https://support.microsoft.com/kb/4586768
-[4586830]: https://support.microsoft.com/kb/4586830
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

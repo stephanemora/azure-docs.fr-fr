@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517714"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832528"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517714"
 | **Application Web**    | <ul><li>[Envisager d’utiliser un mécanisme d’authentification standard pour l’application web](#standard-authn-web-app)</li><li>[Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité ](#handle-failed-authn)</li><li>[Activer l’authentification adaptative ou avancée](#step-up-adaptive-authn)</li><li>[Garantir que les interfaces d’administration sont correctement verrouillées](#admin-interface-lockdown)</li><li>[Implémenter des fonctionnalités de mot de passe oublié en toute sécurité](#forgot-pword-fxn)</li><li>[Garantir que la stratégie de compte et de mot de passe est implémentée](#pword-account-policy)</li><li>[Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur](#controls-username-enum)</li></ul> |
 | **Sauvegarde de la base de données** | <ul><li>[Si possible, utiliser l’authentification Windows pour la connexion à SQL Server](#win-authn-sql)</li><li>[Si possible, utiliser l’authentification Azure Active Directory pour la connexion à SQL Database](#aad-authn-sql)</li><li>[Lorsque le mode d’authentification SQL est utilisé, garantir que la stratégie de compte et de mot de passe est appliquée sur SQL Server](#authn-account-pword)</li><li>[Ne pas utiliser l’authentification SQL dans des bases de données autonomes](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Utiliser les informations d’authentification par appareil à l’aide des jetons SAP](#authn-sas-tokens)</li></ul> |
-| **Délimitation d’approbation Azure** | <ul><li>[Activer Azure Multi-Factor Authentication pour les administrateurs Azure](#multi-factor-azure-admin)</li></ul> |
+| **Délimitation d’approbation Azure** | <ul><li>[Activer Azure AD Multi-Factor Authentication pour les administrateurs Azure](#multi-factor-azure-admin)</li></ul> |
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès anonyme au cluster Service Fabric](#anon-access-cluster)</li><li>[Garantir que le certificat client à nœud Service Fabric est différent du certificat nœud à nœud](#fabric-cn-nn)</li><li>[Utiliser AAD pour authentifier les clients sur les clusters Service Fabric](#aad-client-fabric)</li><li>[Garantir que les certificats Service Fabric proviennent d’une autorité de certification approuvée](#fabric-cert-ca)</li></ul> |
 | **Serveur d’identité** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par IdentityServer](#standard-authn-id)</li><li>[Remplacer le cache de jetons IdentityServer par défaut par une solution évolutive](#override-token)</li></ul> |
 | **Délimitation d’approbation machine** | <ul><li>[Garantir que les fichiers binaires de l’application déployée sont signés numériquement](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517714"
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Étapes** | <p>Le modèle de sécurité Event Hubs est basé sur une combinaison de jetons de signature d’accès partagé (SAP) et d’éditeurs d’événements. Le nom de l’éditeur représente l’ID de l’appareil qui reçoit le jeton. Cela permet d’associer les jetons générés aux appareils respectifs.</p><p>Tous les messages sont marqués avec le donneur d’ordre côté service autorisant la détection de tentatives d’usurpation d’origine en charge utile. Lors de l’authentification des appareils, générez un jeton SAP par appareil limité à un éditeur unique.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Activer Azure Multi-Factor Authentication pour les administrateurs Azure
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Activer Azure AD Multi-Factor Authentication pour les administrateurs Azure
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517714"
 | **Phase SDL**               | Déploiement |
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Présentation d'Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Informations de référence**              | [Présentation d’Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Étapes** | <p>L’authentification multi-facteur est une méthode d’authentification qui nécessite plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Cette authentification fonctionne en nécessitant au minimum deux des méthodes de vérification suivantes :</p><ul><li>Un élément que vous connaissez (généralement un mot de passe)</li><li>Un élément que vous possédez (un appareil de confiance qui n'est pas facilement dupliqué, comme un téléphone)</li><li>Un élément vous concernant particulièrement (biométrie)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Restreindre l’accès anonyme au cluster Service Fabric

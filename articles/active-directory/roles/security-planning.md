@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378633"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834453"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -114,7 +114,7 @@ Des comptes d’accès d’urgence permettent de restreindre les accès privilé
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activez l’authentification multifacteur et inscrivez tous les autres comptes d’administrateur non fédérés mono-utilisateurs hautement privilégiés.
 
-Exigez Azure multi-Factor Authentication (MFA) lors de la connexion de tous les utilisateurs individuels auxquels sont affectés un ou plusieurs rôles d’administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur de services Exchange et Administrateur de services SharePoint. Suivez le guide pour activer [l’authentification multifacteur (MFA) pour vos comptes Administrateur](../authentication/howto-mfa-userstates.md) et vérifier que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations aux étapes 2 et 3 du guide [Protéger l’accès aux données et services dans Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exigez Azure AD Multi-Factor Authentication (MFA) lors de la connexion de tous les utilisateurs individuels auxquels sont affectés un ou plusieurs rôles d’administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur de services Exchange et Administrateur de services SharePoint. Suivez le guide pour activer [l’authentification multifacteur (MFA) pour vos comptes Administrateur](../authentication/howto-mfa-userstates.md) et vérifier que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations aux étapes 2 et 3 du guide [Protéger l’accès aux données et services dans Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Étape 2 : Atténuer les attaques fréquemment utilisées
 
@@ -135,7 +135,7 @@ Avec la prolifération des appareils personnels (BYOD) et du télétravail, ains
 * Assurez-vous que vos comptes utilisés à des fins d’administration présentent les caractéristiques suivantes :
 
   * disposent d’adresses e-mail professionnelles ;
-  * sont inscrits à Azure Multi-Factor Authentication ou utilisent une authentification multifacteur localement.
+  * sont inscrits à Azure AD Multi-Factor Authentication ou utilisent une authentification multifacteur localement.
 * Demandez aux utilisateurs leur justification d’entreprise d’accès administrateur.
 * Supprimez l’accès administrateur pour les personnes et les services n’en ayant pas besoin.
 
@@ -240,7 +240,7 @@ Nous vous recommandons :
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Poursuivre le lancement d’une authentification renforcée pour tous les utilisateurs
 
-Demandez aux utilisateurs fortement exposés de recourir à une authentification forte et moderne, telle qu’Azure MFA ou Windows Hello. Voici quelques exemples d’utilisateurs fortement exposés :
+Demandez aux utilisateurs fortement exposés de recourir à une authentification forte et moderne, telle qu’Azure AD MFA ou Windows Hello. Voici quelques exemples d’utilisateurs fortement exposés :
 
 * Cadres supérieurs
 * Responsables de haut niveau

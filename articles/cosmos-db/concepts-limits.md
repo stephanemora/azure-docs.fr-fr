@@ -5,15 +5,16 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/19/2020
+ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491815"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964658"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cet article fournit une vue d’ensemble des quotas par défaut appliqués à différentes ressources dans Azure Cosmos DB.
@@ -41,26 +42,48 @@ Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de
 > [!NOTE]
 > Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
 
-Un conteneur Cosmos (ou une base de données à débit partagé) doit avoir un débit minimum de 400 RU/s. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
+### <a name="minimum-throughput-limits"></a>Limites de débit minimal
 
-* Le débit maximal provisionné jusqu’ici sur le conteneur. Par exemple, si votre débit a été porté à 50 000 RU/s, le plus petit débit approvisionné possible serait de 500 RU/s.
-* Stockage actuel en Go dans le conteneur. Par exemple, si votre conteneur a 100 Go de stockage, le plus petit débit approvisionné possible est de 1 000 RU/s. **Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
-* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 RU/s par conteneur. Par exemple, si vous avez créé 5 conteneurs au sein d’une base de données à débit partagé, le débit doit être au moins de 500 RU/s.
+Un conteneur Cosmos (ou une base de données à débit partagé) doit avoir un débit minimum de 400 RU/s. Au fur et à mesure que le conteneur augmente, Cosmos DB requiert un débit minimal pour s’assurer que la base de données ou le conteneur dispose de suffisamment de ressources pour ses opérations.
 
 Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). 
 
-> [!NOTE]
-> Dans certains cas, vous pourrez peut-être réduire le débit à moins de 10 %. Utilisez l’API pour récupérer le nombre minimal d’unités de requête par conteneur.
+La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour voir l’historique du débit provisionné (RU/s) et du stockage sur une ressource. 
+
+#### <a name="minimum-throughput-on-container"></a>Débit minimal sur un conteneur 
+
+Pour estimer le débit minimal requis d’un conteneur avec un débit manuel, recherchez la valeur maximale :
+
+* 400 RU/s 
+* Stockage actuel en Go * 10 RU/s
+* Valeur RU/s la plus élevée approvisionnée sur le conteneur / 100
+
+Exemple : Supposons que vous disposiez d’un conteneur approvisionné avec 400 RU/s et un stockage de 0 Go. Vous augmentez le débit à 50 000 RU/s et importez 20 Go de données. La valeur RU/s minimale est maintenant `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Au fil du temps, le stockage atteint 200 Go. La valeur RU/s minimale est maintenant `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2 000 RU/s. 
+
+**Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Débit minimal sur une base de données à débit partagé 
+Pour estimer le débit minimal requis d’une base de données à débit partagé avec un débit manuel, recherchez la valeur maximale :
+
+* 400 RU/s 
+* Stockage actuel en Go * 10 RU/s
+* Valeur RU/s la plus élevée approvisionnée sur la base de données / 100
+* 400 + MAX (nombre de conteneurs - 25, 0) * 100 RU/s
+
+Exemple : Supposons que vous disposiez d’une base de données configurée avec 400 RU/s, 15 Go de stockage et 10 conteneurs. La valeur RU/s minimale est `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. En présence de 30 conteneurs dans la base de données, la valeur RU/s minimale serait `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
+
+**Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
 
 En résumé, voici les limites minimales de RU provisionnées. 
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre minimal d’unités de requête par conteneur ([mode provisionné avec débit dédié](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Nombre minimal d’unités de requête par base de données ([mode provisionné avec débit partagé](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Nombre minimal d’unités de requête par conteneur au sein d’une base de données de débit partagé | 100 |
+| Nombre minimal de RU/spar conteneur ([mode approvisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Valeur RU/s minimale par base de données ([mode approvisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s pour les 25 premiers conteneurs. 100 RU/s supplémentaires pour chaque conteneur ensuite. |
 
-Cosmos DB prend en charge la mise à l’échelle élastique du débit (RU) par conteneur ou base de données par le biais des kits SDK ou du portail. Chaque conteneur peut être mis à l’échelle de façon synchrone et immédiate au sein d’une plage d’échelle de facteur 10 à 100 entre les valeurs minimale et maximale. Si la valeur de débit demandée est en dehors de la plage, la mise à l’échelle est exécutée de façon asynchrone. La mise à l’échelle asynchrone peut prendre quelques minutes à quelques heures selon le débit demandé et la taille de stockage de données dans le conteneur.  
+Cosmos DB prend en charge la mise à l’échelle par programmation du débit (RU/s) par conteneur ou base de données via les kits de développement logiciel (SDK) ou le portail.    
+
+Selon les paramètres de valeur RU/s approvisionnée et de ressource, chaque ressource peut être mise à l’échelle de façon synchrone et immédiate entre la valeur RU/s minimale et jusqu’à 100x la valeur RU/s minimale. Si la valeur de débit demandée est en dehors de la plage, la mise à l’échelle est exécutée de façon asynchrone. La mise à l’échelle asynchrone peut prendre quelques minutes à quelques heures selon le débit demandé et la taille de stockage de données dans le conteneur.  
 
 ### <a name="serverless"></a>Sans serveur
 
@@ -172,9 +195,9 @@ Azure Cosmos DB gère les métadonnées système pour chaque compte. Ces métado
 
 | Ressource | Limite par défaut |
 | --- | --- |
-|Taux maximal de création de collections par minute| 5|
-|Taux maximal de création de bases de données par minute|   5|
-|Débit de mise à jour approvisionné maximal par minute| 5|
+|Taux maximal de création de collections par minute|    100|
+|Taux maximal de création de bases de données par minute|    100|
+|Débit de mise à jour approvisionné maximal par minute|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites du débit approvisionné en mode de mise à l’échelle automatique
 

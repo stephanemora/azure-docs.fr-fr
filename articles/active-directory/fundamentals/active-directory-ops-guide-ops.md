@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370948"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836833"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Guide de référence des opérations générales Azure Active Directory
 
@@ -43,7 +43,7 @@ La gestion d’Azure Active Directory nécessite l’exécution continue de tâc
 | Surveiller les journaux hybrides : Agents de l’authentification directe | Équipe des opérations IAM |
 | Surveiller les journaux hybrides : Service de réécriture des mots de passe | Équipe des opérations IAM |
 | Surveiller les journaux hybrides : Passerelle de protection des mots de passe locale | Équipe des opérations IAM |
-| Surveiller les journaux hybrides : Extension NPS Azure MFA (le cas échéant) | Équipe des opérations IAM |
+| Surveiller les journaux hybrides : Extension NPS Azure AD MFA (le cas échéant) | Équipe des opérations IAM |
 
 Quand vous passerez votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui en sont dépourvues, ou modifier la propriété des tâches avec propriétaires qui ne sont pas conformes aux suggestions ci-dessus.
 
@@ -86,7 +86,7 @@ Lorsque vous surveillez l’intégrité de votre environnement, vous devez trait
 
 ### <a name="on-premises-agents-logs"></a>Journaux des agents locaux
 
-Certains services de gestion des accès et des identités nécessitent que des agents locaux activent des scénarios hybrides. Il s’agit notamment de la réinitialisation de mot de passe, de l’authentification directe (PTA), du Proxy d’application Azure AD et de l’extension NPS pour Azure MFA. Il est essentiel que l’équipe des opérations établisse un point de référence et surveille l’intégrité de ces composants en archivant et en analysant les journaux des agents des composants à l’aide de solutions telles que System Center Operations Manager ou SIEM. Il est tout aussi important que votre équipe des opérations Infosec ou de support technique sache comment résoudre les modèles d’erreurs.
+Certains services de gestion des accès et des identités nécessitent que des agents locaux activent des scénarios hybrides. Il s’agit notamment de la réinitialisation de mot de passe, de l’authentification directe (PTA), du Proxy d’application Azure AD et de l’extension NPS pour Azure AD MFA. Il est essentiel que l’équipe des opérations établisse un point de référence et surveille l’intégrité de ces composants en archivant et en analysant les journaux des agents des composants à l’aide de solutions telles que System Center Operations Manager ou SIEM. Il est tout aussi important que votre équipe des opérations Infosec ou de support technique sache comment résoudre les modèles d’erreurs.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lectures recommandées pour les journaux des agents locaux
 
@@ -94,7 +94,7 @@ Certains services de gestion des accès et des identités nécessitent que des a
 - [Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Présentation des connecteurs de proxy d’application Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect : Résoudre les problèmes liés à l’authentification directe](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Résoudre les codes d’erreur liés à l’extension NPS pour Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
+- [Résoudre les codes d’erreur liés à l’extension NPS pour Azure AD MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Gestion des agents locaux
 
@@ -166,9 +166,9 @@ Le modèle de niveau administratif Active Directory a été conçu pour protége
 
 Le [modèle de niveau](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) se compose de trois niveaux et inclut uniquement des comptes d’administrateur, pas des comptes d’utilisateur standard.
 
-- **Niveau 0**  : contrôle direct des identités d’entreprise dans l’environnement. Le niveau 0 inclut les comptes, groupes et autres ressources qui ont un contrôle administratif direct ou indirect de la forêt Active Directory, des domaines ou des contrôleurs de domaine et de toutes les ressources qui y sont contenues. Le degré de sécurité de toutes les ressources du niveau 0 est équivalent car elles se contrôlent toutes efficacement les unes les autres.
-- **Niveau 1**  : contrôle des serveurs et applications d’entreprise. Les ressources du niveau 1 incluent des systèmes d’exploitation serveur, des services cloud et des applications d’entreprise. Les comptes d’administrateur du niveau 1 ont un contrôle administratif d’une valeur commerciale significative sur ces ressources. Les administrateurs de serveur qui gèrent ces systèmes d’exploitation avec la possibilité d’exercer un impact sur tous les services d’entreprise sont un exemple de rôle courant.
-- **Niveau 2**  : contrôle des stations de travail et appareils des utilisateurs. Les comptes d’administrateur du niveau 2 ont un contrôle administratif d’une valeur commerciale significative sur les stations de travail et appareils des utilisateurs. Exemples : les administrateurs du support technique des ordinateurs et de l’assistance, car ils peuvent exercer un impact sur l’intégrité de presque toutes les données utilisateur.
+- **Niveau 0** : contrôle direct des identités d’entreprise dans l’environnement. Le niveau 0 inclut les comptes, groupes et autres ressources qui ont un contrôle administratif direct ou indirect de la forêt Active Directory, des domaines ou des contrôleurs de domaine et de toutes les ressources qui y sont contenues. Le degré de sécurité de toutes les ressources du niveau 0 est équivalent car elles se contrôlent toutes efficacement les unes les autres.
+- **Niveau 1** : contrôle des serveurs et applications d’entreprise. Les ressources du niveau 1 incluent des systèmes d’exploitation serveur, des services cloud et des applications d’entreprise. Les comptes d’administrateur du niveau 1 ont un contrôle administratif d’une valeur commerciale significative sur ces ressources. Les administrateurs de serveur qui gèrent ces systèmes d’exploitation avec la possibilité d’exercer un impact sur tous les services d’entreprise sont un exemple de rôle courant.
+- **Niveau 2** : contrôle des stations de travail et appareils des utilisateurs. Les comptes d’administrateur du niveau 2 ont un contrôle administratif d’une valeur commerciale significative sur les stations de travail et appareils des utilisateurs. Exemples : les administrateurs du support technique des ordinateurs et de l’assistance, car ils peuvent exercer un impact sur l’intégrité de presque toutes les données utilisateur.
 
 Verrouillez l’accès aux composants d’identité locaux tels qu’Azure AD Connect, AD FS et les services SQL de la même manière que pour les contrôleurs de domaine.
 

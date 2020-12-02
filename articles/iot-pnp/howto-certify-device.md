@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748472"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980233"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifier des appareils IoT Plug-and-Play
 
@@ -44,6 +44,10 @@ Pour répondre aux exigences de certification, votre appareil doit :
 - Publier le modèle et toutes les interfaces requises dans le [référentiel de modèles public IoT Azure](https://devicemodels.azureiotsolutions.com/)
 - Envoyer l’ID de modèle lors de l’[inscription DPS](concepts-developer-guide-device-csharp.md#dps-payload) dans la charge utile de configuration DPS.
 - Annoncer l’ID de modèle lors de la [connexion MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Tous les modèles d’appareils doivent être compatibles avec [Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> Actuellement, Azure IoT Central ne prend pas entièrement en charge les types de données DTDL **Array** et **Geospatial**.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Tester avec la CLI de l’extension Azure IoT
 
@@ -182,12 +186,12 @@ Les informations du profil d’entreprise sont utilisées dans la description de
 
 Pour certifier un appareil, vous devez d’abord créer un projet.
 
-Accédez au [portail de certification](https://aka.ms/acdp). Sur la page **Projets** , sélectionnez *+ Créer un projet* . Entrez ensuite le nom du projet, le nom de l’appareil, puis sélectionnez une classe d’appareil.
+Accédez au [portail de certification](https://aka.ms/acdp). Sur la page **Projets**, sélectionnez *+ Créer un projet*. Entrez ensuite le nom du projet, le nom de l’appareil, puis sélectionnez une classe d’appareil.
 
 Les informations produit que vous fournissez lors du processus de certification se répartissent en quatre catégories :
 
 - Informations sur l'appareil. Collecte des informations sur l’appareil, telles que son nom, sa description, ses certifications et son système d’exploitation.
-- Guide de **prise en main** . Vous devez soumettre ce guide sous forme de document PDF pour qu’il soit approuvé par l’administrateur système avant de publier l’appareil.
+- Guide de **prise en main**. Vous devez soumettre ce guide sous forme de document PDF pour qu’il soit approuvé par l’administrateur système avant de publier l’appareil.
 - Détails marketing Fournissez des informations marketing adaptées aux clients pour votre appareil. Les informations marketing comprennent une description, une photo et les distributeurs.
 - Autres certifications de l’industrie. Cette section facultative vous permet de fournir des informations supplémentaires sur les autres certifications dont dispose l’appareil.
 
@@ -203,9 +207,9 @@ Trois étapes sont à effectuer :
 
 ### <a name="submit-and-publish"></a>Soumettre et publier
 
-La dernière étape requise consiste à soumettre le projet pour révision. Cette étape indique à un membre de l’équipe Azure Certified Device de vérifier l’exhaustivité de votre projet, y compris les détails de l’appareil et du marketing, ainsi que le guide de prise en main. Un membre de l’équipe peut vous contacter à l’adresse e-mail professionnelle précédemment fournie avec des questions ou modifier les requêtes avant l’approbation.
+La dernière étape requise consiste à soumettre le projet pour revue. Cette étape indique à un membre de l’équipe Azure Certified Device de vérifier que votre projet contient toutes les informations requises, notamment les détails de l’appareil, les données marketing et le guide de démarrage. Il est possible qu’un membre de l’équipe vous envoie des questions à l’adresse e-mail professionnelle précédemment fournie ou modifie les requêtes avant l’approbation.
 
-Si votre appareil nécessite une validation manuelle supplémentaire dans le cadre de la certification, vous recevrez un avis à ce stade.
+Si votre appareil nécessite une validation manuelle supplémentaire dans le cadre de la certification, vous recevrez une notification au moment opportun.
 
 Lorsqu’un appareil est certifié, vous pouvez choisir de publier les détails de votre produit dans le catalogue Azure Certified Device à l’aide de la fonctionnalité **Publier dans le catalogue** dans la page de résumé du produit.
 

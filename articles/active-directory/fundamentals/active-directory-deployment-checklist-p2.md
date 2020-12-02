@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077963"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836918"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -57,7 +57,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | [Déployer l’authentification multifacteur Azure AD à l’aide de stratégies d’accès conditionnel](../authentication/howto-mfa-getstarted.md) | Demandez aux utilisateurs d’utiliser la vérification en deux étapes quand ils accèdent à des applications sensibles à l’aide de stratégies d’accès conditionnel. | Azure AD Premium P1 |
 | [Activer Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Activez le suivi des connexions risquées et des informations d’identification compromises pour les utilisateurs de votre organisation. | Azure AD Premium P2 |
 | [Utiliser les détections de risques pour déclencher l’authentification multifacteur et le changement du mot de passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Activez une automatisation pour déclencher des événements comme l’authentification multifacteur, la réinitialisation du mot de passe et le blocage des connexions en fonction du risque. | Azure AD Premium P2 |
-| [Activer l’inscription combinée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. | Azure AD Premium P1 |
+| [Activer l’inscription combinée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Phase 2 : Importer des utilisateurs, activer la synchronisation et gérer des appareils
 

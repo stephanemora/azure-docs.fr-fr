@@ -6,18 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 6c93408bce8da9f8cd0e4a0d0bab615e2bd362dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267324"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844282"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Comment créer une superposition à l’aide de Media Encoder Standard
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp.
+Media Encoder Standard vous permet de superposer une image, un fichier audio ou une autre vidéo sur une autre vidéo. L’entrée doit spécifier un seul fichier. Vous pouvez spécifier un fichier image au format JPG, PNG, GIF ou BMP, un fichier audio (par exemple un fichier WAV, MP3, WMA ou M4A), ou un fichier vidéo.
+
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -32,7 +33,7 @@ Media Encoder Standard vous permet de superposer une image sur une vidéo exista
     "AccountName": "",
     "ArmAadAudience": "https://management.core.windows.net/",
     "ArmEndpoint": "https://management.azure.com/",
-    "Region": "",
+    "Location": "",
     "ResourceGroup": "",
     "SubscriptionId": ""
     }

@@ -1,17 +1,17 @@
 ---
 title: Stratégie de prise en charge des clusters Azure Red Hat OpenShift 4
-description: Comprendre les exigences de la stratégie de prise en charge pour Red Hat OpenShift 4.
+description: Comprendre les exigences de la stratégie de prise en charge pour Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628218"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521136"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Stratégie de prise en charge d’Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Certaines configurations pour les clusters Azure Red Hat OpenShift 4 peuvent aff
 ## <a name="cluster-configuration-requirements"></a>Exigences de configuration de cluster
 
 * Tous les opérateurs de cluster OpenShift doivent rester dans un état managé. La liste des opérateurs de cluster peut être retournée en exécutant `oc get clusteroperators`.
-* Le cluster doit avoir au moins un nœud Worker. Ne réduisez pas les nœuds Worker du cluster à la valeur zéro.
+* Le cluster doit avoir au moins deux nœuds Worker. Ne réduisez pas les nœuds Worker du cluster à la valeur zéro, ou tentez un arrêt normal du cluster.
 * Ne supprimez pas ou ne modifiez pas les services Prometheus et AlertManager du cluster.
 * Ne supprimez pas les règles AlertManager du service.
 * Ne supprimez pas ou ne modifiez pas la journalisation du service Azure Red Hat OpenShift (pods MDSD).

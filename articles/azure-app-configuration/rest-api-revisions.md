@@ -1,34 +1,33 @@
 ---
-title: API REST Azure App Configuration - Révisions clé-valeur
-description: Pages de référence pour l’utilisation des révisions clé-valeur à l’aide de l’API REST Azure App Configuration
+title: API REST Azure App Configuration – Révisions clé-valeur
+description: Pages de référence pour l’utilisation des révisions clé-valeur à l’aide de l’API REST Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423684"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246382"
 ---
 # <a name="key-value-revisions"></a>Révisions clé-valeur
 
-api-version : 1.0
+Une *révision clé-valeur* définit la représentation historique d’une ressource clé-valeur. Les révisions expirent au bout de 7 jours pour les magasins de niveau Gratuit ou 30 jours pour les magasins de niveau Standard. Les révisions prennent en charge l’opération `List`.
 
-Une **révision clé-valeur** définit la représentation historique d’une ressource clé-valeur. Les révisions expirent au bout de 7 jours pour les magasins de niveau Gratuit ou 30 jours pour les magasins de niveau Standard. Les révisions prennent en charge les opérations suivantes :
+Pour toutes les opérations, ``key`` est un paramètre facultatif. En cas d’omission, il implique n’importe quelle clé.
 
-- List
+Pour toutes les opérations, ``label`` est un paramètre facultatif. En cas d’omission, il implique n’importe quelle étiquette.
 
-Pour toutes les opérations, ``key`` est un paramètre facultatif. En cas d’omission, il implique **n’importe quelle** clé.
-Pour toutes les opérations, ``label`` est un paramètre facultatif. En cas d’omission, il implique **n’importe quelle** étiquette.
+Cet article s’applique à la version 1.0 de l’API.
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="list-revisions"></a>Répertorier les révisions
+## <a name="list-revisions"></a>Lister les révisions
 
 ```http
 GET /revisions?label=*&api-version={api-version} HTTP/1.1
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Pagination
 
-Le résultat est paginé si le nombre d’éléments retournés dépasse le nombre limite de réponses. Suivez l’en-tête de réponse ``Link`` facultatif et utilisez ``rel="next"`` pour la navigation.  Le contenu fournit également un lien suivant sous forme de la propriété ``@nextLink``.
+Le résultat est paginé si le nombre d’éléments retournés dépasse le nombre limite de réponses. Suivez l’en-tête de réponse ``Link`` facultatif et utilisez ``rel="next"`` pour la navigation. Le contenu fournit également un lien suivant sous la forme de la propriété ``@nextLink``.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Répertorier le sous-ensemble des révisions
 
-Utilisez l’en-tête de requête `Range`. La réponse contiendra un en-tête `Content-Range`. Si le serveur ne peut pas satisfaire la plage demandée, il répondra avec HTTP `416` (RangeNotSatisfiable)
+Utilisez l’en-tête de requête `Range`. La réponse contient un en-tête `Content-Range`. Si le serveur ne peut pas satisfaire la plage demandée, il répond HTTP `416` (`RangeNotSatisfiable`).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,6 +134,8 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Caractères réservés
 
+Voici les caractères réservés :
+
 `*`, `\`, `,`
 
 Si un caractère réservé fait partie de la valeur, il doit être placé dans une séquence d’échappement à l’aide de `\{Reserved Character}`. Les caractères non réservés peuvent également être placés dans une séquence d’échappement.
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Exemples
 
-- Tous
+- Tout :
 
     ```http
     GET /revisions
     ```
 
-- Éléments dont le nom de clé commence par **abc**
+- Éléments dont le nom de clé commence par **abc** :
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Éléments dont le nom de clé est **abc** ou **xyz** et les étiquettes contiennent **prod**
+- Éléments dont le nom de clé est **abc** ou **xyz** et les étiquettes contiennent **prod** :
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -180,15 +181,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>Champs spécifiques à la requête
 
-Utilisez le paramètre de chaîne de requête facultatif `$select` et fournissez une liste séparée par des virgules des champs demandés. Si le paramètre `$select` est omis, la réponse contient l’ensemble par défaut.
+Utilisez le paramètre de chaîne de requête facultatif `$select` et donnez la liste séparée par des virgules des champs demandés. Si le paramètre `$select` est omis, la réponse contient l’ensemble par défaut.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Accès basé sur le temps
+## <a name="time-based-access"></a>Accès basé sur l’heure
 
-Obtenez une représentation du résultat tel qu’il était à un moment passé. Voir la section [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Obtenez une représentation du résultat tel qu’il était à un moment passé. Pour plus d’informations, consultez [Framework HTTP pour l’accès basé sur l’heure aux états des ressources – Mémento](https://tools.ietf.org/html/rfc7089#section-2.1), section 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

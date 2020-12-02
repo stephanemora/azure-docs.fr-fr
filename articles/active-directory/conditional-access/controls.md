@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7585c91e42b2d3591532756c1ead9ea60b7035e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266576"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837581"
 ---
 # <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
 
@@ -53,7 +53,7 @@ Pour modifier un contrôle personnalisé, vous devez supprimer le contrôle exis
 
 ## <a name="known-limitations"></a>Limitations connues
 
-Les contrôles personnalisés ne peuvent pas être utilisés avec l’automatisation d’Identity Protection qui nécessite Azure Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) Azure AD, le respect des exigences de revendication Multi-Factor Authentication, pour l’élévation de rôles dans Privileged Identity Manager (PIM), dans le cadre de l’inscription d’appareils Intune ou lors de la jonction d’appareils à Azure AD.
+Les contrôles personnalisés ne peuvent pas être utilisés avec l’automatisation d’Identity Protection qui nécessite Azure AD Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) Azure AD, le respect des exigences de revendication de l’authentification multifacteur, pour l’élévation de rôles dans Privileged Identity Manager (PIM), dans le cadre de l’inscription d’appareils Intune ou lors de la jonction d’appareils à Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

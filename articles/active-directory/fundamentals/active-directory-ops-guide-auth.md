@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371050"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836986"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -95,7 +95,7 @@ Les mots de passe en eux-mêmes ne sont pas suffisamment sécurisés pour empêc
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Résilience de l’authentification pour des pannes locales
 
-Outre les avantages de la simplicité et de l’activation de la détection des informations d’identification divulguées, la synchronisation du hachage de mot de passe (PHS) d’Azure AD et Azure MFA permettent aux utilisateurs d’accéder aux applications SaaS et à Microsoft 365 en dépit des pannes locales dues à des cyberattaques, comme [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Il est également possible d’activer la synchronisation du hachage de mot de passe en combinaison avec la fédération. L’activation de la synchronisation du hachage de mot de passe permet un basculement de secours de l’authentification quand les services de fédération ne sont pas disponibles.
+Outre les avantages de la simplicité et de l’activation de la détection des informations d’identification divulguées, la synchronisation du hachage de mot de passe (PHS) d’Azure AD et Azure AD MFA permettent aux utilisateurs d’accéder aux applications SaaS et à Microsoft 365 en dépit des pannes locales dues à des cyberattaques, comme [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Il est également possible d’activer la synchronisation du hachage de mot de passe en combinaison avec la fédération. L’activation de la synchronisation du hachage de mot de passe permet un basculement de secours de l’authentification quand les services de fédération ne sont pas disponibles.
 
 Si votre organisation locale ne dispose pas d’une stratégie de résilience en cas de panne ou si elle en a une qui n’est pas intégrée à Azure AD, vous devez déployer la synchronisation du hachage de mot de passe Azure AD et définir un plan de reprise d’activité incluant la synchronisation du hachage de mot de passe. L’activation de la synchronisation du hachage de mot de passe d’Azure AD permettra aux utilisateurs de s’authentifier auprès d’Azure AD si votre annuaire Active Directory local n’est pas disponible.
 
@@ -328,9 +328,9 @@ Vous trouverez ci-dessous les paramètres des utilisateurs et des groupes qui pe
 
 #### <a name="user-settings"></a>Paramètres utilisateur
 
-- **Utilisateurs externes**  : une collaboration externe peut se produire de façon naturelle dans l’entreprise avec des services comme Teams, Power BI, SharePoint Online et Azure Information Protection. Si vous avez des contraintes explicites pour contrôler les collaborations externes à l’initiative des utilisateurs, il est recommandé d’activer les utilisateurs externes en utilisant la [gestion des droits d’utilisation d’Azure AD](../governance/entitlement-management-overview.md) ou un fonctionnement contrôlé, par exemple via votre support technique. Si vous ne voulez pas autoriser la collaboration externe naturelle pour les services, vous pouvez [empêcher les membres d’inviter des utilisateurs externes](../external-identities/delegate-invitations.md). Vous pouvez aussi [autoriser ou bloquer des domaines spécifiques](../external-identities/allow-deny-list.md) dans les invitations d’utilisateurs externes.
-- **Inscriptions des applications**  : quand les inscriptions des applications sont activées, les utilisateurs finaux peuvent intégrer eux-mêmes des applications et accorder l’accès à leurs données. Un exemple classique d’inscription des applications est celui d’utilisateurs autorisant les plug-ins Outlook ou des assistants vocaux, comme Alexa et Siri, à lire leurs e-mails et leur calendrier, ou à envoyer des e-mails en leur nom. Si le client décide de désactiver l’inscription des applications, les équipes InfoSec et IAM doivent être impliquées dans la gestion des exceptions (les inscriptions des applications qui sont nécessaires en fonction des besoins de l’entreprise), car elles doivent inscrire les applications avec un compte d’administrateur, et exigent très probablement la conception d’un processus opérationnel.
-- **Portail d’administration**  : les organisations peuvent verrouiller le panneau Azure AD dans le portail Azure, afin que les non-administrateurs ne puissent pas accéder à la gestion d’Azure AD dans le portail Azure et ne soient pas perturbés. Accédez aux paramètres utilisateur dans le portail de gestion d’Azure AD pour restreindre l’accès :
+- **Utilisateurs externes** : une collaboration externe peut se produire de façon naturelle dans l’entreprise avec des services comme Teams, Power BI, SharePoint Online et Azure Information Protection. Si vous avez des contraintes explicites pour contrôler les collaborations externes à l’initiative des utilisateurs, il est recommandé d’activer les utilisateurs externes en utilisant la [gestion des droits d’utilisation d’Azure AD](../governance/entitlement-management-overview.md) ou un fonctionnement contrôlé, par exemple via votre support technique. Si vous ne voulez pas autoriser la collaboration externe naturelle pour les services, vous pouvez [empêcher les membres d’inviter des utilisateurs externes](../external-identities/delegate-invitations.md). Vous pouvez aussi [autoriser ou bloquer des domaines spécifiques](../external-identities/allow-deny-list.md) dans les invitations d’utilisateurs externes.
+- **Inscriptions des applications** : quand les inscriptions des applications sont activées, les utilisateurs finaux peuvent intégrer eux-mêmes des applications et accorder l’accès à leurs données. Un exemple classique d’inscription des applications est celui d’utilisateurs autorisant les plug-ins Outlook ou des assistants vocaux, comme Alexa et Siri, à lire leurs e-mails et leur calendrier, ou à envoyer des e-mails en leur nom. Si le client décide de désactiver l’inscription des applications, les équipes InfoSec et IAM doivent être impliquées dans la gestion des exceptions (les inscriptions des applications qui sont nécessaires en fonction des besoins de l’entreprise), car elles doivent inscrire les applications avec un compte d’administrateur, et exigent très probablement la conception d’un processus opérationnel.
+- **Portail d’administration** : les organisations peuvent verrouiller le panneau Azure AD dans le portail Azure, afin que les non-administrateurs ne puissent pas accéder à la gestion d’Azure AD dans le portail Azure et ne soient pas perturbés. Accédez aux paramètres utilisateur dans le portail de gestion d’Azure AD pour restreindre l’accès :
 
 ![Accès restreint au portail d’administration](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 

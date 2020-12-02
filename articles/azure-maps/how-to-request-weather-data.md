@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915365"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957110"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Demander des données météorologiques en temps réel et prévues à l’aide des services Météo Azure Maps
 
@@ -27,6 +27,12 @@ Dans cet article, vous allez apprendre à :
 * Demander des prévisions quotidiennes à l’aide de [l’API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
 * Demander des prévisions horaires à l’aide de [l’API Get Hourly Forecast](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Demander des prévisions minute par minute à l’aide de [l’API Get Minute Forecast](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+
+Cette vidéo offre une vue d’ensemble des services météo dans Azure Maps et propose des exemples d’appels REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Services météo Azure Maps pour développeurs - Vidéo Microsoft Channel 9"></iframe>
 
 ## <a name="prerequisites"></a>Prérequis
 

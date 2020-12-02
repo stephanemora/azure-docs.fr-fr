@@ -1,37 +1,35 @@
 ---
 title: API REST Azure App Configuration – Verrous
-description: Pages de référence pour l’utilisation de verrous de clé-valeur à l’aide de l’API REST Azure App Configuration
+description: Pages de référence pour l’utilisation de verrous de clé-valeur à l’aide de l’API REST Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423692"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241265"
 ---
 # <a name="locks"></a>Verrous
 
-api-version : 1.0
-
-Cette API fournit une sémantique de verrouillage/déverrouillage pour la ressource de clé-valeur. Elle prend en charge les opérations suivantes :
+Cette API (version 1.0) offre une sémantique de verrouillage et de déverrouillage pour la ressource de clé-valeur. Elle prend en charge les opérations suivantes :
 
 - Placer un verrou
 - Retirer un verrou
 
-Si la valeur `label` est présente, il doit s’agir d’une valeur d’étiquette explicite (**pas** d’un caractère générique). Pour toutes les opérations, ce paramètre est facultatif. Son omission implique l’absence d’étiquette.
+Si le paramètre `label` est présent, il doit s’agir d’une valeur d’étiquette explicite (et non d’un caractère générique). Pour toutes les opérations, il est facultatif. Son omission implique l’absence d’étiquette.
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="lock-key-value"></a>Verrouiller la clé-valeur
+## <a name="lock-key-value"></a>Verrouillage de la clé-valeur
 
-- **Obligatoire :** ``{key}``, ``{api-version}``  
-- *Facultatif :* ``label``
+- Obligatoire : ``{key}``, ``{api-version}``  
+- Facultatif : ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -63,10 +61,10 @@ Si la clé-valeur n’existe pas, la réponse suivante est retournée :
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="unlock-key-value"></a>Déverrouiller la valeur de clé
+## <a name="unlock-key-value"></a>Déverrouillage de la clé-valeur
 
-- **Obligatoire :** ``{key}``, ``{api-version}``  
-- *Facultatif :* ``label``
+- Obligatoire : ``{key}``, ``{api-version}``  
+- Facultatif : ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Si la clé-valeur n’existe pas, la réponse suivante est retournée :
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Verrouillage/déverrouillage conditionnel
+## <a name="conditional-lock-and-unlock"></a>Verrouillage et déverrouillage conditionnel
 
-Pour éviter les conditions de concurrence, utilisez les en-têtes de demande `If-Match` ou `If-None-Match`. L’argument `etag` fait partie de la représentation de clé. En cas d’omission de l’en-tête `If-Match` ou `If-None-Match`, l’opération est inconditionnelle.
+Pour éviter les conditions de concurrence, utilisez les en-têtes de demande `If-Match` ou `If-None-Match`. L’argument `etag` fait partie de la représentation clé. Si `If-Match` et `If-None-Match` sont omis, l’opération est inconditionnelle.
 
 La requête suivante applique l’opération uniquement si la représentation de la clé-valeur actuelle correspond à l’`etag` spécifié :
 

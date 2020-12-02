@@ -3,14 +3,14 @@ title: Activer Azure Automation Update Management à partir d’un runbook
 description: Cet article explique comment activer Update Management à partir d’un runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221583"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908356"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Activer Update Management à partir d’un runbook
 
@@ -34,7 +34,7 @@ Cette méthode utilise deux runbooks :
     * *LASolutionSubscriptionId* : ID d’abonnement de l’emplacement où se trouve l’espace de travail Log Analytics.
     * *LASolutionWorkspaceId* : ID de l’espace de travail Log Analytics lié à votre compte Automation.
 
-    Ces variables sont utilisées pour configurer l’espace de travail de la machine virtuelle intégrée. Si elles ne sont pas spécifiées, le script recherche d’abord toute machine virtuelle intégrée à Update Management dans son abonnement, puis l’abonnement dans lequel se trouve le compte Automation et enfin tous les autres abonnements auxquels votre compte d’utilisateur a accès. Si l’espace de travail n’est pas correctement configuré, cela peut entraîner l’intégration de vos machines à un espace de travail Log Analytics aléatoire.
+    Ces variables sont utilisées pour configurer l’espace de travail de la machine virtuelle intégrée, et vous devez les créer manuellement. Si elles ne sont pas spécifiées, le script recherche d’abord toute machine virtuelle intégrée à Update Management dans son abonnement, puis l’abonnement dans lequel se trouve le compte Automation et enfin tous les autres abonnements auxquels votre compte d’utilisateur a accès. Si l’espace de travail n’est pas correctement configuré, cela peut entraîner l’intégration de vos machines à un espace de travail Log Analytics aléatoire.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -52,7 +52,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Installer et mettre à jour les modules
 
-Vous devez effectuer la mise à jour vers les derniers modules Azure et importer le module [Az.OperationalInsights](/powershell/module/az.operationalinsights) afin d’activer correctement Update Management pour vos machines virtuelles à l’aide du runbook.
+Vous devez effectuer la mise à jour vers les derniers modules Azure et importer le module [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights) afin d’activer correctement Update Management pour vos machines virtuelles à l’aide du runbook.
 
 1. Dans votre compte Automation, sélectionnez **Modules** sous **Ressources partagées**.
 
@@ -66,9 +66,9 @@ Vous devez effectuer la mise à jour vers les derniers modules Azure et importer
 
 5. Sélectionnez **Parcourir la galerie** pour ouvrir la galerie des modules.
 
-6. Recherchez `Az.OperationalInsights` et importez ce module dans votre compte Automation.
+6. Recherchez `AzureRM.OperationalInsights` et importez ce module dans votre compte Automation.
 
-    ![Importer le module OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importer le module OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Sélectionner la machine virtuelle Azure à gérer
 

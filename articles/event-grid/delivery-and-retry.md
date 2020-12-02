@@ -3,18 +3,21 @@ title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042959"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981100"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
 Cet article décrit comment Azure Event Grid gère les événements en l’absence d’accusé de réception d’une distribution.
 
-Event Grid assure une distribution fiable. Il distribue chaque message au moins une fois pour chaque abonnement. Les événements sont envoyés immédiatement au point de terminaison inscrit de chaque abonnement. Si un point de terminaison n’accuse pas réception d’un événement, Event Grid effectue une nouvelle tentative de distribution.
+Event Grid assure une distribution fiable. Il distribue chaque message **au moins une fois** pour chaque abonnement. Les événements sont envoyés immédiatement au point de terminaison inscrit de chaque abonnement. Si un point de terminaison n’accuse pas réception d’un événement, Event Grid effectue une nouvelle tentative de distribution.
+
+> [!NOTE]
+> Event Grid ne garantit pas l’ordre de distribution des événements, de sorte que l’abonné peut les recevoir dans le désordre. 
 
 ## <a name="batched-event-delivery"></a>Livraison d’événements par lot
 
@@ -22,8 +25,8 @@ Par défaut, Event Grid envoie chaque événement individuellement aux abonnés.
 
 La livraison par lot a deux paramètres :
 
-* **Nombre maximum d’événements par lot**  : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
-* **Taille de lot préférée en kilo-octets**  : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
+* **Nombre maximum d’événements par lot** : nombre maximum d’événements qu’Event Grid livrera par lot. Ce nombre ne sera jamais dépassé, mais moins d’événements peuvent être livrés si aucun autre événement n’est disponible au moment de la publication. Event Grid ne retarde pas la livraison des événements pour créer un lot si moins d’événements sont disponibles. Doit être compris entre 1 et 5 000.
+* **Taille de lot préférée en kilo-octets** : plafond cible pour la taille de lot en kilo-octets. Comme pour le nombre maximum d’événements, la taille du lot peut être plus petite si aucun autre événement n’est disponible au moment de la publication. Il est possible qu’un lot soit plus grand que la taille de lot préférée *si* un événement unique est plus volumineux que la taille préférée. Par exemple, si la taille préférée est de 4 Ko et qu’un événement de 10 Ko est envoyé (push) à Event Grid, l’événement de 10 Ko sera tout de même livré dans son propre lot plutôt que d’être abandonné.
 
 La livraison en lot est configurée sur la base d’un abonnement par événement via le portail, l’interface CLI, PowerShell ou les Kits de développement logiciel (SDK).
 
@@ -33,8 +36,8 @@ La livraison en lot est configurée sur la base d’un abonnement par événemen
 ### <a name="azure-cli"></a>Azure CLI
 Lorsque vous créez un abonnement aux événements, utilisez les paramètres suivants : 
 
-- **max-events-per-batch**  : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
-- **preferred-batch-size-in-kilobytes**   taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
+- **max-events-per-batch** : nombre maximum d’événements dans un lot. Doit être un nombre compris entre 1 et 5000.
+- **preferred-batch-size-in-kilobytes**  taille de lot préférée en kilo-octets. Doit être un nombre compris entre 1 et 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)

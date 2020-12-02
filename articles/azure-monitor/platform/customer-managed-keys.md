@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000723"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -21,11 +21,13 @@ Nous vous recommandons de passer en revue les [Limitations et contraintes](#limi
 
 ## <a name="customer-managed-key-overview"></a>Vue d’ensemble des clés gérées par le client
 
-Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante dans les organisations. Si vous pouvez laisser Azure gérer complètement le chiffrement au repos, plusieurs options vous permettent de gérer le chiffrement ou des clés de chiffrement.
+Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante dans les organisations. Si vous pouvez laisser Azure gérer complètement le chiffrement au repos, plusieurs options vous permettent de gérer le chiffrement et des clés de chiffrement.
 
-Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre coffre [Azure Key Vault](../../key-vault/general/overview.md) et utilisée par le stockage pour le chiffrement des données. La clé peut être [protégée par un logiciel ou par un HSM matériel](../../key-vault/general/overview.md). L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
+Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre coffre [Azure Key Vault](../../key-vault/general/overview.md) et vous permet de révoquer à tout moment l’accès à vos données. L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La capacité de clé gérée par le client est fournie sur des clusters Log Analytics dédiés. Elle vous permet de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview) et vous donne le contrôle de révoquer l’accès à vos données à tout moment. Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
+La clé gérée par le client est fournie sur des clusters Log Analytics dédiés offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement différents et de deux clés différentes. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
+
+Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
 
 Le [modèle de tarification des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) utilise des réservations de capacité à partir de 1 000 Go/jour.
 
@@ -74,77 +76,18 @@ La configuration de clé gérée par le client n’est pas prise en charge dans 
 
 ### <a name="asynchronous-operations-and-status-check"></a>Opérations asynchrones et vérification de l’état
 
-Certaines étapes de configuration s’exécutent de façon asynchrone, car elles ne peuvent pas être effectuées rapidement. Lors de l’utilisation de requêtes REST dans la configuration, la réponse retourne initialement un code d’état HTTP 200 (OK) et un en-tête avec la propriété *Azure-AsyncOperation* lorsqu’elle est acceptée :
+Certaines étapes de configuration s’exécutent de façon asynchrone, car elles ne peuvent pas être effectuées rapidement. Lors de l’utilisation de REST, la réponse retourne initialement un code d’état HTTP 200 (OK) et un en-tête avec la propriété *Azure-AsyncOperation* lorsqu’elle est acceptée :
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Pour vérifier l’état de l’opération asynchrone, envoyez une requête GET dans la valeur d’en-tête *Azure-AsyncOperation* :
+Pour vérifier l’état de l’opération asynchrone, envoyez une requête GET dans la valeur d’en-tête *Azure-AsyncOperation* :
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-La réponse contient des informations sur l’opération et son *état*. Les valeurs possibles sont les suivantes :
-
-L’opération est en cours
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-L’opération de mise à jour de l’identificateur de clé est en cours.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-La suppression du cluster est en cours : lorsque vous supprimez un cluster auquel des espaces de travail sont liés, l’opération de dissociation est effectuée pour chacun des espaces de travail de façon asynchrone et l’opération peut prendre du temps.
-Cela ne s’applique pas lorsque vous supprimez un cluster sans espace de travail lié. Dans ce cas, le cluster est immédiatement supprimé.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-L’opération est terminée
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-L’opération a échoué
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+L’élément `status` de la réponse peut contenir ce qui suit : « InProgress », « Updating », « Deleting », « Succeeded » ou « Failed » dans le code d’erreur.
 
 ### <a name="allowing-subscription"></a>Autorisation de l’abonnement
 
@@ -575,7 +518,7 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
     
   - Erreurs de connexion temporaires : le Stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant un peu plus de temps, compensant toute courte période d’indisponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
     
-  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Quand l’accès à Key Vault est restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
+  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Une fois l’accès à Key Vault restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
 
   - Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
 
@@ -595,7 +538,7 @@ En savoir plus sur [Customer Lockbox pour Microsoft Azure](../../security/fundam
   1. Lorsque vous utilisez REST, copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[vérification de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
   2. Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features*.
 
-- Pour obtenir du support et de l’aide concernant la clé gérée par le client, utilisez vos contacts dans Microsoft.
+- Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) est automatiquement configuré pour les clusters créés depuis octobre 2020, une fois le double chiffrement disponible dans la région. Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le double chiffrement pour les clusters. », vous pouvez toujours créer le cluster, mais avec le double chiffrement désactivé. Il ne peut pas être activé ou désactivé une fois le cluster créé. Pour créer un cluster lorsque le double chiffrement n’est pas pris en charge dans la région, ajoutez `"properties": {"isDoubleEncryptionEnabled": false}` au corps de la requête REST.
 
 - Messages d’erreur
   

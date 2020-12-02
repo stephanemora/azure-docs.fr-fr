@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7a8b013723707c4a3a087a90674227c3d41c5108
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395887"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836935"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients européens dans Azure Active Directory
 Les données d’identité sont stockées par Azure AD dans un emplacement géographique en fonction de l’adresse fournie par votre organisation lors de l’abonnement à un service Microsoft Online tel que Microsoft 365 ou Azure. Pour obtenir des informations sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) du Centre de gestion de la confidentialité Microsoft.
 
 Pour les clients qui ont fourni une adresse en Europe, Azure AD conserve la plupart des données d’identité dans des centres de données européens. Ce document apporte des informations sur toutes les données stockées en dehors de l’Europe par les services Azure AD.
 
-## <a name="microsoft-azure-multi-factor-authentication"></a>Microsoft Azure Multi-Factor Authentication
+## <a name="microsoft-azure-ad-multi-factor-authentication"></a>Microsoft Azure AD Multi-Factor Authentication
 
-Pour Azure Multi-Factor Authentication basé sur le cloud, l’authentification s’effectue dans le centre de données le plus proche de l’utilisateur. Des centres de données pour Azure Multi-Factor Authentication sont présents en Amérique du Nord, en Europe et en Asie-Pacifique.
+Pour Azure AD Multi-Factor Authentication basé sur le cloud, l’authentification s’effectue dans le centre de données le plus proche de l’utilisateur. Des centres de données pour Azure AD Multi-Factor Authentication sont présents en Amérique du Nord, en Europe et en Asie-Pacifique.
 
 * Les authentifications multifacteur s’appuyant sur des appels téléphoniques sont issues de centres de données des États-Unis et sont routées par des fournisseurs globaux.
 * L’authentification multifacteur par SMS est acheminée par les fournisseurs globaux.
@@ -34,7 +34,7 @@ Pour Azure Multi-Factor Authentication basé sur le cloud, l’authentification 
     * Les services spécifiques aux fournisseurs d’appareils, comme les notifications push Apple, peuvent se trouver en dehors de l’Europe.
 * Les demandes d’authentification multifacteur utilisant des codes OATH qui proviennent de centres de données européens sont validées dans l’Union européenne.
 
-Pour plus d’informations sur les informations utilisateur collectées par le serveur Azure Multi-Factor Authentication (serveur MFA) et Azure MFA basé sur le cloud, consultez [Collecte de données utilisateur via Azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
+Pour plus d’informations sur les informations utilisateur collectées par le serveur Azure Multi-Factor Authentication (serveur MFA) et Azure AD MFA basé sur le cloud, consultez [Collecte de données utilisateur via Azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Authentification unique par mot de passe pour les applications d’entreprise
  

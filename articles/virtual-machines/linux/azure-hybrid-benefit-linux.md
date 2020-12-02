@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980879"
 ---
-# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Préversion publique : Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
+# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
 
 ## <a name="overview"></a>Vue d’ensemble
 
 Azure Hybrid Benefit vous permet de migrer plus facilement vos machines virtuelles Red Hat Enterprise Linux (RHEL) et SUSE Linux Enterprise Server (SLES) locales vers Azure à l’aide de votre propre abonnement logiciel Red Hat ou SUSE préexistant. Avec cet avantage, vous payez uniquement les coûts d’infrastructure de votre machine virtuelle, car les frais liés aux logiciels sont couverts par votre abonnement RHEL ou SLES. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 
 > [!IMPORTANT]
-> Azure Hybrid Benefit pour machines virtuelles Linux est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Hybrid Benefit pour machines virtuelles Linux est accessible publiquement
+
 
 ## <a name="benefit-description"></a>Description de l’avantage
 
@@ -44,12 +44,6 @@ Azure Hybrid Benefit est disponible pour toutes les images PAYG de la place de m
 Les instances réservées, les hôtes dédiés et les avantages hybrides SQL ne sont pas éligibles à Azure Hybrid Benefit si vous utilisez déjà l’avantage avec des machines virtuelles Linux.
 
 ## <a name="how-to-get-started"></a>Pour commencer
-
-Azure Hybrid Benefit est actuellement en phase de préversion pour les machines virtuelles Linux. Après avoir accédé à la préversion, vous pouvez activer l’avantage à l’aide d’Azure CLI.
-
-### <a name="public-preview"></a>Version préliminaire publique
-
-Azure Hybrid Benefit (pour Linux) est actuellement en phase de préversion publique. Vous pouvez effectuer les étapes ci-dessous pour activer l’avantage sur les distributions Red Hat et SUSE. 
 
 ### <a name="red-hat-customers"></a>Clients Red Hat
 
@@ -152,6 +146,35 @@ A : Non, vous ne pouvez pas. Toute tentative d’entrer un type de licence ne c
 *Q : Je me suis inscrit au programme Red Hat Cloud Access, mais je ne peux toujours pas activer l’avantage sur mes machines virtuelles RHEL. Que faire ?*
 
 A : L’inscription au programme Red Hat Cloud Access peut mettre un certain temps à se propager entre Red Hat et Azure. Si l’erreur persiste après un jour ouvrable, contactez le support technique de Microsoft.
+
+*Q : J’ai déployé une machine virtuelle à l’aide d’une image de référence RHEL BYOS. Puis-je convertir la facturation de ces images de BYOS à PAYG ?*
+
+A : Non, vous ne pouvez pas. Azure Hybrid Benefit prend en charge la conversion uniquement sur les images avec Paiement à l'utilisation.
+
+*Q : J’ai déployé une machine virtuelle à l’aide d’une image de référence RHEL BYOS. Puis-je convertir la facturation de ces images de BYOS à PAYG ?*
+
+A : Non, vous ne pouvez pas. Azure Hybrid Benefit prend en charge la conversion uniquement sur les images avec Paiement à l'utilisation.
+
+*Q : J’ai chargé ma propre image RHEL à partir d’un dossier local (via ASR ou autre) vers Azure. Puis-je convertir la facturation de ces images de BYOS à PAYG ?*
+
+A : Non, vous ne pouvez pas. La fonctionnalité Azure Hybrid Benefit est actuellement disponible uniquement pour les images de la Place de marché RHEL et SLES. 
+
+*Q : Puis-je utiliser Azure Hybrid Benefit sur des machines virtuelles déployées à partir d’images SAP de la Place de marché RHEL et SLES ?*
+
+R : Oui, c’est possible. Vous pouvez utiliser le type de licence « RHEL_BYOS » pour les machines virtuelles RHEL et « SLES_BYOS » afin de convertir des machines virtuelles déployées à partir d’images SAP de la Place de marché RHEL et SLES.
+
+*Q : Puis-je utiliser Azure Hybrid Benefit sur un groupe de machines virtuelles identiques (VMSS) pour RHEL et SLES ?*
+
+A : Non, vous ne pouvez pas. Les VMSS ne figurent actuellement pas dans l’étendue d’Azure Hybrid Benefit pour RHEL et SLES.
+
+*Q : Puis-je utiliser Azure Hybrid Benefit sur des instances réservées (RI) pour RHEL et SLES ?*
+
+A : Non, vous ne pouvez pas. Les RI ne figurent actuellement pas dans l’étendue d’Azure Hybrid Benefit pour RHEL et SLES.
+
+*Q : Puis-je utiliser Azure Hybrid Benefit sur une machine virtuelle déployée pour SQL Server sur des images RHEL ?*
+
+A : Non, vous ne pouvez pas. Aucune prise en charge de ces éléments n’est prévue.
+ 
 
 ## <a name="common-issues"></a>Problèmes courants
 Cette section contient une liste des problèmes courants susceptibles de se produire et des procédures d’atténuation.

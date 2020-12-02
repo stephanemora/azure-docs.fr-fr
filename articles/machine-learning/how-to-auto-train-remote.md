@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: a79fc0311e940b9b4eb3e14838ef22e09342a066
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 65ce11581972c83b0294c0afcbe95e5a35ef2471
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357995"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920574"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
@@ -220,7 +220,7 @@ Si vous n’êtes pas dans un bloc-notes Jupyter, vous pouvez afficher l’URL �
 remote_run.get_portal_url()
 ```
 
-Les mêmes informations sont disponibles dans votre espace de travail.  Pour en savoir plus sur ces résultats, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
+Les mêmes informations sont disponibles dans votre espace de travail.  Pour en savoir plus sur ces résultats, consultez [Évaluer les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
 ## <a name="example"></a>Exemple
 

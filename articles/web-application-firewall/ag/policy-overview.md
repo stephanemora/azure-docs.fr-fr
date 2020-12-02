@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566569"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990123"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Vue d'ensemble de la stratégie du pare-feu d’applications web (WAF) Azure
 
@@ -43,7 +43,7 @@ Pour plus de personnalisation au niveau de l’URI, vous pouvez associer une str
 
 À l'instar des stratégies WAF par site, les stratégies plus spécifiques remplacent les stratégies moins spécifiques. Ainsi, une stratégie par URI sur un mappage de chemin d’URL remplace toute stratégie de WAF par site ou globale de niveau supérieur.
 
-## <a name="example"></a>Exemple
+### <a name="example"></a>Exemple
 
 Imaginons que vous avez trois sites : contoso.com, fabrikam.com et adatum.com derrière la même passerelle d'application. Vous souhaitez qu’un WAF soit appliqué aux trois sites, mais vous avez besoin d’une sécurité renforcée avec adatum.com, car c’est là que les clients accèdent, parcourent et achètent des produits.
 
@@ -53,7 +53,7 @@ Cette stratégie globale est adaptée à contoso.com et fabrikam.com, mais il vo
 
 Il vous faut prêter une attention particulière à l'URI adatum.com/payments. Dès lors, appliquez une autre stratégie à cet URI, laissez toutes les règles activées et supprimez également toutes les exclusions.
 
-Dans cet exemple, vous disposez d’une stratégie globale qui s’applique à deux sites. Vous disposez d'une stratégie par site qui s’applique à un site et d'une stratégie par URI qui s’applique à une règle basée sur le chemin d’accès spécifique. Consultez (insérer un lien ici, le cas échéant) pour savoir comment créer des stratégies par site et par URI pour le PowerShell correspondant à cet exemple.
+Dans cet exemple, vous disposez d’une stratégie globale qui s’applique à deux sites. Vous disposez d'une stratégie par site qui s’applique à un site et d'une stratégie par URI qui s’applique à une règle basée sur le chemin d’accès spécifique. Consultez [Configurer des stratégies WAF par site à l’aide d’Azure PowerShell](per-site-policies.md) pour la commande PowerShell correspondante de cet exemple.
 
 ## <a name="existing-waf-configurations"></a>Configurations WAF existantes
 

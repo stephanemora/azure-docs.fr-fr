@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009560"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835201"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Déléguer l’accès à Privileged Identity Management
 
 Pour déléguer l’accès à Privileged Identity Management (PIM), un administrateur général peut affecter d’autres utilisateurs au rôle Administrateur de rôle privilégié. Par défaut, les administrateurs de la sécurité et les lecteurs de sécurité disposent d’un accès en lecture seule à PIM. Pour accorder l’accès à PIM, le premier utilisateur peut affecter d’autres personnes au rôle **Administrateur de rôle privilégié**. Le rôle Administrateur de rôle privilégié est requis pour la gestion des rôles Azure AD uniquement. Les autorisations d’administrateur de rôle privilégié ne sont pas requises pour gérer les paramètres des ressources Azure.
 
 > [!NOTE]
-> La gestion de PIM nécessite une authentification Azure MFA. Les comptes Microsoft ne pouvant pas s’inscrire pour l’authentification Azure MFA, un utilisateur qui se connecte avec un compte Microsoft ne peut pas accéder à PIM.
+> La gestion de Privileged Identity Management nécessite Azure AD Multi-Factor Authentication. Les comptes Microsoft ne pouvant pas s’inscrire à Azure AD Multi-Factor Authentication, un utilisateur qui se connecte avec un compte Microsoft ne peut pas accéder à Privileged Identity Management.
 
 Assurez-vous qu’il y a toujours au moins deux utilisateurs auxquels est affecté le rôle Administrateur de rôle privilégié, au cas où un utilisateur serait verrouillé ou son compte supprimé.
 

@@ -5,12 +5,12 @@ description: Découvrez comment créer une connexion RDP avec des nœuds Windows
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c774e2287d0540c73cdd2234843d6766e7f2fb91
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82208038"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792248"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec RDP à des nœuds Windows Server de cluster AKS (Azure Kubernetes Service) à des fins de maintenance ou de résolution des problèmes
 
@@ -20,9 +20,9 @@ Cet article vous montre comment créer une connexion RDP avec des nœuds AKS en 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article part de l’hypothèse que vous disposez déjà d’un cluster AKS avec un nœud Windows Server. Si vous avez besoin d’un cluster AKS, consultez l’article traitant de la [création d’un cluster AKS avec un conteneur Windows à partir d’Azure CLI][aks-windows-cli]. Vous avez besoin du nom d’utilisateur et du mot de passe de l’administrateur Windows du nœud Windows Server dont vous souhaitez résoudre les problèmes. Vous avez aussi besoin d’un client RDP comme [Bureau à distance Microsoft][rdp-mac].
+Cet article part de l’hypothèse que vous disposez déjà d’un cluster AKS avec un nœud Windows Server. Si vous avez besoin d’un cluster AKS, consultez l’article traitant de la [création d’un cluster AKS avec un conteneur Windows à partir d’Azure CLI][aks-windows-cli]. Vous avez besoin du nom d’utilisateur et du mot de passe de l’administrateur Windows du nœud Windows Server dont vous souhaitez résoudre les problèmes. Si vous ne les connaissez pas, vous pouvez les réinitialiser en suivant la procédure [Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp). Vous avez aussi besoin d’un client RDP comme [Bureau à distance Microsoft][rdp-mac].
 
-Azure CLI version 2.0.61 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI version 2.0.61 ou ultérieure doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Déployer une machine virtuelle dans le même sous-réseau que votre cluster
 

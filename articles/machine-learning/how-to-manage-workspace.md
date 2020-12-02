@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540125"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012943"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -27,6 +27,10 @@ Cet article explique comment créer, afficher et supprimer des [**espaces de tra
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 * Si vous comptez utiliser le Kit de développement logiciel (SDK) Python, [installez-le](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+
+## <a name="limitations"></a>Limites
+
+* Lors de la création d’un espace de travail, vous pouvez autoriser l’espace de travail à créer les services Azure requis automatiquement ou à fournir des services existants. Lorsque vous fournissez des services existants, ces services doivent tous se trouver dans le même abonnement Azure que l’espace de travail.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
@@ -131,8 +135,12 @@ Si vous rencontrez des problèmes pour accéder à votre abonnement, consultez [
    Abonnement |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
    Resource group | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources contient les ressources associées d’une solution Azure. Dans cet exemple, nous allons utiliser **docs-aml**. Pour utiliser un groupe de ressources existant, vous devez disposer du rôle de *contributeur* ou de *propriétaire*.  Pour plus d'informations sur l'accès, consultez [Gérer l'accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md).
    Région | Sélectionnez la région Azure la plus proche de vos utilisateurs et des ressources de données pour créer votre espace de travail.
+   | Compte de stockage | Le compte de stockage par défaut de l’espace de travail. Par défaut, un nouveau compte est créé. |
+   | Key Vault | Coffre Azure Key Vault utilisé par l’espace de travail. Par défaut, un nouveau coffre est créé. |
+   | Application Insights | L’instance Application Insights de l’espace de travail. Par défaut, une nouvelle instance est créée. |
+   | Container Registry | L’instance Azure Container Registry de l’espace de travail. Par défaut, _aucune_ nouvelle instance n’est initialement créée pour l’espace de travail. Au lieu de cela, l’instance est créée quand vous en avez besoin lors de la création d’une image Docker pendant la formation ou le déploiement. |
 
-    ![Configurer votre espace de travail](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configurer votre espace de travail.":::
 
 1. Lorsque vous avez terminé de configurer l’espace de travail, sélectionnez **Vérifier + créer**. Si vous le souhaitez, utilisez les sections [Mise en réseau](#networking) et [Avancés](#advanced) pour configurer d’autres paramètres pour l’espace de travail.
 

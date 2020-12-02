@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216264"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241605"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Apprenez à résoudre les défaillances du runtime U-SQL en raison des modifications du runtime
 
@@ -32,8 +32,8 @@ Dans de rares cas, le Support Microsoft peut épingler une version différente d
 Vous pouvez voir l’historique de la version du runtime utilisée par vos anciens travaux dans l’historique des travaux de votre compte par le biais de l’explorateur de travaux de Visual Studio ou de l’historique des travaux du Portail Azure.
 
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
-2. Sélectionnez **Afficher tous les travaux** . Une liste de tous les travaux actifs et récemment terminés dans le compte apparaît.
-3. Le cas échéant, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps** , **Nom du travail** et **Auteur** .
+2. Sélectionnez **Afficher tous les travaux**. Une liste de tous les travaux actifs et récemment terminés dans le compte apparaît.
+3. Le cas échéant, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps**, **Nom du travail** et **Auteur**.
 4. Vous pouvez voir le runtime utilisé dans les travaux terminés.
 
 ![Affichage de la version du runtime d’un travail passé](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -49,9 +49,23 @@ Par exemple, release_20190318_adl_3394512_2 correspond à la deuxième version d
 
 Vous pouvez rencontrer deux problèmes de version du runtime :
 
-1. Un script ou un code utilisateur change le comportement d’une version à l’autre. Ces changements cassants sont normalement communiqués à l’avance avec la publication des notes de publication. Si vous rencontrez un tel changement cassant, contactez Support Microsoft pour signaler ce comportement cassant (au cas où il n’a pas encore été documenté) et envoyez vos travaux sur l’ancienne version du runtime.
+1. Un script ou un code utilisateur change le comportement d’une version à l’autre. Ces changements cassants sont normalement communiqués à l’avance avec la publication des notes de publication. Si vous rencontrez un tel changement cassant, contactez le Support Microsoft pour signaler ce comportement cassant (au cas où il n’a pas encore été documenté) et envoyez vos travaux sur l’ancienne version du runtime.
 
-2. Vous avez utilisé un runtime autre que celui par défaut, explicitement ou implicitement lorsqu’il a été épinglé à votre compte, et ce runtime a été supprimé après un certain temps. Si vous expérimentez des problèmes de runtimes manquants, mettez à niveau vos scripts pour qu’ils s’exécutent avec le runtime par défaut actuel. Si vous avez besoin de plus de temps, veuillez contacter Support Microsoft
+2. Vous avez utilisé un runtime autre que celui par défaut, explicitement ou implicitement lorsqu’il a été épinglé à votre compte, et ce runtime a été supprimé après un certain temps. Si vous expérimentez des problèmes de runtimes manquants, mettez à niveau vos scripts pour qu’ils s’exécutent avec le runtime par défaut actuel. Si vous avez besoin de plus de temps, contactez le Support Microsoft
+
+## <a name="known-issues"></a>Problèmes connus
+
+* La référence au fichier Newtonsoft.Json version 12.0.3 ou ultérieure dans un script USQL entraîne l’échec de compilation suivant :
+
+    *« Nous sommes désolés, les travaux exécutés dans votre compte Data Lake Analytics vont probablement s’exécuter plus lentement ou ne pas se terminer. Un problème inattendu nous empêche de restaurer automatiquement cette fonctionnalité sur votre compte Azure Data Lake Analytics. Les ingénieurs Azure Data Lake ont été contactés pour enquêter. »*  
+
+    Où la pile des appels contiendra :  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solution**: Utilisez le fichier Newtonsoft.json v12.0.2 ou une version antérieure.
+
 
 ## <a name="see-also"></a>Voir aussi
 

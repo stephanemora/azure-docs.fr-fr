@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 10/28/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926085"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966681"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -24,19 +24,19 @@ Cet article traite des composants de langage pris en charge par Resource Graph 
 
 ## <a name="resource-graph-tables"></a>Tables Resource Graph
 
-Resource Graph fournit plusieurs tables contenant les données qu’il stocke sur les types de ressources Azure Resource Manager et leurs propriétés. Vous pouvez utiliser ces tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
+Resource Graph fournit plusieurs tables contenant les données qu’il stocke sur les types de ressources Azure Resource Manager et leurs propriétés. Vous pouvez utiliser certaines tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
 
-|Tables Resource Graph |Description |
+|Table Resource Graph |`join` ? |Description |
 |---|---|
-|Ressources |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
-|ResourceContainers |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |Inclut les ressources _associées_ à `Microsoft.Advisor`. |
-|AlertsManagementResources |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |Inclut les ressources _associées_ à `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |Inclut les ressources _associées_ à `Microsoft.Maintenance`. |
-|PolicyResources |Inclut les ressources _associées_ à `Microsoft.PolicyInsights`. ( **Préversion** )|
-|SecurityResources |Inclut les ressources _associées_ à `Microsoft.Security`. |
-|ServiceHealthResources |Inclut les ressources _associées_ à `Microsoft.ResourceHealth`. |
+|Ressources |Oui |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
+|ResourceContainers |Oui |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Non |Inclut les ressources _associées_ à `Microsoft.Advisor`. |
+|AlertsManagementResources |Non |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Non |Inclut les ressources _associées_ à `Microsoft.GuestConfiguration`. |
+|MaintenanceResources |Non |Inclut les ressources _associées_ à `Microsoft.Maintenance`. |
+|PolicyResources |Non |Inclut les ressources _associées_ à `Microsoft.PolicyInsights`. (**Préversion**)|
+|SecurityResources |Non |Inclut les ressources _associées_ à `Microsoft.Security`. |
+|ServiceHealthResources |Non |Inclut les ressources _associées_ à `Microsoft.ResourceHealth`. |
 
 Pour obtenir une liste complète des types de ressources, consultez [Référence : Tables et types de ressources pris en charge](../reference/supported-tables-resources.md).
 
@@ -45,7 +45,7 @@ Pour obtenir une liste complète des types de ressources, consultez [Référence
 
 Utilisez l’Explorateur Resource Graph dans le portail pour découvrir les types de ressources disponibles dans chaque table. Vous pouvez également utiliser une requête telle que `<tableName> | distinct type` pour obtenir la liste des types de ressources existant dans votre environnement, pris en charge par la table Resource Graph concernée.
 
-La requête suivante illustre un opérateur `join` simple. Le résultat de la requête fusionne les colonnes, et le suffixe **1** est ajouté à tous les noms de colonnes dupliqués de la table jointe ( _ResourceContainers_ dans cet exemple). Comme la table _ResourceContainers_ possède des types pour les abonnements et les groupes de ressources, l’un ou l’autre de ces types peut être utilisé pour la jointure à la ressource à partir de la table _Resources_.
+La requête suivante illustre un opérateur `join` simple. Le résultat de la requête fusionne les colonnes, et le suffixe **1** est ajouté à tous les noms de colonnes dupliqués de la table jointe (_ResourceContainers_ dans cet exemple). Comme la table _ResourceContainers_ possède des types pour les abonnements et les groupes de ressources, l’un ou l’autre de ces types peut être utilisé pour la jointure à la ressource à partir de la table _Resources_.
 
 ```kusto
 Resources
@@ -53,7 +53,7 @@ Resources
 | limit 1
 ```
 
-La requête suivante illustre une utilisation plus complexe de l’opérateur `join`. La requête limite la table jointe aux ressources d’abonnement et utilise `project` pour inclure uniquement le champ d’origine _subscriptionId_ et le champ _name_ renommé _SubName_. Le renommage de champ évite que `join` ne l’ajoute en tant que _name1_ , puisque le champ existe déjà dans _Resources_. La table d’origine est filtrée avec `where` et le `project` suivant comprend des colonnes des deux tables. Le résultat de la requête est un coffre de clés unique affichant le type, le nom du coffre de clés et le nom de l’abonnement dans lequel il se trouve.
+La requête suivante illustre une utilisation plus complexe de l’opérateur `join`. La requête limite la table jointe aux ressources d’abonnement et utilise `project` pour inclure uniquement le champ d’origine _subscriptionId_ et le champ _name_ renommé _SubName_. Le renommage de champ évite que `join` ne l’ajoute en tant que _name1_, puisque le champ existe déjà dans _Resources_. La table d’origine est filtrée avec `where` et le `project` suivant comprend des colonnes des deux tables. Le résultat de la requête est un coffre de clés unique affichant le type, le nom du coffre de clés et le nom de l’abonnement dans lequel il se trouve.
 
 ```kusto
 Resources
@@ -64,11 +64,11 @@ Resources
 ```
 
 > [!NOTE]
-> Quand vous limitez les résultats de `join` avec `project`, la propriété utilisée par `join` pour associer les deux tables ( _subscriptionId_  dans l’exemple ci-dessus) doit être incluse dans `project`.
+> Quand vous limitez les résultats de `join` avec `project`, la propriété utilisée par `join` pour associer les deux tables (_subscriptionId_  dans l’exemple ci-dessus) doit être incluse dans `project`.
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propriétés étendues (préversion)
 
-En tant que fonctionnalité de _préversion_ , certains types de ressources dans Resource Graph ont des propriétés supplémentaires liées au type, disponibles pour effectuer une requête au-delà des propriétés fournies par Azure Resource Manager. Cet ensemble de valeurs, connu sous le nom de _propriétés étendues_ , existe sur un type de ressource pris en charge dans `properties.extended`. Pour voir quels types de ressources ont des _propriétés étendues_ , utilisez la requête suivante :
+En tant que fonctionnalité de _préversion_, certains types de ressources dans Resource Graph ont des propriétés supplémentaires liées au type, disponibles pour effectuer une requête au-delà des propriétés fournies par Azure Resource Manager. Cet ensemble de valeurs, connu sous le nom de _propriétés étendues_, existe sur un type de ressource pris en charge dans `properties.extended`. Pour voir quels types de ressources ont des _propriétés étendues_, utilisez la requête suivante :
 
 ```kusto
 Resources
@@ -125,7 +125,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 |[count](/azure/kusto/query/countoperator) |[Compter les coffres de clés](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Afficher des valeurs distinctes pour un alias spécifique](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Compter les machines virtuelles par type de système d’exploitation](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Coffre de clés avec nom d’abonnement](../samples/advanced.md#join) |Variantes de jointure prises en charge : [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` dans une requête unique. Les stratégies de jointure personnalisées comme la jointure de diffusion ne sont pas autorisées. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
+|[join](/azure/kusto/query/joinoperator) |[Coffre de clés avec nom d’abonnement](../samples/advanced.md#join) |Variantes de jointure prises en charge : [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` dans une requête unique. Les stratégies de jointure personnalisées comme la jointure de diffusion ne sont pas autorisées. Pour savoir quelles tables peuvent utiliser `join`, consultez [Tables Resource Graph](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `take`. Ne fonctionne pas avec [Ignorer](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Opérateur hérité, utilisez `mv-expand` à la place. Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
@@ -144,7 +144,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 L’étendue des abonnements à partir desquels les ressources sont retournées par une requête dépend de la méthode d’accès à Azure Resource Graph. Azure CLI et Azure PowerShell remplissent la liste des abonnements à inclure dans la demande en fonction du contexte de l’utilisateur autorisé. La liste des abonnements peut être définie manuellement pour chacun respectivement avec des **abonnements** des **paramètres d’abonnement**.
 Dans l’API REST et tous les autres kits de développement logiciel (SDK), la liste des abonnements dont inclure les ressources doit être définie explicitement dans le cadre de la demande.
 
-En guide d’ **aperçu** , la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si un groupe d’administration ou une liste d’abonnements ne sont pas définis, l’étendue de la requête correspond à l’ensemble des ressources, qui incluent les ressources [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) déléguées, auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration. Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
+En guide d’**aperçu**, la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si un groupe d’administration ou une liste d’abonnements ne sont pas définis, l’étendue de la requête correspond à l’ensemble des ressources, qui incluent les ressources [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) déléguées, auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration. Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
 
 Exemple : Interroger toutes les ressources dans la hiérarchie du groupe d’administration nommé « Mon groupe d’administration » avec l’ID « myMG ».
 

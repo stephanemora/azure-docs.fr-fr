@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629442"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95316618"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -100,6 +100,7 @@ Le tableau suivant décrit les domaines requis pour la communication :
 | **Stockage Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
 | **Infrastructure à clé publique Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Une fois l’agent Azure File Sync installé, les URL de Microsoft Update sont utilisées pour télécharger les mises à jour de l’agent Azure File Sync. |
 
 > [!Important]
 > Lorsque le trafic est autorisé vers &ast;.afs.azure.net, il n’est possible que vers le service de synchronisation. Aucun autre service Microsoft n’utilise ce domaine.

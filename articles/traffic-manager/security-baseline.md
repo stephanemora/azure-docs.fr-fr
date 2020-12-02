@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631458"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964675"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Base de référence de la sécurité pour Azure Traffic Manager
 
@@ -214,7 +214,7 @@ Utilisez également la détection de risque Azure AD pour visualiser les alertes
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Aide** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès et des identités Azure AD pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès. 
+**Conseils** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès et des identités Azure AD pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès. 
 
 - [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
 
@@ -260,7 +260,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -270,7 +270,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison.
 
-Azure Traffic Manager a un rôle Azure RBAC prédéfini nommé « Contributeur Azure Traffic Manager » qui peut être attribué aux utilisateurs.
+Azure Traffic Manager a un rôle Azure prédéfini nommé « Contributeur Traffic Manager » qui peut être attribué aux utilisateurs.
 
 - [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -280,7 +280,7 @@ Azure Traffic Manager a un rôle Azure RBAC prédéfini nommé « Contributeur 
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

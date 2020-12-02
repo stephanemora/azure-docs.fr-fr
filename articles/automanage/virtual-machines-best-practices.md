@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521082"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521952"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Meilleures pratiques Azure Automanage pour machines virtuelles
 
@@ -33,6 +33,7 @@ Pour tous ces services, nous les intégrons et les configurons automatiquement, 
 |Microsoft Antimalware    |Microsoft Antimalware pour Azure offre une protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Il fournit des alertes lorsqu’un logiciel malveillant ou indésirable connu essaye de s’installer ou de s’exécuter sur vos systèmes Azure. En savoir [plus](../security/fundamentals/antimalware.md). |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Oui    |
 |Update Management    |Vous pouvez utiliser la solution Update Management d’Azure Automation pour gérer les mises à jour du système d’exploitation de vos machines virtuelles. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur toutes les machines d’agent et gérer le processus d’installation des mises à jour nécessaires pour les serveurs. En savoir [plus](../automation/update-management/update-mgmt-overview.md).    |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Non    |
 |Suivi des modifications et inventaire    |La fonctionnalité Suivi des modifications et inventaire combine les fonctions de suivi des modifications et d’inventaire pour vous permettre d’effectuer le suivi des modifications apportées à l’infrastructure des machines virtuelles et des serveurs. Le service prend en charge le suivi des modifications sur les services, les démons, les logiciels, le registre et les fichiers de votre environnement pour vous aider à diagnostiquer les changements indésirables et à déclencher des alertes. La prise en charge de l’inventaire vous permet d’interroger les ressources intégrées pour voir les applications installées et d’autres éléments de configuration.  En savoir [plus](../automation/change-tracking/overview.md).    |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Non    |
+|Configuration d’invité Azure    | La stratégie Guest Configuration est utilisée pour superviser la configuration et signaler la conformité de la machine. Le service de gestion automatique installe les [lignes de base de sécurité Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) à l’aide de l’extension de configuration invitée. En savoir [plus](../governance/policy/concepts/guest-configuration.md).    |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Non    |
 |Compte Azure Automation    |Azure Automation prend en charge la gestion tout au long du cycle de vie de votre infrastructure et des applications. En savoir [plus](../automation/automation-intro.md).    |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Non    |
 |Espace de travail Log Analytics    |Azure Monitor stocke des données de journal dans un espace de travail Log Analytics, qui est une ressource Azure et un conteneur où les données sont collectées, agrégées, et qui sert de limite d’administration. En savoir [plus](../azure-monitor/platform/design-logs-deployment.md).    |Meilleures pratiques pour les machines virtuelles Azure – Production, meilleures pratiques pour les machines virtuelles Azure – Dev/Test    |Non    |
 

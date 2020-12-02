@@ -1,6 +1,6 @@
 ---
 title: Définir un nouveau type d’appareil IoT dans Azure IoT Central | Microsoft Docs
-description: Cet article vous explique, en tant que constructeur, comment créer un modèle d’appareil Azure IoT dans votre application Azure IoT Central. Vous définissez la télémétrie, l’état, les propriétés et les commandes pour votre type d’appareil.
+description: Cet article vous explique, en tant que développeur de solutions, comment créer un modèle d’appareil Azure IoT dans votre application Azure IoT Central. Vous définissez la télémétrie, l’état, les propriétés et les commandes pour votre type d’appareil.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122651"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999516"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -38,12 +38,12 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 > [!NOTE]
 > Seuls les concepteurs et les administrateurs peuvent créer, modifier et supprimer des modèles d’appareils. Tous les utilisateurs peuvent créer des appareils sur la page **Appareils** à partir de modèles d’appareils existants.
 
-Dans une application IoT Central, un modèle d’appareil utilise un modèle de fonctionnalité de l’appareil pour décrire les fonctions d’un appareil. Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
+Dans une application IoT Central, un modèle d’appareil utilise un modèle d’appareil pour décrire les fonctions d’un appareil. Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
 - Concevez le modèle d’appareil dans IoT Central, puis [implémentez son modèle de capacité d’appareil dans le code de votre appareil](concepts-telemetry-properties-commands.md).
-- Importez un modèle de capacité d’appareil à partir du [catalogue d’appareils certifiés Azure pour l’IoT](https://aka.ms/iotdevcat). Ensuite, ajoutez des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin.
-- Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
-- Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central à l’aide d’une première connexion à l’appareil. IoT Central recherche et importe pour vous le modèle de capacité d’appareil à partir du référentiel public. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin pour le modèle d’appareil.
+- Importez un modèle d’appareil à partir du [catalogue d’appareils certifiés Azure pour l’IoT](https://aka.ms/iotdevcat). Personnalisez le modèle d’appareil selon vos besoins dans IoT Central.
+- Créez un modèle d’appareil à l’aide de la [version 2 du langage DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code dispose d’une extension prenant en charge la création de modèles DTDL. Pour plus d’informations, consultez [Installer et utiliser les outils de création DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Publiez ensuite le modèle dans le référentiel de modèles public. Pour plus d’informations, consultez [Référentiel de modèles d’appareil](../../iot-pnp/concepts-model-repository.md). Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central. IoT Central recherche et importe pour vous le modèle d’appareil à partir du référentiel public et génère un modèle d’appareil. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin pour le modèle d’appareil.
+- Créez un modèle d’appareil à l’aide du langage DTDL. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 
 Vous pouvez également ajouter des modèles d’appareil à une application IoT Central à l’aide de l’[API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) ou de l’interface [CLI](howto-manage-iot-central-from-cli.md).
 
@@ -51,10 +51,10 @@ Certains [modèles d’application](concepts-app-templates.md) incluent déjà d
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Créer un modèle d’appareil à partir du catalogue d’appareils
 
-Vous pouvez rapidement commencer à créer votre solution en utilisant un appareil IoT Plug-and-Play (préversion) certifié. Consultez la liste dans le [catalogue d’appareils Azure IOT](https://catalog.azureiotsolutions.com/alldevices). IoT Central s’intègre au catalogue d’appareils ; ainsi, vous pouvez importer un modèle de capacité d’appareil depuis un de ces appareils IoT Plug-and-Play (préversion) certifiés. Pour créer un modèle d’appareil à partir de l’un de ces appareils dans IoT Central :
+Vous pouvez rapidement commencer à créer votre solution à l’aide d’un appareil certifié. Consultez la liste dans le [catalogue d’appareils Azure IOT](https://catalog.azureiotsolutions.com/alldevices). IoT Central s’intègre au catalogue d’appareils ; ainsi, vous pouvez importer un modèle d’appareil parmi les appareils certifiés. Pour créer un modèle d’appareil à partir de l’un de ces appareils dans IoT Central :
 
 1. Accédez à la page **Modèles d’appareil** dans votre application IoT Central.
-1. Sélectionnez **+ Nouveau**, puis sélectionnez un des appareils certifiés IoT Plug-and-Play (préversion) dans le catalogue. IoT Central crée un modèle d’appareil basé sur ce modèle de capacité d’appareil.
+1. Sélectionnez **+ Nouveau**, puis sélectionnez les appareils certifiés Play dans le catalogue. IoT Central crée un modèle d’appareil basé sur ce modèle d’appareil.
 1. Ajoutez des propriétés de Cloud, des personnalisations ou des vues à votre modèle d’appareil.
 1. Sélectionnez **Publier** pour rendre le modèle disponible afin que les opérateurs affichent et connectent des appareils.
 
@@ -62,57 +62,56 @@ Vous pouvez rapidement commencer à créer votre solution en utilisant un appare
 
 Un modèle d’appareil contient :
 
-- Un _modèle de capacité d’appareil_ qui spécifie les données de télémétrie, les propriétés et les commandes implémentées par l’appareil. Ces capacités de l'appareil sont organisées en une ou plusieurs interfaces.
+- Un _modèle d’appareil_ qui spécifie les données de télémétrie, les propriétés et les commandes implémentées par l’appareil. Ces capacités de l'appareil sont organisées en une ou plusieurs composants.
 - Des _propriétés de cloud_ qui définissent les informations sur vos appareils stockées par votre application IOT Central. Par exemple, une propriété de cloud peut enregistrer la date de la dernière maintenance d’un appareil. Ces informations ne sont jamais partagées avec l’appareil.
-- Les _personnalisations_ permettent au concepteur de remplacer certaines des définitions du modèle de capacité d’appareil. Par exemple, le concepteur peut remplacer le nom d’une propriété de l’appareil. Les noms de propriétés s’affichent dans les tableaux de bord et les formulaires IoT Central.
+- Les _personnalisations_ permettent au concepteur de remplacer certaines des définitions du modèle d’appareil. Par exemple, le concepteur peut remplacer le nom d’une propriété de l’appareil. Les noms de propriétés s’affichent dans les tableaux de bord et les formulaires IoT Central.
 - _Les tableaux de bord et les formulaires_ permettent au concepteur de créer une interface utilisateur qui permet aux opérateurs de surveiller et de gérer les appareils connectés à votre application.
 
 Pour créer un modèle d’appareil dans IoT Central :
 
 1. Accédez à la page **Modèles d’appareil** dans votre application IoT Central.
-1. Sélectionnez **+Nouveau** > **Personnalisé**.
-1. Entrez un nom pour votre modèle, par exemple **Capteur d’environnement**.
-1. Appuyez sur **Entrée**. IoT Central crée un modèle d’appareil vide.
+1. Sélectionnez **+ Nouveau** > **Appareil IoT**. Ensuite, sélectionnez **Next: Personnaliser**.
+1. Entrez un nom pour votre modèle, par exemple **Thermostat**. Ensuite, sélectionnez **Next: Examiner**, puis sélectionnez **Créer**.
+1. IoT Central crée un modèle d’appareil vide et vous offre la possibilité de créer un modèle personnalisé à partir de zéro ou d’importer un modèle DTDL.
 
 ## <a name="manage-a-device-template"></a>Gérer un modèle d’appareil
 
 Vous pouvez renommer ou supprimer un modèle à partir de la page d’hébergement du modèle.
 
-Après avoir ajouté un modèle de capacité d’appareil à votre modèle, vous pouvez le publier. Avant d’avoir publié le modèle, vous ne pouvez pas connecter un appareil basé sur ce modèle de telle manière que vos opérateurs le voient sur la page **Appareils**.
+Après avoir ajouté un modèle d’appareil à votre modèle, vous pouvez le publier. Avant d’avoir publié le modèle, vous ne pouvez pas connecter un appareil basé sur ce modèle de telle manière que vos opérateurs le voient sur la page **Appareils**.
 
 ## <a name="create-a-capability-model"></a>Créer un modèle de capacité
 
-Pour créer un modèle de capacité d’appareil, vous pouvez :
+Pour créer un modèle d’appareil, plusieurs possibilités s’offrent à vous :
 
 - Utilisez IoT Central pour créer un modèle personnalisé en partant de zéro.
-- Importez un modèle à partir d’un fichier JSON. Un concepteur d’appareils peut avoir utilisé Visual Studio Code pour créer un modèle de capacité d’appareil pour votre application.
-- Sélectionnez l’un des appareils dans le catalogue d’appareils. Cette option importe le modèle de capacité de l’appareil que le fabricant a publié pour cet appareil. Un modèle de capacité d’appareil importé de cette façon est automatiquement publié.
+- Importez un modèle DTDL à partir d’un fichier JSON. Un concepteur d’appareils peut avoir utilisé Visual Studio Code pour créer un modèle d’appareil pour votre application.
+- Sélectionnez l’un des appareils dans le catalogue d’appareils. Cette option importe le modèle d’appareil que le fabricant a publié pour cet appareil. Un modèle d’appareil importé de cette façon est automatiquement publié.
 
 ## <a name="manage-a-capability-model"></a>Gérer un modèle de capacité
 
-Après avoir créé un modèle de capacité d’appareil, vous pouvez effectuer les opérations suivantes :
+Après avoir créé un modèle d’appareil, vous pouvez  :
 
-- Ajouter des interfaces au modèle. Un modèle doit avoir au moins une interface.
+- Ajouter des composants au modèle. Un modèle doit avoir au moins un composant.
 - Modifier les métadonnées du modèle, telles que son ID, son espace de noms et son nom.
 - Supprimer le modèle.
 
-## <a name="create-an-interface"></a>Créer une interface
+## <a name="create-a-component"></a>Créer un composant
 
-Une capacité d’appareil doit avoir au moins une interface. Une interface est une collection réutilisable de fonctionnalités.
+Un modèle d’appareil doit avoir au moins un composant par défaut. Un composant est une collection réutilisable de fonctionnalités.
 
-Pour créer une interface :
+Pour créer un composant :
 
-1. Accédez à votre modèle de capacité d’appareil et choisissez **+ Ajouter une interface**.
+1. Accédez à votre modèle d’appareil, puis sélectionnez **+Ajouter un composant**.
 
-1. Sur la page **Sélectionner une interface**, vous pouvez effectuer les opérations suivantes :
+1. Sur la page **Ajouter une interface de composant**, vous pouvez :
 
-    - Créer un connecteur personnalisé en partant de zéro.
-    - Importer une interface existante à partir d’un fichier. Un concepteur d’appareils peut avoir utilisé Visual Studio Code pour créer une interface pour votre appareil.
-    - Choisissez l’une des interfaces standard, telles que l’interface **Informations sur l’appareil**. Les interfaces standard spécifient les fonctionnalités communes à de nombreux appareils. Ces interfaces standard sont publiées par Azure IoT et ne peuvent ni faire l’objet d’un contrôle de version ni être modifiées.
+    - Créer un composant personnalisé à partir de zéro.
+    - Importer un composant existant à partir d’un fichier DTDL. Un concepteur d’appareils peut avoir utilisé Visual Studio Code pour créer un composant pour votre appareil.
 
-1. Après avoir créé une interface, choisissez **Modifier l'identité** pour modifier le nom d’affichage de l’interface.
+1. Après avoir créé un composant, sélectionnez **Modifier l'identité** pour modifier le nom d’affichage du composant.
 
-1. Si vous choisissez de créer une interface personnalisée en partant de zéro, vous pouvez ajouter les fonctionnalités de votre appareil. Les fonctionnalités de l’appareil sont les données de télémétrie, les propriétés et les commandes.
+1. Si vous choisissez de créer un composant personnalisé à partir de zéro, vous pouvez ajouter les fonctionnalités de votre appareil. Les fonctionnalités de l’appareil sont les données de télémétrie, les propriétés et les commandes.
 
 ### <a name="telemetry"></a>Télémétrie
 
@@ -136,7 +135,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 ### <a name="properties"></a>Propriétés
 
-Les propriétés représentent des valeurs à un moment donné. Par exemple, un appareil peut utiliser une propriété pour indiquer la température cible qu’il tente d’atteindre. Vous pouvez définir des propriétés inscriptibles à partir d’IoT Central.
+Les propriétés représentent des valeurs à un moment donné. Par exemple, un appareil peut utiliser une propriété pour indiquer la température cible qu’il tente d’atteindre. Vous pouvez définir des propriétés accessibles en écriture à partir d’IoT Central.
 
 Le tableau suivant décrit les paramètres de configuration d’une fonctionnalité de données de propriété :
 
@@ -147,7 +146,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | Type de fonctionnalité | Propriété. |
 | Type sémantique | Type sémantique de la propriété, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible. |
 | schéma | Type de données de propriété, tel que double, chaîne ou vecteur. Les options disponibles sont déterminées par le type sémantique. Le schéma n’est pas disponible pour les types sémantiques d’événement et d’état. |
-| Inscriptible | Si la propriété n’est pas inscriptible, l’appareil peut signaler des valeurs de propriété à IoT Central. Si la propriété est inscriptible, l’appareil peut signaler des valeurs de propriétés à IoT Central, et IoT Central peut envoyer des mises à jour de propriétés à l’appareil.
+| Accessible en écriture | Si la propriété n’est pas inscriptible, l’appareil peut signaler des valeurs de propriété à IoT Central. Si la propriété est inscriptible, l’appareil peut signaler des valeurs de propriétés à IoT Central, et IoT Central peut envoyer des mises à jour de propriétés à l’appareil.
 | severity | Disponible uniquement pour le type sémantique d’événement. Les gravités sont **Erreur**, **Information** ou **Avertissement**. |
 | Valeurs d’état | Disponible uniquement pour le type sémantique d’état. Définissez les valeurs d’état possibles, chacune ayant un nom d’affichage, un nom, un type d’énumération et une valeur. |
 | Unité | Unité pour la valeur des propriétés, telles que **mph**, **%** ou **&deg;C**. |
@@ -166,11 +165,12 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | Nom d’affichage | Nom d’affichage de la commande utilisée sur les tableaux de bord et les formulaires. |
 | Nom | Nom de la commande. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. |
 | Type de fonctionnalité | Commande. |
-| Commande | `SynchronousExecutionType`. |
 | Commentaire | Commentaires sur la fonctionnalité de commande. |
 | Description | Description de la fonctionnalité de commande. |
 | Requête | Si cette option est activée, il s’agit d’une définition du paramètre de requête, notamment le nom, le nom d’affichage, le schéma, l’unité et l’unité d’affichage. |
 | response | Si cette option est activée, il s’agit d’une définition de la réponse de commande, notamment le nom, le nom d’affichage, le schéma, l’unité et l’unité d’affichage. |
+
+Pour en savoir plus sur la façon dont les appareils implémentent les commandes, consultez [Charges utiles de télémétrie, de propriétés et de commandes > Commandes et commandes de longue durée](concepts-telemetry-properties-commands.md#commands).
 
 #### <a name="offline-commands"></a>Commandes hors connexion
 
@@ -185,13 +185,13 @@ Messages cloud-à-appareil :
 - Exiger que l’appareil implémente un gestionnaire de messages pour traiter le message cloud-à-appareil.
 
 > [!NOTE]
-> Cette option est disponible uniquement dans l’interface utilisateur web d’IoT Central. Ce paramètre n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil.
+> Cette option est disponible uniquement dans l’interface utilisateur web d’IoT Central. Ce paramètre n’est pas inclus si vous exportez un modèle ou un composant à partir du modèle d’appareil.
 
-## <a name="manage-an-interface"></a>Gérer une interface
+## <a name="manage-a-component"></a>Gérer un composant
 
-Si vous n’avez pas publié l’interface, vous pouvez modifier les fonctionnalités définies par l’interface. Une fois que vous avez publié l’interface, si vous souhaitez apporter des modifications, vous devez créer une version du modèle d’appareil et une version de l’interface. Vous pouvez apporter des modifications qui ne nécessitent pas de versioning, telles que des noms d’affichage ou des unités, dans la section **Personnaliser**.
+Si vous n’avez pas publié le composant, vous pouvez modifier les fonctionnalités définies par le composant. Une fois que vous avez publié le composant, si vous souhaitez apporter des modifications, vous devez créer une version du modèle d’appareil et une [version du composant](howto-version-device-template.md). Vous pouvez apporter des modifications qui ne nécessitent pas de versioning, telles que des noms d’affichage ou des unités, dans la section **Personnaliser**.
 
-Vous pouvez également exporter l’interface en tant que fichier JSON si vous souhaitez la réutiliser dans un autre modèle de capacité.
+Vous pouvez également exporter le composant en tant que fichier JSON si vous souhaitez la réutiliser dans un autre modèle de capacité.
 
 ## <a name="add-cloud-properties"></a>Ajouter des propriétés du cloud
 
@@ -208,21 +208,21 @@ Le tableau suivant illustre les paramètres de configuration d’une propriété
 
 ## <a name="add-customizations"></a>Ajouter des personnalisations
 
-Utilisez des personnalisations quand vous devez modifier une interface importée ou ajouter des fonctionnalités propres à IoT Central à une capacité. Vous pouvez uniquement personnaliser les champs qui n’interrompent pas la compatibilité de l’interface. Vous pouvez par exemple :
+Utilisez des personnalisations quand vous devez modifier un composant importé ou ajouter des fonctionnalités propres à IoT Central à une capacité. Vous pouvez uniquement personnaliser les champs qui n’interrompent pas la compatibilité du composant. Vous pouvez par exemple :
 
 - Personnaliser le nom complet et les unités d’une capacité.
 - Ajouter une couleur par défaut à utiliser quand la valeur apparaît sur un graphique.
 - Spécifier les valeurs initiales, minimales et maximales d’une propriété.
 
-Vous ne pouvez pas personnaliser le nom ou le type de la capacité. Si vous ne pouvez pas apporter certaines modifications dans la section **Personnaliser**, vous devez contrôler la version de votre modèle d’appareil et de votre interface pour modifier la capacité.
+Vous ne pouvez pas personnaliser le nom ou le type de la capacité. Si vous ne pouvez pas apporter certaines modifications dans la section **Personnaliser**, vous devez contrôler la version de votre modèle d’appareil et de votre composant pour modifier la capacité.
 
 ### <a name="generate-default-views"></a>Générer des vues par défaut
 
 La génération de vues par défaut permet de visualiser rapidement les informations importantes de votre appareil. Vous avez jusqu’à trois vues par défaut générées pour votre modèle d’appareil :
 
-- **Commandes** fournit une vue avec des commandes d’appareil et permet à votre opérateur de les répartir sur votre appareil.
-- **Vue d’ensemble** affiche la télémétrie de l’appareil sous la forme de graphiques et de métriques.
-- **À propos de** affiche des informations sur l’appareil et ses propriétés.
+- **Commandes** : affiche des commandes d’appareil et permet à votre opérateur de les répartir sur votre appareil.
+- **Vue d’ensemble** : affiche la télémétrie de l’appareil sous la forme de graphiques et de métriques.
+- **À propos de** : affiche des informations sur l’appareil et ses propriétés.
 
 Une fois que vous avez sélectionné **Générer des vues par défaut**, elles sont ajoutées automatiquement sous la section **Vues** de votre modèle d’appareil.
 
@@ -237,13 +237,13 @@ Pour ajouter un tableau de bord à un modèle d’appareil :
 1. Entrez un nom pour votre tableau de bord dans **Nom du tableau de bord**.
 1. Ajoutez des vignettes à votre tableau de bord à partir de la liste des vignettes statiques, des propriétés, des propriétés de cloud, des données de télémétrie et des commandes. Faites glisser et déplacez les vignettes que vous souhaitez ajouter à votre tableau de bord.
 1. Pour tracer plusieurs valeurs de données de télémétrie sur une seule vignette de graphique, sélectionnez les valeurs de données de télémétrie, puis sélectionnez **Combiner**.
-1. Configurez chaque vignette que vous ajoutez pour personnaliser le mode d’affichage des données. Pour ce faire, vous pouvez sélectionner l’icône d’engrenage ou **Changer la configuration** sur la vignette de votre graphique.
+1. Configurez chaque vignette que vous ajoutez pour personnaliser le mode d’affichage des données. Accédez à cette option en sélectionnant l’icône d’engrenage ou **Changer la configuration** sur la vignette de votre graphique.
 1. Réorganisez et redimensionnez les vignettes sur votre tableau de bord.
 1. Enregistrez les modifications.
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Configurer l’aperçu de l’appareil pour afficher le tableau de bord
 
-Pour afficher et tester votre tableau de bord, sélectionnez **Configurer l’appareil en préversion**. Cela vous permet de voir le tableau de bord tel que le voit votre opérateur une fois qu’il a été publié. Utilisez cette option pour vérifier que vos vues affichent les données correctes. Vous disposez des choix suivants :
+Pour afficher et tester votre tableau de bord, sélectionnez **Configurer l’appareil en préversion**. Cette fonctionnalité vous permet de voir le tableau de bord tel que le voit votre opérateur une fois qu’il a été publié. Utilisez cette fonctionnalité pour vérifier que vos vues affichent les données qui conviennent. Vous pouvez choisir parmi les options suivantes :
 
 - Aucun appareil en préversion
 - Le véritable appareil de test que vous avez configuré pour votre modèle d’appareil
@@ -266,9 +266,9 @@ Pour ajouter un formulaire à un modèle d’appareil :
 
 ## <a name="publish-a-device-template"></a>Publier un modèle d’appareil
 
-Avant de pouvoir connecter un appareil qui implémente votre modèle de capacité d’appareil, vous devez publier votre modèle d’appareil.
+Avant de pouvoir connecter un appareil qui implémente votre modèle d’appareil, vous devez publier votre modèle d’appareil.
 
-Après avoir publié un modèle d’appareil, vous ne pouvez apporter que des modifications limitées au modèle de capacité de l’appareil. Pour modifier une interface, vous devez [créer et publier une nouvelle version](./howto-version-device-template.md).
+Après avoir publié un modèle d’appareil, vous ne pouvez apporter que des modifications limitées au modèle d’appareil. Pour modifier un composant, vous devez [créer et publier une nouvelle version](./howto-version-device-template.md).
 
 Pour publier un modèle d’appareil, accédez à votre modèle d’appareil et sélectionnez **Publier**.
 

@@ -5,19 +5,19 @@ description: Les groupes de basculement automatique vous permettent de gérer la
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653740"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988542"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ Les autorisations pour un groupe de basculement sont gérées via un [contrôle 
 
 ### <a name="create-failover-group"></a>Créer un groupe de basculement
 
-Pour créer un groupe de basculement, vous devez disposer d’un accès en écriture RBAC aux serveurs principal et secondaire ainsi qu’à toutes les bases de données du groupe de basculement. Pour une instance SQL Managed Instance, vous devez disposer d’un accès en écriture RBAC aux instances SQL Managed Instance principale et secondaire. Toutefois, les autorisations d’accès aux bases de données individuelles ne sont pas pertinentes dans la mesure où les bases de données SQL Managed Instance individuelles ne peuvent pas être ajoutées ou supprimées d’un groupe de basculement.
+Pour créer un groupe de basculement, vous devez disposer d’un accès en écriture Azure RBAC aux serveurs principal et secondaire ainsi qu’à toutes les bases de données du groupe de basculement. Pour une instance SQL Managed Instance, vous devez disposer d’un accès en écriture Azure RBAC aux instances SQL Managed Instance principale et secondaire. Toutefois, les autorisations d’accès aux bases de données individuelles ne sont pas pertinentes dans la mesure où les bases de données SQL Managed Instance individuelles ne peuvent pas être ajoutées ou supprimées d’un groupe de basculement.
 
 ### <a name="update-a-failover-group"></a>Mettre à jour un groupe de basculement
 
-Pour mettre à jour un groupe de basculement, vous devez disposer d’un accès en écriture RBAC au groupe de basculement et à toutes les bases de données du serveur principal ou de l’instance gérée actuels.  
+Pour mettre à jour un groupe de basculement, vous devez disposer d’un accès en écriture Azure RBAC au groupe de basculement et à toutes les bases de données du serveur principal ou de l’instance gérée actuels.  
 
 ### <a name="fail-over-a-failover-group"></a>Faire basculer un groupe de basculement
 
-Pour faire basculer un groupe de basculement, vous devez disposer d’un accès en écriture RBAC au groupe de basculement sur le nouveau serveur principal ou la nouvelle instance gérée.
+Pour faire basculer un groupe de basculement, vous devez disposer d’un accès en écriture Azure RBAC au groupe de basculement sur le nouveau serveur principal ou la nouvelle instance gérée.
 
 ## <a name="best-practices-for-sql-database"></a>Meilleures pratiques pour SQL Database
 
@@ -409,7 +409,7 @@ Notez les limitations suivantes :
 
 ## <a name="programmatically-managing-failover-groups"></a>Gestion par programmation des groupes de basculement
 
-Comme indiqué plus haut, les groupes de basculement automatique et la géo-réplication active peuvent aussi être gérés par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](/rest/api/sql/) et les [applets de commande Azure PowerShell](/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
+Comme indiqué plus haut, les groupes de basculement automatique et la géo-réplication active peuvent aussi être gérés par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](/rest/api/sql/) et les [applets de commande Azure PowerShell](/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge du contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gérer un basculement SQL Database
 

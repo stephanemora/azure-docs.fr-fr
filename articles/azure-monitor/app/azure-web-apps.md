@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377800"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832894"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -36,7 +36,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
 ## <a name="enable-agent-based-monitoring"></a>Activer la supervision basée sur un agent
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression ne peuvent pas être utilisés ensemble. Pour plus d’informations, consultez la [section de résolution des problèmes](#troubleshooting).
@@ -59,7 +59,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
  
  Voici un résumé des données collectées pour chaque itinéraire :
         
-| Données | Collection .NET Basic | Collecte Recommandé .NET |
+| Données | Collecte ASP.NET De base | Collecte ASP.NET Recommandé |
 | --- | --- | --- |
 | Ajoute les tendances d’utilisation de l’UC, de la mémoire et des E/S |Oui |Oui |
 | Collecte les tendances d’utilisation et permet la mise en corrélation des résultats de la disponibilité avec les transactions | Oui |Oui |
@@ -73,11 +73,11 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
     * Pour obtenir la liste des paramètres du processeur de télémétrie pris en charge pour l’échantillonnage adaptatif, consultez le [code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) et la [documentation associée](./sampling.md).
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0 et ASP.NET Core 3.1.
+Les versions suivantes d’ASP.NET Core sont prises en charge : ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0 et ASP.NET Core 3.1.
 
-Le ciblage de l’infrastructure complète à partir de .NET Core, le déploiement autonome et les applications basées sur Linux ne sont actuellement **pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](./asp-net-core.md) avec le code peut être utilisée dans tous les scénarios précédents.)
+Le ciblage de l’infrastructure complète à partir d’ASP.NET Core, le déploiement autonome et les applications basées sur Linux ne sont actuellement **pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](./asp-net-core.md) avec le code peut être utilisée dans tous les scénarios précédents.)
 
 1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre service d’application.
 
@@ -90,7 +90,7 @@ Le ciblage de l’infrastructure complète à partir de .NET Core, le déploieme
 
      ![Instrumenter votre application web](./media/azure-web-apps/create-resource-01.png)
 
-2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. .NET Core propose les niveaux de collecte **Recommandé** et **Désactivé** pour ASP.NET Core 2.1, 2.2, 3.0 et 3.1.
+2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. ASP.NET Core propose les niveaux de collecte **Recommandé** ou **Désactivé** pour ASP.NET Core 2.1, 2.2, 3.0 et 3.1.
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -111,7 +111,7 @@ Les applications web Python basées sur App Service ne prennent pas en charge la
 
 ## <a name="enable-client-side-monitoring"></a>Activer la supervision côté client
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
@@ -126,9 +126,9 @@ La supervision côté client est activée pour ASP.NET. Pour activer la supervis
 
 Pour désactiver la supervision côté client, supprimez la paire clé-valeur associée dans les paramètres de l’application, ou définissez la valeur sur false.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-La supervision côté client est **activée par défaut** pour les applications .NET Core configurées avec le niveau de **collecte Recommandé**, que le paramètre d’application « APPINSIGHTS_JAVASCRIPT_ENABLED » soit défini ou non.
+La supervision côté client est **activée par défaut** pour les applications ASP.NET Core configurées avec le niveau de **collecte Recommandé**, que le paramètre d’application « APPINSIGHTS_JAVASCRIPT_ENABLED » soit défini ou non.
 
 Si vous avez besoin de désactiver la supervision côté client, effectuez les étapes suivantes :
 
@@ -348,7 +348,7 @@ Si vous réalisez la mise à niveau à partir d’une version antérieure à 2.
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les problèmes rencontrés avec la supervision basée sur un agent/une extension pour les applications .NET et .NET Core exécutées sur Azure App Services.
+Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les problèmes rencontrés avec la supervision basée sur un agent/une extension pour les applications ASP.NET et ASP.NET Core exécutées sur Azure App Services.
 
 > [!NOTE]
 > L’approche recommandée pour surveiller des applications Java consiste à utiliser l’instrumentation automatique sans modifier le code. Suivez les instructions pour l’[agent Application Insights agent Java 3.0](./java-in-process-agent.md).
@@ -372,16 +372,31 @@ Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les pro
 
     * Vérifiez qu’il n’y a pas d’entrées `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` et `AppContainsAspNetTelemetryCorrelationAssembly`.
         * S’il y en a, supprimez les packages suivants de votre application : `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` et `Microsoft.AspNet.TelemetryCorrelation`.
+        * Pour les applications ASP.NET Core uniquement : dans le cas où votre application fait référence à des packages Application Insights, par exemple si vous avez précédemment instrumenté (ou tenté d’instrumenter) votre application avec le [SDK ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), l’activation de l’intégration App Service peut ne pas prendre effet et les données peuvent ne pas apparaître dans Application Insights. Pour résoudre le problème, dans le portail, activez « Interopérabilité avec le SDK Application Insights » et les données commenceront à s’afficher dans Application Insights 
+        > [!IMPORTANT]
+        > Cette fonctionnalité est en préversion 
+
+        ![Activer le paramètre dans l’application existante](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Les données vont désormais être envoyées à l’aide d’une approche sans code, même si le SDK Application Insights, à l’origine, a été utilisé ou a fait l’objet d’une tentative d’utilisation.
+
+        > [!IMPORTANT]
+        > Si l’application a utilisé le SDK Application Insights pour envoyer des données de télémétrie, ces données de télémétrie sont désactivées ; en d’autres termes, les données de télémétrie personnalisées (le cas échéant), telles que les méthodes Track* () et les paramètres personnalisés, tels que l’échantillonnage, sont désactivés. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
+
+Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [Kit de développement logiciel (SDK) JavaScript](./javascript.md).
 
 Ce tableau explique plus en détail la signification de ces valeurs d’erreur, leurs causes sous-jacentes et les corrections conseillées :
 
 |Valeur d’erreur|Explication|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Cette valeur indique que l’extension a détecté que certains éléments du SDK sont déjà présents dans l’application et qu’ils seront mis en back-off. Cela peut être dû à la présence d’une référence à `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` ou `Microsoft.ApplicationInsights`  | Supprimez la référence. Certaines de ces références sont ajoutées par défaut à partir de certains modèles Visual Studio, et les versions antérieures de Visual Studio ajoutent parfois des références à `Microsoft.ApplicationInsights`.
-|`AppAlreadyInstrumented:true` | Si l’application cible .NET Core 2.1 ou 2.2 et fait référence au métapaquet [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All), elle utilise Application Insights, et l’extension sera mise en back-off. | Pour les clients sur .NET Core 2.1 ou 2.2, il est [conseillé](https://github.com/aspnet/Announcements/issues/287) d’utiliser le métapaquet Microsoft.AspNetCore.App à la place.|
+|`AppAlreadyInstrumented:true` | Si l’application cible ASP.NET Core 2.1 ou 2.2, cette valeur indique que l’extension a détecté que certains éléments du SDK sont déjà présents dans l’application et qu’ils seront ignorés | Pour les clients sur .NET Core 2.1 ou 2.2, il est [conseillé](https://github.com/aspnet/Announcements/issues/287) d’utiliser le métapaquet Microsoft.AspNetCore.App à la place. En outre, activez « Interopérabilité avec le SDK Application Insights » dans le portail (voir les instructions ci-dessus).|
 |`AppAlreadyInstrumented:true` | Cette valeur peut également être due à la présence des DLL ci-dessus, d’un déploiement précédent, dans le dossier de l’application. | Supprimez ces DLL du dossier de l’application. Vérifiez le répertoire bin de votre application locale et le répertoire wwwroot sur l’App Service. (Pour vérifier le répertoire wwwroot de votre application web App Service : Outils avancés (Kudu) > Console de débogage > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Cette valeur indique que l’extension a détecté la présence de références à `Microsoft.AspNet.TelemetryCorrelation` dans l’application et qu’elle sera mise en back-off. | Supprimez la référence.
-|`AppContainsDiagnosticSourceAssembly**:true`|Cette valeur indique que l’extension a détecté la présence de références à `System.Diagnostics.DiagnosticSource` dans l’application et qu’elle sera mise en back-off.| Supprimez la référence.
+|`AppContainsDiagnosticSourceAssembly**:true`|Cette valeur indique que l’extension a détecté la présence de références à `System.Diagnostics.DiagnosticSource` dans l’application et qu’elle sera mise en back-off.| Pour ASP.NET, supprimez la référence. 
 |`IKeyExists:false`|Cette valeur indique que la clé d’instrumentation n’est pas présente dans le paramètre d’application `APPINSIGHTS_INSTRUMENTATIONKEY`. Causes possibles : Vous avez peut-être supprimé accidentellement les valeurs, oublié de définir les valeurs dans le script d’automatisation, etc. | Vérifiez que le paramètre est défini dans les paramètres d’application App Service.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression ne sont pas pris en charge
@@ -397,13 +412,9 @@ Pour avoir les toutes dernières informations sur l’extension/agent Applicatio
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Le site web par défaut déployé avec Web Apps ne prend pas en charge le monitoring automatique côté client
 
-Quand vous créez une application web avec le runtime `ASP.NET` ou `.NET Core` dans Azure App Services, elle déploie une seule page HTML statique en tant que site web de démarrage. La page web statique charge également un composant web managé .NET dans IIS. Cela permet de tester le monitoring côté serveur sans code, mais ne prend pas en charge le monitoring automatique côté client.
+Quand vous créez une application web avec le runtime `ASP.NET` ou `ASP.NET Core` dans Azure App Services, elle déploie une seule page HTML statique en tant que site web de démarrage. La page web statique charge également un composant web managé ASP.NET dans IIS. Cela permet de tester le monitoring côté serveur sans code, mais ne prend pas en charge le monitoring automatique côté client.
 
 Si vous souhaitez tester le monitoring côté client et côté serveur sans code pour ASP.NET ou ASP.NET Core dans une application web Azure App Services, nous vous recommandons de suivre les guides officiels pour [la création d’une application web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) et [la création d’une application web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md), puis d’utiliser les instructions de l’article en cours pour activer le monitoring.
-
-### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
-
-Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [Kit de développement logiciel (SDK) JavaScript](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
 

@@ -1,17 +1,17 @@
 ---
 title: Comment activer votre ressource Azure VMware Solution
-description: Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus de nœuds dans votre cloud privé Azure VMware Solution.
+description: Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: c9c31d8ffbf62a511f4f2ab19f995b6bc0ee0ca4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695144"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794712"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Comment activer la ressource Azure VMware Solution
-Découvrez comment envoyer une demande de support pour activer votre ressource [Azure VMware Solution](introduction.md). Vous pouvez également demander plus de nœuds dans votre cloud privé Azure VMware Solution.
+Découvrez comment envoyer une demande de support pour activer votre ressource [Azure VMware Solution](introduction.md). Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
 
 ## <a name="eligibility-criteria"></a>Critères d’éligibilité
 
@@ -22,7 +22,7 @@ Vous devez disposer d’un compte Azure dans un abonnement Azure. L’abonnement
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Activer Azure VMware Solution pour les clients EA
-Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un ticket de support pour que des nœuds vous soient alloués. Une fois que l’équipe du support technique reçoit votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des nœuds. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage de nœuds vous soient alloués, vous passerez par le même processus.
+Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un ticket de support pour que des hôtes vous soient alloués. Une fois que l’équipe du support technique a reçu votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des hôtes. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage d’hôtes vous soient alloués, vous passerez par le même processus.
 
 
 1. Sur votre portail Azure, sous **Aide + Support**, créez une **[nouvelle demande de support](https://rc.portal.azure.com/#create/Microsoft.Support)** et indiquez les informations suivantes pour le ticket :
@@ -38,20 +38,20 @@ Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un t
 
    - POC ou Production 
    - Nom de la région
-   - Nombre de nœuds
+   - Nombre d’hôtes
    - Autres détails
 
    >[!NOTE]
-   >Azure VMware Solution recommande un minimum de trois nœuds pour mettre en place votre cloud privé et pour la redondance des nœuds N+1. 
+   >Azure VMware Solution recommande un minimum de trois hôtes pour mettre en place votre cloud privé et pour la redondance des hôtes N+1. 
 
 1. Sélectionnez **Vérifier + Créer** pour envoyer la demande.
 
    Il faut compter jusqu’à cinq jours ouvrés pour qu’un représentant du support technique confirme votre demande.
 
    >[!IMPORTANT] 
-   >Si vous disposez déjà d’une instance Azure VMware Solution et que vous demandez des nœuds supplémentaires, veuillez noter que cinq jours ouvrés sont nécessaires pour allouer les nœuds. 
+   >Si vous disposez déjà d’une instance Azure VMware Solution et que vous demandez des hôtes supplémentaires, veuillez noter que cinq jours ouvrés sont nécessaires pour allouer les hôtes. 
 
-1. Avant d’approvisionner vos nœuds, veillez à inscrire le fournisseur de ressources **Microsoft.AVS** sur le portail Azure.  
+1. Avant d’approvisionner vos hôtes, veillez à inscrire le fournisseur de ressources **Microsoft.AVS** sur le portail Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -64,7 +64,7 @@ Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un t
 Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Microsoft](https://partner.microsoft.com) pour activer Azure VMware Solution pour leurs clients. 
 
    >[!IMPORTANT] 
-   >Le service Azure VMware Solution ne fournissant pas d’environnement mutualisé, les partenaires d’hébergement ne sont pas encore pris en charge. 
+   >Le service Azure VMware Solution ne fournit pas l’architecture mutualisée requise. Les partenaires d’hébergement qui en ont besoin ne sont pas pris en charge. 
 
 1. Dans l’**Espace partenaires**, sélectionnez **CSP** pour accéder à la zone **Clients** .
 
@@ -78,7 +78,7 @@ Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Mic
 
 1. Passez en revue et terminez la configuration générale de l’abonnement au plan Azure pour votre client. Pour plus d’informations, consultez la [Documentation de l’Espace partenaires Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Une fois le plan Azure configuré et les autorisations RBAC nécessaires en place en tant que CSP, vous devez contacter Microsoft afin d’activer le quota pour un abonnement à un plan Azure. Accédez au portail Azure à partir de l’Espace partenaires à l’aide de la procédure **Administrateur pour le compte de**.
+Une fois le plan Azure configuré et les autorisations vSphere RBAC nécessaires en place en tant que CSP, vous devez contacter Microsoft afin d’activer le quota pour un abonnement à un plan Azure. Accédez au portail Azure à partir de l’Espace partenaires à l’aide de la procédure **Administrateur pour le compte de**.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com).
 
@@ -99,27 +99,30 @@ Une fois le plan Azure configuré et les autorisations RBAC nécessaires en plac
 
    - POC ou Production 
    - Nom de la région
-   - Nombre de nœuds
+   - Nombre d’hôtes
    - Autres détails
    - Est destiné à héberger plusieurs clients ?
 
    >[!NOTE]
-   >Azure VMware Solution recommande un minimum de trois nœuds pour mettre en place votre cloud privé et pour la redondance des nœuds N+1. 
+   >Azure VMware Solution recommande un minimum de trois hôtes pour mettre en place votre cloud privé et pour la redondance des hôtes N+1. 
 
 1. Sélectionnez **Vérifier + Créer** pour envoyer la demande.
 
    Il faut compter jusqu’à cinq jours ouvrés pour qu’un représentant du support technique confirme votre demande.
 
    >[!IMPORTANT] 
-   >Si vous disposez déjà d’une instance Azure VMware Solution et que vous demandez des nœuds supplémentaires, veuillez noter que cinq jours ouvrés sont nécessaires pour allouer les nœuds. 
+   >Si vous disposez déjà d’une instance Azure VMware Solution et que vous demandez des hôtes supplémentaires, veuillez noter que cinq jours ouvrés sont nécessaires pour allouer les hôtes. 
 
-1. Une fois ajouté au plan Azure et doté d’un quota activé, le client ou l’administrateur partenaire peuvent déployer un cloud privé Azure VMware Solution via le portail Azure. Avant d’approvisionner vos nœuds, veillez à inscrire le fournisseur de ressources **Microsoft.AVS** sur le portail Azure.  
+1. Si l’abonnement est géré par le fournisseur de services, son équipe d’administration doit alors accéder au portail Azure en appliquant à nouveau la procédure **Admin On Behalf Of** (AOBO) à partir de l’Espace partenaires. Dans le portail Azure, lancez une instance [Cloud Shell](../cloud-shell/overview.md), enregistrez le fournisseur de ressources **Microsoft.AVS**, puis procédez au déploiement du cloud privé Azure VMware Solution.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    Pour d’autres façons d’inscrire un fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Si l’abonnement est géré directement par le client, l’inscription du fournisseur de ressources **Microsoft.AVS** doit être effectuée par un utilisateur disposant des autorisations suffisantes pour l’abonnement. Pour plus d’informations et savoir comment inscrire le fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md). 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

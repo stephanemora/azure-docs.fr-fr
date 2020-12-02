@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022358"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -55,9 +55,9 @@ L’onglet **Optimiser** contient des paramètres pour configurer le schéma de 
 
 ![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
 
-Par défaut, l’option *Utiliser le partitionnement actuel* est sélectionnée, qui indique à Azure Data Factory de conserver le partitionnement de sortie actuel de la transformation. Le repartitionnement des données prenant du temps, est recommandé d’ *utiliser le partitionnement actuel* dans la plupart des scénarios. Les scénarios dans lesquels il peut être souhaitable de repartitionner vos données incluent des agrégats et des jointures qui entraînent une asymétrie considérable de vos données, ou l’utilisation d’un partitionnement de source sur une base de données SQL.
+Par défaut, l’option *Utiliser le partitionnement actuel* est sélectionnée, qui indique à Azure Data Factory de conserver le partitionnement de sortie actuel de la transformation. Le repartitionnement des données prenant du temps, est recommandé d’*utiliser le partitionnement actuel* dans la plupart des scénarios. Les scénarios dans lesquels il peut être souhaitable de repartitionner vos données incluent des agrégats et des jointures qui entraînent une asymétrie considérable de vos données, ou l’utilisation d’un partitionnement de source sur une base de données SQL.
 
-Pour changer le partitionnement de n’importe quelle transformation, sélectionnez l’onglet **Optimiser** , puis la case d’option **Définir le partitionnement** . Une série d'options de partitionnement vous est présentée. La méthode de partitionnement qui convient varie en fonction des volumes de données, des clés candidates, des valeurs null et de la cardinalité. 
+Pour changer le partitionnement de n’importe quelle transformation, sélectionnez l’onglet **Optimiser**, puis la case d’option **Définir le partitionnement**. Une série d'options de partitionnement vous est présentée. La méthode de partitionnement qui convient varie en fonction des volumes de données, des clés candidates, des valeurs null et de la cardinalité. 
 
 > [!IMPORTANT]
 > Une partition unique combine toutes les données distribuées dans une seule partition. Il s’agit d’une opération très lente qui affecte considérablement toutes les transformations et écritures en aval. Le service Azure Data Factory déconseille fortement d’utiliser cette option, sauf en présence d’objectifs métier explicites.
@@ -87,6 +87,12 @@ Si vous avez une bonne compréhension de la cardinalité de vos données, une cl
 > [!TIP]
 > La définition manuelle du schéma de partitionnement a pour effet de remanier les données et risque d’annihiler les avantages de l’optimiseur Spark. La meilleure pratique consiste à ne pas définir manuellement le partitionnement, sauf si c’est indispensable.
 
+## <a name="logging-level"></a>Niveau de journalisation
+
+Si vous n’avez pas besoin que chaque exécution du pipeline de vos activités de flux de données journalise entièrement tous les journaux de télémétrie détaillés, vous pouvez éventuellement définir le niveau de journalisation sur « De base » ou « Aucun ». Lors de l’exécution de vos flux de données en mode « Verbose » (par défaut), vous demandez à ADF d’enregistrer entièrement l’activité à chaque niveau de partition individuel au cours de la transformation des données. Cela peut être une opération coûteuse. Par conséquent, n’activez l’option Verbose que lorsque la résolution des problèmes peut améliorer les performances globales du pipeline et du flux de données. Le mode « De base » ne consigne que les durées de transformation, tandis que le mode « Aucun » ne fournit qu’un résumé des durées.
+
+![Niveau de journalisation](media/data-flow/logging.png "Définir le niveau de journalisation")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimisation d’Azure Integration Runtime
 
 Les flux de données s’exécutent sur des clusters Spark qui sont lancés au moment de l’exécution. La configuration du cluster utilisé est définie dans le runtime d’intégration (IR) de l’activité. Trois aspects en lien avec les performances sont à prendre en considération lors de la définition de votre runtime d’intégration : type de cluster, taille de cluster et durée de vie.
@@ -99,7 +105,7 @@ Trois options sont disponibles pour le type de cluster Spark démarré : à usa
 
 Les clusters **à usage général** sont la sélection par défaut et sont idéaux pour la plupart des charges de travail de flux de données. Ils offrent généralement le meilleur compromis entre performances et coûts.
 
-Si votre flux de données contient de nombreuses jointures et recherches, vous pouvez peut-être utiliser un cluster **à mémoire optimisée** . Les clusters à mémoire optimisée peuvent stocker davantage de données en mémoire et minimiser les erreurs dues à une mémoire insuffisante. Si le niveau de prix par cœur de l’option à mémoire optimisée est le plus élevé, celle-ci tend également à produire des pipelines plus performants. Si vous rencontrez des erreurs dues à une insuffisance de mémoire lors de l’exécution de vos flux de données, basculez vers une configuration d’Azure Integration Runtime à mémoire optimisée. 
+Si votre flux de données contient de nombreuses jointures et recherches, vous pouvez peut-être utiliser un cluster **à mémoire optimisée**. Les clusters à mémoire optimisée peuvent stocker davantage de données en mémoire et minimiser les erreurs dues à une mémoire insuffisante. Si le niveau de prix par cœur de l’option à mémoire optimisée est le plus élevé, celle-ci tend également à produire des pipelines plus performants. Si vous rencontrez des erreurs dues à une insuffisance de mémoire lors de l’exécution de vos flux de données, basculez vers une configuration d’Azure Integration Runtime à mémoire optimisée. 
 
 L’option **optimisé pour le calcul** n’est pas idéale pour les flux de travail ETL et l’équipe Azure Data Factory la déconseille pour la plupart des charges de travail de production. Pour des transformations de données plus simples n’utilisant pas beaucoup de mémoire, telles que le filtrage de données ou l’ajout de colonnes dérivées, des clusters optimisés pour le calcul permettent d’abaisser le coût par cœur.
 
@@ -126,7 +132,7 @@ Les flux de données sont tarifés sur la base de vCores/heure, mode de calcul i
 
 ### <a name="time-to-live"></a>Durée de vie
 
-Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster en fonction de la configuration du runtime d’intégration. Le démarrage du cluster prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels** , vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il va réutiliser le cluster existant et le temps de démarrage sera donc fortement réduit. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
+Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster en fonction de la configuration du runtime d’intégration. Le démarrage du cluster prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels**, vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il va réutiliser le cluster existant et le temps de démarrage sera donc fortement réduit. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
 
 Une seule tâche peut être exécutée sur un seul cluster à la fois. Si un cluster est disponible, mais que deux flux de données démarrent, un seul utilise par le cluster actif. Le deuxième travail démarre son propre cluster isolé.
 
@@ -155,7 +161,7 @@ Azure SQL Database offre une option de partitionnement unique appelée partition
 
 #### <a name="isolation-level"></a>Niveau d'isolation
 
-Le niveau d’isolation de la lecture sur un système source SQL Azure a un impact sur les performances. L’option « Lecture non validée » permet d’obtenir des performances optimales et d’éviter tout verrouillage de la base de données. Pour en savoir plus sur les niveaux d’isolation SQL, consultez [Présentation des niveaux d’isolation](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Le niveau d’isolation de la lecture sur un système source SQL Azure a un impact sur les performances. L’option « Lecture non validée » permet d’obtenir des performances optimales et d’éviter tout verrouillage de la base de données. Pour en savoir plus sur les niveaux d’isolation SQL, consultez [Présentation des niveaux d’isolation](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lire à l’aide d’une requête
 
@@ -163,7 +169,7 @@ Vous pouvez lire à partir d’Azure SQL Database à l’aide d’une table ou d
 
 ### <a name="azure-synapse-analytics-sources"></a>Sources d’Azure Synapse Analytics
 
-Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet à ADF de lire à partir de Synapse à l’aide de [Polybase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), ce qui améliore considérablement les performances de lecture. L’activation de Polybase nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
+Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet à ADF de lire à partir de Synapse à l’aide de ```Polybase```, ce qui améliore considérablement les performances de lecture. L’activation de ```Polybase``` nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
 
 ![Activer le mode de préproduction](media/data-flow/enable-staging.png "Activer le mode de préproduction")
 
@@ -183,6 +189,10 @@ Quand des flux de données écrivent dans des récepteurs, tout partitionnement 
 
 Avec Azure SQL Database, le partitionnement par défaut doit fonctionner dans la plupart des cas. Il est possible que votre récepteur ait un trop nombre de partitions à gérer trop important pour votre base de données SQL. Si vous rencontrez ce problème, réduisez le nombre de partitions générées par votre récepteur SQL Database.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Impact de la gestion des lignes d’erreur sur les performances
+
+Lorsque vous activez la gestion des lignes d’erreur (« continuer en cas d’erreur ») dans la transformation du récepteur, ADF effectue une étape supplémentaire avant d’écrire les lignes compatibles dans votre table de destination. Cette étape supplémentaire entraîne une faible baisse des performances qui peut être comprise dans la plage de 5 % pour cette étape, avec un faible impact supplémentaire sur les performances également ajouté si vous définissez l’option de consigner aussi avec les lignes incompatibles dans un fichier journal.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Désactivation des index à l’aide d’un script SQL
 
 La désactivation des index avant un chargement dans une base de données SQL peut améliorer considérablement les performances d’écriture dans la table. Avant d’écrire sur votre récepteur SQL, exécutez la commande ci-dessous.
@@ -198,7 +208,7 @@ Ces opérations peuvent être effectuées en mode natif à l’aide de scripts P
 ![Désactiver les index](media/data-flow/disable-indexes-sql.png "Désactiver les index")
 
 > [!WARNING]
-> Lors de la désactivation des index, le flux de données prend le contrôle d’une base de données et les requêtes sont peu susceptibles d’aboutir à ce moment. Par conséquent, de nombreux travaux ETL sont déclenchés de nuit pour éviter ce conflit. Pour plus d’informations, découvrez les [contraintes de la désactivation d’index](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15).
+> Lors de la désactivation des index, le flux de données prend le contrôle d’une base de données et les requêtes sont peu susceptibles d’aboutir à ce moment. Par conséquent, de nombreux travaux ETL sont déclenchés de nuit pour éviter ce conflit. Pour plus d’informations, découvrez les [contraintes de la désactivation d’index](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Augmentation de l’échelle de votre base de données
 
@@ -240,16 +250,15 @@ Lors de l’écriture dans CosmosDB, la modification du débit et de la taille d
 
 **Budget du débit d’écriture :** Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
 
-
 ## <a name="optimizing-transformations"></a>Optimisation des transformations
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Optimisation des transformations Joins, Exists et Lookups
 
 #### <a name="broadcasting"></a>Diffusion
 
-Dans les transformations Joins, Exists et Lookups, si un ou les deux flux de données sont suffisamment petits pour tenir dans la mémoire de nœud worker, vous pouvez optimiser les performances en activant la **Diffusion** . Un diffusion a lieu quand vous envoyez de petites trames de données à tous les nœuds du cluster. Cela permet au moteur Spark d’effectuer une jointure sans remanier les données dans le grand flux. Par défaut, le moteur Spark détermine automatiquement s’il faut ou non diffuser un côté d’une jointure. Si vous êtes familiarisé avec vos données entrantes et savez qu’un flux sera beaucoup plus petit que l’autre, vous pouvez sélectionner une diffusion **Fixe** . Une diffusion fixe force Spark à diffuser le flux sélectionné. 
+Dans les transformations Joins, Exists et Lookups, si un ou les deux flux de données sont suffisamment petits pour tenir dans la mémoire de nœud worker, vous pouvez optimiser les performances en activant la **Diffusion**. Un diffusion a lieu quand vous envoyez de petites trames de données à tous les nœuds du cluster. Cela permet au moteur Spark d’effectuer une jointure sans remanier les données dans le grand flux. Par défaut, le moteur Spark détermine automatiquement s’il faut ou non diffuser un côté d’une jointure. Si vous êtes familiarisé avec vos données entrantes et savez qu’un flux sera beaucoup plus petit que l’autre, vous pouvez sélectionner une diffusion **Fixe**. Une diffusion fixe force Spark à diffuser le flux sélectionné. 
 
-Si la taille des données diffusées est trop importante pour le nœud Spark, il se peut que vous rencontriez une erreur de mémoire insuffisante. Pour éviter les erreurs de mémoire insuffisante, utilisez des clusters **à mémoire optimisée** . Si vous rencontrez des délais d’expiration de diffusion au cours d’exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents.
+Si la taille des données diffusées est trop importante pour le nœud Spark, il se peut que vous rencontriez une erreur de mémoire insuffisante. Pour éviter les erreurs de mémoire insuffisante, utilisez des clusters **à mémoire optimisée**. Si vous rencontrez des délais d’expiration de diffusion au cours d’exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents.
 
 ![Optimisation de la transformation de jointure (Join)](media/data-flow/joinoptimize.png "Optimisation de la jointure")
 

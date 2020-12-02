@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738524"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016329"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -85,6 +85,13 @@ Vous pouvez vous lancer dans la co-vente directement à partir de l’Espace par
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Cette image présente la liste déroulante CED pour demander une révision de co-vente.":::
 
     Le CED vous contactera pour terminer le processus.
+
+## <a name="see-your-offers-co-sell-status"></a>Voir l’état Co-vente de votre offre
+
+Pour les offres avec [l’option Co-vente dans l’Espace partenaires](./partner-center-portal/commercial-marketplace-co-sell.md), vous pouvez voir l’état Co-vente actuel de votre offre sur la page Vue d’ensemble de l’offre :
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Cette image montre l’état Co-vente actuel des offres.":::
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965911"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837261"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -85,7 +85,7 @@ Un PRT est renouvelé selon deux méthodes différentes :
 * **Plug-in Azure AD CloudAP toutes les 4 heures** : Le plug-in CloudAP renouvelle le PRT toutes les 4 heures pendant la connexion Windows. Si l’utilisateur n’a pas de connexion Internet pendant ce temps, le plug-in CloudAP renouvellera le PRT une fois que l’appareil se sera connecté à Internet.
 * **Plug-in Azure AD WAM pendant les demandes de jeton d’application** : Le plug-in WAM permet l’authentification unique sur les appareils Windows 10 en activant les demandes de jeton silencieuses pour les applications. Le plug-in WAM peut renouveler le PRT pendant ces demandes de jeton de deux manières différentes :
    * Une application demande au plug-in WAM un jeton d’accès silencieusement, mais aucun jeton d’actualisation n’est disponible pour cette application. Dans ce cas, WAM utilise le PRT pour demander un jeton pour l’application et récupère un nouveau PRT dans la réponse.
-   * Une application demande un jeton d’accès au plug-in WAM, mais le PRT n’est pas valide ou Azure AD requiert une autorisation supplémentaire (par exemple une authentification multifacteur Azure). Dans ce scénario, WAM lance une ouverture de session interactive qui oblige l’utilisateur à s’authentifier de nouveau ou à effectuer une vérification supplémentaire, et un nouveau PRT est émis en cas d’authentification réussie.
+   * Une application demande un jeton d’accès au plug-in WAM, mais le PRT n’est pas valide ou Azure AD requiert une autorisation supplémentaire (par exemple Azure AD Multi-Factor Authentication). Dans ce scénario, WAM lance une ouverture de session interactive qui oblige l’utilisateur à s’authentifier de nouveau ou à effectuer une vérification supplémentaire, et un nouveau PRT est émis en cas d’authentification réussie.
 
 Dans un environnement ADFS, une ligne de vue directe sur le contrôleur de domaine n’est pas nécessaire pour renouveler le PRT. Le renouvellement du PRT requiert uniquement des points de terminaison /adfs/services/trust/2005/usernamemixed and /adfs/services/trust/13/usernamemixed activés sur le proxy à l’aide du protocole WS-Trust.
 

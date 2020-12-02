@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663233"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238392"
 ---
 # <a name="create-an-app-service-environment"></a>Créer un environnement App Service Environment
 
@@ -48,7 +48,7 @@ L’environnement ASEv3 est disponible uniquement dans certaines régions sélec
 
 ## <a name="creating-an-ase-in-the-portal"></a>Création d’un environnement ASE dans le portail
 
-1. Pour créer un environnement ASEv3, recherchez **App Service Environment v3** dans la Place de marché.  
+1. Pour créer un environnement ASE v3, recherchez **App Service Environment (préversion)** sur la marketplace.  
 2. Paramètres de base :  Sélectionnez l’abonnement, sélectionnez ou créez le groupe de ressources, puis entrez le nom de votre environnement ASE.  Le nom de l’environnement ASE sera également utilisé pour le suffixe de domaine de votre environnement ASE.  Si le nom de votre environnement ASE est *contoso* le suffixe de domaine sera *contoso.appserviceenvironment.net*.  Ce nom est automatiquement défini dans votre zone privée Azure DNS utilisée par le réseau virtuel dans lequel l’environnement ASE est déployé. 
 
     ![App Service Environment - Créer un onglet de base](./media/creation/creation-basics.png)

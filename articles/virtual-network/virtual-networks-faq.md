@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 00ef685c755c0fa6f5217d567bfa255ea940d72a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927717"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015967"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -270,11 +270,11 @@ Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion e
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer le peering de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
 Oui. Il est possible d’établir un peering de réseau virtuel (local ou global) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via le portail, PowerShell ou Azure CLI.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion de peering de réseau est à l’état *initié* , pourquoi ne puis-je pas me connecter ?
-Si votre connexion de peering est dans un état *Initiée* , cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion réussie. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté*.
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion de peering de réseau est à l’état *initié*, pourquoi ne puis-je pas me connecter ?
+Si votre connexion de peering est dans un état *Initiée*, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion réussie. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion de peering VNet se trouve dans l’état *Déconnecté* , pourquoi ne puis-je pas créer une connexion de peering ?
-Si votre connexion de peering VNet se trouve dans un état *Déconnecté* , cela signifie qu’un des liens créés a été supprimé. Pour rétablir une connexion de peering, vous devrez supprimer le lien et le créer de nouveau.
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion de peering VNet se trouve dans l’état *Déconnecté*, pourquoi ne puis-je pas créer une connexion de peering ?
+Si votre connexion de peering VNet se trouve dans un état *Déconnecté*, cela signifie qu’un des liens créés a été supprimé. Pour rétablir une connexion de peering, vous devrez supprimer le lien et le créer de nouveau.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Puis-je homologuer mon réseau virtuel avec un réseau virtuel dans un autre abonnement ?
 Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.
@@ -282,13 +282,16 @@ Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régi
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Puis-je homologuer deux réseaux virtuels avec des plages d’adresses correspondantes ou se chevauchant ?
 Non. Les espaces d’adresses ne doivent pas se chevaucher pour pouvoir activer le peering de réseau virtuel.
 
+### <a name="can-i-peer-a-vnet-to-two-different-vnets-with-the-the-use-remote-gateway-option-enabled-on-both-the-peerings"></a>Puis-je appairer un réseau virtuel à deux réseaux virtuels différents avec l’option « Utiliser la passerelle à distance » activée sur les deux peerings ?
+Non. Vous ne pouvez activer l’option « Utiliser la passerelle à distance » que sur un peering avec l’un des réseaux virtuels.
+
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Combien coûtent les liens de peering de réseau virtuel ?
 Il n’existe aucun frais pour créer une connexion de peering de réseau virtuel. Le transfert de données entre des connexions de peering est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic de peering de réseau virtuel est-il chiffré ?
 Lorsque le trafic Azure se déplace entre des centres de données (hors limites physiques non contrôlées par Microsoft ou pour le compte de Microsoft), [le chiffrement de la couche de liaison de données MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) est utilisé sur le matériel réseau sous-jacent.  Cela s’applique au trafic de peering de réseaux virtuels.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion de peering est-elle dans un état *Déconnecté*  ?
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion de peering est-elle dans un état *Déconnecté* ?
 Les connexions de peering de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien de peering de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion de peering.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si j’effectue une homologation entre VNetA et VNetB, et que je dois également le faire entre VNetB et VNetC, cela signifie-il que VNetA et VNetC sont homologués ?
@@ -334,7 +337,7 @@ La première étape est une opération qui s’effectue côté réseau et la deu
 >[!NOTE]
 > Vous ne pouvez pas limiter l’accès au service Azure au réseau virtuel et sous-réseau autorisés avant d’avoir effectué les deux opérations ci-dessus. La simple activation des points de terminaison du service Azure côté réseau ne vous permet pas de définir un accès limité. En outre, vous devez également configurer les ACL du réseau virtuel côté service Azure.
 
-Certains services (comme SQL et CosmosDB) autorisent des exceptions à la séquence ci-dessus avec l’indicateur **IgnoreMissingVnetServiceEndpoint**. Une fois l’indicateur défini sur **True** , les ACL du réseau virtuel peuvent être définies côté service Azure avant la configuration des points de terminaison de service côté réseau. Les services Azure fournissent cet indicateur pour aider les clients lorsque des pare-feu IP spécifiques sont configurés sur les services Azure et que l’activation des points de terminaison de service côté réseau peut entraîner une baisse de connectivité, car l’adresse IP source passe d’une adresse IPv4 publique à une adresse privée. La configuration des ACL du réseau virtuel sur le service Azure avant la définition des points de terminaison de service côté réseau peut éviter une baisse de connectivité.
+Certains services (comme SQL et CosmosDB) autorisent des exceptions à la séquence ci-dessus avec l’indicateur **IgnoreMissingVnetServiceEndpoint**. Une fois l’indicateur défini sur **True**, les ACL du réseau virtuel peuvent être définies côté service Azure avant la configuration des points de terminaison de service côté réseau. Les services Azure fournissent cet indicateur pour aider les clients lorsque des pare-feu IP spécifiques sont configurés sur les services Azure et que l’activation des points de terminaison de service côté réseau peut entraîner une baisse de connectivité, car l’adresse IP source passe d’une adresse IPv4 publique à une adresse privée. La configuration des ACL du réseau virtuel sur le service Azure avant la définition des points de terminaison de service côté réseau peut éviter une baisse de connectivité.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Tous les services Azure résident-ils sur le réseau virtuel Azure fourni par le client ? Comment le point de terminaison de service du réseau virtuel fonctionne-t-il avec les services Azure ?
 

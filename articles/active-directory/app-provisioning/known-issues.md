@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069753"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919678"
 ---
 # <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
@@ -86,6 +86,9 @@ Lors de l’approvisionnement de `enabled = off` ou lorsque vous appuyez sur Arr
 
 Lorsqu’un groupe est dans l’étendue et qu’un membre est hors de cette étendue, le groupe est approvisionné. L’utilisateur hors de l’étendue n’est pas approvisionné. Si le membre revient dans l’étendue, le service ne détecte pas immédiatement la modification. Le redémarrage de l’approvisionnement permet de résoudre le problème. Nous vous recommandons de redémarrer régulièrement le service pour vous assurer que tous les utilisateurs sont correctement approvisionnés.  
 
+**Le gestionnaire n’est pas approvisionné**
+
+Si un utilisateur et son gestionnaire se trouvent tous deux dans l’étendue d’approvisionnement, le service approvisionne l’utilisateur, puis met à jour le gestionnaire. Toutefois, si au premier jour l’utilisateur se trouve dans l’étendue mais pas le gestionnaire, nous approvisionnons l’utilisateur sans référence au gestionnaire. Une fois le gestionnaire dans l’étendue, la référence au gestionnaire n’est pas mise à jour tant que vous ne redémarrez pas l’approvisionnement pour permettre au service de réévaluer tous les utilisateurs. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Comment fonctionne le provisionnement](how-provisioning-works.md)

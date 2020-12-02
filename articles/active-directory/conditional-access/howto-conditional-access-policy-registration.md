@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049092"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837536"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accès conditionnel : Sécurisation de l’inscription des informations de sécurité
 
-La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en préversion est à la disposition des organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent utiliser des conditions telles qu’un emplacement réseau approuvé afin de limiter l’accès pour s’inscrire à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service (SSPR). Pour plus d’informations sur les conditions utilisables, consultez l’article [Accès conditionnel : Conditions](concept-conditional-access-conditions.md).
+La sécurisation de l’inscription des utilisateurs à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en préversion est à la disposition des organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent utiliser des conditions telles qu’un emplacement réseau approuvé afin de limiter l’accès pour s’inscrire à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service (SSPR). Pour plus d’informations sur les conditions utilisables, consultez l’article [Accès conditionnel : Conditions](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Créer une stratégie pour exiger l’inscription à partir d’un emplacement approuvé
 

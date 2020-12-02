@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994279"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -55,7 +55,7 @@ L'atténuation des interruptions doit être l'une des priorités de l'organisati
 
 ### <a name="administrator-lockout-contingency"></a>Plan d'urgence en cas de verrouillage des administrateurs
 
-Pour déverrouiller l'accès administrateur à votre locataire, vous devez créer des comptes d'accès d'urgence. Ces comptes d'accès d'urgence (ou *break glass* ) permettent de gérer la configuration d'Azure AD lorsque les procédures normales d'accès aux comptes à privilèges ne sont pas disponibles. Au moins deux comptes d'accès d'urgence doivent être créés, conformément aux [recommandations relatives aux comptes d'accès d'urgence]( ../users-groups-roles/directory-emergency-access.md).
+Pour déverrouiller l'accès administrateur à votre locataire, vous devez créer des comptes d'accès d'urgence. Ces comptes d'accès d'urgence (ou *break glass*) permettent de gérer la configuration d'Azure AD lorsque les procédures normales d'accès aux comptes à privilèges ne sont pas disponibles. Au moins deux comptes d'accès d'urgence doivent être créés, conformément aux [recommandations relatives aux comptes d'accès d'urgence]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Atténuer le risque de verrouillage des utilisateurs
 
@@ -65,11 +65,11 @@ Pour déverrouiller l'accès administrateur à votre locataire, vous devez crée
 
 Intégrez les contrôles d’accès suivants aux stratégies d’accès conditionnel existantes de votre organisation :
 
-1. Fournissez à chaque utilisateur plusieurs méthodes d'authentification basées sur différents canaux de communication, par exemple l'application Microsoft Authenticator (basée sur Internet), le jeton OATH (généré sur l'appareil) et les SMS (téléphoniques). Le script PowerShell suivant vous permet d’identifier à l’avance les méthodes supplémentaires que vos utilisateurs doivent inscrire : [Script pour l’analyse de la méthode d’authentification Azure MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Fournissez à chaque utilisateur plusieurs méthodes d'authentification basées sur différents canaux de communication, par exemple l'application Microsoft Authenticator (basée sur Internet), le jeton OATH (généré sur l'appareil) et les SMS (téléphoniques). Le script PowerShell suivant vous permet d’identifier à l’avance les méthodes supplémentaires que vos utilisateurs doivent inscrire : [Script pour l’analyse de la méthode d’authentification Azure AD MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Déployez Windows Hello Entreprise sur les appareils Windows 10 pour répondre aux exigences d'authentification multifacteur dès la connexion de l'appareil.
 3. Utilisez des appareils approuvés via la [jonction Azure AD hybride](../devices/overview.md) ou des [appareils gérés par Microsoft Intune](/intune/planning-guide). Un appareil approuvé améliorera l'expérience utilisateur, car l'appareil proprement dit répondra aux exigences d'authentification forte de la stratégie sans que l'utilisateur ne soit confronté au défi de l'authentification multifacteur. L'authentification multifacteur sera alors requise lors de l'inscription d'un nouvel appareil et lors de l'accès à des applications ou ressources à partir d'appareils non approuvés.
 4. Utilisez des stratégies de protection de l'identité Azure AD basées sur les risques qui bloquent l'accès lorsque l'utilisateur ou la connexion risquent de se substituer aux stratégies d'authentification multifacteur définies.
-5. Si vous protégez l’accès au VPN à l’aide de l’extension NPS Azure MFA, envisagez de fédérer votre solution VPN en tant [qu’application SAML](../manage-apps/view-applications-portal.md) et déterminez la catégorie de l’application, comme cela est recommandé ci-dessous. 
+5. Si vous protégez l’accès au VPN à l’aide de l’extension NPS Azure AD MFA, envisagez de fédérer votre solution VPN en tant [qu’application SAML](../manage-apps/view-applications-portal.md) et déterminez la catégorie de l’application, comme cela est recommandé ci-dessous. 
 
 >[!NOTE]
 > Pour implémenter des stratégies basées sur les risques, des licences [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) sont requises.
@@ -112,7 +112,7 @@ Votre organisation peut également créer des stratégies d'urgence. Pour créer
 
 #### <a name="microsoft-recommendations"></a>Recommandations de Microsoft
 
-Une stratégie d’accès conditionnel d’urgence est une **stratégie de sauvegarde** qui ignore toute authentification Azure MFA ou tierce ainsi que les contrôles basés sur les risques ou sur l’appareil. Afin de minimiser toute interruption inattendue lorsqu’une stratégie d’urgence est activée, la stratégie doit rester en mode rapport seul lorsqu’elle n’est pas utilisée. Les administrateurs peuvent surveiller l’impact potentiel de leurs stratégies d’urgence à l’aide du workbook Insights sur l’accès conditionnel. Lorsque votre organisation décide d’activer son plan d’urgence, les administrateurs peuvent activer la stratégie et désactiver les stratégies standard basées sur les contrôles.
+Une stratégie d’accès conditionnel d’urgence est une **stratégie de sauvegarde** qui ignore toute authentification Azure AD MFA ou tierce ainsi que les contrôles basés sur les risques ou sur l’appareil. Afin de minimiser toute interruption inattendue lorsqu’une stratégie d’urgence est activée, la stratégie doit rester en mode rapport seul lorsqu’elle n’est pas utilisée. Les administrateurs peuvent surveiller l’impact potentiel de leurs stratégies d’urgence à l’aide du workbook Insights sur l’accès conditionnel. Lorsque votre organisation décide d’activer son plan d’urgence, les administrateurs peuvent activer la stratégie et désactiver les stratégies standard basées sur les contrôles.
 
 >[!IMPORTANT]
 > La désactivation des stratégies de protection de vos utilisateurs, même temporairement, réduira votre niveau de sécurité tant que le plan d'urgence sera en place.
@@ -126,7 +126,7 @@ Une stratégie d’accès conditionnel d’urgence est une **stratégie de sauve
 * Nommez vos stratégies pour être certain qu’il soit facile de les trouver pendant une interruption. Incluez les éléments suivants dans le nom de la stratégie :
   * Un *numéro de libellé* pour la stratégie.
   * Un texte à afficher, cette stratégie n’étant prévue qu’en cas d’urgence. Par exemple : **ACTIVER EN CAS D’URGENCE**
-  * L’ *interruption* à laquelle elle s’applique. Par exemple : **Pendant une interruption MFA**
+  * L’*interruption* à laquelle elle s’applique. Par exemple : **Pendant une interruption MFA**
   * Un *numéro de séquence* pour montrer l’ordre dans lequel les stratégies doivent être activées.
   * Les *applications* auxquelles elle s’applique.
   * Les *contrôles* auxquels elle s’appliquera.
@@ -138,7 +138,7 @@ Ce standard de nommage pour les stratégies d’urgence doit se présenter de ce
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-L’exemple suivant : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l'organisation exige généralement l'authentification multifacteur pour tous les accès Exchange Online et SharePoint Online, et dans ce cas, l'interruption est due à une panne du fournisseur d'authentification multifacteur du client (il peut s'agir de l'authentification multifacteur Azure, d'un fournisseur d'authentification multifacteur local ou d'une authentification multifacteur tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
+L’exemple suivant : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l’organisation exige généralement l’authentification MFA pour tout accès à Exchange Online et SharePoint Online, et dans ce cas, l’interruption est due à une panne du fournisseur d’authentification MFA du client (il peut s’agir de l’authentification Azure AD MFA, d’un fournisseur d’authentification MFA local ou d’une authentification MFA tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
 
 **Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :**
 
@@ -180,7 +180,7 @@ Ordre d'activation :
 5. Activer la stratégie 4 : vérifier qu'aucun utilisateur n'a accès à Exchange Online à partir des applications de messagerie natives sur les appareils mobiles.
 6. Désactiver la stratégie d'authentification multifacteur existante pour SharePoint Online et Exchange Online.
 
-Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce** , l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
+Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce**, l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
 
 **Exemple B - Stratégies d'accès conditionnel d'urgence :**
 
@@ -208,7 +208,7 @@ Ordre d'activation :
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Plans d’urgence en cas de verrouillage des utilisateurs sur les ressources locales (extension NPS)
 
-Si vous protégez l’accès au VPN à l’aide de l’extension NPS Azure MFA, envisagez de fédérer votre solution VPN en tant [qu’application SAML](../manage-apps/view-applications-portal.md) et déterminez la catégorie de l’application, comme cela est recommandé ci-dessous. 
+Si vous protégez l’accès au VPN à l’aide de l’extension NPS Azure AD MFA, envisagez de fédérer votre solution VPN en tant [qu’application SAML](../manage-apps/view-applications-portal.md) et déterminez la catégorie de l’application, comme cela est recommandé ci-dessous. 
 
 Si vous avez déployé l’extension NPS Azure AD MFA pour protéger des ressources locales, comme un VPN et une passerelle Bureau à distance, avec MFA, vous devez envisager à l’avance si vous êtes prêt à désactiver l’authentification MFA en cas d’urgence.
 
@@ -280,7 +280,7 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
  > Si vous élargissez le champ des adresses IP approuvées pour débloquer l'accès, les détections à risque associées aux adresses IP (par exemple, un voyage impossible ou un emplacement inconnu) ne seront pas générées.
 
 >[!NOTE]
- > La configuration des [adresses IP approuvées](./howto-mfa-mfasettings.md) pour l'authentification multifacteur Azure n'est disponible qu'avec les [licences Azure AD Premium](./concept-mfa-licensing.md).
+ > La configuration des [adresses IP approuvées](./howto-mfa-mfasettings.md) pour Azure AD MFA n’est disponible qu’avec les [licences Azure AD Premium](./concept-mfa-licensing.md).
 
 ## <a name="learn-more"></a>En savoir plus
 

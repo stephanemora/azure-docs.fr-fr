@@ -6,12 +6,12 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335128"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536453"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Prise en charge du mappage de source pour les applications JavaScript
 
@@ -67,7 +67,7 @@ Si vous souhaitez configurer ou changer le compte de stockage ou le conteneur Bl
 
 ## <a name="troubleshooting"></a>Dépannage
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Paramètres de contrôle d’accès en fonction du rôle nécessaires sur votre conteneur Blob
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Paramètres de contrôle d’accès en fonction du rôle Azure (Azure RBAC) nécessaires sur votre conteneur Blob
 
 Tout utilisateur sur le portail utilisant cette fonctionnalité doit au moins disposer d’une autorisation [Lecteur de données Blob de stockage][storage blob data reader] sur votre conteneur Blob. Vous devez attribuer ce rôle à toute autre personne appelée à utiliser les mappages de source via cette fonctionnalité.
 

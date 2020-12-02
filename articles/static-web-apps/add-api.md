@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128502"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920489"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -41,7 +41,7 @@ Les étapes suivantes montrent comment créer un référentiel et cloner les fic
 Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouveau dépôt. Vous utilisez cette URL dans Visual Studio Code pour cloner le dépôt Git.
 
 1. Appuyez sur **F1** pour ouvrir la commande dans la palette de commandes
-1. Collez l’URL dans l’invite _Git: Clone_ , puis appuyez sur **Entrée**.
+1. Collez l’URL dans l’invite _Git: Clone_, puis appuyez sur **Entrée**.
 
    :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Cloner un projet GitHub à l’aide de Visual Studio Code":::
 
@@ -51,7 +51,7 @@ Une fois votre projet créé, copiez l’URL dans votre navigateur pour le nouve
 
 Ensuite, vous créez un projet Azure Functions en tant qu’API de l’application. 
 
-1. Dans le projet _my-vanilla-api_ , créez un sous-dossier nommé **api**.
+1. Dans le projet _my-vanilla-api_, créez un sous-dossier nommé **api**.
 1. Appuyez sur **F1** pour ouvrir la palette de commandes
 1. Entrez **Azure Functions : Create New Project...** (Créer un projet...)
 1. Appuyez sur **Entrée**
@@ -63,10 +63,10 @@ Ensuite, vous créez un projet Azure Functions en tant qu’API de l’applicati
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
-    - _Sélectionnez un langage_  : Choisir **JavaScript**
-    - _Sélectionner un modèle pour la première fonction de votre projet_  : Choisir **HTTP trigger** (Déclencheur HTTP)
-    - _Fournir un nom de fonction_  : Entrez **GetMessage**.
-    - _Niveau d’autorisation_  : Choisissez l’option **Anonymous** (Anonyme), qui permet à quiconque d’appeler le point de terminaison de votre fonction.
+    - _Sélectionnez un langage_ : Choisir **JavaScript**
+    - _Sélectionner un modèle pour la première fonction de votre projet_ : Choisir **HTTP trigger** (Déclencheur HTTP)
+    - _Fournir un nom de fonction_ : Entrez **GetMessage**.
+    - _Niveau d’autorisation_ : Choisissez l’option **Anonymous** (Anonyme), qui permet à quiconque d’appeler le point de terminaison de votre fonction.
         - Pour en savoir plus sur les niveaux d’autorisation, consultez [Clés d’autorisation](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code génère un projet Azure Functions avec un fonction déclenchée HTTP.
@@ -193,7 +193,7 @@ Lors du déploiement sur Azure, les demandes envoyées à l’API sont automatiq
    </html>
    ```
 
-1. Appuyez sur  **F5** pour démarrer le projet d’API.
+1. Appuyez sur **F5** pour démarrer le projet d’API.
 
 1. Appuyez sur **F1** et choisissez **Live Server : Ouvrir avec Live Server**.
 
@@ -235,17 +235,19 @@ Ensuite, ajoutez les paramètres propres à l’application.
 1. Sélectionner votre _Organisation_ préférée
 1. Sélectionner **my-vanilla-api** dans la liste déroulante _Repository_ (Référentiel)
 1. Sélectionner **master** maître dans la liste déroulante _Branch_ (Branche)
-1. Cliquez sur le bouton **Suivant : Build >** (Suivant : générer >) pour modifier la configuration de la génération.
+1. Sélectionner l’infrastructure de votre choix pour la configuration de build dans la liste déroulante _Présélections de build_
+
+ > Ces champs reflètent la structure du projet par défaut du type d'application. Modifiez les valeurs en fonction de votre application.
 
 Ensuite, ajoutez les détails de build suivants.
 
 1. Entrez **/** dans _App location_ (Emplacement de l’application).
 1. Entrez **api** dans _App location_.
-1. Désactivez la valeur par défaut de l’ _emplacement de l’artefact d’application_ en laissant la zone vide.
+1. Désactivez la valeur par défaut de l’_emplacement de l’artefact d’application_ en laissant la zone vide.
 1. Cliquez sur **Vérifier + créer**.
 1. Cliquez sur le bouton **Créer**
 
-    Une fois que vous avez cliqué sur le bouton _Créer_ , Azure effectue deux opérations. Tout d’abord, les services cloud sous-jacents sont créés pour prendre en charge l’application. Ensuite, un processus en arrière-plan commence à créer et à déployer l’application.
+    Une fois que vous avez cliqué sur le bouton _Créer_, Azure effectue deux opérations. Tout d’abord, les services cloud sous-jacents sont créés pour prendre en charge l’application. Ensuite, un processus en arrière-plan commence à créer et à déployer l’application.
 
 1. Cliquez sur le bouton **Accéder à la ressource** pour accéder à la page _Vue d’ensemble_ de l’application web.
 
@@ -265,7 +267,7 @@ Si vous ne souhaitez pas conserver cette application pour une utilisation ultér
 1. Dans la barre de recherche supérieure, taper **Groupes de ressources**
 1. Cliquer sur **Groupes de ressources**
 1. Sélectionner **myResourceGroup**
-1. Dans la page _myResourceGroup_ , assurez-vous que les ressources répertoriées sont bien celles que vous souhaitez supprimer.
+1. Dans la page _myResourceGroup_, assurez-vous que les ressources répertoriées sont bien celles que vous souhaitez supprimer.
 1. Sélectionnez **Supprimer**.
 1. Taper **myResourceGroup** dans la zone de texte
 1. Sélectionnez **Supprimer**.

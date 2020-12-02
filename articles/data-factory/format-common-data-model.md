@@ -1,18 +1,18 @@
 ---
 title: Format Common Data Model
 description: Transformer des données à l’aide du système de métadonnées Common Data Model
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636406"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015169"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ Le modèle Common Data Model est disponible en tant que [jeu de données inline]
 
 ### <a name="source-properties"></a>Propriétés de sources
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par une source CDM. Vous pouvez modifier ces propriétés sous l’onglet **Options de source** .
+Le tableau ci-dessous répertorie les propriétés prises en charge par une source CDM. Vous pouvez modifier ces propriétés sous l’onglet **Options de source**.
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -52,7 +52,11 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Entité de corpus | Chemin d’accès vers la référence d’entité | Oui | String | entité |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
-Si la définition d’entité que vous souhaitez utiliser dans votre transformation de la source se trouve dans le même répertoire que votre dossier de données, vous pouvez désélectionner « Utiliser une entité du corpus » et taper simplement l’entité de l’entité que vous souhaitez utiliser comme référence d’entité.
+Lorsque vous sélectionnez « Référence d’entité » dans les transformations de source et de récepteur, vous pouvez sélectionner les trois options suivantes comme emplacement de votre référence d’entité :
+
+* Local utilise l’entité définie dans le fichier manifeste déjà utilisé par ADF
+* Custom (personnalisé) vous demande de pointer vers un fichier manifeste d’entité différent du fichier manifeste ADF utilisé
+* Standard utilise une référence d’entité de la bibliothèque standard d’entités CDM conservées dans ```Github```.
 
 ### <a name="sink-settings"></a>Paramètres de récepteur
 
@@ -71,7 +75,7 @@ Si la définition d’entité que vous souhaitez utiliser dans votre transformat
 
 #### <a name="import-schema"></a>Importer un schéma
 
-CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection** . Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM vers lequel pointer.
+CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection**. Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM vers lequel pointer.
 
 Lors du mappage des colonnes de flux de données aux propriétés des entités dans la transformation du récepteur, cliquez sur l’onglet « Mappage » et sélectionnez « Importer le schéma ». ADF lira la référence d’entité vers laquelle vous avez pointé dans vos options de récepteur, ce qui vous permet de mapper le schéma CDM cible.
 
@@ -112,7 +116,7 @@ source(output(
 
 ### <a name="sink-properties"></a>Propriétés du récepteur
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur CDM. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres** .
+Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur CDM. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**.
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |

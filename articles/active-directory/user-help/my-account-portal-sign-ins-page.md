@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834147"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions
 
@@ -46,7 +46,7 @@ Avant de déterminer si quelque chose est incorrect, assurez-vous que vous ne vo
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>En cas de connexion infructueuse
 
-Si vous constatez une connexion infructueuse, cela peut signifier que vous avez tapé vos informations d’identification de manière incorrecte. Cela peut également signifier qu’un attaquant essayait de deviner votre mot de passe. Pour répondre à ce risque, vous n’êtes pas obligé de modifier votre mot de passe, mais nous vous recommandons de vous inscrire à Azure Multi-Factor Authentication (MFA). Grâce à l’authentification multifacteur, même si le pirate devine votre mot de passe, cela ne sera pas suffisant pour accéder au compte.
+Si vous constatez une connexion infructueuse, cela peut signifier que vous avez tapé vos informations d’identification de manière incorrecte. Cela peut également signifier qu’un attaquant essayait de deviner votre mot de passe. Pour répondre à ce risque, vous n’êtes pas obligé de modifier votre mot de passe, mais nous vous recommandons de vous inscrire à Azure AD Multi-Factor Authentication (MFA). Grâce à l’authentification multifacteur, même si le pirate devine votre mot de passe, cela ne sera pas suffisant pour accéder au compte.
 
 ![Vignette de connexion infructueuse](media/my-account-portal-sign-ins-page/unsuccessful.png)
 
@@ -56,7 +56,7 @@ Si vous voyez une connexion infructueuse, avec une note sous **Activité de sess
 
 Vous pouvez effectuer une recherche dans votre activité de connexion récente à l’aide de l’une des informations disponibles. Par exemple, vous pouvez rechercher votre activité de connexion récente par système d’exploitation, emplacement, application, et ainsi de suite.
 
-1. Sur la page **Vérifier l’activité récente**, saisissez les informations que vous souhaitez rechercher dans la barre de**Recherche**. Par exemple, saisissez `Unsuccessful` pour rechercher toutes les activités de connexion infructueuse collectées par l’application Mon compte.
+1. Sur la page **Vérifier l’activité récente**, saisissez les informations que vous souhaitez rechercher dans la barre de **Recherche**. Par exemple, saisissez `Unsuccessful` pour rechercher toutes les activités de connexion infructueuse collectées par l’application Mon compte.
 
 2. Sélectionnez le bouton **Rechercher** pour commencer la recherche.
 

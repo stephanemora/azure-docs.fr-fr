@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658687"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003971"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -636,6 +636,14 @@ Si vous déployez une fabrique en production et détectez un bogue qui doit êtr
 Regardez la vidéo ci-dessous, un didacticiel vidéo détaillé sur la façon de corriger vos environnements à chaud. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Indicateurs de contrôle d’exposition et de fonctionnalité
+
+Lorsque vous travaillez en équipe, vous pouvez souhaiter fusionner des modifications, sans les exécuter dans des environnements élevés tels que PROD et QA. Pour gérer un tel scénario, l’équipe ADF recommande [le concept DevOps utilisant les indicateurs de fonctionnalité](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). Dans ADF, vous pouvez combiner les [paramètres globaux](author-global-parameters.md) et l’[activité IfCondition](control-flow-if-condition-activity.md) pour masquer des ensembles de logique en fonction de ces indicateurs d’environnement.
+
+Pour savoir comment configurer un indicateur de fonctionnalité, consultez le tutoriel vidéo ci-dessous :
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
 

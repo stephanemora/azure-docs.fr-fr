@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144013"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908248"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 
-Log Analytics s’appuie sur Stockage Azure dans différents scénarios. Cette utilisation est généralement gérée automatiquement. Toutefois, dans certains cas, vous devez fournir et gérer votre propre compte de stockage, également appelé compte de stockage géré par le client. Ce document détaille l’utilisation du stockage géré par le client pour l’ingestion des journaux WAD/LAD, des scénarios Azure Private Link spécifiques et le chiffrement par CMK. 
+Log Analytics s’appuie sur Stockage Azure dans différents scénarios. Cette utilisation est généralement gérée automatiquement. Toutefois, dans certains cas, vous devez fournir et gérer votre propre compte de stockage, également appelé compte de stockage géré par le client. Ce document détaille l’utilisation du stockage géré par le client pour l’ingestion des journaux WAD/LAD, des scénarios Azure Private Link spécifiques et le chiffrement à l’aide d’une clé gérée par le client (CMK). 
 
 > [!NOTE]
 > Nous vous recommandons de ne pas dépendre du contenu que Log Analytics charge sur le stockage géré par le client, étant donné que le formatage et le contenu peuvent changer.

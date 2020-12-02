@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965185"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -68,7 +68,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
     1. Pour afficher et modifier la stratégie par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez comme décrit ci-dessous. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Page Gestion des stratégies":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Écran Stratégie actuelle":::
 
        L’écran **Stratégie de sécurité** reflète l’action effectuée par les stratégies affectées sur l’abonnement ou le groupe d’administration que vous avez sélectionnés.
        
@@ -86,7 +86,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
 
-Security Center utilise le contrôle d’accès en fonction du rôle (RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
+Security Center utilise le contrôle d’accès en fonction du rôle (Azure RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
 
 - **Lecteur Sécurité** : a le droit de consulter les éléments de Security Center tels que les recommandations, les alertes, la stratégie et l’intégrité. Ne peut pas apporter de modifications.
 - **Administrateur Sécurité** : a les mêmes droits de consultation que *Lecteur Sécurité*. Peut également mettre à jour la stratégie de sécurité et ignorer les alertes.

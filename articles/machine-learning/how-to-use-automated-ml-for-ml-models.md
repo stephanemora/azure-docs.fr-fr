@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536249"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919639"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -139,7 +139,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
     Algorithme bloqué| Sélectionnez les algorithmes que vous souhaitez exclure du travail de formation. <br><br> L’autorisation des algorithmes est disponible uniquement pour les [expériences SDK](how-to-configure-auto-train.md#supported-models). <br> Consultez les [modèles pris en charge pour chaque type de tâche](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
     Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. <br> [En savoir plus sur la validation croisée](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Les prévisions prennent uniquement en charge la validation croisée k-fold.
-    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié.
+    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. Apprenez-en davantage sur la manière dont le Machine Learning automatisé effectue [plusieurs exécutions enfants sur des clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Facultatif) Afficher les paramètres de caractérisation : si vous choisissez d’activer **Caractérisation automatique** dans le formulaire **Paramètres de configuration supplémentaires** formulaire, les techniques caractérisation par défaut sont appliquées. Dans **Afficher les paramètres de caractérisation**, vous pouvez modifier ces valeurs par défaut et les personnaliser en conséquence. Découvrez comment [personnaliser la caractérisation](#customize-featurization). 
 

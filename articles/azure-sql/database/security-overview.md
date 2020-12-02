@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780357"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989188"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Vue d’ensemble des capacités de sécurité d’Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,17 +46,17 @@ Les [règles de réseau virtuel](vnet-service-endpoint-rule-overview.md) permett
 ## <a name="access-management"></a>Gestion de l’accès
 
 > [!IMPORTANT]
-> La gestion des bases de données et des serveurs dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).
+> La gestion des bases de données et des serveurs dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle Azure dans le portail Azure](../../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Authentification
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database et SQL Managed Instance prennent en charge deux types d’authentification :
 
-- **Authentification SQL**  :
+- **Authentification SQL** :
 
-    L’authentification SQL fait référence à l’authentification d’un utilisateur qui se connecte à Azure SQL Database ou Azure SQL Managed Instance à l’aide d’un nom d’utilisateur et d’un mot de passe. Un identifiant d’ **administrateur de serveur** avec un nom d’utilisateur et un mot de passe doivent être spécifiés lors de la création du serveur. À l’aide de ces informations d’identification, un **administrateur de serveur** peut s’authentifier auprès de n’importe quelle base de données sur ce serveur ou cette instance en tant que propriétaire de la base de données. Ensuite, des connexions SQL et utilisateurs supplémentaires peuvent être créés par l'administrateur de serveur, ce qui permet aux utilisateurs de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe.
+    L’authentification SQL fait référence à l’authentification d’un utilisateur qui se connecte à Azure SQL Database ou Azure SQL Managed Instance à l’aide d’un nom d’utilisateur et d’un mot de passe. Un identifiant d’**administrateur de serveur** avec un nom d’utilisateur et un mot de passe doivent être spécifiés lors de la création du serveur. À l’aide de ces informations d’identification, un **administrateur de serveur** peut s’authentifier auprès de n’importe quelle base de données sur ce serveur ou cette instance en tant que propriétaire de la base de données. Ensuite, des connexions SQL et utilisateurs supplémentaires peuvent être créés par l'administrateur de serveur, ce qui permet aux utilisateurs de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe.
 
-- **Authentification Azure Active Directory**  :
+- **Authentification Azure Active Directory** :
 
     L’authentification Azure Active Directory est un mécanisme qui sert à se connecter à [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) et [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités et les autorisations des utilisateurs de base de données et d’autres services Azure dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
@@ -124,7 +124,7 @@ Dans Azure, toutes les bases de données créées sont chiffrées par défaut, e
 
 ![Diagramme montrant les concepts de base de la fonctionnalité Always Encrypted. Une base de données SQL avec un verrou est accessible uniquement par une application contenant une clé.](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_ ). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement. La clé de chiffrement n’est jamais exposée dans SQL Database ou SQL Managed Instance, et peut être stockée dans le [magasin de certificats Windows](always-encrypted-certificate-store-configure.md) ou dans [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement. La clé de chiffrement n’est jamais exposée dans SQL Database ou SQL Managed Instance, et peut être stockée dans le [magasin de certificats Windows](always-encrypted-certificate-store-configure.md) ou dans [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 

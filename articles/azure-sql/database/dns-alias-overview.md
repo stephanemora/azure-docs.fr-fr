@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790489"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989120"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ Les propriétés suivantes s’appliquent à tous les alias DNS du serveur :
   - En cas de suppression d’un serveur, le système Azure supprime également tous les alias DNS qui y font référence.
 - *Pas de liaison à une région :* Les alias DNS ne sont pas liés à une région. Ils peuvent être mis à jour de façon à faire référence à un serveur quelle que soit sa région géographique.
   - Toutefois, en cas de référence à un autre serveur, les deux serveurs doivent se trouver dans le même *abonnement* Azure.
-- *Autorisations :* Pour gérer un alias DNS, l’utilisateur doit au moins avoir l’autorisation *Contributeur de serveur* . Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).
+- *Autorisations :* Pour gérer un alias DNS, l’utilisateur doit au moins avoir l’autorisation *Contributeur de serveur*. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès Azure en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Gérer les alias DNS
 
@@ -105,7 +105,7 @@ Actuellement, un alias DNS présente les limitations suivantes :
 - *Délai de 2 minutes max. :* La mise à jour ou la suppression d’un alias DNS peut prendre jusqu’à 2 minutes.
   - Indépendamment du bref délai, l’alias arrête immédiatement de faire référence aux connexions clientes au serveur hérité.
 - *Recherche DNS :* Pour l’instant, le seul moyen sûr de vérifier quel serveur est référencé par un alias DNS donné est d’effectuer une [recherche DNS](/windows-server/administration/windows-commands/nslookup).
-- _L’audit des tables n’est pas pris en charge :_ Vous ne pouvez pas utiliser d’alias DNS sur un serveur si l’ *audit des tables* est activé sur une base de données.
+- _L’audit des tables n’est pas pris en charge :_ Vous ne pouvez pas utiliser d’alias DNS sur un serveur si l’*audit des tables* est activé sur une base de données.
   - L’audit des tables est déconseillé.
   - Nous vous recommandons de passer à [l’Audit des objets blob](../../azure-sql/database/auditing-overview.md).
 

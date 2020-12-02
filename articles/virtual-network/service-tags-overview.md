@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 60d3607a543cac5b8ce71819eb60394d8b8827bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d99ed9304612d5c1d3cbdc56a76cee751f2a4d3f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331123"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017931"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -64,6 +64,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureDataExplorerManagement** | Gestion d’Azure Data Explorer. | Trafic entrant | Non | Non |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Règle de trafic sortant | Non | Oui |
 | **AzureDevSpaces** | Azure Dev Spaces. | Règle de trafic sortant | Non | Non |
+| **AzureDevOps** | Azure Dev Ops.<br/><br/>*Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*| Trafic entrant | Non | Oui |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Remarque :* Cette étiquette et les adresses IP qu’elle couvre peuvent être utilisées pour restreindre l’accès aux points de terminaison configurés pour des routes d’événements. *Cette étiquette n’est actuellement pas configurable sur le Portail Azure.* | Trafic entrant | Non | Oui |
 | **AzureEventGrid** | Azure Event Grid. | Les deux | Non | Non |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Les deux | Non | Non |

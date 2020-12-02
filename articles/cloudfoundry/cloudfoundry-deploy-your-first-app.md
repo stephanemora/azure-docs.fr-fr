@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040030"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519674"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 Désormais, lorsque vous déployez une application, elle est automatiquement créée dans la nouvelle organisation et le nouvel espace. Pour vérifier qu’il n’existe actuellement aucune application dans la nouvelle organisation/le nouvel espace, tapez `cf apps` à nouveau.
 
 > [!NOTE] 
-> Pour plus d’informations sur les organisations et les espaces et la façon dont ils peuvent être utilisés pour le contrôle d’accès en fonction du rôle (RBAC, role-based access control), consultez la [documentation Cloud Foundry][cf-orgs-spaces-docs].
+> Pour plus d’informations sur les organisations et les espaces, ainsi que sur la façon dont ils peuvent être utilisés pour le contrôle d’accès en fonction du rôle (RBAC) Cloud Foundry, consultez la [documentation de Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Déployer une application
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser l’interface CLI de Cloud Foundry pour afficher les journa
 cf logs hello-spring-cloud
 ```
 
-Par défaut, la commande logs utilise une *fin* , qui montre les nouveaux journaux d’activité à mesure qu’ils sont écrits. Pour afficher les nouveaux journaux d’activité, actualisez l’application hello-spring-cloud dans le navigateur.
+Par défaut, la commande logs utilise une *fin*, qui montre les nouveaux journaux d’activité à mesure qu’ils sont écrits. Pour afficher les nouveaux journaux d’activité, actualisez l’application hello-spring-cloud dans le navigateur.
 
 Pour afficher les journaux d’activité déjà écrits, ajoutez le commutateur `recent` :
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740181"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837122"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -81,12 +81,12 @@ Vous pouvez activer la connexion Azure AD pour les images de machine virtuelle W
 
 Pour créer une machine virtuelle Windows Server 2019 Datacenter dans Azure avec l’ouverture de session Azure AD : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte disposant d’un accès pour créer des machines virtuelles, puis sélectionnez **+ Créer une ressource** .
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte disposant d’un accès pour créer des machines virtuelles, puis sélectionnez **+ Créer une ressource**.
 1. Saisissez **Windows Serveur** dans la barre de recherche Rechercher dans la Place de marché.
    1. Cliquez sur **Windows Server** et choisissez **Windows Server 2019 Datacenter** dans la liste déroulante Sélectionner un plan logiciel.
-   1. Cliquez sur **Créer** .
-1. Sous l’onglet « Gestion », activez l’option permettant de **Se connecter avec les informations d’identification AAD (préversion)** sous la section Azure Active Directory en la passant à l’état **Activé** .
-1. Assurez-vous que **Identité managée affectée par le système** sous la section Identité est définie sur **Activé** . Cette action doit se produire automatiquement une fois que vous avez activé la connexion avec les informations d’identification Azure AD.
+   1. Cliquez sur **Créer**.
+1. Sous l’onglet « Gestion », activez l’option permettant de **Se connecter avec les informations d’identification AAD (préversion)** sous la section Azure Active Directory en la passant à l’état **Activé**.
+1. Assurez-vous que **Identité managée affectée par le système** sous la section Identité est définie sur **Activé**. Cette action doit se produire automatiquement une fois que vous avez activé la connexion avec les informations d’identification Azure AD.
 1. Parcourez le reste de l’expérience de création d’une machine virtuelle. Dans cette préversion, vous devrez créer un nom d’utilisateur et un mot de passe Administrateur pour la machine virtuelle.
 
 ![Se connecter avec des informations d’identification Azure AD créer une machine virtuelle](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ Le `provisioningState` de `Succeeded` s’affiche, une fois que l’extension es
 
 Maintenant que vous avez créé la machine virtuelle, vous devez configurer la stratégie RBAC Azure pour déterminer qui peut se connecter à la machine virtuelle. Deux rôles Azure sont utilisés pour autoriser la connexion aux machines virtuelles :
 
-- **Connexion de l’administrateur aux machines virtuelles**  : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges Administrateur.
-- **Connexion de l’utilisateur aux machines virtuelles**  : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
+- **Connexion de l’administrateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges Administrateur.
+- **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
 
 > [!NOTE]
 > Pour autoriser un utilisateur à se connecter à la machine virtuelle via le protocole RDP (Remote Desktop Protocol), vous devez attribuer le rôle Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Un utilisateur Azure auquel le rôle Propriétaire ou Contributeur est attribué pour une machine virtuelle ne possède pas automatiquement les privilèges pour se connecter à la machine virtuelle via RDP. Cela permet de fournir une séparation auditée entre l’ensemble des personnes qui contrôlent les machines virtuelles et l’ensemble des personnes qui peuvent accéder aux machines virtuelles.
@@ -163,9 +163,9 @@ Pour configurer les attributions de rôles pour vos machines virtuelles Windows 
 
 1. Accédez à la page de vue d’ensemble de la machine virtuelle spécifique
 1. Sélectionnez **Contrôle d’accès (IAM)** à partir des options de menu
-1. Sélectionnez **Ajouter** , **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
-1. Dans la liste déroulante **Rôle** , sélectionnez un rôle, par exemple **Connexion de l’administrateur aux machines virtuelles** ou **Connexion de l’utilisateur aux machines virtuelles** .
-1. Dans le champ **Sélectionner** , sélectionnez un utilisateur, un groupe, un principal de service ou une identité managée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
+1. Sélectionnez **Ajouter**, **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
+1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, par exemple **Connexion de l’administrateur aux machines virtuelles** ou **Connexion de l’utilisateur aux machines virtuelles**.
+1. Dans le champ **Sélectionner**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité managée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
 1. Sélectionnez **Enregistrer** pour attribuer le rôle.
 
 Après quelques instants, le principal de sécurité est attribué au rôle dans l’étendue sélectionnée.
@@ -203,7 +203,7 @@ Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une a
 > Si vous utilisez « Exiger l’authentification multifacteur » comme contrôle pour l’octroi d’accès pour demander l’accès à l’application « Connexion à une machine virtuelle Microsoft Azure », vous devez fournir une revendication d’authentification multifacteur avec le client qui lance la session Bureau à distance (RDP) sur la machine virtuelle Windows cible dans Azure. La seule façon d’y parvenir sur un client Windows 10 est d’utiliser le code PIN Windows Hello Entreprise ou une authentification biométrique avec le client RDP. La prise en charge de l’authentification biométrique a été ajoutée au client RDP dans Windows 10 version 1809. Le Bureau à distance utilisant l’authentification Windows Hello Entreprise est disponible uniquement pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
 
 > [!WARNING]
-> Le service Azure Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.
+> Le service Azure AD Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
@@ -214,7 +214,7 @@ Pour vous connecter à votre machine virtuelle Windows Server 2019 à l’aide 
 
 1. Accédez à la page de vue d’ensemble de la machine virtuelle qui a été activée avec l’ouverture de session Azure AD.
 1. Sélectionnez **Se connecter** pour ouvrir le panneau Se connecter à la machine virtuelle.
-1. Sélectionnez **Télécharger le fichier RDP** .
+1. Sélectionnez **Télécharger le fichier RDP**.
 1. Sélectionnez **Ouvrir** pour lancer le client Connexion Bureau à distance.
 1. Sélectionnez **Se connecter** pour lancer la boîte de dialogue d’ouverture de session Windows.
 1. Ouvrez une session à l’aide de vos informations d’identification Azure AD.

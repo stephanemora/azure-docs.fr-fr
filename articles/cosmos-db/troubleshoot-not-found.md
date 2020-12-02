@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442325"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96017557"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,6 +25,11 @@ Il existe de nombreux scénarios valides où une application attend un code 404
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>Une exception introuvable a été retournée pour un élément qui doit exister ou existe
 Voici les raisons possibles pour qu’un code d’état 404 soit retourné si l’élément doit exister ou existe.
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>The read session is not available for the input session token (La session de lecture n’est pas disponible pour le jeton de session d’entrée)
+
+#### <a name="solution"></a>Solution :
+1. Mettez à jour votre Kit de développement logiciel (SDK) actuel vers la dernière version disponible. Les causes les plus courantes de cette erreur particulière ont été corrigées dans les versions les plus récentes du SDK.
 
 ### <a name="race-condition"></a>Condition de concurrence
 Il existe plusieurs instances de client SDK et la lecture a eu lieu avant l’écriture.

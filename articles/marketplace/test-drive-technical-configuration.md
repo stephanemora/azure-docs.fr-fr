@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629901"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751111"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -38,7 +38,9 @@ Microsoft peut supprimer la complexité de la configuration d’une version d’
 
 - **Nom de rôle** (obligatoire) : renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365, qui sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 
-Pour obtenir de l’aide pour la configuration de votre environnement Dynamics 365 pour une version d'évaluation et autoriser AppSource à approvisionner et à déprovisionner les utilisateurs de la version d'évaluation dans votre locataire, suivez [ces instructions](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Pour obtenir de l’aide pour la configuration de votre environnement Dynamics 365 pour une version d'évaluation et autoriser AppSource à approvisionner et à déprovisionner les utilisateurs de la version d'évaluation dans votre locataire, suivez [ces instructions](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+
+Pour obtenir des instructions pas à pas sur l’affichage et la configuration de votre version d’évaluation hébergée, consultez la page [Configuration détaillée pour une version d'évaluation hébergée](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config).
 
 ## <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 
@@ -92,6 +94,8 @@ L’option **Liste des versions d’évaluation** disponible sous l’onglet **V
   - **Miniature** (533 x 324 pixels) : cette image doit être au format PNG.
 
 Si vous êtes en train de créer votre version d'évaluation dans l’Espace partenaires, sélectionnez **Enregistrer le brouillon** avant de continuer.
+
+Pour obtenir des instructions pas à pas sur l’affichage et la configuration de votre version d’évaluation hébergée, consultez la page [Configuration détaillée pour une version d'évaluation hébergée](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

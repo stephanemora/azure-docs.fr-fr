@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143841"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534532"
 ---
 # <a name="access-control"></a>Contrôle d’accès
 
@@ -32,7 +32,7 @@ Dans les classeurs, le contrôle d’accès fait référence à deux éléments�
 « Collaborateur Workbooks » ajoute des privilèges « workbooks/écriture » à un objet pour enregistrer les classeurs partagés.
 Aucun privilège spécial n’est nécessaire pour permettre aux utilisateurs d’enregistrer les classeurs privés qu’ils peuvent voir.
 
-Pour le contrôle d’accès en fonction du rôle personnalisé :
+Pour les rôles personnalisés :
 
 Ajoutez `microsoft.insights/workbooks/write` pour enregistrer les workbooks partagés. Pour plus d’informations, consultez le rôle [Collaborateur du workbook](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
 

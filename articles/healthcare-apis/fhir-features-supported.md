@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368279"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520082"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -100,8 +100,8 @@ Tous les types de paramètre de recherche sont pris en charge.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partiel        | Partiel   | Partiel        |   `_sort=_lastUpdated` est pris en charge       |
 | `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 100 caractères. Si la valeur est supérieure à 100, seuls 100 résultats sont retournés et un avertissement est renvoyé dans le lot. |
-| `_include`              | Non        | Oui       | Non        |         |
-| `_revinclude`           | Non        | Oui       | Non        | Les éléments inclus sont limités à 100. |
+| `_include`              | Oui       | Oui       | Oui       |Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
+| `_revinclude`           | Oui       | Oui       | Oui       | Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
 | `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
 | `_total`                | Partiel   | Partiel   | Partiel   | _total=non et _total=accurate      |
 | `_elements`             | Oui       | Oui       | Oui       |         |
@@ -129,9 +129,30 @@ Cosmos DB est une base de données multimodèle (SQL API, MongoDB API, etc.) dis
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Le serveur FHIR utilise [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour contrôler l’accès. Plus précisément, le contrôle RBAC (contrôle d’accès en fonction du rôle) est appliqué, si le paramètre de configuration `FhirServer:Security:Enabled` a la valeur `true`. De plus, l’en-tête de requête `Authorization` de toutes les requêtes (à l’exception de `/metadata`) envoyées au serveur FHIR Server doit avoir la valeur `Bearer <TOKEN>`. Le jeton doit contenir au moins un rôle tel que défini dans la revendication `roles`. Une demande sera autorisée si le jeton contient un rôle qui permet l’application de l’action spécifiée sur la ressource spécifiée.
+Le serveur FHIR utilise [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour contrôler l’accès. Plus précisément, le contrôle d’accès en fonction du rôle (RBAC) est appliqué, si le paramètre de configuration `FhirServer:Security:Enabled` a la valeur `true`. De plus, l’en-tête de requête `Authorization` de toutes les requêtes (à l’exception de `/metadata`) envoyées au serveur FHIR Server doit avoir la valeur `Bearer <TOKEN>`. Le jeton doit contenir au moins un rôle tel que défini dans la revendication `roles`. Une demande sera autorisée si le jeton contient un rôle qui permet l’application de l’action spécifiée sur la ressource spécifiée.
 
 Actuellement, les actions autorisées pour un rôle donné sont appliquées *à l’ensemble* de l’API.
+
+## <a name="service-limits"></a>Limites du service
+
+* [**Unités de requête (RU)** ](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin au minimum de 400 unités de requête ou de 10 unités de requête/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
+
+* **Connexions simultanées** et **Instances** : vous avez, par défaut, cinq connexions simultanées sur deux instances du cluster (pour un total de 10 requêtes simultanées). Si vous pensez avoir besoin de plus de requêtes simultanées, ouvrez un ticket de support en détaillant vos besoins.
+
+* **Taille de bundle** : chaque bundle est limité à 500 éléments.
+
+* **Taille des données** : les éléments Données/Documents doivent chacun être un peu inférieurs à 2 Mo.
+
+## <a name="performance-expectations"></a>Attentes en matière de niveau de performance
+
+Les performances du système dépendent du nombre d’unités de requête, des connexions simultanées et du type d’opérations que vous exécutez (Put, Post, etc.). Vous trouverez ci-dessous quelques plages générales de ce que vous pouvez attendre en fonction des unités de requête configurées. En règle générale, les performances évoluent de façon linéaire avec l’augmentation des unités de requête :
+
+| Nombre d’unités de requête | Ressources/s |
+|----------|---------------|
+| 400      | 5-10          |
+| 1 000    | 100-150       |
+| 10 000   | 225-400       |
+| 100 000  | 2 500-4 000   |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

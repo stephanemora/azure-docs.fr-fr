@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317071"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980357"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -72,6 +72,11 @@ Si le propriétaire approuve la connexion, la liaison privée est établie. S’
 ![Approuver le point de terminaison privé managé](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Seule une instance de point de terminaison privé managé dans un état approuvé peut envoyer du trafic vers une ressource de liaison privée donnée.
+
+## <a name="interactive-authoring"></a>Création interactive
+Les options de création interactive sont utilisées pour des fonctionnalités telles que tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir un schéma et afficher un aperçu des données. Vous pouvez activer la création interactive lors de la création ou de la modification d’un runtime d’intégration Azure figurant dans un réseau virtuel géré par ADF. Le service back-end pré-allouera le calcul pour les fonctionnalités de création interactive. Sinon, le calcul sera alloué chaque fois qu’une opération interactive sera exécutée, ce qui prendra plus de temps. La durée de vie (TTL) pour la création interactive est de 60 minutes, ce qui signifie qu’elle sera automatiquement désactivée 60 minutes après de la dernière opération de création interactive.
+
+![Création interactive](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 ### <a name="supported-data-sources"></a>Sources de données prises en charge

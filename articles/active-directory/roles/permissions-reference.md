@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396513"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963638"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -707,10 +707,11 @@ Accès total pour gérer des appareils dans Azure AD.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lisez la propriété devices.bitLockerRecoveryKeys dans Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/devices/delete | Supprimez des appareils dans Azure Active Directory. |
 | microsoft.directory/devices/disable | Désactivez des appareils dans Azure Active Directory. |
 | microsoft.directory/devices/enable | Activez des appareils dans Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Mettez à jour toutes les valeurs de la propriété devices.extensionAttributes dans Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
@@ -731,6 +732,7 @@ Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisen
 | microsoft.directory/applications/allProperties/allTasks | Créez et supprimez des applications, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/allProperties/allTasks | Créez et supprimez des attributions de rôles d’applications (appRoleAssignments), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/contacts/allProperties/allTasks | Créez et supprimez des contacts, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/contracts/allProperties/allTasks | Créez et supprimez des contrats, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/devices/allProperties/allTasks | Créez et supprimez des appareils, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
@@ -1087,6 +1089,7 @@ Peut lire tous les éléments qu’un administrateur général peut lire, mais n
 | microsoft.directory/applications/basic/read    | Lisez des propriétés de base sur des applications dans Azure Active Directory. |
 | microsoft.directory/applications/owners/read    | Lisez la propriété applications.owners dans Azure Active Directory. |
 | microsoft.directory/applications/policies/read    | Lisez la propriété applications.policies dans Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/contacts/basic/read    | Lisez des propriétés de base sur des contacts dans Azure Active Directory. |
 | microsoft.directory/contacts/memberOf/read    | Lisez la propriété contacts.memberOf dans Azure Active Directory. |
 | microsoft.directory/contracts/basic/read    | Lisez des propriétés de base sur des contrats dans Azure Active Directory. |
@@ -1267,13 +1270,16 @@ Peut gérer tous les aspects du produit Intune.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Mettez à jour des propriétés de base sur des contacts dans Azure Active Directory. |
 | microsoft.directory/contacts/create | Créez des contacts dans Azure Active Directory. |
 | microsoft.directory/contacts/delete | Supprimez des contacts dans Azure Active Directory. |
 | microsoft.directory/devices/basic/update | Mettez à jour des propriétés de base sur des appareils dans Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lisez la propriété devices.bitLockerRecoveryKeys dans Azure Active Directory. |
 | microsoft.directory/devices/create | Créez des appareils dans Azure Active Directory. |
 | microsoft.directory/devices/delete | Supprimez des appareils dans Azure Active Directory. |
+| microsoft.directory/devices/disable | Désactivez des appareils dans Azure Active Directory. |
+| microsoft.directory/devices/enable | Activez des appareils dans Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Mettez à jour toutes les valeurs de la propriété devices.extensionAttributes dans Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Mettez à jour la propriété devices.registeredOwners dans Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Mettez à jour la propriété devices.registeredUsers dans Azure Active Directory. |
 | microsoft.directory/groups/appRoleAssignments/update | Mettez à jour la propriété groups.appRoleAssignments dans Azure Active Directory. |
@@ -1513,7 +1519,7 @@ Peut gérer tous les aspects du produit Power BI.
 
 ### <a name="power-platform-administrator-permissions"></a>Autorisations de l’administrateur de plateforme Power
 
-Peut créer et gérer tous les aspects de Microsoft Dynamics 365, PowerApps et Microsoft Flow. 
+Peut créer et gérer tous les aspects de Microsoft Dynamics 365, PowerApps et Power Automate.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -1524,7 +1530,7 @@ Peut créer et gérer tous les aspects de Microsoft Dynamics 365, PowerApps et 
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
 | microsoft.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Gérez tous les aspects de Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Gérez tous les aspects de Power Automate. |
 | microsoft.powerApps/allEntities/allTasks | Gérez tous les aspects de PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
@@ -1654,9 +1660,9 @@ Peut lire des rapports et des informations de sécurité, ainsi que gérer la co
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Mettez à jour la propriété applications.policies dans Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lisez la propriété devices.bitLockerRecoveryKeys dans Azure Active Directory. |
 | microsoft.directory/identityProtection/allProperties/read | Lisez toutes les ressources dans microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Mettez à jour toutes les ressources dans microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Mettez à jour des propriétés de base sur des stratégies dans Azure Active Directory. |
@@ -1706,7 +1712,7 @@ Peut lire des rapports et des informations de sécurité dans Azure AD et Micros
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lisez la propriété devices.bitLockerRecoveryKeys dans Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Lisez la propriété policies.conditionalAccess dans Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Lisez toutes les ressources dans microsoft.aad.identityProtection. |

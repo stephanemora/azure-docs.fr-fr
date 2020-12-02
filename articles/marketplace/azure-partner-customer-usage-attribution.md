@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628388"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999873"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Vous trouverez le rapport relatif à l’attribution de l’utilisation de client dans le tableau de bord de votre Espace partenaires ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Pour afficher le rapport, vous devez connecter à l’aide des informations d’identification de votre Espace partenaires. Si vous rencontrez des problèmes relatifs aux rapports ou à la connexion, créez une demande de support en suivant les instructions dans la section Obtenir de l’aide.
-
-Choisissez Modèle suivi dans la liste déroulante Type d’association au partenaire pour afficher le rapport.
-
-![Rapport relatif à l’attribution de l’utilisation de client](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+Vous trouverez le rapport relatif à l’attribution de l’utilisation de client dans le tableau de bord de votre Espace partenaires ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Pour afficher le rapport, vous devez connecter à l’aide des informations d’identification de votre Espace partenaires. Si vous rencontrez des problèmes de rapport ou de connexion, créez une [demande de support](#get-support).
 
 ## <a name="notify-your-customers"></a>Informer vos clients
 

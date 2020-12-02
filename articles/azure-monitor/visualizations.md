@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983607"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522666"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -49,7 +49,7 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 - Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment Metrics Explorer, Log Analytics et Application Insights.
 - Prend en charge les métriques et les journaux d’activité.
 - Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](platform/metrics-charts.md), des [requêtes de journal](log-query/log-query-overview.md) ainsi que des [cartes](app/app-map.md) et des données de disponibilité dans Application Insights.
-- Possibilité de définir des tableaux de bord personnels ou partagés. Intégré à [l’authentification basée sur les rôles (RBAC)](../role-based-access-control/overview.md) Azure.
+- Possibilité de définir des tableaux de bord personnels ou partagés. Intégration avec le [contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
 - Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés toutes les heures, avec une option d’actualisation manuelle à la demande en cliquant sur l’icône d’actualisation d’une visualisation donnée ou en actualisant le tableau de bord complet.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.
 - Options de disposition flexibles.

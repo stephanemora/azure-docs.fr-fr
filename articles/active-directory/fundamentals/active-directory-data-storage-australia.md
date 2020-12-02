@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836952"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients australiens et néo-zélandais dans Azure Active Directory
 
@@ -32,9 +32,9 @@ Pour les clients qui ont fourni une adresse en Australie ou en Nouvelle-Zélande
 
 Tous les autres services Azure AD stockent les données client dans des centres de données dans le monde entier. Pour localiser le centre de données d’un service, consultez [Azure Active Directory - Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure Multi-Factor Authentication (MFA)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (MFA)
 
-MFA stocke les données d’identité client dans des centres de données dans le monde entier. Pour en savoir plus sur les informations utilisateur collectées et stockées par les serveurs Azure MFA et Azure MFA basés sur le cloud, consultez [Collecte de données utilisateur avec Microsoft Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
+MFA stocke les données d’identité client dans des centres de données dans le monde entier. Pour en savoir plus sur les informations utilisateur collectées et stockées par les serveurs Azure AD MFA et Azure MFA basés sur le cloud, consultez [Collecte de données utilisateur avec Microsoft Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les fonctions et fonctionnalités décrites ci-dessus, consultez les articles suivants :

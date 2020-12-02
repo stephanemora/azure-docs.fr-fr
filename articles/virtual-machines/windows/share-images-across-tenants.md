@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4fb4589d072b57113e1f40675786d012ec699d16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 89987ccc975f5d473a493c48be61094de1177c1b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331435"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832413"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataires Azure
 
-Les galeries Shared Image Gallery vous permettent de partager des images à l’aise du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Pour plus d’informations sur cette option de partage simple, voir [Partager la galerie](./shared-images-portal.md#share-the-gallery).
+Les galeries Shared Image Gallery vous permettent de partager des images à l’aide du contrôle d’accès en fonction du rôle (Azure RBAC). Vous pouvez utiliser Azure RBAC pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Pour plus d’informations sur cette option de partage simple, voir [Partager la galerie](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 

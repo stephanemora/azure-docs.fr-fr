@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104238"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796721"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonnes standard dans les journaux Azure Monitor
 Les données des journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](./data-platform-logs.md), chacun ayant un type de données particulier associé à un ensemble unique de colonnes. De nombreux types de données comportent des colonnes standard qui sont communes à plusieurs types. Cet article décrit ces colonnes et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
@@ -80,7 +80,7 @@ La colonne **\_ItemId** contient un identificateur unique pour l’enregistremen
 ## <a name="_resourceid"></a>\_ResourceId
 La colonne **\_ResourceId** contient un identificateur unique de la ressource à laquelle l’enregistrement est associé. Vous disposez ainsi d’une colonne standard à utiliser pour étendre votre requêtes aux enregistrements d’une ressource particulière seulement, ou pour associer des données liées entre plusieurs tables.
 
-Pour les ressources Azure, la valeur de **_ResourceId** est l’[URL d’ID de la ressource Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonne est actuellement limitée aux ressources Azure, mais sera étendue aux ressources en dehors d’Azure comme des ordinateurs locaux.
+Pour les ressources Azure, la valeur de **_ResourceId** est l’[URL d’ID de la ressource Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonne se limite aux ressources Azure, notamment les ressources [Azure Arc](../../azure-arc/overview.md), ou aux journaux personnalisés qui indiquent l’ID de la ressource lors de l’ingestion.
 
 > [!NOTE]
 > Certains types de données ont déjà des champs qui contiennent les ID de ressource Azure ou au moins des parties de ceux-ci, comme l’ID d’abonnement. Même si ces fichiers sont conservés à des fins de compatibilité descendante, il est recommandé d’utiliser la propriété _ResourceId pour établir une corrélation, puisqu’elle est plus cohérente.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-La requête suivante analyse **_ResourceId** et agrège les volumes de données facturés par abonnement Azure.
+La requête suivante analyse **_ResourceId** et agrège les volumes de données facturés par groupe de ressources Azure.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie.
+
+Il est toujours plus efficace d’utiliser la colonne \_SubscriptionId que de l’extraire en analysant la colonne \_ResourceId.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+La colonne **\_SubscriptionId** contient l’ID d’abonnement de la ressource à laquelle l’enregistrement est associé. Vous disposez ainsi d’une colonne standard à utiliser pour étendre votre requête aux enregistrements d’une ressource particulière seulement, ou pour comparer différents abonnements.
+
+Pour les ressources Azure, la valeur de **__SubscriptionId** est la partie de l’abonnement de l’[URL d’ID de la ressource Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonne se limite aux ressources Azure, notamment les ressources [Azure Arc](../../azure-arc/overview.md), ou aux journaux personnalisés qui indiquent l’ID de la ressource lors de l’ingestion.
+
+> [!NOTE]
+> Certains types de données possèdent déjà des champs qui contiennent l’ID d’abonnement Azure. Même si ces fichiers sont conservés à des fins de compatibilité descendante, il est recommandé d’utiliser la colonne \_SubscriptionId pour établir une corrélation, puisqu’elle est plus cohérente.
+### <a name="examples"></a>Exemples
+La requête suivante examine les données de performances pour les ordinateurs d’un abonnement spécifique. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+La requête suivante analyse **_ResourceId** et agrège les volumes de données facturés par abonnement Azure.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie.
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 La colonne **\_IsBillable** spécifie si les données ingérées sont facturables. Les données dont la propriété **\_IsBillable** est égale à `false` sont collectées gratuitement et ne sont pas facturées sur votre compte Azure.
@@ -168,8 +198,7 @@ Pour connaître la taille des événements facturables ingérés par abonnement,
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Pour connaître la taille des événements facturables ingérés par groupe de ressources, exécutez la requête suivante :
@@ -178,7 +207,7 @@ Pour connaître la taille des événements facturables ingérés par groupe de r
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 
@@ -211,4 +240,4 @@ union withsource = tt *
 
 - Découvrez-en plus sur le stockage des [données de journal Azure Monitor](../log-query/log-query-overview.md).
 - Obtenez une leçon sur [l'écriture de requêtes de journaux](../log-query/get-started-queries.md).
-- Obtenez une leçon sur l’[association de tables dans les requêtes de journaux](../log-query/joins.md).
+- Obtenez une leçon sur l’[association de tables dans les requêtes de journaux](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

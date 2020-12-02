@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508027"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522343"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -28,7 +28,7 @@ Azure Private Endpoint est une interface réseau qui vous permet de vous connect
 |Subnet    |  Le sous-réseau pour déployer et allouer des adresses IP privées à partir d’un réseau virtuel. Pour connaître la configuration requise pour le sous-réseau, consultez la section Limitations de cet article.         |
 |Ressource Private Link    |   Ressource Private Link à connecter avec l’ID de ressource ou l’alias dans la liste des types disponibles. Un identificateur réseau unique sera généré pour tout le trafic envoyé à cette ressource.       |
 |Sous-ressource cible   |      Sous-ressource à connecter. Chaque type de ressource Private Link a différentes options à sélectionner en fonction de vos préférences.    |
-|Méthode d’approbation de la connexion    |  Automatique ou manuel. En fonction des autorisations de contrôle d’accès en fonction du rôle (RBAC), Private Endpoint peut être approuvé automatiquement. Si vous essayez de vous connecter à une ressource Private Link sans RBAC, utilisez la méthode manuelle pour permettre au propriétaire de la ressource d’approuver la connexion.        |
+|Méthode d’approbation de la connexion    |  Automatique ou manuel. Selon les autorisations de contrôle d’accès Azure en fonction du rôle (Azure RBAC), votre point de terminaison privé peut être approuvé automatiquement. Si vous essayez de vous connecter à une ressource Private Link sans Azure RBAC, utilisez la méthode manuelle pour permettre au propriétaire de la ressource d’approuver la connexion.        |
 |Message de requête     |  Vous pouvez spécifier un message pour que les connexions demandées soient approuvées manuellement. Ce message peut être utilisé pour identifier une demande spécifique.        |
 |État de la connexion   |   Propriété en lecture seule qui spécifie si Private Endpoint est actif. Seules les instances Private Endpoint dans un état approuvé peuvent être utilisées pour envoyer du trafic. États supplémentaires disponibles : <br>-**Approuvé** : La connexion a été approuvée automatiquement ou manuellement et est prête à être utilisée.</br><br>-**En attente** : La connexion a été créée manuellement et est en attente d’approbation par le propriétaire de la ressource Private Link.</br><br>-**Rejeté** : La connexion a été rejetée par le propriétaire de la ressource Private Link.</br><br>-**Déconnecté** : La connexion a été supprimée par le propriétaire de la ressource Private Link. Private Endpoint devient informatif et doit être supprimé pour le nettoyage. </br>|
 
@@ -45,9 +45,9 @@ Voici quelques détails clés sur Private Endpoint :
  
 - Vous pouvez créer plusieurs instances Private Endpoint à l’aide de la même ressource Private Link. Pour un réseau unique qui utilise une configuration de serveur DNS commune, il est recommandé d’utiliser Private Endpoint pour une ressource Private Link donnée afin d’éviter les entrées en double ou les conflits dans la résolution DNS. 
  
-- Plusieurs instances Private Endpoint privées peuvent être créées sur des sous-réseaux identiques ou différents au sein du même réseau virtuel. Il existe des limites au nombre d’instances Private Endpoint que vous pouvez créer dans un abonnement. Pour plus d’informations, consultez  [Limites Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Plusieurs instances Private Endpoint privées peuvent être créées sur des sous-réseaux identiques ou différents au sein du même réseau virtuel. Il existe des limites au nombre d’instances Private Endpoint que vous pouvez créer dans un abonnement. Pour plus d’informations, consultez  [Limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- L’abonnement de la ressource de lien privé doit également être inscrit auprès du fournisseur de ressources Microsoft Network. Pour plus d’informations, consultez  [Fournisseurs de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- L’abonnement de la ressource de lien privé doit également être inscrit auprès du fournisseur de ressources Microsoft Network. Pour plus d’informations, consultez  [Fournisseurs de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## <a name="private-link-resource"></a>Ressource Private Link 
@@ -136,7 +136,7 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 - [Créer un point de terminaison privé pour SQL Database à l’aide du portail](create-private-endpoint-portal.md)
 - [Créer un point de terminaison privé pour SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
 - [Créer un point de terminaison privé pour SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
-- [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](create-private-endpoint-storage-portal.md)
+- [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](./tutorial-private-endpoint-storage-portal.md)
 - [Créer un point de terminaison privé pour un compte Cosmos Azure à l’aide du portail](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)
 - [Créer votre propre liaison privée pour Azure Database pour PostgreSQL – Serveur unique à l’aide du portail](../postgresql/howto-configure-privatelink-portal.md)

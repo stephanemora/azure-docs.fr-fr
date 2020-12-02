@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014900"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833790"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 
@@ -32,7 +32,7 @@ Les applications clientes comme Excel et Power BI Desktop et les outils tels que
 
 En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
 
-Power BI Desktop, Visual Studio et SSMS prennent en charge l’authentification universelle Active Directory, une méthode interactive prenant également en charge Azure Multi-Factor Authentication (MFA). Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en fournissant un processus de connexion simple. Il permet une authentification forte avec plusieurs options de vérification (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation. **L’authentification universelle est recommandée**.
+Power BI Desktop, Visual Studio et SSMS prennent en charge l’authentification universelle Active Directory, une méthode interactive prenant également en charge Azure AD Multi-Factor Authentication (MFA). Azure AD MFA contribue à sécuriser l’accès aux données et aux applications tout en fournissant un processus de connexion simple. Il permet une authentification forte avec plusieurs options de vérification (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation. **L’authentification universelle est recommandée**.
 
 Dans le cas d’une connexion à Azure avec un compte Windows et si l’authentification universelle n’est pas sélectionnée ou disponible (Excel), [les services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) sont obligatoires. Avec la fédération, les utilisateurs Azure AD et Microsoft 365 s’authentifient avec des informations d’identification locales et peuvent accéder aux ressources Azure.
 
@@ -44,7 +44,7 @@ Les serveurs Azure Analysis Services prennent en charge les connexions depuis [S
 
 *  Elle prend en charge les utilisateurs invités d’Azure B2B dans le client Azure AS. Lors de la connexion à un serveur, les utilisateurs invités doivent sélectionner l’authentification universelle Active Directory.
 
-*  Elle prend en charge authentification multifacteur (MFA). Azure MFA permet d’assurer l’accès aux données et applications avec une gamme d’options de vérification simples : appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
+*  Elle prend en charge authentification multifacteur (MFA). Azure AD MFA permet d’assurer l’accès aux données et applications avec une gamme d’options de vérification simples : appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
 
 ### <a name="visual-studio"></a>Visual Studio
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5a6fc8e9b316f7c4740ee27fe72c5f056f071d73
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 96e22beb9f9b088e698f0db12104f526af2b936b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989451"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Configurer les rapports de prévention des attaques DDoS et les journaux de flux 
 
-La norme Azure DDoS Protection fournit une visualisation et des insights détaillés sur les attaques avec l’analyse des attaques DDoS. Les clients qui protègent leurs réseaux virtuels contre les attaques DDoS ont une visibilité détaillée du trafic des attaques et des mesures prises pour leur prévention par le biais de rapports de prévention des attaques et de journaux de flux de prévention des attaques. La télémétrie enrichie est exposée via Azure Monitor et inclut des métriques détaillées pendant la durée d’une attaque DDoS. La génération d’alertes peut être configurée pour l’une des métriques Azure Monitor exposées par DDoS Protection. La journalisation peut être également intégrée à [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics et Stockage Azure pour l’analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
+La norme Azure DDoS Protection fournit une visualisation et des insights détaillés sur les attaques avec l’analyse des attaques DDoS. Les clients qui protègent leurs réseaux virtuels contre les attaques DDoS ont une visibilité détaillée du trafic des attaques et des mesures prises pour leur prévention par le biais de rapports de prévention des attaques et de journaux de flux de prévention des attaques. La télémétrie enrichie est exposée via Azure Monitor et inclut des métriques détaillées pendant la durée d’une attaque DDoS. La génération d’alertes peut être configurée pour l’une des métriques Azure Monitor exposées par DDoS Protection. La journalisation peut être également intégrée à [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics et Stockage Azure pour l’analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -39,14 +39,14 @@ La fonctionnalité Rapports de prévention des attaques utilise les données de 
 
 1. Sélectionnez **Tous les services** dans la partie supérieure gauche du portail.
 2. Entrez *Surveiller* dans la zone **Filtre**. Quand **Surveiller** apparaît dans les résultats, sélectionnez cette option.
-3. Sous **PARAMÈTRES** , sélectionnez **Paramètres de diagnostic**.
+3. Sous **PARAMÈTRES**, sélectionnez **Paramètres de diagnostic**.
 4. Sélectionnez **l’Abonnement** et le **Groupe de ressources** qui contiennent l’adresse IP publique que vous souhaitez journaliser.
-5. Sélectionnez **Adresse IP publique** pour **Type de ressource** , puis sélectionnez l’adresse IP publique spécifique dont vous souhaitez journaliser les métriques.
-6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationReports** , puis sélectionnez autant d’options que nécessaire parmi les suivantes :
+5. Sélectionnez **Adresse IP publique** pour **Type de ressource**, puis sélectionnez l’adresse IP publique spécifique dont vous souhaitez journaliser les métriques.
+6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationReports**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
-    - **Archiver dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de ressources](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser vers un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de ressources sur un hub d’événements](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiver dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de ressources](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
+    - **Diffuser vers un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de ressources sur un hub d’événements](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
 
 Le rapport incrémentiel et le rapport de prévention incluent tous les deux les champs suivants :
 - Vecteurs d’attaque
@@ -61,18 +61,20 @@ Les journaux de flux de prévention des attaques vous permettent de passer en re
 
 1. Sélectionnez **Tous les services** dans la partie supérieure gauche du portail.
 2. Entrez *Surveiller* dans la zone **Filtre**. Quand **Surveiller** apparaît dans les résultats, sélectionnez cette option.
-3. Sous **PARAMÈTRES** , sélectionnez **Paramètres de diagnostic**.
+3. Sous **PARAMÈTRES**, sélectionnez **Paramètres de diagnostic**.
 4. Sélectionnez **l’Abonnement** et le **Groupe de ressources** qui contiennent l’adresse IP publique que vous souhaitez journaliser.
-5. Sélectionnez **Adresse IP publique** pour **Type de ressource** , puis sélectionnez l’adresse IP publique spécifique dont vous souhaitez journaliser les métriques.
-6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationFlowLogs** , puis sélectionnez autant d’options que nécessaire parmi les suivantes :
+5. Sélectionnez **Adresse IP publique** pour **Type de ressource**, puis sélectionnez l’adresse IP publique spécifique dont vous souhaitez journaliser les métriques.
+6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationFlowLogs**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
-    - **Archiver dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de ressources](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser vers un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de ressources sur un hub d’événements](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiver dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de ressources](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
+    - **Diffuser vers un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de ressources sur un hub d’événements](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+
+Ce [modèle](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) crée une définition Azure Policy qui active la journalisation des diagnostics.
 
 ### <a name="azure-sentinel-data-connector"></a>Connecteur de données Azure Sentinel
 
-Vous pouvez vous connecter à Azure Sentinel, afficher et analyser vos données dans des classeurs, créer des alertes personnalisées et les incorporer dans des processus d’investigation. Pour vous connecter à Azure Sentinel, consultez [Se connecter à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection). 
+Vous pouvez vous connecter à Azure Sentinel, afficher et analyser vos données dans des classeurs, créer des alertes personnalisées et les incorporer dans des processus d’investigation. Pour vous connecter à Azure Sentinel, consultez [Se connecter à Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
 
 ![Connecteur Azure Sentinel DDoS](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
@@ -119,4 +121,3 @@ Pour savoir comment tester et simuler une attaque DDoS, consultez le guide de te
 
 > [!div class="nextstepaction"]
 > [Tester à l’aide de simulations](test-through-simulations.md)
-

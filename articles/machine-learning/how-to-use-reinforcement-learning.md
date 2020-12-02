@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312318"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012919"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
@@ -52,7 +52,7 @@ Exécutez ce code dans l’un des environnements suivants. Nous vous recommandon
     - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py) : `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Créer un [fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
-    - Exécutez le [bloc-notes de configuration](https://aka.ms/azure-rl-env-setup) du réseau virtuel pour ouvrir les ports réseau utilisés pour l’apprentissage par renforcement distribué.
+    - Exécutez le réseau virtuel pour ouvrir les ports réseau utilisés pour l’apprentissage par renforcement distribué.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Comment former un agent jouant à Pong

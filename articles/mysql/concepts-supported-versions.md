@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535858"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751026"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -46,7 +46,7 @@ Pour plus d’informations sur les améliorations et les correctifs de cette ver
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 Le service gère automatiquement les correctifs pour les mises à jour des versions des correctifs de bogues. Par exemple, 5.7.20 à 5.7.21.  
 
-Les mises à niveau des versions majeures et mineures ne sont pas prises en charge. Par exemple, il n’est pas possible de mettre à niveau MySQL 5.6 vers MySQL 5.7. Si vous voulez effectuer une mise à niveau de 5.6 vers 5.7, prenez une [image mémoire et restaurez-la](./concepts-migrate-dump-restore.md) sur un serveur créé avec la nouvelle version du moteur.
+La mise à niveau des versions principales est actuellement prise en charge par le service pour les mises à niveau de MySQL v5.6 à v5.7. Pour plus d’informations, consultez [comment effectuer des mises à niveau des versions principales](how-to-major-version-upgrade.md). Si vous voulez effectuer une mise à niveau de la version 5.7 vers la version 8.0, nous vous recommandons d’effectuer [le vidage et la restauration](./concepts-migrate-dump-restore.md) sur un serveur créé avec la nouvelle version du moteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

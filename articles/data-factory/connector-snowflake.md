@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.date: 11/24/2020
+ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405171"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003653"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copier et transformer des données dans Snowflake en utilisant Azure Data Factory
 
@@ -36,8 +36,6 @@ Pour l’activité de copie, ce connecteur Snowflake prend en charge les fonctio
 
 - Copiez des données à partir de Snowflake qui utilise la commande [COPY into [emplacement]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) de Snowflake pour obtenir les meilleures performances.
 - Copiez des données dans Snowflake qui utilise la commande [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake pour obtenir les meilleures performances. Il prend en charge Snowflake sur Azure. 
-
-Snowflake en tant que récepteur n’est pas pris en charge quand vous utilisez l’espace de travail Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -152,8 +150,8 @@ Pour copier des données à partir de Snowflake, les propriétés prises en char
 | type                         | La propriété type de la source de l’activité de copie doit être définie sur **SnowflakeSource**. | Oui      |
 | query          | Spécifie la requête SQL pour lire les données de Snowflake. Si les noms du schéma, de la table et des colonnes contiennent des minuscules, citez l’identificateur d’objet dans la requête, par exemple `select * from "schema"."myTable"`.<br>L’exécution de la procédure stockée n'est pas prise en charge. | Non       |
 | exportSettings | Paramètres avancés utilisés pour récupérer des données de Snowflake. Vous pouvez configurer pris en charge par la commande COPY into que Data Factory empruntera lorsque vous appelez l’instruction. | Non       |
-| ***Sous `exportSettings`:*** |  |  |
-| type | Type de commande d’exportation, défini sur **SnowflakeExportCopyCommand**. | Oui |
+| ***Sous `exportSettings` :** _ |  |  |
+| type | Type de commande d’exportation, défini sur _*SnowflakeExportCopyCommand**. | Oui |
 | additionalCopyOptions | Options de copie supplémentaires, fournies sous la forme d’un dictionnaire de paires clé-valeur. Exemples : MAX_FILE_SIZE, OVERWRITE. Pour plus d'informations, consultez [Options de copie de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Non |
 | additionalFormatOptions | Options de format de fichier supplémentaires, fournies à la commande COPY sous la forme d’un dictionnaire de paires clé-valeur. Exemples : DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Pour plus d’informations, consultez [Options de type de format de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Non |
 
@@ -165,12 +163,12 @@ Si le magasin de données récepteur et le format remplissent les critères déc
 
 - Le **format de données du récepteur** est **Parquet**, **Texte délimité** ou **JSON** avec les configurations suivantes :
 
-    - Pour le format **Parquet**, le codec de compression est **Aucun**, **Snappy**ou **Lzo**.
+    - Pour le format **Parquet**, le codec de compression est **Aucun**, **Snappy** ou **Lzo**.
     - Pour le format **texte délimité** :
         - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique.
         - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
         - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
-        - `quoteChar` est un **guillemet double**, un **guillemet simple**ou une **chaîne vide** (sans guillemets).
+        - `quoteChar` est un **guillemet double**, un **guillemet simple** ou une **chaîne vide** (sans guillemets).
     - Pour le format **JSON**, la copie directe ne prend en charge que le cas où la table Snowflake de la source ou le résultat de la requête ne possède qu’une seule colonne, dont les données sont de type **VARIANT**, **OBJET** ou **TABLEAU**.
         - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
         - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
@@ -283,8 +281,8 @@ Pour copier des données dans Snowflake, les propriétés suivantes sont prises 
 | type              | La propriété type du récepteur de l'activité de copie, définie sur **SnowflakeSink**. | Oui                                           |
 | preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Snowflake à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
 | importSettings | Paramètres avancés utilisés pour écrire des données dans Snowflake. Vous pouvez configurer pris en charge par la commande COPY into que Data Factory empruntera lorsque vous appelez l’instruction. | Non |
-| ***Sous `importSettings`:*** |                                                              |  |
-| type | Type de commande d’importation, défini sur **SnowflakeImportCopyCommand**. | Oui |
+| **_Sous `importSettings` :_* _ |                                                              |  |
+| type | Type de commande d’importation, défini sur _*SnowflakeImportCopyCommand**. | Oui |
 | additionalCopyOptions | Options de copie supplémentaires, fournies sous la forme d’un dictionnaire de paires clé-valeur. Exemples : ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Pour plus d'informations, consultez [Options de copie de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Non |
 | additionalFormatOptions | Options de format de fichier supplémentaires, fournies à la commande COPY sous la forme d’un dictionnaire de paires clé-valeur. Exemples : DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Pour plus d’informations, consultez [Options de type de format de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Non |
 
@@ -299,10 +297,10 @@ Si le magasin de données source et le format remplissent les critères décrits
     - Pour le format **Parquet**, le codec de compression est **Aucun** ou **Snappy**.
 
     - Pour le format **texte délimité** :
-        - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique. Si le délimiteur de ligne n’est pas « \r\n », `firstRowAsHeader` doit être **false**et `skipLineCount` n’est pas spécifié.
+        - `rowDelimiter` est **\r\n**, ou n’importe quel caractère unique. Si le délimiteur de ligne n’est pas « \r\n », `firstRowAsHeader` doit être **false** et `skipLineCount` n’est pas spécifié.
         - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
         - `encodingName` est conservé comme valeur par défaut ou défini sur "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar` est un **guillemet double**, un **guillemet simple**ou une **chaîne vide** (sans guillemets).
+        - `quoteChar` est un **guillemet double**, un **guillemet simple** ou une **chaîne vide** (sans guillemets).
     - Pour le format **JSON**, la copie directe ne prend en charge que le cas où la table Snowflake du récepteur ne possède qu’une seule colonne, dont les données sont de type **VARIANT**, **OBJET** ou **TABLEAU**.
         - `compression` peut être **aucune compression**, **gzip**, **bzip2**, ou **deflate**.
         - `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.

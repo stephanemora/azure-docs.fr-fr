@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913719"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544205"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -69,8 +69,8 @@ Oui. Un service Private Link peut recevoir des connexions provenant de plusieurs
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Comment contrôler l’exposition de mon service Private Link ?
 Vous pouvez contrôler son exposition en configurant la visibilité dans le service Private Link. La visibilité comprend trois paramètres :
 
-- **Aucune** - Seuls les abonnements avec accès RBAC peuvent localiser le service. 
-- **Restreinte** - Seuls les abonnements figurant sur la liste verte et disposant d’un accès RBAC peuvent localiser le service. 
+- **Aucune** - Seuls les abonnements avec accès Azure RBAC peuvent localiser le service. 
+- **Restreinte** - Seuls les abonnements figurant sur la liste verte et disposant d’un accès Azure RBAC peuvent localiser le service. 
 - **Tout le monde** - Tout le monde peut localiser le service. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Est-il possible de créer un service Azure Private Link avec un équilibreur de charge de base ? 

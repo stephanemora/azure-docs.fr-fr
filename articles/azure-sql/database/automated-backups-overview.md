@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131358"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917900"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -36,9 +36,9 @@ Quand vous restaurez une base de données, le service identifie les sauvegardes 
 
 ### <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
-Par défaut, SQL Database et SQL Managed Instance stockent les données dans des [objets BLOB de stockage](../../storage/common/storage-redundancy.md) géo-redondants (RA-GRS) qui sont répliqués dans une [région couplée](../../best-practices-availability-paired-regions.md). Cela permet de se protéger contre les pannes affectant le stockage de sauvegarde dans la région primaire et vous permet de restaurer votre serveur dans une autre région en cas de sinistre. 
+Par défaut, SQL Database et SQL Managed Instance stockent les données dans des [objets BLOB de stockage](../../storage/common/storage-redundancy.md) géoredondants qui sont répliqués dans une [région couplée](../../best-practices-availability-paired-regions.md). Cela permet de se protéger contre les pannes affectant le stockage de sauvegarde dans la région primaire et vous permet de restaurer votre serveur dans une autre région en cas de sinistre. 
 
-L’option de configuration de la redondance du stockage de sauvegarde offre la possibilité de choisir entre des blobs de stockage localement redondant, redondant interzone ou géoredondant pour une instance SQL Managed Instance ou SQL Database. Pour vous assurer que vos données restent dans la même région que celle où votre instance gérée ou base de données SQL est déployée, vous pouvez modifier la redondance par défaut du stockage de sauvegarde géoredondant et configurer des blobs de stockage localement redondant (LRS) ou redondant interzone (ZRS) pour les sauvegardes. La redondance de stockage stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. La redondance du stockage de sauvegarde configurée est appliquée aux paramètres de rétention de sauvegarde à court terme utilisés pour la récupération jusqu’à une date et heure (PITR) et les sauvegardes de rétention à long terme utilisées pour les sauvegardes à long terme (LTR). 
+L’option de configuration de la redondance du stockage de sauvegarde offre la possibilité de choisir entre des blobs de stockage localement redondant, redondant interzone ou géoredondant pour une instance SQL Managed Instance ou SQL Database. Pour vous assurer que vos données restent dans la même région que celle où votre instance gérée ou base de données SQL est déployée, vous pouvez modifier la redondance par défaut du stockage de sauvegarde géoredondant et configurer des blobs de stockage localement redondant ou redondant interzone pour les sauvegardes. La redondance de stockage stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. La redondance du stockage de sauvegarde configurée est appliquée aux paramètres de rétention de sauvegarde à court terme utilisés pour la récupération jusqu’à une date et heure (PITR) et les sauvegardes de rétention à long terme utilisées pour les sauvegardes à long terme (LTR). 
 
 Pour une base de données SQL, la redondance du stockage de sauvegarde peut être configurée au moment de la création de la base de données ou peut être mise à jour pour une base de données existante ; les modifications apportées à une base de données existante s’appliquent uniquement aux sauvegardes ultérieures. Après la mise à jour de la redondance du stockage de sauvegarde d’une base de données existante, l’application des modifications peut prendre jusqu’à 48 heures. Notez que la géorestauration est désactivée dès qu’une base de données est mise à jour pour utiliser un stockage localement redondant ou redondant interzone. 
 
@@ -179,9 +179,9 @@ Vous pouvez surveiller la consommation totale du stockage de sauvegarde pour cha
 ### <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
 La redondance du stockage de sauvegarde a un impact sur les coûts de sauvegarde de la façon suivante :
-- Prix LRS = x
-- Prix ZRS = 1.25x
-- Prix RA-GRS = 2x
+- prix localement redondant = x
+- prix localement redondant = 1,25 x
+- prix géoredondant = 2x
 
 Pour connaître la tarification du stockage de sauvegarde, consultez la page [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) et la page [Tarification Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -190,9 +190,9 @@ Pour connaître la tarification du stockage de sauvegarde, consultez la page [Ta
 
 ### <a name="monitor-costs"></a>Superviser les coûts
 
-Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts** , puis sélectionnez **Analyse du coût**. Sélectionnez l’abonnement souhaité comme **Étendue** , puis filtrez la période et le service qui vous intéressent.
+Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts**, puis sélectionnez **Analyse du coût**. Sélectionnez l’abonnement souhaité comme **Étendue**, puis filtrez la période et le service qui vous intéressent.
 
-Ajoutez un filtre pour **Nom de service** , puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique**. Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée**. Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
+Ajoutez un filtre pour **Nom de service**, puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique**. Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée**. Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
 
 ![Analyse du coût du stockage de sauvegarde](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -263,7 +263,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **active individuelle** , utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **active individuelle**, utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
@@ -271,7 +271,7 @@ Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Man
 Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **actives** , utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **actives**, utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention period for ALL active databases
@@ -279,7 +279,7 @@ Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données
 Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **individuelle supprimée** , utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **individuelle supprimée**, utilisez l'exemple PowerShell suivant.
  
 ```powershell
 # SET new PITR backup retention on an individual deleted database
@@ -287,7 +287,7 @@ Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Man
 Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **supprimées** , utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **supprimées**, utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention for ALL deleted databases
@@ -373,7 +373,7 @@ Pour plus d’informations, consultez [API REST de conservation des sauvegardes]
 > [!NOTE]
 > La redondance de stockage configurable pour les sauvegardes de SQL Managed Instance ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour SQL Database, la préversion publique de cette fonctionnalité est actuellement disponible dans la région Brésil Sud ; la version est en disponibilité générale dans la région Azure Asie Sud-Est. 
 
-La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être réglé que lors de la création de l'instance. Pour une base de données SQL, elle peut être définie lors de la création de la base de données ou être mise à jour pour une base de données existante. La valeur par défaut est le stockage géo-redondant (RA-GRS). Pour connaître les différences de tarification entre le stockage de sauvegarde redondant localement (LRS), redondant dans une zone (ZRS) et géo-redondant (RA-GRS), consultez la page [Tarification Managed instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être réglé que lors de la création de l'instance. Pour une base de données SQL, elle peut être définie lors de la création de la base de données ou être mise à jour pour une base de données existante. La valeur par défaut est le stockage géoredondant. Pour connaître les différences de tarification entre le stockage de sauvegarde redondant localement, redondant dans une zone et géoredondant, consultez la page [Tarification Managed instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurez la redondance du stockage de sauvegarde à l’aide du Portail Azure
 
@@ -384,7 +384,7 @@ Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegar
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage** , accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
+Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage**, accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
 ![Ouvrir le panneau Calcul + Stockage](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage**.

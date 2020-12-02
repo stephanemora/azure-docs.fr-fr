@@ -5,18 +5,18 @@ description: Description des restrictions et limitations relatives au format des
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331853"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752782"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -51,25 +51,32 @@ Pour ajouter des URI de redirection avec un schéma HTTP aux inscriptions d’ap
 
 Selon le document [RFC 8252 : sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) et [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), les URI de redirection « loopback » ou « localhost » comportent deux aspects particuliers à prendre en considération :
 
-1. `http` Les schémas d’URI sont acceptables car la redirection ne quitte jamais l’appareil. Par conséquent, ces deux éléments sont acceptables :
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. En raison des plages de ports éphémères souvent nécessaires aux applications natives, le composant de port (par exemple `:5001` ou `:443`) est ignoré pour permettre une correspondance avec un URI de redirection. En conséquence, tous ces éléments sont considérés comme équivalents :
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` Les schémas d’URI sont acceptables car la redirection ne quitte jamais l’appareil. Par conséquent, ces deux URI sont acceptables :
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. En raison des plages de ports éphémères souvent nécessaires aux applications natives, le composant de port (par exemple `:5001` ou `:443`) est ignoré pour permettre une correspondance avec un URI de redirection. En conséquence, tous ces URI sont considérés comme équivalents :
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Du point de vue du développement, cela signifie plusieurs choses :
 
 * N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
 
     Cela est particulièrement important lorsque vous souhaitez utiliser différents flux d’authentification dans la même inscription d’application, par exemple l’octroi d’un code d’autorisation et le flux implicite. Pour associer le comportement de réponse correct à chaque URI de redirection, le serveur de connexion doit pouvoir faire la distinction entre les URI de redirection et ne peut pas le faire lorsque seul le port diffère.
-* Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
+* Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://localhost/MyWebApp` ne correspond pas à `http://localhost/MyNativeApp`.
 * L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
-* Pour éviter que votre application ne soit interrompue par des pare-feu mal configurés ou des interfaces réseau renommées, utilisez l’adresse IP de bouclage littérale `127.0.0.1` dans votre URI de redirection, à la place de `localhost`.
 
-    Pour utiliser le schéma `http` avec l’adresse IP de bouclage littérale `127.0.0.1`, vous devez actuellement modifier l’attribut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) dans le [manifeste de l’application](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Donner la préférence à 127.0.0.1 plutôt qu’à localhost
+
+Pour éviter que votre application ne soit interrompue par des pare-feu mal configurés ou des interfaces réseau renommées, utilisez l’adresse IP de bouclage littérale `127.0.0.1` dans votre URI de redirection, à la place de `localhost`. Par exemple : `https://127.0.0.1`.
+
+Toutefois, vous ne pouvez pas utiliser la zone de texte **URI de redirection** dans le portail Azure pour ajouter un URI de redirection basé sur un bouclage qui utilise le schéma `http` :
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Boîte de dialogue d’erreur dans le portail Azure présentant l’URI de redirection de bouclage http non autorisé":::
+
+Pour ajouter un URI de redirection qui utilise le schéma `http` avec l’adresse de bouclage `127.0.0.1`, vous devez actuellement modifier l’attribut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) dans le [manifeste de l’application](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrictions concernant les caractères génériques des URI de redirection
 

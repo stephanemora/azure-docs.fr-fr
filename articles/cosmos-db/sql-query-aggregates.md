@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 11/23/2020
 ms.author: tisande
-ms.openlocfilehash: 7c988f379e94bf2f69854c90d45af42fe2a7ec4f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f04590e78b5f1ea9d5e00c9f3d42c2fc32bebc5f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332778"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001777"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Fonctions d’agrégation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,6 +20,8 @@ ms.locfileid: "93332778"
 Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs dans la clause `SELECT` et retournent une valeur unique. Par exemple, la requête suivante retourne le nombre d’éléments présents dans le conteneur `Families` :
 
 ## <a name="examples"></a>Exemples
+
+Lorsque vous utilisez `COUNT()`, vous pouvez utiliser toute expression scalaire valide, telle que `1`, en tant qu’entrée.
 
 ```sql
     SELECT COUNT(1)
@@ -78,7 +80,7 @@ Vous pouvez également effectuer des agrégations sur les résultats d’une it�
 > [!NOTE]
 > Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le kit SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du kit SDK .NET 1.12.0, du kit SDK .NET Core 1.1.0 ou du kit SDK Java 1.9.5 ou ultérieur.
 
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Remarques
 
 Ces fonctions système d’agrégation bénéficieront d’un [index de plage](index-policy.md#includeexclude-strategy). Si vous comptez exécuter une fonction `COUNT`, `SUM`, `MIN`, `MAX` ou `AVG` sur une propriété, vous devez [inclure le chemin d’accès correct dans la stratégie d’indexation](index-policy.md#includeexclude-strategy).
 

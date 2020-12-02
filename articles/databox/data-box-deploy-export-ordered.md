@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442019"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003180"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box (préversion)
 
@@ -80,7 +80,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
    ![Sélectionner la capacité Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. Dans **Commande**, indiquez les détails de la commande **De base**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant**.
+6. Dans **Commande**, indiquez les détails de la commande **De base**. Entrez ou sélectionnez les informations suivantes :
 
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -88,13 +88,13 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     |Resource group | Groupe de ressources que vous avez sélectionné précédemment. |
     |Nom de la commande d’exportation     |  Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
 
-    ![Détails de base de la commande d’exportation](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Détails de base de la commande d’exportation](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Sélectionnez **Suivant : Sélection des données** pour continuer.
 
 7. Dans **Sélection des données**, sélectionnez **Ajouter un compte de stockage et un type d’exportation**.
 
-    ![Ajouter un compte de stockage et un type d’exportation](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Ajouter un compte de stockage et un type d’exportation](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. Dans **Sélectionner l’option d’exportation**, spécifiez les détails de l’option d’exportation. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Ajouter**.
 
@@ -115,15 +115,88 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
    Pour voir un exemple de l’entrée XML, consultez [Exemple d’entrée XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Dans **Sélection des données**, passez en revue vos paramètres, puis sélectionnez **Suivant : Sécurité>** .
+9. Dans **Sélection des données**, passez en revue vos paramètres, puis sélectionnez **Suivant : Sécurité>** pour continuer.
 
    ![Commande d’exportation, sélection des données](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur le logiciel, sélectionnez **Activer le double chiffrement pour la commande**. 
+    L’écran **Sécurité** vous permet d’utiliser votre propre clé de chiffrement et de choisir également d’utiliser le double chiffrement.
+
+    Tous les paramètres dans l’écran **Sécurité** sont facultatifs. Si vous ne changez aucun paramètre, les paramètres par défaut s’appliquent.
+
+    ![Écran Sécurité de l’Assistant Commande d’importation Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Si vous souhaitez utiliser votre propre clé gérée par le client afin de protéger la clé d'accès de déverrouillage pour votre nouvelle ressource, développez **Type de chiffrement**.
+
+    La configuration d’une clé gérée par le client pour Azure Data Box est facultative. Par défaut, Data Box utilise une clé managée par Microsoft pour protéger la clé d'accès de déverrouillage.
+
+    Une clé gérée par le client n’affecte pas la manière dont les données sont chiffrées sur l’appareil. La clé est utilisée uniquement pour chiffrer la clé d'accès de déverrouillage de l’appareil.
+
+    Si vous ne souhaitez pas utiliser de clé gérée par le client, passez à l’étape 16.
+
+    ![Écran Sécurité présentant les paramètres Type de chiffrement](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Sélectionnez **Clé gérée par le client** comme type de clé. Choisissez ensuite **Sélectionner un coffre de clés et une clé**.
+   
+    ![Écran Sécurité, paramètres d’une clé gérée par le client](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. Dans l’écran **Sélectionner une clé dans Azure Key Vault**, l’abonnement est automatiquement renseigné.
+
+    - Pour **Coffre de clés**, vous pouvez sélectionner un coffre de clés existant dans la liste déroulante.
+
+      ![Écran Sélectionner une clé dans Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans l’écran **Créer un coffre de clés**, saisissez le groupe de ressources et un nom de coffre de clés. Assurez-vous que les options **Soft delete** (Suppression réversible) et **Purge protection** (Protection contre le vidage) sont activées. Acceptez toutes les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
+
+      ![Paramètres Créer un coffre Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Passez en revue les informations de votre coffre de clés, puis sélectionnez **Créer**. Patientez quelques minutes avant la fin de la création du coffre de clés.
+
+      ![Écran d’examen du nouveau coffre Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. Dans l’écran **Sélectionner une clé dans Azure Key Vault**, vous pouvez sélectionner une clé existante dans le coffre de clés.
+
+    ![Sélectionner une clé existante dans Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Si vous voulez créer un coffre de clés, sélectionnez **Create new** (Créer). Vous devez utiliser une clé RSA. La taille peut être supérieure ou égale à 2048. Entrez un nom pour votre nouvelle clé, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
+
+      ![Option permettant de créer une clé](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Vous serez averti quand la clé aura été créée dans votre coffre de clés.
+
+14. Sélectionnez la **Version** de la clé à utiliser, puis choisissez **Sélectionner**.
+
+      ![Nouvelle clé créée dans le coffre de clés](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Si vous voulez créer une version de clé, sélectionnez **Create new** (Créer).
+
+    ![Ouvrir une boîte de dialogue permettant de créer une version de clé](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    Dans l’écran **Create new key**, choisissez les paramètres de la nouvelle version de clé, puis sélectionnez **Créer**.
+
+    ![Créer une nouvelle version de la clé](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    Les paramètres **Type de chiffrement** de l’écran **Sécurité** montrent votre coffre de clés et votre clé.
+
+    ![Clé et coffre de clés pour une clé gérée par un client](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Sélectionnez une identité d’utilisateur que vous utiliserez pour gérer l’accès à cette ressource. Choisissez **Sélectionner une identité d’utilisateur**. Dans le volet de droite, sélectionnez l’abonnement et l’identité managée à utiliser. Ensuite, choisissez **Sélectionner**.
+
+    Une identité managée affectée par l’utilisateur est une ressource Azure autonome qui peut être utilisée pour gérer plusieurs ressources. Pour plus d’informations, consultez [Types d’identités managées](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Si vous avez besoin de créer une identité managée, suivez les instructions indiquées dans [Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Sélectionner une identité d’utilisateur](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    L’identité d’utilisateur est indiquée dans les paramètres **Type de chiffrement**.
+
+    Vous pouvez maintenant réduire les paramètres **Type de chiffrement**.
+
+    ![Identité d’utilisateur sélectionnée dans les paramètres Type de chiffrement](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Si vous voulez activer le double chiffrement basé sur logiciel, développez **Double encryption (for high-security environments) Double chiffrement (pour les environnements hautement sécurisés)** et sélectionnez **Enable double encryption for the order (Activer le double chiffrement pour la commande)** . 
 
     Le chiffrement basé sur le logiciel est effectué en plus du chiffrement AES 256 bits des données sur Data Box.
 
-   
     > [!NOTE]
     > L’activation de cette option peut augmenter le temps nécessaire au traitement des commandes et à la copie des données. Une fois votre commande créée, vous ne pouvez pas changer cette option.
 

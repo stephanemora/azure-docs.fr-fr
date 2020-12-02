@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 64334b17060879a2e587b13b062c81e86df33831
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: a910edfbbe1ad07dca806026396c506f7e90e6e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743420"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019430"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -57,6 +57,8 @@ L’approche appropriée pour votre entreprise dépend généralement des facteu
 - Cycle de vie de la prise en charge de vos produits existants
 - Fenêtre de temps d’arrêt de l’application pendant la migration
 
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="Temps d’arrêt de la migration des machines virtuelles":::
+
 Le tableau suivant décrit les différences entre les deux stratégies de migration :
 <br />
 
@@ -73,7 +75,7 @@ Le tableau suivant détaille la méthode disponible pour la stratégie de migrat
 
 |**Méthode** | **Version source minimale** | **Version cible minimale** | **Contrainte de taille de la sauvegarde source** |  **Notes** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Le serveur SQL existant doit être déplacé tel quel vers une instance SQL sur une machine virtuelle Azure. Peut mettre à l’échelle des charges de travail de migration allant jusqu’à 35 000 machines virtuelles. <br /><br /> Les serveurs sources restent en ligne et traitent les requêtes pendant la synchronisation des données du serveur, réduisant ainsi au minimum les temps d’arrêt. <br /><br /> **Automatisation et scripts** : [scripts Azure Site Recovery](../../../migrate/how-to-migrate-at-scale.md) et [exemple de migration et de planification mises à l’échelle pour Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale).|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Le serveur SQL existant doit être déplacé tel quel vers une instance SQL sur une machine virtuelle Azure. Peut mettre à l’échelle des charges de travail de migration allant jusqu’à 35 000 machines virtuelles. <br /><br /> Les serveurs sources restent en ligne et traitent les requêtes pendant la synchronisation des données du serveur, réduisant ainsi au minimum les temps d’arrêt. <br /><br /> **Automatisation et scripts** : [scripts Azure Site Recovery](../../../migrate/how-to-migrate-at-scale.md) et [exemple de migration et de planification mises à l’échelle pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale).|
 
 ## <a name="migrate"></a>Migrer  
 
@@ -117,8 +119,8 @@ Il peut y avoir des considérations supplémentaires lors de la migration de ser
 
 Ces services comprennent :
 
-- [**SQL Server Integration Services (SSIS)** ](/sql/integration-services/install-windows/upgrade-integration-services)
-- [**SQL Server Reporting Services (SSRS)** ](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
+- [**SQL Server Integration Services (SSIS)**](/sql/integration-services/install-windows/upgrade-integration-services)
+- [**SQL Server Reporting Services (SSRS)**](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
 - [**SQL Server Analysis Services (SSAS)**](/sql/database-engine/install-windows/upgrade-analysis-services)
 
 ## <a name="supported-versions"></a>Versions prises en charge

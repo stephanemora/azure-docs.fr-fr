@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 702de11abc274d1f4001df5b28498928fde71109
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127214"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014456"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Créer une solution de bout en bout avec Azure IoT Central et Dynamics 365 for Field Service 
 
@@ -21,7 +21,7 @@ ms.locfileid: "92127214"
 En tant que générateur, vous pouvez activer l’intégration de votre application Azure IoT Central à d’autres systèmes métier. 
 
 
-Par exemple, dans une solution de gestion des déchets connectée, vous pouvez optimiser l’envoi de camions de ramassage d’ordures. L’optimisation peut être réalisée sur la base de données de capteurs IoT de conteneurs à déchets connectés. Dans votre [application de gestion des déchets connectée à IoT Central](./tutorial-connected-waste-management.md), vous pouvez configurer des règles et actions qui déclenchent des alertes dans Dynamics 365 for Field Service. Ce scénario est implémenté à l’aide de Microsoft Flow, que vous configurerez directement dans IoT Central pour automatiser les workflows entre les applications et les services. Par ailleurs, selon les activités de service dans Field Service, des informations peuvent être renvoyées à Azure IoT Central. 
+Par exemple, dans une solution de gestion des déchets connectée, vous pouvez optimiser l’envoi de camions de ramassage d’ordures. L’optimisation peut être réalisée sur la base de données de capteurs IoT de conteneurs à déchets connectés. Dans votre [application de gestion des déchets connectée à IoT Central](./tutorial-connected-waste-management.md), vous pouvez configurer des règles et actions qui déclenchent des alertes dans Dynamics 365 for Field Service. Ce scénario est implémenté à l’aide de Power Automate, que vous configurez directement dans IoT Central pour automatiser les workflows entre les applications et les services. Par ailleurs, selon les activités de service dans Field Service, des informations peuvent être renvoyées à Azure IoT Central. 
 
 ## <a name="how-to-connect-your-azure-iot-central-application-with-dynamics-365-field-services"></a>Comment connecter votre application Azure IoT Central avec Dynamics 365 for Field Service 
 

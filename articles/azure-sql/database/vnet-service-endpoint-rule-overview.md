@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324997"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020280"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; mettre à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau donné au serveur.
 
-*Alternative RBAC :*
+*Alternative Azure RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
@@ -80,6 +80,7 @@ Pour Azure SQL Database, la fonctionnalité de règle de réseau virtuel présen
 
 - L’activation des points de terminaison de service de réseau virtuel pour Azure SQL Database active également les points de terminaison des services Azure MySQL et PostgreSQL. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou PostgreSQL peuvent échouer.
   - Il est fort probable qu'une règle de réseau virtuel n'ait pas été configurée pour MySQL et PostgreSQL. Vous devez configurer une règle de réseau virtuel pour Azure Database pour MySQL et PostgreSQL afin de permettre la connexion.
+  - Pour définir des règles de pare-feu de réseau virtuel sur un serveur logique SQL qui est déjà configuré avec des points de terminaison privés, définissez **Deny public network access** (Refuser l’accès au réseau public) sur **No** (Non).
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
   - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
@@ -89,7 +90,7 @@ Pour Azure SQL Database, la fonctionnalité de règle de réseau virtuel présen
 
 Lorsque vous utilisez des points de terminaison de service pour Azure SQL Database, passez en revue les considérations suivantes :
 
-- **Une sortie à destination d’adresses IP publiques Azure SQL Database est nécessaire**  : Des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Vous pouvez pour ce faire utiliser des [balises de service](../../virtual-network/network-security-groups-overview.md#service-tags) NSG pour Azure SQL Database.
+- **Une sortie à destination d’adresses IP publiques Azure SQL Database est nécessaire** : Des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Vous pouvez pour ce faire utiliser des [balises de service](../../virtual-network/network-security-groups-overview.md#service-tags) NSG pour Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -188,7 +189,7 @@ Vous pouvez définir l’indicateur **IgnoreMissingVNetServiceEndpoint** en util
 
 ## <a name="errors-40914-and-40615"></a>Erreurs 40914 et 40615
 
-L’erreur de connexion 40914 est liée aux *règles de réseau virtuel* , comme spécifié dans le volet Pare-feu du portail Azure. L’erreur 40615 est similaire, à ceci près qu’elle est liée aux *règles des adresses IP* sur le pare-feu.
+L’erreur de connexion 40914 est liée aux *règles de réseau virtuel*, comme spécifié dans le volet Pare-feu du portail Azure. L’erreur 40615 est similaire, à ceci près qu’elle est liée aux *règles des adresses IP* sur le pare-feu.
 
 ### <a name="error-40914"></a>Erreur 40914
 
@@ -240,7 +241,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
 1. Connectez-vous au [portail Azure][http-azure-portal-link-ref-477t].
 
-2. Recherchez et sélectionnez **Serveurs SQL** , puis sélectionnez votre serveur. Sous **Sécurité** , sélectionnez **Pare-feux et réseaux virtuels**.
+2. Recherchez et sélectionnez **Serveurs SQL**, puis sélectionnez votre serveur. Sous **Sécurité**, sélectionnez **Pare-feux et réseaux virtuels**.
 
 3. Définissez le contrôle **Autoriser l’accès aux services Azure** sur DÉSACTIVÉ.
 
@@ -251,7 +252,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
     ![Cliquez sur Ajouter existant (point de terminaison de sous-réseau, en tant que règle SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. Dans le nouveau volet **Créer/mettre à jour** , renseignez les contrôles avec les noms de vos ressources Azure.
+5. Dans le nouveau volet **Créer/mettre à jour**, renseignez les contrôles avec les noms de vos ressources Azure.
 
     > [!TIP]
     > Vous devez inclure le **préfixe d’adresse** correct pour votre sous-réseau. Vous pouvez trouver la valeur correspondante dans le portail.

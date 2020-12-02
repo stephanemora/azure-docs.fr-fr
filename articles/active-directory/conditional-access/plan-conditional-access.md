@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366324"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837479"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -73,7 +73,7 @@ Les ressources suivantes peuvent être utiles lorsque vous vous familiarisez ave
 * [Comment déployer l’accès conditionnel](https://youtu.be/c_izIRNJNuk)
 * [Comment déployer des stratégies d’accès conditionnel pour les utilisateurs finaux](https://youtu.be/0_Fze7Zpyvc)
 * [L’accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
-* [L’accès conditionnel avec Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Accès conditionnel avec Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc) (Accès conditionnel dans Enterprise Mobility + Security)
 
 
@@ -105,7 +105,7 @@ Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déploye
 ## <a name="understand-ca-policy-components"></a>Comprendre les composants de la stratégie d’accès conditionnel
 Les stratégies d’accès conditionnel sont des instructions de type si-alors : si une affectation est remplie, alors appliquer ces contrôles d’accès.
 
-Lors de la configuration de stratégies d’accès conditionnel, les conditions s’appellent des *affectations* . Les stratégies d’accès conditionnel vous permettent d’appliquer des contrôles d’accès aux applications de votre organisation, en fonction de certaines affectations.
+Lors de la configuration de stratégies d’accès conditionnel, les conditions s’appellent des *affectations*. Les stratégies d’accès conditionnel vous permettent d’appliquer des contrôles d’accès aux applications de votre organisation, en fonction de certaines affectations.
 
 
 Pour plus d’informations, consultez [Création d’une stratégie d’accès conditionnel](concept-conditional-access-policies.md).
@@ -287,7 +287,7 @@ EM01 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoin
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Exclure les pays depuis lesquels vous n’espérez jamais aucune connexion.
 
-Azure Active Directory vous permet de créer des [emplacements nommés](location-condition.md). Créez un emplacement nommé qui comprend tous les pays à partir desquels vous n’escomptez jamais qu’une connexion se produise. Créez ensuite une stratégie pour Toutes les applications qui bloquent la connexion à partir de cet emplacement nommé. **Veillez à exempter vos administrateurs de cette stratégie** .
+Azure Active Directory vous permet de créer des [emplacements nommés](location-condition.md). Créez un emplacement nommé qui comprend tous les pays à partir desquels vous n’escomptez jamais qu’une connexion se produise. Créez ensuite une stratégie pour Toutes les applications qui bloquent la connexion à partir de cet emplacement nommé. **Veillez à exempter vos administrateurs de cette stratégie**.
 
 ### <a name="plan-your-policy-deployment"></a>Planifier votre déploiement de stratégies
 
@@ -421,7 +421,7 @@ Une autre façon de valider votre stratégie d’accès conditionnel consiste à
 
 Réalisez chaque test dans votre plan de test, avec des utilisateurs de test.
 
-**Veillez à tester aussi les critères d’exclusion d’une stratégie** . Par exemple, vous pouvez exclure un utilisateur ou un groupe d’une stratégie qui exige l’authentification multifacteur. Testez si les utilisateurs exclus sont invités à utiliser l’authentification multifacteur, car l’association d’autres stratégies peut exiger l’authentification multifacteur pour ces utilisateurs.
+**Veillez à tester aussi les critères d’exclusion d’une stratégie**. Par exemple, vous pouvez exclure un utilisateur ou un groupe d’une stratégie qui exige l’authentification multifacteur. Testez si les utilisateurs exclus sont invités à utiliser l’authentification multifacteur, car l’association d’autres stratégies peut exiger l’authentification multifacteur pour ces utilisateurs.
 
 ### <a name="roll-back-policies"></a>Restaurer les stratégies
 

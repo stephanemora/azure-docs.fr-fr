@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578614"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023738"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utiliser .NET pour Apache Spark avec Azure Synapse Analytics
 
@@ -74,9 +74,11 @@ Le notebook .NET Spark est basé sur des expériences [.NET interactives](https:
 
 ### <a name="install-nuget-packages-in-notebooks"></a>Installer des packages NuGet dans des notebooks
 
-Vous pouvez installer les packages NuGet de votre choix dans votre notebook en utilisant le symbole `#r` avant le nom du package NuGet. Le diagramme suivant montre un exemple :
+Vous pouvez installer les packages NuGet de votre choix dans votre notebook en utilisant la commande magique `#r nuget` avant le nom du package NuGet. Le diagramme suivant montre un exemple :
 
 ![Capture d’écran illustrant l’utilisation de #r pour l’installation d’un package NuGet pour notebook Spark .NET](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+Pour en savoir plus sur l’utilisation des packages NuGet dans des notebooks, consultez la [documentation .NET interactive](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET pour les fonctionnalités du noyau c# Apache Spark
 

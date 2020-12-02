@@ -3,12 +3,12 @@ title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337319"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967378"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -38,7 +38,7 @@ Vous utilisez vSphere et NSX-T Manager pour gérer la plupart des autres aspects
 
 ## <a name="hosts"></a>Hôtes
 
-Les clusters de cloud privé Azure VMware Solution utilisent des nœuds d’infrastructure nus hyper-convergés. Le tableau suivant indique les capacités de mémoire RAM, de processeur et de disque de l’ordinateur hôte. 
+Les clusters de cloud privé Azure VMware Solution utilisent des hôtes d’infrastructure nus hyper-convergés. Le tableau suivant indique les capacités de mémoire RAM, de processeur et de disque de l’ordinateur hôte. 
 
 | Type d’hôte              |             UC             |   RAM (Go)   |  Niveau de cache du vSAN NVMe (To, RAW)  |  Niveau de capacité du vSAN SSD (To, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -59,7 +59,7 @@ Les versions actuelles des logiciels VMware utilisés dans des clusters de cloud
 
 Pour tout nouveau cluster dans un cloud privé, la version du logiciel correspond à ce qui est en cours d’exécution. Pour tout nouveau cloud privé dans un abonnement, la dernière version de la pile logicielle est installée.
 
-Les stratégies et processus généraux de mise à niveau pour le logiciel de plateforme Azure VMware Solution sont décrits dans l’article [Concepts de mise à niveau](concepts-upgrades.md).
+Les stratégies et processus généraux de mise à niveau pour le logiciel de plateforme Azure VMware Solution sont décrits dans l’article [Mises à jour et mises à niveau des clouds privés](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Maintenance de l’hôte et gestion du cycle de vie
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d0da8755199645b12e9c6ed75a42881fe86e70b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490608"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023035"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -74,7 +74,7 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 
 ### <a name="risk-levels"></a>Niveaux de risque
 
-La protection d’identité catégorise les risques en trois niveaux : faible, moyen, sévère. 
+La protection d’identité catégorise les risques en trois niveaux : faible, moyen, sévère. Quand vous configurez des [stratégies Identity Protection personnalisées](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy), vous pouvez également les configurer pour qu’elles se déclenchent au niveau **Pas de risque**. Le niveau Pas de risque signifie qu’il n’existe aucune indication active que l’identité de l’utilisateur a été compromise.
 
 Bien que Microsoft ne communique pas en détail sur l'évaluation du risque, nous pouvons affirmer que chaque niveau souligne avec un peu plus de certitude que l'utilisateur ou la connexion est compromis(e). Par exemple, une instance de propriétés de connexion non connues pour un utilisateur pourrait être moins dangereuse que la divulgation d’informations d’identification pour un autre utilisateur.
 

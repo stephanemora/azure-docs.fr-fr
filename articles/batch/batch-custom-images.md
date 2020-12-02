@@ -2,17 +2,17 @@
 title: Création d’un pool d’images personnalisées à l’aide d’une image managée
 description: Créez un pool d’images personnalisées à partir d’une image managée pour provisionner les nœuds de calcul avec les logiciels et les données de votre application.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851290"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916574"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées à l’aide d’une image managée
 
-Pour créer un pool d’images personnalisées destiné aux machines virtuelles de votre pool Batch, vous pouvez utiliser une image managée de façon à élaborer une [image Shared Image Gallery](batch-sig-images.md). L’utilisation d’une seule image gérée est également prise en charge, mais uniquement pour les versions d’API allant jusqu’à 2019-08-01. 
+Pour créer un pool d’images personnalisées destiné aux machines virtuelles de votre pool Batch, vous pouvez utiliser une image managée de façon à élaborer une [image Shared Image Gallery](batch-sig-images.md). L’utilisation d’une seule image gérée est également prise en charge, mais uniquement pour les versions d’API allant jusqu’à 2019-08-01.
 
 > [!IMPORTANT]
 > Dans la plupart des cas, vous devez créer des images personnalisées à l’aide de Shared Image Gallery. À l’aide de Shared Image Gallery, vous pouvez approvisionner des pools plus rapidement, mettre à l’échelle de grandes quantités de machines virtuelles et améliorer la fiabilité lors de la configuration des machines virtuelles. Pour en savoir plus, consultez [Utiliser Shared Image Gallery pour créer un pool personnalisé](batch-sig-images.md).
@@ -49,6 +49,7 @@ Si vous créez une machine virtuelle pour l'image, utilisez une image propriéta
 - N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.
 - Lorsque vous utilisez des disques de données attachés, vous devez monter et formater les disques à partir d'une machine virtuelle pour les utiliser.
 - Vérifiez que l’image du système d’exploitation de base que vous fournissez utilise le lecteur temporaire par défaut. L’agent de nœud Batch s’attend actuellement à ce que le lecteur temporaire par défaut soit utilisé.
+- Assurez-vous que le disque du système d’exploitation n’est pas chiffré.
 - Une fois que la machine virtuelle s’exécute, connectez-la via le protocole RDP (pour Windows) ou SSH (pour Linux). Le cas échéant, installez les logiciels nécessaires ou copiez les données souhaitées.  
 
 ### <a name="create-a-vm-snapshot"></a>Créer un instantané de la machine virtuelle

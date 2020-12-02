@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283426"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024396"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
@@ -48,7 +48,9 @@ Chaque déploiement d’un membre de consortium inclut :
 * Azure Monitor, pour l’agrégation des journaux d’activité et des statistiques de performances ;
 * une passerelle de réseau virtuel (facultative) pour autoriser les connexions VPN sur les réseaux virtuels privés.
 
-Par défaut, le RPC et les points de terminaison du peering sont accessibles via l’adresse IP publique pour simplifier la connectivité entre les différents abonnements et clouds. Pour les contrôles d'accès de niveau applicatif, vous pouvez utiliser les [contrats d’octroi d’autorisations de Parity](https://wiki.parity.io/Permissioning). Les réseaux déployés derrière des VPN, qui tirent parti des passerelles de réseau virtuel pour garantir une connectivité entre les abonnements, sont pris en charge. Les déploiements de VPN et de réseau virtuel étant plus complexes, vous pouvez commencer par un modèle d’adresse IP publique lors du prototypage d’une solution.
+Par défaut, le RPC et les points de terminaison du peering sont accessibles via l’adresse IP publique pour simplifier la connectivité entre
+
+les abonnements et les clouds. Pour les contrôles d'accès de niveau applicatif, vous pouvez utiliser les [contrats d’octroi d’autorisations de Parity](https://openethereum.github.io/Permissioning.html). Les réseaux déployés derrière des VPN, qui tirent parti des passerelles de réseau virtuel pour garantir une connectivité entre les abonnements, sont pris en charge. Les déploiements de VPN et de réseau virtuel étant plus complexes, vous pouvez commencer par un modèle d’adresse IP publique lors du prototypage d’une solution.
 
 Des conteneurs Docker sont utilisés à des fins de fiabilité et de modularité. Azure Container Registry est utilisé pour héberger et diffuser des images avec contrôle de version dans le cadre de chaque déploiement. Les images de conteneur sont composées de la manière suivante :
 
@@ -158,7 +160,7 @@ Contrat d’autorisation de transaction | Bytecode du contrat d’autorisation d
 
 Sélectionnez **OK**.
 
-### <a name="monitoring"></a>Supervision
+### <a name="monitoring"></a>Surveillance
 
 La surveillance vous permet de configurer une ressource de journal pour votre réseau. L’agent de surveillance collecte et fournit des métriques et journaux d’activité utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage.
 
@@ -685,7 +687,7 @@ Une fois votre contrat intelligent déployé, vous pouvez envoyer une transactio
 
 ## <a name="webassembly-wasm-support"></a>Prise en charge de WebAssembly (WASM)
 
-La prise en charge de WebAssembly est déjà activée pour vous sur les réseaux PoA récemment déployés. Elle permet de développer des contrats intelligents dans n’importe quel langage transpilable en Web-Assembly (Rust, C, C++). Pour plus d'informations, consultez les pages suivantes : [Vue d’ensemble de WebAssembly avec Parity](https://wiki.parity.io/WebAssembly-Home) et [Didacticiel de Parity Tech](https://github.com/paritytech/pwasm-tutorial)
+La prise en charge de WebAssembly est déjà activée pour vous sur les réseaux PoA récemment déployés. Elle permet de développer des contrats intelligents dans n’importe quel langage transpilable en Web-Assembly (Rust, C, C++). Pour plus d'informations, consultez les pages suivantes : [Vue d’ensemble de WebAssembly avec Parity](https://openethereum.github.io/WebAssembly-Home.html) et [Didacticiel de Parity Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

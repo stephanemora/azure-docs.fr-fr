@@ -4,18 +4,18 @@ description: Le module IoT Edge permet de récupérer les journaux et de les cha
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171914"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966919"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Utilisez la méthode directe **UploadModuleLogs** pour envoyer les journaux demandés à un conteneur Stockage Blob Azure spécifié.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Pour charger des journaux à partir d’un appareil situé derrière un appareil de passerelle, vous devez configurer les [modules de proxy d’API et de stockage d’objets blob](how-to-configure-api-proxy-module.md) sur l’appareil de couche supérieure. Ces modules acheminent les journaux entre votre appareil de couche inférieure et votre stockage cloud via votre appareil de passerelle.
+
+::: moniker-end
+
 Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, avec l’ajout de la clé « sasUrl » :
 
 ```json
@@ -164,7 +172,7 @@ Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, ave
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -178,7 +186,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -261,6 +269,14 @@ Dans le portail Azure, appelez la méthode avec le nom de la méthode `UploadMod
 
 Utilisez la méthode directe **UploadSupportBundle** pour regrouper et charger un fichier zip des journaux du module IoT Edge dans un conteneur Stockage Blob Azure disponible. Cette méthode directe exécute la commande [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) sur votre appareil IoT Edge pour récupérer les journaux.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Pour charger des journaux à partir d’un appareil situé derrière un appareil de passerelle, vous devez configurer les [modules de proxy d’API et de stockage d’objets blob](how-to-configure-api-proxy-module.md) sur l’appareil de couche supérieure. Ces modules acheminent les journaux entre votre appareil de couche inférieure et votre stockage cloud via votre appareil de passerelle.
+
+::: moniker-end
+
 Cette méthode accepte une charge utile JSON avec le schéma suivant :
 
 ```json
@@ -273,7 +289,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
@@ -294,7 +310,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -352,7 +368,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |

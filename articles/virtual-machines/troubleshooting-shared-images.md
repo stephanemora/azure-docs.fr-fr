@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: b77132a12475a66c099f5d38c04e8b58f7b839a7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504847"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920608"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -70,14 +70,14 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : le nom <imageDefinitionName\> se termine par un point ou un trait de soulignement.  
 **Solution de contournement** : choisissez pour la définition d’image un nom remplissant les conditions suivantes : 
 - 80 caractères maximum
-- Contient uniquement des lettres latines, des chiffres, des traits de soulignement et des points
+- Contient uniquement des lettres latines, des chiffres, des traits de soulignement, des traits d’union et des points
 - Commence et se termine par des lettres latines ou des chiffres.
 
 *Le nom d’entité <imageDefinitionName\> n’est pas valide selon sa règle de validation : ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"*  
 **Cause** : le nom <imageDefinitionName\> se termine par un point ou un trait de soulignement.  
 **Solution de contournement** : choisissez pour la définition d’image un nom remplissant les conditions suivantes : 
 - 80 caractères maximum
-- Contient uniquement des lettres latines, des chiffres, des traits de soulignement et des points
+- Contient uniquement des lettres latines, des chiffres, des traits de soulignement, des traits d’union et des points
 - Commence et se termine par des lettres latines ou des chiffres
 
 Le *nom de ressource galleryImage.properties.identifier.<property\> n’est pas valide. Il ne peut pas être vide. Les caractères autorisés sont les lettres majuscules ou minuscules, les chiffres, les traits d’union (-), les points (.) et les traits de soulignement (\_). Les noms ne peuvent pas se terminer par un point (.). Leur longueur ne peut pas dépasser le nombre de caractères <number\>.*  

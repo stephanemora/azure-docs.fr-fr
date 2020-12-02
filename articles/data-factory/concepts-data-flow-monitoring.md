@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025831"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004865"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -81,6 +81,16 @@ Vous pouvez également voir le minutage détaillé de chaque étape de transform
 
 Lorsque vous sélectionnez une icône de transformation de récepteur dans votre mappage, le panneau déroulant à droite affiche un point de données supplémentaire appelé « temps de post-traitement » en bas. Il s’agit du temps consacré à l’exécution de votre travail sur le cluster Spark *après* que vos données ont été chargées, transformées et écrites. Ce temps peut comprendre la fermeture de pools de connexions, l’arrêt de pilotes, la suppression de fichiers, la fusion de fichiers, etc. Lorsque vous effectuez des actions dans votre flux, telles que le « déplacement de fichiers » et la « sortie vers un seul fichier », vous voyez probablement une augmentation de la valeur du temps de post-traitement.
   
+## <a name="error-rows"></a>Lignes d’erreur
+
+L’activation de la gestion des lignes d’erreur dans votre récepteur de flux de données se reflète dans la sortie de la surveillance. Lorsque vous définissez le récepteur sur « Réussite signalée malgré l’erreur », la sortie de la surveillance indique le nombre de lignes ayant abouti et échoué lorsque vous cliquez sur le nœud surveillance du récepteur.
+
+![Capture d’écran montrant des lignes d’erreur.](media/data-flow/error-row-2.png "Réussite de la supervision des lignes d’erreur")
+
+Lorsque vous sélectionnez « Echec signalé malgré l’erreur », la même sortie s’affiche uniquement dans le texte de sortie de la surveillance de l’activité. Cela est dû au fait que l’activité de flux de données renvoie une erreur d’exécution et que la vue de la surveillance détaillée n’est pas disponible.
+
+![Capture d’écran montrant des lignes d’erreur dans l’activité.](media/data-flow/error-rows-4.png "Échec de la supervision des lignes d’erreur")
+
 ## <a name="monitor-icons"></a>Icônes Superviser
 
 Cette icône signifie que les données de la transformation étaient déjà en cache sur le cluster. Les minutages et le chemin d’exécution en ont donc tenu compte :

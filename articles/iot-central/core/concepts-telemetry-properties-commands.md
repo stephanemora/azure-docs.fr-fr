@@ -3,17 +3,17 @@ title: Charges utiles de télémétrie, de propriétés et de commandes dans Azu
 description: Les modèles d’appareil Azure IoT Central vous permettent de spécifier la données de télémétrie, les propriétés et les commandes qu’un appareil doit implémenter. Comprendre le format des données qu’un appareil peut échanger avec IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989545"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -29,12 +29,12 @@ Cet article décrit, pour les développeurs d’appareils, les charges utiles JS
 
 L’article ne décrit pas tous les types possibles de charge utile de télémétrie, de propriété et de commande, mais les exemples illustrent tous les types de clés.
 
-Chaque exemple montre un extrait de code du modèle de capacité de l’appareil (DCM) qui définit le type et des exemples de charges utiles JSON pour illustrer comment l’appareil doit interagir avec l’application IoT Central.
+Chaque exemple montre un extrait de code du modèle d’appareil qui définit le type et des exemples de charges utiles JSON pour illustrer comment l’appareil doit interagir avec l’application IoT Central.
 
 > [!NOTE]
-> IoT Central accepte un JSON valide, mais il ne peut être utilisé pour les visualisations que s’il correspond à une définition du DCM. Pour exporter des données qui ne correspondent pas à une définition, consultez [Exporter des données IoT vers des destinations dans Azure](howto-export-data.md).
+> IoT Central accepte un JSON valide, mais il ne peut être utilisé pour les visualisations que s’il correspond à une définition du modèle d’appareil. Pour exporter des données qui ne correspondent pas à une définition, consultez [Exporter des données IoT vers des destinations dans Azure](howto-export-data.md).
 
-Le fichier JSON qui définit le DCM utilise le [langage DTDL (Digital Twin Definition Language) v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Cette spécification inclut la définition du format de propriété `@id`.
+Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 Pour obtenir un exemple de code d’appareil illustrant l’utilisation de certaines de ces charges utiles, visionnez les tutoriels [Créer et connecter une application cliente à votre application Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) et [Créer et connecter une application cliente à votre application Azure IoT Central (Python)](tutorial-connect-device-python.md).
 
@@ -42,9 +42,9 @@ Pour obtenir un exemple de code d’appareil illustrant l’utilisation de certa
 
 IoT Central vous permet d’afficher les données brutes qu’un appareil envoie à une application. Cette vue est utile pour résoudre les problèmes liés à la charge utile envoyée à partir d’un appareil. Pour afficher les données brutes envoyées par un appareil :
 
-1. Accédez à l’appareil à partir de la page **Appareils** .
+1. Accédez à l’appareil à partir de la page **Appareils**.
 
-1. Sélectionnez l’onglet **Données brutes**  :
+1. Sélectionnez l’onglet **Données brutes** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Vue Données brutes":::
 
@@ -56,11 +56,10 @@ IoT Central vous permet d’afficher les données brutes qu’un appareil envoie
 
 Cette section présente des exemples de types de données de télémétrie primitifs qu’un appareil transmet à une application IoT Central.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `boolean` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `boolean` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -76,11 +75,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 { "BooleanTelemetry": true }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `string` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `string` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -96,11 +94,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 { "StringTelemetry": "A string value - could be a URL" }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `integer` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `integer` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -117,11 +114,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 { "IntegerTelemetry": 23 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `double` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `double` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -137,11 +133,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 { "DoubleTelemetry": 56.78 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `dateTime` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `dateTime` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -151,17 +146,16 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
 }
 ```
 
-Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l’exemple suivant – les types `DateTime` doivent être conformes à ISO 8061 :
+Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l’exemple suivant – les types `DateTime` doivent être au format ISO 8061 :
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `duration` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `duration` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -171,7 +165,7 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
 }
 ```
 
-Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l’exemple suivant – les durées doivent être conformes à la durée selon ISO 8601 :
+Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l’exemple suivant – les durées doivent être au format ISO 8601 :
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -181,11 +175,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 
 Cette section présente des exemples de types de données de télémétrie complexes qu’un appareil transmet à une application IoT Central.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `geopoint` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `geopoint` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -207,18 +200,16 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `Enum` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `Enum` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -226,8 +217,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -235,8 +224,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -244,8 +231,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -263,26 +248,22 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 { "EnumTelemetry": 1 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `Object`. Cet objet a trois champs avec des types `dateTime`, `integer` et `Enum` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `Object`. Cet objet a trois champs avec des types `dateTime`, `integer` et `Enum` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelemetry"
   },
   "name": "ObjectTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
         },
@@ -290,8 +271,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
         "schema": "dateTime"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
         },
@@ -299,14 +278,11 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -314,8 +290,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
               },
@@ -323,8 +297,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
               "name": "Item1"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
               },
@@ -332,8 +304,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de t�
               "name": "Item2"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
               },
@@ -360,11 +330,10 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de télémétrie `vector` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de télémétrie `vector` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -390,14 +359,13 @@ Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l
 
 Cette section présente des exemples d’événements et d’états de télémétrie qu’un appareil transmet à une application IoT Central.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type d'événement `integer` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type d'événement `integer` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/Event"
+    "Event"
   ],
   "displayName": {
     "en": "IntegerEvent"
@@ -413,27 +381,23 @@ Un client d’appareil doit envoyer les données de l’événement au format JS
 { "IntegerEvent": 74 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type d'état `integer` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type d'état `integer` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/State"
+    "State"
   ],
   "displayName": {
     "en": "IntegerState"
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
         },
@@ -441,8 +405,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type d'ét
         "name": "Level1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
         },
@@ -450,8 +412,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type d'ét
         "name": "Level2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
         },
@@ -478,17 +438,17 @@ Un client d’appareil doit envoyer l’état au format JSON comme dans l’exem
 
 Cette section présente des exemples de types de données de propriétés primitifs qu’un appareil envoie à une application IoT Central.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `boolean` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `boolean` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
   },
   "name": "BooleanProperty",
-  "schema": "boolean"
+  "schema": "boolean",
+  "writable": false
 }
 ```
 
@@ -498,17 +458,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "BooleanProperty": false }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `boolean` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `boolean` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
   },
   "name": "LongProperty",
-  "schema": "long"
+  "schema": "long",
+  "writable": false
 }
 ```
 
@@ -518,17 +478,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "LongProperty": 439 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `date` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `date` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
   },
   "name": "DateProperty",
-  "schema": "date"
+  "schema": "date",
+  "writable": false
 }
 ```
 
@@ -538,17 +498,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "DateProperty": "2020-05-17" }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `duration` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `duration` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
   },
   "name": "DurationProperty",
-  "schema": "duration"
+  "schema": "duration",
+  "writable": false
 }
 ```
 
@@ -558,17 +518,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "DurationProperty": "PT10H24M6.169083011336625S" }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `float` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `float` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
   },
   "name": "FloatProperty",
-  "schema": "float"
+  "schema": "float",
+  "writable": false
 }
 ```
 
@@ -578,17 +538,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "FloatProperty": 1.9 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `string` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `string` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
   },
   "name": "StringProperty",
-  "schema": "string"
+  "schema": "string",
+  "writable": false
 }
 ```
 
@@ -602,17 +562,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 
 Cette section présente des exemples de types de données de propriétés complexes qu’un appareil envoie à une application IoT Central.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `geopoint` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `geopoint` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
   },
   "name": "GeopointProperty",
-  "schema": "geopoint"
+  "schema": "geopoint",
+  "writable": false
 }
 ```
 
@@ -628,18 +588,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `Enum` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `Enum` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -647,8 +606,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -656,8 +613,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -665,8 +620,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -684,26 +637,23 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 { "EnumProperty": 1 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `Object`. Cet objet a deux champs avec des types `string` et `integer` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `Object`. Cet objet a deux champs avec des types `string` et `integer` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -711,8 +661,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -735,17 +683,17 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `vector` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `vector` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
   },
   "name": "VectorProperty",
-  "schema": "vector"
+  "schema": "vector",
+  "writable": false
 }
 ```
 
@@ -780,11 +728,10 @@ IoT Central attend une réponse de l’appareil pour les mises à jour des propr
 
 `ad` est une description de chaîne d’option.
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `string` modifiable :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété modifiable `string` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -816,11 +763,10 @@ L’appareil doit envoyer la charge utile JSON suivante à IoT Central une fois 
 }
 ```
 
-L’extrait de code suivant d’un DCM illustre la définition d’un type de propriété `Enum` modifiable :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété modifiable `Enum` :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -828,7 +774,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -836,8 +781,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -845,8 +788,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -854,8 +795,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’un type de pr
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -890,36 +829,30 @@ L’appareil doit envoyer la charge utile JSON suivante à IoT Central une fois 
 
 ## <a name="commands"></a>Commandes
 
-### <a name="synchronous-command-types"></a>Types de commandes synchrones
+> [!NOTE]
+> Dans l’interface utilisateur web IoT Central, vous pouvez sélectionner l’option **Mettre en file d'attente si hors connexion** pour une commande. Ce paramètre n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil.
 
-L’extrait de code suivant d’un DCM illustre la définition d’une commande synchrone qui n’a pas de paramètres et n’attend pas que l’appareil retourne quoi que ce soit :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande qui n’a pas de paramètres et n’attend pas que l’appareil retourne quoi que ce soit :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 L’appareil reçoit une charge utile vide dans la requête et doit retourner une charge utile vide dans la réponse avec un code de réponse HTTP `200` pour indiquer la réussite de l’opération.
 
-L’extrait de code suivant d’un DCM illustre la définition d’une commande synchrone qui a un paramètre entier et attend que l’appareil retourne une valeur entière :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande qui a un paramètre entier et attend que l’appareil retourne une valeur entière :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -927,8 +860,7 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -936,39 +868,32 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 L’appareil reçoit une valeur entière en tant que charge utile de la requête. L’appareil doit retourner une valeur entière en tant que charge utile de réponse avec un code de réponse HTTP `200` pour indiquer la réussite.
 
-L’extrait de code suivant d’un DCM illustre la définition d’une commande synchrone qui a un paramètre d’objet et attend que l’appareil retourne un objet. Dans cet exemple, les deux objets ont des champs des types entier et chaîne :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande qui a un paramètre objet et attend que l’appareil retourne un objet. Dans cet exemple, les deux objets ont des champs des types entier et chaîne :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -976,8 +901,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -988,22 +911,18 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     }
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -1011,8 +930,6 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -1023,9 +940,9 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -1041,19 +958,15 @@ L’extrait de code suivant montre un exemple de charge utile de réponse envoy�
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### <a name="asynchronous-command-types"></a>Types de commandes asynchrones
+### <a name="long-running-commands"></a>Commandes de longue durée
 
-L’extrait de code suivant d’un DCM illustre la définition d’une commande asynchrone. La commande a un paramètre entier et attend que l’appareil retourne une valeur entière :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande. La commande a un paramètre entier et attend que l’appareil retourne une valeur entière :
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "asynchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -1061,8 +974,7 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -1070,19 +982,19 @@ L’extrait de code suivant d’un DCM illustre la définition d’une commande 
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-L’appareil reçoit une valeur entière en tant que charge utile de la requête. L’appareil doit retourner une charge utile de réponse vide avec un code de réponse HTPP `202` pour indiquer que l’appareil a accepté la requête de traitement asynchrone.
+L’appareil reçoit une valeur entière en tant que charge utile de la requête. Si l’appareil a besoin de temps pour traiter cette commande, il doit retourner une charge utile de réponse vide avec un code de réponse HTTP `202` pour indiquer que l’appareil a accepté la requête de traitement.
 
 Une fois que l’appareil a fini de traiter la requête, il doit envoyer à IoT Central une propriété qui ressemble à l’exemple suivant. Le nom de la propriété doit être identique au nom de la commande :
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }

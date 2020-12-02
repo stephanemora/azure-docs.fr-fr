@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: eebb0a8dc23a6a442a170dcc6e19495f96ce2921
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 11/17/2020
+ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930591"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842255"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Monter ou démonter un volume pour des machines virtuelles Windows ou Linux 
 
@@ -22,11 +22,11 @@ Vous pouvez monter ou démonter un volume pour des machines virtuelles Windows o
 
 * Pour pouvoir accéder à un volume NFS, vous devez disposer d’au moins une stratégie d’exportation.
 * Pour monter correctement un volume NFS, assurez-vous que les ports NFS suivants sont ouverts entre le client et les volumes NFS :
-    * 111 = `RPCBIND/Portmapper`
-    * 635 = `mountd`
-    * 2049 = `nfs`
-    * 4045 = `nlockmgr` (NFSv3 uniquement)
-    * 4046 = `status` (NFSv3 uniquement)
+    * 111 TCP/UDP = `RPCBIND/Portmapper`
+    * 635 TCP/UDP = `mountd`
+    * 2049 TCP/UDP = `nfs`
+    * 4045 TCP/UDP = `nlockmgr` (NFSv3 uniquement)
+    * 4046 TCP/UDP = `status` (NFSv3 uniquement)
 
 ## <a name="steps"></a>Étapes
 

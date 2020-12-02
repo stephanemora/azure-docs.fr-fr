@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122722"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953574"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C
 
@@ -56,7 +56,7 @@ Pour ajouter vos propres informations relatives au consentement, personnalisez l
 
 ### <a name="phone-sign-up-experience"></a>Expérience d’inscription par téléphone
 
-Si l’utilisateur n’a pas encore de compte pour votre application, il peut en créer un en choisissant le lien **S’inscrire**. Une page d’inscription s’affiche, dans laquelle l’utilisateur sélectionne son **pays** , entre son numéro de téléphone et sélectionne **Envoyer un code**.
+Si l’utilisateur n’a pas encore de compte pour votre application, il peut en créer un en choisissant le lien **S’inscrire**. Une page d’inscription s’affiche, dans laquelle l’utilisateur sélectionne son **pays**, entre son numéro de téléphone et sélectionne **Envoyer un code**.
 
 ![L’utilisateur commence l’inscription par téléphone](media/phone-authentication/phone-signup-start.png)
 
@@ -64,7 +64,7 @@ Un code de vérification unique est envoyé au numéro de téléphone de l’uti
 
 ![L’utilisateur vérifie le code lors de l’inscription par téléphone](media/phone-authentication/phone-signup-verify-code.png)
 
- L’utilisateur entre toutes les autres informations requises sur la page d’inscription, par exemple, le **nom d’affichage** , le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer**.
+ L’utilisateur entre toutes les autres informations requises sur la page d’inscription, par exemple, le **nom d’affichage**, le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer**.
 
 ![L’utilisateur fournit des informations supplémentaires](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -76,13 +76,13 @@ Une fois le code vérifié, l’utilisateur sélectionne **Créer** pour créer 
 
 ### <a name="phone-sign-in-experience"></a>Expérience de connexion par téléphone
 
-Si l’utilisateur possède déjà un compte avec un numéro de téléphone comme identificateur, il entre son numéro de téléphone et sélectionne **Continuer**. Il confirme le pays et le numéro de téléphone en sélectionnant **Continuer** , et un code de vérification unique est envoyé sur son téléphone. L’utilisateur entre le code de vérification et sélectionne **Continuer** pour se connecter.
+Si l’utilisateur possède déjà un compte avec un numéro de téléphone comme identificateur, il entre son numéro de téléphone et sélectionne **Continuer**. Il confirme le pays et le numéro de téléphone en sélectionnant **Continuer**, et un code de vérification unique est envoyé sur son téléphone. L’utilisateur entre le code de vérification et sélectionne **Continuer** pour se connecter.
 
 ![Expérience utilisateur de connexion par téléphone](media/phone-authentication/phone-signin-screens.png)
 
 ## <a name="deleting-a-user-account"></a>Suppression d’un compte d’utilisateur
 
-Dans certains cas, vous devrez peut-être supprimer un utilisateur et les données associées de votre répertoire Azure AD B2C. Pour plus d’informations sur la suppression d’un compte d’utilisateur par le biais du portail Azure, consultez [ces instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+Dans certains cas, vous devrez peut-être supprimer un utilisateur et les données associées de votre répertoire Azure AD B2C. Pour plus d’informations sur la suppression d’un compte d’utilisateur par le biais du portail Azure, consultez [ces instructions](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -106,14 +106,14 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c* , toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
+1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 
 1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Dans ce cas, mettez à jour `/phone-number-passwordless/`**`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez enregistrées en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Télécharger les fichiers de stratégie
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à votre locataire Azure AD B2C.
-1. Sous **Stratégies** , sélectionnez **Identity Experience Framework**.
+1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Charger une stratégie personnalisée**.
 1. Téléchargez les fichiers de stratégie dans l'ordre suivant :
     1. *Phone_Email_Base.xml*
@@ -128,9 +128,9 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
-1. Sous **Stratégies personnalisées** , sélectionnez **B2C_1A_SignUpOrSignInWithPhone**.
-1. Sous **Sélectionner l’application** , sélectionnez l’application *webapp1* que vous avez enregistrée lorsque vous avez rempli les conditions préalables.
-1. Pour **Sélectionner l’URL de réponse** , choisissez `https://jwt.ms`.
+1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_SignUpOrSignInWithPhone**.
+1. Sous **Sélectionner l’application**, sélectionnez l’application *webapp1* que vous avez enregistrée lorsque vous avez rempli les conditions préalables.
+1. Pour **Sélectionner l’URL de réponse**, choisissez `https://jwt.ms`.
 1. Sélectionnez **Exécuter maintenant** et inscrivez-vous en utilisant une adresse e-mail ou un numéro de téléphone.
 1. Sélectionnez de nouveau **Exécuter maintenant** et connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
 
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous trouverez des informations sur l’inscription par téléphone et le pack de démarrage de stratégie personnalisée (et d'autres packs de démarrage) sur GitHub : [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]. Les fichiers de stratégie du pack de démarrage utilisent des profils techniques d’authentification multifacteur et des transformations de revendications de numéro de téléphone :
-* [Définir un profil technique Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md)
+* [Définir un profil technique Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md)
 * [Définir des transformations de revendications de numéros de téléphone](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

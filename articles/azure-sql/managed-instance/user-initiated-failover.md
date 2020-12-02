@@ -3,19 +3,19 @@ title: Lancer manuellement un basculement sur SQL Managed Instance
 description: Découvrez comment basculer manuellement les réplicas principaux et secondaires sur Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791628"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985516"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
 
@@ -37,9 +37,9 @@ Vous pouvez envisager d’exécuter un [basculement manuel](../database/high-ava
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié sur SQL Managed Instance
 
-### <a name="rbac-permissions-required"></a>Autorisations RBAC requises
+### <a name="azure-rbac-permissions-required"></a>Autorisations Azure RBAC requises
 
-L’utilisateur qui initie un basculement doit disposer de l’un des rôles RBAC suivants :
+L’utilisateur qui initie un basculement doit disposer de l’un des rôles Azure suivants :
 
 - Rôle Propriétaire de l’abonnement ; ou
 - Rôle Contributeur Managed Instance ; ou
@@ -136,11 +136,11 @@ Avant de lancer le basculement, votre sortie indiquera le réplica principal act
 Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de GP que celle indiquée ci-dessus pour BC. Cela est dû au fait que le niveau de service GP est basé sur un seul nœud. Le résultat de la requête T-SQL pour le niveau de service GP affiche un seul nœud avant et après le basculement. La perte de connectivité de votre client pendant le basculement, qui dure généralement moins d’une minute, est l’indication de l’exécution du basculement.
 
 > [!NOTE]
-> L’achèvement du processus de basculement (et non la brève indisponibilité) peut prendre plusieurs minutes à la fois en cas de charges de travail à **haute intensité** . Cela est dû au fait que le moteur d’instance s’occupe de toutes les transactions en cours sur le serveur principal et rattrape son retard sur le nœud secondaire, avant d’être en mesure de basculer.
+> L’achèvement du processus de basculement (et non la brève indisponibilité) peut prendre plusieurs minutes à la fois en cas de charges de travail à **haute intensité**. Cela est dû au fait que le moteur d’instance s’occupe de toutes les transactions en cours sur le serveur principal et rattrape son retard sur le nœud secondaire, avant d’être en mesure de basculer.
 
 > [!IMPORTANT]
 > Les limitations fonctionnelles du basculement manuel initié par l’utilisateur sont les suivantes :
-> - Un (1) basculement peut être initié sur la même Managed Instance toutes les **30 minutes** .
+> - Un (1) basculement peut être initié sur la même Managed Instance toutes les **30 minutes**.
 > - Pour les instances BC, il doit exister un quorum de réplicas pour que la requête de basculement soit acceptée.
 > - Pour les instances BC, il n’est pas possible de spécifier le réplica secondaire accessible en lecture sur lequel initier le basculement.
 

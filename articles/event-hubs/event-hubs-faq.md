@@ -3,12 +3,12 @@ title: Forum Aux Questions (FAQ) - Azure Event Hubs | Microsoft Docs
 description: Cet article contient une liste des questions fréquemment posées (FAQ) sur Azure Event Hubs, ainsi que leurs réponses.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909707"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002786"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -58,70 +58,7 @@ Event Hubs émet des métriques exhaustives qui fournissent l’état de vos res
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Où le service Azure Event Hubs stocke-t-il des données client ?
 Azure Event Hubs stocke les données client. Event Hubs stockant automatiquement ces données dans une seule région, ce service répond automatiquement aux exigences en matière de résidence des données de la région, y compris celles spécifiées dans le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
-Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
-
-- AMQP
-- HTTP
-- Apache Kafka
-
-Consultez le tableau suivant pour savoir quels ports de sortie vous devez ouvrir afin d’utiliser ces protocoles dans le but de communiquer avec Azure Event Hubs. 
-
-| Protocol | Ports | Détails | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 et 5672 | Consultez le [Guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Voir [Utiliser Azure Event Hubs à partir d’applications Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quelles adresses IP dois-je autoriser ?
-Pour trouver les adresses IP à ajouter à la liste verte pour vos connexions, procédez comme suit :
-
-1. Exécutez la commande suivante depuis une invite de commandes : 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. 
-
-Si vous utilisez la **redondance de zone** pour votre espace de noms, vous devez suivre quelques étapes supplémentaires : 
-
-1. Tout d’abord, exécutez nslookup sur l’espace de noms.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Notez le nom dans la section **Réponse ne faisant pas autorité** , qui se présente dans l’un des formats suivants : 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP des 3 instances en cours d’exécution dans 3 zones de disponibilité. 
-
-    > [!NOTE]
-    > L’adresse IP retournée par la commande `nslookup` n’est pas une adresse IP statique. Toutefois, elle reste constante jusqu’à ce que le déploiement sous-jacent soit supprimé ou déplacé vers un autre cluster.
-
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Où puis-je trouver l’adresse IP cliente qui échange des messages avec mon espace de noms ?
-Tout d’abord, activez le [Filtrage IP](event-hubs-ip-filtering.md) sur l’espace de noms. 
-
-Activez ensuite les journaux de diagnostic pour [Événements de connexion au réseau virtuel Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) en suivant les instructions dans [Activer les journaux de diagnostic](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Vous verrez l’adresse IP pour laquelle la connexion est refusée.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
-> [!IMPORTANT]
-> Les journaux de réseau virtuel ne sont générés que si l’espace de noms autorise l’accès provenant **d’adresses IP spécifiques** (règles de filtre d’adresse IP). Si vous souhaitez obtenir des journaux de réseau virtuel pour suivre l’adresse IP des clients qui se connectent à l’espace de noms Event Hubs sans pour autant restreindre l’accès à votre espace de noms à l’aide de ces fonctionnalités, vous pouvez appliquer la solution de contournement suivante : activez le filtrage d’adresse IP et ajoutez la plage IPv4 adressable totale (1.0.0.0/1-255.0.0.0/1). Event Hubs ne prend pas en charge les plages d’adresses IPv6. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ## <a name="apache-kafka-integration"></a>Intégration d’Apache Kafka
 
@@ -148,7 +85,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-Remarque : Si sasl.jaas.config n’est pas une configuration prise en charge dans votre framework, recherchez les configurations qui sont utilisées pour définir le nom d’utilisateur et le mot de passe SASL, et utilisez-les à la place. Définissez le nom d’utilisateur sur $ConnectionString et le mot de passe sur votre chaîne de connexion Event Hubs.
+Remarque : Si sasl.jaas.config n’est pas une configuration prise en charge dans votre framework, recherchez les configurations utilisées pour définir le nom d’utilisateur et le mot de passe SASL, et utilisez-les. Définissez le nom d’utilisateur sur $ConnectionString et le mot de passe sur votre chaîne de connexion Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Quelle est la taille du message ou de l’événement pour les Event Hubs ?
 La taille de message maximale autorisée pour les Event Hubs est de 1 Mo.
@@ -173,7 +110,7 @@ Les unités de débit des hubs d’événements sont facturées par heure. La fa
 Vous pouvez commencer avec une seule unité de débit (TU) et activer [la majoration automatique](event-hubs-auto-inflate.md). La fonctionnalité de majoration automatique fonctionnalité vous permet d’augmenter le nombre d’unités de débit à mesure que votre trafic/charge utile augmente. Vous pouvez également définir une limite supérieure pour le nombre d’unités de débit.
 
 ### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Comment la fonctionnalité Majoration automatique Event Hubs opère-t-elle ?
-La fonctionnalité de majoration automatique vous permet de mettre à l’échelle les unités de débit. Cela signifie que vous pouvez commencer par acheter des unités de débit basses et que la majoration automatique fait monter en puissance à mesure que votre entrée augmente. Il s’agit d’une option rentable qui vous donne le contrôle complet du nombre de TU à gérer. Cette fonctionnalité est une fonctionnalité de **montée en puissance uniquement** , mais vous pouvez contrôler la descente en puissance en modifiant le nombre de TU. 
+La fonctionnalité de majoration automatique vous permet de mettre à l’échelle les unités de débit. Cela signifie que vous pouvez commencer par acheter des unités de débit basses et que la majoration automatique fait monter en puissance à mesure que votre entrée augmente. Il s’agit d’une option rentable qui vous donne le contrôle complet du nombre de TU à gérer. Cette fonctionnalité est une fonctionnalité de **montée en puissance uniquement**, mais vous pouvez contrôler la descente en puissance en modifiant le nombre de TU. 
 
 Vous pouvez commencer avec un faible nombre d’unités de débit, par exemple, 2 TU. Si vous prévoyez que votre trafic peut atteindre 15 unités de débit, activez la fonctionnalité de majoration automatique sur votre espace de noms et fixez la limite maximale à 15 unités de débit. Vous pouvez maintenant augmenter le nombre de TU automatiquement dès que votre trafic augmente.
 
@@ -181,7 +118,7 @@ Vous pouvez commencer avec un faible nombre d’unités de débit, par exemple, 
 L’activation de cette fonctionnalité n’engendre **acun coût**. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Comment les limites d’unités de débit sont-elles appliquées ?
-Si le débit d’ **entrée** total ou le taux d’événements d’entrée total de tous les hubs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les expéditeurs sont limités et reçoivent des erreurs indiquant que le quota d’entrée a été dépassé.
+Si le débit d’**entrée** total ou le taux d’événements d’entrée total de tous les hubs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les expéditeurs sont limités et reçoivent des erreurs indiquant que le quota d’entrée a été dépassé.
 
 Si le débit de **sortie** total ou le taux d’événements de sortie total de tous les hubs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les récepteurs sont limités, mais aucune erreur de limitation n’est générée. 
 
@@ -191,11 +128,11 @@ Les quotas d’entrée et de sortie sont appliqués séparément afin qu’aucun
 
 Lorsque vous créez un espace de noms de niveau de base ou standard dans le portail Azure, vous pouvez sélectionner jusqu’à 20 unités pour l’espace de noms. Pour qu’il atteigne **exactement** 40 unités, envoyez une [demande de support](../azure-portal/supportability/how-to-create-azure-support-request.md).  
 
-1. Sur la page **Espace de noms du bus d’événements** , sélectionnez **Nouvelle demande de support** dans le menu gauche. 
-1. Sur la page **Nouvelle demande de support** , procédez comme suit :
-    1. Pour **Résumé** , décrivez le problème en quelques mots. 
-    1. Pour **Type de problème** , sélectionnez **Quota**. 
-    1. Pour **Sous-type de problème** , sélectionnez **Demande d'augmentation ou de diminution du nombre d'unités de débit**. 
+1. Sur la page **Espace de noms du bus d’événements**, sélectionnez **Nouvelle demande de support** dans le menu gauche. 
+1. Sur la page **Nouvelle demande de support**, procédez comme suit :
+    1. Pour **Résumé**, décrivez le problème en quelques mots. 
+    1. Pour **Type de problème**, sélectionnez **Quota**. 
+    1. Pour **Sous-type de problème**, sélectionnez **Demande d'augmentation ou de diminution du nombre d'unités de débit**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Page de demande de support":::
 
@@ -227,11 +164,11 @@ Toutefois, si vous disposez d’un modèle dans lequel votre application a une a
 ### <a name="increase-partitions"></a>Augmenter les partitions
 Vous pouvez demander à ce que le nombre de partitions soit augmenté à 40 (exact) en soumettant une demande de support. 
 
-1. Sur la page **Espace de noms du bus d’événements** , sélectionnez **Nouvelle demande de support** dans le menu gauche. 
-1. Sur la page **Nouvelle demande de support** , procédez comme suit :
-    1. Pour **Résumé** , décrivez le problème en quelques mots. 
-    1. Pour **Type de problème** , sélectionnez **Quota**. 
-    1. Pour **Sous-type de problème** , sélectionnez **Demande de modification de partition**. 
+1. Sur la page **Espace de noms du bus d’événements**, sélectionnez **Nouvelle demande de support** dans le menu gauche. 
+1. Sur la page **Nouvelle demande de support**, procédez comme suit :
+    1. Pour **Résumé**, décrivez le problème en quelques mots. 
+    1. Pour **Type de problème**, sélectionnez **Quota**. 
+    1. Pour **Sous-type de problème**, sélectionnez **Demande de modification de partition**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Augmenter le nombre de partitions":::
 
@@ -301,11 +238,11 @@ Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niv
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Comment cibler une version spécifique du Kit de développement logiciel (SDK) Stockage Azure lors de l’utilisation de Stockage Blob Azure comme magasin de points de contrôle ?
 Si vous exécutez ce code sur Azure Stack Hub, vous rencontrerez des erreurs d’exécution, sauf si vous ciblez une version spécifique de l’API Stockage. Ceci est dû au fait que le SDK Event Hubs utilise la dernière API Stockage Azure disponible dans Azure, qui peut ne pas être pas disponible sur votre plateforme Azure Stack Hub. Azure Stack Hub peut prendre en charge une autre version du Kit de développement logiciel (SDK) Stockage Blob que celles généralement disponibles sur Azure. Si vous utilisez Stockage Blob Azure comme magasin de points de contrôle, vérifiez la [version de l’API Stockage Azure prise en charge pour votre build Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) et ciblez cette version dans votre code. 
 
-Par exemple, si vous exécutez sur Azure Stack Hub version 2005, la version la plus élevée disponible pour le service Stockage est la version 2019-02-02. Par défaut, la bibliothèque de client du SDK Event Hubs utilise la version la plus récente disponible sur Azure (2019-07-07 au moment de la publication du SDK). Dans ce cas, en plus des étapes suivantes de cette section, vous devrez également ajouter du code pour cibler la version 2019-02-02 de l’API du service Stockage. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants pour les langages C#, Java, Python et JavaScript/TypeScript.  
+Par exemple, si vous exécutez sur Azure Stack Hub version 2005, la version la plus élevée disponible pour le service Stockage est la version 2019-02-02. Par défaut, la bibliothèque de client du SDK Event Hubs utilise la version la plus récente disponible sur Azure (2019-07-07 au moment de la publication du SDK). Dans ce cas, en plus des étapes suivantes de cette section, vous devez également ajouter du code pour cibler la version 2019-02-02 de l’API du service Stockage. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants pour les langages C#, Java, Python et JavaScript/TypeScript.  
 
 Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage à partir de votre code, consultez les exemples suivants sur GitHub : 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
 - Python : [synchrone](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asynchrone](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) et [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)

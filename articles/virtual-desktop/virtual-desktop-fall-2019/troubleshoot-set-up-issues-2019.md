@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009254"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014830"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Windows Virtual Desktop (classique)
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Cause :** Consentement non accordé à Windows Virtual Desktop dans l’instance Azure Active Directory.
 
-**Correctif :** [Suivez ce guide](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) pour donner votre consentement.
+**Correctif :** [Suivez ce guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) pour donner votre consentement.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 
@@ -140,9 +140,9 @@ Si votre modèle d’opération dépasse la limite de quota, vous pouvez effectu
 
 Suivez les instructions ci-après pour détecter les problèmes d’échecs de déploiements de modèles Azure Resource Manager et DSC PowerShell.
 
-1. Passez en revue les erreurs du déploiement à l’aide de l’article [Afficher les opérations de déploiement avec Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Si le déploiement est dépourvu d’erreurs, passez en revue les erreurs dans le journal d’activité à l’aide de l’article [Afficher les journaux d’activité pour auditer les actions sur les ressources](../../azure-resource-manager/resource-group-audit.md).
-3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) pour résoudre le problème.
+1. Passez en revue les erreurs du déploiement à l’aide de l’article [Afficher les opérations de déploiement avec Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. Si le déploiement est dépourvu d’erreurs, passez en revue les erreurs dans le journal d’activité à l’aide de l’article [Afficher les journaux d’activité pour auditer les actions sur les ressources](../../azure-resource-manager/management/view-activity-logs.md).
+3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) pour résoudre le problème.
 4. Supprimez toutes les ressources créées lors du déploiement précédent, puis essayez de redéployer le modèle.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erreur : Votre déploiement a échoué….\<hostname>/joindomain
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erreur : L’utilisateur nécessite une authentification multifacteur (MFA)
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Erreur : L’utilisateur nécessite Azure AD Multi-Factor Authentication (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du message d’échec du déploiement en raison d’une absence d’authentification multifacteur](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Exemple d’erreur brute :
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Cause :** L’administrateur du locataire Windows Virtual Desktop spécifié doit se connecter à l’aide de l’authentification multifacteur Azure.
+**Cause :** L’administrateur du locataire Windows Virtual Desktop spécifié doit se connecter à l’aide d’Azure AD Multi-Factor Authentication (MFA).
 
 **Correctif :** Créez un principal de service et attribuez-lui un rôle pour votre locataire Windows Virtual Desktop en suivant la procédure décrite dans l’article [Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell](create-service-principal-role-powershell.md). Après avoir vérifié que vous pouvez vous connecter à Windows Virtual Desktop avec le principal du service, réexécutez l’offre de la Place de marché Azure ou le modèle Azure Resource Manager GitHub, selon la méthode que vous utilisez. Suivez les instructions ci-après pour saisir les paramètres adaptés à votre méthode.
 

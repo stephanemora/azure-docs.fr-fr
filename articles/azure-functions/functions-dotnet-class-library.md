@@ -4,12 +4,12 @@ description: Découvrez comment développer sur Azure Functions à l’aide de C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002384"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380961"
 
 Cet article est une introduction au développement d’Azure Functions à l’aide de C# dans des bibliothèques de classes .NET.
 
+En tant que développeur C#, vous pouvez également être intéressé par l’un des articles suivants :
+
+| Prise en main | Concepts| Apprentissage guidé/exemples |
+| -- | -- | -- | 
+| <ul><li>[Utilisation de Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Utilisation de Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Utilisation d’outils en ligne de commande](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Options d’hébergement](functions-scale.md)</li><li>[Considérations relatives aux &nbsp;performances](functions-best-practices.md)</li><li>[Développement Visual Studio](functions-develop-vs.md)</li><li>[Injection de dépendances](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Créer des applications serverless](/learn/paths/create-serverless-applications/)</li><li>[Exemples C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions prend en charge le langage de programmation C#, mais également le langage de script C#. Pour plus d’informations sur l’[utilisation de C# dans le portail Azure](functions-create-function-app-portal.md), consultez [Informations de référence pour les développeurs de scripts C# (.csx)](functions-reference-csharp.md).
-
-Cet article suppose que vous avez déjà lu les articles suivants :
-
-* [Guide de développement Azure Functions](functions-reference.md)
-* [Outils Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versions prises en charge
 

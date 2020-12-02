@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568350"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015678"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Résolution des erreurs de certificat
 
@@ -46,6 +46,7 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 | CertificateManagement_MissingServerOid | Le certificat avec le nom d’objet {0} n’a pas d’OID d’authentification du serveur. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat.|
 | CertificateManagement_NameMismatch | Incompatibilité de type de certificat. Étendue attendue : {0}, valeur {1} trouvée. Téléchargez le certificat approprié.|
 | CertificateManagement_NoPrivateKeyPresent | Le certificat avec le nom d’objet {0} n’a pas de clé privée présente. Téléchargez un certificat .pfx avec une clé privée.|
+| CertificateManagement_NoRSACryptoPrivateKey | La clé privée pour le certificat avec le nom d’objet {0} n’est pas accessible. Assurez-vous d’utiliser un certificat pris en charge. Seul le certificat Fournisseur de services de chiffrement Microsoft RSA/SChannel Microsoft est pris en charge. |
 | CertificateManagement_NotSelfSignedCertificate | Le certificat avec le nom d’objet {0} n’est pas auto-signé. Les certificats racines doivent être auto-signés |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Cette opération n'est pas prise en charge sur l'appareil virtuel. Cette erreur indique que la signature se produira uniquement avec Data Box Gateway s’exécutant dans une appliance cloud tactique. Cette erreur se produit lors de la gestion de l’appareil via Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Le certificat avec le nom d’objet {0} est auto-signé. Téléchargez un certificat qui est correctement signé.|
@@ -57,6 +58,7 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 | CertificateImportFailure | Le certificat avec l’empreinte numérique {0} n’a pas été importé dans le nœud {1}. Si le problème persiste, contactez le support technique Microsoft. |
 | CertificateApplyFailure | Le certificat avec l’empreinte numérique {0} n’a pas été appliqué au nœud {1}. Si le problème persiste, contactez le support technique Microsoft.|
 | NodeNotReachable | Impossible de valider le certificat sur {0}. Vérifiez l’intégrité des composants et des logiciels du système.|
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

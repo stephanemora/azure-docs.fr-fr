@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834164"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Se connecter à un compte professionnel ou scolaire à l’aide de votre méthode de vérification à deux facteurs
 
 > [!NOTE]
-> Cet article vise à présenter de manière détaillée une expérience de connexion classique. Pour obtenir de l’aide concernant la connexion ou pour résoudre des problèmes, voir [Difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md).
+> Cet article vise à présenter de manière détaillée une expérience de connexion classique. Pour obtenir de l’aide concernant la connexion ou pour résoudre des problèmes, voir [Difficultés avec Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Quelle sera votre expérience de connexion ?
 Votre expérience d’authentification diffère selon ce que vous choisissez d’utiliser comme second facteur : un appel téléphonique, une application d’authentification ou des messages texte. Choisissez l’option qui décrit le mieux votre utilisation :
@@ -83,7 +83,7 @@ Parfois, vous n’avez pas le téléphone ou l’appareil que vous avez configur
    ![Utiliser une autre méthode](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Si vous rencontrez des problèmes de connexion avec la vérification en deux étapes, obtenez plus d’informations sur la page [Difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md).
+- Si vous rencontrez des problèmes de connexion avec la vérification en deux étapes, obtenez plus d’informations sur la page [Difficultés avec Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Apprenez comment [gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md).
 

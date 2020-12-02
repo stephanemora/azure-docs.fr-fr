@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686104"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95400205"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -52,6 +52,10 @@ L’exécution du script de pré-inscription définit les autorisations requises
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Les sauvegardes seront-elles opérationnelles après la migration SAP HANA de SDC vers MDC ?
 
 Reportez-vous à [cette section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) du Guide de résolution des problèmes.
+
+### <a name="what-should-be-done-while-upgrading-within-the-same-version"></a>Que dois-je faire lors d’une mise à niveau dans la même version ?
+
+Reportez-vous à [cette section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) du Guide de résolution des problèmes.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
 

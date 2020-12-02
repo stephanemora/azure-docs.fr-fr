@@ -3,12 +3,12 @@ title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174095"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002905"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -144,7 +144,7 @@ Pour arrêter la protection et supprimer les données d’une machine virtuelle 
 1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.
 2. Choisissez **Supprimer les données de sauvegarde** et confirmez votre choix si nécessaire. Entrez le nom de l’élément de sauvegarde et ajoutez un commentaire si vous le souhaitez.
 
-    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Une fois l’opération de suppression terminée, les données sauvegardées sont conservées pendant 14 jours à l’[état de suppression réversible](./soft-delete-virtual-machines.md). <br>Par ailleurs, vous pouvez aussi [activer ou désactiver la suppression réversible](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
@@ -177,7 +177,7 @@ Il existe deux façons de supprimer les données de sauvegarde d’une machine v
   * Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
   * Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
-    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
@@ -190,7 +190,7 @@ Pour protéger vos données, Sauvegarde Azure comprend la fonctionnalité de sup
 
 * Si les machines virtuelles Azure configurées pour Sauvegarde Azure sont supprimées ou déplacées sans arrêter la protection, les travaux de sauvegarde planifiés et à la demande (ad hoc) échouent avec l’erreur UserErrorVmNotFoundV2. La prévérification de sauvegarde apparaît comme étant critique uniquement pour les travaux de sauvegarde à la demande qui ont échoué (les travaux planifiés qui ont échoué n’apparaissent pas).
 * Ces éléments de sauvegarde restent actifs dans le système qui adhère à la stratégie de sauvegarde et de conservation définie par l’utilisateur. Les données sauvegardées pour ces machines virtuelles Azure sont conservées conformément à la stratégie de conservation. Les points de récupération qui ont expiré (à l’exception du plus récent) sont nettoyés en fonction de la plage de rétention définie dans la stratégie de sauvegarde.
-* Nous vous recommandons de supprimer les éléments de sauvegarde dans lesquels la source de données principale n’existe plus afin d’éviter tout surcoût, si l’élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le point de récupération le plus récent est conservé indéfiniment et l’utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
+* Pour éviter tout coût supplémentaire, nous vous recommandons de supprimer les éléments de sauvegarde où la source de données principale n’existe plus. Il s’agit d’un scénario dans lequel l’élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le point de récupération le plus récent est conservé pour toujours et vous êtes facturé en fonction des tarifs de sauvegarde applicables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

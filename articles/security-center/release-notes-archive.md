@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357842"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967157"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -154,13 +154,13 @@ Nous intégrons les fonctionnalités de détection de l’analyse du vidage sur 
 
 Voici quelques-uns des avantages de cette transition :
 
-- **Détection proactive et en temps opportun des programmes malveillants**  : l’approche de l’analyse du vidage sur incident impliquait l’attente de la survenance d’un incident, puis l’exécution d’une analyse pour trouver des artefacts malveillants. La détection d’attaque sans fichier introduit l’identification de manière proactive des menaces en mémoire pendant leur exécution. 
+- **Détection proactive et en temps opportun des programmes malveillants** : l’approche de l’analyse du vidage sur incident impliquait l’attente de la survenance d’un incident, puis l’exécution d’une analyse pour trouver des artefacts malveillants. La détection d’attaque sans fichier introduit l’identification de manière proactive des menaces en mémoire pendant leur exécution. 
 
-- **Alertes enrichies**  : les alertes de sécurité liées à la détection d’attaque sans fichier apportent des enrichissements par rapport à une simple analyse du vidage sur incident, tels que les informations de connexions réseau actives. 
+- **Alertes enrichies** : les alertes de sécurité liées à la détection d’attaque sans fichier apportent des enrichissements par rapport à une simple analyse du vidage sur incident, tels que les informations de connexions réseau actives. 
 
-- **Agrégation d’alertes**  : quand l’analyse du vidage sur incident détectait plusieurs modèles d’attaque au sein d’un même vidage sur incident, elle déclenchait plusieurs alertes de sécurité. La détection d’attaque sans fichier combine tous les modèles d’attaque identifiés participant d’un même processus dans une alerte unique, ce qui évite d’avoir à mettre en corrélation plusieurs alertes.
+- **Agrégation d’alertes** : quand l’analyse du vidage sur incident détectait plusieurs modèles d’attaque au sein d’un même vidage sur incident, elle déclenchait plusieurs alertes de sécurité. La détection d’attaque sans fichier combine tous les modèles d’attaque identifiés participant d’un même processus dans une alerte unique, ce qui évite d’avoir à mettre en corrélation plusieurs alertes.
 
-- **Exigences réduites concernant votre espace de travail Log Analytics**  : les vidages sur incident contenant des données potentiellement sensibles ne sont plus chargés dans votre espace de travail Log Analytics.
+- **Exigences réduites concernant votre espace de travail Log Analytics** : les vidages sur incident contenant des données potentiellement sensibles ne sont plus chargés dans votre espace de travail Log Analytics.
 
 
 
@@ -188,7 +188,7 @@ Désormais, vous pouvez ajouter des normes telles que les suivantes :
 - **PBMM fédéral du Canada**
 - **Azure CIS 1.1.0 (nouveau)** (représentation plus complète d’Azure CIS 1.1.0)
 
-De plus, nous avons récemment ajouté le **Benchmark de sécurité Azure** , les directives spécifiques d’Azure créées par Microsoft pour les meilleures pratiques de sécurité et de conformité, basées sur des infrastructures de conformité courantes. Des normes supplémentaires seront prises en charge dans le tableau de bord dès qu’elles seront disponibles.  
+De plus, nous avons récemment ajouté le **Benchmark de sécurité Azure**, les directives spécifiques d’Azure créées par Microsoft pour les meilleures pratiques de sécurité et de conformité, basées sur des infrastructures de conformité courantes. Des normes supplémentaires seront prises en charge dans le tableau de bord dès qu’elles seront disponibles.  
  
 Apprenez-en davantage sur la [personnalisation de l’ensemble de normes de votre tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
 
@@ -253,9 +253,9 @@ La plateforme open source populaire Kubernetes a été adoptée si largement qu�
 
 La défense orchestrée par Azure Security Center comprend les composantes suivantes :
 
-- **Détection et visibilité**  : détection continue des instances AKS gérées à l’intérieur des abonnements inscrits auprès d’Azure Security Center.
-- **Recommandations de sécurité**  : recommandations actionnables pour vous aider à vous conformer aux meilleures pratiques en matière de sécurité pour AKS. Ces recommandations sont incluses dans votre degré de sécurisation pour garantir leur visibilité en lien avec la posture de sécurité de votre organisation. Voici un exemple de recommandation relative à AKS : « Le contrôle d’accès en fonction du rôle doit être utilisé pour limiter l’accès à un cluster Kubernetes Service ».
-- **Protection contre les menaces**  : grâce à une analyse continue de votre déploiement AKS, Azure Security Center vous avertit des menaces et activités malveillantes détectées au niveau de l’hôte et du cluster AKS.
+- **Détection et visibilité** : détection continue des instances AKS gérées à l’intérieur des abonnements inscrits auprès d’Azure Security Center.
+- **Recommandations de sécurité** : recommandations actionnables pour vous aider à vous conformer aux meilleures pratiques en matière de sécurité pour AKS. Ces recommandations sont incluses dans votre degré de sécurisation pour garantir leur visibilité en lien avec la posture de sécurité de votre organisation. Voici un exemple de recommandation relative à AKS : « Le contrôle d’accès en fonction du rôle doit être utilisé pour limiter l’accès à un cluster Kubernetes Service ».
+- **Protection contre les menaces** : grâce à une analyse continue de votre déploiement AKS, Azure Security Center vous avertit des menaces et activités malveillantes détectées au niveau de l’hôte et du cluster AKS.
 
 Pour en savoir plus, consultez [Intégration d’Azure Kubernetes Service avec Security Center](defender-for-kubernetes-introduction.md).
 
@@ -266,8 +266,8 @@ Apprenez-en davantage sur les [fonctionnalités de sécurité de conteneur d’A
 
 Les fonctionnalités, le fonctionnement et l’interface utilisateur des outils juste-à-temps de l’Azure Security Center qui sécurisent vos ports de gestion ont été améliorés comme suit : 
 
-- **Champ de justification**  : lors de la demande d’accès à une machine virtuelle via la page Juste-à-temps du portail Azure, un nouveau champ facultatif est disponible pour entrer une justification de la demande. Le journal d’activité permet de suivre les informations entrées dans ce champ. 
-- **Nettoyage automatique des règles JAT redondantes**  : chaque fois que vous mettez à jour une stratégie JAT, un outil de nettoyage s’exécute automatiquement pour vérifier la validité de votre ensemble de règles. L’outil recherche les incompatibilités entre les règles de votre stratégie et les règles du groupe de sécurité réseau. Si l’outil de nettoyage détecte une incompatibilité, il en détermine la cause et, lorsque cela ne présente aucun risque, supprime les règles intégrées qui ne sont plus nécessaires. Le nettoyeur ne supprime jamais les règles que vous avez créées. 
+- **Champ de justification** : lors de la demande d’accès à une machine virtuelle via la page Juste-à-temps du portail Azure, un nouveau champ facultatif est disponible pour entrer une justification de la demande. Le journal d’activité permet de suivre les informations entrées dans ce champ. 
+- **Nettoyage automatique des règles JAT redondantes** : chaque fois que vous mettez à jour une stratégie JAT, un outil de nettoyage s’exécute automatiquement pour vérifier la validité de votre ensemble de règles. L’outil recherche les incompatibilités entre les règles de votre stratégie et les règles du groupe de sécurité réseau. Si l’outil de nettoyage détecte une incompatibilité, il en détermine la cause et, lorsque cela ne présente aucun risque, supprime les règles intégrées qui ne sont plus nécessaires. Le nettoyeur ne supprime jamais les règles que vous avez créées. 
 
 Apprenez-en davantage sur la [fonctionnalité d’accès JAT](security-center-just-in-time.md).
 
@@ -391,9 +391,9 @@ Kubernetes devient rapidement la nouvelle norme pour le déploiement et la gesti
 
 Les nouvelles fonctionnalités de cette préversion publique sont les suivantes :
 
-- **Détection et visibilité**  : détection continue des instances AKS gérées à l’intérieur des abonnements inscrits de Security Center.
-- **Recommandations concernant le degré de sécurisation**  : éléments actionnables pour aider les clients à se conformer aux meilleures pratiques de sécurité dans AKS en lien avec le degré de sécurisation du client, par exemple : « Le contrôle d’accès en fonction du rôle doit être utilisé pour limiter l’accès à un cluster Kubernetes Service ».
-- **Détection des menaces**  : analyses basées sur un hôte ou un cluster, par exemple, « un conteneur privilégié détecté ».
+- **Détection et visibilité** : détection continue des instances AKS gérées à l’intérieur des abonnements inscrits de Security Center.
+- **Recommandations concernant le degré de sécurisation** : éléments actionnables pour aider les clients à se conformer aux meilleures pratiques de sécurité pour AKS, et renforcer leur degré de sécurisation. Ces recommandations incluent des éléments tels que « Le contrôle d’accès en fonction du rôle doit être utilisé pour limiter l’accès à un cluster de service Kubernetes ».
+- **Détection des menaces** : analyses basées sur un hôte ou un cluster, par exemple, « un conteneur privilégié détecté ».
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Évaluation des vulnérabilités des machines virtuelles (préversion)

@@ -3,12 +3,12 @@ title: 'Concept : intégrer un déploiement Azure VMware Solution dans une arch
 description: En savoir plus sur l’intégration d’un déploiement Azure VMware Solution dans une architecture hub and spoke sur Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577717"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967446"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Intégrer Azure VMware Solution dans une architecture hub and spoke
 
@@ -38,7 +38,7 @@ L’architecture possède les composants majeurs suivants :
 
 - **Site local :** Un ou plusieurs centres de données client locaux connectés à Azure via une connexion ExpressRoute.
 
-- **Cloud privé Azure VMware Solution** SDDC Azure VMware Solution formé par un ou plusieurs clusters vSphere, chacun avec un maximum de 16 nœuds.
+- **Cloud privé Azure VMware Solution** SDDC Azure VMware Solution formé par un ou plusieurs clusters vSphere, chacun avec un maximum de 16 hôtes.
 
 - **Passerelle ExpressRoute :** Active la communication entre le cloud privé Azure VMware Solution, les services partagés sur le réseau virtuel du hub et les charges de travail exécutées sur des réseaux virtuels Spoke.
 

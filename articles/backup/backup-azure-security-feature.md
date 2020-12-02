@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les fonctionnalités de sécurité dans
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181678"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841016"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 
@@ -48,10 +48,10 @@ Si vous créez un coffre Recovery Services, vous pouvez utiliser toutes les fonc
     ![Capture d’écran des propriétés de coffre Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     Le lien de mise à jour ouvre le volet **Paramètres de sécurité**, qui vous permet de découvrir une courte présentation de ces fonctionnalités et d’activer ces dernières.
-5. Dans la liste déroulante **Avez-vous configuré Azure Multi-Factor Authentication ?** , sélectionnez une valeur pour confirmer que vous avez activé ou non [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si tel est le cas, vous êtes invité à vous authentifier à partir d’un autre appareil (par exemple, un téléphone mobile) lors de votre connexion au portail Azure.
+5. Dans la liste déroulante **Avez-vous configuré Azure AD Multi-Factor Authentication ?** , sélectionnez une valeur pour confirmer que vous avez activé ou non [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si tel est le cas, vous êtes invité à vous authentifier à partir d’un autre appareil (par exemple, un téléphone mobile) lors de votre connexion au portail Azure.
 
-   Lorsque vous effectuez des opérations critiques dans la sauvegarde, vous devez entrer un code PIN de sécurité, disponible sur le portail Azure. L’activation de la fonctionnalité Azure Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
-6. Pour enregistrer les paramètres de sécurité, sélectionnez **Activer**, puis **Enregistrer**. Vous pouvez sélectionner **Activer** uniquement après avoir sélectionné une valeur dans la liste **Avez-vous configuré Azure Multi-Factor Authentication ?** à l’étape précédente.
+   Lorsque vous effectuez des opérations critiques dans la sauvegarde, vous devez entrer un code PIN de sécurité, disponible sur le portail Azure. L’activation de la fonctionnalité Azure AD Multi-Factor Authentication offre une couche de sécurité supplémentaire. Seuls les utilisateurs autorisés, disposant d’informations d’identification Azure valides et authentifiés à partir d’un deuxième appareil peuvent accéder au portail Azure.
+6. Pour enregistrer les paramètres de sécurité, sélectionnez **Activer**, puis **Enregistrer**. Vous pouvez sélectionner **Activer** uniquement après avoir sélectionné une valeur dans la liste **Avez-vous configuré Azure AD Multi-Factor Authentication ?** à l’étape précédente.
 
     ![Capture d’écran des paramètres de sécurité](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 

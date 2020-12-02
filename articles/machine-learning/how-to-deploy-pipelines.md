@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: fd5c0905b4a5d050eaf35456353122fd26f8cbf7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 75d013b863671246e6249f367676e4de86bc1de8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445266"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960018"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publier et suivre des pipelines Machine Learning
 
@@ -74,7 +74,7 @@ Une fois que vous disposez d’un pipeline opérationnel, vous pouvez publier un
 Tous les pipelines publiés disposent d’un point de terminaison REST. Avec le point de terminaison de pipeline, vous pouvez déclencher une exécution du pipeline à partir de n’importe quel système externe, notamment des clients autres que Python. Ce point de terminaison active la « répétabilité managée » dans les scénarios de scoring et de nouvel apprentissage.
 
 > [!IMPORTANT]
-> Si vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à votre pipeline, [définissez les autorisations pour votre scénario de pipeline (apprentissage ou scoring)](how-to-assign-roles.md#common-scenarios).
+> Si vous utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour gérer l’accès à votre pipeline, [définissez les autorisations de votre scénario de pipeline (entraînement ou scoring)](how-to-assign-roles.md#common-scenarios).
 
 Pour appeler l’exécution du pipeline précédent, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory. L’obtention de ce jeton est décrite dans les informations de référence sur la [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) et dans le notebook [Authentification dans Azure Machine Learning](https://aka.ms/pl-restep-auth).
 

@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/23/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2732f9fc4b1b9251391180874a055e8ffd8d9e7a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411471"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985074"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Références SKU disponibles pour les grandes instances HANA
 
@@ -34,10 +35,13 @@ Le service SAP HANA sur Azure (Grandes instances) basé sur des tampons Révisio
 
 - USA Ouest 2
 - USA Est
-- USA Est 2
-- États-Unis - partie centrale méridionale
+
+Service BareMetal Infrastructure (certifié pour les charges de travail SAP HANA) basé sur les horodatages Révision 4.2. Disponible avec plusieurs configurations dans les régions Azure suivantes :
 - Europe Ouest
 - Europe Nord
+- USA Est 2
+- États-Unis - partie centrale méridionale
+
 
 
 
@@ -104,9 +108,9 @@ Deux classes de matériel différentes divisent les références SKU comme suit�
 
 Un tampon de grande instance HANA complet n’est pas exclusivement alloué à l’utilisation d’un client unique. Cela s’applique également aux racks de ressources de calcul et de stockage connectés par le biais d’une structure réseau déployée dans Azure. L’infrastructure de grande instance HANA, par exemple Azure, déploie plusieurs &quot;abonnés&quot; client isolés les uns des autres selon les trois niveaux suivants :
 
-- **Réseau**  : isolation par le biais des réseaux virtuels dans le tampon de grande instance HANA.
+- **Réseau** : isolation par le biais des réseaux virtuels dans le tampon de grande instance HANA.
 - **Stockage** : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés et qui isolent les volumes de stockage entre les abonnés.
-- **Calcul**  : assignation dédiée des unités de serveur à un seul abonné. Aucun partitionnement matériel ou logiciel des unités de serveur. Aucun partage d’une unité de serveur ou hôte unique entre les locataires. 
+- **Calcul** : assignation dédiée des unités de serveur à un seul abonné. Aucun partitionnement matériel ou logiciel des unités de serveur. Aucun partage d’une unité de serveur ou hôte unique entre les locataires. 
 
 Les déploiements d’unités de grande instance HANA entre les différents abonnés ne sont pas visibles entre eux. Les unités de grande instance HANA déployées dans différents abonnés ne peuvent pas communiquer directement entre elles au niveau du tampon de grande instance HANA. Seules les unités de grande instance HANA d’un abonné unique peuvent communiquer entre elles au niveau du tampon de grande instance HANA.
 
