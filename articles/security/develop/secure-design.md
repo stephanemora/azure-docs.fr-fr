@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701566"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487675"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -157,7 +157,7 @@ La modélisation de la conception de l’application et l’énumération des me
 | Falsification              | Intégrité             | Valider des certificats SSL/TLS. Les applications qui utilisent les protocoles SSL/TLS doivent intégralement vérifier les certificats X.509 des entités auxquelles elles se connectent. Utiliser des certificats Azure Key Vault pour [gérer vos certificats x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Répudiation            | Non-répudiation       | Activez [la surveillance et les diagnostics Azure](/azure/architecture/best-practices/monitoring).|
 | Divulgation d’informations | Confidentialité       | Chiffrer les données sensibles [au repos](../fundamentals/encryption-atrest.md) et [en transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Déni de service      | Disponibilité          | Superviser les métriques de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. Combiné aux bonnes pratiques de la conception d’application, le [service de protection DDoS Azure](../../virtual-network/ddos-protection-overview.md#next-steps) assure une excellente protection contre les attaques DDoS.|
+| Déni de service      | Disponibilité          | Superviser les métriques de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. Combiné aux bonnes pratiques de la conception d’application, le [service de protection DDoS Azure](../../ddos-protection/ddos-protection-overview.md#next-steps) assure une excellente protection contre les attaques DDoS.|
 | Élévation de privilège | Autorisation         | Utiliser Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Réduction de votre surface d’attaque

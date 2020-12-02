@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84988027"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488202"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager
 Les passerelles VPN peuvent désormais être migrées du modèle de déploiement Classic vers le modèle de déploiement Resource Manager. Vous pouvez découvrir plus en détail les [fonctionnalités et les avantages](../azure-resource-manager/management/overview.md) d’Azure Resource Manager. Dans cet article, nous expliquons en détail comment migrer des déploiements Classic vers le modèle plus récent basé sur Resource Manager. 
 
-Les passerelles VPN sont migrées dans le cadre d’une migration de réseau virtuel classique vers Resource Manager. Cette migration porte sur un réseau virtuel à la fois. Il n’existe aucune exigence supplémentaire en termes d’outils ou de conditions préalables à la migration. Les étapes de migration sont identiques à celles de la procédure de migration de réseau virtuel existante et sont documentés à la [page de migration des ressources IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). À aucun moment l’accès aux données n’est interrompu pendant la migration, et les charges de travail existantes continuent donc de fonctionner sans perte de connectivité locale. L’adresse IP publique associée à la passerelle VPN ne change pas pendant le processus de migration. Cela veut dire que vous n’avez pas besoin de reconfigurer votre routeur local à l’issue de la migration.  
+Les passerelles VPN sont migrées dans le cadre d’une migration de réseau virtuel classique vers Resource Manager. Cette migration porte sur un réseau virtuel à la fois. Il n’existe aucune exigence supplémentaire en termes d’outils ou de conditions préalables à la migration. Les étapes de migration sont identiques à celles de la procédure de migration de réseau virtuel existante et sont documentés à la [page de migration des ressources IaaS](../virtual-machines/migration-classic-resource-manager-ps.md). À aucun moment l’accès aux données n’est interrompu pendant la migration, et les charges de travail existantes continuent donc de fonctionner sans perte de connectivité locale. L’adresse IP publique associée à la passerelle VPN ne change pas pendant le processus de migration. Cela veut dire que vous n’avez pas besoin de reconfigurer votre routeur local à l’issue de la migration.  
 
 Le modèle Resource Manager est différent du modèle Classic. Il est constitué de passerelles de réseau virtuel, de passerelles de réseau local et de ressources de connexion. Ces éléments représentent respectivement la passerelle VPN proprement dite, le site local représentant l’espace d’adressage local et la connectivité entre les deux. À l’issue de la migration, les passerelles ne sont pas disponibles dans le modèle Classic et toutes les opérations de gestion au niveau des passerelles de réseau virtuel, des passerelles de réseau local et des objets de connexion doivent être effectuées selon le modèle Resource Manager.
 
@@ -66,5 +66,4 @@ Sachant que nous transformons la connectivité de réseau virtuel à réseau vir
 * Établissement d’une connexion explicite du réseau virtuel concerné vers la passerelle de réseau local représentant l’emplacement local. Cela passe aussi par la modification de la configuration du routeur local pour créer et configurer le tunnel IPsec.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous en savez plus sur la prise en charge de la migration de passerelle VPN, consultez [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-ps.md) pour bien démarrer.
-
+Maintenant que vous en savez plus sur la prise en charge de la migration de passerelle VPN, consultez [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md) pour bien démarrer.

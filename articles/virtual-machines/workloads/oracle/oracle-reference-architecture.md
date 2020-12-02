@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 86f3ef8ccac83cdc939cff5572dd81e78137d396
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968721"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486740"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -207,12 +207,12 @@ Lors de la requête initiale, le serveur d'applications se connecte au directeur
 
 Lors du déploiement de vos charges de travail Oracle sur Azure, Microsoft s'occupe de toutes les mises à jour correctives du système d'exploitation hôte. Toute maintenance planifiée du système d'exploitation est communiquée aux clients à l'avance pour leur permettre de s'y préparer. Deux serveurs issus de deux zones de disponibilité différentes ne font jamais l'objet d'une mise à jour corrective simultanée. Pour plus d'informations sur la maintenance et les mises à jour correctives des machines virtuelles, consultez [Gérer la disponibilité des machines virtuelles](../../manage-availability.md). 
 
-Les mises à jour correctives du système d’exploitation de vos machines virtuelles peuvent être automatisées à l’aide d’[Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l’aide d’[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou d’[Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) afin de minimiser les temps d’arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
+Les mises à jour correctives du système d’exploitation de vos machines virtuelles peuvent être automatisées à l’aide d’[Azure Automation Update Management](../../../automation/update-management/overview.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l’aide d’[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou d’[Azure Automation Update Management](../../../automation/update-management/overview.md) afin de minimiser les temps d’arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considérations relatives à l'architecture et à la conception
 
 - Pensez à utiliser une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour la machine virtuelle de votre base de données Oracle afin d'économiser sur les coûts de licence et d'optimiser les performances. Utilisez différents disques Premium ou Ultra (disques managés) pour les performances et la disponibilité.
-- Lorsque vous utilisez des disques managés, le nom du disque ou de l'appareil peut changer au moment des redémarrages. Nous vous recommandons d'utiliser l'UUID de l'appareil plutôt que son nom pour garantir la persistance des montages entre les redémarrages. Des informations supplémentaires sont disponibles [ici](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
+- Lorsque vous utilisez des disques managés, le nom du disque ou de l'appareil peut changer au moment des redémarrages. Nous vous recommandons d'utiliser l'UUID de l'appareil plutôt que son nom pour garantir la persistance des montages entre les redémarrages. Des informations supplémentaires sont disponibles [ici](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Utilisez les zones de disponibilité pour bénéficier d'une haute disponibilité au sein de la région.
 - Pensez à utiliser des disques Ultra (le cas échéant) ou des disques Premium pour votre base de données Oracle.
 - Pensez à mettre en place une base de données Oracle de secours dans une autre région Azure à l'aide d'Oracle Data Guard.

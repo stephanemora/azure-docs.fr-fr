@@ -10,19 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364647"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487131"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](https://aka.ms/cogsvcs/bingmove).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Accord Entreprise, selon la première éventualité.
-> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](https://aka.ms/cogsvcs/bingmigration).
+> Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L’API Recherche d’entreprises locales envoie une requête de recherche à Bing pour obtenir des résultats sur les restaurants, les hôtels et d’autres entreprises locales. Pour trouver des lieux, la requête peut spécifier le nom de l’entreprise locale ou une catégorie (par exemple, les restaurants autour de moi). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, un lieu correspond à une entité de type entreprise, un État, un pays/région, etc.  
 
@@ -173,7 +173,7 @@ Définit le contexte de requête utilisé par Bing pour la demande.
 |Élément|Description|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Boolean|  
-|alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind* , la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|String|  
+|alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|String|  
 |alteredQuery|Chaîne de requête utilisée par Bing pour exécuter la requête. Bing utilise la chaîne de requête modifiée si la chaîne de requête d’origine contenait des fautes d’orthographe. Par exemple, si la chaîne de requête est `saling downwind`, la chaîne de requête modifiée sera `sailing downwind`.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|String|  
 |askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Boolean|  
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|String|  

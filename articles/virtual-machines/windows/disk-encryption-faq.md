@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488372"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Windows
 
@@ -55,15 +55,15 @@ Non, Azure Disk Encryption chiffre uniquement les volumes montés.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Qu’est-ce que le chiffrement côté serveur de stockage ?
 
-Le chiffrement côté serveur de stockage chiffre les disques managés Azure dans Stockage Azure. Les disques managés sont chiffrés par défaut avec le chiffrement côté serveur à l’aide d’une clé gérée par la plateforme (à compter du 10 juin 2017). Vous pouvez gérer le chiffrement des disques managés avec vos propres clés en spécifiant une clé gérée par le client. Pour plus d’informations, consultez [Chiffrement côté serveur de disques managés Azure](disk-encryption.md).
+Le chiffrement côté serveur de stockage chiffre les disques managés Azure dans Stockage Azure. Les disques managés sont chiffrés par défaut avec le chiffrement côté serveur à l’aide d’une clé gérée par la plateforme (à compter du 10 juin 2017). Vous pouvez gérer le chiffrement des disques managés avec vos propres clés en spécifiant une clé gérée par le client. Pour plus d’informations, consultez [Chiffrement côté serveur de disques managés Azure](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>En quoi Azure Disk Encryption diffère-t-il du chiffrement côté serveur de stockage avec clé gérée par le client, et quand dois-je utiliser chaque solution ?
 
 Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque temporaire en utilisant une clé gérée par le client.
 
 - Si vos exigences incluent tout ce qui précède de bout en bout, optez pour Azure Disk Encryption. 
-- Si vos exigences incluent uniquement le chiffrement des données au repos avec clé gérée par le client, utilisez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md). Vous ne pouvez pas chiffrer un disque en utilisant Azure Disk Encryption et un chiffrement côté serveur de stockage avec clés gérées par le client.
-- Si vous utilisez un scénario répertorié dans les [scénarios non pris en charge pour Windows](disk-encryption-windows.md#unsupported-scenarios), envisagez d’utiliser le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md). 
+- Si vos exigences incluent uniquement le chiffrement des données au repos avec clé gérée par le client, utilisez un [chiffrement côté serveur avec clés gérées par le client](../disk-encryption.md). Vous ne pouvez pas chiffrer un disque en utilisant Azure Disk Encryption et un chiffrement côté serveur de stockage avec clés gérées par le client.
+- Si vous utilisez un scénario répertorié dans les [scénarios non pris en charge pour Windows](disk-encryption-windows.md#unsupported-scenarios), envisagez d’utiliser le [chiffrement côté serveur avec clés gérées par le client](../disk-encryption.md). 
 - Si la stratégie de votre organisation vous permet de chiffrer du contenu au repos avec une clé gérée par Azure, aucune action n’est nécessaire. Le contenu est chiffré par défaut. Pour les disques managés, le contenu du stockage est chiffré par défaut à l’aide d’un chiffrement côté serveur avec clé gérée par la plateforme. La clé est gérée par le service Stockage Azure. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Comment effectuer la rotation des secrets ou des clés de chiffrement ?

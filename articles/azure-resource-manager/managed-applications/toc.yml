@@ -31,6 +31,10 @@
       href: concepts-built-in-policy.md
     - name: Artefact de définition de rôle
       href: concepts-custom-role-definition.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
 - name: Guides pratiques
   items:
     - name: Serveurs de publication
@@ -40,7 +44,7 @@
         - name: Tester l’interface du portail
           href: test-createuidefinition.md
         - name: Créer une offre d’application Azure
-          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+          href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Demander l’accès juste-à-temps
           href: request-just-in-time-access.md
         - name: Utiliser un réseau virtuel existant

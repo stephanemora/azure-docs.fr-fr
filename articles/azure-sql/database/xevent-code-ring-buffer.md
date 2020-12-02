@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791288"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487301"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Code cible de la mémoire tampon en anneau pour les événements étendus dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,10 +28,10 @@ Vous pouvez utiliser un exemple de code complet pour capturer et signaler le plu
 Cette rubrique présente un exemple de code Transact-SQL qui :
 
 1. Crée une table contenant des données pour la démonstration.
-2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql_statement_starting** .
+2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql_statement_starting**.
 
    * L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'** .
-   * Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring_buffer** .
+   * Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring_buffer**.
 3. Démarre la session d’événement.
 4. Émet un ensemble d’instructions SQL UPDATE simples.
 5. Émet une instruction SQL SELECT pour récupérer la sortie d’événement de la mémoire tampon en anneau.
@@ -218,9 +218,9 @@ GO
 
 Nous avons utilisé `ssms.exe` pour exécuter l'exemple de code.
 
-Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML** .
+Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**.
 
-Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML** . Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
+Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**. Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
 
 La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux éléments **\<event>** .
 

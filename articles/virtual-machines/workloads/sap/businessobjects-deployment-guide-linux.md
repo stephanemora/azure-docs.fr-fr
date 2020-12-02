@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965355"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486655"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -615,7 +615,7 @@ Pour les autres déploiements SGBD pour la base de données CMS, reportez-vous �
 
 Le serveur de référentiel de fichiers (FRS) désigne les répertoires de disque où sont stockés du contenu tels que les rapports, les univers et les connexions. Il est partagé par tous les serveurs d’applications de ce système. Vous devez donc vous assurer qu’il est hautement disponible.
 
-Sur Azure, vous pouvez choisir [Fichiers Azure Premium](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) comme partage de fichiers ; les deux sont conçus pour être hautement disponible et hautement durable par nature. Pour plus d’informations, consultez la section [Redondance](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) pour Azure Files.
+Sur Azure, vous pouvez choisir [Fichiers Azure Premium](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) comme partage de fichiers ; les deux sont conçus pour être hautement disponible et hautement durable par nature. Pour plus d’informations, consultez la section [Redondance](../../../storage/files/storage-files-planning.md#redundancy) pour Azure Files.
 
 > [!NOTE]
 > Le protocole SMB pour Azure Files est en disponibilité générale, tandis que la prise en charge du protocole NFS pour Azure Files est actuellement en préversion. Pour plus d’informations, consultez [La prise en charge de NFS 4.1 pour Azure Files est désormais disponible en préversion](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
@@ -667,7 +667,7 @@ Le service Azure Site Recovery peut être utilisé pour répliquer des machines 
 
   Vous pouvez utiliser la réplication inter-région Azure NetApp Files, qui est actuellement disponible en [préversion](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) et qui utilise la technologie NetApp SnapMirror®. Ainsi, seuls les blocs modifiés sont envoyés sur le réseau dans un format fiable et compressé. Cette technologie propriétaire limite le volume de données nécessaire à la réplication dans les différentes régions, ce qui permet d’économiser les coûts de transfert de données. Elle réduit également le temps de réplication, ce qui vous permet d’obtenir un objectif de point de restauration (RPO) inférieur. Pour plus d’informations, consultez [Configuration requise et considérations pour la réplication inter-région](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 
-- **Les fichiers Azure Premium** prennent uniquement en charge le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS). Pour la stratégie de récupération d’urgence des fichiers Azure Premium, vous pouvez utiliser [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) pour copier vos fichiers vers un autre compte de stockage dans une région différente. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../../../storage/common/storage-disaster-recovery-guidance.md).
+- **Les fichiers Azure Premium** prennent uniquement en charge le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS). Pour la stratégie de récupération d’urgence des fichiers Azure Premium, vous pouvez utiliser [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers vers un autre compte de stockage dans une région différente. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../../../storage/common/storage-disaster-recovery-guidance.md).
 
 #### <a name="cms-database"></a>Base de données CMS
 
@@ -695,4 +695,4 @@ Voici la recommandation pour la récupération d’urgence de chaque niveau util
 - [Configurer la reprise d’activité pour un déploiement d’application SAP multiniveau](../../../site-recovery/site-recovery-sap.md)
 - [Planification et implémentation de machines virtuelles Azure pour SAP](planning-guide.md)
 - [Déploiement de machines virtuelles Azure pour SAP](deployment-guide.md)
-- [Déploiement SGBD de machines virtuelles Azure pour SAP](dbms-guide.md)
+- [Déploiement SGBD de machines virtuelles Azure pour SAP](./dbms_guide_general.md)

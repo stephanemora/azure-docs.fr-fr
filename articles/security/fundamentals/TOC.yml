@@ -72,7 +72,7 @@
     - name: Meilleures pratiques
       href: network-best-practices.md
     - name: Bonnes pratiques pour la protection DDoS
-      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: Base de référence de sécurité pour DDoS Protection
       href: ddos-protection-security-baseline.md
     - name: DNS non résolu et prise de contrôle des sous-domaines
