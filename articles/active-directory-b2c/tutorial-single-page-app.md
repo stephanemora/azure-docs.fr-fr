@@ -11,18 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953098"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171226"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
 Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour inscrire et connecter des utilisateurs dans une application monopage en utilisant l’une ou l’autre des fonctionnalités suivantes :
-* [Flux de code d’autorisation OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (avec [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [Flux d’octroi implicite OAuth 2.0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (avec [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* [Flux de code d’autorisation OAuth 2.0](./authorization-code-flow.md) (avec [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [Flux d’octroi implicite OAuth 2.0](./implicit-flow-single-page-application.md) (avec [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 Dans ce tutoriel, qui est le premier d’une série de deux, vous allez :
 
@@ -51,7 +51,7 @@ De plus, vous devez disposer des éléments suivants dans votre environnement de
 
 ## <a name="update-the-application"></a>Mettre à jour l’application
 
-Au cours du [deuxième tutoriel](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application monopage dans Azure AD B2C. Pour permettre la communication avec l’exemple de code de ce tutoriel, ajoutez une URL de réponse (également appelée URI de redirection) à l’inscription d’application.
+Au cours du [deuxième tutoriel](./tutorial-register-spa.md) que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application monopage dans Azure AD B2C. Pour permettre la communication avec l’exemple de code de ce tutoriel, ajoutez une URL de réponse (également appelée URI de redirection) à l’inscription d’application.
 
 Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](./app-registrations-training-guide.md).
 
