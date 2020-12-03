@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 84bf1b5ebac158135cf4e19cdbd0afdb181905d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 256685e035659cd0fac7fa5577d99f43f4761ea2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079221"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180578"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO)
 
@@ -244,5 +244,4 @@ Une fois les configurations ci-dessus terminées, testez Alibaba Cloud Service (
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Alibaba Cloud Service (Role-based SSO), vous pouvez appliquer un contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Après avoir configuré Alibaba Cloud Service (Role-based SSO), vous pouvez appliquer un contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bf9f909331faff7b821a98042d07473573c9cef
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e3de90084c42a6ce5f71977de7e90e0767f858db
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917953"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181303"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-virtual-risk-manager"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Virtual Risk Manager
 
@@ -121,10 +121,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance de Virtual Risk Manager pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Virtual Risk Manager dans le panneau d’accès doit vous connecter automatiquement à l’instance de Virtual Risk Manager pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Virtual Risk Manager dans le panneau d’accès doit vous connecter automatiquement à l’instance de Virtual Risk Manager pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Virtual Risk Manager, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Virtual Risk Manager, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

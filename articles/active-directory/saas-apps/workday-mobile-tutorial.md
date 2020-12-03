@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378990"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182017"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à une application mobile Workday
 
@@ -33,13 +33,13 @@ Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azur
 Pour commencer :
 
 * Intégrer Workday à Azure AD.
-* Lisez [Intégration de l’authentification unique (SSO) Azure Active Directory à Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Lisez [Intégration de l’authentification unique (SSO) Azure Active Directory à Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester des stratégies d’accès conditionnel Azure AD et Intune avec une application mobile Workday.
 
-Pour activer l’authentification unique (SSO), vous pouvez configurer l’application fédérée Workday avec Azure AD. Pour plus d’informations, consultez [Intégration de l’authentification unique (SSO) Azure Active Directory à Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Pour activer l’authentification unique (SSO), vous pouvez configurer l’application fédérée Workday avec Azure AD. Pour plus d’informations, consultez [Intégration de l’authentification unique (SSO) Azure Active Directory à Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday ne prend pas en charge les stratégies de protection de l’application d’Intune. Vous devez utiliser la gestion des appareils mobiles pour avoir recours à l’accès conditionnel.
@@ -182,4 +182,3 @@ Pour garantir que les appareils iOS ne peuvent se connecter que par le biais d�
 6. Sous **Plateforme**, choisissez **Android**.
 7. Sous **Application associée**, choisissez l’application Workday pour Android que vous avez ajoutée.
 8. Sélectionnez **Paramètres de configuration**. Sous **Format des paramètres de configuration**, sélectionnez **Entrer des données JSON**.
-

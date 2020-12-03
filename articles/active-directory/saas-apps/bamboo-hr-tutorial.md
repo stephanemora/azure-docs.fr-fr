@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 8025728ffc40aca27807068eff29f5a889a8d76e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331394"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
@@ -178,9 +178,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion BambooHR pour démarrer le flux de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette BambooHR dans le volet d’accès vous redirige vers l’URL de connexion BambooHR. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette BambooHR dans le volet d’accès vous redirige vers l’URL de connexion BambooHR. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré BambooHR, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré BambooHR, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

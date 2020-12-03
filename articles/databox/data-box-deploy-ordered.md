@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: e1dca046177634842de25b255dd1bb22c5d2c5a5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: db97a34a79ac45525177a79a59a17426003aeab0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964083"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302617"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -336,7 +336,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     Une identité managée affectée par l’utilisateur est une ressource Azure autonome qui peut être utilisée pour gérer plusieurs ressources. Pour plus d’informations, consultez [Types d’identités managées](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Si vous avez besoin de créer une identité managée, suivez les instructions indiquées dans [Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Si vous avez besoin de créer une identité managée, suivez les instructions indiquées dans [Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
     
     ![Sélectionner une identité d’utilisateur](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

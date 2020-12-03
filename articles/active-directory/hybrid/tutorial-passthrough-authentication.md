@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f02ec2220827fbec8c981ab3a1859d633675a6f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313261"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176203"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutoriel :  Intégrer une forêt AD unique avec l’authentification directe (PTA)
 
@@ -220,7 +220,7 @@ Maintenant que nous disposons d’un locataire et d’un administrateur généra
 Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
 
 1. Télécharger [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
-2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
+2. Accédez à **AzureADConnect.msi** et double-cliquez sur ce fichier.
 3. Sur l'écran d’accueil, sélectionnez la case pour accepter les termes du contrat de licence et cliquez sur **Continuer**.  
 4. Sur l’écran Paramètres Express, cliquez sur **Personnaliser**.  
 5. Sur l’écran Installer les composants nécessaires. Cliquez sur **Installer**.  

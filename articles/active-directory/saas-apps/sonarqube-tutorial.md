@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 455c15ec97d5621b51a4d8af87cc3a2968dd65dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095971"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182324"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sonarqube
 
@@ -170,8 +170,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion SonarQube et lancez le flux de connexion à partir de là.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette SonarQube dans le volet d’accès vous redirige vers l’URL de connexion SonarQube. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette SonarQube dans le volet d’accès vous redirige vers l’URL de connexion SonarQube. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Après avoir configuré SonarQube, vous pouvez appliquer des contrôles de session, qui protègent contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré SonarQube, vous pouvez appliquer des contrôles de session, qui protègent contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

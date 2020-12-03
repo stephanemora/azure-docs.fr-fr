@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85da26c9ff302c526ea6210dde776f3a34929ccd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360350"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180504"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce tutoriel vous indique comment une machine virtuelle Windows peut utiliser une identité managée affectée par le système pour accéder à [Azure Key Vault](../../key-vault/general/overview.md). En agissant comme un amorçage, Key Vault permet à votre application cliente d’utiliser ensuite un secret pour accéder à des ressources non sécurisées par Azure Active Directory (AD). Les identités de service managées sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès de services qui prennent en charge l’authentification Azure AD sans inclure des informations d’authentification dans votre code.
+Ce tutoriel vous indique comment une machine virtuelle Windows peut utiliser une identité managée affectée par le système pour accéder à [Azure Key Vault](../../key-vault/general/overview.md). En agissant comme un amorçage, Key Vault permet à votre application cliente d’utiliser ensuite un secret pour accéder à des ressources non sécurisées par Azure Active Directory (AD). Les identités de service managées sont automatiquement managées par Azure et vous permettent de vous authentifier auprès de services qui prennent en charge l’authentification Azure AD sans inclure des informations d’authentification dans votre code.
 
 Vous allez apprendre à effectuer les actions suivantes :
 
@@ -40,7 +40,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 - Un compte Azure. [Inscrivez-vous pour obtenir un compte gratuit](https://azure.microsoft.com/free/).
 - Des autorisations « Propriétaire » avec l’étendue appropriée (votre abonnement ou groupe de ressources) pour effectuer les étapes de création de ressource et de gestion de rôles nécessaires. Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 - Vous avez également besoin d’une machine virtuelle Windows sur laquelle les identités managées attribuées par le système sont activées.
-  - Si vous devez créer une machine virtuelle pour ce tutoriel, vous pouvez suivre les instructions de l’article intitulé [Créer une machine virtuelle avec une identité affectée par le système activée](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+  - Si vous devez créer une machine virtuelle pour ce tutoriel, vous pouvez suivre les instructions de l’article intitulé [Créer une machine virtuelle avec une identité affectée par le système activée](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## <a name="create-a-key-vault"></a>Créer un coffre de clés  
 

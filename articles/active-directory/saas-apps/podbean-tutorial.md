@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 0b33bb1f18febe54c3f569ab629c1b1be013cc9d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1e27bd823bd4ad0428773242b5cbc0f9922925ed
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026104"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-podbean"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Podbean
 
@@ -143,10 +143,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion Podbean pour lancer le flux de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Podbean dans le volet d’accès vous redirige vers l’URL de connexion Podbean. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Podbean dans le volet d’accès vous redirige vers l’URL de connexion Podbean. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Podbean, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Podbean, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

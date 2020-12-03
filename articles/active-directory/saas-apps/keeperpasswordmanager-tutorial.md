@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984462"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Didacticiel : Intégration d’Azure Active Directory à Keeper Password Manager & Digital Vault
 
@@ -157,7 +157,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Vous pouvez accéder directement à l’URL de connexion de l’application, et y lancer la connexion.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Lorsque vous sélectionnez la vignette **Keeper Password Manager & Digital Vault** dans le volet d’accès, vous êtes redirigé vers l’URL de connexion de l’application. Pour plus d’informations sur le volet d’accès, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser le volet d’accès Microsoft. Lorsque vous sélectionnez la vignette **Keeper Password Manager & Digital Vault** dans le volet d’accès, vous êtes redirigé vers l’URL de connexion de l’application. Pour plus d’informations sur le volet d’accès, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

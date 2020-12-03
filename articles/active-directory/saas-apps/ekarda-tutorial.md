@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454182"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179256"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ekarda
 
@@ -49,15 +49,15 @@ Pour configurer l’intégration d’ekarda à Azure AD, ajoutez ekarda à part
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 
-1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter la nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **ekarda** dans la zone de recherche.
+1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter la nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **ekarda** dans la zone de recherche.
 1. Sélectionnez **ekarda** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Configurer et tester l’authentification unique Azure AD pour ekarda
 
-Configurez et testez l’authentification unique Azure AD avec ekarda en utilisant un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur ekarda associé.
+Configurez et testez l’authentification unique Azure AD avec ekarda en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur ekarda associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec ekarda, effectuez les étapes suivantes :
 
@@ -74,15 +74,15 @@ Pour configurer et tester l’authentification unique Azure AD avec ekarda, eff
 Effectuez les étapes suivantes dans le portail Azure pour activer l’authentification unique Azure AD :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Dans la page d’intégration de l’application **ekarda** , recherchez la section **Gérer** , puis sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez l’icône de crayon pour modifier les paramètres de **Configuration SAML de base** .
+1. Dans la page d’intégration de l’application **ekarda**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour modifier les paramètres de **Configuration SAML de base**.
 
    ![Capture d’écran de la page Configurer l’authentification unique avec SAML, avec l’icône de crayon mise en évidence](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , si vous voyez **Fichier de métadonnées du fournisseur de services** , suivez ces étapes :
-    1. Sélectionnez **Charger le fichier de métadonnées** .
-    1. Sélectionnez l’icône de dossier pour sélectionner le fichier de métadonnées, puis sélectionnez **Charger** .
+1. Dans la section **Configuration SAML de base**, si vous voyez **Fichier de métadonnées du fournisseur de services**, suivez ces étapes :
+    1. Sélectionnez **Charger le fichier de métadonnées**.
+    1. Sélectionnez l’icône de dossier pour sélectionner le fichier de métadonnées, puis sélectionnez **Charger**.
     1. Une fois le fichier de métadonnées correctement chargé, les valeurs pour **Identificateur** et **URL de réponse** apparaissent automatiquement dans les zones de texte de la section ekarda.
 
     > [!Note]
@@ -90,21 +90,21 @@ Effectuez les étapes suivantes dans le portail Azure pour activer l’authentif
 
 1. Si vous ne voyez pas **Fichier de métadonnées du fournisseur de services** dans la section **Configuration SAML de base** et que vous voulez configurer l’application en mode Lancé par le fournisseur d’identité, entrez des valeurs pour les champs suivants :
 
-    1. Dans la zone de texte **Identificateur** , entrez une URL au format suivant : `https://my.ekarda.com/users/saml_metadata/<COMPANY_ID>`
-    1. Dans la zone de texte **URL de réponse** , entrez une URL au format suivant : `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
+    1. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `https://my.ekarda.com/users/saml_metadata/<COMPANY_ID>`
+    1. Dans la zone de texte **URL de réponse**, entrez une URL au format suivant : `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
 
 1. Si vous voulez configurer l’application en mode Lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** et effectuez les actions suivantes :
 
-    * Dans la zone de texte **URL de connexion** , entrez une URL au format suivant : `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
+    * Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
     > Les valeurs des deux étapes précédentes ne sont pas réelles. Remplacez-les par les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL d’authentification. Pour obtenir ces valeurs, contactez l’[équipe de support client ekarda](mailto:contact@ekarda.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , sélectionnez **Télécharger** pour enregistrer le **Certificat (Base64)** sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez **Télécharger** pour enregistrer le **Certificat (Base64)** sur votre ordinateur.
 
     ![Capture d’écran de la section Certificat de signature SAML de la page Configurer l’authentification unique avec SAML, avec le lien de téléchargement mis en évidence pour le certificat Base64.](common/certificatebase64.png)
 
-1. Dans la section **Configurer ekarda** , copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer ekarda**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Capture d’écran de la section Configurer ekarda de la page Configurer l’authentification unique avec SAML, avec les liens de copie d’URL mis en évidence.](common/copy-configuration-urls.png)
 
@@ -112,32 +112,32 @@ Effectuez les étapes suivantes dans le portail Azure pour activer l’authentif
 
 Dans cette section, vous allez utiliser le portail Azure pour créer un utilisateur de test appelé B.Simon.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
 
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple, entrez `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur qui apparaît dans la zone **Mot de passe** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple, entrez `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur qui apparaît dans la zone **Mot de passe**.
    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ekarda.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **ekarda** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **ekarda**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Capture d’écran de la section Gérer, avec Utilisateurs et groupes mis en évidence.](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Capture d’écran de la page Utilisateurs et groupes, avec Ajouter un utilisateur mis en évidence.](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** dans la liste des utilisateurs. Choisissez ensuite **Sélectionner** dans le bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, sélectionnez le rôle approprié pour l’utilisateur dans la liste de la boîte de dialogue **Sélectionner un rôle** . Choisissez ensuite **Sélectionner** dans le bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Choisissez ensuite **Sélectionner** dans le bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, sélectionnez le rôle approprié pour l’utilisateur dans la liste de la boîte de dialogue **Sélectionner un rôle**. Choisissez ensuite **Sélectionner** dans le bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ## <a name="configure-ekarda-sso"></a>Configurer l’authentification unique ekarda
 
@@ -147,7 +147,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ![Capture d’écran de l’interface utilisateur du site ekarda avec My Account mis en évidence dans le menu Admin.](./media/ekarda-tutorial/ekarda.png)
 
 1. En bas de la page, recherchez la section **SAML SETTINGS** (Paramètres SAML). Cette section est l’endroit où vous configurez l’intégration SAML.
-1. Dans la section **SAML SETTINGS** , suivez ces étapes :
+1. Dans la section **SAML SETTINGS**, suivez ces étapes :
 
     ![Capture d’écran de la page SAML SETTINGS d’ekarda avec les champs de configuration de SAML mis en évidence.](./media/ekarda-tutorial/ekarda1.png)
 
@@ -157,8 +157,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     1. Dans la zone de texte **IDP Login URL** (URL de connexion IDP), collez la valeur de **URL de connexion** que vous avez précédemment copiée à partir du portail Azure.
     1. Dans la zone de texte **IDP Logout URL** (URL de déconnexion IDP), collez la valeur de **URL de déconnexion** que vous avez précédemment copiée à partir du portail Azure.
     1. Utilisez le Bloc-notes pour ouvrir le fichier **Certificat (Base64)** que vous avez téléchargé à partir du portail Azure. Collez ce contenu dans la zone de texte **IDP x509 Certificate** (Certificat x509 IDP).
-    1. Cochez la case **Enable SLO** (Activer SLO) dans la section **OPTIONS** .
-    1. Sélectionnez **Update** .
+    1. Cochez la case **Enable SLO** (Activer SLO) dans la section **OPTIONS**.
+    1. Sélectionnez **Update**.
 
 ### <a name="create-an-ekarda-test-user"></a>Créer un utilisateur de test ekarda
 

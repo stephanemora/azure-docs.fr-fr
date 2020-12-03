@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a47de559b8fc3e55489bfc975764ad8cc09edf
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3a13b6dbe5834dd4400f4aa105c4e1faed1d8d0e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242963"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-gradle-enterprise"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Gradle Enterprise
 
@@ -132,11 +132,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion Gradle Enterprise pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Gradle Enterprise dans le volet d’accès vous redirige vers l’URL de connexion Gradle Enterprise. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Gradle Enterprise dans le volet d’accès vous redirige vers l’URL de connexion Gradle Enterprise. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Gradle Enterprise, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Une fois que vous avez configuré Gradle Enterprise, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

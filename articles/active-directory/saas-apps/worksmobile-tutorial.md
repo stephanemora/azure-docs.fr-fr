@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: dbc8d126cabae249db8b5e5be5e311d232395c83
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a8b344cd9e4428c3508534edaec4fd98fb67d832
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910727"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Didacticiel : Intégration d’Azure Active Directory à LINE WORKS
 
@@ -49,9 +49,9 @@ Pour configurer l’intégration de LINE WORKS à Azure AD, vous devez ajouter L
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **LINE WORKS** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **LINE WORKS** dans la zone de recherche.
 1. Sélectionnez **LINE WORKS** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
@@ -71,26 +71,26 @@ Pour configurer et tester l’authentification unique Azure AD avec LINE WORKS,
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le portail Azure, accédez à la page d’intégration de l’application **LINE WORKS** , recherchez la section **Gérer** , puis sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Sur le portail Azure, accédez à la page d’intégration de l’application **LINE WORKS**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://auth.worksmobile.com/d/login/<domain>/`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://auth.worksmobile.com/d/login/<domain>/`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://auth.worksmobile.com/acs/ <domain>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://auth.worksmobile.com/acs/ <domain>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’URL de réponse réelles. Pour obtenir ces valeurs, contactez l’[équipe de support LINE WORKS](https://line.worksmobile.com/jp/en/contactus/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer LINE WORKS** , copiez les URL appropriées, selon vos besoins.
+6. Dans la section **Configurer LINE WORKS**, copiez les URL appropriées, selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -98,29 +98,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à LINE WORKS.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **LINE WORKS**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-line-works-sso"></a>Configurer l’authentification unique LINE WORKS
 
-Pour configurer l’authentification unique côté **LINE WORKS** , veuillez lire les [documents sur l’authentification unique LINE WORKS](https://developers.worksmobile.com/jp/document/1001080101), puis configurez un paramètre LINE WORKS.
+Pour configurer l’authentification unique côté **LINE WORKS**, veuillez lire les [documents sur l’authentification unique LINE WORKS](https://developers.worksmobile.com/jp/document/1001080101), puis configurez un paramètre LINE WORKS.
 
 > [!NOTE]
 > Vous devez convertir le fichier de certificat téléchargé .cert en .pem.
@@ -138,9 +138,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion LINE WORKS et démarrez le flux de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette LINE WORKS dans le volet d’accès vous redirige vers l’URL de connexion LINE WORKS. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette LINE WORKS dans le volet d’accès vous redirige vers l’URL de connexion LINE WORKS. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré LINE WORKS, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Après avoir configuré LINE WORKS, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

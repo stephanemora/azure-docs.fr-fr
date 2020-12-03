@@ -12,11 +12,11 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651443"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187270"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
 
@@ -405,7 +405,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez **Analyses dans le magasin - paiement** en tant qu’espace de travail.
     * Sélectionnez **Capteur d’occupation** comme jeu de données.
     * Sélectionnez **RealTimeData** comme table.
-    * Sélectionnez **Ajouter un nouveau paramètre** puis sélectionnez les champs **Horodateur**, **Durée de maintien 1**et **Durée de maintien 2**.
+    * Sélectionnez **Ajouter un nouveau paramètre** puis sélectionnez les champs **Horodateur**, **Durée de maintien 1** et **Durée de maintien 2**.
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Durée de maintien 1**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 1**.
     * Sélectionnez le champ **Durée de maintien 2**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 2**.

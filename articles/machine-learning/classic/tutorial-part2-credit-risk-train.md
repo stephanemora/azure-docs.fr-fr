@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 557c624b6ed683f701b6a8d38854cd8604e05b31
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325262"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutoriel 2 : Former des modèles de risque de crédit - Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classique)   ![Cette coche signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
 
@@ -82,9 +81,9 @@ Cette partie de l'expérience ressemble alors à ce qui suit :
 
 Maintenant, vous devez indiquer au module [Former le modèle][train-model] que vous voulez utiliser le modèle pour prédire la valeur Risque de crédit.
 
-1. Sélectionnez le module [Entraîner le modèle][train-model]. Dans le volet **Propriétés** , cliquez sur **Lancer le sélecteur de colonne**.
+1. Sélectionnez le module [Entraîner le modèle][train-model]. Dans le volet **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**.
 
-1. Dans la boîte de dialogue **Sélectionner une seule colonne** , tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles** , sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite ( **>** ) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
+1. Dans la boîte de dialogue **Sélectionner une seule colonne**, tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles**, sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite ( **>** ) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
 
     ![Sélectionnez la colonne Risque de crédit pour le module Former le modèle](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -100,7 +99,7 @@ Pour configurer le modèle SVM, procédez comme suit :
 
 1. Recherchez le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine] dans la palette des modules et faites-le glisser sur le canevas.
 
-1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier** , puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
+1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier**, puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
 
 1. Connectez la sortie du module [Machines à vecteurs de support à deux classes][two-class-support-vector-machine] au port d’entrée de gauche du deuxième module [Former le modèle][train-model].
 
@@ -116,9 +115,9 @@ Cette partie de l'expérience ressemble alors à ceci :
 
 Configurez maintenant le module [Normaliser les données][normalize-data] :
 
-1. Cliquez pour sélectionner le module [Normaliser les données][normalize-data]. Dans le volet **Propriétés** , sélectionnez **Tanh** comme paramètre de la **Méthode de transformation**.
+1. Cliquez pour sélectionner le module [Normaliser les données][normalize-data]. Dans le volet **Propriétés**, sélectionnez **Tanh** comme paramètre de la **Méthode de transformation**.
 
-1. Cliquez sur **Lancer le sélecteur de colonne** , sélectionnez « Aucune colonne » pour **Commencer par** , sélectionnez **Inclure** dans la première liste déroulante, **Type de colonne** dans la deuxième, puis **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) sont transformées.
+1. Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, **Type de colonne** dans la deuxième, puis **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) sont transformées.
 
 1. Cliquez sur le signe plus (+) à droite de cette ligne. Cette opération crée une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez des **noms de colonne** dans la deuxième liste déroulante et entrez « Risque de crédit » dans le champ textuel. Cette opération indique que la colonne Risque de crédit doit être ignorée (en effet, celle-ci étant numérique, elle serait transformée).
 

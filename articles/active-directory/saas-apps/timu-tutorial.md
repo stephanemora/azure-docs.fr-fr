@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 68acc1ad45605512232ee3dae6f5027133270c01
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 903150a199bac1189274cadc9755b38873cde73e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686333"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182102"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timu"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TIMU
 
@@ -148,11 +148,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion TIMU pour y lancer le processus de connexion.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette TIMU dans le volet d’accès vous redirige vers l’URL de connexion TIMU. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette TIMU dans le volet d’accès vous redirige vers l’URL de connexion TIMU. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré TIMU, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Une fois que vous avez configuré TIMU, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

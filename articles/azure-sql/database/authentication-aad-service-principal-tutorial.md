@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675037"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185638"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutoriel : Créer des utilisateurs Azure AD avec des applications Azure AD
 
@@ -44,7 +44,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="assign-an-identity-to-the-azure-sql-logical-server"></a>Attribuer une identité au serveur logique Azure SQL
 
-1. Connectez-vous à votre instance Azure Active Directory. Vous devez trouver votre ID de locataire. Pour cela, accédez à votre ressource **Azure Active Directory**  dans le [portail Azure](https://portal.azure.com). Dans le volet **Vue d’ensemble** , vous devez voir votre **ID de locataire**. Exécutez la commande PowerShell suivante :
+1. Connectez-vous à votre instance Azure Active Directory. Vous devez trouver votre ID de locataire. Pour cela, accédez à votre ressource **Azure Active Directory**  dans le [portail Azure](https://portal.azure.com). Dans le volet **Vue d’ensemble**, vous devez voir votre **ID de locataire**. Exécutez la commande PowerShell suivante :
 
     - Remplacez `<TenantId>` par votre **ID de locataire**.
 
@@ -82,7 +82,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Vous pouvez également vérifier l’identité en accédant au [portail Azure](https://portal.azure.com).
 
-    - Sous la ressource **Azure Active Directory** , accédez à **Applications d’entreprise**. Tapez le nom de votre serveur logique SQL. Vous voyez qu’il a un **ID d’objet** associé à la ressource.
+    - Sous la ressource **Azure Active Directory**, accédez à **Applications d’entreprise**. Tapez le nom de votre serveur logique SQL. Vous voyez qu’il a un **ID d’objet** associé à la ressource.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="ID d’objet":::
 
@@ -95,7 +95,7 @@ Pour accorder cette autorisation nécessaire, exécutez le script suivant.
 > [!NOTE] 
 > Ce script doit être exécuté par un `Privileged Roles Administrator` ou un `Global Administrator` Azure AD.
 >
-> Dans la **préversion publique** , vous pouvez affecter le rôle `Directory Readers` à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité managée en tant que membre de ce groupe, évitant ainsi qu’un `Global Administrator` ou `Privileged Roles Administrator` accorde le rôle `Directory Readers`. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs d’annuaires dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
+> Dans la **préversion publique**, vous pouvez affecter le rôle `Directory Readers` à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité managée en tant que membre de ce groupe, évitant ainsi qu’un `Global Administrator` ou `Privileged Roles Administrator` accorde le rôle `Directory Readers`. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs d’annuaires dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Remplacez `<TenantId>` par le `TenantId` récupéré précédemment.
 - Remplacez `<server name>` par le nom de votre serveur logique SQL. Si le nom de votre serveur est `myserver.database.windows.net`, remplacez `<server name>` par `myserver`.
@@ -169,9 +169,9 @@ Vous trouverez dans l’article [Provisionner un administrateur Azure AD (SQL Ma
 
 2. Vous devez aussi créer un secret client pour la connexion. Suivez les instructions ici pour [charger un certificat ou créer un secret pour la connexion](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-3. Enregistrez les informations suivantes de votre inscription d’application. Elles doivent être disponibles dans le volet **vue d’ensemble**  :
+3. Enregistrez les informations suivantes de votre inscription d’application. Elles doivent être disponibles dans le volet **vue d’ensemble** :
     - **ID d’application**
-    - **ID de locataire** , qui doit être le même que celui utilisé précédemment
+    - **ID de locataire**, qui doit être le même que celui utilisé précédemment
 
 Dans ce tutoriel, nous allons utiliser *AppSP* comme premier utilisateur du principal de service et *myapp* comme deuxième utilisateur du principal de service. Celui-ci sera créé dans Azure SQL par *AppSP*. Vous devrez créer les deux applications *AppSP* et *myapp*.
 
@@ -179,7 +179,7 @@ Pour plus d’informations sur la création d’une application Azure AD, consul
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Autorisations nécessaires pour définir ou annuler l’administrateur Azure AD
 
-Pour que le principal de service puisse définir ou annuler un administrateur Azure AD pour Azure SQL, une autorisation d’API supplémentaire est nécessaire. L’autorisation de l’API d’application [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) devra être ajoutée à votre application dans Azure AD.
+Pour que le principal de service puisse définir ou annuler un administrateur Azure AD pour Azure SQL, une autorisation d’API supplémentaire est nécessaire. L’autorisation de l’API d’application [Directory.Read.All](/graph/permissions-reference#application-permissions-18) devra être ajoutée à votre application dans Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Autorisations Directory.Reader.All dans Azure AD":::
 

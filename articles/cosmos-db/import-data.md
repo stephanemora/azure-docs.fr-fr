@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 7823c63cf618808cb1ab4400c39f4bc64b7af338
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1cee4d2ad1bc7f362a045a5991624ec43521b8d2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427545"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341646"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutoriel : Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ Ce tutoriel explique comment utiliser l’outil de migration de données Azure C
 
 * **[API SQL](./introduction.md)** - Vous pouvez utiliser toutes les options de source fournies dans l’outil de migration de données pour importer des données à petite échelle. [En savoir plus sur les options de migration pour l’importation de données à grande échelle](cosmosdb-migrationchoices.md)
 * **[API Table](table-introduction.md)** - Vous pouvez utiliser l’outil de migration de données ou [AzCopy](table-import.md#migrate-data-by-using-azcopy) pour importer les données. Pour plus d’informations, consultez la section [Importer des données à utiliser avec l’API Table Azure Cosmos DB](table-import.md).
-* **[API Azure Cosmos DB pour MongoDB](mongodb-introduction.md)** - L’outil de migration de données ne prend pas en charge l’API Azure Cosmos DB pour MongoDB comme source ou cible. Si vous souhaitez migrer les données dans ou en dehors des collections dans Azure Cosmos DB, consultez [Tutoriel : Migrer vos données vers un compte d’API MongoDB Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) pour obtenir des instructions. Vous pouvez toujours utiliser l’outil de migration de données pour exporter des données de MongoDB vers des collections d’API SQL Azure Cosmos DB en vue d’une utilisation avec l’API SQL.
+* **[API Azure Cosmos DB pour MongoDB](mongodb-introduction.md)** - L’outil de migration de données ne prend pas en charge l’API Azure Cosmos DB pour MongoDB comme source ou cible. Si vous souhaitez migrer les données dans ou en dehors des collections dans Azure Cosmos DB, consultez [Tutoriel : Migrer vos données vers un compte d’API MongoDB Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) pour obtenir des instructions. Vous pouvez toujours utiliser l’outil de migration de données pour exporter des données de MongoDB vers des collections d’API SQL Azure Cosmos DB en vue d’une utilisation avec l’API SQL.
 * **[API Cassandra](graph-introduction.md)** - L’outil de migration de données n’est pas un outil d’importation pris en charge pour les comptes d’API Cassandra. [En savoir plus les options de migration pour l’importation de données dans l’API Cassandra](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[API Gremlin](graph-introduction.md)** - Actuellement, l’outil de migration de données n’est pas un outil d’importation pris en charge pour les comptes d’API Gremlin. [En savoir plus sur les options de migration pour l’importation de données dans l’API Gremlin](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -70,8 +70,8 @@ L’outil d’importation inclut une interface utilisateur graphique (dtui.exe) 
 
 Le code source de l’outil de migration est disponible sur GitHub dans [ce dépôt](https://github.com/azure/azure-documentdb-datamigrationtool). Vous pouvez télécharger et compiler la solution localement ou [télécharger une solution binaire pré-compilée](https://aka.ms/csdmtool), puis exécuter soit :
 
-* **Dtui.exe**  : version de l’interface graphique de l’outil
-* **Dt.exe**  : version en ligne de commande de l’outil
+* **Dtui.exe** : version de l’interface graphique de l’outil
+* **Dt.exe** : version en ligne de commande de l’outil
 
 ## <a name="select-data-source"></a>Sélectionnez la source de données
 
@@ -131,7 +131,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a><a id="MongoDB"></a>Importation à partir de MongoDB
 
 > [!IMPORTANT]
-> Si vous importez dans un compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, suivez ces [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Si vous importez dans un compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, suivez ces [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 L’option d’importateur de source MongoDB vous permet d’importer à partir d’une collection MongoDB unique, éventuellement de filtrer les documents à l’aide d’une requête et de modifier la structure de document à l’aide d’une projection.  
 
@@ -159,7 +159,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a><a id="MongoDBExport"></a>Importation de fichiers d'exportation MongoDB
 
 > [!IMPORTANT]
-> Si vous importez dans un compte Azure Cosmos DB avec la prise en charge de MongoDB, suivez ces [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
+> Si vous importez dans un compte Azure Cosmos DB avec la prise en charge de MongoDB, suivez ces [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json).
 
 L’option d’importateur source du fichier JSON d’exportation MongoDB vous permet d’importer un ou plusieurs fichiers JSON générés depuis l’utilitaire mongoexport.  
 
@@ -386,7 +386,7 @@ La chaîne de connexion de compte Azure Cosmos DB peut être récupérée à par
 > [!NOTE]
 > Utilisez la commande Verify pour vous assurer que l’instance Azure Cosmos DB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer des données dans une seule collection, entrez le nom de la collection cible et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection* [index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
+Pour importer des données dans une seule collection, entrez le nom de la collection cible et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
 
 1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] crée les collections suivantes : collection0, collection1, collection2, collection3.
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui crée le même jeu de collections que celui mentionné à l'étape 1.
@@ -445,7 +445,7 @@ Vous pouvez récupérer la chaîne de connexion pour le compte Azure Cosmos DB �
 > [!NOTE]
 > Utilisez la commande Verify pour vous assurer que l’instance Azure Cosmos DB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données doivent être importées, puis cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement. Vous pouvez aussi utiliser la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection* [index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
+Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données doivent être importées, puis cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement. Vous pouvez aussi utiliser la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
 
 1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] crée les collections suivantes : collection0, collection1, collection2, collection3.
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui crée le même jeu de collections que celui mentionné à l'étape 1.

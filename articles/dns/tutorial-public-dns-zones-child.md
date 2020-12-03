@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: c763f761d77ac05d9f6b45e5656436faa5697e88
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310064"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183377"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutoriel : Création d’une zone DNS enfant
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 * Compte Azure avec un abonnement actif.  Si vous n’avez pas de compte, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zone Azure DNS parent existante.  
 
-Dans le cadre de ce didacticiel, nous allons utiliser contoso.com comme zone parent et subdomain.contoso.com comme nom de domaine enfant.  Remplacez *contoso.com* par votre nom de domaine parent et *subdomain* par votre domaine enfant.  Si vous n’avez pas créé votre zone DNS parent, consultez les étapes pour [Créer une zone DNS à l’aide du portail Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal#create-a-dns-zone). 
+Dans le cadre de ce didacticiel, nous allons utiliser contoso.com comme zone parent et subdomain.contoso.com comme nom de domaine enfant.  Remplacez *contoso.com* par votre nom de domaine parent et *subdomain* par votre domaine enfant.  Si vous n’avez pas créé votre zone DNS parent, consultez les étapes pour [Créer une zone DNS à l’aide du portail Azure](./dns-getstarted-portal.md#create-a-dns-zone). 
 
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
@@ -74,14 +74,14 @@ Vous pouvez également créer une zone DNS enfant et la déléguer dans la zone 
 1.  Sur le portail Azure, sous **Toutes les ressources**, ouvrez la zone DNS *contoso.com* dans le groupe de ressources **MyResourceGroup**. Vous pouvez entrer *contoso.com* dans la zone **Filtrer par nom** pour la trouver plus facilement.
 1.  Sur la page Vue d’ensemble de la zone DNS, sélectionnez le bouton **+ Zone enfant**.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Capture d’écran de la page Créer une zone DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Capture du bouton Zone enfant." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.  La page Créer une zone DNS s’ouvre. L’option Zone enfant est déjà activée, et l’abonnement à la zone parent et la zone parent sont déjà renseignés pour vous sur cette page.
 1.  Entrez le nom *child* pour l’exemple de ce didacticiel. Notez que le nom de la zone DNS parent contoso.com est automatiquement ajouté comme préfixe au nom.
 1.  Sélectionnez **Suivant : Balises**, puis sur **Suivant : Vérifier + créer**.
 1.  Sous l’onglet **Vérifier + créer**, passez en revue le résumé, corrigez les éventuelles erreurs de validation et sélectionnez **Créer**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Capture d’écran de la page Créer une zone DNS." border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Capture d’écran de la zone enfant sélectionnée" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## <a name="verify-child-dns-zone"></a>Vérifier la zone DNS enfant
 Maintenant, vous avez une nouvelle zone DNS enfant *subdomain.contoso.com* créée. Pour vérifier que la délégation s’est correctement déroulée, vous pouvez vérifier que les enregistrements de serveur de noms (NS) de votre zone enfant se trouvent dans la zone parent, comme décrit ci-dessous.  
 
@@ -90,7 +90,7 @@ Maintenant, vous avez une nouvelle zone DNS enfant *subdomain.contoso.com* cré�
 1.  Sur le portail Azure, sous **Toutes les ressources**, ouvrez la zone DNS *subdomain.contoso.xyz* dans le groupe de ressources **MyResourceGroup**. Vous pouvez entrer *subdomain.contoso.com* dans la zone **Filtrer par nom** pour la trouver plus facilement.
 1.  Récupérez les serveurs de noms à partir de la page Vue d’ensemble de la zone DNS. Dans cet exemple, la zone contoso.net a été attribuée aux serveurs de noms *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org* et *ns4-08.azure-dns.info* :
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Capture d’écran de la page Créer une zone DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Capture d’écran des serveurs de noms de la zone enfant" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **Vérifiez l’enregistrement NS dans la zone DNS parent :**
 
 Au cours de cette étape, nous allons accéder à la zone DNS parent *contoso.com* et vérifier que son entrée de jeu d’enregistrements NS pour les serveurs de noms des zones enfant a été créée.
@@ -99,7 +99,7 @@ Au cours de cette étape, nous allons accéder à la zone DNS parent *contoso.co
 1.  Sur la page Vue d’ensemble des zones DNS *contoso.com*, vérifiez les jeux d’enregistrements.
 1.  Le jeu d’enregistrements de type NS et de nom de sous-domaine est déjà créé dans la zone DNS parent. Vérifiez que les valeurs de ce jeu d’enregistrements correspondent à la liste de serveurs de noms que nous avons récupérée à partir de la zone DNS enfant dans l’étape ci-dessus.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Capture d’écran de la page Créer une zone DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Capture d’écran de la validation des serveurs de noms de la zone enfant" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Dès lors que les ressources que vous avez créées dans ce tutoriel ne vous sont plus utiles, supprimez-les en supprimant le groupe de ressources **MyResourceGroup**. Ouvrez le groupe de ressources **MyResourceGroup**, puis sélectionnez **Supprimer le groupe de ressources**.
 

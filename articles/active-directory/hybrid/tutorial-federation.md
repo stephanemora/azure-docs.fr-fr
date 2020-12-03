@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826535"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176288"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutoriel : Fédérer un environnement de forêt AD unique dans le cloud
 
@@ -237,7 +237,7 @@ Maintenant que nous disposons d’un locataire et d’un administrateur généra
 Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
 
 1. Télécharger [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
-2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
+2. Accédez à **AzureADConnect.msi** et double-cliquez sur ce fichier.
 3. Sur l'écran d’accueil, sélectionnez la case pour accepter les termes du contrat de licence et cliquez sur **Continuer**.  
 4. Sur l’écran Paramètres Express, cliquez sur **Personnaliser**.  
 5. Sur l’écran Installer les composants nécessaires. Cliquez sur **Installer**.  

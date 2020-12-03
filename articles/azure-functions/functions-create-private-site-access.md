@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579128"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182499"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutoriel : Établir l’accès privé aux sites avec Azure Functions
 
@@ -113,7 +113,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
     | _Sous-réseau_ | AzureBastionSubnet | Sous-réseau dans votre réseau virtuel auquel la nouvelle ressource d’hôte Bastion est déployée. Vous devez créer un sous-réseau à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Vous devez utiliser un sous-réseau de  **/27** ou plus (/27, /26, etc.). |
 
     > [!NOTE]
-    > Pour obtenir un guide pas à pas détaillé de la création d’une ressource Azure Bastion, reportez-vous au tutoriel [Créer un hôte Azure Bastion](../bastion/bastion-create-host-portal.md).
+    > Pour obtenir un guide pas à pas détaillé de la création d’une ressource Azure Bastion, reportez-vous au tutoriel [Créer un hôte Azure Bastion](../bastion/tutorial-create-host-portal.md).
 
 1. Créez un sous-réseau dans lequel Azure peut provisionner l’hôte Azure Bastion. Le fait de choisir **Gérer la configuration du sous-réseau** ouvre un nouveau volet dans lequel vous pouvez définir un nouveau sous-réseau.  Choisissez **+ Sous-réseau** pour créer un sous-réseau.
 1. Le sous-réseau doit avoir pour nom **AzureBastionSubnet** et pour préfixe au minimum  **/27**.  Sélectionnez **OK** pour créer le sous-réseau.
@@ -194,9 +194,9 @@ L’étape suivante de ce tutoriel consiste à créer une fonction Azure déclen
 
 1. Suivez l’un des guides de démarrage rapide suivants pour créer et déployer votre application Azure Functions.
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Ligne de commande](./functions-create-first-azure-function-azure-cli.md)
+    * [Ligne de commande](./create-first-function-cli-csharp.md)
     * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Lors de la publication de votre projet Azure Functions, choisissez la ressource d’application de fonction que vous avez créée plus tôt dans ce tutoriel.

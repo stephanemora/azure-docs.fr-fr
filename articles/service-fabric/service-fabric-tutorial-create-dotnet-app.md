@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous découvrez comment créer une application av
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9014f2f5e4d0149d1b0c37c9dbf007358242189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a783f5338dbc7ce0832b346492490525da332e39
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326369"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96297115"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
@@ -147,17 +147,17 @@ Ouvrez le fichier **Views/Home/Index.cshtml**. Il s’agit de la vue spécifique
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.Key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.Key)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             Remove
                         </button>

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 19d14ae681a8d991c26a211d0042ece0aefb21b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c14af3698826405244b65bc8fef6f241f7f0032f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255037"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181342"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tribeloo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tribeloo
 
@@ -125,11 +125,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Tribeloo pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tribeloo dans Mes applications vous redirige vers l’URL de connexion Tribeloo. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tribeloo dans Mes applications vous redirige vers l’URL de connexion Tribeloo. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Tribeloo, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Tribeloo, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 90623c6fd1c0eba3042688ae6fd6fdc92b088fd4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096986"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181847"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutoriel : Intégrer Oracle Cloud Infrastructure Console à Azure Active Directory
 
@@ -202,5 +202,4 @@ Lorsque vous sélectionnez la vignette Oracle Cloud Infrastructure Console dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Oracle Cloud Infrastructure Console, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Après avoir configuré Oracle Cloud Infrastructure Console, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

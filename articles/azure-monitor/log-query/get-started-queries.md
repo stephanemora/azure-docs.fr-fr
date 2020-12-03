@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024379"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186709"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
 > [!NOTE]
-> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), qui comporte de nombreux exemples de données.  Si vous savez déjà comment interroger dans KQL, mais que vous devez simplement créer rapidement des requêtes utiles basées sur le ou les types de ressources, consultez le [volet des exemples de requêtes enregistrées](saved-queries.md).
+> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), qui comporte de nombreux exemples de données.  Si vous savez déjà comment interroger dans KQL, mais que vous devez simplement créer rapidement des requêtes utiles basées sur le ou les types de ressources, consultez le [volet des exemples de requêtes enregistrées](./example-queries.md).
 
 Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
 
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal da
 - Définir et utiliser des champs personnalisés
 - Agréger et regrouper des résultats
 
-Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md).<br>
+Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
 
 Suivez une version vidéo de ce tutoriel ci-dessous :

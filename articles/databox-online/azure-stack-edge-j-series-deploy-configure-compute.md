@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504447"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185502"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro
 
@@ -45,15 +45,15 @@ Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, 
 
 Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
 
-1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer** , sélectionnez **Bien démarrer**.
+1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
 
     ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. Sur la vignette **Configurer le computing en périphérie** , sélectionnez **Configurer le calcul**.
+2. Sur la vignette **Configurer le computing en périphérie**, sélectionnez **Configurer le calcul**.
 
     ![Configurer le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. Sur le panneau **Configurer le computing en périphérie** , entrez ce qui suit :
+3. Sur le panneau **Configurer le computing en périphérie**, entrez ce qui suit :
 
    
     |Champ  |Valeur  |
@@ -84,13 +84,13 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 1. Ajouter un partage Edge sur l’appareil en effectuant les étapes suivantes :
 
     1. Dans votre ressource Azure Stack Edge, accédez à **Computing en périphérie > Bien démarrer**.
-    2. Sur la vignette **Ajouter un ou plusieurs partages** , sélectionnez **Ajouter**.
+    2. Sur la vignette **Ajouter un ou plusieurs partages**, sélectionnez **Ajouter**.
 
         ![Vignette Ajouter un partage](./media/azure-stack-edge-j-series-deploy-configure-compute/add-share-1.png) 
 
-    3. Sur le panneau **Ajouter un partage** , fournissez le nom du partage et sélectionnez le type de partage.
+    3. Sur le panneau **Ajouter un partage**, fournissez le nom du partage et sélectionnez le type de partage.
     4. Pour monter le partage Edge, cochez la case **Utiliser le partage avec le computing en périphérie**.
-    5. Sélectionnez le **Compte de stockage** , le **Service de stockage** , un utilisateur existant, puis sélectionnez **Créer**.
+    5. Sélectionnez le **Compte de stockage**, le **Service de stockage**, un utilisateur existant, puis sélectionnez **Créer**.
 
         ![Ajouter un partage Edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -121,8 +121,8 @@ Vous pouvez ajouter un module prédéfini ou personnalisé. Il n’existe aucun 
 
 Dans cette section, vous allez ajouter un module personnalisé à l'appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
-1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules** , sélectionnez le type de scénario **Simple**. Sélectionnez **Ajouter**.
-2. Dans le panneau **Configurer et ajouter un module** , entrez les valeurs suivantes :
+1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules**, sélectionnez le type de scénario **Simple**. Sélectionnez **Ajouter**.
+2. Dans le panneau **Configurer et ajouter un module**, entrez les valeurs suivantes :
 
     
     |Champ  |Valeur  |

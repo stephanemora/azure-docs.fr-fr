@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/27/2020
 ms.author: jeedes
-ms.openlocfilehash: b8538031570d201e57186930b713816821848bc1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 29ffaaa1b1b6efbcd5523a76018c92645e13d187
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133228"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181794"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeterx"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à PerimeterX
 
@@ -156,11 +156,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 1. Sur le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de PerimeterX pour laquelle vous avez configuré l’authentification unique.
 
-1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette PerimeterX dans le panneau d’accès doit vous connecter automatiquement à l’application PerimeterX pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette PerimeterX dans le panneau d’accès doit vous connecter automatiquement à l’application PerimeterX pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré PerimeterX, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré PerimeterX, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

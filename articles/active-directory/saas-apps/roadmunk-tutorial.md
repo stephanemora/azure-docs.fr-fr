@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 26424106098a8385faff5ab6d3de33d98576ef4e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381301"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Roadmunk
 
@@ -171,12 +171,10 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
 
-Dans le portail Mes applications, quand vous sélectionnez la vignette **Roadmunk**, vous devez normalement être connecté automatiquement au compte Roadmunk pour lequel vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Dans le portail Mes applications, quand vous sélectionnez la vignette **Roadmunk**, vous devez normalement être connecté automatiquement au compte Roadmunk pour lequel vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir configuré Roadmunk, vous pouvez appliquer le contrôle de session. Ce contrôle protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. 
 
-Découvrez comment [appliquer un contrôle de session à l’aide de Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Découvrez comment [appliquer un contrôle de session à l’aide de Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
