@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078399"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532276"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemples PowerShell Azure Monitor
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -94,7 +94,7 @@ Get-AzLog -Caller 'myname@company.com'
 La commande suivante récupère les 1000 derniers événements du journal d'activité :
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` prend en charge de nombreux autres paramètres. Pour plus d'informations, consultez `Get-AzLog` .
