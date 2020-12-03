@@ -124,7 +124,7 @@
           href: shortpath.md
         - name: Implémenter la qualité de service (QoS)
           href: rdp-quality-of-service-qos.md
-        - name: Liste des URL sécurisées
+        - name: Liste des URL requises
           href: safe-url-list.md
         - name: Remarques relatives à la bande passante
           href: rdp-bandwidth.md

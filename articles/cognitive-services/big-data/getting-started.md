@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363338"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460495"
 ---
 # <a name="getting-started"></a>Bien démarrer
 
@@ -37,13 +37,13 @@ Les services cognitifs basés sur le cloud sont des algorithmes intelligents hé
 
 Si votre application ou charge de travail utilise des jeux de données volumineux, nécessite un réseau privé ou ne peut pas contacter le cloud, la communication avec les services cloud risque d’être impossible. Dans ce cas, les services cognitifs conteneurisés présentent les avantages suivants :
 
-* **Faible connectivité**  : vous pouvez déployer des services cognitifs conteneurisés dans n’importe quel environnement informatique, à la fois dans le cloud et hors cloud. Si votre application ne peut pas contacter le cloud, il peut être préférable de déployer des services cognitifs conteneurisés sur votre application.
+* **Faible connectivité** : vous pouvez déployer des services cognitifs conteneurisés dans n’importe quel environnement informatique, à la fois dans le cloud et hors cloud. Si votre application ne peut pas contacter le cloud, il peut être préférable de déployer des services cognitifs conteneurisés sur votre application.
 
-* **Faible latence**  : les services conteneurisés ne nécessitent pas la communication aller-retour vers/à partir du cloud, les réponses sont renvoyées avec des latences beaucoup plus faibles.
+* **Faible latence** : les services conteneurisés ne nécessitent pas la communication aller-retour vers/à partir du cloud, les réponses sont renvoyées avec des latences beaucoup plus faibles.
 
-* **Confidentialité et sécurité des données**  : vous pouvez déployer des services conteneurisés sur des réseaux privés, afin que les données sensibles ne quittent pas le réseau.
+* **Confidentialité et sécurité des données** : vous pouvez déployer des services conteneurisés sur des réseaux privés, afin que les données sensibles ne quittent pas le réseau.
 
-* **Scalabilité élevée**  : les services conteneurisés n’ont pas de « limites de débit » et s’exécutent sur des ordinateurs gérés par l’utilisateur. Ainsi, vous pouvez mettre à l’échelle les services cognitifs comme bon vous semble afin de gérer des charges de travail plus volumineuses.
+* **Scalabilité élevée** : les services conteneurisés n’ont pas de « limites de débit » et s’exécutent sur des ordinateurs gérés par l’utilisateur. Ainsi, vous pouvez mettre à l’échelle les services cognitifs comme bon vous semble afin de gérer des charges de travail plus volumineuses.
 
 Suivez [ce guide](../cognitive-services-container-support.md?tabs=luis) pour créer un service cognitif conteneurisé.
 
@@ -65,14 +65,14 @@ Azure Databricks est une plateforme d’analytique basée sur Apache Spark offra
     * Installez la bibliothèque sur un cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### <a name="synapse-analytics-optional"></a>Synapse Analytics (facultatif)
+### <a name="azure-synapse-analytics-optional"></a>Azure Synapse Analytics (facultatif)
 
-Si vous le souhaitez, vous pouvez utiliser Synapse Analytics pour créer un cluster Spark. Azure Synapse Analytics regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Pour bien démarrer avec Synapse Analytics, effectuez les étapes suivantes :
+Si vous le souhaitez, vous pouvez utiliser Synapse Analytics pour créer un cluster Spark. Azure Synapse Analytics regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Pour bien démarrer avec Azure Synapse Analytics, effectuez les étapes suivantes :
 
 1. [Créer un espace de travail Synapse (préversion)](../../synapse-analytics/quickstart-create-workspace.md).
 1. [Créer un pool Apache Spark serverless (préversion) avec le portail Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-Dans Synapse Analytics, Cognitive Services pour le Big Data est installé par défaut.
+Dans Azure Synapse Analytics, Cognitive Services pour le Big Data est installé par défaut.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -94,7 +94,7 @@ Tout d’abord, nous pouvons créer un notebook dans Azure Databricks. Pour les 
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
-1. Dans la boîte de dialogue **Créer un notebook** , entrez un nom, sélectionnez **Python** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
+1. Dans la boîte de dialogue **Créer un notebook**, entrez un nom, sélectionnez **Python** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 

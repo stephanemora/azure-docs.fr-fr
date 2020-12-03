@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490268"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170819"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Tous les conteneurs créés à l’intérieur d’une base de données avec un d
 
 Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partitioning-overview.md).
 
-Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Avec un débit approvisionné standard (manuel), chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s. Avec le débit provisionné avec mise à l’échelle automatique, vous pouvez avoir jusqu’à 25 conteneurs dans une base de données avec une mise à l’échelle automatique de 4 000 RU/s au maximum (mise à l’échelle entre 400 et 4 000 RU/s).
+Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Avec un débit provisionné standard (manuel), vous pouvez avoir jusqu’à 25 conteneurs avec un minimum de 400 RU/s sur la base de données. Avec le débit provisionné avec mise à l’échelle automatique, vous pouvez avoir jusqu’à 25 conteneurs dans une base de données avec une mise à l’échelle automatique de 4 000 RU/s au maximum (mise à l’échelle entre 400 et 4 000 RU/s).
 
 > [!NOTE]
 > En février 2020, nous avons apporté un changement qui vous permet de bénéficier d'un maximum de 25 conteneurs dans une base de données à débit partagée, afin de mieux partager le débit entre les conteneurs. Après les 25 premiers conteneurs, vous ne pouvez ajouter d'autres conteneurs à la base de données que s'ils sont [approvisionnés avec un débit dédié](#set-throughput-on-a-database-and-a-container) distinct du débit partagé de la base de données.<br>
@@ -111,7 +111,6 @@ La valeur RU/s minimale réelle peut varier en fonction de la configuration de v
 * 400 RU/s 
 * Le stockage actuel en Go * 10 RU/s (sauf si votre conteneur ou base de données contient plus de 1 To de données, consultez notre [programme sur le stockage étendu / débit faible](#high-storage-low-throughput-program))
 * Valeur RU/s la plus élevée provisionnée sur la base de données ou le conteneur / 100
-* Nombre de conteneurs * 100 RU/s (base de données de débit partagé uniquement)
 
 ### <a name="changing-the-provisioned-throughput"></a>Modification du débit approvisionné
 
@@ -138,7 +137,7 @@ Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-op
 
 Comme décrit dans la section [Débit approvisionné actuel](#current-provisioned-throughput) ci-dessus, le débit minimal que vous pouvez approvisionner sur un conteneur ou une base de données dépend de plusieurs facteurs. L’un d’entre eux est la quantité de données actuellement stockées, puisqu’Azure Cosmos DB impose un débit minimal de 10 RU/s par Go de stockage.
 
-Cela peut être un problème dans les situations où vous devez stocker de grandes quantités de données, mais où les exigences en matière de débit sont faibles en comparaison. Pour mieux prendre en charge ces scénarios, Azure Cosmos DB a mis en place un **programme « stockage élevé/faible débit »** qui réduit la contrainte de 10 RU/s par Go à 1 RU/s par Go sur les comptes éligibles.
+Cela peut être un problème dans les situations où vous devez stocker de grandes quantités de données, mais où les exigences en matière de débit sont faibles en comparaison. Pour mieux prendre en charge ces scénarios, Azure Cosmos DB a mis en place un **programme « stockage élevé/faible débit »** qui réduit la contrainte de RU/s par Go sur les comptes éligibles.
 
 Vous devez disposer d’au moins un conteneur ou une base de données à débit partagé contenant plus de 1 To de données dans votre compte pour que ce dernier soit éligible. Pour adhérer à ce programme et évaluer votre pleine admissibilité, il vous suffit de remplir [cette enquête](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). L’équipe d’Azure Cosmos DB assurera ensuite le suivi et procédera à votre intégration.
 
@@ -147,8 +146,8 @@ Ce tableau présente une comparaison entre l’approvisionnement du débit stand
 
 |**Paramètre**  |**Débit standard (manuel) sur une base de données**  |**Débit standard (manuel) sur un conteneur**|**Débit avec mise à l’échelle automatique sur une base de données** | **Débit avec mise à l’échelle automatique sur un conteneur**|
 |---------|---------|---------|---------|---------|
-|Point d’entrée (RU/s minimum) |400 RU/s. Après les quatre premiers conteneurs, chaque conteneur supplémentaire requiert un minimum de 100 RU/s</li> |400| Mise à l’échelle automatique entre 400 et 4 000 RU/s. Peut avoir jusqu’à 25 conteneurs sans minimum de RU/s par conteneur</li> | Mise à l’échelle automatique entre 400 et 4 000 RU/s.|
-|RU/s minimales par conteneur|100|400|--|Mise à l’échelle automatique entre 400 et 4000 RU/s|
+|Point d’entrée (RU/s minimum) |400 RU/s. Peut avoir jusqu’à 25 conteneurs sans minimum de RU/s par conteneur.</li> |400| Mise à l’échelle automatique entre 400 et 4 000 RU/s. Peut avoir jusqu’à 25 conteneurs sans minimum de RU/s par conteneur.</li> | Mise à l’échelle automatique entre 400 et 4 000 RU/s.|
+|RU/s minimales par conteneur|--|400|--|Mise à l’échelle automatique entre 400 et 4000 RU/s|
 |Unités de requête maximales|Illimitées, sur la base de données.|Illimitées, sur le conteneur.|Illimitées, sur la base de données.|Illimitées, sur le conteneur.
 |Unités de requête allouées ou disponibles sur un conteneur spécifique|Aucune garantie. Les unités de requête allouées à un conteneur donné dépendent des propriétés. Les propriétés peuvent être le choix de clés de partition des conteneurs qui partagent le débit, la distribution de la charge de travail et le nombre de conteneurs. |Toutes les unités de requête configurées sur le conteneur sont exclusivement réservées à ce conteneur.|Aucune garantie. Les unités de requête allouées à un conteneur donné dépendent des propriétés. Les propriétés peuvent être le choix de clés de partition des conteneurs qui partagent le débit, la distribution de la charge de travail et le nombre de conteneurs. |Toutes les unités de requête configurées sur le conteneur sont exclusivement réservées à ce conteneur.|
 |Stockage maximal pour un conteneur|Illimité.|Illimité|Illimité|Illimité|

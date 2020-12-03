@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Reconnaître une intention avec des API REST - LUIS'
-description: Dans ce guide de démarrage rapide avec une API REST, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir d’un texte de conversation.
+title: Guide pratique pour obtenir une intention à l’aide de l’API REST
+description: Dans cet article, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/18/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316315"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437012"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Démarrage rapide : Reconnaître une intention avec des API REST
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Guide pratique pour obtenir une intention à l’aide des API REST
 
-Dans ce guide de démarrage rapide, vous allez utiliser une application LUIS pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. Envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application de pizza. Au niveau du point de terminaison, LUIS applique le modèle de l’application de pizza pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
+Dans cet article, vous allez utiliser une application LUIS pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. Envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application de pizza. Au niveau du point de terminaison, LUIS applique le modèle de l’application de pizza pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 
 Pour cet article, vous avez besoin d’un compte [LUIS](https://www.luis.ai) gratuit.
 

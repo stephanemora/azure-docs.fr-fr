@@ -240,6 +240,9 @@
         - name: Vidéo à la demande
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
+    - name: Architectures Media Services
+      displayName: architectures
+      href: architectures-concept.md
     - name: Dépannage
       items:
         - name: Forum aux questions

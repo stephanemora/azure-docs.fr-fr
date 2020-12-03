@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Utiliser l’Explorateur Stockage Azure
           href: storage-explorer.md
-        - name: Utiliser l’Explorateur Azure Cosmos
+        - name: "Utiliser l’Explorateur Azure Cosmos\_DB"
           href: data-explorer.md
     - name: Analytique et décisionnel avec Azure Synapse Link
       items:

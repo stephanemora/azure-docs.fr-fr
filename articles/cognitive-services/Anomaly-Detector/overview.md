@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016601"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999096"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -85,6 +85,10 @@ Pour plus d’informations sur les algorithmes SR-CNN de pointe développés pa
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
+
+[Utilisez les conteneurs Détecteur d'anomalies](anomaly-detector-container-howto.md) pour déployer localement des fonctionnalités d’API. Les conteneurs Docker vous donnent la possibilité de rapprocher davantage le service de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
 
 ## <a name="join-the-anomaly-detector-community"></a>Rejoindre la communauté du détecteur d’anomalies
 

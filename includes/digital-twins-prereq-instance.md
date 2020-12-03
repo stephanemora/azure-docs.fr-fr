@@ -5,15 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
-ms.openlocfilehash: f56cc5b028f07964236fc42a1ca468aa28aae440
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8ea371e25f149c52412153aa0b9c3b7475dc77fd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358073"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96303561"
 ---
-Pour utiliser Azure Digital Twins dans cet article, vous devez d’abord configurer une instance Azure Digital Twins et les autorisations requises pour l’utiliser. Si vous disposez déjà d’une instance Azure Digital Twins configurée lors d’une tâche précédente, vous pouvez utiliser cette instance.
+Pour utiliser Azure Digital Twins dans cet article, vous devez d’abord **configurer une instance Azure Digital Twins** et les autorisations requises pour l’utiliser. Si vous disposez déjà d’une instance Azure Digital Twins configurée lors d’une tâche précédente, vous pouvez utiliser cette instance.
 
 Dans le cas contraire, suivez les instructions indiquées dans [Configurer une instance et l’authentification](../articles/digital-twins/how-to-set-up-instance-portal.md). Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
 
-Une fois que vous avez configuré votre instance Azure Digital Twins, vous avez besoin de son *_nom d’hôte_*. Vous pouvez trouver le nom sur le [portail Azure](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values). Prenez note de cette valeur afin de pouvoir l’utiliser ultérieurement pour vous connecter à l’instance.
+Une fois que vous avez configuré votre instance Azure Digital Twins, notez les valeurs suivantes dont vous aurez besoin pour vous connecter ultérieurement à l’instance :
+* **_Nom d’hôte_** de l’instance. Vous pouvez trouver cette valeur dans le portail Azure ([instructions](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* **Abonnement Azure** que vous avez utilisé pour créer l’instance (son nom ou son ID fonctionne). Vous pouvez voir l’abonnement dans lequel se trouve une instance Azure Digital Twins en affichant la même page *Vue d’ensemble* pour votre instance dans le [portail Azure](https://portal.azure.com).

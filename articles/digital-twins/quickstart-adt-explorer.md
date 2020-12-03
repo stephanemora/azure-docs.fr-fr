@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358075"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187293"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
@@ -66,6 +66,7 @@ Dans le cas contraire, vous pouvez installer l’interface Azure CLI locale en p
 1. Suivez le processus via [ce lien d’installation](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) pour effectuer l’installation qui correspond à votre système d’exploitation.
 1. Ouvrez une fenêtre de console sur votre machine.
 1. Exécutez `az login` et suivez les invites d’authentification pour vous connecter à votre compte Azure.
+1. Dernière étape possible : Si vous utilisez plusieurs abonnements Azure sous ce compte, définissez le contexte d’authentification sur l’abonnement Azure qui contient votre instance Azure Digital Twins en exécutant `az account set --subscription "<your-subscription-name-or-ID>"` (la valeur du nom ou de l’ID de l’abonnement fonctionne).
 
 Une fois que vous vous serez connecté, ADT Explorer récupérera automatiquement vos informations d’identification Azure quand vous l’exécuterez dans la section suivante.
 
@@ -90,7 +91,7 @@ Ouvrez une fenêtre de console dans l’emplacement de dossier **Azure_Digital_T
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer : icône de connexion mise en évidence en haut de la fenêtre. L’icône représente la silhouette d’une personne à laquelle est superposée une clé." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Entrez l’URL de l’instance Azure Digital Twins que vous avez recueillie plus tôt dans la section [Conditions préalables](#prerequisites), au format *https://{nom d’hôte de l’instance}* .
+1. Entrez l’URL de l’instance Azure Digital Twins que vous avez recueillie plus tôt dans la section [Configurer une instance Azure Digital Twins](#set-up-an-azure-digital-twins-instance), au format *https://{nom d’hôte de l’instance}* .
 
 >[!NOTE]
 > Vous pouvez consulter ou modifier ces informations à tout moment en sélectionnant cette même icône afin de rouvrir la zone **Se connecter**. Les valeurs que vous avez passées auront été conservées.
@@ -108,7 +109,7 @@ Ensuite, vous allez importer l’exemple de scénario et le graphe dans ADT Exp
 
 Dans une solution Azure Digital Twins, la première chose à faire est de définir le vocabulaire de votre environnement. Vous allez créer des [modèles](concepts-models.md) personnalisés qui décrivent les types d’entité qui se trouvent dans votre environnement.
 
-Chaque modèle est écrit dans un langage tel que JSON-LD appelé Digital Twin Definition Language (DTDL). Chaque modèle décrit un type d’entité unique en termes de *propriétés* , de *télémétrie* , de *relations* et de *composants*. Plus tard, vous utiliserez ces modèles comme base pour vos jumeaux numériques, qui représentent des instances de ces types.
+Chaque modèle est écrit dans un langage tel que JSON-LD appelé Digital Twin Definition Language (DTDL). Chaque modèle décrit un type d’entité unique en termes de *propriétés*, de *télémétrie*, de *relations* et de *composants*. Plus tard, vous utiliserez ces modèles comme base pour vos jumeaux numériques, qui représentent des instances de ces types.
 
 En général, quand vous créez un modèle, vous effectuez trois étapes :
 
@@ -125,19 +126,19 @@ Pour ce guide de démarrage rapide, les fichiers de modèle sont déjà écrits 
 
 Procédez comme suit pour charger les modèles.
 
-1. Dans la section **Vue du modèle** , sélectionnez l’icône **Charger un modèle**.
+1. Dans la section **Vue du modèle**, sélectionnez l’icône **Charger un modèle**.
 
    :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Dans la section Vue du modèle, l’icône du milieu est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. Dans la zone de sélection des fichiers qui s’affiche, accédez au dossier **Azure_Digital_Twins__ADT__explorer/client/examples** dans le dépôt téléchargé.
-1. Sélectionnez **Room.json** et **Floor.json** , puis sélectionnez **OK**. Vous pouvez charger d’autres modèles si vous le souhaitez. Cependant, nous ne les utiliserons pas dans ce guide de démarrage rapide.
+1. Sélectionnez **Room.json** et **Floor.json**, puis sélectionnez **OK**. Vous pouvez charger d’autres modèles si vous le souhaitez. Cependant, nous ne les utiliserons pas dans ce guide de démarrage rapide.
 1. Suivez la boîte de dialogue contextuelle qui vous invite à vous connecter à votre compte Azure.
 
 >[!NOTE]
 >Si le message d’erreur suivant s’affiche : :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Boîte de dialogue contextuelle indiquant « Erreur : Erreur lors de la récupération des modèles : ClientAuthError : Erreur d’ouverture de la fenêtre contextuelle. Cela peut se produire si vous utilisez Internet Explorer ou si des fenêtres contextuelles sont bloquées dans le navigateur », avec un bouton Fermer en bas." border="false"::: 
 > Essayez de désactiver le bloqueur de fenêtres contextuelles ou d’utiliser un autre navigateur.
 
-ADT Explorer charge maintenant ces fichiers de modèle dans votre instance Azure Digital Twins. Ils doivent s’afficher dans la section **Vue du modèle** , sous leur nom convivial et leur ID de modèle complet. Vous pouvez sélectionner les icônes d’informations **Vue du modèle** pour afficher le code DTDL sous-jacent.
+ADT Explorer charge maintenant ces fichiers de modèle dans votre instance Azure Digital Twins. Ils doivent s’afficher dans la section **Vue du modèle**, sous leur nom convivial et leur ID de modèle complet. Vous pouvez sélectionner les icônes d’informations **Vue du modèle** pour afficher le code DTDL sous-jacent.
 
 :::row:::
     :::column:::
@@ -166,15 +167,15 @@ Dans cette section, vous allez charger des jumeaux précréés qui sont connect�
 
 Procédez comme suit pour importer le graphe.
 
-1. Dans la section **Vue du graphe** , sélectionnez l’icône **Importer le graphe**.
+1. Dans la section **Vue du graphe**, sélectionnez l’icône **Importer le graphe**.
 
    :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Dans la section Vue du graphe, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-2. Dans le sélecteur de fichiers, accédez au dossier **Azure_Digital_Twins__ADT__explorer/client/examples** , puis sélectionnez la feuille de calcul **buildingScenario.xlsx**. Ce fichier contient une description de l’exemple de graphe. Sélectionnez **OK**.
+2. Dans le sélecteur de fichiers, accédez au dossier **Azure_Digital_Twins__ADT__explorer/client/examples**, puis sélectionnez la feuille de calcul **buildingScenario.xlsx**. Ce fichier contient une description de l’exemple de graphe. Sélectionnez **OK**.
 
    Après quelques secondes, ADT Explorer ouvre la vue **Importer** dans laquelle vous voyez un aperçu du graphe à charger.
 
-3. Pour confirmer le chargement du graphe, sélectionnez l’icône **Enregistrer** située en haut à droite de la section **Vue du graphe**.
+3. Pour confirmer le chargement du graphe, sélectionnez l’icône **Enregistrer** située en haut à droite de la section **VUE DU GRAPHE**.
 
    :::row:::
     :::column:::
@@ -196,7 +197,7 @@ Procédez comme suit pour importer le graphe.
     :::column-end:::
    :::row-end:::
 
-5. Le graphe a été chargé dans ADT Explorer. Pour voir le graphe, sélectionnez le bouton **Exécuter la requête** dans la section **Explorateur du graphe** , qui est situé en haut de la fenêtre ADT Explorer.
+5. Le graphe a été chargé dans ADT Explorer. Pour voir le graphe, sélectionnez le bouton **Exécuter la requête** dans la section **Explorateur du graphe**, qui est situé en haut de la fenêtre ADT Explorer.
 
    :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Le bouton Exécuter la requête dans le coin supérieur droit de la fenêtre est mis en évidence." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -208,7 +209,7 @@ Vous pouvez maintenant voir le graphe chargé de l’exemple de scénario.
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vue de la section Vue du graphe avec un graphe de jumeaux. Un cercle nommé « floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « room1 ». Un cercle nommé « floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « room0 ».":::
 
-Les cercles (« nœuds » de graphe) représentent des jumeaux numériques. Les lignes représentent des relations. Le jumeau **Floor0** contient **Room0** , tandis que le jumeau **Floor1** contient **Room1**.
+Les cercles (« nœuds » de graphe) représentent des jumeaux numériques. Les lignes représentent des relations. Le jumeau **Floor0** contient **Room0**, tandis que le jumeau **Floor1** contient **Room1**.
 
 Si vous utilisez une souris, vous pouvez faire glisser des parties du graphe pour les déplacer.
 
@@ -267,7 +268,7 @@ Vous pouvez utiliser ADT Explorer pour modifier les propriétés des jumeaux re
 
 Pour commencer, sélectionnez **Room0** afin d’afficher la liste de ses propriétés dans la section **Explorateur de propriétés**.
 
-Les propriétés de cette liste sont modifiables. Sélectionnez la valeur de température de **70** pour entrer une nouvelle valeur. Entrez **76** , puis sélectionnez l’icône **Enregistrer** pour remplacer la température par **76**.
+Les propriétés de cette liste sont modifiables. Sélectionnez la valeur de température de **70** pour entrer une nouvelle valeur. Entrez **76**, puis sélectionnez l’icône **Enregistrer** pour remplacer la température par **76**.
 
 :::row:::
     :::column:::
@@ -313,7 +314,7 @@ Si vous envisagez de passer aux tutoriels Azure Digital Twins, ne supprimez pas 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Enfin, supprimez le dossier d’exemple de projet, **Azure_Digital_Twins__ADT__explorer** , que vous avez téléchargé sur votre ordinateur local. Vous devrez peut-être supprimer à la fois les versions compressées et décompressées.
+Enfin, supprimez le dossier d’exemple de projet, **Azure_Digital_Twins__ADT__explorer**, que vous avez téléchargé sur votre ordinateur local. Vous devrez peut-être supprimer à la fois les versions compressées et décompressées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

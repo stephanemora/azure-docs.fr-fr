@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/07/2020
+ms.date: 11/20/2020
 ms.author: aahi
-ms.openlocfilehash: a077d255648ff07cc88b43dece889a221c46c11f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: ee7fd384a198c5eff672b14b6cb479aac26cfe54
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561508"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972508"
 ---
 <a name="create-luis-resources"></a>
 
@@ -37,7 +37,7 @@ ms.locfileid: "94561508"
     > [![Capture d’écran montrant l’onglet Informations de base sous Créer.](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. Sélectionnez **Vérifier + créer** et attendez que la ressource soit créée.
-1. Une fois les deux ressources créées, toujours dans le portail Azure, sélectionnez la nouvelle ressource de création. Ensuite, sélectionnez **Démarrages rapides** pour obtenir l’**URL du point de terminaison** de création et la **clé** pour la création programmatique.
+1. Une fois les deux ressources créées, toujours dans le portail Azure, sélectionnez la nouvelle ressource de création. Ensuite, sélectionnez **Clés et point de terminaison** pour obtenir l’**URL du point de terminaison** de création et la **clé** pour la création programmatique.
 
 > [!TIP]
 > Pour utiliser les ressources, sur le portail LUIS, [affectez-les](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

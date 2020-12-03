@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470791"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027540"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
 #### <a name="windows-install"></a>[Installation Windows](#tab/windowsinstall)
 
-> [!NOTE]
-> Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. La première installation peut demander de redémarrer Windows.
-
 Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 
-1. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
-2. Accédez au répertoire racine `spx-zips` que vous avez extrait du téléchargement, puis extrayez le sous-répertoire dont vous avez besoin (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64).
+1. Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. La première installation peut demander i, redémarrage.
+2. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
+3. Accédez au répertoire où vous avez extrait `spx-zips`. Ce dossier contient les fichiers programme de l’interface CLI de Speech sur diverses plateformes. 
+4. Extrayez les fichiers de votre plateforme (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64). Gardez à l’esprit que vous allez exécuter `spx` à partir de ce répertoire.
 
-Dans l’invite de commandes, accédez à l’emplacement de votre répertoire, puis tapez `spx` pour afficher l’aide de l’interface CLI Speech.
+### <a name="run-the-speech-cli"></a>Exécuter l’interface CLI Speech
 
-> [!NOTE]
-> Sur Windows, l’interface CLI de Speech peut afficher uniquement les polices disponibles à l’invite de commandes sur l’ordinateur local.
-> Le [Terminal Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) prend en charge toutes les polices produites de manière interactive par l’interface CLI de Speech.
-> Si la sortie est effectuée dans un fichier, un éditeur de texte tel que le Bloc-notes ou un navigateur web tel que Microsoft Edge peut également afficher toutes les polices.
+1. Ouvrez l’invite de commandes ou PowerShell, puis accédez au répertoire dans lequel vous avez extrait l’interface CLI de Speech.  
+2. Tapez `spx` pour voir les commandes d’aide de l’interface CLI de Speech.
 
 > [!NOTE]
 > PowerShell ne vérifie pas le répertoire local lors de la recherche d’une commande. Dans PowerShell, changez de répertoire en accédant à l’emplacement de `spx` et appelez l’outil en entrant `.\spx`.
 > Si vous ajoutez ce répertoire à votre chemin, PowerShell et l’invite de commandes Windows recherchent `spx` à partir de n’importe quel répertoire sans inclure le préfixe `.\`.
+
+### <a name="font-limitations"></a>Limitations des polices
+
+Sur Windows, l’interface CLI de Speech peut afficher uniquement les polices disponibles à l’invite de commandes sur l’ordinateur local.
+Le [Terminal Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) prend en charge toutes les polices produites de manière interactive par l’interface CLI de Speech.
+
+Si la sortie est effectuée dans un fichier, un éditeur de texte tel que le Bloc-notes ou un navigateur web tel que Microsoft Edge peut également afficher toutes les polices.
 
 #### <a name="linux-install"></a>[Installation Linux](#tab/linuxinstall)
 

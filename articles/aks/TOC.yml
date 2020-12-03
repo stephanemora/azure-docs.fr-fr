@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: Mettre à niveau l’image de nœud
           href: node-image-upgrade.md
+        - name: Mettre à niveau l’image de nœud automatiquement avec GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Traiter les mises à jour de système d’exploitation des nœuds
           href: node-updates-kured.md
         - name: Configurer un cluster AKS

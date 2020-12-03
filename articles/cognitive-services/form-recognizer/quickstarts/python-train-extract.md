@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8c4e600e012268337a5e6c63d5b3ce4f532ccec0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aaf614846618f3781559ad7f9ce31cb47dd11b63
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970926"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009566"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python
 
@@ -50,6 +50,7 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 1. Remplacez `<endpoint>` par l’URL du point de terminaison pour votre ressource Form Recognizer.
 1. Remplacez `<Blob folder name>` par le chemin du dossier dans le stockage d’objets blob où se trouvent vos formulaires. Si vos formulaires sont à la racine de votre conteneur, laissez cette chaîne vide.
+1. Remplacez éventuellement `<your model name>` par le nom convivial que vous voulez donner à votre modèle.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)
     ```python
@@ -78,6 +79,7 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -101,7 +103,7 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False

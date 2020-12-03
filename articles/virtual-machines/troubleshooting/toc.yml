@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Redémarrage, fermeture ou arrêt des services'
       href: boot-error-troubleshoot-windows.md
+    - name: Problèmes avec un disque de système d’exploitation plein sur une machine virtuelle Linux
+      href: os-disk-full-linux.md
 - name: Redémarrage inattendu
   items:
     - name: Redémarrages inattendus de machines virtuelles avec des VHD joints

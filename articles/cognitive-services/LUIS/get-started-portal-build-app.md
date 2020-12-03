@@ -4,13 +4,13 @@ description: Dans ce guide de démarrage rapide, vous créez les éléments de b
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131470"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436672"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
 
@@ -20,7 +20,7 @@ Dans ce guide de démarrage rapide, vous allez créer une application dans le po
 
 ## <a name="create-an-app"></a>Créer une application
 
-Pour créer une application, cliquez sur **+ Nouvelle application**. 
+Pour créer une application, sélectionnez **+ Nouvelle application**. 
 
 Dans la fenêtre qui s’affiche, entrez les informations suivantes :
 
@@ -46,7 +46,7 @@ Une fois l’application LUIS créée, vous devez créer les intentions. Les int
 
 Les deux différentes _intentions_ de l’application sont alignées sur les intentions suivantes :
 
-|Intentionnel|Exemple de texte d’utilisateur<br>connu en tant qu’ _énoncé_|
+|Intentionnel|Exemple de texte d’utilisateur<br>connu en tant qu’_énoncé_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
@@ -63,7 +63,7 @@ Pour créer des intentions, procédez comme suit :
 
 Après avoir créé des intentions, vous ajoutez des exemples d'énoncés. Les exemples d'énoncés sont du texte qu’un utilisateur entre dans un bot conversationnel ou une autres application cliente. Ils mappent l’intention du texte de l’utilisateur sur une intention LUIS. Dans cet exemple d'intention d’application `FindForm`, les exemples d'énoncés incluent le numéro de formulaire. L’application cliente a besoin du numéro de formulaire pour répondre à la demande l’utilisateur. Il est donc important de l’inclure dans l’énoncé.
 
-Dans la page **Intentions** pour `FindForm`, ajoutez les exemples d’énoncé suivants sous **Exemple d’énoncé**  : 
+Dans la page **Intentions** pour `FindForm`, ajoutez les exemples d’énoncé suivants sous **Exemple d’énoncé** : 
 
 |#|Exemples d’énoncés|
 |--|--|

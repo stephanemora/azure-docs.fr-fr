@@ -1,18 +1,18 @@
 ---
-title: 'Démarrage rapide : Interroger une prédiction avec un navigateur - LUIS'
-description: Dans ce guide de démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel dans un navigateur.
+title: Guide pratique pour interroger des prédictions à l’aide d’un navigateur - LUIS
+description: Dans cet article, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel dans un navigateur.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316271"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436910"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Démarrage rapide : Interroger un runtime de prédiction avec texte utilisateur
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Guide pratique pour interroger le runtime de prédiction avec du texte utilisateur
 
 Pour comprendre ce que retourne un point de terminaison de prédiction LUIS, affichez un résultat de prédiction dans un navigateur web.
 

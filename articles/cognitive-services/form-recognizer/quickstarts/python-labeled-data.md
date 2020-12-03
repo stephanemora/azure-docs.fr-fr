@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 28849620863f8593e5187dbef9fc6cc978de1824
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f944a793d721e93d818723eae25a9ce80d9c15bc
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961786"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96005081"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python
 
@@ -30,7 +30,7 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 - Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Téléchargez et extrayez *sample_data.zip*. Chargez les fichiers d’apprentissage à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure offrant un niveau de performance standard.
 
 > [!NOTE]
-> Ce guide de démarrage rapide utilise des documents distants accessibles par URL. Pour utiliser des fichiers locaux, consultez la [documentation de référence pour v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) et la [documentation de référence pour v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
+> Ce guide de démarrage rapide utilise des documents distants accessibles par URL. Pour utiliser des fichiers locaux, consultez la [documentation de référence pour v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) et la [documentation de référence pour v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
@@ -308,7 +308,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -588,7 +588,7 @@ Une fois le processus terminé, vous recevez une réponse `202 (Success)` avec d
   }
 }
 ```
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1) 
+# <a name="v-2"></a>[v 2](#tab/v2-1) 
 ```json   
 {
   "status": "succeeded",
