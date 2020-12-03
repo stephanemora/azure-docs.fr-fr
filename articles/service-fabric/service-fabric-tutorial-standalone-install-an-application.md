@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à installer une application
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0b35bd02af5e1c90cac2e94d31dfca2344f3cc85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840623"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485358"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Didacticiel : déployer une application sur votre cluster autonome Service Fabric
 
@@ -50,7 +50,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. Cliquez avec le bouton droit sur le projet de l’application `Voting` dans l’Explorateur de solutions et choisissez **Publier**.
 
-5. Sélectionnez la flèche déroulante pour le **point de terminaison de connexion** et entrez le nom DNS public de l’un des nœuds de votre cluster.  Par exemple : `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Dans Azure, un nom de domaine complet (FQDN) n’est pas accordé automatiquement, mais peut facilement [être défini dans la page Vue d’ensemble de la machine virtuelle.](../virtual-machines/linux/portal-create-fqdn.md)
+5. Sélectionnez la flèche déroulante pour le **point de terminaison de connexion** et entrez le nom DNS public de l’un des nœuds de votre cluster.  Par exemple : `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Dans Azure, un nom de domaine complet (FQDN) n’est pas accordé automatiquement, mais peut facilement [être défini dans la page Vue d’ensemble de la machine virtuelle.](../virtual-machines/create-fqdn.md)
 
 6. Ouvrez votre navigateur préféré et tapez l’adresse du cluster (le point de terminaison de connexion, cette application se déploie sur le port 8080 - par exemple, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Custom Vision pour créer un mod�
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4d9f82d99542bde216f0eaa1459d0f6c1a52659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498334"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -62,7 +62,7 @@ Lisez les articles suivants avant de commencer :
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 
 
-Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez **Ctrl+N** , puis collez un lien vers la [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Lorsque vous regarderez la vidéo, vous verrez qu’un camion jouet apparaît au bout de 36 secondes. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de détecter ce type de jouets et de publier des événements d’inférence associés sur le hub IoT Edge.
+Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez **Ctrl+N**, puis collez un lien vers la [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Lorsque vous regarderez la vidéo, vous verrez qu’un camion jouet apparaît au bout de 36 secondes. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de détecter ce type de jouets et de publier des événements d’inférence associés sur le hub IoT Edge.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -194,7 +194,7 @@ Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélect
 
 Si vous ouvrez la topologie du graphe de ce tutoriel dans un navigateur, vous verrez que la valeur de `inferencingUrl` a été définie sur `http://cv:80/image`. Ce paramètre signifie que le serveur d’inférence retourne les résultats après avoir détecté des camions jouets dans la vidéo en direct.
 
-1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou sélectionnez **Ctrl+Maj+X** ) et recherchez Azure IoT Hub.
+1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou sélectionnez **Ctrl+Maj+X**) et recherchez Azure IoT Hub.
 1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
     > [!div class="mx-imgBorder"]
@@ -203,7 +203,7 @@ Si vous ouvrez la topologie du graphe de ce tutoriel dans un navigateur, vous ve
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Capture d’écran montrant l’option Afficher le message détaillé.":::
-1. Pour démarrer une session de débogage, sélectionnez la touche  **F5**. Des messages s’affichent dans la fenêtre **TERMINAL**.
+1. Pour démarrer une session de débogage, sélectionnez la touche **F5**. Des messages s’affichent dans la fenêtre **TERMINAL**.
 1. Le code operations.json commence par appeler les méthodes directes `GraphTopologyList` et `GraphInstanceList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche **Entrée**.
     
    La fenêtre **TERMINAL** affiche le jeu d’appels de méthode directe suivant :
@@ -245,7 +245,7 @@ Si vous ouvrez la topologie du graphe de ce tutoriel dans un navigateur, vous ve
     
 1. La sortie de la fenêtre **TERMINAL** s’interrompt avec l’invite **Appuyez sur Entrée pour continuer**. Ne sélectionnez pas encore **Entrée**. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
 1. Basculez vers la fenêtre **SORTIE** de Visual Studio Code. Les messages indiquant que le module Live Video Analytics sur IoT Edge effectue des envois à IoT Hub s’affichent. La section suivante de ce tutoriel décrit ces messages.
-1. Le graphe multimédia continue à s’exécuter et à afficher les résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le graphe multimédia, retournez dans la fenêtre **TERMINAL** , puis sélectionnez **Entrée**.
+1. Le graphe multimédia continue à s’exécuter et à afficher les résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le graphe multimédia, retournez dans la fenêtre **TERMINAL**, puis sélectionnez **Entrée**.
 La série d’appels suivante nettoie les ressources :
     
    * Un appel à `GraphInstanceDeactivate` désactive l’instance de graphe.
@@ -391,6 +391,6 @@ Si vous envisagez d’essayer les autres tutoriels ou guides de démarrage rapid
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez rechercher les caméras IP qui prennent RTSP en charge dans la page des produits [conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge-linux.md).
+* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md).
 
 Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).

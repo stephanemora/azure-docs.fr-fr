@@ -4,12 +4,12 @@ description: Créer une fonction PowerShell serverless déclenchée par HTTP pou
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072041"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349246"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutoriel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
 
@@ -27,13 +27,13 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Consultez [Créer votre première fonction dans Azure à l’aide de Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) pour obtenir les prérequis à l’installation et à l’utilisation de Visual Studio Code avec l’extension Azure Functions sur votre système d’exploitation.
+Consultez [Créer votre première fonction dans Azure à l’aide de Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) pour obtenir les prérequis à l’installation et à l’utilisation de Visual Studio Code avec l’extension Azure Functions sur votre système d’exploitation.
 
 Les étapes supplémentaires de cet article utilisent Azure PowerShell. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure PowerShell][azure-powershell-install] et [Se connecter à Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Créer une fonction PowerShell de base
 
-Suivez les étapes de la section [Créer votre première fonction PowerShell dans Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) pour créer une fonction PowerShell à l’aide du modèle Déclencheur HTTP. Utilisez le nom de fonction Azure par défaut **HttpTrigger**. Comme indiqué dans le guide de démarrage rapide, testez la fonction localement, puis publiez le projet sur une application de fonction dans Azure. Cet exemple est une fonction de base déclenchée par HTTP qui retourne une chaîne de texte. Dans les étapes ultérieures de cet article, vous modifierez la fonction pour créer un groupe de conteneurs.
+Suivez les étapes de la section [Créer votre première fonction PowerShell dans Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) pour créer une fonction PowerShell à l’aide du modèle Déclencheur HTTP. Utilisez le nom de fonction Azure par défaut **HttpTrigger**. Comme indiqué dans le guide de démarrage rapide, testez la fonction localement, puis publiez le projet sur une application de fonction dans Azure. Cet exemple est une fonction de base déclenchée par HTTP qui retourne une chaîne de texte. Dans les étapes ultérieures de cet article, vous modifierez la fonction pour créer un groupe de conteneurs.
 
 Cet article part du principe que vous publiez le projet avec le nom *myfunctionapp* dans un groupe de ressources Azure nommé automatiquement en fonction du nom de l’application de fonction (également *myfunctionapp*). Dans les étapes ultérieures, utilisez à la place le nom de votre application de fonction et le nom de votre groupe de ressources.
 

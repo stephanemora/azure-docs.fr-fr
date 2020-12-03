@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f5ffc7472bb0744d76b5ceaacc95f74af22e762e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e234cc29589e7b104ea7ef54ab7493e27d11cf27
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739807"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460426"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies à la périphérie avec l’accélérateur de solution de supervision à distance
 
@@ -60,9 +60,9 @@ Deux étapes sont nécessaires pour ajouter un appareil IoT Edge à votre accél
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Ajouter un appareil IoT Edge à votre solution
 
-Pour ajouter un appareil IoT Edge à l’accélérateur de solution de supervision à distance, accédez à la page **Device Explorer** dans l’interface utilisateur web, puis cliquez sur **+ Nouvel appareil** .
+Pour ajouter un appareil IoT Edge à l’accélérateur de solution de supervision à distance, accédez à la page **Device Explorer** dans l’interface utilisateur web, puis cliquez sur **+ Nouvel appareil**.
 
-Dans le panneau **Nouvel appareil** , choisissez **Appareil IoT Edge** , puis entrez **oil-pump** (pompe à pétrole) comme ID d’appareil. Vous pouvez conserver les valeurs par défaut des autres paramètres. Cliquez alors sur **Appliquer** :
+Dans le panneau **Nouvel appareil**, choisissez **Appareil IoT Edge**, puis entrez **oil-pump** (pompe à pétrole) comme ID d’appareil. Vous pouvez conserver les valeurs par défaut des autres paramètres. Cliquez alors sur **Appliquer** :
 
 [![Ajouter un appareil IoT Edge](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
@@ -74,7 +74,7 @@ Quand vous inscrivez un appareil auprès du hub IoT dans l’accélérateur de 
 
 Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un groupe d’appareils, puis ajoutez-y l’appareil IoT Edge :
 
-1. Sélectionnez l’appareil **oil-pump** dans la liste de la page **Device Explorer** , puis cliquez sur **Travaux** .
+1. Sélectionnez l’appareil **oil-pump** dans la liste de la page **Device Explorer**, puis cliquez sur **Travaux**.
 
 1. Créez un travail pour ajouter l’étiquette **IsEdge** à l’appareil en utilisant les paramètres suivants :
 
@@ -88,11 +88,11 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
 
     [![Ajouter une étiquette](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
-1. Cliquez sur **Appliquer** , puis sur **Fermer** .
+1. Cliquez sur **Appliquer**, puis sur **Fermer**.
 
-1. Dans la page **Device Explorer** , cliquez sur **Gérer les groupes d’appareils** .
+1. Dans la page **Device Explorer**, cliquez sur **Gérer les groupes d’appareils**.
 
-1. Cliquez sur **Créer un groupe d’appareils** . Créez un groupe d’appareils avec les paramètres suivants :
+1. Cliquez sur **Créer un groupe d’appareils**. Créez un groupe d’appareils avec les paramètres suivants :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -104,9 +104,9 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
 
     [![Créer un groupe d’appareils](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
-1. Cliquez sur **Enregistrer** .
+1. Cliquez sur **Enregistrer**.
 
-Votre appareil IoT Edge se trouve maintenant dans le groupe **OilPumps** .
+Votre appareil IoT Edge se trouve maintenant dans le groupe **OilPumps**.
 
 ### <a name="install-the-edge-runtime"></a>Installer le runtime Edge
 
@@ -154,9 +154,9 @@ Les étapes suivantes vous montrent comment créer un manifeste de déploiement 
 
 Définissez le travail Stream Analytics dans le portail avant de l’empaqueter sous forme de module Edge.
 
-1. Dans le portail Azure, créez un compte de stockage Azure en utilisant les options par défaut du groupe de ressources **IoTEdgeDevices** . Notez le nom que vous avez choisi.
+1. Dans le portail Azure, créez un compte de stockage Azure en utilisant les options par défaut du groupe de ressources **IoTEdgeDevices**. Notez le nom que vous avez choisi.
 
-1. Dans le portail Azure, créez un **travail Stream Analytics** sous le groupe de ressources **IoTEdgeDevices** . Utilisez les valeurs de configuration suivantes :
+1. Dans le portail Azure, créez un **travail Stream Analytics** sous le groupe de ressources **IoTEdgeDevices**. Utilisez les valeurs de configuration suivantes :
 
     | Option | Valeur |
     | ------ | ----- |
@@ -167,13 +167,13 @@ Définissez le travail Stream Analytics dans le portail avant de l’empaqueter 
     | Environnement d’hébergement | Edge |
     | Unités de diffusion en continu | 1 |
 
-1. Ouvrez le travail Stream Analytics **EdgeDeviceJob** dans le portail, cliquez sur Entrées, puis ajoutez une entrée de flux **Edge Hub** appelée **telemetry** .
+1. Ouvrez le travail Stream Analytics **EdgeDeviceJob** dans le portail, cliquez sur Entrées, puis ajoutez une entrée de flux **Edge Hub** appelée **telemetry**.
 
-1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob** , cliquez sur **Sorties** , puis ajoutez une sortie **Edge Hub** appelée **output** (sortie).
+1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob**, cliquez sur **Sorties**, puis ajoutez une sortie **Edge Hub** appelée **output** (sortie).
 
-1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob** , cliquez sur **Sorties** , puis ajoutez une deuxième sortie **Edge Hub** appelée **alert** .
+1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob**, cliquez sur **Sorties**, puis ajoutez une deuxième sortie **Edge Hub** appelée **alert**.
 
-1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob** , cliquez sur **Requête** , puis ajoutez l’instruction **select** suivante :
+1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob**, cliquez sur **Requête**, puis ajoutez l’instruction **select** suivante :
 
     ```sql
     SELECT  
@@ -189,7 +189,7 @@ Définissez le travail Stream Analytics dans le portail avant de l’empaqueter 
     HAVING avg(machine.temperature) > 400
     ```
 
-1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob** , cliquez sur **Paramètres du compte de stockage** . Ajoutez le compte de stockage que vous avez ajouté au groupe de ressources **IoTEdgeDevices** au début de cette section. Créez un conteneur appelé **edgeconfig** .
+1. Sur le portail, dans le travail Stream Analytics **EdgeDeviceJob**, cliquez sur **Paramètres du compte de stockage**. Ajoutez le compte de stockage que vous avez ajouté au groupe de ressources **IoTEdgeDevices** au début de cette section. Créez un conteneur appelé **edgeconfig**.
 
 La capture d’écran suivante montre le travail Stream Analytics après enregistrement :
 
@@ -203,21 +203,21 @@ Ensuite, créez un manifeste de déploiement IoT Edge qui définit les modules �
 
 1. Dans le portail Azure, naviguez jusqu’au hub IoT du groupe de ressources qui contient votre solution de supervision à distance. Vous y trouverez le hub IoT du groupe de ressources qui porte le même nom que votre solution de supervision à distance.
 
-1. Dans le hub IoT, cliquez sur **IoT Edge** dans la section **Gestion automatique des appareils** . Cliquez sur **Ajouter un déploiement IoT Edge** .
+1. Dans le hub IoT, cliquez sur **IoT Edge** dans la section **Gestion automatique des appareils**. Cliquez sur **Ajouter un déploiement IoT Edge**.
 
-1. Dans la page **Créer un déploiement > Nom et étiquette** , entrez le nom **oil-pump-device** . Cliquez sur **Suivant** .
+1. Dans la page **Créer un déploiement > Nom et étiquette**, entrez le nom **oil-pump-device**. Cliquez sur **Suivant**.
 
-1. Dans la page **Créer un déploiement > Ajouter des modules** , cliquez sur **+Ajouter** . Choisissez **Module IoT Edge** .
+1. Dans la page **Créer un déploiement > Ajouter des modules**, cliquez sur **+Ajouter**. Choisissez **Module IoT Edge**.
 
-1. Dans le panneau **Modules personnalisés IoT Edge** , entrez **temperatureSensor** comme nom et **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** comme URI de l’image. Cliquez sur **Enregistrer** .
+1. Dans le panneau **Modules personnalisés IoT Edge**, entrez **temperatureSensor** comme nom et **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** comme URI de l’image. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Créer un déploiement > Ajouter des modules** , cliquez sur **+Ajouter** pour ajouter un deuxième module. Choisissez **Module Azure Stream Analytics** .
+1. Dans la page **Créer un déploiement > Ajouter des modules**, cliquez sur **+Ajouter** pour ajouter un deuxième module. Choisissez **Module Azure Stream Analytics**.
 
-1. Dans le panneau **Déploiement Edge** , sélectionnez votre abonnement et le travail **EdgeDeviceJob** que vous avez créé dans la section précédente. Cliquez sur **Enregistrer** .
+1. Dans le panneau **Déploiement Edge**, sélectionnez votre abonnement et le travail **EdgeDeviceJob** que vous avez créé dans la section précédente. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Créer un déploiement > Ajouter des modules** , cliquez sur **Suivant** .
+1. Dans la page **Créer un déploiement > Ajouter des modules**, cliquez sur **Suivant**.
 
-1. Dans la page **Créer un déploiement > Spécifier des routes** , ajoutez le code suivant :
+1. Dans la page **Créer un déploiement > Spécifier des routes**, ajoutez le code suivant :
 
     ```sql
     {
@@ -231,19 +231,19 @@ Ensuite, créez un manifeste de déploiement IoT Edge qui définit les modules �
 
     Ce code achemine la sortie du module Stream Analytics vers les emplacements appropriés.
 
-    Cliquez sur **Suivant** .
+    Cliquez sur **Suivant**.
 
-1. Dans la page **Créer un déploiement > Spécifier les métriques** , cliquez sur **Suivant** .
+1. Dans la page **Créer un déploiement > Spécifier les métriques**, cliquez sur **Suivant**.
 
-1. Dans la page **Créer un déploiement > Appareils cibles** , entrez 10 comme valeur de priorité. Cliquez sur **Suivant** .
+1. Dans la page **Créer un déploiement > Appareils cibles**, entrez 10 comme valeur de priorité. Cliquez sur **Suivant**.
 
-1. Dans la page **Créer un déploiement > Passer en revue le déploiement** , cliquez sur **Envoyer**  :
+1. Dans la page **Créer un déploiement > Passer en revue le déploiement**, cliquez sur **Envoyer** :
 
     [![Vérifier le déploiement](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
-1. Dans la page **IoT Edge** principale, cliquez sur **Déploiements IoT Edge** . **oil-pump-device** figure dans la liste des déploiements.
+1. Dans la page **IoT Edge** principale, cliquez sur **Déploiements IoT Edge**. **oil-pump-device** figure dans la liste des déploiements.
 
-1. Cliquez sur le déploiement **oil-pump-device** , puis cliquez sur **Télécharger le manifeste IoT Edge** . Enregistrez le fichier sous **oil-pump-device.json** dans un emplacement approprié de votre ordinateur local. Vous aurez besoin de ce fichier dans la section suivante de ce tutoriel.
+1. Cliquez sur le déploiement **oil-pump-device**, puis cliquez sur **Télécharger le manifeste IoT Edge**. Enregistrez le fichier sous **oil-pump-device.json** dans un emplacement approprié de votre ordinateur local. Vous aurez besoin de ce fichier dans la section suivante de ce tutoriel.
 
 Vous venez de créer un manifeste IoT Edge devant être importé dans la solution de supervision à distance en tant que package. En règle générale, le développeur crée les modules et le fichier manifeste IoT Edge.
 
@@ -251,15 +251,15 @@ Vous venez de créer un manifeste IoT Edge devant être importé dans la solutio
 
 Dans cette section, vous importerez ce manifeste Edge en tant que package dans la solution de supervision à distance.
 
-1. Dans l’interface utilisateur web de la supervision à distance, accédez à la page **Packages** , puis cliquez sur **+Nouveau package**  :
+1. Dans l’interface utilisateur web de la supervision à distance, accédez à la page **Packages**, puis cliquez sur **+Nouveau package** :
 
     [![Nouveau package](./media/iot-accelerators-remote-monitoring-edge/newpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newpackage-expanded.png#lightbox)
 
-1. Dans le panneau **Nouveau package** , choisissez **Manifeste Edge** comme type de package, cliquez sur **Parcourir** pour trouver le fichier **oil-pump-device.json** sur votre ordinateur local, puis cliquez sur **Charger**  :
+1. Dans le panneau **Nouveau package**, choisissez **Manifeste Edge** comme type de package, cliquez sur **Parcourir** pour trouver le fichier **oil-pump-device.json** sur votre ordinateur local, puis cliquez sur **Charger** :
 
     [![Charger le package](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
 
-    La liste de packages inclut désormais le package **oil-pump-device.json** .
+    La liste de packages inclut désormais le package **oil-pump-device.json**.
 
 Dans la section suivante, vous allez créer un déploiement qui applique le package à votre appareil de périphérie.
 
@@ -267,11 +267,11 @@ Dans la section suivante, vous allez créer un déploiement qui applique le pack
 
 Vous êtes maintenant prêt à déployer le package sur votre appareil.
 
-1. Dans l’interface utilisateur web de la supervision à distance, accédez à la page **Déploiements** , puis cliquez sur **+Nouveau déploiement**  :
+1. Dans l’interface utilisateur web de la supervision à distance, accédez à la page **Déploiements**, puis cliquez sur **+Nouveau déploiement** :
 
     [![Nouveau déploiement](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
 
-1. Dans le panneau **Nouveau déploiement** , créez un déploiement avec les paramètres suivants :
+1. Dans le panneau **Nouveau déploiement**, créez un déploiement avec les paramètres suivants :
 
     | Option | Valeur |
     | ------ | ----- |
@@ -283,7 +283,7 @@ Vous êtes maintenant prêt à déployer le package sur votre appareil.
 
     [![Créer un déploiement](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
-    Cliquez sur **Appliquer** .
+    Cliquez sur **Appliquer**.
 
 Vous devez attendre plusieurs minutes pour que le package soit déployé sur votre appareil et que les données de télémétrie commencent à être envoyées par l’appareil.
 
@@ -300,8 +300,8 @@ La page **Déploiements** affiche les métriques suivantes :
 
 Vous pouvez afficher les données de télémétrie de température du capteur de la pompe à pétrole dans l’interface utilisateur web de la supervision à distance :
 
-1. Accédez à la page **Device Explorer** , puis sélectionnez votre dispositif de pompe à huile.
-1. Dans la section **Télémétrie** du panneau **Détails de l’appareil** , cliquez sur **Température**  :
+1. Accédez à la page **Device Explorer**, puis sélectionnez votre dispositif de pompe à huile.
+1. Dans la section **Télémétrie** du panneau **Détails de l’appareil**, cliquez sur **Température** :
 
     [![Afficher les données de télémétrie](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
 
@@ -309,7 +309,7 @@ Vous pouvez voir comment la température augmente jusqu’à atteindre le seuil 
 
 Si vous souhaitez avertir les opérateurs lorsque le seuil a été atteint, vous pouvez créer une règle dans l’interface utilisateur web de la supervision à distance :
 
-1. Accédez à la page **Règles** , puis cliquez sur **+Nouvelle règle** .
+1. Accédez à la page **Règles**, puis cliquez sur **+Nouvelle règle**.
 1. Créez une règle avec les paramètres suivants :
 
     | Option | Valeur |
@@ -325,9 +325,9 @@ Si vous souhaitez avertir les opérateurs lorsque le seuil a été atteint, vous
 
     [![Créer une règle](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
-    Cliquez sur **Appliquer** .
+    Cliquez sur **Appliquer**.
 
-1. Accédez à la page **Tableau de bord** . Une alerte s’affiche dans le panneau **Alertes** lorsque la température du capteur **oil-pump** dépasse les 300 degrés.
+1. Accédez à la page **Tableau de bord**. Une alerte s’affiche dans le panneau **Alertes** lorsque la température du capteur **oil-pump** dépasse les 300 degrés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -336,6 +336,6 @@ Ce tutoriel vous a montré comment ajouter et configurer un appareil IoT Edge da
 > [!div class="nextstepaction"]
 > [Importer un package IoT Edge dans votre accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-Pour plus d’informations sur l’installation du runtime IoT Edge, consultez [Installer le runtime Azure IoT Edge sur Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
+Pour plus d’informations sur l’installation du runtime IoT Edge, consultez [Installer le runtime Azure IoT Edge sur Linux (x64)](../iot-edge/how-to-install-iot-edge.md).
 
 Pour plus d’informations sur l’utilisation d’Azure Stream Analytics sur les appareils de périphérie, consultez [Déployer Azure Stream Analytics en tant que module IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md).

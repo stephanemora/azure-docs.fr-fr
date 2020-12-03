@@ -10,12 +10,12 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1425b89e42450123c1696ddcee4458e1f69b8a6c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074078"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348566"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Créer une application MongoDB avec React et Azure Cosmos DB  
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -91,8 +91,8 @@ Cette vidéo montre comment compléter l’application et terminer le raccordeme
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -108,4 +108,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Vous pouvez passer au didacticiel suivant et découvrir comment importer des données MongoDB dans Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

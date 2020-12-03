@@ -3,20 +3,20 @@ title: Créer votre première fabrique de données Azure (PowerShell)
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide d’Azure PowerShell.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3f388937c43c9c6a2b9e4700768d4af9cdcb39de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbeb87c6e96c75e62fe97db031ae926ce30b6a19
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543110"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496342"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutoriel : Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -399,11 +399,11 @@ Au cours de cette étape, vous utilisez Azure PowerShell pour surveiller ce qui 
 ## <a name="summary"></a>Résumé
 Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traiter des données en exécutant le script Hive sur un cluster Hadoop HDInsight. Vous avez effectué les étapes suivantes dans le portail Azure à l’aide de Data Factory Editor :
 
-1. Création d’une **fabrique de données**Azure.
+1. Création d’une **fabrique de données** Azure.
 2. Création de deux **services liés**:
    1. **Azure Storage** pour lier à la fabrique de données votre stockage d’objets blob Azure contenant les fichiers d’entrée/sortie.
    2. **Azure HDInsight** à la demande pour lier à la fabrique de données un cluster Hadoop HDInsight à la demande. Azure Data Factory crée un cluster Hadoop HDInsight juste-à-temps pour traiter les données d’entrée et produire des données de sortie.
-3. Création de deux **jeux de données**qui décrivent les données d’entrée et de sortie pour l’activité HDInsight Hive dans le pipeline.
+3. Création de deux **jeux de données** qui décrivent les données d’entrée et de sortie pour l’activité HDInsight Hive dans le pipeline.
 4. Création d’un **pipeline** avec une activité **Hive HDInsight**.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317206"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451247"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutoriel : Créer un graphique de métriques dans Azure Monitor
 Metrics Explorer est une fonctionnalité d’Azure Monitor dans le portail Azure qui vous permet de créer des graphiques à partir de valeurs de métriques, de corréler visuellement des tendances et d’examiner des pics et des creux dans des valeurs de métriques. Utilisez Metrics Explorer pour examiner l’intégrité et l’utilisation de vos ressources Azure ou pour tracer des graphiques à partir de métriques personnalisées. 
@@ -85,5 +85,5 @@ Vous pouvez personnaliser le style et le titre du graphique, et modifier les par
 Maintenant que vous avez appris à utiliser les métriques dans Azure Monitor, découvrez comment les utiliser pour envoyer des alertes proactives.
 
 > [!div class="nextstepaction"]
-> [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../platform/alerts-metric.md)
+> [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

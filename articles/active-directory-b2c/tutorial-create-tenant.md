@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670189"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447037"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -41,34 +41,28 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Sélectionnez le répertoire qui contient votre abonnement.
 
-    Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement** , puis sélectionnez le répertoire qui contient votre abonnement. Cet annuaire est différent de celui qui contiendra votre locataire Azure AD B2C.
+    Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement**, puis sélectionnez le répertoire qui contient votre abonnement. Cet annuaire est différent de celui qui contiendra votre locataire Azure AD B2C.
 
     ![Abonné, filtre Annuaire et abonnement avec locataire d’abonnement sélectionné](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. Dans le menu du Portail Azure ou dans la page **Accueil** , sélectionnez **Créer une ressource**.
-1. Recherchez **Azure Active Directory B2C** , puis sélectionnez **Créer**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Recherchez **Azure Active Directory B2C**, puis sélectionnez **Créer**.
 1. Cliquez sur **Créer un nouveau client Azure Active Directory B2C**.
 
     ![Créer un locataire Azure AD B2C sélectionné dans le portail Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
-    
-1. Entrez des valeurs pour **Nom de l’organisation** et **Nom de domaine initial**. Sélectionnez une valeur pour **Pays ou région** (que vous pouvez changer par la suite), puis **Créer**.
 
-    Le nom de domaine est utilisé dans le cadre du nom de domaine de locataire complet. Dans cet exemple, le nom du locataire est *contosob2c.onmicrosoft.com*  :
+1. Dans la page **Créer un annuaire**, entrez les informations suivantes :
 
-1. Une fois la création du locataire terminée, sélectionnez le lien **Créer un locataire B2C ou lier à un locataire existant** en haut de la page de création du locataire.
+   - **Nom de l’organisation** : entrez un nom pour votre locataire Azure AD B2C.
+   - **Nom de domaine initial** : entrez un nom de domaine pour votre locataire Azure AD B2C.
+   - **Pays ou région** : sélectionnez votre pays ou votre région dans la liste. Il ne sera pas possible de changer cette sélection ultérieurement.
+   - **Abonnement** : sélectionnez votre abonnement dans la liste.
+   - **Groupe de ressources** : sélectionnez un groupe de ressources qui contiendra le locataire. Vous pouvez également sélectionner **Créer**, entrer un **Nom** pour le groupe de ressources, sélectionner l’**Emplacement du groupe de ressources**, puis sélectionner **OK**.
 
-    ![Lien de navigation de liaison à un locataire mis en surbrillance dans le portail Azure](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
+    ![Formulaire de création de locataire avec des exemples de valeurs dans le portail Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Sélectionnez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**. Pour effectuer cette étape, vous devez être connecté avec le rôle de propriétaire.
-
-   ![Lier une sélection d’abonnement existante dans le portail Azure](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. Sélectionnez le **Locataire Azure AD B2C** que vous avez créé, puis votre **abonnement**.
-
-    Pour **Groupe de ressources** , sélectionnez **Créer**. Entrez un **Nom** pour le groupe de ressources qui contiendra le locataire, sélectionnez l’ **Emplacement du groupe de ressources** , puis **Créer**.
-
-    ![Formulaire de liaison des paramètres d’abonnement dans le portail Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
+1. Sélectionnez **Revoir + créer**.
+1. Passez en revue les paramètres de votre annuaire. Sélectionnez ensuite **Créer**.
 
 Vous pouvez lier plusieurs locataires Azure AD B2C à un seul abonnement Azure pour la facturation. Pour lier un locataire, vous devez être administrateur du locataire Azure AD B2C et vous devez disposer d’au moins le rôle Contributeur dans l’abonnement Azure. Consultez [Lier un locataire Azure AD B2C à un abonnement](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -92,8 +86,8 @@ Vous ne devez effectuer cette opération qu’une seule fois. Avant d’effectue
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu du portail Azure, sélectionnez **Tous les services**.
-1. Dans la zone de recherche **Tous les services** , recherchez **Azure AD B2C** , pointez sur le résultat de la recherche, puis sélectionnez l’icône en étoile dans l’info-bulle. **Azure AD B2C** apparaît maintenant dans le portail Azure sous **Favoris**.
-1. Si vous souhaitez modifier la position de votre nouveau favori, accédez au menu Portail Azure, sélectionnez **Azure AD B2C** , puis faites-le glisser vers le haut ou vers le haut jusqu’à la position souhaitée.
+1. Dans la zone de recherche **Tous les services**, recherchez **Azure AD B2C**, pointez sur le résultat de la recherche, puis sélectionnez l’icône en étoile dans l’info-bulle. **Azure AD B2C** apparaît maintenant dans le portail Azure sous **Favoris**.
+1. Si vous souhaitez modifier la position de votre nouveau favori, accédez au menu Portail Azure, sélectionnez **Azure AD B2C**, puis faites-le glisser vers le haut ou vers le haut jusqu’à la position souhaitée.
 
     ![Azure AD B2C, menu Favoris, portail Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 

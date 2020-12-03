@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315131"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436485"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux avec un hub IoT
 
@@ -32,19 +32,19 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > [!div class="checklist"]
 >
 > * Utiliser Azure CLI pour créer un hub IoT, inscrire un appareil simulé et créer un espace de travail Log Analytics.  
-> * Envoyer des connexions et des journaux de ressources de télémétrie d’appareil IoT Hub vers les journaux Azure Monitor dans l’espace de travail Log Analytics.
-> * Utiliser l’explorateur de métriques pour créer un graphique basé sur les métriques sélectionnées, et l’épingler à votre tableau de bord.
-> * Créer des alertes de métriques pour être averti par e-mail lorsque des conditions importantes se produisent.
-> * Télécharger et exécuter une application qui simule l’envoi de messages par un appareil IoT au hub IoT.
-> * Afficher les alertes lorsque vos conditions se produisent.
-> * Afficher le graphique des métriques dans votre tableau de bord.
+> * Envoyer des connexions et des journaux de ressources de télémétrie d’appareil IoT Hub vers les journaux Azure Monitor dans l’espace de travail Log Analytics
+> * Utiliser l’explorateur de métriques pour créer un graphique basé sur les métriques sélectionnées, et l’épingler à votre tableau de bord
+> * Créer des alertes de métriques pour être averti par e-mail lorsque des conditions importantes se produisent
+> * Télécharger et exécuter une application qui simule l’envoi de messages par un appareil IoT au hub IoT
+> * Afficher les alertes lorsque vos conditions se produisent
+> * Afficher le graphique des métriques dans votre tableau de bord
 > * Afficher les erreurs et les opérations IoT Hub dans les journaux Azure Monitor.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Votre machine de développement doit disposer du Kit SDK .NET Core 2.1 ou version ultérieure. Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://www.microsoft.com/net/download/all).
+- Votre machine de développement doit disposer du Kit SDK .NET Core 2.1 ou version ultérieure. Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://www.microsoft.com/net/download/all).
 
   Vous pouvez vérifier la version actuelle de C# sur votre machine de développement à l’aide de la commande suivante :
 
@@ -52,11 +52,11 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
   dotnet --version
   ```
 
-* Un compte e-mail capable de recevoir des e-mails.
+- Un compte e-mail capable de recevoir des e-mails.
 
-* Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Configurer des ressources
 

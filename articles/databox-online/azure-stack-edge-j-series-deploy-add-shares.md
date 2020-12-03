@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440281"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447563"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutoriel : Transférer des données via des partages avec Azure Stack Edge Pro avec GPU
 
@@ -66,7 +66,7 @@ Pour créer un partage, procédez comme suit :
     Le type de service que vous sélectionnez varie selon le format dans lequel vous souhaitez que les données soient utilisées dans Azure. Dans cet exemple, comme nous voulons que les données soient des objets blob de blocs dans Azure, nous sélectionnons **Objet blob de blocs**. Si vous sélectionnez **Objet blob de pages**, assurez-vous que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
 
    > [!IMPORTANT]
-   > Vérifiez que le compte Stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Vérifiez que le compte Stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Créez un conteneur d’objets blob ou utilisez-en un existant dans la liste déroulante. Si vous créez un conteneur d’objets blob, fournissez un nom de conteneur. S’il n’existe pas de conteneur, un conteneur est créé dans le compte de stockage avec le nom du nouveau partage.
    
@@ -198,5 +198,3 @@ Pour savoir comment transformer vos données en utilisant Azure Stack Edge Pro, 
 
 > [!div class="nextstepaction"]
 > [Transformer des données avec Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

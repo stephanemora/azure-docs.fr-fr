@@ -2,8 +2,8 @@
 title: Activités de création de branches et de chaînage dans un pipeline à l’aide du portail Azure
 description: Découvrez comment contrôler le flux de contrôle des données dans le pipeline Azure Data Factory à l’aide du Portail Azure.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568546"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497433"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 
@@ -179,7 +179,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
     - **receiver** - ce paramètre est utilisé par les deux activités web dans le pipeline qui envoient des e-mails de réussite ou d’échec au récepteur dont l’adresse e-mail est spécifiée par ce paramètre.
 
    ![Menu Nouveau pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
-4. Dans la boîte à outils **Activités**, développez **Flux de données**et glissez-déposez l’activité de **copie** vers la surface du concepteur de pipeline.
+4. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité de **copie** vers la surface du concepteur de pipeline.
 
    ![Glisser-déposer de l’activité de copie](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Dans la fenêtre **Propriétés** pour l’activité de **copie** en bas, basculez vers l’onglet **Source**, puis cliquez sur **+ Nouveau**. Vous créez un jeu de données source pour l’activité de copie dans cette étape.

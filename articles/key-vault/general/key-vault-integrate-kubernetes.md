@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488641"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452751"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutoriel : Configurer et exécuter le fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets sur Kubernetes
 
@@ -362,4 +362,4 @@ Vérifiez que le contenu du secret est affiché.
 
 Pour vérifier que votre coffre de clés est récupérable, consultez :
 > [!div class="nextstepaction"]
-> [Activer la suppression réversible](./soft-delete-cli.md)
+> [Activer la suppression réversible](./key-vault-recovery.md)

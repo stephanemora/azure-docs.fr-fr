@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522122"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484819"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutoriel : Se connecter à un compte de stockage en utilisant un point de terminaison privé Azure
 
@@ -98,7 +98,7 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -119,7 +119,7 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -140,7 +140,7 @@ Dans cette section, vous allez créer un compte de stockage et configurer le poi
 
 2. Dans l’onglet **Général** de la page **Créer un compte de stockage**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -160,7 +160,7 @@ Dans cette section, vous allez créer un compte de stockage et configurer le poi
 
 6. Dans **Créer un point de terminaison privé**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | Abonnement | Sélectionner votre abonnement Azure |
     | Groupe de ressources | Sélectionner **myResourceGroup** |
@@ -222,7 +222,7 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
 
     Une adresse IP privée **10.1.0.5** est retournée pour le nom du compte de stockage.  Cette adresse se trouve dans le sous-réseau du réseau virtuel que vous avez créé précédemment.
 
-9. Installez l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) sur la machine virtuelle.
+9. Installez l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) sur la machine virtuelle.
 
 10. Sélectionnez **Terminer** après l’installation de l’**Explorateur Stockage Microsoft Azure**.  Laissez la case cochée pour ouvrir l’application.
 

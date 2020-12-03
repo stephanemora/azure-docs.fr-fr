@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494339"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrer des machines virtuelles VMware vers Azure (sans agent) - PowerShell
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Avant de commencer ce didacticiel, vous devez :
 
 1. [Suivre le tutoriel sur la découverte](tutorial-discover-vmware.md) afin de configurer Azure et VMware pour la migration.
-2. Nous vous recommandons de suivre le deuxième tutoriel afin d’[évaluer les machines virtuelles VMware](tutorial-assess-vmware.md) avant de les migrer vers Azure.
+2. Nous vous recommandons de suivre le deuxième tutoriel afin d’[évaluer les machines virtuelles VMware](./tutorial-assess-vmware-azure-vm.md) avant de les migrer vers Azure.
 3. Vous devez disposer du module Azure PowerShell `Az`. Si vous devez installer ou mettre à niveau Azure PowerShell, suivez le [guide d’installation et de configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="install-azure-migrate-powershell-module"></a>Installer le module PowerShell Azure Migrate
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [Plus d’informations](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Pour renforcer la sécurité :
     - Verrouillez et limitez l’accès du trafic entrant avec l’[administration juste-à-temps d’Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/security-overview.md).
+    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
 -  Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
-
-
-

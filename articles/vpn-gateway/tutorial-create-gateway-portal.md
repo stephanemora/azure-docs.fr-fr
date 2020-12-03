@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 12/01/2020
+ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518243"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510475"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide du portail Azure
 
@@ -42,7 +42,7 @@ Créez un réseau virtuel à l’aide des valeurs suivantes :
 * **Nom :** VNet1
 * **Région :** (États-Unis) USA Est
 * **Espace d’adressage IPv4 :** 10.1.0.0/16
-* **Nom du sous-réseau**  : FrontEnd
+* **Nom du sous-réseau** : FrontEnd
 * **Espace d’adressage du sous-réseau :** 10.1.0.0/24
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -96,7 +96,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application ni de passe
 
 1. Sélectionnez **Supprimer le groupe de ressources**.
 
-1. Entrez votre groupe de ressources dans **TAPER LE NOM DU GROUPE DE RESSOURCES** , puis sélectionnez **Supprimer**.
+1. Entrez votre groupe de ressources dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

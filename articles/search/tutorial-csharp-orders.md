@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667246"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499592"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutoriel : Trier des résultats de recherche à l’aide du SDK .NET
 
@@ -965,7 +965,7 @@ Examinons trois exemples de profils de score et regardons comment chacun _devrai
 
 ### <a name="resources"></a>Ressources
 
-Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche cognitive Azure](/azure/search/index-add-scoring-profiles).
+Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche cognitive Azure](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 

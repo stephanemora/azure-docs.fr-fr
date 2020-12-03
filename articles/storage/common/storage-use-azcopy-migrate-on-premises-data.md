@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791186"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498164"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutoriel : Migrer des données locales vers le stockage cloud avec AzCopy
 
@@ -44,7 +44,7 @@ La première étape consiste à créer un conteneur, étant donné que les objet
 Pour créer un conteneur, effectuez les étapes suivantes :
 
 1. Sélectionnez le bouton **Comptes de stockage** dans la page principale, puis sélectionnez le compte de stockage que vous avez créé.
-2. Sélectionnez **Objets blob** sous **Services** , puis sélectionnez **Conteneur**.
+2. Sélectionnez **Objets blob** sous **Services**, puis sélectionnez **Conteneur**.
 
    ![Capture d’écran montrant la création d’un conteneur](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
@@ -137,7 +137,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 Dans ce didacticiel, [Schtasks](/windows/win32/taskschd/schtasks) est utilisé pour créer une tâche planifiée sur Windows. La commande [Crontab](http://crontab.org/) est utilisée pour créer un travail Cron sur Linux.
 
- Avec **Schtasks** , un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron** , les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+ Avec **Schtasks**, un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron**, les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -176,7 +176,7 @@ Pour vérifier que la tâche planifiée ou le travail Cron s’exécute correcte
 
 Pour en savoir plus sur les façons de déplacer des données locales vers le Stockage Azure, et inversement, suivez ce lien :
 
-* [Déplacer des données vers et à partir de Stockage Azure](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Déplacer des données vers et à partir de Stockage Azure](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Pour plus d’informations sur AzCopy, consultez les articles suivants :
 

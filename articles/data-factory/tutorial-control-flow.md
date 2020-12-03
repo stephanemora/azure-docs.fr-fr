@@ -2,8 +2,8 @@
 title: Création de branches dans un pipeline Azure Data Factory
 description: Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637698"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496940"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -54,7 +54,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données et les calculs peuvent se trouver dans d’autres régions. Les magasins incluent Stockage Azure et Azure SQL Database. Les calculs incluent HDInsight, utilisé par Data Factory.
 
-Créez une application comme décrit dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Affectez l’application au rôle **Contributeur** en suivant les instructions dans le même article. Vous aurez besoin de plusieurs valeurs pour les parties ultérieures de ce tutoriel, telles qu’ **ID d’application (client)** et **ID de l’annuaire (locataire)** .
+Créez une application comme décrit dans [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Affectez l’application au rôle **Contributeur** en suivant les instructions dans le même article. Vous aurez besoin de plusieurs valeurs pour les parties ultérieures de ce tutoriel, telles qu’**ID d’application (client)** et **ID de l’annuaire (locataire)** .
 
 ### <a name="create-a-blob-table"></a>Créer une table d’objets blob
 
@@ -73,14 +73,14 @@ Créez une application comme décrit dans [Créer une application Azure Active D
 Créez une application console .NET C# :
 
 1. Démarrez Visual Studio et sélectionnez **Créer un projet**.
-1. Dans **Créer un projet** , sélectionnez **Application console (.NET Framework)** pour C#, puis **Suivant**.
+1. Dans **Créer un projet**, sélectionnez **Application console (.NET Framework)** pour C#, puis **Suivant**.
 1. Nommez le projet *ADFv2BranchTutorial*.
 1. Sélectionnez **.NET version 4.5.2** ou ultérieure, puis **Créer**.
 
 ### <a name="install-nuget-packages"></a>Installer les packages NuGet
 
 1. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**.
-1. Dans la **console du Gestionnaire de package** , exécutez les commandes suivantes pour installer les packages. Pour plus d’informations, consultez [Package NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+1. Dans la **console du Gestionnaire de package**, exécutez les commandes suivantes pour installer les packages. Pour plus d’informations, consultez [Package NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
    ```powershell
    Install-Package Microsoft.Azure.Management.DataFactory
@@ -148,7 +148,7 @@ Créez une application console .NET C# :
 
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Ajoutez une méthode `CreateOrUpdateDataFactory` à votre fichier *Program.cs*  :
+1. Ajoutez une méthode `CreateOrUpdateDataFactory` à votre fichier *Program.cs* :
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -181,7 +181,7 @@ Créez une application console .NET C# :
 
 ## <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
 
-1. Ajoutez une méthode `StorageLinkedServiceDefinition` à votre fichier *Program.cs*  :
+1. Ajoutez une méthode `StorageLinkedServiceDefinition` à votre fichier *Program.cs* :
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -213,7 +213,7 @@ Dans cette section, vous créez deux jeux de données : un pour la source et un
 
 Ajoutez une méthode qui crée un *jeu de données d’objet blob Azure*. Pour plus d’informations sur les propriétés prises en charge, consultez [Propriétés du jeu de données](connector-azure-blob-storage.md#dataset-properties).
 
-Ajoutez une méthode `SourceBlobDatasetDefinition` à votre fichier *Program.cs*  :
+Ajoutez une méthode `SourceBlobDatasetDefinition` à votre fichier *Program.cs* :
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Notez l’utilisation de paramètres pour *FolderPath*. `sourceBlobContainer` es
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Créer un jeu de données pour un objet blob Azure récepteur
 
-1. Ajoutez une méthode `SourceBlobDatasetDefinition` à votre fichier *Program.cs*  :
+1. Ajoutez une méthode `SourceBlobDatasetDefinition` à votre fichier *Program.cs* :
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -336,11 +336,11 @@ Votre workflow ressemble à l’exemple suivant :
 
 Ce contenu JSON correspond à la classe `EmailRequest` que vous avez créée dans la section précédente.
 
-Ajoutez une action `Office 365 Outlook – Send an email`. Pour l’action **Envoyer un e-mail** , personnalisez la mise en forme de l’e-mail à l’aide des propriétés transmises dans le schéma JSON du **corps** de la requête. Voici un exemple :
+Ajoutez une action `Office 365 Outlook – Send an email`. Pour l’action **Envoyer un e-mail**, personnalisez la mise en forme de l’e-mail à l’aide des propriétés transmises dans le schéma JSON du **corps** de la requête. Voici un exemple :
 
 ![Concepteur d’application logique - Action Envoyer un e-mail](media/tutorial-control-flow/customize-send-email-action.png)
 
-Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’ **URL HTTP POST** à partir du déclencheur.
+Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’**URL HTTP POST** à partir du déclencheur.
 
 ## <a name="fail-email-workflow"></a>Flux de travail d’un e-mail d’avis d’échec
 
@@ -348,7 +348,7 @@ Clonez **CopySuccessEmail** en tant qu’autre workflow Logic Apps nommé *CopyF
 
 ![Concepteur d’application logique - Workflow d’un e-mail d’avis d’échec](media/tutorial-control-flow/fail-email-workflow.png)
 
-Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’ **URL HTTP POST** à partir du déclencheur.
+Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’**URL HTTP POST** à partir du déclencheur.
 
 Vous devez maintenant avoir deux URL de workflow, comme dans les exemples suivants :
 
@@ -490,7 +490,7 @@ L’activité web permet d’appeler n’importe quel point de terminaison REST.
         }
 ```
 
-Dans la propriété `Url`, collez les points de terminaison d’ **URL HTTP POST** à partir de vos workflows Logic Apps. Dans la propriété `Body`, transmettez une instance de la classe `EmailRequest`. La requête d’e-mail contient les propriétés suivantes :
+Dans la propriété `Url`, collez les points de terminaison d’**URL HTTP POST** à partir de vos workflows Logic Apps. Dans la propriété `Body`, transmettez une instance de la classe `EmailRequest`. La requête d’e-mail contient les propriétés suivantes :
 
 * Message. Transmet la valeur de `@{activity('CopyBlobtoBlob').output.dataWritten`. Accède à une propriété de l’activité de copie précédente et transmet la valeur de `dataWritten`. Pour un échec, passez la sortie de l’erreur au lieu de `@{activity('CopyBlobtoBlob').error.message`.
 * dataFactoryName. Transmet la valeur de `@{pipeline().DataFactory}`. Cette variable système vous permet d’accéder au nom de la fabrique de données correspondant. Pour obtenir la liste des variables système, consultez [Variables système](control-flow-system-variables.md).

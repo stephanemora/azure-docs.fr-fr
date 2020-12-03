@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883478"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350311"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutoriel : Transférer des données avec Azure Stack Edge Pro
 
@@ -62,7 +62,7 @@ Pour créer un partage, procédez comme suit :
     c. Fournissez un compte de stockage dans lequel résidera le partage. 
 
     > [!IMPORTANT]
-    > Vérifiez que le compte de stockage Azure que vous utilisez ne comporte pas de stratégies d'immuabilité si vous l'utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Vérifiez que le compte de stockage Azure que vous utilisez ne comporte pas de stratégies d'immuabilité si vous l'utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. Dans la liste déroulante **Service de stockage**, sélectionnez **Objet blob de blocs**, **Objet blob de pages** ou **Fichiers**.  
     Le type de service que vous sélectionnez varie selon le format dans lequel vous souhaitez que les données soient utilisées dans Azure. Dans cet exemple, comme nous voulons que les données soient des objets blob de blocs dans Azure, nous sélectionnons **Objet blob de blocs**. Si vous sélectionnez **Objet blob de pages**, assurez-vous que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
@@ -162,5 +162,3 @@ Pour savoir comment transformer vos données à l'aide d'Azure Stack Edge Pro, p
 
 > [!div class="nextstepaction"]
 > [Transformer des données avec Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-
