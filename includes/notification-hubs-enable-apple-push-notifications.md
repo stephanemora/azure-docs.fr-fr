@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864718"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560826"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Générer le fichier de demande de signature de certificat
 
@@ -78,9 +78,9 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 Un certificat est nécessaire pour permettre au hub de notification de fonctionner avec **APNS**. Cette opération peut être effectuée de deux manières :
 
 1. Créez un certificat **.p12** qui peut être chargé directement sur le hub de notification.  
-2. Créez un certificat **.p8** qui peut être utilisé pour l’[authentification basée sur un jeton](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*l’approche la plus récente*).
+2. Créez un certificat **.p8** qui peut être utilisé pour l’[authentification basée sur un jeton](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) (*l’approche la plus récente*).
 
-L’approche la plus récente présente un certain nombre d’avantages (par rapport à l’utilisation de certificats), comme indiqué dans [Authentification basée sur un jeton (HTTP/2) pour APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Toutefois, des étapes ont été fournies pour les deux approches. 
+L’approche la plus récente présente un certain nombre d’avantages (par rapport à l’utilisation de certificats), comme indiqué dans [Authentification basée sur un jeton (HTTP/2) pour APNS](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md). Toutefois, des étapes ont été fournies pour les deux approches. 
 
 ### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>OPTION 1 : Création d’un certificat Push .p12 qui peut être chargé directement sur le hub de notification
 
