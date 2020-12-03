@@ -106,6 +106,8 @@
       href: azure-advisor.md
     - name: Résoudre les recommandations
       href: azure-advisor-recommendations.md
+    - name: Utiliser Azure Monitor pour Windows Virtual Desktop
+      href: azure-monitor.md
     - name: Définir un plan de reprise d’activité
       href: disaster-recovery.md
 - name: Concepts
@@ -150,6 +152,8 @@
           href: app-attach-glossary.md
         - name: Questions fréquentes (FAQ)
           href: app-attach-faq.md
+    - name: Glossaire Azure Monitor
+      href: azure-monitor-glossary.md
     - name: Emplacements des données
       href: data-locations.md
 - name: Dépanner
@@ -170,6 +174,8 @@
       href: troubleshoot-powershell.md
     - name: Diagnostic des problèmes de performances graphiques
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: Informations de référence
   items:
     - name: Bonnes pratiques de sécurité

@@ -129,6 +129,8 @@
       href: ../../load-balancer/security-baseline.md
     - name: Base de référence de la sécurité Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Base de référence de la sécurité pour Applications managées Azure
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Base de référence de la sécurité Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Base de référence de la sécurité Azure Migrate Learning
@@ -201,7 +203,7 @@
       href: ../../site-recovery/security-baseline.md
     - name: Base de référence de la sécurité Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Base de référence de la sécurité Synapse Analytics
+    - name: Base de référence de la sécurité Azure Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
     - name: Base de référence de la sécurité Traffic Manager
       href: ../../traffic-manager/security-baseline.md

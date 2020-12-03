@@ -9,7 +9,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: "Créer un cluster\_AKS"
+    - name: Déployer un cluster AKS
       expanded: true
       items:
         - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
@@ -252,6 +252,8 @@
           href: kubernetes-service-principal.md
         - name: Utiliser des identités managées
           href: use-managed-identity.md
+        - name: Utiliser une identité de pod AAD (préversion)
+          href: use-azure-ad-pod-identity.md
         - name: Limiter l’accès au fichier de configuration de cluster
           href: control-kubeconfig-access.md
         - name: Sécuriser le trafic de pods avec des stratégies réseau

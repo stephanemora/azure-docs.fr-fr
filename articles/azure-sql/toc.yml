@@ -617,7 +617,7 @@
                           items:
                             - name: Avec SQL Database
                               href: database/saas-tenancy-tenant-analytics.md
-                            - name: Avec Azure Synapse Analytics (anciennement SQL Data Warehouse)
+                            - name: Avec Azure Synapse Analytics
                               href: database/saas-tenancy-tenant-analytics-adf.md
                     - name: Récupération d’urgence à l’aide de la géo-restauration
                       href: database/saas-dbpertenant-dr-geo-restore.md

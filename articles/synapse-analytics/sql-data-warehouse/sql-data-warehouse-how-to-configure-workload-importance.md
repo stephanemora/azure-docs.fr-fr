@@ -1,5 +1,5 @@
 ---
-title: Configurer l’importance des charges de travail
+title: Configurer l’importance des charges de travail pour le pool SQL dédié
 description: Découvrez comment définir l’importance du niveau de la demande dans Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
@@ -11,20 +11,20 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212120"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461904"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurer l’importance de la charge de travail dans Azure Synapse Analytics
+# <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Configurer l’importance des charges de travail dans un pool SQL dédié pour Azure Synapse Analytics
 
-Le fait de définir l’importance dans Synapse SQL pour Azure Synapse permet d’influencer la planification des requêtes. Les requêtes plus importantes seront programmées de manière à s’exécuter avant les requêtes moins importantes. Pour affecter une importance aux requêtes, vous devez créer un classifieur de charges de travail.
+Le fait de définir l’importance dans un pool SQL dédié pour Azure Synapse permet d’influencer la planification des requêtes. Les requêtes plus importantes seront programmées de manière à s’exécuter avant les requêtes moins importantes. Pour affecter une importance aux requêtes, vous devez créer un classifieur de charges de travail.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Créer un classifieur de charges de travail avec une importance
 
-Souvent, dans un scénario d’entrepôt de données, certains utilisateurs, sur un système occupé, doivent exécuter leurs requêtes rapidement.  Les utilisateurs peuvent être des responsables d’une société ayant besoin d’exécuter des rapports ou l’utilisateur peut être un analyste exécutant une requête ad hoc. Pour attribuer une importance, vous créez un classificateur de charge de travail et l’importance est assignée à une requête.  Les exemples ci-dessous utilisent la syntaxe de [création d’un classifieur de charge de travail](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour créer deux classifieurs. `Membername` peut être un utilisateur unique ou un groupe.  Pour rechercher les utilisateurs d’entrepôt de données existants, exécutez :
+Souvent, dans un scénario d’entrepôt de données, certains utilisateurs, sur un système occupé, doivent exécuter leurs requêtes rapidement.  Les utilisateurs peuvent être des responsables d’une société ayant besoin d’exécuter des rapports ou l’utilisateur peut être un analyste exécutant une requête ad hoc. Pour attribuer une importance, vous créez un classificateur de charge de travail et l’importance est assignée à une requête.  Les exemples ci-dessous utilisent la syntaxe de [création d’un classifieur de charge de travail](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour créer deux classifieurs. `Membername` peut être un utilisateur unique ou un groupe.  Pour rechercher des utilisateurs du pool SQL dédié existants, exécutez :
 
 ```sql
 Select name from sys.sysusers

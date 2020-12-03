@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Concepts
   items:
-    - name: Vue d’ensemble des laboratoires de salle de classe
+    - name: Vue d’ensemble des labos
       href: classroom-labs-overview.md
-    - name: Concepts des laboratoires de salle de classe
+    - name: Concepts des labos
       href: classroom-labs-concepts.md
-    - name: Bases de l’architecture des laboratoires de classe
+    - name: Bases de l’architecture des labos
       href: classroom-labs-fundamentals.md
     - name: Limites de capacité
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Utiliser Lab services pour un hackathon
           href: hackathon-labs.md
-        - name: Laboratoires de classe - Types de classe
+        - name: Labos - types de classe
           items:
             - name: Vue d’ensemble des types de classe
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Charger une image personnalisée sur Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Créer et configurer des laboratoires de classe (formateur)
+    - name: Créer et configurer des labos (formateur)
       items:
-        - name: Créer et gérer des laboratoires de classe
+        - name: Créer et gérer des labos
           href: how-to-manage-classroom-labs.md
         - name: Utiliser le tableau de bord
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Accéder aux machines virtuelles des étudiants depuis la vue du formateur
           href: instructor-access-virtual-machines.md
-    - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
+    - name: Se connecter à des machines virtuelles dans des labos (étudiant)
       items:
-        - name: Accéder aux laboratoires de salle de classe
+        - name: Accéder aux labos
           href: how-to-use-classroom-lab.md
         - name: Se connecter à des machines virtuelles Linux
           href: how-to-use-remote-desktop-linux-student.md

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784879"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461873"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database
 
@@ -45,7 +45,7 @@ Les principales instructions DDL sont disponibles, mais certaines présentent de
 Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans [Comparaison des fonctionnalités Azure SQL Database](features-comparison.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.
 
 - Classement des objets système
-- Relatif à la connexion : instructions relatives aux points de terminaison. SQL Database ne prend pas en charge l’authentification Windows, mais prend en charge l’authentification Azure Active Directory, qui est similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour plus d’informations, consultez [Connexion à SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide de l’authentification Azure Active Directory](authentication-aad-overview.md).
+- Relatif à la connexion : instructions relatives aux points de terminaison. SQL Database ne prend pas en charge l’authentification Windows, mais prend en charge l’authentification Azure Active Directory, qui est similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour plus d’informations, consultez [Connexion à SQL Database ou Azure Azure Synapse Analytics à l’aide de l’authentification Azure Active Directory](authentication-aad-overview.md).
 - Requêtes dans plusieurs bases de données à l’aide de noms à trois ou quatre parties. (Les requêtes sur plusieurs bases de données en lecture seule sont prises en charge à l’aide d’une [requête de base de données élastique](elastic-query-overview.md).)
 - Chaînage d’appartenance entre plusieurs bases de données, paramètre `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Utilisez « EXECUTE AS USER » à la place.
@@ -82,7 +82,7 @@ Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transac
 
 ### <a name="about-the-applies-to-tags"></a>À propos des balises « S’applique à »
 
-La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql) indique que l’instruction s’applique à **SQL Server (à partir de 2012)** . Cette instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Synapse Analytics (anciennement SQL Data Warehouse) ni Parallel Data Warehouse.
+La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql) indique que l’instruction s’applique à **SQL Server (à partir de 2012)** . Cette instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Synapse Analytics ni Parallel Data Warehouse.
 
 Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Cependant, l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
 
