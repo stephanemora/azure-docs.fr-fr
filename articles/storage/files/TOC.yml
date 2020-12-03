@@ -39,8 +39,6 @@
           href: storage-snapshots-files.md
         - name: Développement
           items:
-            - name: Gérer la concurrence
-              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Authentification par clé partagée
               href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
             - name: Signatures d’accès partagé (SAP)

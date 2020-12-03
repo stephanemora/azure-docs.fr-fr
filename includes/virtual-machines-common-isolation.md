@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410594"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477521"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client. Les tailles isolées vivent et fonctionnent sur une génération de matériel spécifique et seront déconseillées lors de sa mise hors service.
 
@@ -25,10 +25,13 @@ En outre, comme les machines virtuelles de taille isolée sont volumineuses, les
 Les offres actuelles de machines virtuelles isolées sont les suivantes :
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
+
 
 > [!NOTE]
 > Les tailles de machines virtuelles isolées ont une durée de vie matérielle limitée. Pour plus d’informations, voir ci-dessous.
@@ -47,22 +50,22 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>Q : La taille sera-t-elle mise hors service ou cela concerne-t-il seulement la fonctionnalité « isolation » ?
-**R**  : Si la taille de la machine virtuelle ne porte pas l’indice « i », seule la fonctionnalité « isolation » sera supprimée. Si l’isolation n’est pas nécessaire, aucune action n’est requise et la machine virtuelle continue de fonctionner comme prévu. Exemples : Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si la taille de la machine virtuelle comprend l’indice « i », la taille sera bientôt mise hors service.
+**R** : Si la taille de la machine virtuelle ne porte pas l’indice « i », seule la fonctionnalité « isolation » sera supprimée. Si l’isolation n’est pas nécessaire, aucune action n’est requise et la machine virtuelle continue de fonctionner comme prévu. Exemples : Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si la taille de la machine virtuelle comprend l’indice « i », la taille sera bientôt mise hors service.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q : Y a-t-il un temps d’arrêt lorsque ma machine virtuelle arrive sur un matériel non isolé ?
-**R**  : Si l’isolation n’est pas nécessaire, aucune action n’est requise et il n’y aura pas de temps d’arrêt.
+**R** : Si l’isolation n’est pas nécessaire, aucune action n’est requise et il n’y aura pas de temps d’arrêt.
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>Q : Existe-t-il un écart de coût pour le déplacement vers une machine virtuelle non isolée ?
-**R**  : Non
+**R** : Non
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>Q : Quand les autres tailles isolées vont-elles être mises hors service ?
-**R**  : Nous enverrons des rappels 12 mois avant la dépréciation officielle de la taille isolée.
+**R** : Nous enverrons des rappels 12 mois avant la dépréciation officielle de la taille isolée.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Q : Je suis un client Azure Service Fabric qui s’appuie sur les niveaux de durabilité Argent ou Or. Ce changement a-t-il un impact sur moi ?
-**R**  : Non. Les garanties fournies par les [niveaux de durabilité](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric continuent de fonctionner même après ce changement. Si vous avez besoin d’une isolation matérielle physique pour d’autres raisons, vous devrez peut-être effectuer l’une des actions décrites ci-dessus. 
+**R** : Non. Les garanties fournies par les [niveaux de durabilité](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric continuent de fonctionner même après ce changement. Si vous avez besoin d’une isolation matérielle physique pour d’autres raisons, vous devrez peut-être effectuer l’une des actions décrites ci-dessus. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>Q : Quelles sont les étapes majeures de la mise hors service de l’isolation D15_v2 ou DS15_v2 ? 
-**R**  : 
+**R** : 
  
 | Date | Action |
 |---|---| 

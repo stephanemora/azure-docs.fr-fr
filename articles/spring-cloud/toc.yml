@@ -25,10 +25,6 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutoriels
   items:
-    - name: Mettre à l’échelle une application manuellement
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Mettre à l’échelle automatiquement une application
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alertes et groupes d’actions
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Tableau de bord Disjoncteur
@@ -83,6 +79,12 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Utiliser le stockage persistant
           href: spring-cloud-howto-persistent-storage.md
+    - name: Scale
+      items:
+        - name: Mettre à l’échelle une application manuellement
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Mettre à l’échelle automatiquement une application
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identifier les adresses IP publiques sortantes
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Superviser
@@ -132,7 +134,19 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+- name: Déploiement DevOps
+  items:
+    - name: CI/CD avec Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD avec GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Authentification avec Key Vault dans GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Dépanner
+  items:
+    - name: Guide de résolution des problèmes
+      href: spring-cloud-troubleshoot.md
 - name: Informations de référence
   items:
     - name: Plug-in Azure CLI
