@@ -50,7 +50,7 @@
         - name: Engagement en tant que partenaire de co-vente
           href: marketplace-co-sell.md
         - name: Option Co-vente de l'Espace partenaires
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
         - name: Revendre via des partenaires CSP
           href: cloud-solution-providers.md
         - name: Guide d’intégration du programme Connect
@@ -382,9 +382,9 @@
     - name: Pays et régions pris en charge
       href: sell-from-countries.md
     - name: Codes pays/région de co-vente
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: Codes d'état de co-vente
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
     - name: Catégories et sous-catégories
       href: categories.md
     - name: Balises HTML prises en charge
