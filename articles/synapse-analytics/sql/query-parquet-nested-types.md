@@ -1,6 +1,6 @@
 ---
-title: Interroger des types imbriqués Parquet à l’aide d’un pool SQL serverless (préversion)
-description: Cet article vous explique comment interroger des types imbriqués Parquet à l’aide du pool SQL serverless (préversion).
+title: Interroger des types imbriqués Parquet à l’aide d’un pool SQL serverless
+description: Cet article vous explique comment interroger des types imbriqués Parquet à l’aide du pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462566"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
-Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics. La requête va lire des types imbriqués Parquet.
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless dans Azure Synapse Analytics. La requête va lire des types imbriqués Parquet.
 Les types imbriqués sont des structures complexes qui représentent des objets ou des tableaux. Les types imbriqués peuvent être stockés dans : 
 - [Parquet](query-parquet-files.md) où vous pouvez avoir plusieurs colonnes complexes qui contiennent des tableaux et des objets.
 - [Fichiers JSON](query-json-files.md) hiérarchiques où vous pouvez lire un document JSON complexe en tant que colonne unique.
