@@ -37,8 +37,10 @@
       href: workflow.md
     - name: Afficher les journaux d’audit
       href: audit-logs.md
-- name: References
+- name: Références
   items:
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'
     - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: REST
