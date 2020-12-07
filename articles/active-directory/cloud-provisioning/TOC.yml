@@ -52,6 +52,8 @@
       items:
         - name: Transformations
           href: how-to-transformation.md
+        - name: Synchronisation entrante avec l’API MS Graph
+          href: how-to-inbound-synch-ms-graph.md
         - name: API de synchronisation Azure AD
           href: /graph/api/resources/synchronization-overview
     - name: Dépanner

@@ -54,12 +54,18 @@
     - name: Lier votre ID de partenaire
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
+    - name: Mettre à jour une délégation
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
     - name: Supprimer l’accès à une délégation
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
     - name: Intégration d’Azure Arc
       displayName: 'server, kubernetes, hybrid, infrastructure'
       href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Intégration d’Azure Migrate
+      displayName: 'migration, project, on-prem'
+      href: ./how-to/migration-at-scale.md
     - name: Intégration d’Azure Monitor
       items:
         - name: Utiliser les journaux Azure Monitor à grande échelle

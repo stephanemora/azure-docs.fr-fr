@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: Configurer un cluster AKS
           href: cluster-configuration.md
+        - name: Configuration de nœuds personnalisés (préversion)
+          href: custom-node-configuration.md
         - name: Intégrer ACR à un cluster AKS
           href: cluster-container-registry-integration.md
         - name: Créer des nœuds virtuels

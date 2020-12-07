@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Joindre un réseau virtuel
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Traçabilité
+      items:
+        - name: Envoyer les données de traçabilité Data Factory à Azure Purview
+          href: turorial-push-lineage-to-purview.md
     - name: Laboratoires de bout en bout
       items:
         - name: Intégration de données avec la fabrique de données et le partage de données
@@ -688,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Créer une dépendance de déclencheur de fenêtre bascule
           href: tumbling-window-trigger-dependency.md
+    - name: Traçabilité
+      items:
+        - name: Connecter une fabrique de données à Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Scénarios
       items:
         - name: Migration des données pour Data Lake et EDW

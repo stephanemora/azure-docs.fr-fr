@@ -61,7 +61,7 @@
           href: load-balancer-insights.md
         - name: Mesures et diagnostics de l’équilibreur de charge standard
           href: load-balancer-standard-diagnostics.md
-        - name: Journaux Azure Monitor pour Basic Load Balancer
+        - name: Journaux Azure Monitor pour Load Balancer
           href: load-balancer-monitor-log.md
         - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
           href: load-balancer-query-metrics-rest-api.md

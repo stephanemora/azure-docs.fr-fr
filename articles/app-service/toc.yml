@@ -223,6 +223,8 @@
               href: configure-authentication-provider-twitter.md
             - name: S’authentifier auprès d’un fournisseur OpenID Connect (préversion)
               href: configure-authentication-provider-openid-connect.md
+            - name: S’authentifier en utilisant Se connecter avec Apple (préversion)
+              href: configure-authentication-provider-apple.md
         - name: Authentification avancée
           href: app-service-authentication-how-to.md
         - name: Restriction de l’accès
