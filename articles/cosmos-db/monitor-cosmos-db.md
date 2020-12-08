@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017795"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488780"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ Les métriques et les journaux que vous pouvez collecter sont décrits dans les 
 
 Azure Cosmos DB fournit une expérience personnalisée pour l’utilisation des métriques. Vous pouvez analyser les métriques d’Azure Cosmos DB avec les métriques d’autres services Azure à l’aide de Metrics Explorer en ouvrant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md). Vous pouvez également découvrir comment superviser la [latence côté serveur](monitor-server-side-latency.md), l’[utilisation des unités de requête](monitor-request-unit-usage.md) et l’[utilisation des unités de requêtes normalisées](monitor-normalized-request-units.md) pour vos ressources Azure Cosmos DB.
 
-Pour obtenir la liste des métriques de plateforme collectées pour Azure Cosmos DB, consultez l’article [Informations de référence sur la supervision des données Azure Cosmos DB - Métriques](monitor-cosmos-db-reference.md#metrics).
+Pour obtenir la liste des métriques de plateforme collectées pour Azure Cosmos DB, consultez l’article [Analyse des métriques de référence de données Cosmos DB](monitor-cosmos-db-reference.md#metrics).
 
 Toutes les métriques d’Azure Cosmos DB se trouvent dans l’espace de noms **Métriques standard Cosmos DB**. Vous pouvez utiliser les dimensions suivantes avec ces métriques lorsque vous ajoutez un filtre à un graphique :
 
@@ -93,7 +93,7 @@ Toutes les métriques d’Azure Cosmos DB se trouvent dans l’espace de noms **
 * Région
 * StatusCode
 
-Pour référence, vous pouvez voir une liste de [toutes les métriques de ressources prises en charge dans Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+Pour référence, vous pouvez voir une liste de [toutes les métriques de ressources prises en charge dans Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Afficher les métriques de niveau opération pour Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la di
 
 Les données des journaux Azure Monitor sont stockées dans des tables, chacune ayant son propre ensemble de propriétés uniques.
 
-Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). Pour obtenir la liste des types de journaux de ressources collectés pour Azure Cosmos DB, consultez l’article [Informations de référence sur la supervision des données Azure Cosmos DB](monitor-cosmos-db-reference.md#resource-logs)  
+Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Pour obtenir la liste des types de journaux de ressources collectés pour Azure Cosmos DB, consultez l’article [Analyse de la référence des données Azure Cosmos DB](monitor-cosmos-db-reference.md#resource-logs).
 
 Le [journal d’activité](/azure/azure-monitor/platform/activity-log) est un journal de plateforme dans Azure qui fournit des insights sur les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.  
 
@@ -172,7 +172,7 @@ Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Rec
 
 ## <a name="alerts"></a>Alertes
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](/azure/azure-monitor/platform/alerts-metric-overview), sur des [journaux](/azure/azure-monitor/platform/alerts-unified-log) et sur le [journal d’activité](/azure/azure-monitor/platform/activity-log-alerts). Les différents types d’alertes présentent des avantages et des inconvénients
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](../azure-monitor/platform/alerts-metric-overview.md), sur des [journaux](../azure-monitor/platform/alerts-unified-log.md) et sur le [journal d’activité](../azure-monitor/platform/activity-log-alerts.md). Les différents types d’alertes présentent des avantages et des inconvénients
 
 Par exemple, le tableau suivant récapitule quelques règles d’alerte pour vos ressources. Une liste détaillée des règles d’alerte est disponible dans le portail Azure. Pour en savoir plus, consultez l’article [Guide pratique pour configurer des alertes](create-alerts.md).  
 
