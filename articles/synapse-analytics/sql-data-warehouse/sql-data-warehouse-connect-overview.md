@@ -1,5 +1,5 @@
 ---
-title: Se connecter au pool SQL Synapse
+title: Se connecter à un pool SQL dans Azure Synapse
 description: Connectez-vous au pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,17 +10,17 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: 3483fa03e8c05101b88bde5c964b74b382d32a52
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016442"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462852"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Se connecter au pool SQL Synapse
+# <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Se connecter à un pool SQL dans Azure Synapse 
 
-Connectez-vous au pool SQL.
+Connectez-vous à un pool SQL dans Azure Synapse.
 
 ## <a name="find-your-server-name"></a>Recherche du nom de serveur
 
@@ -70,7 +70,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 Le pool SQL standardise certains paramètres pendant la connexion et la création d’objets. Ces paramètres, qui ne peuvent pas être remplacés, comprennent notamment :
 
-| Paramètre de base de données | Valeur |
+| Paramètre de pool SQL | Valeur |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ACTIVÉ |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ACTIVÉ |

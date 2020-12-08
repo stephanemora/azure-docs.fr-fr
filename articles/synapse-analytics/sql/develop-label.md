@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 59fa68d12f1d8be598810399fc5623c2af983979
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324462"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462246"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Utiliser des étiquettes de requête dans SQL Synapse
 
 Cet article contient des conseils essentiels pour l’utilisation d’étiquettes de requête dans SQL Synapse.
 
 > [!NOTE]
-> Le pool SQL serverless (préversion) ne prend pas en charge l’étiquetage des requêtes.
+> Le pool SQL serverless ne prend pas en charge l’étiquetage des requêtes.
 
 ## <a name="what-are-query-labels"></a>Ce que sont les étiquettes de requête
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462219"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 
@@ -48,7 +48,7 @@ Vous pouvez afficher un aperçu d’une partie des données à partir de la sour
 Le schéma des données d’entrée peut ne pas correspondre au schéma des données de sortie dans certains cas. Le cas échéant, vous devez mapper les colonnes du schéma source aux colonnes du schéma de destination.
 
 > [!TIP]
-> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure Synapse Analytics (anciennement SQL Data Warehouse), si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez [Déplacer des données vers et depuis Azure Synapse Analytics à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure Synapse Analytics, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez [Déplacer des données vers et depuis Azure Synapse Analytics à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Utilisez une liste déroulante pour sélectionner une colonne du schéma source à mapper à une colonne du schéma de destination. L’Assistant de copie essaie de comprendre votre modèle de mappage des colonnes. Le même modèle est appliqué aux autres colonnes, ce qui vous évite de sélectionner les colonnes individuellement pour effectuer le mappage du schéma. Si vous le souhaitez, vous pouvez remplacer ces mappages en utilisant les listes déroulantes pour mapper les colonnes une par une. Le modèle devient plus précis à mesure que vous mappez des colonnes. L’Assistant de copie met continuellement à jour le modèle pour finalement obtenir le modèle adapté au mappage de colonnes que vous voulez.     
 
@@ -94,7 +94,7 @@ Une opération de copie unique ne permet le déplacement des données à d’une
 Cette section présente des méthodes couramment employées pour résoudre les problèmes liés à l’Assistant de copie dans Azure Data Factory.
 
 > [!NOTE] 
-> Ces conseils de résolution des problèmes s’appliquent à l’Assistant de copie dans la version 1 de Data Factory. Pour Data Factory v2, consultez le guide de résolution des problèmes sur [Résoudre des problèmes dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+> Ces conseils de résolution des problèmes s’appliquent à l’Assistant de copie dans la version 1 de Data Factory. Pour Data Factory v2, consultez le guide de résolution des problèmes sur [Résoudre des problèmes dans Azure Data Factory](../data-factory-ux-troubleshoot-guide.md).
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Code d’erreur : Impossible de valider dans l’Assistant de copie
 

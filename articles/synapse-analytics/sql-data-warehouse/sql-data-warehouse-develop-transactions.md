@@ -1,5 +1,5 @@
 ---
-title: Transactions dans un pool SQL Synapse
+title: Utiliser des transactions dans un pool SQL Azure Synapse Analytics
 description: Cet article contient des conseils d’implémentation de transactions et de développement de solutions dans un pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213378"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463196"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Transactions dans un pool SQL Synapse
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Utiliser des transactions dans un pool SQL dans Azure Synapse 
 
 Cet article contient des conseils d’implémentation de transactions et de développement de solutions dans un pool SQL.
 
@@ -27,7 +28,7 @@ Comme vous le savez, le pool SQL prend en charge les transactions dans le cadre 
 
 ## <a name="transaction-isolation-levels"></a>Niveaux d’isolation des transactions
 
-Le pool SQL implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l'option de base de données READ_COMMITTED_SNAPSHOT pour une base de données utilisateur lorsqu'elle est connectée à la base de données MASTER.  
+Le pool SQL implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l’option de base de données READ_COMMITTED_SNAPSHOT pour un pool SQL utilisateur lorsqu’il est connecté à la base de données MASTER.  
 
 Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

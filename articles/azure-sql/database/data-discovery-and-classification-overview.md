@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672073"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462124"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -77,11 +77,13 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 
-1. Accédez à **Découverte et classification des données** (Data Discovery & Classification) sous l’en-tête Sécurité du volet Azure SQL Database. L’onglet Vue d’ensemble contient un résumé de l’état actuel de la classification de la base de données. Le résumé comprend une liste détaillée de toutes les colonnes classifiées, que vous pouvez également filtrer pour afficher uniquement des parties de schéma, des types d’informations et des étiquettes spécifiques. Si vous n’avez pas encore classifié de colonne, [passez à l’étape 4](#step-4).
+1. Accédez à **Découverte et classification des données** sous l’en-tête **Sécurité** du volet Azure SQL Database. L’onglet Vue d’ensemble contient un résumé de l’état actuel de la classification de la base de données. Le résumé comprend une liste détaillée de toutes les colonnes classifiées, que vous pouvez également filtrer pour afficher uniquement des parties de schéma, des types d’informations et des étiquettes spécifiques. Si vous n’avez pas encore classifié de colonne, [passez à l’étape 4](#step-4).
+
+    ![Vue d’ensemble](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Pour télécharger un rapport au format Excel, sélectionnez **Exporter** dans le menu supérieur du volet.
 
-1. <a id="step-4"></a>Pour commencer à classer vos données, sélectionnez l’onglet **Classification** de la page **Découverte et classification des données** .
+1. <a id="step-4"></a>Pour commencer à classer vos données, sélectionnez l’onglet **Classification** de la page **Découverte et classification des données**.
 
     Le moteur de classification analyse votre base de données à la recherche de colonnes contenant des données potentiellement sensibles, et il fournit une liste de classifications de colonnes recommandées.
 
@@ -91,7 +93,9 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
    - Pour accepter une recommandation associée à une colonne spécifique, sélectionnez la case dans la colonne de gauche de la ligne concernée. Pour marquer toutes les recommandations comme étant acceptées, activez la case à cocher la plus à gauche dans l’en-tête de table de recommandations.
 
-   - Pour appliquer les recommandations sélectionnées, sélectionnez **Accepter les recommandations sélectionnées** .
+   - Pour appliquer les recommandations sélectionnées, sélectionnez **Accepter les recommandations sélectionnées**.
+
+   ![Recommandations relatives à la classification](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. Vous pouvez aussi, en guise d’alternative, classifier manuellement des colonnes ou, en plus de la classification basée sur les recommandations :
 
@@ -101,7 +105,10 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
    1. Sélectionnez **Ajouter une classification** en bas de la fenêtre contextuelle.
 
-1. Pour terminer votre classification et étiqueter de manière permanente les colonnes de base de données avec les nouvelles métadonnées de classification, sélectionnez **Enregistrer** dans le menu en haut de la fenêtre.
+   ![Ajouter manuellement une classification](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Pour terminer votre classification et étiqueter de manière permanente les colonnes de base de données avec les nouvelles métadonnées de classification, sélectionnez **Enregistrer** dans la page **Classification**.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Audit de l’accès aux données sensibles
 
