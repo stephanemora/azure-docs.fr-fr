@@ -2,13 +2,13 @@
 title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809253"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497977"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -87,8 +87,6 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
    },
    ```
 
-* N’utilisez pas de paramètre pour la version d’API d’un type de ressource. Les propriétés de ressource et les valeurs peuvent varier selon le numéro de version. IntelliSense dans un éditeur de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre. Au lieu de cela, codez en dur la version de l’API dans le modèle.
-
 * Utilisez `allowedValues` avec parcimonie. Ne l’utilisez que lorsque vous devez vous assurer que certaines valeurs ne sont pas incluses dans les options autorisées. Si vous utilisez `allowedValues` trop abondamment, vous risquez de bloquer des déploiements valides en ne tenant pas votre liste à jour.
 
 * Quand un nom de paramètre dans votre modèle correspond à un paramètre dans la commande de déploiement PowerShell, Resource Manager résout ce conflit d’affectation de noms en ajoutant le suffixe **FromTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 * Utilisez des variables pour les valeurs que vous construisez à partir d’un arrangement complexe de fonctions de modèle. Votre modèle est plus facile à lire quand l’expression complexe apparaît uniquement dans des variables.
 
-* N’utilisez pas de variables pour `apiVersion` sur une ressource. La version d’API détermine le schéma de la ressource. Souvent, vous ne pouvez pas modifier la version sans modifier les propriétés de la ressource.
-
 * Vous ne pouvez pas utiliser la fonction [référence](template-functions-resource.md#reference) dans la section **variables** du modèle. La fonction **référence** dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction **référence** directement dans la section **ressources** ou **outputs** du modèle.
 
 * Ajoutez des variables pour les noms de ressource qui doivent être uniques.
@@ -155,6 +151,16 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 * Utilisez une [boucle de copie dans les variables](copy-variables.md) pour créer un modèle répété d’objets JSON.
 
 * Supprimez les variables inutilisées.
+
+## <a name="api-version"></a>Version de l'API
+
+Définissez la propriété `apiVersion` sur une version d’API codée en dur pour le type de ressource. Lorsque vous créez un nouveau modèle, nous vous recommandons d’utiliser la dernière version de l’API pour un type de ressource. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/).
+
+Lorsque votre modèle fonctionne comme prévu, nous vous recommandons de continuer à utiliser la même version d’API. En utilisant la même version d’API, vous n’avez pas à vous soucier des changements cassants qui peuvent être introduits dans les versions ultérieures.
+
+N’utilisez pas de paramètre pour la version d’API. Les propriétés de ressource et les valeurs peuvent varier selon la version de l’API. IntelliSense dans un éditeur de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre. Si vous transmettez une version d’API qui ne correspond pas aux propriétés de votre modèle, le déploiement échoue.
+
+N’utilisez pas de variables pour la version de l’API. En particulier, n’utilisez pas la [fonction des fournisseurs](template-functions-resource.md#providers) pour accéder dynamiquement aux versions d’API lors du déploiement. Il se peut que la version d’API récupérée dynamiquement ne corresponde pas aux propriétés de votre modèle.
 
 ## <a name="resource-dependencies"></a>Dépendances des ressources
 

@@ -1,20 +1,20 @@
 ---
 title: Structure et syntaxe des modèles
-description: Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
+description: Décrit la structure et les propriétés des modèles Azure Resource Manager (modèles ARM) à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/01/2020
+ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911496"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497875"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
 Cet article décrit la structure d’un modèle ARM (Azure Resource Manager). Il présente les différentes sections d''un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles ARM. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles ARM. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Format de modèle
 
@@ -137,7 +137,7 @@ Les propriétés disponibles pour un paramètre sont :
 | maxLength |Non |Valeur maximale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
 | description |Non |Description du paramètre qui apparaît aux utilisateurs dans le portail. Pour plus d’informations, consultez [Commentaires dans les modèles](#comments). |
 
-Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
+Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètres dans les modèles ARM](template-parameters.md).
 
 ## <a name="variables"></a>Variables
 
@@ -172,7 +172,7 @@ L’exemple suivant montre les options disponibles pour la définition d’une v
 
 Pour plus d’informations sur l’utilisation de `copy` pour créer plusieurs valeurs pour une variable, consultez [Itération de variable](copy-variables.md).
 
-Pour obtenir des exemples d’utilisation des variables, consultez [Variables dans un modèle Azure Resource Manager](template-variables.md).
+Pour obtenir des exemples d’utilisation des variables, consultez [Variables dans un modèle ARM](template-variables.md).
 
 ## <a name="functions"></a>Fonctions
 
@@ -217,7 +217,7 @@ La définition d’une fonction utilisateur est soumise à certaines restriction
 | output-type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée de la fonction. |
 | output-value |Oui |Expression du langage du modèle évaluée et retournée à partir de la fonction. |
 
-Pour obtenir des exemples d’utilisation des fonctions personnalisées, consultez [Fonctions définies par l’utilisateur dans un modèle Azure Resource Manager](template-user-defined-functions.md).
+Pour obtenir des exemples d’utilisation des fonctions personnalisées, consultez [Fonctions définies par l’utilisateur dans un modèle ARM](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Ressources
 
@@ -283,11 +283,11 @@ Vous définissez des ressources avec la structure suivante :
 |:--- |:--- |:--- |
 | condition | Non | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Voir [condition](conditional-resource-deployment.md). |
 | type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
-| apiVersion |Oui |La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
+| apiVersion |Oui |La version de l'API REST à utiliser pour la création de la ressource. Lorsque vous créez un nouveau modèle, définissez cette valeur sur la dernière version de la ressource que vous déployez. Tant que le modèle fonctionne en fonction des besoins, continuez à utiliser la même version d’API. En continuant à utiliser la même version d’API, vous réduisez le risque qu’une nouvelle version d’API modifie le fonctionnement de votre modèle. Envisagez de mettre à jour la version de l’API uniquement lorsque vous souhaitez utiliser une nouvelle fonctionnalité introduite dans une version ultérieure. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
 | name |Oui |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 | comments |Non |Vos commentaires pour documenter les ressources dans votre modèle. Pour plus d’informations, consultez [Commentaires dans les modèles](template-syntax.md#comments). |
 | location |Variable |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. Voir [Définir l’emplacement des ressources](resource-location.md). |
-| dependsOn |Non |Les ressources qui doivent être déployées avant le déploiement de cette ressource. Resource Manager évalue les dépendances entre les ressources et les déploie dans le bon ordre. Quand les ressources ne dépendent pas les unes des autres, elles sont déployées en parallèle. La valeur peut être une liste séparée par des virgules de noms de ressource ou d’identificateurs de ressource uniques. Répertoriez uniquement les ressources qui sont déployées dans ce modèle. Les ressources qui ne sont pas définies dans ce modèle doivent déjà exister. Évitez d’ajouter des dépendances inutiles, car cela risque de ralentir votre déploiement et de créer des dépendances circulaires. Pour savoir comment définir des dépendances, consultez [Définition de dépendances dans les modèles Azure Resource Manager](define-resource-dependency.md). |
+| dependsOn |Non |Les ressources qui doivent être déployées avant le déploiement de cette ressource. Resource Manager évalue les dépendances entre les ressources et les déploie dans le bon ordre. Quand les ressources ne dépendent pas les unes des autres, elles sont déployées en parallèle. La valeur peut être une liste séparée par des virgules de noms de ressource ou d’identificateurs de ressource uniques. Répertoriez uniquement les ressources qui sont déployées dans ce modèle. Les ressources qui ne sont pas définies dans ce modèle doivent déjà exister. Évitez d’ajouter des dépendances inutiles, car cela risque de ralentir votre déploiement et de créer des dépendances circulaires. Pour obtenir des conseils sur la définition des dépendances, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](define-resource-dependency.md). |
 | tags |Non |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
 | sku | Non | Certaines ressources autorisent les valeurs qui définissent la référence SKU à déployer. Par exemple, vous pouvez spécifier le type de redondance pour un compte de stockage. |
 | kind | Non | Certaines ressources autorisent une valeur qui définit le type de ressource que vous déployez. Par exemple, vous pouvez spécifier le type Cosmos DB à créer. |
@@ -322,9 +322,9 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 | condition |Non | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
 | type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stockez la clé secrète dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](key-vault-parameter.md). |
 | value |Non |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. Spécifiez **value** ou **copy**. |
-| copy |Non | Utilisé pour retourner plusieurs valeurs pour une sortie. Spécifiez **value** ou **copy**. Pour plus d’informations, voir [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md). |
+| copy |Non | Utilisé pour retourner plusieurs valeurs pour une sortie. Spécifiez **value** ou **copy**. Pour plus d’informations, voir [Itération de sorties dans des modèles ARM](copy-outputs.md). |
 
-Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans un modèle Azure Resource Manager](template-outputs.md).
+Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans un modèle ARM](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -351,7 +351,7 @@ Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cet
   ],
 ```
 
-Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) peut détecter automatiquement un modèle Resource Manager et modifier le mode de langage en conséquence. Si **Modèle Azure Resource Manager** s’affiche dans l’angle inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
+Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) peut détecter automatiquement un modèle ARM et modifier le mode de langage. Si **Modèle Azure Resource Manager** s’affiche dans l’angle inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
 
 ![Mode de modèle Azure Resource Manager Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -453,7 +453,7 @@ Pour déployer des modèles à plusieurs chaînes de ligne à l’aide d’Azure
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
-* Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
-* Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
-* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Forum aux questions sur les modèles ARM](frequently-asked-questions.md).
+* Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles ARM](template-functions.md).
+* Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés et imbriqués lors du déploiement de ressources Azure](linked-templates.md).
+* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](template-best-practices.md).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).
