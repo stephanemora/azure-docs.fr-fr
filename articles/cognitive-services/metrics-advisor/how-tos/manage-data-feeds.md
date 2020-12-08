@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043168"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184720"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procédure : Gérer vos flux de données
 
-Apprenez à gérer vos flux de données intégrés dans Metrics Advisor. Cet article vous explique comment gérer les flux de données dans Metrics Monitor.
+Apprenez à gérer vos flux de données intégrés dans Metrics Advisor. Cet article explique comment gérer les flux de données dans Metrics Advisor.
 
 ## <a name="edit-a-data-feed"></a>Modifier un flux de données
 
@@ -106,7 +106,7 @@ Les options sont :
 
 Les modèles de lien d’action permettent de prédéfinir des URL HTTP actionnables, qui se composent des espaces réservés `%datafeed`, `%metric`, `%timestamp`, `%detect_config`et `%tagset`. Vous pouvez utiliser le modèle pour rediriger une anomalie ou un incident vers une URL spécifique à des fins d’exploration au niveau du détail.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Renvoi d’un flux de données" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Modèle de lien d’action" lightbox="../media/action-link-template.png":::
 
 Une fois que vous avez renseigné le lien d’action, cliquez sur **Go to action link** (Accéder au lien d’action) sous l’option Action de la liste d’incidents et dans le menu contextuel de l’arborescence des incidents. Remplacez les espaces réservés du modèle de lien d’action par les valeurs correspondantes de l’anomalie ou de l’incident.
 

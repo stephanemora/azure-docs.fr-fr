@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b89d02107365872471f1dd5a7df07902b08f2031
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539008"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006902"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
@@ -27,12 +27,12 @@ Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans 
 
 Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à partir d'images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](concept-recognizing-text.md#read-api).
 
-## <a name="read-31-container"></a>Conteneur Read 3.1
+## <a name="read-32-preview-container"></a>Conteneur Read 3.2-preview
 
 > [!NOTE]
 > Le conteneur Read 3.0-preview est déconseillé. 
 
-Le conteneur Read 3.1-preview offre ce qui suit :
+Le conteneur Read 3.2-preview offre ce qui suit :
 * Nouveaux modèles pour une précision accrue.
 * Prise en charge de plusieurs langues dans le même document
 * Prise en charge des langues suivantes : néerlandais, anglais, français, allemand, italien, portugais et espagnol.
@@ -92,16 +92,16 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
 | Read 2.0 (préversion) | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Read 3.2-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
 ### <a name="docker-pull-for-the-read-container"></a>Commande docker pull du conteneur Lire
 
-# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
 ```
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
@@ -127,11 +127,11 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 [Exemples ](computer-vision-resource-container-config.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
-# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -169,9 +169,9 @@ D’autres [exemples](./computer-vision-resource-container-config.md#example-doc
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 
-Si vous avez besoin d’un débit plus élevé (par exemple, pour le traitement de fichiers multipages), vous pouvez envisagez de déployer plusieurs conteneurs [sur un cluster Kubernetes](deploy-computer-vision-on-premises.md) en utilisant [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) et [File d’attente Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Si vous avez besoin d’un débit plus élevé (par exemple, pour le traitement de fichiers multipages), vous pouvez envisagez de déployer plusieurs conteneurs [sur un cluster Kubernetes](deploy-computer-vision-on-premises.md) en utilisant [Stockage Azure](../../storage/common/storage-account-create.md) et [File d’attente Azure](../../storage/queues/storage-queues-introduction.md).
 
-Si vous vous servez du stockage Azure pour stocker des images à traiter, vous pouvez créer une [chaîne de connexion](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) à utiliser au moment de l’appel du conteneur.
+Si vous vous servez du stockage Azure pour stocker des images à traiter, vous pouvez créer une [chaîne de connexion](../../storage/common/storage-configure-connection-string.md) à utiliser au moment de l’appel du conteneur.
 
 Pour rechercher votre chaîne de connexion :
 
@@ -189,9 +189,9 @@ Pour rechercher votre chaîne de connexion :
 
 Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
 
-# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json`.
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
 
@@ -202,9 +202,9 @@ Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemi
 ### <a name="asynchronous-read"></a>Lecture asynchrone
 
 
-# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
-Vous pouvez utiliser conjointement les opérations `POST /vision/v3.1/read/analyze` et `GET /vision/v3.1/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
+Vous pouvez utiliser conjointement les opérations `POST /vision/v3.2/read/analyze` et `GET /vision/v3.2/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
 
 
 À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
@@ -216,7 +216,7 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 ```http
  content-length: 0
  date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -228,7 +228,7 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
   "createdDateTime": "2020-09-02T10:30:14Z",
   "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
   "analyzeResult": {
-    "version": "3.1.0",
+    "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
@@ -344,15 +344,15 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 ---
 
 > [!IMPORTANT]
-> Si vous déployez plusieurs conteneurs de lecture derrière un équilibreur de charge, par exemple, sous Docker Compose ou Kubernetes, vous devez disposer d’un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> Si vous déployez plusieurs conteneurs de lecture derrière un équilibreur de charge, par exemple, sous Docker Compose ou Kubernetes, vous devez disposer d’un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Lecture synchrone
 
 Vous pouvez utiliser l’opération suivante pour lire une image en mode synchrone. 
 
-# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
-`POST /vision/v3.1/read/syncAnalyze` 
+`POST /vision/v3.2/read/syncAnalyze` 
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143773"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327217"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Modération de vidéo avec l’outil de révision
 
@@ -26,7 +26,7 @@ Utilisez la [modération de vidéo](video-moderation-api.md) assistée par ordin
 Dans le tableau de bord, sélectionnez l’une des files d’attente de révision dans le type de contenu vidéo. Cette opération démarre une révision et ouvre la page de modération de contenu vidéo.
 
 > [!div class="mx-imgBorder"]
-> ![Vue détaillée de la modération de vidéo dans l’outil de révision](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![Sur Content Moderator (préversion), le curseur est en évidence et défini sur 4 révisions. Les commutateurs Flouter tout et Noir et blanc sont en évidence et tous deux définis.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Nombre d’examens
 
@@ -43,11 +43,11 @@ La vue **Tiled** affiche chaque vidéo sous la forme d’une vignette unique. S�
 
 ### <a name="content-obscuring-effects"></a>Effets de masquage du contenu
 
-Utilisez les boutons bascule **Blur all** et **Black and white** pour définir ces effets de masquage du contenu. Ils sont activés par défaut. Dans la vue **Tiled** , vous pouvez basculer les effets individuellement pour chaque vidéo.
+Utilisez les boutons bascule **Blur all** et **Black and white** pour définir ces effets de masquage du contenu. Ils sont activés par défaut. Dans la vue **Tiled**, vous pouvez basculer les effets individuellement pour chaque vidéo.
 
 ## <a name="check-video-details"></a>Vérifier les détails de la vidéo
 
-Dans la vue **Detail** , le volet droit contient plusieurs onglets qui fournissent des détails sur la vidéo.
+Dans la vue **Detail**, le volet droit contient plusieurs onglets qui fournissent des détails sur la vidéo.
 
 * Sélectionnez l’onglet **Notes** pour ajouter des notes personnalisées aux vidéos.
 * Sélectionnez l’onglet **Transcript** pour voir la transcription de la vidéo ; le service extrait automatiquement une transcription de toute parole dans la vidéo. Lorsque vous sélectionnez une section de texte, le lecteur vidéo passe directement à cette partie de la vidéo.
@@ -55,7 +55,7 @@ Dans la vue **Detail** , le volet droit contient plusieurs onglets qui fournisse
 * Sélectionnez l’onglet **History** pour afficher l’historique de la révision, par exemple sa date de création et la manière dont elle a été modifiée.
 
 > [!div class="mx-imgBorder"]
-> ![Bouton Bulk Tags de modération de vidéo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![Le volet droit est en évidence et l’onglet Notes est sélectionné. Une zone de test est étiquetée Add a note.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Appliquer des étiquettes de modération
 
@@ -66,7 +66,7 @@ La tâche principale d’une révision de vidéo consiste à appliquer ou à sup
 La barre d’outils **Bulk Tags** vous permet d’ajouter des étiquettes à plusieurs vidéos sélectionnées en même temps. Sélectionnez une ou plusieurs vidéos, sélectionnez les étiquettes que vous souhaitez appliquer, puis cliquez sur **submit**. 
 
 > [!div class="mx-imgBorder"]
-> ![Bouton Bulk Tags de modération de vidéo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![Le bouton + est en évidence dans le volet Bulk Tags.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Étiquetage d’image clé
@@ -74,10 +74,10 @@ La barre d’outils **Bulk Tags** vous permet d’ajouter des étiquettes à plu
 Vous pouvez également ajouter des étiquettes de modération à des images clés spécifiques. Sélectionnez les images dans le volet de vignettes d’images clés, puis sélectionnez **Keyframe tags +** pour appliquer les étiquettes souhaitées.
 
 > [!NOTE]
-> Si le service n’a pas pu extraire les images clés, le volet de vignettes d’images affiche **No frames available** , et l’option permettant de sélectionner les images clés est grisée. Dans ce cas, vous ne pouvez appliquer des étiquettes qu’à la vidéo dans son ensemble (à l’aide du bouton **Video tags +** ).
+> Si le service n’a pas pu extraire les images clés, le volet de vignettes d’images affiche **No frames available**, et l’option permettant de sélectionner les images clés est grisée. Dans ce cas, vous ne pouvez appliquer des étiquettes qu’à la vidéo dans son ensemble (à l’aide du bouton **Video tags +** ).
 
 > [!div class="mx-imgBorder"]
-> ![Vue détaillée de la modération de vidéo dans l’outil de révision](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![Les volets de vignette, de lecteur vidéo, d’étiquettes d’images clés et d’étiquettes vidéo sont tous affichés. Les boutons des étiquettes d’images clés et d’étiquettes vidéo sont en évidence.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Mettre une révision en attente
 
@@ -86,7 +86,7 @@ Le bouton **Hold** en bas du volet de vidéo vous permet de mettre en attente un
 Vous pouvez afficher les vidéos en attente en cliquant sur le bouton **Hold** en haut de l’écran. Le volet Hold est affiché à droite. À partir de là, vous pouvez sélectionner plusieurs révisions en attente et les replacer dans la file d’attente ou définir leur heure d’expiration. Passé le délai préconfiguré, les révisions en attente sont replacées dans la file d’attente. Sélectionnez **Save** pour commencer le compte à rebours à partir du délai d’expiration actuellement sélectionné.
 
 > [!div class="mx-imgBorder"]
-> ![Vue détaillée de la modération de vidéo dans l’outil de révision](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![Dans le volet vidéo, le bouton Hold est en évidence. En bas du volet, une zone de liste modifiable Hold Time est en évidence, ainsi que les boutons Release et Save.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Soumettre une révision
 
@@ -94,7 +94,7 @@ Une fois que vous avez appliqué vos étiquettes, sélectionnez le bouton **Subm
 
 ## <a name="limbo-state"></a>État Limbo
 
-Une fois que vous avez soumis une révision, la vidéo passe à l’état **Limbo** , que vous pouvez afficher en sélectionnant le bouton **Limbo** en haut de l’écran. Les vidéos restent à l’état Limbo pour une durée préconfigurée (que vous pouvez modifier dans le menu en bas) ou jusqu’à ce qu’elles soient révisées à nouveau ou envoyées manuellement.
+Une fois que vous avez soumis une révision, la vidéo passe à l’état **Limbo**, que vous pouvez afficher en sélectionnant le bouton **Limbo** en haut de l’écran. Les vidéos restent à l’état Limbo pour une durée préconfigurée (que vous pouvez modifier dans le menu en bas) ou jusqu’à ce qu’elles soient révisées à nouveau ou envoyées manuellement.
 
 Une fois que les vidéos expirent de l’état Limbo, leurs évaluations sont marquées comme achevées.
 

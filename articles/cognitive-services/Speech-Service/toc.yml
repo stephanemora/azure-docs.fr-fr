@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Utiliser l’API de transcription Batch
           href: batch-transcription.md
+        - name: Migrer de v2.0 vers v3.0
+          url: migrate-v2-to-v3.md
         - name: Évaluer la prononciation
           href: how-to-pronunciation-assessment.md
     - name: Tutoriels
@@ -140,7 +142,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Informations de référence
+    - name: Référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'

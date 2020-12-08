@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540966"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452971"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -99,7 +99,7 @@ Vous pouvez accéder aux détails de n’importe quel jumeau numérique en appel
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. Voici un exemple d’utilisation pour afficher les détails du jumeau :
+Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. `BasicDigitalTwin` est une classe d’assistance de sérialisation incluse avec le Kit de développement logiciel (SDK), qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Voici un exemple d’utilisation pour afficher les détails du jumeau :
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -176,21 +176,7 @@ Les propriétés définies du jumeau numérique sont retournées en tant que pro
     - État de synchronisation de chaque propriété accessible en écriture. Cela est très utile pour les appareils, où il est possible que le service et l’appareil aient des états différents (par exemple, lorsqu’un appareil est hors connexion). Actuellement, cette propriété s’applique uniquement aux appareils physiques connectés à IoT Hub. Avec les données dans la section des métadonnées, il est possible de comprendre l’état complet d’une propriété, ainsi que les horodatages des dernières modifications. Pour plus d’informations sur l’état de la synchronisation, consultez [ce tutoriel IoT Hub](../iot-hub/tutorial-device-twins.md) sur la synchronisation de l’état de l’appareil.
     - Les métadonnées spécifiques au service, par exemple à partir d’IoT Hub ou d’Azure Digital Twins. 
 
-Vous pouvez analyser le JSON retourné pour le jumeau à l’aide d’une bibliothèque d’analyse JSON de votre choix, par exemple `System.Text.Json`.
-
-Vous pouvez également utiliser la classe d’assistance de sérialisation `BasicDigitalTwin` qui est incluse avec le kit SDK, qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Voici un exemple :
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Pour plus d’informations sur les classes d’assistance de sérialisation, consultez [*Procédure : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md).
+Pour plus d’informations sur les classes d’assistance de sérialisation telles que `BasicDigitalTwin`, consultez [*Procédure : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893978"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172127"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -37,6 +37,7 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
  
   > [En savoir plus sur l’extraction de dispositions](concept-layout.md)
 
+- **Mise à jour de bibliothèque de client** : les [bibliothèques de client](quickstarts/client-library.md) pour .NET, Python, Java et JavaScript sont en disponibilité générale.
 - **Nouvelle langue prise en charge : japonais** : la nouvelle langue suivante est maintenant prise en charge pour `AnalyzeLayout` et `AnalyzeCustomForm` : japonais (`ja`). [Prise en charge linguistique](language-support.md)
 - **Indication du style de ligne de texte (écriture manuscrite/autre) (langues latines uniquement)**  : Form Recognizer génère désormais un objet `appearance` qui détermine si chaque ligne de texte relève d’un style manuscrit ou non, ainsi qu’un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 - **Améliorations apportées à la qualité** : l’extraction a été améliorée, notamment celle des chiffres uniques.
@@ -46,8 +47,8 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
   ![Exemple FOTT](./media/ui-preview.jpg)
   
-- **Boucle de commentaires** : quand vous analysez des fichiers par le biais de l’outil d’étiquetage des exemples, vous pouvez maintenant l’ajouter au jeu d’entraînement et ajuster les étiquettes au besoin pour entraîner le modèle afin de l’améliorer.
-- **Étiquetage automatique des documents** : étiquetez automatiquement d’autres documents en fonction des documents précédemment étiquetés dans le projet. 
+- **Boucle de commentaires** : quand vous analysez des fichiers par le biais de l’outil d’étiquetage des exemples, vous pouvez maintenant l’ajouter au jeu d’apprentissage et ajuster les étiquettes au besoin pour effectuer l’apprentissage du modèle afin d’améliorer celui-ci.
+- **Étiquetage automatique des documents** : étiquetez automatiquement d’autres documents en fonction de documents précédemment étiquetés dans le projet.
 
 ## <a name="august-2020"></a>Août 2020
 

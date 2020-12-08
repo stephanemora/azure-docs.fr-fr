@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143613"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325330"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
 
@@ -26,7 +26,7 @@ Content Moderator combine la modération assistée par ordinateur et les capacit
 Dans une révision, le contenu est chargé vers l’outil de révision. Vous pouvez l’afficher en cliquant sur son type de contenu sous l’onglet **Review** du tableau de bord. À partir de l’écran de révision, vous pouvez modifier les étiquettes appliquées et appliquer vos propres étiquettes personnalisées, le cas échéant. Lorsque vous soumettez une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié, et le contenu est retiré du site.
 
 > [!div class="mx-imgBorder"]
-> ![Site de l’outil de révision avec l’onglet Review sélectionné](./Review-Tool-user-Guide/images/review-tab.png)
+> ![Le menu déroulant Révision est en évidence. Il affiche les types de contenus suivants : image, texte et vidéo.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Gérer les révisions
 
@@ -40,7 +40,7 @@ Le bouton **Actions** à trois points sur chaque révision vous permet d’accé
 Utilisez la barre d’outils **Search** pour trier les révisions d’après diverses catégories, telles que l’état de la révision, les étiquettes, le type de contenu, les sous-équipes, les utilisateurs affectés et la date de création/modification.
 
 > [!div class="mx-imgBorder"]
-> ![Site de l’outil de révision avec l’onglet Review sélectionné](./Review-Tool-user-Guide/images/review-search.png)
+> ![La barre d’outils Rechercher s’affiche. Elle comporte différentes zones de liste modifiable pour l’entrée de critères de recherche, tels que l’état de révision et les balises.](./Review-Tool-user-Guide/images/review-search.png)
 
 Consultez le [guide de l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou le [guide de l’API REST](./try-review-api-review.md) pour apprendre à le faire par programmation.
 
@@ -50,12 +50,12 @@ Un flux de travail est un filtre personnalisé basé sur le cloud pour le conten
 
 ### <a name="view-workflows"></a>Afficher des flux de travail
 
-Pour afficher vos workflows existants, accédez à l’ [outil de révision](https://contentmoderator.cognitive.microsoft.com/) et sélectionnez **Admin** > **Workflows**.
+Pour afficher vos workflows existants, accédez à l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) et sélectionnez **Admin** > **Workflows**.
 
 > [!div class="mx-imgBorder"]
 > ![Flux de travail par défaut](images/default-workflow-list.png)
 
-Les workflows sont définis en tant que chaînes JSON, ce qui les rend accessibles par programmation. Si vous choisissez l’option **Modifier** pour votre flux de travail, puis choisissez sélectionnez l’onglet **JSON** , une expression JSON similaire à ce qui suit s’affiche :
+Les workflows sont définis en tant que chaînes JSON, ce qui les rend accessibles par programmation. Si vous choisissez l’option **Modifier** pour votre flux de travail, puis choisissez sélectionnez l’onglet **JSON**, une expression JSON similaire à ce qui suit s’affiche :
 
 ```json
 {

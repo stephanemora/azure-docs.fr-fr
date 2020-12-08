@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: local, Docker, conteneur
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460983"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001799"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Installer et exécuter des conteneurs Docker pour LUIS
 
@@ -281,7 +281,7 @@ Les paramètres de requête configurent ce qui est retourné dans la réponse de
 |`staging`|boolean|Retourne une requête à partir des résultats de l’environnement intermédiaire si la valeur est true. |
 |`log`|boolean|Enregistre les requêtes, qui peuvent être utilisées ultérieurement pour l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md). La valeur par défaut est true.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Interroger l’application LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Pour effectuer des requêtes dans l’environnement intermédiaire (**Staging**), remplacez `production` dans l’itinéraire par `staging` :
+Pour adresser des requêtes à l’environnement _ *Intermédiaire**, remplacez `production` dans l’itinéraire par `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 Le nom de version a un maximum de 10 caractères et contient uniquement des caractères autorisés dans une URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importer les journaux d’activité de point de terminaison pour l’apprentissage actif
 
@@ -346,11 +346,11 @@ L’emplacement suivant montre la structure de répertoires imbriqués pour les 
 /output/luis/{INSTANCE_ID}/
 ```
 
-À partir du portail LUIS, sélectionnez votre application, puis sélectionnez **Import endpoint logs** (Importer les journaux d’activité de point de terminaison) pour charger ces journaux d’activité.
+Dans le portail LUIS, sélectionnez votre application, puis _ *Importer les journaux de point de terminaison** pour charger ces journaux.
 
 ![Importer les fichiers journaux du conteneur pour l’apprentissage actif](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Une fois le journal chargé, [passez en revue les énoncés de point de terminaison](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) dans le portail LUIS.
+Une fois le journal chargé, [passez en revue les énoncés de point de terminaison](./luis-concept-review-endpoint-utterances.md) dans le portail LUIS.
 
 <!--  ## Validate container is running -->
 

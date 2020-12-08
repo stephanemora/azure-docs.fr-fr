@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment configurer et gérer les points de terminaison et les itinéraires d’événements pour les données d’Azure Digital Twins.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533750"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452909"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -90,18 +90,31 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
-Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, vous devez utiliser les [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison. 
-
-Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
-
-Pour en savoir plus sur les jetons SAS, consultez : [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](/azure/storage/common/storage-sas-overview)
-
 Pour en savoir plus sur la mise en file d’attente de lettres mortes, consultez [*Concepts : Routes d’événements*](concepts-route-events.md#dead-letter-events).
 
-#### <a name="configuring-the-endpoint"></a>Configuration du point de terminaison
+#### <a name="set-up-storage-resources"></a>Configurer des ressources de stockage
 
-Lorsque vous créez un point de terminaison, ajoutez un `deadLetterSecret` à l’objet `properties` dans le corps de la requête, qui contient une URL de conteneur et un jeton SAP pour votre compte de stockage.
+Avant de définir l’emplacement des messages non distribués, vous devez disposer d’un [compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal) avec un [conteneur](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurés dans votre compte Azure. Vous devrez fournir l’URL de ce conteneur au moment de créer le point de terminaison ultérieurement.
+Les messages non distribués sont fournis sous la forme d’une URL de conteneur avec un [jeton SAP](../storage/common/storage-sas-overview.md). Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
+Suivez les étapes ci-dessous pour configurer ces ressources de stockage dans votre compte Azure, afin de préparer la configuration de la connexion du point de terminaison dans la section suivante.
+
+1. Suivez les instructions de [cet article](../storage/common/storage-account-create.md?tabs=azure-portal) pour créer un compte de stockage et enregistrer le nom de celui-ci en vue d’une utilisation ultérieure.
+2. Créez un conteneur en suivant les instructions de [cet article](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) et enregistrez le nom du conteneur en vue d’une utilisation ultérieure lors de la configuration de la connexion entre le conteneur et le point de terminaison.
+3. Ensuite, créez un jeton SAP pour votre compte de stockage. Commencez par accéder à votre compte de stockage dans le [portail Azure](https://ms.portal.azure.com/#home) (vous pouvez le rechercher par son nom dans la barre de recherche du portail).
+4. Dans la page du compte de stockage, choisissez le lien _Signature d’accès partagé_ dans la barre de navigation de gauche afin de sélectionner les autorisations appropriées pour générer un jeton SAP.
+5. Pour _Services autorisés_ et _Types de ressources autorisés_, sélectionnez les paramètres de votre choix. Vous devez sélectionner au moins une case dans chaque catégorie. Pour Autorisations acceptées, choisissez **Écriture** (vous pouvez également sélectionner d’autres autorisations si vous le souhaitez).
+Définissez les paramètres restants à votre guise.
+6. Ensuite, sélectionnez le bouton _Générer la chaîne de connexion et SAP_ pour générer le jeton SAP. Cela a pour effet de générer plusieurs valeurs de chaîne de connexion et SAP au bas de la même page, sous les sélections de paramètres. Faites défiler l’écran pour afficher les valeurs et utilisez l’icône de copie dans le presse-papiers pour copier la valeur du **jeton SAP**. Enregistrez-la en vue d’une utilisation ultérieure.
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Page du compte de stockage dans le portail Azure, présentant toutes les sélections de paramètres pour générer un jeton SAP." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiez le jeton SAP à utiliser dans le secret des messages non distribués." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+
+#### <a name="configure-the-endpoint"></a>Configurer le point de terminaison
+
+Des points de terminaison de messages non distribués sont créés à l’aide d’API Azure Resource Manager. Lorsque vous créez un point de terminaison, utilisez la [documentation sur les API Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour définir les paramètres de demande requis. Ajoutez également le `deadLetterSecret` à l’objet propriétés dans le **corps** de la demande, qui contient une URL de conteneur et un jeton SAP pour votre compte de stockage.
+      
 ```json
 {
   "properties": {
@@ -113,8 +126,7 @@ Lorsque vous créez un point de terminaison, ajoutez un `deadLetterSecret` à l�
   }
 }
 ```
-
-Pour plus d’informations, consultez la documentation de l’API REST d’Azure Digital Twins : [Points de terminaison : DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Pour plus d’informations sur la structuration de cette demande, consultez la documentation sur l’API REST Azure Digital Twins : [Points de terminaison : DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schéma de stockage des messages
 
@@ -158,8 +170,8 @@ Les exemples fournis dans cet article utilisent le [Kit de développement logici
 
 **Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
->[!NOTE]
->Si vous avez récemment déployé vos points de terminaison, vérifiez que le déploiement est terminé **avant** de tenter de les utiliser pour un nouvel itinéraire d’événements. Si le déploiement de l’itinéraire échoue parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.
+> [!NOTE]
+> Si vous avez récemment déployé vos points de terminaison, vérifiez que le déploiement est terminé **avant** de tenter de les utiliser pour un nouvel itinéraire d’événements. Si le déploiement de l’itinéraire échoue parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.
 >
 > Si vous créez un script pour ce flux, vous pouvez prendre cela en compte en intégrant un temps d’attente de 2-3 minutes pour permettre au service de point de terminaison d’achever le déploiement avant de passer à la configuration de l’itinéraire.
 
@@ -181,7 +193,7 @@ Un itinéraire doit permettre la sélection de plusieurs notifications et types 
 ```csharp
 string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
 var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
-await CreateOrReplaceEventRouteAsync(client, "routeName", er);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
     
 > [!TIP]
@@ -229,7 +241,7 @@ Sans filtrage, les points de terminaison reçoivent un grand nombre d’événem
 
 Vous pouvez limiter les événements envoyés en ajoutant un **filtre** à un point de terminaison sur votre itinéraire d’événement.
 
-Pour ajouter un filtre, vous pouvez utiliser une demande PUT adressée à *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* avec le corps suivant :
+Pour ajouter un filtre, vous pouvez envoyer une demande PUT à *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* avec le corps suivant :
 
 ```json  
 {
@@ -237,7 +249,6 @@ Pour ajouter un filtre, vous pouvez utiliser une demande PUT adressée à *https
     "filter": "<filter-text>"
 }
 ``` 
-
 Voici les filtres d’itinéraire pris en charge. Utilisez les détails de la colonne *Filtrer le schéma du texte* pour remplacer l’espace réservé `<filter-text>` dans le corps de la requête ci-dessus.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
