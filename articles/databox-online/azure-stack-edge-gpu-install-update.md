@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/30/2020
 ms.author: alkohli
-ms.openlocfilehash: b0377d7b209da76b03a115dc82831eeb00e1ff95
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047078"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449021"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Mettre à jour votre GPU Azure Stack Edge Pro 
 
@@ -22,9 +22,9 @@ Cet article décrit les étapes à effectuer pour installer des mises à jour su
 La procédure décrite dans cet article a été effectuée à l’aide d’une version différente du logiciel, mais le processus reste le même pour la version actuelle du logiciel.
 
 > [!IMPORTANT]
-> - La mise à jour **2010** correspond à la version logicielle **2.1.1377.2170** de votre appareil. Pour plus d’informations sur cette mise à jour, consultez les [notes de publication](azure-stack-edge-gpu-2009-release-notes.md).
+> - La mise à jour **2011** est la mise à jour actuelle. <!--and corresponds to **2.1.1377.2170** software version on your device.--> Pour plus d’informations sur cette mise à jour, consultez les [notes de publication](azure-stack-edge-gpu-2011-release-notes.md).
 >
-> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour nécessite que vous appliquiez deux mises à jour séquentiellement. Tout d’abord, vous appliquez les mises à jour logicielles de l’appareil, puis celles de Kubernetes. Étant donné que l’appareil Azure Stack Edge Pro est un appareil mononœud, les E/S en cours sont interrompues et votre appareil subit un temps d’arrêt pouvant atteindre 30 minutes pour la mise à jour de son logiciel.
+> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour contient les mises à jour logicielles de l'appareil et celles de Kubernetes. Étant donné que l'appareil Azure Stack Edge Pro est un appareil à nœud unique, les E/S en cours sont interrompues et votre appareil subit un temps d'arrêt pouvant atteindre 30 minutes pour la mise à jour.
 
 Pour installer les mises à jour sur votre appareil, vous devez d’abord configurer l’emplacement du serveur de mise à jour. Une fois le serveur de mise à jour configuré, vous pouvez appliquer les mises à jour par le biais de l’interface utilisateur du portail Azure ou de l’interface utilisateur web locale.
 
@@ -44,7 +44,7 @@ Chacune de ces étapes est décrite dans les sections suivantes.
     
     Le serveur WSUS est utilisé pour gérer et distribuer les mises à jour par le biais d’une console de gestion. Un serveur WSUS peut également être la source de mises à jour d’autres serveurs WSUS de l’organisation. Le serveur WSUS qui agit en tant que source des mises à jour est appelé serveur en amont. Dans une implémentation WSUS, au moins un serveur WSUS de votre réseau doit se connecter à Microsoft Update pour obtenir les informations sur les mises à jour disponibles. En tant qu’administrateur, vous pouvez déterminer le nombre d’autres serveurs WSUS se connectant directement à Microsoft Update en fonction de la configuration et de la sécurité du réseau.
     
-    Pour plus d’informations, consultez [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
+    Pour plus d’informations, consultez [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
@@ -88,15 +88,15 @@ Nous vous recommandons d’installer les mises à jour par le biais du portail 
   
     ![Version logicielle après la mise à jour 8](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
-5. Un message de notification indique que l’installation est en cours.
+5. Un message de notification indique que l’installation est en cours. 
 
     ![Version logicielle après la mise à jour 9](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
-
+ 
     Le portail affiche également une alerte d’information pour indiquer que l’installation est en cours. L’appareil est mis hors connexion et est en mode maintenance.
-    
+   
     ![Version logicielle après la mise à jour 10](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
 
-6. Comme il s’agit d’un appareil à nœud unique, celui-ci redémarre après l’installation des mises à jour. L’alerte critique qui s’affiche pendant le redémarrage indique que la pulsation de l’appareil a été perdue.
+6. Comme il s'agit d'un appareil à nœud unique, il redémarre après l'installation des mises à jour. L'alerte critique qui s'affiche pendant le redémarrage indique que la pulsation de l'appareil a été perdue.
 
     ![Version logicielle après la mise à jour 11](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
 
@@ -117,27 +117,25 @@ Nous vous recommandons d’installer les mises à jour par le biais du portail 
 
     ![Version logicielle après la mise à jour 14](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
 
-9. Vous verrez à nouveau une notification indiquant que des mises à jour sont disponibles. Il s’agit des mises à jour Kubernetes. Vous pouvez sélectionner la notification ou cliquer sur **Mettre à jour l’appareil** dans la barre de commandes supérieure.
+<!--9. You will again see a notification that updates are available. These are the Kubernetes updates. Select the notification or select **Update device** from the top command bar.
 
-    ![Version logicielle après la mise à jour 15](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
+    ![Software version after update 15](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
 
-10. Téléchargez les mises à jour Kubernetes. Vous pouvez voir que la taille du package est différente par rapport au package de mise à jour précédent.
+10. Download the Kubernetes updates. You can see that the package size is different when compared to the previous update package.
 
-    ![Version logicielle après la mise à jour 16](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
+    ![Software version after update 16](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
-    Le processus d’installation est identique à celui des mises à jour de l’appareil. Tout d’abord, les mises à jour sont téléchargées.
+    The process of installation is identical to that of device updates. First the updates are downloaded.
 
-    ![Version logicielle après la mise à jour 17](./media/azure-stack-edge-gpu-install-update/portal-update-18.png)    
+    ![Software version after update 17](./media/azure-stack-edge-gpu-install-update/portal-update-18.png)    
     
-11. Une fois les mises à jour téléchargées, vous pouvez les installer. 
+11. Once the updates are downloaded, you can then install the updates. 
 
-    ![Version logicielle après la mise à jour 18](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
+    ![Software version after update 18](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
 
-    Pendant que les mises à jour sont installées, l’appareil est mis en mode maintenance. L’appareil ne redémarre pas pour les mises à jour Kubernetes. 
+    As the updates are installed, the device is put into maintenance mode. The device does not restart for the Kubernetes updates. -->
 
-    Une fois les mises à jour Kubernetes correctement installées, la notification de la bannière disparaît, car plus aucune autre mise à jour n’est nécessaire. Votre appareil dispose à présent de la dernière version du logiciel de l’appareil et de Kubernetes.
-
-    ![Version logicielle après la mise à jour 19](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
+Une fois le logiciel de l'appareil et les mises à jour de Kubernetes correctement installés, la notification de bannière disparaît. Votre appareil dispose à présent de la dernière version du logiciel de l’appareil et de Kubernetes.
 
 
 ## <a name="use-the-local-web-ui"></a>Utilisation de l’interface utilisateur web locale
@@ -163,7 +161,7 @@ Effectuez les étapes suivantes pour télécharger la mise à jour à partir du 
 
 2. Dans la zone de recherche du catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif ou des mots clés relatifs à la mise à jour que vous souhaitez télécharger. Par exemple, entrez **Azure Stack Edge Pro**, puis cliquez sur **Rechercher**.
    
-    La liste des mises à jour s’affiche en tant que : **Azure Stack Edge Update 2010**.
+    La liste des mises à jour se présente sous le nom **Azure Stack Edge Update 2011**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -198,7 +196,7 @@ Cette procédure prend environ 20 minutes. Effectuez les opérations suivantes 
 
 5. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il est redémarré. L’interface utilisateur locale n’est pas accessible pendant cet intervalle.
    
-6. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. Pour la version actuelle, a version logicielle affichée doit être **2.1.1377.2170**.
+6. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. Pour la version actuelle, la version logicielle affichée doit être **Azure Stack Edge 2011**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 

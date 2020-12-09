@@ -1,16 +1,16 @@
 ---
-title: Concepts de laboratoires de classe - Azure Lab Services | Microsoft Docs
+title: Concepts des labos – Azure Lab Services | Microsoft Docs
 description: Découvrez les concepts de base de Lab Services et comment cet outil facilite la création et la gestion des laboratoires.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435516"
 ---
-# <a name="classroom-labs-concepts"></a>Concepts des laboratoires de salle de classe
+# <a name="labs-concepts"></a>Concepts des labos
 
 La liste suivante présente les définitions et concepts principaux de Lab Services :
 
@@ -48,7 +48,7 @@ En règle générale, un administrateur informatique des ressources cloud de l�
 
 ### <a name="educator"></a>Formateur
 
-En général, les utilisateurs comme les enseignants ou les formateurs en ligne créent des laboratoires de salle de classe sous un compte de laboratoire. Un formateur effectue les tâches suivantes :
+En général, les utilisateurs de type enseignants ou formateurs en ligne créent des labos sous un compte de labo. Un formateur effectue les tâches suivantes :
 
 - Crée un laboratoire de salle de classe.
 - Crée les machines virtuelles dans le laboratoire.

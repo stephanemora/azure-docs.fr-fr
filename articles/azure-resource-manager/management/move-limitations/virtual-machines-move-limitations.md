@@ -2,13 +2,13 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317104"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456326"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -19,8 +19,8 @@ Cet article décrit les scénarios actuellement non pris en charge et les étape
 Les scénarios suivants ne sont pas encore pris en charge :
 
 * Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés.
-* Les machines virtuelles créées à partir de ressources Place de marché et auxquelles des plans sont associés ne peuvent pas être déplacées entre des abonnements. Annulez l'approvisionnement de la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
 * Les machines virtuelles d'un réseau virtuel existant ne peuvent pas être déplacées vers un nouvel abonnement si vous ne déplacez pas toutes les ressources dans le réseau virtuel.
+* Les machines virtuelles créées à partir de ressources Place de marché et auxquelles des plans sont associés ne peuvent pas être déplacées entre des abonnements. Pour obtenir une solution de contournement potentielle, consultez [Machines virtuelles associées aux plans de la Place de marché](#virtual-machines-with-marketplace-plans).
 * Les machines virtuelles et les groupes de machines virtuelles identiques basse priorité ne peuvent pas être déplacés entre des groupes de ressources ou abonnements.
 * Les machines virtuelles d’un groupe à haute disponibilité ne peuvent pas être déplacées individuellement.
 
@@ -36,6 +36,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
 
+## <a name="virtual-machines-with-marketplace-plans"></a>Machines virtuelles associées aux plans de la Place de marché
+
+Les machines virtuelles créées à partir de ressources Place de marché et auxquelles des plans sont associés ne peuvent pas être déplacées entre des abonnements. Pour contourner cette limitation, vous pouvez déprovisionner la machine virtuelle dans l’abonnement actuel afin de la redéployer dans le nouvel abonnement. Les étapes suivantes vous permettent de recréer la machine virtuelle dans le nouvel abonnement. Toutefois, il est possible qu’elles ne fonctionnent pas pour tous les scénarios. Si le plan n’est plus disponible dans la Place de marché, ces étapes ne fonctionnent pas.
+
+1. Copiez les informations relatives au plan.
+
+1. Clonez le disque du système d’exploitation vers l’abonnement de destination, ou déplacez le disque d’origine après avoir supprimé la machine virtuelle de l’abonnement source.
+
+1. Dans l’abonnement de destination, acceptez les conditions de la Place de marché pour votre plan. Vous pouvez accepter les conditions en exécutant la commande PowerShell suivante :
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Sinon, vous pouvez créer une instance de machine virtuelle basée sur le plan via le portail. Vous pouvez supprimer la machine virtuelle après avoir accepté les conditions du nouvel abonnement.
+
+1. Dans l’abonnement de destination, utilisez PowerShell, l’interface CLI ou un modèle Azure Resource Manager pour recréer la machine virtuelle à partir du disque de système d’exploitation cloné. Incluez le plan de la Place de marché attaché au disque. Les informations relatives au plan doivent correspondre au plan que vous avez acheté dans le nouvel abonnement.
+
 ## <a name="virtual-machines-with-azure-backup"></a>Machines virtuelles avec Sauvegarde Azure
 
 Pour déplacer des machines virtuelles configurées avec le service Sauvegarde Azure, vous devez supprimer les points de restauration du coffre.
@@ -44,7 +62,7 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 
 ### <a name="portal"></a>Portail
 
-1. Interrompez temporairement la sauvegarde et conservez les données de sauvegarde.
+1. Arrêtez temporairement la sauvegarde et conservez les données de sauvegarde.
 2. Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, effectuez les étapes suivantes :
 
    1. Recherchez l’emplacement de votre machine virtuelle.

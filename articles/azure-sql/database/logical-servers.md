@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782890"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445385"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Qu’est-ce qu’un serveur SQL logique dans Azure SQL Database et Azure Synapse ?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Dans Azure SQL Database et Azure Synapse Analytics, un serveur est une construct
 
 Ce serveur SQL Database est différent d’une instance que vous connaissez peut-être dans le monde local. Plus précisément, il n’existe aucune garantie concernant l’emplacement des bases de données ou de la base de données de l’entrepôt de données par rapport au serveur qui les gère. En outre, ni Azure SQL Database ni Azure Synapse n’expose des accès ou des fonctionnalités au niveau de l’instance. En revanche, les bases de données d’instance dans une instance gérée sont toutes physiquement colocalisées, de la même manière que SQL Server dans le monde des machines virtuelles ou local.
 
-Lorsque vous créez un serveur, vous fournissez un compte de connexion au serveur et un mot de passe disposant de droits d’administration pour la base de données MASTER sur ce serveur, ainsi que sur l’ensemble des bases de données qui y sont créées. Ce compte initial est un compte de connexion SQL. Azure SQL Database et Synapse Analytics prennent en charge l’authentification SQL et l’authentification Azure Active Directory pour l’authentification. Pour en savoir plus sur les connexions et l’authentification, consultez la page [Gestion des bases de données et des connexions dans Azure SQL Database](logins-create-manage.md). L’authentification Windows n’est pas prise en charge.
+Lorsque vous créez un serveur, vous fournissez un compte de connexion au serveur et un mot de passe disposant de droits d’administration pour la base de données MASTER sur ce serveur, ainsi que sur l’ensemble des bases de données qui y sont créées. Ce compte initial est un compte de connexion SQL. Azure SQL Database et Azure Synapse Analytics prennent en charge l’authentification SQL et l’authentification Azure Active Directory. Pour en savoir plus sur les connexions et l’authentification, consultez la page [Gestion des bases de données et des connexions dans Azure SQL Database](logins-create-manage.md). L’authentification Windows n’est pas prise en charge.
 
 Un serveur dans SQL Database et Azure Synapse :
 
@@ -68,7 +68,7 @@ Pour créer une instance gérée, consultez [Créer une instance gérée](../man
 
 ### <a name="manage-an-existing-server"></a>Gérer un serveur existant
 
-Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources** .
+Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL** page, puis cliquez sur la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 

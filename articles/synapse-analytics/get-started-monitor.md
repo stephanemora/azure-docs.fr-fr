@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444397"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Surveiller votre espace de travail Synapse
 
@@ -47,6 +47,9 @@ Ouvrez Synapse Studio et accédez au hub **Monitor**. À cet emplacement, vous p
 1. Sélectionnez un **pool** à surveiller. Vous pouvez maintenant voir toutes les requêtes SQL en cours d’exécution ou exécutées dans votre espace de travail dans ce pool.
 1. Recherchez une requête SQL spécifique et pointez la souris sur cet élément. Une icône de script SQL s’affiche.
 1. Cliquez sur l’icône de script SQL pour afficher le texte complet de la requête SQL.
+
+    > [!NOTE] 
+    > Les requêtes SQL soumises par le biais de Synapse Studio dans un pool SQL dédié (anciennement SQL DW) activé sur l’espace de travail peuvent être consultées dans le hub Monitor. Pour toutes les autres activités de supervision, vous pouvez accéder à la supervision des pools SQL dédiés (anciennement SQL DW) sur le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

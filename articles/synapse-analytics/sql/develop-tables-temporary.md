@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305035"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451775"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tables temporaires dans SQL Synapse
 
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session dans SQL Synapse. 
 
-Les ressources du pool SQL dédié et du pool SQL serverless (préversion) peuvent utiliser des tables temporaires. Les limitations liées au pool SQL serverless sont présentées à la fin de cet article. 
+Tant les ressources du pool SQL dédié que celles du pool SQL serverless peuvent utiliser des tables temporaires. Les limitations liées au pool SQL serverless sont présentées à la fin de cet article. 
 
 ## <a name="temporary-tables"></a>tables temporaires ;
 
@@ -226,7 +226,7 @@ Le pool SQL dédié présente plusieurs limitations d’implémentation pour les
 - Il n’est pas possible de créer des vues sur des tables temporaires.
 - Les tables temporaires peuvent être créées uniquement avec une distribution par hachage ou par tourniquet (round robin).  La distribution de tables temporaires répliquées n’est pas prise en charge. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tables temporaires dans un pool SQL serverless (préversion)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>Tables temporaires dans un pool SQL serverless
 
 Dans un pool SQL serverless, les tables temporaires sont prises en charge, mais leur utilisation est limitée. Elles ne peuvent pas être utilisées dans le cadre de requêtes ciblant des fichiers. 
 

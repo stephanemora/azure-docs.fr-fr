@@ -1,30 +1,30 @@
 ---
-title: Bonnes pratiques en matière de chargement de données pour le pool SQL Synapse
-description: Recommandations et optimisations des performances pour le chargement de données à l’aide du pool SQL Synapse.
+title: Meilleures pratiques en matière de chargement des données pour les pools SQL dédiés
+description: Recommandations et optimisation des performances pour le chargement de données à l’aide de pools SQL dédiés dans Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441219"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456307"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Bonnes pratiques en matière de chargement de données à l’aide du pool SQL Synapse
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Meilleures pratiques en matière de chargement de données à l’aide de pools SQL dédiés dans Azure Synapse Analytics
 
-Dans cet article, vous allez découvrir des recommandations et des optimisations des performances pour le chargement de données à l’aide du pool SQL.
+Dans cet article, vous allez découvrir des recommandations et des optimisations des performances pour le chargement de données à l’aide du pool SQL dédié.
 
 ## <a name="preparing-data-in-azure-storage"></a>Préparation des données dans Stockage Azure
 
-Pour réduire la latence, colocalisez votre couche de stockage et votre pool SQL.
+Pour réduire la latence, colocalisez votre couche de stockage et votre pool SQL dédié.
 
 Lorsque vous exportez des données dans un format de fichier ORC, vous pouvez obtenir des erreurs Java de mémoire insuffisante lorsqu’il existe des colonnes de texte de grande taille. Pour contourner cette limitation, exportez uniquement un sous-ensemble de ces colonnes.
 
@@ -34,7 +34,7 @@ Fractionnez les fichiers compressés volumineux en plusieurs petits fichiers com
 
 ## <a name="running-loads-with-enough-compute"></a>Exécution de charges avec suffisamment de ressources de calcul
 
-Pour une vitesse de chargement plus élevée, exécutez un seul travail de chargement à la fois. Si ce n’est pas possible, exécutez simultanément un nombre minimal de charges. Si vous prévoyez un travail de chargement volumineux, envisagez l’augmentation de l’échelle de votre pool SQL avant le chargement.
+Pour une vitesse de chargement plus élevée, exécutez un seul travail de chargement à la fois. Si ce n’est pas possible, exécutez simultanément un nombre minimal de charges. Si vous prévoyez un travail de chargement volumineux, envisagez d’effectuer un scale-up de votre pool SQL dédié avant le chargement.
 
 Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Classez chaque utilisateur de chargement sur un groupe de charge de travail spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement, puis exécutez la charge. La charge s’exécute avec le groupe de charge de travail de l’utilisateur.  
 
@@ -47,10 +47,10 @@ Cet exemple crée un utilisateur de chargement classé dans un groupe de charge 
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connectez-vous au pool SQL et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur appelé chargeur et donne aux utilisateurs les autorisations nécessaires pour créer des tables et charger à l’aide de l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Ensuite, il classe l’utilisateur dans le groupe de charge de travail DataLoads avec les ressources maximales. 
+Connectez-vous au pool SQL dédié et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur appelé chargeur et donne aux utilisateurs les autorisations nécessaires pour créer des tables et charger à l’aide de l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Ensuite, il classe l’utilisateur dans le groupe de charge de travail DataLoads avec les ressources maximales. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Pour exécuter une charge avec des ressources pour le groupe de charge de travai
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Autoriser le chargement par plusieurs utilisateurs (PolyBase)
 
-Il est souvent nécessaire que plusieurs utilisateurs chargent des données dans un pool SQL. Le chargement avec [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PolyBase] nécessite des autorisations CONTROL de la base de données.  L’autorisation CONTROL permet de contrôler l’accès à tous les schémas.
+Il est souvent nécessaire que plusieurs utilisateurs chargent des données dans un pool SQL dédié. Le chargement avec [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PolyBase] nécessite des autorisations CONTROL de la base de données.  L’autorisation CONTROL permet de contrôler l’accès à tous les schémas.
 
 Vous ne souhaiterez peut-être pas attribuer aux utilisateurs de chargement le contrôle d’accès sur tous les schémas. Pour limiter les autorisations, utilisez l’instruction DENY CONTROL.
 
@@ -91,9 +91,9 @@ User_A et user_B ne doivent maintenant plus avoir accès au schéma de l’autre
 
 ## <a name="loading-to-a-staging-table"></a>Chargement dans une table de mise en lots
 
-Pour atteindre la vitesse de chargement la plus élevée pour le déplacement des données dans une table du pool SQL, chargez les données dans une table de mise en lots.  Définissez la table de mise en lots comme segment de mémoire et utilisez le tourniquet (round-robin) pour l’option de distribution.
+Pour atteindre la vitesse de chargement la plus élevée pour le déplacement des données dans une table du pool SQL dédié, chargez les données dans une table de mise en lots.  Définissez la table de mise en lots comme segment de mémoire et utilisez le tourniquet (round-robin) pour l’option de distribution.
 
-Considérez que le chargement est généralement un processus en deux étapes, dans lequel vous effectuez tout d’abord le chargement dans une table de mise en lots puis insérez les données dans une table du pool SQL de production. Si la table de production utilise une distribution par hachage, la durée totale pour le chargement et l’insertion peut être plus rapide si vous définissez la table de mise en lots avec la distribution par hachage.
+Considérez que le chargement est généralement un processus en deux étapes, dans lequel vous effectuez tout d’abord le chargement dans une table de mise en lots puis insérez les données dans une table du pool SQL dédié de production. Si la table de production utilise une distribution par hachage, la durée totale pour le chargement et l’insertion peut être plus rapide si vous définissez la table de mise en lots avec la distribution par hachage.
 
 Le chargement dans la table de mise en lots prend plus de temps, mais la deuxième étape d’insertion des lignes dans la table de production n’entraîne pas de déplacement des données dans les distributions.
 
@@ -111,7 +111,7 @@ En cas de sollicitation de la mémoire, l’index columnstore peut ne pas être 
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Augmenter la taille de lot lors de l’utilisation de l’API SqLBulkCopy ou de bcp
 
-Le chargement avec l’instruction COPY fournit le débit le plus élevé avec le pool SQL. Si vous ne pouvez pas utiliser l’instruction COPY pour charger et que vous devez utiliser l’[API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), songez à augmenter la taille de lot pour bénéficier d’un meilleur débit.
+Le chargement avec l’instruction COPY fournit le débit le plus élevé avec les pools SQL dédiés. Si vous ne pouvez pas utiliser l’instruction COPY pour charger et que vous devez utiliser l’[API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), songez à augmenter la taille de lot pour bénéficier d’un meilleur débit.
 
 > [!TIP]
 > Une taille de lot comprise entre 100 000 et 1 million de lignes est la base de référence recommandée pour déterminer la capacité de taille de lot optimale.

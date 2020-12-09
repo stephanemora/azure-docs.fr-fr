@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459165"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
-Cet article décrit les modèles de consommation des ressources de Synapse SQL (préversion).
+Cet article décrit les modèles de consommation des ressources de Synapse SQL.
 
 ## <a name="serverless-sql-pool"></a>Pool SQL serverless
 
@@ -107,7 +107,7 @@ Les rôles intégrés Azure, comme Contributeur de base de données SQL et Contr
 Pour afficher le paramètre DWU actuel :
 
 1. Ouvrez l’Explorateur d’objets SQL Server dans Visual Studio.
-2. Connectez-vous à la base de données MASTER associée au serveur SQL logique.
+2. Connectez-vous à la base de données associée au serveur SQL logique.
 3. Sélectionnez dans la vue de gestion dynamique sys.database_service_objectives. Voici un exemple :
 
 ```sql
@@ -127,7 +127,7 @@ Pour modifier les DWU :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com), ouvrez votre base de données, puis sélectionnez **Mettre à l’échelle**.
 
-2. Sous **Mettre à l’échelle** , déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
+2. Sous **Mettre à l’échelle**, déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
 
 3. Sélectionnez **Enregistrer**. Un message de confirmation s’affiche. Sélectionnez **Oui** pour confirmer, ou **Non** pour annuler.
 

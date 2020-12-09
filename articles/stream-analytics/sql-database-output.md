@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129828"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459246"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Sortie dans Azure SQL Database d’Azure Stream Analytics
 
@@ -35,11 +35,11 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 |Hériter du schéma de partition| Option qui permet d’hériter du schéma de partition de l’étape de requête précédente afin d’obtenir une topologie entièrement parallèle avec plusieurs rédacteurs dans la table. Pour plus d'informations, consultez [Sortie d'Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Nombre maximal de lots| Limite supérieure recommandée pour le nombre d’enregistrements envoyés avec chaque transaction d’insertion en bloc.|
 
-Deux adaptateurs sont activés pour la sortie d'Azure Stream Analytics vers Azure Synapse Analytics (anciennement SQL Data Warehouse) : SQL Database et Azure Synapse. Nous vous recommandons d’opter pour l’adaptateur Azure Synapse Analytics plutôt que l’adaptateur SQL Database si l’une des conditions suivantes est remplie :
+Il existe deux adaptateurs qui permettent la sortie d’Azure Stream Analytics vers Azure Synapse Analytics : SQL Database et Azure Synapse. Nous vous recommandons d’opter pour l’adaptateur Azure Synapse Analytics plutôt que l’adaptateur SQL Database si l’une des conditions suivantes est remplie :
 
 * **Débit** : Si le débit attendu est supérieur à 10 Mo/s, utilisez l’option de sortie Azure Synapse pour obtenir de meilleures performances.
 
-* **Partitions d'entrée**  : Si vous disposez d'un minimum de huit partitions, utilisez l’option de sortie Azure Synapse pour améliorer la montée en charge.
+* **Partitions d'entrée** : Si vous disposez d'un minimum de huit partitions, utilisez l’option de sortie Azure Synapse pour améliorer la montée en charge.
 
 ## <a name="partitioning"></a>Partitionnement
 

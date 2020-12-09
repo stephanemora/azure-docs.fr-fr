@@ -1,5 +1,5 @@
 ---
-title: Terminologie - Azure Synapse Analytics (espaces de travail, préversion)
+title: Terminologie – Azure Synapse Analytics
 description: Guide de référence pour l’utilisateur d’Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,14 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7f0ca83c194aae6f4a8d04d70c2d4f3746ad2ca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446709"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologie Azure Synapse Analytics
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 Ce document présente les concepts de base d’Azure Synapse Analytics.
 
@@ -36,8 +34,7 @@ Un espace de travail peut contenir un nombre quelconque de **services liés**, e
 
 **Synapse SQL** permet d’effectuer des analyses basées sur T-SQL dans un espace de travail Synapse. Synapse SQL dispose de deux modèles de consommation : dédié et serverless.  Pour le modèle dédié, utilisez des **pools SQL** dédiés. Un espace de travail peut avoir un nombre quelconque de ces pools. Pour utiliser le modèle serverless, utilisez les **pools SQL serverless**. Chaque espace de travail possède un de ces pools.
 
-* **Demande SQL** – Opération telle qu’une requête exécutée par le biais d’un pool SQL dédié ou d’un pool SQL serverless.
-* **Script SQL** – Ensemble de commandes SQL enregistrées dans un fichier. Un script SQL peut contenir une ou plusieurs instructions SQL. Il peut être utilisé pour exécuter des requêtes SQL par le biais d’un pool SQL dédié ou d’un pool SQL serverless.
+À l’intérieur de Synapse Studio, vous pouvez travailler avec des pools SQL en créant et en exécutant des **scripts SQL**.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark pour Synapse
 
@@ -47,19 +44,13 @@ Il existe deux façons d’utiliser Spark dans Synapse :
 * **Notebooks Spark** pour l’ingénierie et la science des données avec Scala, PySpark, C# et SparkSQL
 * **Définitions de travaux Spark** pour l’exécution de travaux Spark par lots à l’aide de fichiers jar.
 
-Versions prises en charge :
-* Spark 2.4
-* Python 3.6.1+
-* Scala 2.11.12
-* .NET pour Apache Spark 1.0
-* Delta Lake 0.3  
-
 ## <a name="pipelines"></a>Pipelines
 
-* **Intégration de données** – Permet d’ingérer des données de diverses sources et d’orchestrer des activités exécutées dans un espace de travail ou hors d’un espace de travail.
-* **Flux de données** – Offre une expérience entièrement visuelle sans qu’aucun code ne soit nécessaire pour effectuer une transformation de données volumineuses. L’optimisation et l’exécution sont entièrement gérées de manière serverless.
+Les pipelines représente la manière dont Azure Synapse assure l’intégration de données, ce qui vous permet de déplacer des données entre les services et d’orchestrer des activités.
+
 * **Pipeline** – Regroupement logique d’activités qui effectuent une tâche ensemble.
-* **Activité** – Définit les actions à effectuer sur des données, telles que la copie de données ou l’exécution d’un notebook ou d’un script SQL.
+* **Activités** – Définition des actions à effectuer sur des données au sein d’un pipeline, telles que la copie de données, l’exécution d’un notebook ou d’un script SQL.
+* **Flux de données** – Type spécifique d’activité qui fournit une expérience sans code permettant d’effectuer une transformation de données qui utilise Synapse Spark en arrière-plan.
 * **Déclencheur** – Exécute un pipeline. Il peut être exécuté manuellement ou automatiquement (planification, fenêtre bascule ou événement).
 * **Jeu de données d’intégration** – Vue de données nommée qui pointe ou référence simplement les données à utiliser dans une activité en guise d’entrée et de sortie. Elle appartient à un service lié.
 

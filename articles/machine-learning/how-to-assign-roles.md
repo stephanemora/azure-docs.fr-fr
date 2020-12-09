@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012955"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458436"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à gérer l’accès (autorisation) à un
 >
 > * [Contrôler l’accès aux ressources de cluster Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Utiliser Azure RBAC pour l’autorisation Kubernetes](../aks/manage-azure-rbac.md)
-> * [Utiliser Azure RBAC pour accéder aux données de blob](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Utiliser Azure RBAC pour accéder aux données de blob](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > L’application de certains rôles peut limiter les fonctionnalités de l’interface utilisateur dans Azure Machine Learning Studio pour d’autres utilisateurs. Par exemple, si le rôle d’un utilisateur ne permet pas de créer une instance de calcul, l’option de création d’une instance de calcul n’est pas disponible dans Studio. Ce comportement est attendu et empêche l’utilisateur de tenter des opérations qui retourneraient une erreur d’accès refusé.
@@ -175,7 +175,7 @@ Le tableau suivant résume les activités Azure Machine Learning et les autorisa
 | Créer un cluster de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
 | Créer une instance de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
 | Envoi de tout type d’exécution | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publication d’un point de terminaison de pipeline | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publication de pipelines et de points de terminaison | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Déploiement d’un modèle inscrit sur une ressource AKS/ACI | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring par rapport à un point de terminaison AKS déployé | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (lorsque vous n’utilisez pas l’authentification Azure Active Directory) OU `"/workspaces/read"` (lorsque vous utilisez l’authentification par jeton) |
 | Accès au stockage à l’aide de notebooks interactifs | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |

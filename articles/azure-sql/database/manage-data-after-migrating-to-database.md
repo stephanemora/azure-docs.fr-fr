@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841221"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446126"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nouvel administrateur de base de données dans le cloud - Gérer Azure SQL Database après la migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,7 +106,7 @@ SQL Database propose deux méthodes d’authentification :
 
 L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (Azure AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. 
 
-Azure AD prend en charge [Azure AD Multi-Factor Authentication](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) de proposer une authentification multifacteur et des comptes d’utilisateur invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
+Azure AD prend en charge [Azure AD Multi-Factor Authentication](authentication-mfa-ssms-overview.md) et, en [quelques clics](../../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d'utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur donné. Cela permet également à SQL Database et Azure Synapse Analytics d'offrir une authentification multifacteur et des comptes d'utilisateurs invités dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
 |**Si vous…**|**SQL Database / Azure Synapse Analytics**|
 |---|---|

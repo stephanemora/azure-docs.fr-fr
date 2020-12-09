@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser OPENROWSET dans un pool SQL serverless (préversion)
-description: Cet article décrit la syntaxe d’OPENROWSET dans un pool SQL serverless (préversion) et explique comment utiliser des arguments.
+title: Guide pratique pour utiliser OPENROWSET dans le pool SQL serverless
+description: Cet article décrit la syntaxe d’OPENROWSET dans le pool SQL serverless et explique comment utiliser des arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446683"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
-La fonction `OPENROWSET(BULK...)` vous permet d’accéder à des fichiers dans Stockage Azure. La fonction `OPENROWSET` lit le contenu d’une source de données distante (par exemple, un fichier) et retourne le contenu sous la forme d’un ensemble de lignes. Dans la ressource de pool SQL serverless (préversion), le fournisseur d’ensembles de lignes en bloc OPENROWSET est accessible en appelant la fonction OPENROWSET et en spécifiant l’option BULK.  
+La fonction `OPENROWSET(BULK...)` vous permet d’accéder à des fichiers dans Stockage Azure. La fonction `OPENROWSET` lit le contenu d’une source de données distante (par exemple, un fichier) et retourne le contenu sous la forme d’un ensemble de lignes. Dans la ressource du pool SQL serverless, le fournisseur d’ensembles de lignes en bloc OPENROWSET est accessible en appelant la fonction OPENROWSET et en spécifiant l’option BULK.  
 
 Il est possible de référencer la fonction `OPENROWSET` dans la clause `FROM` d’une requête comme s’il s’agissait d’un nom de table `OPENROWSET`. Elle prend en charge les opérations en bloc par l’intermédiaire d’un fournisseur BULK intégré qui permet de lire les données d’un fichier et de les retourner sous la forme d’un ensemble de lignes.
 
@@ -147,7 +147,7 @@ Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://my
 
 La clause WITH vous permet de préciser les colonnes que vous souhaitez lire des fichiers.
 
-- Pour les fichiers de données CSV, si vous souhaitez lire toutes les colonnes, indiquez les noms des colonnes et leur type de données. Si vous désirez un sous-ensemble de colonnes, utilisez des nombres ordinaux pour sélectionner les colonnes des fichiers de données d’origine par ordinal. Les colonnes seront liées par la désignation ordinale. 
+- Pour les fichiers de données CSV, si vous souhaitez lire toutes les colonnes, indiquez les noms des colonnes et leur type de données. Si vous désirez un sous-ensemble de colonnes, utilisez des nombres ordinaux pour sélectionner les colonnes des fichiers de données d’origine par ordinal. Les colonnes seront liées par la désignation ordinale. Si HEADER_ROW = TRUE est utilisé, la liaison de colonne est effectuée par nom de colonne au lieu de la position ordinale.
     > [!TIP]
     > Vous pouvez aussi omettre la clause WITH pour les fichiers CSV. Les types de données sont inférés automatiquement du contenu du fichier. Vous pouvez utiliser l’argument HEADER_ROW pour spécifier l’existence d’une ligne d’en-tête, auquel cas les noms de colonnes seront lus à partir de cette ligne. Pour plus d’informations, consultez [Découverte automatique du schéma](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Caractéristiques la version 2.0 de l’analyseur CSV :
 
 HEADER_ROW = { TRUE | FALSE }
 
-Spécifie si le fichier CSV contient une ligne d’en-tête. La valeur par défaut est FALSE. Pris en charge dans PARSER_VERSION='2.0'. Si la valeur est TRUE, les noms de colonnes sont lus à partir de la première ligne en fonction de l’argument FIRSTROW.
+Spécifie si le fichier CSV contient une ligne d’en-tête. La valeur par défaut est FALSE. Pris en charge dans PARSER_VERSION='2.0'. Si la valeur est TRUE, les noms de colonnes sont lus à partir de la première ligne en fonction de l’argument FIRSTROW. Si la valeur est TRUE et que le schéma est spécifié à l’aide de WITH, la liaison des noms de colonnes s’effectue par nom de colonne, et non par positions ordinales.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 

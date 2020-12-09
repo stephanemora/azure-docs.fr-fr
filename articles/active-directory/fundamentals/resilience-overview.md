@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfd51b0ed43badbc6a4882f619cb718952b0e85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 39021fecb79f6b8e7536daad592378ed998760a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918980"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454339"
 ---
 # <a name="building-resilience-into-identity-and-access-management-with-azure-active-directory"></a>Intégration de la résilience à la gestion des identités et des accès avec Azure Active Directory
 
@@ -46,6 +46,6 @@ Pour renforcer la résilience dans vos systèmes, consultez les articles suivant
 
 * [Intégration de la résilience dans une infrastructure IAM](resilience-in-infrastructure.md)
 
-* [Intégration de la résilience IAM dans des applications](resilience-app-development-overview.md)
+* [Renforcer la résilience de l’IAM dans vos applications](resilience-app-development-overview.md)
 
-* [Intégration de la résilience dans des systèmes CIAM](resilience-b2c.md)
+* [Renforcer la résilience de vos systèmes de gestion des accès et des identités clients](resilience-b2c.md)

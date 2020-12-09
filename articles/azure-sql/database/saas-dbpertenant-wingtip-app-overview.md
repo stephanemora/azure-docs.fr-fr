@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780459"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447085"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Lorsque vous suivez les didacticiels et utilisez l’application, concentrez-vou
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Didacticiels de l’application SaaS Wingtip de SQL Database
 
-Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces tutoriels explorent des modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, d'Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) et d'autres services Azure. Les didacticiels incluent des scripts PowerShell avec des explications détaillées. Les explications simplifient la compréhension et l’implémentation des modèles de gestion SaaS dans vos applications.
+Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces tutoriels explorent les modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, d’Azure Synapse Analytics et d’autres services Azure. Les didacticiels incluent des scripts PowerShell avec des explications détaillées. Les explications simplifient la compréhension et l’implémentation des modèles de gestion SaaS dans vos applications.
 
 
 | Didacticiel | Description |

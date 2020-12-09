@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685781"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451696"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Schémas définis par l’utilisateur dans SQL Synapse
 
@@ -27,7 +27,7 @@ L’architecture analytique traditionnelle utilise souvent des bases de données
 Au lieu de cela, SQL Synapse exécute l’intégralité de la charge de travail analytique dans une base de données. Les jointures entre plusieurs bases de données ne sont pas autorisées. SQL Synapse s’attend à ce que l’ensemble des tables utilisées par l’entrepôt soient stockées au sein d’une seule et même base de données.
 
 > [!NOTE]
-> Les pools SQL dédiés ne prennent pas en charge les requêtes sur plusieurs bases de données, de quelque nature que ce soit. Par conséquent, les implémentations d’analytique tirant parti de ce modèle devront être modifiées. Le pool SQL serverless (préversion) prend en charge les requêtes sur plusieurs bases de données.
+> Les pools SQL dédiés ne prennent pas en charge les requêtes sur plusieurs bases de données, de quelque nature que ce soit. Par conséquent, les implémentations d’analytique tirant parti de ce modèle devront être modifiées. Le pool SQL serverless prend en charge les requêtes sur plusieurs bases de données.
 
 ## <a name="user-defined-schema-recommendations"></a>Recommandations relatives au schéma défini par l’utilisateur
 

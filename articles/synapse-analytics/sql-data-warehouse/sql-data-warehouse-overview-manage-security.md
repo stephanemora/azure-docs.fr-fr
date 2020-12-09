@@ -1,6 +1,6 @@
 ---
-title: Sécuriser une base de données
-description: Conseils pour sécuriser un pool SQL dédié et développer des solutions dans Azure Synapse Analytics.
+title: Sécuriser un pool SQL dédié (anciennement SQL DW)
+description: Conseils pour sécuriser un pool SQL dédié (anciennement SQL DW) et développer des solutions dans Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317708"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453643"
 ---
-# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Sécurisation d’un pool SQL dédié dans Azure Synapse Analytics
+# <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Sécuriser un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "93317708"
 > * [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
 > * [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Cet article présente les bases de la sécurisation d’un pool SQL dédié. Plus précisément, il offre un aperçu des ressources permettant de limiter l’accès, de protéger les données et de superviser les activités à l’aide d’un pool SQL dédié.
+Cet article présente les bases de la sécurisation de votre pool SQL dédié (anciennement SQL DW). Plus précisément, il offre un aperçu des ressources permettant de limiter l’accès, de protéger les données et de superviser les activités à l’aide d’un pool SQL dédié (anciennement SQL DW).
 
 ## <a name="connection-security"></a>Sécurité de la connexion
 
@@ -35,15 +35,15 @@ L’expression « sécurité de la connexion » fait référence au mode de re
 
 Le [serveur SQL logique](../../azure-sql/database/logical-servers.md) et ses bases de données utilisent des règles de pare-feu pour rejeter les tentatives de connexion provenant d'adresses IP qui n'ont pas été explicitement approuvées. Pour autoriser les connexions à partir de l’adresse IP publique de l’ordinateur client ou de votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, de l’API REST ou de PowerShell.
 
-Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d'adresses IP autorisées à traverser le pare-feu au niveau de votre serveur.  Pour accéder à votre pool SQL dédié sur votre ordinateur local, vérifiez que le pare-feu présent sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.  
+Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d'adresses IP autorisées à traverser le pare-feu au niveau de votre serveur.  Pour accéder à votre pool SQL dédié (anciennement SQL DW) à partir de votre ordinateur local, vérifiez que le pare-feu présent sur votre réseau et sur l’ordinateur local autorise les communications sortantes sur le port TCP 1433.  
 
-Azure Synapse Analytics utilise des règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données. Pour plus d’information, voir [Règles de pare-feu Azure SQL Database](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Le pool SQL dédié (anciennement SQL DW) utilise des règles de pare-feu IP au niveau du serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données. Pour plus d’information, voir [Règles de pare-feu Azure SQL Database](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Par défaut, les connexions à votre pool SQL dédié sont chiffrées.  La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
+Par défaut, les connexions à votre pool SQL dédié (anciennement SQL DW) sont chiffrées.  La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
 
 ## <a name="authentication"></a>Authentification
 
-Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Le pool SQL dédié prend actuellement en charge l’authentification SQL Server avec un nom d’utilisateur et un mot de passe, et avec Azure Active Directory.
+Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Le pool SQL dédié (anciennement SQL DW) prend actuellement en charge l’authentification SQL Server avec un nom d’utilisateur et un mot de passe, et avec Azure Active Directory.
 
 Lorsque vous avez créé le serveur de votre base de données, vous avez spécifié un compte de connexion « Admin serveur » associé à un nom d'utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo » via l’authentification SQL Server.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Ensuite, connectez-vous à la **base de données de votre pool SQL dédié** avec vos informations de connexion d’administrateur du serveur, puis créez un utilisateur de base de données basé sur l’identifiant de connexion au serveur que vous avez créé.
+Ensuite, connectez-vous à votre **pool SQL dédié (anciennement SQL DW)** avec vos informations de connexion d’administrateur de serveur, puis créez un utilisateur de base de données basé sur le compte de connexion au serveur que vous avez créé.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Vous pouvez chiffrer votre base de données à l’aide du [Portail Azure](sql-d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations et des exemples de connexion à l’entrepôt avec différents protocoles, consultez [Connexion au pool SQL dédié](../sql/connect-overview.md).
+Pour obtenir des informations et des exemples de connexion à votre entrepôt avec différents protocoles, consultez [Se connecter à un pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-connect-overview.md).

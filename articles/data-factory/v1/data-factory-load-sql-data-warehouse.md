@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321101"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457101"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Data Factory
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Copier des données depuis/vers Azure Synapse Analytics (anciennement appelé SQL Data Warehouse) à l’aide de Data Factory](../connector-azure-sql-data-warehouse.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Copier des données depuis/vers Azure Synapse Analytics à l’aide de Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) est une base de données de mise à l’échelle basée sur le cloud qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles.  S’appuyant sur une architecture MPP (massively parallel processing), Azure Synapse Analytics est optimisé pour les charges de travail d’entrepôt de données d’entreprise.  Elle offre l’élasticité du cloud avec la flexibilité de mettre à l’échelle le stockage et d’exécuter le calcul indépendamment.
 
 Commencer à utiliser Azure Synapse Analytics n’a jamais été aussi facile avec **Azure Data Factory**.  Azure Data Factory est un service d’intégration de données cloud complètement managé, qui peut être utilisé pour remplir une base de données Azure Synapse Analytics avec les données de votre système existant. Cela vous permet de gagner un temps précieux lors de l’évaluation d’Azure Synapse Analytics et la création de vos solutions d’analytique. Voici les principaux avantages liés au chargement de données dans Azure Synapse Analytics à l’aide d’Azure Data Factory :
 
-* **Facilité de configuration**  : assistant intuitif en 5 étapes sans script nécessaire.
+* **Facilité de configuration** : assistant intuitif en 5 étapes sans script nécessaire.
 * **Prise en charge étendue du magasin de données** : prise en charge intégrée d’un ensemble complet de magasins de données locaux et sur le cloud.
 * **Sécurité et conformité** : les données sont transférées via HTTPS ou ExpressRoute et la présence globale du service garantit que vos données ne quittent jamais les limites géographiques
-* **Performances sans précédent à l’aide de PolyBase**  : l’utilisation de PolyBase est le moyen le plus efficace de déplacer des données dans Azure Synapse Analytics. À l’aide de la fonction blob intermédiaire, vous pouvez obtenir des vitesses de charge élevées pour tous les types de magasins de données en plus du Stockage Blob Azure, pris en charge par Polybase par défaut.
+* **Performances sans précédent à l’aide de PolyBase** : l’utilisation de PolyBase est le moyen le plus efficace de déplacer des données dans Azure Synapse Analytics. À l’aide de la fonction blob intermédiaire, vous pouvez obtenir des vitesses de charge élevées pour tous les types de magasins de données en plus du Stockage Blob Azure, pris en charge par Polybase par défaut.
 
 Cet article vous montre comment utiliser l’Assistant Copie de Data Factory pour charger 1 To de données depuis le Stockage Blob Azure dans Azure Synapse Analytics en moins de 15 minutes, à un débit de 1,2 Go/s minimum.
 
@@ -112,7 +112,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 
 ## <a name="launch-copy-wizard"></a>Lancer l’Assistant Copie
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Intelligence + analyse** , puis sur **Data Factory**.
+2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Intelligence + analyse**, puis sur **Data Factory**.
 3. Dans le volet **Nouvelle fabrique de données** :
 
    1. Entrez **LoadIntoSQLDWDataFactory** pour le **nom**.
@@ -127,10 +127,10 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 4. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :
 
    ![Page d’accueil Data Factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’ **Assistant de copie**.
+5. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**.
 
    > [!NOTE]
-   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com** , puis essayez de relancer l’Assistant.
+   > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Block third party cookies and site data** (Bloquer les cookies et les données de site tiers) (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis essayez de relancer l’Assistant.
    >
    >
 
@@ -160,7 +160,7 @@ Cette section décrit les étapes pour configurer la source : Azure Blob conten
 
     ![Assistant Copie - Sélectionner le dossier d’entrée](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Lorsque vous cliquez sur **Suivant** , les paramètres de format de fichier sont détectés automatiquement.  Vérifiez que le délimiteur de colonne est défini sur « | » et non sur la virgule « , » par défaut.  Cliquez sur **Suivant** une fois que vous avez affiché un aperçu des données.
+4. Lorsque vous cliquez sur **Suivant**, les paramètres de format de fichier sont détectés automatiquement.  Vérifiez que le délimiteur de colonne est défini sur « | » et non sur la virgule « , » par défaut.  Cliquez sur **Suivant** une fois que vous avez affiché un aperçu des données.
 
     ![Assistant Copie - Paramètres de format de fichier](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 

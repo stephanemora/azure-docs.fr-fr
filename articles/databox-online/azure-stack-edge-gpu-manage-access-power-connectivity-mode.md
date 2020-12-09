@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532441"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448581"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gérer l’accès, la puissance et le mode de connectivité de votre GPU Azure Stack Edge Pro
 
 Cet article explique comment gérer l’accès, la puissance et le mode de connectivité de l’appareil avec GPU Azure Stack Edge Pro. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
+
+Cet article s'applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
+
 
 Dans cet article, vous apprendrez comment :
 
@@ -31,6 +34,8 @@ Dans cet article, vous apprendrez comment :
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 
 L’accès à votre appareil Azure Stack Edge Pro est contrôlé par l’utilisation d’un mot de passe d’appareil. Vous pouvez changer ce mot de passe à l’aide de l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le portail Azure.
+
+L'accès aux données figurant sur les disques de l'appareil est également contrôlé par des clés de chiffrement au repos.
 
 ### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
@@ -54,6 +59,40 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 
 2. Entrez le nouveau mot de passe, puis confirmez-le. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Sélectionnez **Réinitialiser**.
 
+    ![Réinitialiser le mot de passe 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Gérer l'accès aux données des appareils
+
+L'accès aux données des appareils Azure Stack Edge Pro R et Azure Stack Edge Mini R est contrôlé à l'aide de clés de chiffrement au repos pour les lecteurs. Une fois que vous avez correctement configuré l'appareil pour le chiffrement au repos, l'option de rotation des clés de chiffrement au repos devient disponible dans l'interface utilisateur locale de l'appareil. 
+
+Cette opération vous permet de modifier les clés des volumes BitLocker `HcsData` et `HcsInternal` et de tous les lecteurs à chiffrement automatique de votre appareil.
+
+Procédez comme suit pour effectuer une rotation des clés de chiffrement au repos.
+
+1. Dans l'interface utilisateur locale de l'appareil, accédez à la page **Démarrage**. Sur la vignette **Sécurité**, sélectionnez **Chiffrement au repos : Rotation des clés**. Cette option n'est disponible qu'après avoir correctement configuré les clés de chiffrement au repos.
+
+    ![Sur la page Démarrage, sélectionnez Rotation des clés pour le chiffrement au repos.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. Vous pouvez utiliser vos propres clés BitLocker ou utiliser les clés générées par le système.  
+
+    Pour fournir votre propre clé, entrez une chaîne codée en base 64 de 32 caractères. L'entrée est semblable à celle que vous pourriez fournir lors de la toute première configuration du chiffrement au repos.
+
+    ![Fournir votre propre clé de chiffrement au repos](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    Vous pouvez également choisir d'utiliser une clé générée par le système.
+
+    ![Utiliser la clé de chiffrement au repos générée par le système](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Sélectionnez **Appliquer**. Les protecteurs de clés font l'objet d'une rotation.
+
+    ![Appliquer la nouvelle clé de chiffrement au repos](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Lorsque vous êtes invité à télécharger et à enregistrer le fichier de clé, sélectionnez **Télécharger et continuer**. 
+
+    ![Télécharger le fichier de clé et continuer](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Enregistrez le fichier de clé `.json` à un emplacement sécurisé. Ce fichier est destiné à faciliter une éventuelle récupération future de l'appareil.
+
     ![Capture d’écran montrant la boîte de dialogue Réinitialisation du mot de passe de l’appareil.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
@@ -69,7 +108,7 @@ Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge P
 
 Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Azure Stack Edge Pro, la création d’un utilisateur, la configuration d’un rôle de calcul Edge et la réinitialisation du mot de passe de l’appareil sont toutes vouées à l’échec.
 
-Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
 

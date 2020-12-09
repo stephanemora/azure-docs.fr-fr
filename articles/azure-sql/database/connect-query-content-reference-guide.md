@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451389"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articles sur la connexion et l’interrogation dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ Le document suivant contient des liens vers des exemples Azure qui montrent comm
 | Démarrage rapide | Description |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données, puis comment utiliser des instructions Transact-SQL pour interroger, ajouter, mettre à jour et supprimer des données dans la base de données.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Ce guide de démarrage rapide montre comment utiliser Azure Data Studio pour se connecter à une base de données, puis comment utiliser des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Ce guide de démarrage rapide montre comment utiliser Azure Data Studio pour se connecter à une base de données, puis comment utiliser des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
 |[Azure portal](connect-query-portal.md)|Ce guide de démarrage rapide montre comment utiliser l’éditeur de requête pour se connecter à une base de données (Azure SQL Database uniquement), puis comment utiliser des instructions Transact-SQL pour interroger, ajouter, mettre à jour et supprimer des données dans la base de données.|
 |[Visual Studio Code](connect-query-vscode.md)|Ce guide de démarrage rapide montre comment utiliser Visual Studio Code pour se connecter à une base de données, puis comment utiliser des instructions Transact-SQL pour interroger, ajouter, mettre à jour et supprimer des données dans la base de données.|
 |[.NET avec Visual Studio](connect-query-dotnet-visual-studio.md)|Ce guide de démarrage rapide montre comment utiliser .NET Framework pour créer un programme C# avec Visual Studio en vue de se connecter à une base de données et d’utiliser des instructions Transact-SQL pour interroger les données.|
@@ -60,7 +60,7 @@ Les pilotes autres que Microsoft peuvent ne pas utiliser le protocole TLS par d�
 
 Vous avez le choix entre plusieurs frameworks et bibliothèques pour la connexion à Azure SQL Database ou Azure SQL Managed Instance. Découvrez nos [didacticiels de démarrage](https://aka.ms/sqldev) pour commencer rapidement à utiliser des langages de programmation comme C#, Java, Node.js, PHP et Python. Ensuite, créez une application à l’aide de SQL Server sur Linux, Windows ou Docker sur macOS.
 
-Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* que les applications clientes peuvent utiliser dans une variété de langages pour se connecter à SQL Server et l’utiliser localement ou dans le cloud. Vous pouvez les utiliser sur Linux, Windows ou Docker pour vous connecter à Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics (anciennement SQL Data Warehouse).
+Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* que les applications clientes peuvent utiliser dans une variété de langages pour se connecter à SQL Server et l’utiliser localement ou dans le cloud. Vous pouvez les utiliser sur Linux, Windows ou Docker pour vous connecter à Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics.
 
 | Langage | Plateforme | Ressources supplémentaires | Téléchargement | Bien démarrer |
 | :-- | :-- | :-- | :-- | :-- |

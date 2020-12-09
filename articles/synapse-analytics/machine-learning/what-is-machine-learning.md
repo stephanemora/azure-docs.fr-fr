@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316081"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448276"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Fonctionnalités de Machine Learning dans Azure Synapse Analytics (aperçus d’espaces de travail)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Fonctionnalités de Machine Learning dans Azure Synapse Analytics
 
 Azure Synapse Analytics propose plusieurs fonctionnalités de Machine Learning dans Azure Synapse Analytics. Cet article fournit une vue d’ensemble de la façon dont vous pouvez recourir au Machine Learning dans le contexte d’Azure Synapse.
 
@@ -48,11 +46,11 @@ Grâce à [Azure Data Factory](/azure/data-factory/introduction), une partie int
 
 Une partie importante du processus de Machine Learning consiste à comprendre les données grâce à l’exploration et à des visualisations.
 
-Selon l’emplacement de stockage des données, Synapse offre un ensemble d’outils pour les explorer et les préparer pour l’analyse et le Machine Learning. L’une des méthodes les plus rapides pour prendre en main l’exploration des données consiste à utiliser des pools serverless Apache Spark ou Synapse SQL Server directement sur les données dans le lac de données.
+Selon l’emplacement de stockage des données, Synapse offre un ensemble d’outils pour les explorer et les préparer pour l’analyse et le Machine Learning. L’une des méthodes les plus rapides pour prendre en main l’exploration des données consiste à utiliser des pools serverless SQL ou Apache Spark, directement sur les données dans le lac de données.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offre des fonctionnalités de transformation, de préparation et d’exploration de vos données à grande échelle. Ces pools Spark proposent des outils tels que PySpark/Python, Scala et .NET pour le traitement des données à grande échelle. À l’aide de bibliothèques de visualisation puissantes, l’expérience d’exploration des données peut être améliorée pour mieux comprendre les données. [En savoir plus sur l’exploration et la visualisation des données dans Synapse à l’aide de Spark](../get-started-analyze-spark.md).
 
-* [Les pools serverless Synapse SQL](../sql/on-demand-workspace-overview.md) offrent un moyen d’explorer les données à l’aide de TSQL directement sur le lac de données. Les pools serverless Synapse SQL proposent également des visualisations intégrées dans Synapse Studio. [En savoir plus sur l’exploration des données avec des pools serverless Synapse SQL](../get-started-analyze-sql-on-demand.md).
+* [Les pools SQL serverless](../sql/on-demand-workspace-overview.md) offrent un moyen d’explorer les données à l’aide de TSQL directement sur le lac de données. Les pools SQL serverless proposent également des visualisations intégrées dans Synapse Studio. [En savoir plus sur l’exploration des données avec les pools SQL serverless](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>Modélisation
 

@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314503"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448020"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionnement de tables dans le pool SQL dédié
 
@@ -30,7 +30,7 @@ Le partitionnement peut bénéficier de la maintenance des données et des perfo
 
 ### <a name="benefits-to-loads"></a>Avantages pour les charges
 
-Le principal avantage du partitionnement dans un pool SQL dédié est d’améliorer l’efficacité et les performances du chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de dates étroitement liée à l’ordre selon lequel les données sont chargées dans la base de données. L’utilisation de partitions à des fins de maintenance des données présente l’avantage d’éviter la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de chargement peut considérablement améliorer les performances.
+Le principal avantage du partitionnement dans un pool SQL dédié est d’améliorer l’efficacité et les performances du chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de dates étroitement liée à l’ordre selon lequel les données sont chargées dans le pool SQL. L’utilisation de partitions à des fins de maintenance des données présente l’avantage d’éviter la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de chargement peut considérablement améliorer les performances.
 
 Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table.  Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table.  Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. 
 
@@ -48,7 +48,7 @@ Tandis que le partitionnement peut être utilisé pour améliorer les performanc
 
 Pour que le partitionnement soit utile, il est important de savoir quand utiliser le partitionnement et le nombre de partitions à créer. Il n’existe aucune règle absolue concernant le nombre de partitions ; cela dépend de vos données et du nombre de partitions que vous chargez simultanément. En règle générale, un schéma de partition réussi n’a qu’entre dix et cent partitions, pas mille.
 
-Lorsque vous créez des partitions sur des tables **columnstore en cluster** , il est important de prendre en compte le nombre de lignes dans chaque partition. Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire. Avant la création des partitions, le pool SQL dédié divise déjà chaque table en 60 bases de données distribuées. 
+Lorsque vous créez des partitions sur des tables **columnstore en cluster**, il est important de prendre en compte le nombre de lignes dans chaque partition. Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire. Avant la création des partitions, le pool SQL dédié divise déjà chaque table en 60 bases de données distribuées. 
 
 Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan. Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné qu’un pool SQL dédié comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis. Si une table contient moins de lignes que le nombre minimum recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition. 
 
@@ -355,7 +355,7 @@ Pour éviter la **détérioration** de la définition de votre table dans le sys
     DROP TABLE #partitions;
     ```
 
-Avec cette approche, le code dans le contrôle de code source reste statique. Quant aux valeurs limites du partitionnement, elles peuvent rester dynamiques et évoluer avec la base de données au fil du temps.
+Avec cette approche, le code dans le contrôle de code source reste statique. Quant aux valeurs limites du partitionnement, elles peuvent rester dynamiques et évoluer avec le pool SQL au fil du temps.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

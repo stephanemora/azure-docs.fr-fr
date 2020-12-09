@@ -11,13 +11,13 @@ ms.author: memildin
 manager: rkarlin
 author: memildin
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 12/01/2020
+ms.openlocfilehash: 4bb7f2fd5823a9d8ebf4234f3bb41d955574b838
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451502"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender pour SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,12 +41,14 @@ Les étapes suivantes vous aideront à démarrer avec Azure Defender.
 
 ## <a name="enable-azure-defender"></a>Activer Azure Defender
 
-Azure Defender est accessible via le [portail Azure](https://portal.azure.com). Activez Azure Defender en accédant au **Centre de sécurité** sous l’en-tête **Sécurité** pour votre serveur ou instance gérée.
+Azure Defender est accessible via le [portail Azure](https://portal.azure.com). Activez Azure Defender en accédant à **Security Center** sous l’en-tête **Sécurité** de votre serveur ou instance gérée.
 
 > [!NOTE]
-> Un compte de stockage est automatiquement créé et configuré pour stocker les résultats d’analyse de votre **évaluation des vulnérabilités** . Si vous avez déjà activé Azure Defender pour un autre serveur dans le même groupe de ressources et la même région, alors le compte de stockage existant est utilisé.
+> Un compte de stockage est automatiquement créé et configuré pour stocker les résultats d’analyse de votre **évaluation des vulnérabilités**. Si vous avez déjà activé Azure Defender pour un autre serveur dans le même groupe de ressources et la même région, alors le compte de stockage existant est utilisé.
 >
 > Le coût d’Azure Defender reflète la tarification par nœud du niveau Standard d’Azure Security Center, où un nœud correspond à l’intégralité du serveur ou de l’instance gérée. Vous payez donc une seule fois pour protéger toutes les bases de données sur le serveur ou l’instance gérée avec Azure Defender. Vous pouvez bénéficier d’un essai gratuit à Azure Defender.
+
+:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Activation d’Azure Defender":::
 
 ## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Démarrer le suivi des vulnérabilités et l’analyse des alertes de menaces
 
@@ -54,15 +56,19 @@ Cliquez sur la carte **Évaluation des vulnérabilités** pour afficher et gére
 
 ## <a name="manage-azure-defender-settings"></a>Gérer les paramètres d’Azure Defender
 
-Pour afficher et gérer les paramètres d’Azure Defender, accédez au **Centre de sécurité** sous l’en-tête **Sécurité** de votre serveur ou instance gérée. Dans cette page, vous pouvez activer ou désactiver Azure Defender et modifier les paramètres d’évaluation des vulnérabilités et d’Advanced Threat Protection pour l’intégralité de votre serveur ou de votre instance gérée.
+Pour afficher et gérer les paramètres Azure Defender, accédez à **Security Center** sous l’en-tête **Sécurité** de votre serveur ou instance gérée. Dans cette page, vous pouvez activer ou désactiver Azure Defender et modifier les paramètres d’évaluation des vulnérabilités et d’Advanced Threat Protection pour l’intégralité de votre serveur ou de votre instance gérée.
+
+:::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="Paramètres du serveur d’administration de la sécurité":::
 
 ## <a name="manage-azure-defender-settings-for-a-database"></a>Gérer les paramètres d’Azure Defender pour une base de données
 
-Pour écraser les paramètres d’Azure Defender d’une base de données en particulier, cochez la case **Activer Azure Defender pour SQL au niveau de la base de données** . Utilisez cette option uniquement si vous avez besoin de recevoir des alertes Advanced Threat Protection ou des résultats d’évaluation des vulnérabilités distincts pour la base de données individuelle, au lieu ou en plus des alertes et résultats reçus pour toutes les bases de données présentes sur le serveur ou l’instance gérée.
+Pour écraser les paramètres Azure Defender d’une base de données en particulier, cochez la case **Activer Azure Defender pour SQL au niveau de la base de données** dans les paramètres **Security Center** de votre base de données. Utilisez cette option uniquement si vous avez besoin de recevoir des alertes Advanced Threat Protection ou des résultats d’évaluation des vulnérabilités distincts pour la base de données individuelle, au lieu ou en plus des alertes et résultats reçus pour toutes les bases de données présentes sur le serveur ou l’instance gérée.
 
 Une fois que la case est cochée, vous pouvez configurer les paramètres appropriés pour cette base de données.
 
-Les paramètres d’Azure Defender pour SQL de votre serveur ou instance gérée sont également accessibles depuis le volet de base de données Azure Defender. Cliquez sur **Paramètres** dans le volet principal Azure Defender, puis cliquez sur **Afficher les paramètres d’Azure Defender pour le serveur SQL** .
+:::image type="content" source="media/azure-defender-for-sql/enable-for-database-level.png" alt-text="Activation d’Azure Defender au niveau de la base de données":::
+
+Les paramètres d’Azure Defender pour SQL de votre serveur ou instance gérée sont également accessibles depuis le volet de base de données Azure Defender. Cliquez sur **Paramètres** dans le volet principal Security Center, puis cliquez sur **Afficher les paramètres Azure Defender pour le serveur SQL**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

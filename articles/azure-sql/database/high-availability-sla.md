@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901305"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452458"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ La version avec redondance de zone de l’architecture de haute disponibilité e
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilité du niveau de service Hyperscale
 
-L'architecture du niveau de service Hyperscale est décrite dans [Architecture des fonctions distribuées](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) et n'est actuellement disponible que pour SQL Database, et non pour SQL Managed Instance.
+L'architecture du niveau de service Hyperscale est décrite dans [Architecture des fonctions distribuées](./service-tier-hyperscale.md#distributed-functions-architecture) et n'est actuellement disponible que pour SQL Database, et non pour SQL Managed Instance.
 
 ![Architecture fonctionnelle Hyperscale](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,17 +102,17 @@ Le modèle de disponibilité dans Hyperscale comprend quatre couches :
 
 - Une couche de calcul sans état, qui exécute les processus `sqlservr.exe` et contient uniquement des données transitoires et mises en cache, comme le cache RBPEX non couvrant, TempDB, une base de données model, etc. sur le SSD attaché, ainsi que le cache du plan, le pool de mémoires tampons et le pool columnstore en mémoire. Cette couche sans état comprend le réplica de calcul principal et, éventuellement, un certain nombre de réplicas de calcul secondaires qui peuvent servir de cibles de basculement.
 - Une couche de stockage sans état formée de serveurs de pages. Cette couche est le moteur de stockage distribué des processus `sqlservr.exe` s’exécutant sur les réplicas de calcul. Chaque serveur de pages contient uniquement des données temporaires et mises en cache, comme le cache RBPEX couvrant sur le disque SSD attaché ainsi que les pages de données mise en cache dans la mémoire. Chaque serveur de pages dispose d’un serveur de pages appairé dans une configuration active-active pour assurer l’équilibrage de charge, la redondance et la haute disponibilité.
-- Une couche de stockage du journal des transactions avec état formée du nœud de calcul exécutant le processus du service de journal, la zone d’atterrissage du journal des transactions et le stockage durable du journal des transactions. La zone d’atterrissage et le stockage durable utilisent Stockage Azure, qui assure la disponibilité et la [redondance](https://docs.microsoft.com/azure/storage/common/storage-redundancy) du journal des transactions, ce qui garantit la durabilité des données pour les transactions validées.
-- Une couche de stockage de données avec état avec les fichiers de base de données (.mdf/.ndf) qui sont stockés dans Stockage Azure et mis à jour par les serveurs de pages. Cette couche utilise les fonctionnalités de disponibilité et de [redondance](https://docs.microsoft.com/azure/storage/common/storage-redundancy) des données de Stockage Azure. Cela garantit que chaque page d’un fichier de données est conservée, même si les processus des autres couches de l’architecture Hyperscale se bloquent ou si des nœuds de calcul subissent une défaillance.
+- Une couche de stockage du journal des transactions avec état formée du nœud de calcul exécutant le processus du service de journal, la zone d’atterrissage du journal des transactions et le stockage durable du journal des transactions. La zone d’atterrissage et le stockage durable utilisent Stockage Azure, qui assure la disponibilité et la [redondance](../../storage/common/storage-redundancy.md) du journal des transactions, ce qui garantit la durabilité des données pour les transactions validées.
+- Une couche de stockage de données avec état avec les fichiers de base de données (.mdf/.ndf) qui sont stockés dans Stockage Azure et mis à jour par les serveurs de pages. Cette couche utilise les fonctionnalités de disponibilité et de [redondance](../../storage/common/storage-redundancy.md) des données de Stockage Azure. Cela garantit que chaque page d’un fichier de données est conservée, même si les processus des autres couches de l’architecture Hyperscale se bloquent ou si des nœuds de calcul subissent une défaillance.
 
 Dans toutes les couches Hyperscale, les nœuds de calcul s’exécutent sur Azure Service Fabric, qui contrôle la santé de chaque nœud et assure les basculements vers des nœuds sains disponibles quand cela est nécessaire.
 
-Pour plus d’informations sur la haute disponibilité dans Hyperscale, consultez [Haute disponibilité de la base de données dans Hyperscale ](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Pour plus d’informations sur la haute disponibilité dans Hyperscale, consultez [Haute disponibilité de la base de données dans Hyperscale ](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Récupération de base de données accélérée (ADR)
 
-La [récupération de base de données accélérée](../accelerated-database-recovery.md) est une nouvelle fonctionnalité du moteur de base de données qui améliore considérablement la disponibilité des bases de données, particulièrement en présence de transactions durables. ADR est actuellement disponible pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics (anciennement SQL Data Warehouse).
+La [récupération de base de données accélérée](../accelerated-database-recovery.md) est une nouvelle fonctionnalité du moteur de base de données qui améliore considérablement la disponibilité des bases de données, particulièrement en présence de transactions durables. Actuellement, ADS est disponible pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics.
 
 ## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 

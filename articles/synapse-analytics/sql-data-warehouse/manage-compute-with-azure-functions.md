@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Gérer le calcul avec Azure Functions'
-description: Comment utiliser Azure Functions pour gérer le calcul de votre pool SQL dans Azure Synapse Analytics.
+description: Découvrez comment utiliser Azure Functions pour gérer le calcul de votre pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022477"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448380"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Utiliser Azure Functions pour gérer les ressources de calcul de votre pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
-Ce tutoriel utilise Azure Functions pour gérer les ressources de calcul d’un pool SQL dans Azure Synapse Analytics.
+Ce tutoriel utilise Azure Functions pour gérer les ressources de calcul d’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 
-Pour utiliser l’application Azure Functions avec un pool SQL, vous devez créer un [compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) avec accès collaborateur sous le même abonnement que votre instance de pool SQL.
+Pour utiliser un application de fonction Azure avec un pool SQL dédié (anciennement SQL DW), vous devez créer un [compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Le compte de principal de service doit être doté d’un accès contributeur sous le même abonnement que votre instance de pool SQL dédié (anciennement SQL DW).
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Déployer une mise à l’échelle basée sur un minuteur à l’aide d’un modèle Azure Resource Manager
 
 Pour déployer le modèle, vous avez besoin des informations suivantes :
 
-- Nom du groupe de ressources dans lequel se trouve votre instance de pool SQL
-- Nom du serveur dans lequel se trouve votre instance de pool SQL
-- Nom de votre instance de pool SQL
+- Nom du groupe de ressources dans lequel se trouve votre instance de pool SQL dédié (anciennement SQL DW)
+- Nom du serveur sur lequel se trouve votre instance de pool SQL dédié (anciennement SQL DW)
+- Nom de votre instance de pool SQL dédié (anciennement SQL DW)
 - ID de locataire (ID du répertoire) de votre annuaire Azure Active Directory
 - Identifiant d’abonnement
 - ID d'application du principal de service
@@ -48,13 +48,13 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
 
    ![Fonctions déployées avec modèle](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Sélectionnez *DWScaleDownTrigger* ou *DWScaleUpTrigger* selon si vous souhaitez réduire ou augmenter l’échelle de temps. Dans le menu déroulant, sélectionnez Intégrer.
+2. Sélectionnez *DWScaleDownTrigger* ou *DWScaleUpTrigger* pour effectuer un scale-up ou un scale-down. Dans le menu déroulant, sélectionnez Intégrer.
 
    ![Sélectionnez Intégrer pour la fonction](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. À présent, la valeur affichée devrait indiquer *%ScaleDownTime%* ou *%ScaleUpTime%* . Ces valeurs indiquent que la planification se base sur les valeurs définies dans les [Paramètres d’application](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Vous pouvez ignorer cette valeur pour le moment et définir la planification sur votre heure de préférence en fonction des étapes suivantes.
 
-4. Dans la zone de planification, ajoutez l’heure de l’expression CRON pour refléter la fréquence à laquelle vous voulez que Azure Synapse Analytics fasse l’objet d’un scale-up.
+4. Dans la zone de planification, ajoutez l’expression CRON pour refléter la fréquence à laquelle vous souhaitez qu’Azure Synapse Analytics fasse l’objet d’un scale-up.
 
    ![Modifier la planification de fonction](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
 
 1. Accédez à votre service Function App. Si vous avez déployé le modèle avec les valeurs par défaut, ce service doit être nommé *DWOperations*. Une fois que votre Function App est ouverte, vous devriez remarquer que cinq fonctions sont déployées dans votre service Function App.
 
-2. Sélectionnez *DWScaleDownTrigger* ou *DWScaleUpTrigger* selon si vous souhaitez réduire ou augmenter la valeur de calcul. Lors de la sélection des fonctions, le volet devrait afficher le fichier *index.js*.
+2. Sélectionnez *DWScaleDownTrigger* ou *DWScaleUpTrigger* pour effectuer un scale-up ou scale-down de la valeur de calcul. Lors de la sélection des fonctions, le volet devrait afficher le fichier *index.js*.
 
    ![Modifiez le niveau de calcul du déclencheur de fonction](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Définissez la valeur de *ServiceLevelObjective* sur le niveau souhaité et cliquez sur enregistrez. Cette valeur est le niveau de calcul sur lequel votre instance d’entrepôt de données est mise à l’échelle en fonction de la planification définie dans la section Intégrer.
+3. Définissez la valeur de *ServiceLevelObjective* sur le niveau souhaité et sélectionnez Enregistrer. *ServiceLevelObjective* correspond au niveau de calcul sur lequel votre instance d’entrepôt de données est mise à l’échelle en fonction de la planification définie dans la section Intégrer.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Utiliser mise en pause ou reprise au lieu de mise à l'échelle
 
@@ -84,7 +84,7 @@ Actuellement, les fonctions activées par défaut sont *DWScaleDownTrigger* et *
 
    ![Volet Fonctions](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Cliquez sur le bouton bascule correspondant aux déclencheurs que vous souhaitez activer.
+2. Sélectionnez le bouton bascule correspondant aux déclencheurs que vous souhaitez activer.
 
 3. Accédez aux onglets *Intégrer* des déclencheurs respectifs pour modifier leur planification.
 
@@ -114,17 +114,17 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 5. Définissez la variable de l’opération sur le comportement souhaité comme suit :
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -156,7 +156,7 @@ Montée en puissance quotidienne à 8h00 jusqu’à DW1000c, descente en puissan
 
 ### <a name="example-3"></a>Exemple 3
 
-Montée en puissance à 8 h 00 jusqu’à DW1000c, descente en puissance unique jusqu’à DW600c à 16 h 00 les jours de semaine. Mise en pause le vendredi à 23 h 00, reprise à 7 h 00 le lundi matin.
+Scale-up à 8 h 00 jusqu’à DW1000c, scale-down unique jusqu’à DW600c à 16 h 00 les jours ouvrables. Mise en pause le vendredi à 23 h 00, reprise à 7 h 00 le lundi matin.
 
 | Fonction  | Planifier       | Opération                                |
 | :-------- | :------------- | :--------------------------------------- |
@@ -169,4 +169,4 @@ Montée en puissance à 8 h 00 jusqu’à DW1000c, descente en puissance unique 
 
 Découvrez-en plus sur les fonctions Azure [Déclencheur de minuteur](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Consultez le [dépôt d’exemples](https://github.com/Microsoft/sql-data-warehouse-samples) du pool SQL.
+Consultez le [référentiel d’exemples](https://github.com/Microsoft/sql-data-warehouse-samples) du pool SQL dédié (anciennement SQL DW).

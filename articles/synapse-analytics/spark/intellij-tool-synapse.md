@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Azure Toolkit for IntelliJ (application Spark)
-description: Tutoriel - Utiliser Azure Toolkit for IntelliJ pour développer des applications Spark, écrites en Scala, et envoyez-les à un pool Apache Spark serverless (préversion).
+description: Tutoriel - Utiliser Azure Toolkit for IntelliJ pour développer des applications Spark, écrites en Scala, et les envoyer à un pool Apache Spark serverless.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013766"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451044"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer une application Apache Spark avec IntelliJ en utilisant un espace de travail Synapse
 
-Ce tutoriel vous montre comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, qui sont écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Apache Spark serverless (préversion) à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
+Ce tutoriel vous montre comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, qui sont écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Apache Spark serverless à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
 
 - Développer et soumettre une application Scala Spark sur un pool Spark.
 - Accéder aux ressources de vos pools Spark.

@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes liés à Synapse Studio (préversion)
+title: Résoudre les problèmes liés à Synapse Studio
 description: Résoudre les problèmes liés à Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321008"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445849"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio (préversion)
+# <a name="azure-synapse-studio-troubleshooting"></a>Résolution des problèmes liés à Azure Synapse Studio
 
 Ce guide de résolution des problèmes fournit des instructions sur les informations à fournir lors de l’ouverture d’un ticket de support concernant des problèmes de connectivité réseau. Avec les informations appropriées, nous pouvons peut-être résoudre le problème plus rapidement.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problème de connectivité au service du pool SQL serverless (préversion)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Problème de connectivité avec le service Pool SQL serverless
 
 ### <a name="symptom-1"></a>Symptôme 1
 
@@ -61,7 +61,7 @@ Recherchez l’élément dont la colonne URL correspond au modèle suivant :
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Où [ *A* ] est le nom de votre espace de travail, « -ondemand » pourrait être « -sqlod », et où [ *B* ] doit être un nom de base de données tel que « master ». Il doit y avoir au plus deux éléments avec la même valeur d’URL, mais des valeurs de méthode différentes : OPTIONS et POST. Vérifiez si ces deux éléments contiennent « 200 » ou « 20x » dans la colonne d’état, où « x » peut être n’importe quel chiffre unique.
+Où [*A*] est le nom de votre espace de travail, « -ondemand » pourrait être « -sqlod », et où [*B*] doit être un nom de base de données tel que « master ». Il doit y avoir au plus deux éléments avec la même valeur d’URL, mais des valeurs de méthode différentes : OPTIONS et POST. Vérifiez si ces deux éléments contiennent « 200 » ou « 20x » dans la colonne d’état, où « x » peut être n’importe quel chiffre unique.
 
 Si l’un d’eux autre chose que « 20x », et que :
 

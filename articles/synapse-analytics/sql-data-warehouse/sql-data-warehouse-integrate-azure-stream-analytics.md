@@ -1,6 +1,6 @@
 ---
-title: Utilisation d’Azure Stream Analytics
-description: Conseils d’utilisation d’Azure Stream Analytics avec votre entrepôt de données dans Azure Synapse pour développer des solutions en temps réel.
+title: Utiliser Azure Stream Analytics dans un pool SQL dédié
+description: Conseils d’utilisation d’Azure Stream Analytics avec un pool SQL dédié dans Azure Synapse pour développer des solutions en temps réel.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020178"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458218"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Utiliser Azure Stream Analytics avec Azure Synapse Analytics
+# <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utiliser Azure Stream Analytics avec un pool SQL dédié dans Azure Synapse Analytics
 
 Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour découvrir les principes de base de ce service, voir l’article [Présentation d’Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Prise en main d’Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-Dans cet article, vous allez apprendre à utiliser votre entrepôt de données en tant que récepteur de sortie pour l'ingestion de données à haut débit avec les travaux Azure Stream Analytics.
+Dans cet article, vous allez apprendre à utiliser votre pool SQL dédié en tant que récepteur de sortie pour l’ingestion de données à haut débit avec les tâches Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,9 +32,9 @@ Dans cet article, vous allez apprendre à utiliser votre entrepôt de données e
     2. Configuration et démarrage de l’application de génération d’événements
     3. Configuration d’un travail Stream Analytics
     4. Spécification d’une entrée de travail et d’une requête
-* Pool SQL Synapse dédié pour votre entrepôt de données : pour créer un entrepôt de données, suivez les étapes décrites dans le guide de [Démarrage rapide pour créer un entrepôt de données](create-data-warehouse-portal.md).
+* Pool SQL dédié : pour créer un pool SQL dédié, effectuez les étapes mentionnées dans le guide de [Démarrage rapide : Créer un pool SQL dédié](../quickstart-create-sql-pool-portal.md).
 
-## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Spécifier la sortie de streaming pour pointer vers votre entrepôt de données
+## <a name="specify-streaming-output-to-point-to-your-dedicated-sql-pool"></a>Spécifier la sortie de streaming pour pointer vers votre pool SQL dédié
 
 ### <a name="step-1"></a>Étape 1
 
@@ -52,8 +52,8 @@ Saisissez les valeurs suivantes :
 
 * *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
 * *Abonnement*:
-  * Si votre entrepôt de données est associé au même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner Azure Synapse Analytics dans vos abonnements** _.
-  _Si votre entrepôt de données est associé à un autre abonnement, cliquez sur Fournir les paramètres Azure Synapse Analytics manuellement.
+  * Si votre pool SQL dédié est associé au même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner Azure Synapse Analytics dans vos abonnements** _.
+  _ Si votre pool SQL dédié est associé à un autre abonnement, cliquez sur Fournir manuellement les paramètres Azure Synapse Analytics.
 * *Base de données* : Sélectionnez la base de données de destination dans la liste déroulante.
 * *Nom d’utilisateur* : entrez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
 * *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
@@ -64,7 +64,7 @@ Saisissez les valeurs suivantes :
 
 ### <a name="step-4"></a>Étape 4
 
-Avant de pouvoir exécuter un test, vous devez créer la table dans votre entrepôt de données.  Exécutez le script de création de table suivant avec SQL Server Management Studio (SSMS) ou l’outil de requête de votre choix.
+Avant de pouvoir exécuter un test, vous devez créer la table dans votre pool SQL dédié.  Exécutez le script de création de table suivant avec SQL Server Management Studio (SSMS) ou l’outil de requête de votre choix.
 
 ```sql
 CREATE TABLE SensorLog
@@ -123,4 +123,4 @@ Cliquez sur le bouton _ *_Démarrer_** dans le volet de démarrage du travail.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir une vue d’ensemble de l’intégration, consultez [Intégrer d’autres services](sql-data-warehouse-overview-integrate.md).
-Pour plus de conseils de développement, consultez [Choix de conception et techniques de codage pour les entrepôts de données](sql-data-warehouse-overview-develop.md).
+Pour obtenir des conseils supplémentaires concernant le développement, consultez [Choix de conception et techniques de codage pour un pool SQL dédié](sql-data-warehouse-overview-develop.md).

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 63d03559b2a30020ed2e8bd1cd030855b8fb20b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305829"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445099"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Sortie Azure Synapse Analytics à partir d’Azure Stream Analytics
 
-[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anciennement SQL Data Warehouse) est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique du Big Data. 
+[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. 
 
 Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de pool SQL dédié dans Azure Stream Analytics et traiter des débits jusqu’à 200 Mo/s. Cela permet de prendre en charge les besoins les plus exigeants en matière d'analytique en temps réel et de traitement des données de chemin réactif pour des charges de travail telles que la création de rapports et de tableaux de bord.  
 

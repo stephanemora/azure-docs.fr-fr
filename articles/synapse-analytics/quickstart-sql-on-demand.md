@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Utiliser un pool SQL serverless'
-description: Dans ce guide de démarrage rapide, vous allez voir et découvrir à quel point il est facile d’interroger différents types de fichiers en utilisant un pool SQL serverless (préversion).
+description: Dans ce guide de démarrage rapide, vous allez voir et découvrir à quel point il est facile d’interroger différents types de fichiers en utilisant le pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682975"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450510"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Démarrage rapide : Utiliser un pool SQL serverless
 
-Le pool SQL serverless Synapse (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant le pool SQL serverless. Les formats pris en charge sont répertoriés dans [OPENROWSET](sql/develop-openrowset.md).
+Le pool SQL serverless Synapse est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant le pool SQL serverless. Les formats pris en charge sont répertoriés dans [OPENROWSET](sql/develop-openrowset.md).
 
 Ce démarrage rapide montre comment interroger : Fichiers CSV, Apache Parquet et JSON.
 

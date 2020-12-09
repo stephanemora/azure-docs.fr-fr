@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 523356947d6d5f93fa8ef2202ad6e7d235c6afdd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 73b18d15ad054f1c485d6f61cdefe54993148bc4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918965"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450539"
 ---
 # <a name="visualize-data"></a>Visualiser les données
 Azure Synapse est un service d’analytique intégré qui accélère la génération d’insights dans les entrepôts de données et les systèmes d’analytique de Big Data. La visualisation des données est un composant clé qui permet d’obtenir des informations sur vos données. Elle permet de rendre les données, petites et grandes, plus faciles à comprendre pour les êtres humains. Elle facilite également la détection des modèles, des tendances et des valeurs hors norme dans des groupes de données. 
@@ -37,8 +37,8 @@ Pour accéder aux options de graphique :
    | Configuration | Description |
    |--|--| 
    | Type de graphique | La fonction ```display``` prend en charge un large éventail de types de graphiques, notamment les graphiques à barres, les nuages de points, les graphiques en courbes, etc. |
-   | Clé : | Spécifier la plage de valeurs pour l’axe X|
-   | Valeur | Spécifier la plage de valeurs pour l’axe Y |
+   | Clé | Spécifier la plage de valeurs pour l’axe X|
+   | Value | Spécifier la plage de valeurs pour l’axe Y |
    | Groupe de séries | Utilisé pour déterminer les groupes de l’agrégation | 
    | Agrégation | Méthode pour agréger des données dans votre visualisation| 
    
@@ -227,7 +227,7 @@ Vous pouvez consulter la [documentation](./spark/../apache-spark-version-support
 ## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>Se connecter à Power BI à l’aide d’Apache Spark et du SQL à la demande
 Azure Synapse Analytics s’intègre parfaitement à Power BI, permettant aux ingénieurs de données de créer des solutions d’analytique.
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre leurs pools Spark (préversion) et le moteur SQL à la demande (préversion). À l’aide du [modèle de métadonnées partagées](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview), vous pouvez interroger vos tables Apache Spark à l’aide du SQL à la demande. Une fois que vous avez terminé, vous pouvez connecter votre point de terminaison SQL à la demande à Power BI pour interroger facilement vos tables Spark synchronisées.
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Spark et le pool SQL serverless. À l’aide du [modèle de métadonnées partagées](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview), vous pouvez interroger vos tables Apache Spark à l’aide du SQL à la demande. Une fois que vous avez terminé, vous pouvez connecter votre point de terminaison SQL à la demande à Power BI pour interroger facilement vos tables Spark synchronisées.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

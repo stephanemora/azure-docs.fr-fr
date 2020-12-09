@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141497"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444806"
 ---
 # <a name="national-clouds"></a>Clouds nationaux
 
@@ -60,8 +60,8 @@ Le tableau suivant répertorie les URL de base des points de terminaison Azure A
 
 Vous pouvez former des requêtes pour les points de terminaison de jeton ou d’autorisation Azure AD à l’aide de l’URL de base spécifique de la région appropriée. Par exemple, pour Azure Allemagne :
 
-  - Le point de terminaison d’autorisation commun est `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
-  - Le point de terminaison de jeton commun est `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
+- Le point de terminaison d’autorisation commun est `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- Le point de terminaison de jeton commun est `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 Pour les applications à client unique, remplacez « common » dans les URL ci-dessus par l’ID ou le nom de votre locataire. par exemple `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Pour savoir comment créer une application à l’aide de la plateforme d’iden
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus :
+Découvrez comment utiliser la [Bibliothèque d’authentification Microsoft (MSAL) dans un environnement cloud national](msal-national-cloud.md).
+
+Documentation sur le cloud national :
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Allemagne](../../germany/index.yml)
-- [Principes fondamentaux de l’authentification Azure AD](./authentication-vs-authorization.md)

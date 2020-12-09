@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334036"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437318"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Notions de base de l’architecture dans Azure Lab Services
 
@@ -20,7 +20,7 @@ Azure Lab Services fournit deux zones qui vous permettent d’utiliser vos propr
 
 Vous trouverez ci-dessous l’architecture de base d’un laboratoire de classe.  Le compte Lab est hébergé dans votre abonnement. Les machines virtuelles des étudiants, ainsi que les ressources nécessaires pour prendre en charge les machines virtuelles, sont hébergées dans un abonnement détenu par les services Lab. Voyons plus en détail ce qui se passe dans les abonnements du service Lab.
 
-![Architecture de base des laboratoires de salle de classe](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![Architecture de base des labos](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Ressources hébergées
 

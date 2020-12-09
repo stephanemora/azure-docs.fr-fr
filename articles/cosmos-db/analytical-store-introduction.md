@@ -1,24 +1,21 @@
 ---
-title: Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
+title: Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 description: Découvrez le magasin transactionnel (basé sur des lignes) et analytique (basé sur des colonnes) d’Azure Cosmos DB. Avantages du magasin analytique, impact sur les performances pour les charges de travail à grande échelle et synchronisation automatique des données d’un magasin transactionnel à un magasin analytique
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337404"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452848"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Le magasin analytique Azure Cosmos DB est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le magasin analytique Azure Cosmos DB est un magasin de colonnes totalement isolé qui permet d’effectuer des traitements analytiques à grande échelle sur les données opérationnelles de votre base de données Azure Cosmos DB sans incidence sur vos charges de travail transactionnelles. 
 
@@ -36,7 +33,7 @@ Les pipelines ETL deviennent également complexes lors du traitement des mises �
 
 Le magasin analytique Azure Cosmos DB traite les défis de complexité et de latence qui se produisent avec les pipelines ETL traditionnels. Le magasin analytique Azure Cosmos DB peut automatiquement synchroniser vos données opérationnelles dans un magasin en colonnes séparé. Le format du magasin de colonnes est approprié pour les requêtes analytiques à grande échelle qui sont exécutées de manière optimisée, ce qui permet d’améliorer la latence de ces requêtes.
 
-À l’aide d’Azure Synapse Link, vous pouvez désormais créer des solutions HTAP non ETL en établissant une liaison directe avec le magasin analytique Azure Cosmos DB à partir de Synapse Analytics. Elle vous permet d’exécuter des analyses à grande échelle en temps quasi réel sur vos données opérationnelles.
+À l’aide d’Azure Synapse Link, vous pouvez désormais créer des solutions HTAP non ETL en établissant une liaison directe avec le magasin analytique Azure Cosmos DB à partir d’Azure Synapse Analytics. Elle vous permet d’exécuter des analyses à grande échelle en temps quasi réel sur vos données opérationnelles.
 
 ## <a name="features-of-analytical-store"></a>Fonctionnalités du magasin analytique 
 
@@ -181,10 +178,10 @@ L’authentification auprès du magasin analytique est identique à celle du mag
 
 Le magasin analytique est optimisé pour fournir une extensibilité, une élasticité et des performances pour les charges de travail analytiques sans aucune dépendance des runtimes de calcul. La technologie de stockage est auto-gérée pour optimiser vos charges de travail analytiques sans effort manuel.
 
-En découplant le système de stockage analytique du système de calcul analytique, les données du magasin analytique Azure Cosmos DB peuvent être interrogées simultanément à partir des différents runtimes analytiques pris en charge par Azure Synapse Analytics. À l’heure actuelle, Synapse Analytics prend en charge Apache Spark et SQL serverless avec le magasin analytique Azure Cosmos DB.
+En découplant le système de stockage analytique du système de calcul analytique, les données du magasin analytique Azure Cosmos DB peuvent être interrogées simultanément à partir des différents runtimes analytiques pris en charge par Azure Synapse Analytics. À l’heure actuelle, Azure Synapse Analytics prend en charge Apache Spark et le pool SQL serverless avec le magasin analytique Azure Cosmos DB.
 
 > [!NOTE]
-> Vous pouvez uniquement lire à partir du magasin analytique à l’aide du runtime Synapse Analytics. Vous pouvez réécrire les données dans votre magasin transactionnel en tant que couche de service.
+> Vous pouvez uniquement lire à partir du magasin analytique à l’aide du runtime Azure Synapse Analytics. Vous pouvez réécrire les données dans votre magasin transactionnel en tant que couche de service.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Tarification
 
@@ -194,10 +191,7 @@ Le magasin analytique suit un modèle de tarification basé sur la consommation 
 
 * Opérations d’écriture analytique : synchronisation complètement managée des mises à jour des données opérationnelles vers le magasin analytique à partir du magasin transactionnel (synchronisation automatique)
 
-* Opérations de lecture analytique : opérations de lecture effectuées sur le magasin analytique à partir des temps d'exécution Synapse Analytics Spark et SQL serverless.
-
-> [!NOTE]
-> Le magasin analytique Azure Cosmos DB est actuellement disponible gratuitement en préversion publique.
+* Opérations de lecture analytique : opérations de lecture effectuées sur le magasin analytique à partir des runtimes du pool Azure Synapse Analytics Spark et du pool SQL serverless.
 
 La tarification du magasin analytique est distincte du modèle de tarification du magasin de transactions. Il n’existe aucun concept d’unités de demande approvisionnées dans le magasin analytique. Pour plus d’informations sur le modèle de tarification du magasin analytique, consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 

@@ -1,7 +1,7 @@
 ---
 title: Contrôles d’accès réseau
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Vue d’ensemble de la gestion et du contrôle d’accès réseau pour Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse).
+description: Vue d’ensemble de la gestion et du contrôle d’accès réseau pour Azure SQL Database et Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789486"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460003"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics
 
-Lorsque vous créez un serveur SQL logique à partir du [portail Azure](single-database-create-quickstart.md) pour Azure SQL Database et Azure Synapse Analytics, le résultat est un point de terminaison public au format *votrenomdeserveur.basededonnées.windows.net* .
+Lorsque vous créez un serveur SQL logique à partir du [portail Azure](single-database-create-quickstart.md) pour Azure SQL Database et Azure Synapse Analytics, le résultat est un point de terminaison public au format *votrenomdeserveur.basededonnées.windows.net*.
 
 Vous pouvez utiliser les contrôles d'accès réseau suivants pour autoriser de manière sélective l'accès à la base de données via le point de terminaison public :
 
@@ -34,7 +34,7 @@ Vous pouvez également autoriser l’accès privé à la base de données à par
 - Liaison privée : utilisez cette fonctionnalité pour créer un point de terminaison privé pour le [serveur SQL logique](logical-servers.md) au sein d’un réseau virtuel spécifique.
 
 > [!IMPORTANT]
-> Cet article ne s'applique *pas* à **SQL Managed Instance** . Pour plus d’informations sur la configuration réseau, consultez [Connexion à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
+> Cet article ne s'applique *pas* à **SQL Managed Instance**. Pour plus d’informations sur la configuration réseau, consultez [Connexion à Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
 
 Pour bien comprendre ces contrôles d’accès et ce qu’ils font, regardez la vidéo ci-dessous :
 
@@ -42,13 +42,13 @@ Pour bien comprendre ces contrôles d’accès et ce qu’ils font, regardez la 
 
 ## <a name="allow-azure-services"></a>Autoriser les services Azure
 
-Par défaut, lors de la création d’un serveur SQL logique [à partir du portail Azure](single-database-create-quickstart.md), ce paramètre est défini sur **DÉSACTIVÉ** . Ce paramètre s’affiche lorsque la connectivité est autorisée à l’aide d’un point de terminaison de service public.
+Par défaut, lors de la création d’un serveur SQL logique [à partir du portail Azure](single-database-create-quickstart.md), ce paramètre est défini sur **DÉSACTIVÉ**. Ce paramètre s’affiche lorsque la connectivité est autorisée à l’aide d’un point de terminaison de service public.
 
 Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le serveur SQL logique créé, comme suit.
   
 ![Capture d’écran de la gestion du pare-feu du serveur][2]
 
-Lorsque la valeur est définie sur **ACTIVÉ** , votre serveur autorise les communications à partir de toutes les ressources situées dans la limite Azure, qu’elles fassent partie de votre abonnement ou non.
+Lorsque la valeur est définie sur **ACTIVÉ**, votre serveur autorise les communications à partir de toutes les ressources situées dans la limite Azure, qu’elles fassent partie de votre abonnement ou non.
 
 Le paramètre **ACTIVÉ** est souvent plus permissif que ce que souhaitent la plupart des clients. Par conséquent, vous préférerez peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. 
 
@@ -56,11 +56,11 @@ Cela étant, ce choix affecte les fonctionnalités suivantes qui s’exécutent 
 
 ### <a name="import-export-service"></a>Service d’importation/exportation
 
-Le service d’importation/exportation ne fonctionne pas lorsque l’option  **Autoriser l’accès aux services Azure** est **désactivée** . Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](./database-import-export-azure-services-off.md) directement dans votre code à l’aide de l’API DACFx.
+Le service d’importation/exportation ne fonctionne pas lorsque l’option  **Autoriser l’accès aux services Azure** est **désactivée**. Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](./database-import-export-azure-services-off.md) directement dans votre code à l’aide de l’API DACFx.
 
 ### <a name="data-sync"></a>Synchronisation des données
 
-Pour utiliser la fonctionnalité de synchronisation des données avec l'option **Autoriser l'accès aux services Azure** définie sur **DÉSACTIVÉ** , vous devez créer des entrées de règle de pare-feu individuelles afin d' [ajouter des adresses IP](firewall-create-server-level-portal-quickstart.md) à partir de la **balise du service SQL** pour la région qui héberge la base de données **Hub** .
+Pour utiliser la fonctionnalité de synchronisation des données avec l'option **Autoriser l'accès aux services Azure** définie sur **DÉSACTIVÉ**, vous devez créer des entrées de règle de pare-feu individuelles afin d'[ajouter des adresses IP](firewall-create-server-level-portal-quickstart.md) à partir de la **balise du service SQL** pour la région qui héberge la base de données **Hub**.
 Ajoutez ces règles de pare-feu au niveau du serveur aux serveurs hébergeant à la fois des bases de données **Hub** et **Member** (qui peuvent être dans des régions différentes)
 
 Utilisez le script PowerShell suivant pour générer les adresses IP correspondant à la balise du service SQL pour la région USA Ouest
@@ -110,7 +110,7 @@ Le pare-feu basé sur IP est une fonctionnalité du serveur SQL logique dans Azu
 
 ## <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
-En plus des règles IP, le pare-feu du serveur vous permet de définir des *règles de réseau virtuel* .  
+En plus des règles IP, le pare-feu du serveur vous permet de définir des *règles de réseau virtuel*.  
 Pour en savoir plus, consultez [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](vnet-service-endpoint-rule-overview.md) ou regardez cette vidéo :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -121,15 +121,15 @@ Apprenez à connaître les termes de réseau suivants d’Azure Networking quand
 
 **Réseau virtuel :** Vous pouvez avoir des réseaux virtuels associés à votre abonnement Azure.
 
-**Sous-réseau :** Un réseau virtuel contient des **sous-réseaux** . Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
+**Sous-réseau :** Un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
-**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql** , qui fait référence au service Azure nommé SQL Database.
+**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md) est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database.
 
-**Règle de réseau virtuel :** une règle de réseau virtuel pour votre serveur est un sous-réseau qui figure dans la liste de contrôle d’accès (ACL) de votre serveur. Pour figurer dans l’ACL pour votre base de données dans SQL Database, le sous-réseau doit contenir le nom de type **Microsoft.Sql** . Une règle de réseau virtuel donne l’instruction au serveur d’accepter les communications provenant de tout nœud se trouvant sur le sous-réseau.
+**Règle de réseau virtuel :** une règle de réseau virtuel pour votre serveur est un sous-réseau qui figure dans la liste de contrôle d’accès (ACL) de votre serveur. Pour figurer dans l’ACL pour votre base de données dans SQL Database, le sous-réseau doit contenir le nom de type **Microsoft.Sql**. Une règle de réseau virtuel donne l’instruction au serveur d’accepter les communications provenant de tout nœud se trouvant sur le sous-réseau.
 
 ## <a name="ip-vs-virtual-network-firewall-rules"></a>IP ou Règles de pare-feu de réseau virtuel
 
-Le pare-feu Azure SQL Database permet de spécifier des plages d’adresses IP à partir desquelles les communications sont acceptées dans SQL Database. Cette approche est indiquée pour les adresses IP stables qui se trouvent en dehors du réseau privé Azure. Toutefois, les machines virtuelles à l’intérieur du réseau privé Azure sont configurées avec des adresses IP *dynamiques* . Les adresses IP dynamiques peuvent changer lorsque votre machine virtuelle est redémarrée et ainsi invalider la règle de pare-feu basée sur IP. Spécifier une adresse IP dynamique dans une règle de pare-feu au sein d’un environnement de production serait inimaginable.
+Le pare-feu Azure SQL Database permet de spécifier des plages d’adresses IP à partir desquelles les communications sont acceptées dans SQL Database. Cette approche est indiquée pour les adresses IP stables qui se trouvent en dehors du réseau privé Azure. Toutefois, les machines virtuelles à l’intérieur du réseau privé Azure sont configurées avec des adresses IP *dynamiques*. Les adresses IP dynamiques peuvent changer lorsque votre machine virtuelle est redémarrée et ainsi invalider la règle de pare-feu basée sur IP. Spécifier une adresse IP dynamique dans une règle de pare-feu au sein d’un environnement de production serait inimaginable.
 
 Vous pouvez contourner cette limitation en obtenant une adresse IP *statique* pour votre machine virtuelle. Pour plus de détails, consultez [Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). L’approche des IP statiques peut toutefois devenir difficile à gérer, et s’avère coûteuse quand elle est appliquée à grande échelle.
 
@@ -140,7 +140,7 @@ Les règles de réseau virtuel constituent une alternative plus facile pour éta
 
 ## <a name="private-link"></a>Private Link
 
-Private Link vous permet de vous connecter à un serveur par le biais d’un **point de terminaison privé** . Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
+Private Link vous permet de vous connecter à un serveur par le biais d’un **point de terminaison privé**. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

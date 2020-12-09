@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316134"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454647"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark serverless dans Azure Synapse Analytics avec les outils web
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment créer un pool Apache Spark serverless (préversion) dans Azure Synapse avec les outils web. Vous apprendrez ensuite à vous connecter au pool Apache Spark et à exécuter des requêtes Spark SQL sur des fichiers et des tables. Apache Spark permet une analytique des données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Pour plus d’informations sur Spark dans Azure Synapse, consultez [Vue d’ensemble : Apache Spark sur Azure Synapse](./spark/apache-spark-overview.md).
+Dans ce guide de démarrage rapide, vous allez découvrir comment créer un pool Apache Spark serverless dans Azure Synapse avec les outils web. Vous apprendrez ensuite à vous connecter au pool Apache Spark et à exécuter des requêtes Spark SQL sur des fichiers et des tables. Apache Spark permet une analytique des données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Pour plus d’informations sur Spark dans Azure Synapse, consultez [Vue d’ensemble : Apache Spark sur Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > La facturation des instances Spark est calculée au prorata des minutes écoulées, que vous les utilisiez ou non. Veillez à arrêter votre instance Spark une fois que vous avez fini de l’utiliser, ou définissez un délai d’expiration court. Pour plus d’informations, consultez la section **Nettoyer les ressources** de cet article.
@@ -42,12 +42,12 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Un notebook est un environnement interactif qui prend en charge divers langages de programmation. Le notebook vous permet d’interagir avec vos données, de combiner du code avec du Markdown, du texte, et d’effectuer des visualisations simples.
 
 1. Dans la vue du portail Azure de l’espace de travail Azure Synapse que vous voulez utiliser, sélectionnez **Lancer Synapse Studio**.
-2. Une fois que Synapse Studio a été lancé, sélectionnez **Développer**. Ensuite, sélectionnez l’icône «  **+**  » pour ajouter une nouvelle ressource.
+2. Une fois que Synapse Studio a été lancé, sélectionnez **Développer**. Ensuite, sélectionnez l’icône « **+**  » pour ajouter une nouvelle ressource.
 3. À partir de là, sélectionnez **Notebook**. Un notebook est créé et ouvert avec un nom généré automatiquement.
  
      ![Nouveau notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nouveau notebook")
 
-4. Dans la fenêtre **Propriétés** , spécifiez un nom pour le notebook.
+4. Dans la fenêtre **Propriétés**, spécifiez un nom pour le notebook.
 5. Dans la barre d’outils, cliquez sur **Publier**.
 6. S’il n’existe qu’un seul pool Apache Spark dans votre espace de travail, il est sélectionné par défaut. Utilisez la liste déroulante pour sélectionner le pool Apache Spark approprié si aucun n’est sélectionné.
 7. Cliquez sur **Ajouter du code**. Le langage par défaut est `Pyspark`, ce qui convient très bien puisque vous allez utiliser une combinaison de Pyspark et de SQL Spark. Les autres langages pris en charge sont Scala et .NET pour Spark.
@@ -114,12 +114,12 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
     ![Sortie de requête dans Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Sortie de requête dans Azure Synapse Spark")
 
-3. Dans le sélecteur de **Vue** , sélectionnez **Graphique**.
+3. Dans le sélecteur de **Vue**, sélectionnez **Graphique**.
 4. Sélectionnez l’icône **Options d’affichage** qui se trouve tout à droite.
-5. Dans le champ **Type de graphique** , sélectionnez « graphique à barres ».
+5. Dans le champ **Type de graphique**, sélectionnez « graphique à barres ».
 6. Dans le champ de colonne de l’axe X, sélectionnez « state ».
 7. Dans le champ de colonne de l’axe Y, sélectionnez « salary ».
-8. Dans le champ **Agrégation** , sélectionnez « AVG ».
+8. Dans le champ **Agrégation**, sélectionnez « AVG ».
 9. Sélectionnez **Appliquer**.
 
    ![Sortie de graphique dans Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Sortie de graphique dans Azure Synapse Spark")

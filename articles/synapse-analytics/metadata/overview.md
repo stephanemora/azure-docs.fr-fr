@@ -1,6 +1,6 @@
 ---
 title: Modèle de métadonnées partagées
-description: Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion), un pool SQL serverless (préversion) et des pools SQL dédiés.
+description: 'Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools : pools Apache Spark serverless, pool SQL serverless et pools SQL dédiés.'
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324660"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460346"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Métadonnées partagées Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion) et un pool SQL serverless (préversion).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless et le pool SQL serverless.
 
 Le partage prend en charge ce que l’on appelle le modèle d’entrepôt de données moderne, et procure aux moteurs SQL d’espace de travail un accès aux bases de données et aux tables créées avec Spark. Il permet également aux moteurs SQL de créer leurs propres objets qui ne sont pas partagés avec les autres moteurs.
 

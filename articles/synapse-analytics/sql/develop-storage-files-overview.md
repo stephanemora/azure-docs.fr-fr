@@ -1,6 +1,6 @@
 ---
-title: Accéder aux fichiers sur le stockage dans un pool SQL serverless (préversion)
-description: Décrit l’interrogation de fichiers de stockage en utilisant un pool SQL serverless (préversion) dans Azure Synapse Analytics.
+title: Accéder aux fichiers sur le stockage dans le pool SQL serverless
+description: Décrit l’interrogation de fichiers de stockage en utilisant le pool SQL serverless dans Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446583"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Accéder à un stockage externe en utilisant un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Accéder à un stockage externe en utilisant le pool SQL serverless dans Azure Synapse Analytics
 
 Ce document décrit comment les utilisateurs peuvent lire des données dans des fichiers stockés sur Stockage Azure dans le pool SQL serverless. Les utilisateurs disposent des options suivantes pour accéder au stockage :
 

@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer et interroger un pool SQL Synapse (portail Azure)'
-description: Créer et interroger un pool SQL Synapse avec le portail Azure
+title: 'Démarrage rapide : Créer et interroger un pool SQL dédié (portail Azure)'
+description: Créer et interroger un pool SQL dédié à l’aide du portail Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023784"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456739"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL dédié dans Azure Synapse Analytics à l’aide du portail Azure
 
-Créez et interrogez rapidement un pool SQL Synapse (entrepôt de données) dans Azure Synapse Analytics (anciennement SQL DW) à l’aide du portail Azure.
+Créez et interrogez rapidement un pool SQL Synapse (entrepôt de données) dans Azure Synapse Analytics à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 

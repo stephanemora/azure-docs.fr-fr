@@ -1,6 +1,6 @@
 ---
 title: Types de classements de l’entrepôt de données
-description: Types de classement pris en charge pour le pool SQL dédié dans Azure Synapse Analytics.
+description: Types de classement pris en charge pour le pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305257"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452768"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Prise en charge des classements de bases de données pour le pool SQL dédié dans Azure Synapse Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Prise en charge des classements de bases de données pour le pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics 
 
-Sur le Portail Azure, il est possible de modifier le classement par défaut d’une base de données de pool SQL dédié lors de sa création. Grâce à cette fonctionnalité, il est encore plus facile de créer une base de données à l’aide de l’un des 3800 classements de base de données pris en charge.
+Vous pouvez modifier le classement de la base de données par défaut à partir du portail Azure lorsque vous créez un pool SQL dédié (anciennement SQL DW). Grâce à cette fonctionnalité, il est encore plus facile de créer une base de données à l’aide de l’un des 3800 classements de base de données pris en charge.
 
 Les classements fournissent les règles de paramètres régionaux, de page de codes, d’ordre de tri et de respect des caractères pour les types de données basés sur des caractères. Une fois que vous avez effectué votre sélection, toutes les colonnes et expressions nécessitant des informations de classement héritent du classement choisi dans le paramètre de base de données. L’héritage par défaut peut être substitué en déclarant explicitement un classement différent pour un type de données basé sur des caractères.
 

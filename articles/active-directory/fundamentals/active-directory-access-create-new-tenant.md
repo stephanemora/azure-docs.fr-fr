@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287013"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437236"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 
@@ -33,37 +33,41 @@ Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation.
 
-1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.  
+1. Dans le menu du portail Azure, sélectionnez **Azure Active Directory**.  
 
-    ![Page de création de ressource d’un annuaire Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory - Page Vue d’ensemble - Créer un locataire](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sélectionnez **Créer un locataire**.
 
-    La page **Créer un annuaire** s’affiche.
+1. Sous l’onglet Informations de base, sélectionnez le type de locataire que vous souhaitez créer : **Azure Active Directory** ou **Azure Active Directory (B2C)** .
 
-    ![Page de création d’un annuaire Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Sélectionnez **Suivant : Configuration** pour passer à l’onglet Configuration.
 
-1.  Dans la page **Créer un annuaire**, indiquez les informations suivantes :
+    <kbd>![Azure Active Directory - Page Créer un locataire - Onglet Configuration ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  Sous l’onglet Configuration, entrez les informations suivantes :
     
-    - Tapez _Contoso_ dans la zone **Nom de l’organisation**.
+    - Tapez _Contoso Organization_ dans la zone **Nom de l’organisation**.
 
-    - Tapez _Contoso_ dans la zone **Nom de domaine initial**.
+    - Tapez _Contosoorg_ dans la zone **Nom de domaine initial**.
 
     - Laissez l’option _États-Unis_ dans la zone **Pays ou région**.
 
-1. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Suivant : Vérifier + créer**. Vérifiez les informations que vous avez entrées et, si elles sont correctes, sélectionnez **Créer**.
+
+    <kbd>![Azure Active Directory - Page Vérifier et créer un locataire](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous ne prévoyez pas de continuer à utiliser cette application, vous pouvez supprimer le locataire en effectuant les étapes suivantes :
 
-- Veillez à être connecté à l’annuaire que vous souhaitez supprimer via le filtre **Répertoire + abonnement** dans le portail Azure, puis basculez vers l’annuaire cible si nécessaire.
+- Vérifiez que vous êtes connecté à l’annuaire que vous souhaitez supprimer via le filtre **Répertoire + abonnement** dans le portail Azure, puis basculez vers l’annuaire cible si nécessaire.
 - Sélectionnez **Azure Active Directory** puis, dans la page **Contoso - Vue d’ensemble**, sélectionnez **Supprimer l’annuaire**.
 
     Le locataire et ses informations associées sont supprimés.
 
-    ![Page Vue d’ensemble, avec le bouton Supprimer le répertoire mis en surbrillance](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Page Vue d’ensemble, avec le bouton Supprimer le répertoire mis en surbrillance](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour modifier ou ajouter des noms de domaine supplémentaires, consultez [Guide pratique pour ajouter un nom de domaine personnalisé à Azure Active Directory](add-custom-domain.md).

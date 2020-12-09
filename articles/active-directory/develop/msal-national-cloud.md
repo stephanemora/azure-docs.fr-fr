@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705858"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453602"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -49,13 +49,13 @@ Après avoir choisi, une attention particulière est portée là où vous effect
 
 ### <a name="get-an-azure-government-subscription"></a>Obtenir un abonnement Azure Government
 
-Pour obtenir un abonnement Azure Government, consultez [Gestion et connexion à votre abonnement dans Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+Pour obtenir un abonnement Azure Government, consultez [Gestion et connexion à votre abonnement dans Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/global-infrastructure/government/request/) avant de commencer.
 
 Pour plus d’informations sur l’utilisation d’un cloud national avec un langage de programmation particulier, choisissez l’onglet correspondant à votre langage :
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs, acquérir des jetons et appeler l’API Microsoft Graph dans des clouds nationaux.
 
@@ -150,9 +150,9 @@ Pour activer votre application MSAL Python pour les clouds souverains :
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Pour appeler Microsoft Graph, vous devez disposer d’une URL de point de terminaison Graph spécifique qui dépend du cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- L’appel de l’API Microsoft Graph nécessite une URL de point de terminaison spécifique au cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Voici un exemple de point de terminaison Graph, avec l’étendue :
+    Voici un exemple de point de terminaison Microsoft Graph, avec l’étendue :
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Voici un exemple d’autorité :
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Pour appeler Microsoft Graph, vous devez disposer d’une URL de point de terminaison Graph spécifique qui dépend du cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- L’appel de l’API Microsoft Graph nécessite une URL de point de terminaison spécifique au cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Voici un exemple de point de terminaison Graph, avec l’étendue :
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus :
+Consultez [Points de terminaison d’authentificaiton cloud](authentication-national-cloud.md) pour obtenir une liste des URL du portail Azure et des points de terminaison de jeton de chaque cloud.
 
-- [Authentification dans les clouds nationaux](authentication-national-cloud.md)
+Documentation sur le cloud national :
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Allemagne](../../germany/index.yml)

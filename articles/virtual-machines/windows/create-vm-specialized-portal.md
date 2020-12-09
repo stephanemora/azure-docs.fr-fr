@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283246"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455132"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 
@@ -26,7 +26,10 @@ Vous pouvez créer une machine virtuelle dans Azure de plusieurs façons :
  
 - Vous pouvez créer une machine virtuelle Azure à partir d’un disque dur virtuel local en chargeant le disque dur virtuel local et en l’attachant à une nouvelle machine virtuelle. Utilisez PowerShell ou un autre outil pour charger le disque dur virtuel sur un compte de stockage, puis créez un disque managé à partir du disque dur virtuel. Pour plus d’informations, consultez [Charger un disque dur virtuel spécialisé](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-N’utilisez pas de disque spécialisé si vous souhaitez créer plusieurs machines virtuelles. Pour les déploiements plus importants, [créez une image](capture-image-resource.md), puis [utilisez-la pour créer plusieurs machines virtuelles](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> Quand vous utilisez un disque spécialisé pour créer une machine virtuelle, la nouvelle machine conserve le nom d’ordinateur de la machine virtuelle d’origine. D’autres informations spécifiques à l’ordinateur (par exemple le CMID) sont également conservées. Dans certains cas, ces informations en double peuvent provoquer des problèmes. Quand vous copiez une machine virtuelle, vous devez connaître les types d’informations spécifiques à l’ordinateur dont vos applications dépendent.  
+> Donc, n’utilisez pas un disque spécialisé si vous voulez créer plusieurs machines virtuelles. Pour les déploiements plus importants, [créez une image](capture-image-resource.md), puis [utilisez-la pour créer plusieurs machines virtuelles](create-vm-generalized-managed.md).
 
 Nous vous recommandons de limiter le nombre de déploiements simultanés à 20 machines virtuelles provenant d’une seule capture instantanée ou d’un seul disque dur virtuel. 
 

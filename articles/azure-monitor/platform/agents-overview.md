@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95323237"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450094"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -81,8 +81,8 @@ Utilisez l’agent Log Analytics si vous avez besoin d’effectuer les opératio
 * Collecter les journaux et les données de performances de machines physiques ou virtuelles dans ou hors Azure. 
 * Envoyer les données à un espace de travail Log Analytics pour tirer parti des fonctionnalités prises en charge par les [journaux Azure Monitor](data-platform-logs.md) comme les [requêtes de journal](../log-query/log-query-overview.md).
 * Utiliser [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md), qui vous permet de superviser vos machines virtuelles à grande échelle et qui supervise leurs processus et dépendances vis-à-vis d’autres ressources et processus externes.  
-* Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-intro.md) ou d’[Azure Sentinel](../../sentinel/overview.md).
-* Utiliser [Azure Automation Update Management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) pour offrir une gestion complète de vos machines virtuelles Azure.
+* Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-introduction.md) ou d’[Azure Sentinel](../../sentinel/overview.md).
+* Utiliser [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) pour offrir une gestion complète de vos machines virtuelles Azure.
 * Utiliser des [solutions](../monitor-reference.md#insights-and-core-solutions) différentes pour superviser un service ou une application spécifique.
 
 Les limitations de l’agent Log Analytics sont les suivantes :
@@ -176,6 +176,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
+| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |

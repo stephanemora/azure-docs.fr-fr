@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323625"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449711"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Conseils pour la conception de tables distribuées à l’aide d’un pool SQL dédié dans Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Une table distribuée par hachage distribue les lignes de la table sur les nœud
 
 ![Table distribuée](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Table distribuée")  
 
-Comme les valeurs identiques sont toujours hachées sur la même distribution, l’entrepôt de données a une connaissance intégrée des emplacements des lignes. Dans un pool SQL dédié, ces informations sont utilisées pour réduire le déplacement des données pendant les requêtes, ce qui améliore les performances de ces dernières.
+Comme les valeurs identiques sont toujours hachées sur la même distribution, SQL Analytics dispose d'une connaissance intégrée de l'emplacement des lignes. Dans un pool SQL dédié, ces informations sont utilisées pour réduire le déplacement des données pendant les requêtes, ce qui améliore les performances de ces dernières.
 
 Les tables distribuées par hachage fonctionnent correctement pour des tables de faits volumineuses dans un schéma en étoile. Elles peuvent contenir un très grand nombre de lignes et réaliser néanmoins des performances élevées. Il existe bien entendu certaines considérations relatives à la conception qui vous aident à obtenir les performances que le système distribué doit fournir. Le choix d’une colonne de distribution appropriée est l’une de ces considérations qui est décrite dans cet article.
 

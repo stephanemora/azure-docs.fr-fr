@@ -1,6 +1,6 @@
 ---
-title: Meilleures pratiques pour un pool SQL serverless (préversion)
-description: Recommandations et meilleures pratiques pour l’utilisation d’un pool SQL serverless (préversion).
+title: Bonnes pratiques pour les pools SQL serverless
+description: Recommandations et meilleures pratiques pour l’utilisation d’un pool SQL serverless.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638867"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457903"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless dans Azure Synapse Analytics
 
-Cet article présente un ensemble de meilleures pratiques pour l’utilisation d’un pool SQL serverless (préversion). Un pool SQL serverless est une ressource dans Azure Synapse Analytics.
+Cet article présente un ensemble de meilleures pratiques pour l’utilisation d’un pool SQL serverless. Un pool SQL serverless est une ressource dans Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Considérations d’ordre général
 
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’analyseur à performances optimisées lors de l’inter
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Créer manuellement des statistiques pour les fichiers CSV
 
-Le pool SQL serverless s’appuie sur des statistiques pour générer des plans optimaux d’exécution des requêtes. Les statistiques sont automatiquement créées pour les colonnes de fichiers Parquet si nécessaire. À ce stade, les statistiques ne sont pas automatiquement créées pour les colonnes de fichiers CSV, et vous devez créer des statistiques manuellement pour les colonnes que vous utilisez dans les requêtes, en particulier celles utilisées dans DISTINCT, JOIN, WHERE, ORDER BY et GROUP BY. Consultez [Statistiques dans un pool SQL serverless](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) pour plus d’informations.
+Le pool SQL serverless s’appuie sur des statistiques pour générer des plans optimaux d’exécution des requêtes. Les statistiques sont automatiquement créées pour les colonnes de fichiers Parquet si nécessaire. À ce stade, les statistiques ne sont pas automatiquement créées pour les colonnes de fichiers CSV, et vous devez créer des statistiques manuellement pour les colonnes que vous utilisez dans les requêtes, en particulier celles utilisées dans DISTINCT, JOIN, WHERE, ORDER BY et GROUP BY. Pour plus d’informations, consultez [statistiques du pool SQL serverless] (develop-tables-statistics.md#statistics-in-serverless-sql-pool).
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 

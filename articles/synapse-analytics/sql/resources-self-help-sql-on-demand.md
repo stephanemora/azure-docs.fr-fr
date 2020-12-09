@@ -1,6 +1,6 @@
 ---
-title: Aide autonome du pool SQL serverless (préversion)
-description: Cette section contient des informations qui peuvent vous aider à résoudre les problèmes liés au pool SQL serverless (préversion).
+title: Aide autonome relative au pool SQL serverless
+description: Cette section contient des informations qui peuvent vous aider à résoudre les problèmes liés au pool SQL serverless.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682619"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457187"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Aide autonome pour le pool SQL serverless (préversion)
+# <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
-Cet article contient des informations sur la façon de résoudre les problèmes les plus fréquents concernant le pool SQL serverless (préversion) dans Azure Synapse Analytics.
+Cet article contient des informations sur la façon de résoudre les problèmes les plus fréquents concernant le pool SQL serverless dans Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Le pool SQL serverless apparaît en grisé dans Synapse Studio
 
@@ -37,7 +37,7 @@ Si votre requête échoue avec le message d’erreur « Cette requête ne peut 
 
 - Veillez à utiliser des types de données de taille raisonnable. Spécifiez également un schéma pour les colonnes de type chaîne des fichiers Parquet, car elles auront la valeur VARCHAR(8000) par défaut. 
 
-- Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Pour optimiser les requêtes, consultez les [bonnes pratiques concernant les performances du pool SQL serverless](best-practices-sql-on-demand.md).  
 

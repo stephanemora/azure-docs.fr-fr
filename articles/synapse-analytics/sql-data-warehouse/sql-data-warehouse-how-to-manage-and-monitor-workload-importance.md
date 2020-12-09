@@ -1,6 +1,6 @@
 ---
-title: Gérer et superviser l’importance de la charge de travail
-description: Découvrez comment gérer et surveiller l’importance du niveau de la requête dans Azure Synapse Analytics.
+title: Gérer et superviser l’importance de la charge de travail dans un pool SQL dédié
+description: Découvrez comment gérer et superviser l’importance du niveau des demandes dans un pool SQL dédié pour Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211967"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459212"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gérer et surveiller l’importance de la charge de travail dans Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Gérer et superviser l’importance des charges de travail dans un pool SQL dédié pour Azure Synapse Analytics
 
-Gérez et surveillez l’importance du niveau de la requête Synapse SQL dans Azure Synapse à l’aide des DMV et des affichages catalogue.
+Gérez et supervisez l’importance du niveau des demandes de pool SQL dédié dans Azure Synapse à l’aide de vues de gestion dynamique (DMV) et de vues catalogue.
 
 ## <a name="monitor-importance"></a>Surveiller l’importance
 

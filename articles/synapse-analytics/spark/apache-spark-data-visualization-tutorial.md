@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919082"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458763"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analyser des données avec Apache Spark
 
@@ -99,7 +99,7 @@ Outre les options intégrées de création de graphiques de Notebook, vous pouve
 
 > [!Note]
 > 
-> Par défaut, chaque pool Apache Spark dans Azure Synapse Analytics contient un ensemble de bibliothèques par défaut couramment utilisées. Vous pouvez afficher la liste complète des bibliothèques dans le [Runtime Azure Synapse](../spark/apache-spark-version-support.md). documentation en ligne. En outre, pour mettre à la disposition de vos applications un code tiers ou construit localement, vous pouvez [installer une bibliothèque](../spark/apache-spark-azure-portal-add-libraries.md) sur l’un de vos pools Spark (préversion).
+> Par défaut, chaque pool Apache Spark dans Azure Synapse Analytics contient un ensemble de bibliothèques par défaut couramment utilisées. Vous pouvez afficher la liste complète des bibliothèques dans le [Runtime Azure Synapse](../spark/apache-spark-version-support.md). documentation en ligne. De plus, pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez [installer une bibliothèque](../spark/apache-spark-azure-portal-add-libraries.md) sur l’un de vos pools Spark.
 >
 
 1. Pour faciliter le développement et le rendre moins onéreux, nous allons réduire l’échantillon de jeu de données. Nous allons utiliser la capacité intégrée d’échantillonnage Apache Spark. En outre, Seaborn et Matplotlib nécessitent un DataFrame Pandas ou un tableau Numpy. Pour obtenir un DataFrame Pandas, nous allons utiliser la commande ```toPandas()``` pour convertir notre DataFrame.

@@ -1,6 +1,6 @@
 ---
-title: Superviser la charge de travail de votre pool SQL à l’aide de vues de gestion dynamique
-description: Découvrez comment superviser la charge de travail de votre pool SQL Azure Synapse Analytics et l’exécution de requêtes à l’aide de vues de gestion dynamique.
+title: Superviser la charge de travail de votre pool SQL dédié à l’aide de vues de gestion dynamique
+description: Découvrez comment superviser la charge de travail de votre pool SQL dédié Azure Synapse Analytics et l’exécution de requêtes à l’aide de vues de gestion dynamique.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515727"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453797"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Superviser la charge de travail de votre pool SQL Azure Synapse Analytics à l’aide de vues de gestion dynamique
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Superviser la charge de travail de votre pool SQL dédié Azure Synapse Analytics à l’aide de vues de gestion dynamique
 
 Cet article décrit comment utiliser les vues de gestion dynamique (DMV) pour superviser votre charge de travail notamment en analysant l’exécution des requêtes dans le pool SQL.
 
 ## <a name="permissions"></a>Autorisations
 
-Pour interroger les vues de gestion dynamique (DMV) de cet article, vous avez besoin de l’autorisation **VIEW DATABASE STATE** ou **CONTROL** . L’autorisation généralement accordée est **VIEW DATABASE STATE** , car elle est beaucoup plus restrictive.
+Pour interroger les vues de gestion dynamique (DMV) de cet article, vous avez besoin de l’autorisation **VIEW DATABASE STATE** ou **CONTROL**. L’autorisation généralement accordée est **VIEW DATABASE STATE**, car elle est beaucoup plus restrictive.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
@@ -102,8 +102,8 @@ Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un pla
 
 Pour examiner les détails d’une seule étape, vérifiez la colonne *operation_type* de l’étape de la requête longue et notez **l’index de l’étape** :
 
-* Passez à l’étape 3 pour les **opérations SQL**  : OnOperation, RemoteOperation, ReturnOperation.
-* Passez à l’étape 4 pour les **opérations de déplacement des données**  : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Passez à l’étape 3 pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+* Passez à l’étape 4 pour les **opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>ÉTAPE 3 : examiner SQL dans les bases de données distribuées
 
@@ -176,7 +176,7 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources** .  Si la requête possède toutes les ressources requises, l'état sera **Granted** .
+Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
 

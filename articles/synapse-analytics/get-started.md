@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: f55e266b548ea3b43a50d9500a427dfe1199b73f
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699761"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445064"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Bien démarrer avec Azure Synapse Analytics
 
-Ce tutoriel est un guide pas à pas des principaux domaines de fonctionnalité d’Azure Synapse Analytics. Ce tutoriel est le point de départ idéal pour quelqu’un qui souhaite une visite guidée des principaux scénarios d’Azure Synapse Analytics. Après avoir suivi les étapes du tutoriel, vous disposerez d’un espace de travail Synapse pleinement fonctionnel dans lequel vous pourrez commencer à analyser des données à l’aide d’un pool SQL dédié, d’un pool SQL serverless ou d’Apache Spark.
+Ce tutoriel est un guide pas à pas des principaux domaines de fonctionnalité d’Azure Synapse Analytics. Ce tutoriel est le point de départ idéal pour quelqu’un qui souhaite une visite guidée des principaux scénarios d’Azure Synapse Analytics. Après avoir effectué les étapes décrites dans le tutoriel, vous disposerez d’un espace de travail Synapse. Ce tutoriel indique également les étapes permettant d’[activer un espace de travail pour votre pool SQL dédié (anciennement SQL DW)](./sql-data-warehouse/workspace-connected-create.md). Une fois votre espace de travail créé, vous pouvez commencer à analyser des données à l’aide d’un pool SQL dédié, d’un pool SQL serverless ou d’un pool Apache Spark serverless.
 
 Suivez les étapes *dans l’ordre* indiqué ci-dessous et vous examinerez la plupart des fonctionnalités et apprendrez à tester ses fonctionnalités de base.
 

@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181333"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456488"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Conseils de conception pour l'utilisation de tables répliquées dans un pool Synapse SQL
 
@@ -26,13 +26,13 @@ Cet article fournit des suggestions sur la conception de tables répliquées dan
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que les concepts de distribution et de déplacement de données dans un pool SQL vous sont familiers.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md).
+Cet article suppose que les concepts de distribution et de déplacement de données dans un pool SQL vous sont familiers.    Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md).
 
-Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
+Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.    Considérez par exemple les questions suivantes :
 
 - Quelle est la taille de la table ?
 - Quelle est la fréquence d’actualisation de la table ?
-- Est-ce que je dispose de tables de faits et de dimension dans une base de données de pools SQL ?
+- Est-ce que je dispose de tables de faits et de dimension dans un pool SQL ?
 
 ## <a name="what-is-a-replicated-table"></a>Qu’est-ce qu’une table répliquée ?
 
@@ -51,8 +51,8 @@ Envisagez d’utiliser une table répliquée dans les cas suivants :
 
 Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
 
-- La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes. Les opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée. La reconstruction fréquente peut diminuer les performances.
-- La base de données de pools SQL est fréquemment mise à l'échelle. La mise à l'échelle d'une base de données de pools SQL modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction de la table répliquée.
+- La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes.  Les opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée.  La reconstruction fréquente peut diminuer les performances.
+- Le pool SQL est fréquemment mis à l’échelle. La mise à l’échelle d’un pool SQL change le nombre de nœuds de calcul, ce qui entraîne une reconstruction de la table répliquée.
 - La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Lorsqu'une requête exige un déplacement des données, le pool SQL déplace uniquement les données des colonnes demandées.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utiliser des tables répliquées avec des prédicats de requête simples
@@ -174,8 +174,8 @@ Cette requête utilise le DMV [sys.pdw_replicated_table_cache_state](/sql/relati
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

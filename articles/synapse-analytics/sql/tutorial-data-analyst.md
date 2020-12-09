@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Explorer et analyser des lacs de données avec Synapse SQL serverless'
-description: Ce tutoriel explique comment effectuer facilement des analyses de données exploratoires en combinant différents jeux de données Azure Open Datasets avec un pool SQL serverless (préversion), et comment visualiser les résultats dans Synapse Studio pour Azure Synapse Analytics.
+title: 'Tutoriel : Utiliser un pool SQL serverless pour analyser des jeux de données Azure Open Datasets dans Azure Synapse Studio'
+description: Ce tutoriel explique comment effectuer facilement des analyses exploratoires de données en combinant différents jeux de données Azure Open Datasets à l’aide d’un pool SQL serverless, et comment visualiser les résultats dans Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237961"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459127"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutoriel : Explorer et analyser des lacs de données avec un pool SQL serverless (préversion)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutoriel : Explorer et analyser des lacs de données avec un pool SQL serverless
 
 Dans ce tutoriel, vous allez apprendre à effectuer des analyses de données exploratoires. Vous combinerez différents jeux de données Azure Open Datasets à l’aide d’un pool SQL serverless. Vous visualiserez ensuite les résultats dans Synapse Studio pour Azure Synapse Analytics.
 

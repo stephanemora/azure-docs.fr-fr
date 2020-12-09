@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444516"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -86,9 +86,9 @@ La localisation de l’espace de travail par défaut dépend de votre région Az
 - Pour les machines virtuelles en Australie, la localisation de l’espace de travail est l’Australie
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quelles données sont collectées par l’agent Log Analytics ?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Quels sont les événements de sécurité collectés par l'agent Log Analytics ?
 
-Pour obtenir la liste complète des applications et services analysés par l’agent, consultez [Éléments supervisés par Azure Monitor](../azure-monitor/monitor-reference.md#azure-services).
+Pour obtenir la liste complète des événements de sécurité collectés par l'agent, consultez [Quels types d'événements sont stockés pour les paramètres d'événements de sécurité « Commun » et « Minimal » ?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Notez que pour certains services, comme Pare-feu Azure, si vous avez activé la journalisation et choisi une ressource bavarde à journaliser (par exemple, en définissant le journal sur *détaillé*), vous pourriez constater des impacts significatifs sur les besoins de stockage de votre espace de travail Log Analytics. 

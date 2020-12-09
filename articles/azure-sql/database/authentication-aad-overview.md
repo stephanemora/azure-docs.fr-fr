@@ -1,6 +1,6 @@
 ---
 title: Authentification Azure Active Directory
-description: Découvrez comment utiliser Azure Active Directory pour l’authentification auprès d’Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics
+description: Découvrez comment utiliser Azure Active Directory pour l’authentification auprès d’Azure SQL Database, Azure SQL Managed Instance et Synapse SQL dans Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675082"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454296"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utiliser l’authentification Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L’authentification Azure Active Directory (Azure AD) est un mécanisme qui sert à se connecter à [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) et [Azure Synapse Analytics (anciennement SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure AD.
+L’authentification Azure Active Directory (Azure AD) est un mécanisme qui sert à se connecter à [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) et [Synapse SQL dans Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure AD.
 
 > [!NOTE]
 > Cet article s’applique à Azure SQL Database, SQL Managed Instance et Azure Synapse Analytics.
@@ -39,7 +39,7 @@ Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée 
 - L’authentification Azure AD prend en charge :
   - Identités uniquement cloud Azure AD.
   - Identités hybrides Azure AD prenant en charge :
-    - L’authentification dans le cloud avec deux options associées à l’authentification unique (SSO) fluide : authentification **directe** et authentification avec **hachage de mot de passe** .
+    - L’authentification dans le cloud avec deux options associées à l’authentification unique (SSO) fluide : authentification **directe** et authentification avec **hachage de mot de passe**.
     - Authentification fédérée.
   - Pour plus d’informations sur les méthodes d’authentification Azure AD et laquelle choisir, consultez l’article suivant :
     - [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../../active-directory/hybrid/choose-ad-authn.md)
@@ -61,7 +61,7 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 6. Se connecter à la base de données à l’aide des identités Azure AD.
 
 > [!NOTE]
-> Pour apprendre à créer et à remplir Azure AD, puis à configurer Azure AD avec Azure SQL Database, SQL Managed Instance et Azure Synapse, consultez [Configurer Azure AD avec Azure SQL Database](authentication-aad-configure.md).
+> Pour savoir comment créer et à renseigner Azure AD, puis configurer Azure AD avec Azure SQL Database, SQL Managed Instance et SQL Database dans Azure Synapse Analytics, consultez [Configurer Azure AD avec Azure SQL Database](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Architecture d’approbation
 
@@ -108,7 +108,7 @@ Pour créer un utilisateur de base de données autonome dans Azure SQL Database,
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Accordez le rôle `db_owner` directement à l’utilisateur Azure AD individuel pour atténuer le problème lié à **CREATE DATABASE SCOPED CREDENTIAL** .
+    Accordez le rôle `db_owner` directement à l’utilisateur Azure AD individuel pour atténuer le problème lié à **CREATE DATABASE SCOPED CREDENTIAL**.
 
 - Ces fonctions système retournent des valeurs NULL lors de leur exécution sous des entités Azure AD :
 

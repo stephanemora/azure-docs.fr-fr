@@ -1,6 +1,6 @@
 ---
 title: Notebooks Synapse Studio
-description: Cet article explique comment créer et développer des blocs-notes Azure Synapse Studio (préversion) pour la préparation et la visualisation de données.
+description: Cet article explique comment créer et développer des blocs-notes Azure Synapse Studio pour la préparation et la visualisation de données.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900883"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450860"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio (préversion) dans Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
 
-Un notebook Synapse Studio (préversion) est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif en direct. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. Les blocs-notes sont également largement utilisés pour la préparation et la visualisation de données, l’apprentissage automatique et d’autres scénarios en lien avec le Big Data.
+Un notebook Synapse Studio est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif en direct. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. Les blocs-notes sont également largement utilisés pour la préparation et la visualisation de données, l’apprentissage automatique et d’autres scénarios en lien avec le Big Data.
 
 Un bloc-notes Azure Synapse Studio permet d’effectuer les opérations suivantes :
 
@@ -549,7 +549,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Consultez les exemples de notebooks Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Démarrage rapide : Créer un pool Apache Spark (préversion) dans Azure Synapse Analytics avec des outils web](../quickstart-apache-spark-notebook.md)
+- [Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web](../quickstart-apache-spark-notebook.md)
 - [Présentation d’Apache Spark dans Azure Synapse Analytics](apache-spark-overview.md)
 - [Utiliser .NET pour Apache Spark avec Azure Synapse Analytics](spark-dotnet.md)
 - [Documentation .NET pour Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -11,18 +11,18 @@ ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: 31a47b9032ac014fa4eedde343d03d4fd343ff02
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/01/2020
+ms.openlocfilehash: 69bebcf872f55055117acf5cef410d1f89eafe34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790659"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446901"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configurer Advanced Threat Protection dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) pour une instance [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Advanced Threat Protection peut identifier une **injection SQL potentielle** , un **accès à partir d'un emplacement ou d'un centre de données inhabituel** , un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute** . Pour plus d'informations, consultez [Alertes de protection avancée des menaces](../database/threat-detection-overview.md#alerts).
+[Advanced Threat Protection](../database/threat-detection-overview.md) pour une instance [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Advanced Threat Protection peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes de protection avancée des menaces](../database/threat-detection-overview.md#alerts).
 
 Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) ou du [portail Azure](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal).
 
@@ -31,13 +31,15 @@ Vous pouvez recevoir des notifications à propos des menaces détectées par l�
 ##  <a name="azure-portal"></a>Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-2. Accédez à la page de configuration de l’instance SQL Managed Instance que vous voulez protéger. Sous **Sécurité** , sélectionnez **Security Center** .
+2. Accédez à la page de configuration de l’instance SQL Managed Instance que vous voulez protéger. Sous **Sécurité**, sélectionnez **Security Center**.
 3. Sur la page de configuration Azure Defender pour SQL
    - **Activez** Azure Defender pour SQL.
-   - Configurez la **liste des e-mails** qui doivent recevoir des alertes de sécurité en cas de détection d’activités anormales sur la base de données.
+   - Entrez votre adresse e-mail dans le champ **Envoyer des alertes à** pour recevoir des alertes de sécurité en cas de détection d'activités anormales sur la base de données.
    - Sélectionnez le **compte de stockage Azure** dans lequel sont enregistrés les enregistrements d’audit des menaces anormales.
    - Sélectionnez les **types d’Advanced Threat Protection** que vous souhaitez configurer. En savoir plus sur les [alertes Advanced Threat Protection](../database/threat-detection-overview.md)
 4. Cliquez sur **Enregistrer** pour enregistrer la stratégie Azure Defender pour SQL, nouvelle ou mise à jour.
+
+   :::image type="content" source="../database/media/azure-defender-for-sql/set-up-advanced-threat-protection-mi.png" alt-text="Configurer la protection avancée contre les menaces":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Base de données partagée
-description: Azure Synapse Analytics fournit un modèle de métadonnées partagées, où le fait de créer une base de données dans un pool Apache Spark serverless la rend accessible à partir des moteurs de son pool SQL serverless (préversion) et de son pool SQL.
+description: Azure Synapse Analytics fournit un modèle de métadonnées partagées avec lequel la création d’une base de données dans le pool Apache Spark serverless rend celle-ci accessible depuis ses moteurs de pool SQL serverless et pool SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451811"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion) et le moteur de son pool SQL serverless (préversion).
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless et le moteur de son pool SQL serverless.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark (préversion) actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless.
+Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless.
 
 La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL du pool SQL serverless sous le nom `default`.
 

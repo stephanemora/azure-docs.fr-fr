@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322716"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450661"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Démarrage rapide : Créer un espace de travail Synapse
 Ce guide de démarrage rapide décrit les étapes à suivre pour créer un espace de travail Azure Synapse à l’aide du portail Azure.
@@ -22,25 +22,28 @@ Ce guide de démarrage rapide décrit les étapes à suivre pour créer un espac
 ## <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et, en haut, recherchez **Synapse**.
-1. Dans les résultats de la recherche, sous **Services** , sélectionnez **Azure Synapse Analytics (préversion des espaces de travail)** .
+1. Dans les résultats de la recherche, sous **Services**, sélectionnez **Azure Synapse Analytics**.
 1. Sélectionnez **Ajouter** pour créer un espace de travail.
-1. Dans l’onglet **Général** , donnez un nom unique à l’espace de travail. Dans ce document, nous allons utiliser **myworkspace**.
+1. Dans l’onglet **Général**, donnez un nom unique à l’espace de travail. Dans ce document, nous allons utiliser **myworkspace**.
 1. Un compte ADLS Gen2 est nécessaire pour créer un espace de travail. Le choix le plus simple consiste à en créer un nouveau. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
 1. OPTION 1 Création d’un nouveau compte ADLS Gen2 : 
-    1. Sous **Sélectionnez Data Lake Storage Gen2** , cliquez sur **Créer** et nommez-le **contosolake**.
-    1. Sous **Sélectionnez Data Lake Storage Gen2** , cliquez sur **Système de fichiers** et nommez-le **users**.
+    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Créer** et nommez-le **contosolake**.
+    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Système de fichiers** et nommez-le **users**.
 1. OPTION 2 Consultez les instructions **Préparation d’un compte de stockage** qui se trouvent à la fin de ce document.
 1. Votre espace de travail Azure Synapse utilisera ce compte de stockage comme compte de stockage « principal » et le conteneur pour stocker les données de l’espace de travail. L’espace de travail stocke les données dans des tables Apache Spark. Il stocke les journaux des applications Spark dans un dossier appelé **/synapse/workspacename**.
 1. Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
+
+> [!NOTE]
+> Après avoir créé votre espace de travail Azure Synapse, vous ne pourrez pas le déplacer vers un autre locataire Azure Active Directory. Si vous effectuez cette opération par le biais d’une migration d’abonnement ou d’autres actions, vous risquez de perdre l’accès aux artefacts dans l’espace de travail.  
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio
 
 Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Synapse Studio de deux manières :
 
-* Ouvrez votre espace de travail Synapse dans le [Portail Azure](https://portal.azure.com). En haut de la section **Vue d’ensemble** , sélectionnez **Lancer Synapse Studio**.
+* Ouvrez votre espace de travail Synapse dans le [Portail Azure](https://portal.azure.com). En haut de la section **Vue d’ensemble**, sélectionnez **Lancer Synapse Studio**.
 * Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Préparer un compte de stockage existant à utiliser avec Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Préparer un compte de stockage existant à utiliser avec Azure Synapse Analytics
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 1. Accéder à un compte de stockage ADLSGEN2 existant
@@ -49,7 +52,7 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
     * Attribuez-vous le rôle **Propriétaire des données Blob du stockage**.
 1. Dans le volet de gauche, sélectionnez **Conteneurs** et créez un conteneur.
 1. Attribuez au conteneur un nom de votre choix. Dans ce document, nous appellerons le conteneur **users**.
-1. Acceptez le paramètre par défaut **Niveau d’accès public** , puis sélectionnez **Créer**.
+1. Acceptez le paramètre par défaut **Niveau d’accès public**, puis sélectionnez **Créer**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configuration de l’accès au compte de stockage à partir de votre espace de travail
 

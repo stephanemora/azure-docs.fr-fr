@@ -5,22 +5,36 @@ description: Nouvelle documentation mise à jour pour la plateforme d’identit�
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322564"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457152"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Guide pratique pour utiliser des API dotées d’Évaluation continue de l’accès dans vos applications](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Jetons d’accès de la plateforme d’identités Microsoft](access-tokens.md)
+- [Options de configuration d’application (MSAL)](msal-client-application-configuration.md)
+- [Procédure : Fournir des revendications facultatives à votre application](active-directory-optional-claims.md)
+- [Publier votre application dans la galerie d’applications Azure AD](v2-howto-app-gallery-listing.md)
+- [Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>Octobre 2020
 
@@ -67,23 +81,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Démarrage rapide : Configurer une application cliente pour accéder à une API web](quickstart-configure-app-access-web-apis.md)
 - [Démarrage rapide : Configurer une application pour exposer une API web](quickstart-configure-app-expose-web-apis.md)
 - [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-
-## <a name="august-2020"></a>Août 2020
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Migrer des applications Android qui utilisent un répartiteur d’ADAL.NET vers MSAL.NET](msal-net-migration-android-broker.md)
-- [Gérer les exceptions et les erreurs dans MSAL pour Android](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator](msal-net-migration-ios-broker.md)
-- [Utiliser Microsoft Authenticator ou le Portail d’entreprise Intune sur des applications Xamarin](msal-net-use-brokers-with-xamarin-apps.md)
-- [Configuration requise et conseils de dépannage pour Xamarin Android avec MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Configurer une application mobile qui appelle des API web](scenario-mobile-app-configuration.md)
-- [Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)](active-directory-claims-mapping.md)
-- [Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft](active-directory-certificate-credentials.md)
-- [Limitations et restrictions des URI de redirection (URL de réponse)](reply-url.md)
-- [Démarrage rapide : Configurer une application pour exposer une API web](quickstart-configure-app-expose-web-apis.md)
-- [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md)
-- [Démarrage rapide : Appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft](quickstart-v2-dotnet-native-aspnet.md)

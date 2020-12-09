@@ -1,6 +1,6 @@
 ---
-title: Types de données de table dans un pool SQL dédié
-description: Recommandations pour la définition des types de données de table dans un pool SQL dédié.
+title: Types de données de table dans un pool SQL dédié (anciennement SQL DW)
+description: Recommandations sur la définition des types de données de table pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 01/06/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5bb1d10978171b93ee697b37ee9ac0702d3f898c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6526ae2c15bd53af69854309632c83fa65af8d85
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449686"
 ---
-# <a name="table-data-types-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Types de données de table pour un pool SQL dédié dans Azure Synapse Analytics 
+# <a name="table-data-types-for-dedicated-sql-pool-formerly--sql-dw-in-azure-synapse-analytics"></a>Types de données de table pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics 
 
 Cet article contient des recommandations relatives à la définition des types de données de table dans un pool SQL dédié.
 
 ## <a name="supported-data-types"></a>Types de données pris en charge
 
-Un pool SQL dédié prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) dans l’instruction CREATE TABLE.
+Un pool SQL dédié (anciennement SQL DW) prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) dans l’instruction CREATE TABLE.
 
 ## <a name="minimize-row-length"></a>Réduction de la longueur de ligne
 
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>Solutions de contournement pour les types de données non pris en charge
 
-La liste suivante répertorie les types de données qu’un pool SQL dédié ne prend pas en charge et fournit des alternatives utiles pour les types de données non pris en charge.
+La liste suivante répertorie les types de données qu'un pool SQL dédié (anciennement SQL DW) ne prend pas en charge, et fournit des alternatives utiles pour les types de données non pris en charge.
 
 | Type de données non pris en charge | Solution de contournement |
 | --- | --- |

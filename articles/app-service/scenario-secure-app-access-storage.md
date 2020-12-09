@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020209"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435839"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutoriel : Accéder au stockage Azure à partir d’une application web
 
@@ -23,7 +24,7 @@ Découvrez comment accéder au stockage Azure pour le compte d’une application
 
 :::image type="content" alt-text="Diagramme illustrant comment accéder au stockage." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Vous souhaitez ajouter l’accès au plan de données Azure (stockage Azure, Azure SQL Database, Azure Key Vault ou d’autres services) à partir de votre application web. Vous pourriez utiliser une clé partagée, mais vous devriez alors vous occuper de la sécurité opérationnelle afin d’identifier qui pourrait créer, déployer et gérer le secret. La clé pourrait également être archivée dans GitHub, que les pirates savent analyser. Un moyen plus sûr d’accorder à votre application web l’accès aux données consiste à utiliser des [identités managées](/azure/active-directory/managed-identities-azure-resources/overview).
+Vous souhaitez ajouter l’accès au plan de données Azure (stockage Azure, Azure SQL Database, Azure Key Vault ou d’autres services) à partir de votre application web. Vous pourriez utiliser une clé partagée, mais vous devriez alors vous occuper de la sécurité opérationnelle afin d’identifier qui pourrait créer, déployer et gérer le secret. La clé pourrait également être archivée dans GitHub, que les pirates savent analyser. Un moyen plus sûr d’accorder à votre application web l’accès aux données consiste à utiliser des [identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 Une identité managée d’Azure Active Directory (Azure AD) permet à App Service d’accéder aux ressources par le biais du contrôle d’accès en fonction du rôle (RBAC) sans demander d’informations d’identification d’application. Après avoir affecté une identité managée à votre application web, Azure s’occupe de la création et de la distribution d’un certificat. Vous n’avez pas à vous soucier de la gestion des secrets ou des informations d’identification d’application.
 
@@ -210,6 +211,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ## <a name="access-blob-storage-net"></a>Accès au stockage d’objets blob (.NET)
 
 La classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) est utilisée pour obtenir les informations d’identification d’un jeton pour votre code afin d’autoriser les requêtes d’accès à Stockage Azure. Créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), qui utilise l’identité managée pour extraire des jetons et les attacher au client de service. L’exemple de code suivant obtient les informations d’identification du jeton authentifiées, et les utilise pour créer un objet de client de service, qui charge un nouvel objet blob.
+
+Pour voir ce code dans un exemple d’application, consultez l’[exemple sur GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
 ### <a name="install-client-library-packages"></a>Installer des packages de bibliothèque de client
 

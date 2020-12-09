@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460466"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 
@@ -78,7 +78,7 @@ Les informations d'identification basées sur des jetons sont composées des cha
 
 * **ID de la clé** : Identificateur de la clé privée générée dans le portail des développeurs Apple ; par exemple, `2USFGKSKLT`.
 * **ID de l’équipe** : Aussi appelé « Préfixe » ou « Préfixe de l'application ». C'est l'identificateur de l'organisation dans le portail des développeurs Apple ; par exemple, `S4V3D7CHJR`.
-* **ID de l’offre groupée** : Aussi appelé « ID de l’application ». C'est l'identificateur de l’offre groupée pour l'application ; par exemple, `com.example.myapp`. Notez que vous pouvez utiliser une même clé pour plusieurs applications. Cette valeur est mappée à l'en-tête HTTP `apns-topic` lors de l'envoi d'une notification, et sert à cibler l'application spécifique. Notez que vous ne pouvez pas définir explicitement la valeur de `apns-topic`.
+* **ID de l’offre groupée** : Aussi appelé « ID de l’application ». C'est l'identificateur de l’offre groupée pour l'application ; par exemple, `com.example.myapp`. Notez que vous ne pouvez utiliser qu’une seule clé pour une application. Cette valeur est mappée à l'en-tête HTTP `apns-topic` lors de l'envoi d'une notification, et sert à cibler l'application spécifique. Vous ne pouvez pas définir explicitement la valeur de `apns-topic`.
 * **Jeton** : Aussi appelé « clé » « clé privée ». Il est obtenu à partir du fichier .p8 généré sur le portail des développeurs Apple. La clé doit avoir l'APNS activé (sélectionné dans le portail des développeurs Apple lors de la génération de la clé). L’en-tête ou le pied de page PEM doit être supprimé de la valeur lorsque vous la fournissez au portail NH ou à l’API.
 * **Point de terminaison** : Il s'agit d'un bouton bascule dans la volet du portail Notification Hubs, et d'un champ de chaîne dans l'API. Les valeurs valides sont `https://api.development.push.apple.com:443/3/device` ou `https://api.sandbox.push.apple.com:443/3/device`. Notification Hubs utilise cette valeur soit pour l'environnement de production, soit pour l'environnement de bac à sable (sandbox), afin d’envoyer des notifications. Elle doit correspondre à l’autorisation `aps-environment` dans l'application , sinon, les jetons d’appareils APNS générés ne correspondent pas à l'environnement, et les notifications ne sont pas envoyées.
 

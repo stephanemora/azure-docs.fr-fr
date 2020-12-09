@@ -2,17 +2,17 @@
 title: Métriques Azure Monitor pour Application Gateway
 description: Découvrez comment utiliser les métriques pour surveiller les performances de la passerelle Application Gateway
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397737"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437063"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -40,7 +40,7 @@ Application Gateway fournit plusieurs métriques de minutage intégrées associ�
 
   Intervalle de temps entre le début de l’établissement d’une connexion au serveur principal et la réception du premier octet de l’en-tête de la réponse. 
 
-  Cela correspond approximativement à la somme du *temps de connexion au principal* , du temps pris par la demande pour atteindre le principal depuis Application Gateway, du temps pris par l’application principale pour répondre (le temps nécessaire au serveur pour générer du contenu, extraire potentiellement des requêtes de base de données) et du temps mis par le premier octet de la réponse à atteindre Application Gateway à partir du principal.
+  Cela correspond approximativement à la somme du *temps de connexion au principal*, du temps pris par la demande pour atteindre le principal depuis Application Gateway, du temps pris par l’application principale pour répondre (le temps nécessaire au serveur pour générer du contenu, extraire potentiellement des requêtes de base de données) et du temps mis par le premier octet de la réponse à atteindre Application Gateway à partir du principal.
 
 - **Temps de réponse du dernier octet du principal**
 
@@ -52,7 +52,7 @@ Application Gateway fournit plusieurs métriques de minutage intégrées associ�
 
   Temps moyen nécessaire pour la réception et le traitement d’une requête et l’envoi de la réponse. 
 
-  Il s’agit de l’intervalle entre le moment où Application Gateway reçoit le premier octet de la requête HTTP et le moment où le dernier octet de la réponse a été envoyé au client. Cela comprend le temps de traitement pris par Application Gateway, le *temps de réponse du dernier octet du principal* , le temps pris par Application Gateway pour envoyer toutes les réponses et le *RTT client*.
+  Il s’agit de l’intervalle entre le moment où Application Gateway reçoit le premier octet de la requête HTTP et le moment où le dernier octet de la réponse a été envoyé au client. Cela comprend le temps de traitement pris par Application Gateway, le *temps de réponse du dernier octet du principal*, le temps pris par Application Gateway pour envoyer toutes les réponses et le *RTT client*.
 
 - **RTT client**
 
@@ -62,9 +62,9 @@ Application Gateway fournit plusieurs métriques de minutage intégrées associ�
 
 Ces métriques peuvent être utilisées pour déterminer si le ralentissement observé est dû au réseau client, aux performances d’Application Gateway, à la saturation de la pile TCP du réseau principal et du serveur principal, aux performances de l’application principale ou à la taille volumineuse des fichiers.
 
-Par exemple, s’il existe un pic dans la tendance *Temps de réponse du premier octet du principal* , mais que la tendance *Temps de connexion au principal* est stable, il peut être déduit que la latence de la passerelle d’application vers le principal et le temps nécessaire pour établir la connexion sont stables, et que le pic est dû à une augmentation du temps de réponse de l’application principale. En revanche, si le pic dans *Temps de réponse du premier octet du principal* est associé à un pic correspondant dans *Temps de connexion au principal* , il peut être déduit que le réseau entre Application Gateway et le serveur principal ou la pile TCP du serveur principal est saturé. 
+Par exemple, s’il existe un pic dans la tendance *Temps de réponse du premier octet du principal*, mais que la tendance *Temps de connexion au principal* est stable, il peut être déduit que la latence de la passerelle d’application vers le principal et le temps nécessaire pour établir la connexion sont stables, et que le pic est dû à une augmentation du temps de réponse de l’application principale. En revanche, si le pic dans *Temps de réponse du premier octet du principal* est associé à un pic correspondant dans *Temps de connexion au principal*, il peut être déduit que le réseau entre Application Gateway et le serveur principal ou la pile TCP du serveur principal est saturé. 
 
-Si vous remarquez un pic dans *Temps de réponse du dernier octet du principal* , mais que le *temps de réponse du premier octet du principal* est stable, il peut être déduit que le pic est dû à la demande d’un fichier plus volumineux.
+Si vous remarquez un pic dans *Temps de réponse du dernier octet du principal*, mais que le *temps de réponse du premier octet du principal* est stable, il peut être déduit que le pic est dû à la demande d’un fichier plus volumineux.
 
 De même, si la *durée totale de la passerelle d’application* présente un pic, mais que le *temps de réponse du dernier octet du principal* est stable, cela peut être le signe d’un goulot d’étranglement des performances au niveau d’Application Gateway ou d’un goulot d’étranglement dans le réseau entre le client et Application Gateway. En outre, si le *RTT client* présente également un pic correspondant, cela indique que la dégradation est due au réseau entre le client et le service Application Gateway.
 
@@ -162,7 +162,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Requêtes ayant échoué**
 
-  Nombre de requêtes traitées par Application Gateway avec des codes d'erreur serveur 5xx. Cela comprend les codes 5xx générés à partir d'Application Gateway, ainsi que les codes 5xx générés à partir du serveur principal. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
+  Nombre de demandes ayant échoué en raison de problèmes de connexion. Ce nombre comprend les demandes qui ont échoué en raison du paramètre HTTP « Délai d’expiration des demandes » ou de problèmes de connexion entre Application Gateway et le serveur principal. Ne sont pas comptabilisées les défaillances dues à l’absence de serveur principal sain disponible. Les réponses 4xx et 5xx du serveur principal ne sont pas non plus prises en compte dans le cadre de cette métrique.
 
 - **État de la réponse**
 
@@ -194,7 +194,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 ## <a name="metrics-visualization"></a>Visualisation des métriques
 
-Accédez à une passerelle d’application, sous **Supervision** , sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
+Accédez à une passerelle d’application, sous **Supervision**, sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 
 Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
 
@@ -212,11 +212,11 @@ L’exemple suivant vous guide dans la création d’une règle d’alerte qui e
 
    ![Bouton Ajouter une alerte Métrique][6]
 
-2. Dans la page **Ajouter une règle** , remplissez les sections Nom, Condition et Notifier, puis sélectionnez **OK**.
+2. Dans la page **Ajouter une règle**, remplissez les sections Nom, Condition et Notifier, puis sélectionnez **OK**.
 
-   * Dans le sélecteur **Condition** , sélectionnez une des quatre valeurs : **Supérieur à** , **Supérieur ou égal à** , **Inférieur à** ou **Inférieur ou égal à**.
+   * Dans le sélecteur **Condition**, sélectionnez une des quatre valeurs : **Supérieur à**, **Supérieur ou égal à**, **Inférieur à** ou **Inférieur ou égal à**.
 
-   * Dans le sélecteur **Période** , sélectionnez une période allant de 5 minutes à 6 heures.
+   * Dans le sélecteur **Période**, sélectionnez une période allant de 5 minutes à 6 heures.
 
    * Si vous sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** , l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, vous pouvez fournir une liste d’utilisateurs séparée par des virgules dans la zone **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** .
 

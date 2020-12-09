@@ -1,6 +1,6 @@
 ---
 title: Optimisation des performances avec la mise en cache des jeux de résultats
-description: Vue d’ensemble de la fonctionnalité de mise en cache du jeu de résultats pour un pool SQL Synapse dans Azure Synapse Analytics
+description: Vue d’ensemble de la fonctionnalité de mise en cache du jeu de résultats pour un pool SQL dédié dans Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541279"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460773"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats
 
-Quand la mise en cache du jeu de résultats est activée, Synapse SQL met automatiquement en cache les résultats de la requête dans la base de données utilisateur, ce qui permet de les utiliser de façon répétée.  Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire.   La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul.  De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache.  
+Lorsque la mise en cache du jeu de résultats est activée, le pool SQL dédié met automatiquement en cache les résultats de la requête dans la base de données utilisateur, ce qui permet de les utiliser de façon répétée.  Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire.   La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul.  De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache.  
 
 ## <a name="key-commands"></a>Commandes clés
 
@@ -47,7 +47,7 @@ Une fois la mise en cache du jeu de résultats activée pour une base de donnée
 > - Si les données dans les colonnes ORDER BY ne sont pas uniques, il n’y a pas d’ordre garanti pour les lignes ayant les mêmes valeurs dans les colonnes ORDER BY, que la mise en cache du jeu de résultats soit activée ou non.
 
 > [!IMPORTANT]
-> Les opérations de création d’un cache de jeu de résultats et de récupération des données à partir du cache ont lieu sur le nœud de contrôle d’une instance de pool SQL Synapse.
+> Les opérations de création d’un cache de jeu de résultats et de récupération des données à partir du cache ont lieu sur le nœud de contrôle d’une instance de pool SQL dédié.
 > Quand la mise en cache des jeux de résultats est activée (ON), l’exécution de requêtes qui retournent un jeu de résultats volumineux (par exemple, >1 Go) peut entraîner une limitation de requêtes sur le nœud de contrôle et allonger ainsi le temps de réponse de toutes les requêtes sur l’instance.  Ces requêtes sont couramment utilisées lors de l’exploration de données et des opérations ETL. Pour éviter une utilisation trop intensive du nœud de contrôle et les problèmes de performances qui en découlent, les utilisateurs doivent désactiver (OFF) la mise en cache des jeux de résultats sur la base de données avant d’exécuter ces types de requêtes.  
 
 Exécutez cette requête pendant toute la durée des opérations de mise en cache du jeu de résultats pour une requête :
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 La taille maximale du cache du jeu de résultats est de 1 To par base de données.  Les résultats mis en cache sont automatiquement invalidés lorsque les données de requête sous-jacentes sont modifiées.  
 
-L’éviction du cache est gérée automatiquement par Synapse SQL selon la planification suivante :
+L’éviction du cache est gérée automatiquement par le pool SQL dédié selon la planification suivante :
 
 - Toutes les 48 heures si le jeu de résultats n’a pas été utilisé ou a été invalidé.
 - Lorsque le cache du jeu de résultats approche la taille maximale.

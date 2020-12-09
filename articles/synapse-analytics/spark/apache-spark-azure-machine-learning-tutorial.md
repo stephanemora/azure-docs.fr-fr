@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917203"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458841"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutoriel : Exécuter des essais à l’aide d’Azure Automated ML et d’Apache Spark
 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume à l’aide des filtres ```start_date``` et ```end_date```. Cela applique un filtre qui retourne un mois de données. Une fois que le DataFrame est filtré, nous allons également exécuter la fonction ```describe()``` sur le nouveau DataFrame pour afficher un résumé des statistiques de chaque champ. 
+3. Selon la taille de votre pool Spark, les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume à l’aide des filtres ```start_date``` et ```end_date```. Cela applique un filtre qui retourne un mois de données. Une fois que le DataFrame est filtré, nous allons également exécuter la fonction ```describe()``` sur le nouveau DataFrame pour afficher un résumé des statistiques de chaque champ. 
 
    En fonction du résumé des statistiques, nous voyons qu’il existe des irrégularités et des valeurs hors norme dans les données. Par exemple, les statistiques indiquent que la distance de trajet minimale est inférieure à 0. Nous aurons besoin de filtrer ces points de données irréguliers.
    

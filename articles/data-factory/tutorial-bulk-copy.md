@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 4a9aaca8128570af74370213e9848e26dec25156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a9a5f6a4644717227d0b659407e9ba0bc56675
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490256"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452412"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory avec PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Ce tutoriel montre comment **copier des tables entre Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse)** . Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
+Ce tutoriel montre comment **copier des tables d’Azure SQL Database dans Azure Synapse Analytics**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
 
 Globalement, ce tutoriel implique les étapes suivantes :
 
@@ -263,7 +263,7 @@ Dans ce tutoriel, vous créez des jeux de données (source et récepteur) qui sp
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-synapse-analytics"></a>Créer un jeu de données pour le récepteur Synapse Analytics
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Créer un jeu de données pour le récepteur Azure Synapse Analytics
 
 1. Créez un fichier JSON nommé **AzureSqlDWDataset.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant : La valeur « tableName » est définie en tant que paramètre. Plus tard, l’activité de copie qui fait référence à ce jeu de données transmet la valeur réelle au jeu de données.
 

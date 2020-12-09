@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541298"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447191"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
-Dans cet article, vous allez apprendre à configurer et à soumettre des exécutions Azure Machine Learning pour entraîner vos modèles.
+Dans cet article, vous allez apprendre à configurer et à soumettre des exécutions Azure Machine Learning pour entraîner vos modèles. Des extraits de code décrivent les éléments clés de la configuration et de la soumission d'un script de formation.  Utilisez ensuite l'un des [exemples de notebooks](#notebooks) pour accéder aux exemples fonctionnels complets de bout en bout.
 
 Lors de l’entraînement, il est courant de démarrer sur votre ordinateur local, puis d’effectuer un scale-out vers un cluster cloud. Avec Azure Machine Learning, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à modifier votre script de formation.
 
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Pour plus d’informations, consultez [Obtenir une intégration pour Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebook-examples"></a>Exemples de notebooks
+## <a name="notebook-examples"></a><a name="notebooks"></a>Exemples de notebooks
 
 Consultez ces notebooks pour obtenir des exemples de configuration d’exécutions pour différents scénarios d’entraînement :
 * [Entraînement sur différentes cibles de calcul](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

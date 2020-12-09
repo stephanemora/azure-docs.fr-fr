@@ -1,6 +1,6 @@
 ---
-title: Synchroniser Apache Spark pour les définitions de tables externes dans un pool SQL serverless (préversion)
-description: Vue d’ensemble de l’interrogation des tables Spark en utilisant un pool SQL serverless (préversion)
+title: Synchroniser Apache Spark pour les définitions de tables externes dans le pool SQL serverless
+description: Vue d’ensemble de l’interrogation des tables Spark en utilisant le pool SQL serverless
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315834"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446485"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Synchroniser Apache Spark pour les définitions de tables externes d’Azure Synapse dans un pool SQL serverless (préversion)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Synchroniser Apache Spark pour les définitions de tables externes d’Azure Synapse dans le pool SQL serverless
 
-Un pool SQL serverless (préversion) peut synchroniser automatiquement les métadonnées depuis Apache Spark. Une base de données de pool SQL serverless sera créée pour chaque base de données existante dans les pools Apache Spark (préversion). 
+Le pool SQL serverless peut synchroniser automatiquement les métadonnées depuis Apache Spark. Une base de données de pool SQL serverless sera créée pour chaque base de données existante dans les pools Apache Spark. 
 
 Pour chaque table externe Spark de type Parquet et située dans Stockage Azure, une table externe est créée dans la base de données du pool SQL serverless. Par conséquent, vous pouvez arrêter vos pools Spark et interroger quand même les tables externes Spark à partir du pool SQL serverless.
 

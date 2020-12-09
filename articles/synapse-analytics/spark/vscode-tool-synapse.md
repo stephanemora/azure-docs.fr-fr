@@ -1,6 +1,6 @@
 ---
 title: Didacticiel – Spark & Hive Tools pour VSCode (application Spark)
-description: Tutoriel - Utiliser Spark & Hive Tools pour VSCode en vue de développer des applications Spark, écrites en Python, et envoyez-les à un pool Apache Spark serverless (préversion).
+description: Tutoriel - Utiliser Spark & Hive Tools pour VSCode en vue de développer des applications Spark, écrites en Python, et les envoyer à un pool Apache Spark serverless.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eb4a4c2c8d1d52690a07b784640d20d96ff2d600
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315655"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445684"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutoriel : Créer des applications Apache Spark avec VSCode à l’aide d’un espace de travail Synapse
 

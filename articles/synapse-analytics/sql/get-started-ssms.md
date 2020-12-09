@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686206"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451630"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Se connecter à Synapse SQL avec SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "94686206"
 > 
 > 
 
-Vous pouvez utiliser [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter à Synapse SQL et l’interroger dans Azure Synapse Analytics via un pool SQL serverless (préversion) ou des ressources du pool SQL dédié. 
+Vous pouvez utiliser [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter à Synapse SQL et l’interroger dans Azure Synapse Analytics via le pool SQL serverless ou des ressources du pool SQL dédié. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Outils pris en charge pour le pool SQL serverless (préversion)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Outils pris en charge pour le pool SQL serverless
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) est entièrement pris en charge à compter de la version 1.18.0. SSMS est partiellement pris en charge à partir de la version 18.5 ; vous pouvez l’utiliser pour vous connecter et interroger uniquement.
 
@@ -63,7 +63,7 @@ Pour vous connecter à Synapse SQL en utilisant un pool SQL dédié, suivez ces 
     ![Explorer AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>Pool SQL serverless (préversion)
+### <a name="serverless-sql-pool"></a>Pool SQL serverless
 
 Pour vous connecter à Synapse SQL en utilisant un pool SQL serverless, suivez ces étapes : 
 

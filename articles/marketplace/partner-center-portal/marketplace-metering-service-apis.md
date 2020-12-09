@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674636"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436060"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturation à la consommation de la Place de marché
 
@@ -20,7 +20,7 @@ Les API de facturation à la consommation doivent être utilisées lorsque le se
 
 Pour plus d’informations sur la création de dimensions de contrôle personnalisées pour les SaaS, consultez [Facturation à la consommation pour SaaS](saas-metered-billing.md).
 
-Pour plus d’informations sur la création de mesures de consommation personnalisées pour une offre Azure Application avec un plan d’application géré, consultez la section [Configuration technique dans Créer une nouvelle offre Azure Apps](create-new-azure-apps-offer.md#technical-configuration)).
+Pour plus d’informations sur la création de dimensions de contrôle personnalisées pour une offre Azure Application avec un plan d’application géré, consultez [Configuration des informations de configuration d’une offre Azure Application](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Note concernant la mise en œuvre de TLS 1.2
 
@@ -34,7 +34,7 @@ Un seul événement d’utilisation peut être émis pour chaque heure d’un jo
 
 Un seul événement d’utilisation peut être émis pour chaque heure d’un jour calendaire par ressource. Si plusieurs unités sont consommées au cours d’une heure, accumulez toutes les unités consommées dans l’heure, puis émettez-les en un seul événement. Les événements d’utilisation peuvent être émis uniquement au cours des dernières 24 heures. Si vous émettez un événement d’utilisation à tout moment entre 8h00 et 8h59m59s (et qu’il est accepté) et que vous envoyez un événement supplémentaire pour le même jour entre 8h00 et 8h59m59s, il sera rejeté en tant que doublon.
 
-**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 

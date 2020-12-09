@@ -3,12 +3,12 @@ title: Azure Key Vault en tant que source Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Key Vault avec Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324074"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460393"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault en tant que source Event Grid
 
@@ -85,5 +85,5 @@ Un événement contient les données générales suivantes :
 
 * Pour découvrir Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
-* Pour plus d’informations sur Key VAult, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md).
+* Pour plus d’informations sur Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md).
 

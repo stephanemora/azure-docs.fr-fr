@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746388"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452575"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Utiliser Synapse Studio pour surveiller les exécutions du pipeline de votre espace de travail
 
-Azure Synapse Analytics vous permet de créer des pipelines complexes capables d'automatiser et d'intégrer le déplacement et la transformation des données, ainsi que des activités de calcul au sein de votre solution. Vous pouvez créer et surveiller ces pipelines à l’aide de Synapse Studio (préversion).
+Azure Synapse Analytics vous permet de créer des pipelines complexes capables d'automatiser et d'intégrer le déplacement et la transformation des données, ainsi que des activités de calcul au sein de votre solution. Vous pouvez créer et surveiller ces pipelines à l’aide de Synapse Studio.
 
 Cet article explique comment surveiller les exécutions de vos pipelines, et ainsi garder un œil sur leur état, leurs problèmes et leur progression.
 
@@ -41,8 +41,6 @@ Sélectionnez **Exécutions de pipeline** pour afficher la liste des exécutions
 Vous pouvez filtrer la liste des exécutions de pipeline en la limitant à celles qui vous intéressent. Les filtres en haut de l’écran vous permettent de spécifier un champ sur lequel filtrer.
 
 Par exemple, vous pouvez filtrer l’affichage pour ne voir que les exécutions du pipeline nommé « holiday » :
-
-![Bouton Filtrer](./media/common/filter-button.png)
 
 ![Exemple de filtre](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

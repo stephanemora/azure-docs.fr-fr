@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899263"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448701"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestion du stockage Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -41,7 +41,7 @@ Comprendre comment le stockage est géré pour Kubernetes implique de comprendre
 
 Le provisionnement du stockage peut être statique ou dynamique. Chaque type de provisionnement est abordé dans les sections suivantes.
 
-## <a name="staticprovisioning"></a>Provisionnement statique
+## <a name="static-provisioning"></a>Provisionnement statique
 
 Les administrateurs de cluster Kubernetes peuvent provisionner le stockage de manière statique. Pour ce faire, ils peuvent utiliser un back-end de stockage basé sur des systèmes de fichiers SMB/NFS, ou se servir de disques iSCSI qui s’attachent localement sur le réseau dans un environnement local, voire même utiliser Azure Files ou des disques Azure dans le cloud. Ce type de stockage n’étant pas provisionné par défaut, les administrateurs de cluster doivent planifier et gérer ce provisionnement. 
  
@@ -58,7 +58,7 @@ Les étapes suivantes se produisent :
 1. **Montage du PVC sur le conteneur** : dès lors que le PVC est lié au PV, vous pouvez monter ce PVC sur un chemin dans votre conteneur. Lorsque la logique d’application dans le conteneur lit depuis ce chemin, ou écrit dans celui-ci, les données sont écrites dans le stockage SMB.
  
 
-## <a name="dynamicprovisioning"></a>Approvisionnement dynamique
+## <a name="dynamic-provisioning"></a>Approvisionnement dynamique
 
 Voici un schéma décrivant la façon dont le stockage provisionné statiquement est consommé dans Kubernetes : 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Pour plus d’informations, consultez [Déployer une application avec état par le biais du provisionnement statique sur votre appareil Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Pour accéder au même stockage approvisionné statistiquement, les options de montage de volume correspondantes des liaisons de stockage pour IoT sont les suivantes. `/home/input` correspond au chemin permettant d’accéder au volume dans le conteneur.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro compte également une classe `StorageClass` intégrée, appelée `ase-node-local`, qui utilise un stockage sur disque de données attaché au nœud Kubernetes. Cette classe `StorageClass` prend en charge le provisionnement dynamique. Lorsque vous créez une référence `StorageClass` dans les applications pod, un PV est automatiquement créé pour vous. Pour plus d’informations, consultez l’article [Tableau de bord Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) pour interroger `ase-node-local StorageClass`.
 

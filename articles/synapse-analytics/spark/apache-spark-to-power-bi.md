@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: ea8fcb602f49dec61187260e08d3ccd1b148cee8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918916"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450904"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutoriel : Créer un rapport Power BI à l’aide d’Apache Spark et d’Azure Synapse Analytics
 
@@ -69,9 +69,12 @@ Dans cet exemple, vous utiliserez Apache Spark pour effectuer une analyse sur le
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Enfin, nous allons enregistrer notre dataframe à l’aide de la méthode Apache Spark ```saveAsTable```. Cela vous permettra ultérieurement d’exécuter une requête et de vous connecter à la même table à l’aide de pools SQL serverless.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>Interroger les données en utilisant des pools SQL serverless
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless (préversion) et un pool SQL serverless (préversion). Cela est possible grâce à la capacité Synapse de [gestion des métadonnées partagées](../metadata/overview.md). En conséquence, les bases de données créées avec Spark et leurs tables Parquet deviennent visibles dans le pool SQL serverless de l’espace de travail.
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless et son pool SQL serverless. Cela est possible grâce à la capacité Synapse de [gestion des métadonnées partagées](../metadata/overview.md). En conséquence, les bases de données créées avec Spark et leurs tables Parquet deviennent visibles dans le pool SQL serverless de l’espace de travail.
 
 Pour interroger votre table Apache Spark à l’aide de votre pool SQL serverless :
    1. Une fois que vous avez enregistré votre table Apache Spark, basculez vers l’onglet **données**.

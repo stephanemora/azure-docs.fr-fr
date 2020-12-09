@@ -3,15 +3,15 @@ title: Ajouter un utilisateur en tant que créateur de laboratoire dans Azure La
 description: Cet article explique comment ajouter un utilisateur au rôle Créateur de laboratoire pour un compte lab dans Azure Lab Services. Les créateurs de laboratoire peuvent créer des labos au sein de ce compte lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435958"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Ajouter des créateurs de laboratoire à un compte lab dans Azure Lab Services
-Cet article explique comment ajouter des utilisateurs en tant que créateurs de laboratoire à un compte lab dans Azure Lab Services. Ces utilisateurs peuvent ensuite créer des labos de classe dans le compte lab. 
+Cet article explique comment ajouter des utilisateurs en tant que créateurs de laboratoire à un compte lab dans Azure Lab Services. Ces utilisateurs peuvent alors créer des labos dans le compte de labo. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Ajouter un compte d’utilisateur Microsoft au rôle Créateur de laboratoire
 Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer le compte de laboratoire est automatiquement ajouté à ce rôle. Si vous envisagez d’utiliser le même compte d’utilisateur pour créer un laboratoire de classe, vous pouvez ignorer cette étape. Pour utiliser un autre compte d’utilisateur pour créer un laboratoire de classe, procédez comme suit : 
@@ -66,4 +66,4 @@ Voir les articles suivants :
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)
 - [En tant que propriétaire de labo, configurer et publier des modèles](how-to-create-manage-template.md)
 - [En tant que propriétaire de labo, configurer et contrôler l’utilisation d’un labo](how-to-configure-student-usage.md)
-- [En tant qu’utilisateur du laboratoire, accéder aux laboratoires de classe](how-to-use-classroom-lab.md)
+- [En tant qu’utilisateur de labo, accéder aux labos](how-to-use-classroom-lab.md)

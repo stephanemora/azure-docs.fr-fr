@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451795"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiques dans SQL Synapse
 
-Cet article propose des recommandations et des exemples pour la création et la mise à jour des statistiques d’optimisation des requêtes à l'aide des ressources SQL Synapse : pool SQL dédié et pool SQL serverless (préversion).
+Cet article propose des recommandations et des exemples de création et de mise à jour des statistiques d’optimisation des requêtes à l’aide des ressources Synapse SQL : un pool SQL dédié et un pool SQL serverless.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Statistiques dans un pool SQL dédié
 
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - L’erreur personnalisée 2767 n’est pas prise en charge.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Statistiques dans un pool SQL serverless (préversion)
+## <a name="statistics-in-serverless-sql-pool"></a>Statistiques dans un pool SQL serverless
 
 Les statistiques sont créées par colonne donnée pour un jeu de données particulier (chemin de stockage).
 
@@ -566,7 +566,7 @@ Les statistiques sont créées par colonne donnée pour un jeu de données parti
 
 ### <a name="why-use-statistics"></a>Pourquoi utiliser des statistiques ?
 
-Plus le pool SQL serverless (préversion) connaît vos données, plus il peut exécuter des requêtes sur celles-ci rapidement. Collecter des statistiques sur vos données est l’une des actions les plus importantes pour optimiser vos requêtes. 
+Mieux le pool SQL serverless connaît vos données, plus vite il peut exécuter des requêtes dessus. Collecter des statistiques sur vos données est l’une des actions les plus importantes pour optimiser vos requêtes. 
 
 L’optimiseur de requête du pool SQL serverless est un optimiseur basé sur les coûts. Il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas. Dans la plupart des cas, il choisit le plan qui s’exécute le plus rapidement. 
 

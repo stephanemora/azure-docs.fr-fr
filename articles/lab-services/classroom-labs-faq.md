@@ -1,17 +1,17 @@
 ---
-title: Labs de salle de classe dans Azure Lab Services - FAQ | Microsoft Docs
-description: Cet article offre des réponses aux questions fréquentes sur les labs de salle de classe dans Azure Lab Services.
+title: Labos dans Azure Lab Services – FAQ | Microsoft Docs
+description: Cet article répond aux questions fréquentes (FAQ) sur les labos dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443296"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437182"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labs de salle de classe dans Azure Lab Services - Forum aux questions (FAQ)
-Obtenez des réponses aux questions les plus fréquemment posées sur les labs de salle de classe dans Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labos dans Azure Lab Services – Forum aux questions (FAQ)
+Retrouvez la réponse aux questions les plus courantes sur les labos dans Azure Lab Services. 
 
 ## <a name="quotas"></a>Quotas
 
@@ -29,13 +29,14 @@ Non. Cela ne concerne pas toutes les machines virtuelles, mais uniquement celles
 ## <a name="lab-accounts"></a>Comptes lab
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Pourquoi ne puis-je pas créer un lab en cas d’indisponibilité de la plage d’adresses ? 
-Les labs de salle de classe peuvent créer des machines virtuelles de lab dans une plage d’adresses IP que vous spécifiez lors de la création de votre compte lab dans le Portail Azure. Quand une plage d’adresses est fournie, 512 adresses IP sont allouées à chaque lab créé par la suite pour les machines virtuelles de lab. La plage d’adresses du compte lab doit être suffisamment étendue pour prendre en charge tous les labs que vous envisagez de créer sous le compte lab. 
+
+Les labos peuvent créer des machines virtuelles de labo dans la plage d’adresses IP spécifiée lors de la création du compte labo sur le Portail Azure. Quand une plage d’adresses est fournie, 512 adresses IP sont allouées à chaque lab créé par la suite pour les machines virtuelles de lab. La plage d’adresses du compte lab doit être suffisamment étendue pour prendre en charge tous les labs que vous envisagez de créer sous le compte lab. 
 
 Par exemple, si vous avez un bloc de /19 - 10.0.0.0/19, cette plage d’adresses prend en charge 8 192 adresses IP et 16 labs (8 192/512 = 16 labs). Dans ce cas, la création du 17e lab échouera.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quelles plages de ports dois-je ouvrir sur le paramètre de pare-feu de mon organisation pour permettre la connexion aux machines virtuelles d’un lab via RDP/SSH ?
 
-Les ports sont les suivants : 49152–65535. Les labos de salle de classe se trouvent derrière un équilibreur de charge. Chaque labo dispose d’une adresse IP publique unique et chaque machine virtuelle du labo possède un port unique. 
+Les ports sont les suivants : 49152–65535. Les labos se trouvent derrière un équilibreur de charge. Chaque labo dispose d’une adresse IP publique unique et chaque machine virtuelle du labo possède un port unique. 
 
 Vous pouvez également voir l’adresse IP privée de chaque machine virtuelle sous l’onglet **Pool de machines virtuelles** de la page d’accueil du labo dans le portail Azure. Si vous republiez un labo, son adresse IP publique ne change pas. Cependant, l’adresse IP privée et le numéro de port de chaque machine virtuelle dans le labo peuvent changer. Pour en savoir plus, consultez l’article [Paramètres de pare-feu pour Azure Lab Services](how-to-configure-firewall-settings.md).
 

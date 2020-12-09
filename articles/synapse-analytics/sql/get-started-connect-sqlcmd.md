@@ -1,6 +1,6 @@
 ---
 title: Se connecter à Synapse SQL avec sqlcmd
-description: Utilisez l’utilitaire en ligne de commande sqlcmd pour établir une connexion à un pool SQL serverless (préversion) et à un pool SQL dédié, et pour les interroger.
+description: Utilisez l’utilitaire en ligne de commande sqlcmd pour établir une connexion au pool SQL serverless et au pool SQL dédié, et les interroger.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686138"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451636"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Se connecter à Synapse SQL avec sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (préversion)](get-started-azure-data-studio.md)
+> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Vous pouvez utiliser l’utilitaire en ligne de commande [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour établir une connexion avec un pool SQL serverless (préversion) et un pool SQL dédié et les interroger dans Synapse SQL.  
+Vous pouvez utiliser l’utilitaire en ligne de commande [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour établir une connexion avec le pool SQL serverless et le pool SQL dédié, et les interroger dans Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Se connecter
 Pour commencer à utiliser [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données Synapse SQL. La chaîne de connexion requiert les paramètres suivants :

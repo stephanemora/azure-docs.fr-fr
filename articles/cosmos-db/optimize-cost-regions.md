@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459611"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ Dans un système d’écritures multirégions, les unités de requête nettes di
 
 ### <a name="example"></a>Exemple
 
-Supposons que vous disposiez d’un conteneur dans la région USA Ouest configuré pour les écritures dans une seule région, qui est approvisionné avec un débit de 10 000 unités de requêtes par seconde et qui stocke 1 To de données ce mois-ci. Supposons que vous ajoutiez une région, USA Est, avec le même stockage et le même débit, et que vous vouliez pouvoir écrire dans les conteneurs des deux régions à partir de votre application. Votre facture mensuelle totale est (en supposant un mois de 31 jours) :
+Prenons un conteneur situé dans la région USA Ouest, configuré pour les écritures dans une seule région et provisionné avec un débit de 10 000 RU/s, qui stocke 0,5 To de données ce mois-ci. Vous ajoutez une région, USA Est, avec le même stockage et le même débit. Vous voulez pouvoir écrire dans les conteneurs des deux régions à partir de votre application. En supposant un mois de 730 heures, votre nouvelle facture mensuelle totale se présente ainsi :
 
 |**Item**|**Utilisation (mensuelle)**|**Tarif**|**Coût mensuel**|
 |----|----|----|----|
-|Facture de débit pour un conteneur de la région USA Ouest (une seule région d’écriture) |10 000 RU/s * 24 heures * 31 jours |0,008 $ pour 100 RU/s par heure |584,06 $ |
-|Facture de débit pour un conteneur dans deux régions : USA Ouest et USA Est (plusieurs régions d’écriture) |2 * 10 000 RU/s * 24 heures * 31 jours|0,016 $ pour 100 RU/s par heure |2 336,26 $ |
-|Facture de stockage pour le conteneur de la région USA Ouest |1 To (ou 1 024 Go) |0,25 $/Go |256 $ |
-|Facture de stockage pour deux régions : USA Ouest et USA Est |2 * 1 To (ou 3 072 Go) |0,25 $/Go |768 $ |
+|Facture de débit pour le conteneur de la région USA Ouest (une seule région d’écriture) |10 000 RU/s × 730 heures |0,008 $ pour 100 RU/s par heure |584 $ |
+|Facture de débit pour un conteneur dans deux régions : USA Ouest et USA Est (plusieurs régions d’écriture) |2 × 10 000 RU/s × 730 heures |0,016 $ pour 100 RU/s par heure |2 336 $ |
+|Facture de stockage pour le conteneur de la région USA Ouest |0,5 To (ou 512 Go) |0,25 $/Go |128 $ |
+|Facture de stockage pour le conteneur dans les deux régions (USA Ouest et USA Est) |2 × 0,5 To (ou 1 024 Go) |0,25 $/Go |256 $ |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Améliorer l’utilisation du débit par région
 

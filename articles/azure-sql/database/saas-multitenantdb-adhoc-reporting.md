@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 262c54c3eb47c8539dce89c01f32c7feb1884b7c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 800592b7a8b263fea2883fdd3e030f78f72647dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792733"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459923"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Exécuter des requêtes d’analytique ad hoc sur plusieurs bases de données (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Les applications SaaS peuvent analyser la vaste quantité de données client sto
 
 L’accès à ces données dans une base de données mutualisée est facile, mais pas si simple lors d’une distribution à grande échelle sur des milliers de bases de données. Une approche consiste à utiliser une [requête élastique](elastic-query-overview.md), permettant d’interroger un ensemble distribué de bases de données avec un schéma commun. Ces bases de données peuvent être distribuées sur différents abonnements et groupes de ressources. Toutefois, un même compte de connexion doit avoir accès à l’extraction des données de toutes les bases de données. Les requêtes élastiques utilisent une seule base de données *principale* dans laquelle sont définies des tables externes qui reflètent les tables ou les vues dans les bases de données distribuées (client). Les requêtes envoyées à cette base de données principale sont compilées pour produire un plan de requête distribué, avec des parties de la requête transmises aux bases de données client en fonction des besoins. Les requêtes élastiques utilisent la carte de partitions dans la base de données de catalogue pour déterminer l’emplacement de toutes les bases de données client. La configuration et les requêtes sont simples grâce à l’utilisation de [Transact-SQL](/sql/t-sql/language-reference) standard, et les requêtes ad hoc sont compatibles avec des outils tels que Power BI et Excel.
 
-En distribuant les requêtes sur toutes les bases de données client, les requêtes élastiques permettent d’obtenir immédiatement des informations pour les transformer en données de production actives. Toutefois, étant donné qu’une requête élastique peut extraire des données provenant potentiellement de nombreuses bases de données, la latence de requête peut parfois être supérieure à celle observée pour des requêtes équivalentes soumises à une seule base de données mutualisée. Concevez des requêtes qui permettent de réduire le nombre de données retournées. Une requête élastique est souvent plus adaptée lorsqu’il s’agit d’interroger de petites quantités de données en temps réel. En revanche, ce n’est pas le cas pour la construction de requêtes ou de rapports d’analyse fréquemment utilisés ou complexes. Si les requêtes ne sont pas assez efficaces, consultez le [plan d’exécution](/sql/relational-databases/performance/display-an-actual-execution-plan) pour voir quelle partie de la requête a été repoussée vers la base de données distante. Et évaluez la quantité de données renvoyée. Les requêtes qui requièrent un traitement complexe analytique pourraient être traitées plus efficacement en enregistrant les données client extraites dans une base de données qui est optimisée pour les requêtes analytiques. SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) peuvent héberger une telle base de données analytique.
+En distribuant les requêtes sur toutes les bases de données client, les requêtes élastiques permettent d’obtenir immédiatement des informations pour les transformer en données de production actives. Toutefois, étant donné qu’une requête élastique peut extraire des données provenant potentiellement de nombreuses bases de données, la latence de requête peut parfois être supérieure à celle observée pour des requêtes équivalentes soumises à une seule base de données mutualisée. Concevez des requêtes qui permettent de réduire le nombre de données retournées. Une requête élastique est souvent plus adaptée lorsqu’il s’agit d’interroger de petites quantités de données en temps réel. En revanche, ce n’est pas le cas pour la construction de requêtes ou de rapports d’analyse fréquemment utilisés ou complexes. Si les requêtes ne sont pas assez efficaces, consultez le [plan d’exécution](/sql/relational-databases/performance/display-an-actual-execution-plan) pour voir quelle partie de la requête a été repoussée vers la base de données distante. Et évaluez la quantité de données renvoyée. Les requêtes qui requièrent un traitement complexe analytique pourraient être traitées plus efficacement en enregistrant les données client extraites dans une base de données qui est optimisée pour les requêtes analytiques. SQL Database et Azure Synapse Analytics peuvent héberger une telle base de données analytique.
 
 Ce modèle pour analyse est expliqué dans la [didacticiel sur l’analyse des clients](saas-multitenantdb-tenant-analytics.md).
 
@@ -59,9 +59,9 @@ Les scripts et le code source de l’application de base de données multilocata
 
 Pour exécuter des requêtes sur un jeu de données plus concret, créez des données de ventes de tickets en exécutant le générateur de tickets.
 
-1. Dans *PowerShell ISE* , ouvrez le script... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* et définissez les valeurs suivantes :
-   * **$DemoScenario** = 1, **Acheter des tickets pour des événements dans tous les lieux** .
-2. Appuyez sur **F5** pour exécuter le script et générer des ventes de tickets. Pendant l’exécution du script, poursuivez les étapes de ce didacticiel. Les données de ticket font l’objet d’une requête dans la section *Exécuter des requêtes distribuées ad hoc* . Vous devez donc attendre que le générateur de tickets ait terminé.
+1. Dans *PowerShell ISE*, ouvrez le script... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* et définissez les valeurs suivantes :
+   * **$DemoScenario** = 1, **Acheter des tickets pour des événements dans tous les lieux**.
+2. Appuyez sur **F5** pour exécuter le script et générer des ventes de tickets. Pendant l’exécution du script, poursuivez les étapes de ce didacticiel. Les données de ticket font l’objet d’une requête dans la section *Exécuter des requêtes distribuées ad hoc*. Vous devez donc attendre que le générateur de tickets ait terminé.
 
 ## <a name="explore-the-tenant-tables"></a>Explorer les tables client 
 
@@ -71,12 +71,12 @@ Pour obtenir ce modèle, tous les tableaux client incluent une colonne *VenueId*
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Déployer la base de données utilisée pour les requêtes distribuées ad hoc
 
-Cet exercice déploie la base de données *adhocreporting* . Cette base de données principale contient le schéma utilisé pour interroger toutes les bases de données locataires. La base de données est déployée sur le serveur de catalogue existant, qui est le serveur utilisé pour toutes les bases de données liées à la gestion dans l’exemple d’application.
+Cet exercice déploie la base de données *adhocreporting*. Cette base de données principale contient le schéma utilisé pour interroger toutes les bases de données locataires. La base de données est déployée sur le serveur de catalogue existant, qui est le serveur utilisé pour toutes les bases de données liées à la gestion dans l’exemple d’application.
 
 1. Ouvrez \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* dans *PowerShell ISE* et définissez les valeurs suivantes :
-   * **$DemoScenario** = 2, **Déployer la base de données d’analyse ad hoc** .
+   * **$DemoScenario** = 2, **Déployer la base de données d’analyse ad hoc**.
 
-2. Appuyez sur **F5** pour exécuter le script et créer la base de données *adhocreporting* .
+2. Appuyez sur **F5** pour exécuter le script et créer la base de données *adhocreporting*.
 
 Dans la section suivante, vous allez ajouter un schéma à la base de données, permettant ainsi l’exécution de requêtes distribuées.
 
@@ -84,7 +84,7 @@ Dans la section suivante, vous allez ajouter un schéma à la base de données, 
 
 Cet exercice ajoute le schéma (la source de données externe et les définitions de la table externe) à la base de données de rapport ad hoc qui permet l’interrogation de toutes les bases de données client.
 
-1. Ouvrez SQL Server Management Studio et connectez-vous à la base de données de rapport ad hoc créée à l’étape précédente. Le nom de la base de données est *adhocreporting* .
+1. Ouvrez SQL Server Management Studio et connectez-vous à la base de données de rapport ad hoc créée à l’étape précédente. Le nom de la base de données est *adhocreporting*.
 2. Ouvrez ...\Modules d’apprentissage\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* dans SSMS.
 3. Passez en revue le script SQL et notez les points suivants :
 
@@ -100,13 +100,13 @@ Cet exercice ajoute le schéma (la source de données externe et les définition
 
     ![créer des tables externes](./media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
-   La table locale *VenueTypes* qui est créée et alimentée. Cette table de données de référence étant courante dans toutes les bases de données client, elle peut être représentée ici comme une table locale et renseignée avec les données courantes. Pour certaines requêtes, cela peut réduire la quantité de données déplacées entre les bases de données client et la base de données *adhocreporting* .
+   La table locale *VenueTypes* qui est créée et alimentée. Cette table de données de référence étant courante dans toutes les bases de données client, elle peut être représentée ici comme une table locale et renseignée avec les données courantes. Pour certaines requêtes, cela peut réduire la quantité de données déplacées entre les bases de données client et la base de données *adhocreporting*.
 
     ![créer une table](./media/saas-multitenantdb-adhoc-reporting/create-table.png)
 
    Si vous incluez des tables de référence de cette manière, veillez à mettre à jour le schéma et les données de la table lorsque vous mettez à jour les bases de données client.
 
-4. Appuyez sur **F5** pour exécuter le script et initialiser la base de données *adhocreporting* . 
+4. Appuyez sur **F5** pour exécuter le script et initialiser la base de données *adhocreporting*. 
 
 Vous pouvez à présent exécuter des requêtes distribuées et collecter des informations sur l’ensemble des clients !
 
@@ -116,10 +116,10 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-1. Dans *SSMS* , ouvrez ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* .
-2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting** .
+1. Dans *SSMS*, ouvrez ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
+2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
 3. Sélectionnez le menu **Requête** et cliquez sur **Inclure le plan d’exécution réel**
-4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?* , puis appuyez sur **F5** .
+4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?* , puis appuyez sur **F5**.
 
    La requête renvoie la liste complète des lieux, montrant à quel point il est facile d’interroger l’ensemble des clients et de renvoyer des données provenant de chacun d’eux.
 
@@ -127,15 +127,15 @@ Lors de l’inspection du plan d’exécution, passez la souris sur les icônes 
 
    ![SELECT * FROM dbo.Venues](./media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
-5. Sélectionnez la prochaine requête, puis appuyez sur **F5** .
+5. Sélectionnez la prochaine requête, puis appuyez sur **F5**.
 
-   Cette requête joint les données de bases de données client et la table *VenueTypes* table (elle est locale dans la mesure où elle figure dans la base de données *adhocreporting* ).
+   Cette requête joint les données de bases de données client et la table *VenueTypes* table (elle est locale dans la mesure où elle figure dans la base de données *adhocreporting*).
 
    Inspectez le plan ; vous constaterez que la majorité des coûts correspond à la requête distante, car nous interrogeons les informations relatives aux lieux de chaque client (dob.Venues), puis effectuons une jointure locale rapide avec la table *VenueTypes* pour afficher le nom convivial.
 
    ![Joindre des données locales et distantes](./media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?* , puis appuyez sur **F5** .
+6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?* , puis appuyez sur **F5**.
 
    Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. Il est important de noter que la plupart du traitement est effectué à distance, et une fois encore, nous récupérons uniquement les lignes dont nous avons besoin, en renvoyant une seule ligne pour le cumul agrégé de ventes de tickets par jour pour chaque lieu.
 

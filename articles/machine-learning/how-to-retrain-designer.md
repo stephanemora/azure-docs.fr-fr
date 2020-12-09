@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554799"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437114"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Réentraîner des modèles avec le concepteur Azure Machine Learning
 
@@ -47,7 +47,11 @@ Le pipeline utilisé dans cet article est une version modifiée d’un exemple d
 
 ## <a name="create-a-pipeline-parameter"></a>Créer un paramètre de pipeline
 
-Créez des paramètres de pipeline pour définir des variables de façon dynamique lors du runtime. Pour cet exemple, vous allez convertir le chemin d’accès aux données d’apprentissage d’une valeur fixe en un paramètre, afin de pouvoir ré-effectuer l’apprentissage de votre modèle sur des données différentes.
+Les paramètres de pipeline sont utilisés pour créer des pipelines polyvalents qui peuvent par la suite être soumis de nouveau avec des valeurs de paramètre variables. Parmi les scénarios courants, on peut citer la mise à jour de jeux de données ou de certains hyperparamètres dans le cadre d’un réentraînement. Créez des paramètres de pipeline pour définir des variables de façon dynamique lors du runtime. 
+
+Les paramètres de pipeline peuvent être ajoutés à la source de données ou aux paramètres de module dans un pipeline. Lorsque le pipeline est soumis de nouveau, les valeurs de ces paramètres peuvent être spécifiées.
+
+Pour cet exemple, vous allez convertir le chemin d’accès aux données d’apprentissage d’une valeur fixe en un paramètre, afin de pouvoir ré-effectuer l’apprentissage de votre modèle sur des données différentes. Vous pouvez également ajouter d’autres paramètres de module comme paramètres de pipeline en fonction de votre cas d’usage.
 
 1. Sélectionnez le module **Importer des données**.
 
@@ -60,31 +64,22 @@ Créez des paramètres de pipeline pour définir des variables de façon dynamiq
 
 1. Pointez la souris sur le champ **Chemin d’accès** et sélectionnez les points de suspension situés au-dessus du champ **Chemin d’accès** qui s’affiche.
 
-    ![Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Sélectionnez **Ajouter au paramètre de pipeline**.
 
 1. Indiquez un nom de paramètre et une valeur par défaut.
 
-   > [!NOTE]
-   > Vous pouvez examiner et modifier vos paramètres de pipeline en sélectionnant l’icône d’engrenage **Paramètres** à côté du titre de votre brouillon de pipeline. 
+   ![Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Sélectionnez **Enregistrer**.
 
+   > [!NOTE]
+   > Vous pouvez également détacher un paramètre de module du paramètre de pipeline dans le volet Détails du module, comme pour l’ajout de paramètres de pipeline.
+   >
+   > Vous pouvez examiner et modifier vos paramètres de pipeline en sélectionnant l’icône d’engrenage **Paramètres** à côté du titre de votre brouillon de pipeline. 
+   >    - Une fois détaché, le paramètre de pipeline peut être supprimé dans le volet **Paramètres**.
+   >    - Vous pouvez également ajouter un paramètre de pipeline dans le volet **Paramètres**, puis l’appliquer à un paramètre de module.
+
 1. Soumettez l’exécution du pipeline.
-
-## <a name="find-a-trained-model"></a>Rechercher un modèle formé
-
-Le concepteur enregistre toute la sortie du pipeline, dont des modèles formés, dans le compte de stockage d’espace de travail par défaut. Vous pouvez cependant aussi accéder directement aux modèles formés dans le concepteur :
-
-1. Attendez la fin de l’exécution du pipeline.
-1. Sélectionnez le module **Entraîner le modèle**.
-1. Dans le volet des détails des modules à droite du canevas, sélectionnez **Sorties + journaux**.
-1. Vous pouvez trouver votre modèle dans **Autres sorties** ainsi que des journaux d’exécution.
-1. Vous pouvez également sélectionner l’icône **Afficher la sortie**. À partir de là, vous pouvez suivre l’instruction de la boîte de dialogue en accédant directement à votre magasin de données. 
-
-> [!div class="mx-imgBorder"]
-> ![Capture d’écran montrant comment télécharger le modèle formé](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publier un pipeline d’entraînement
 

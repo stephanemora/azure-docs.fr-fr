@@ -1,16 +1,16 @@
 ---
 title: Régions prises en charge pour l’espace de travail Log Analytics lié
 description: Cet article décrit les mappages des régions prises en charge entre un compte Automation et un espace de travail Log Analytics en relation avec certaines fonctionnalités d’Azure Automation.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207323"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446967"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
@@ -31,6 +31,7 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |---|---|
 |**États-Unis**||
 |EastUS<sup>1</sup>|USAEst2|
+|USAEst2<sup>2</sup>|USAEst|
 |WestUS2|WestUS2|
 |SouthCentralUS|SouthCentralUS|
 |USACentreOuest|USACentreOuest|
@@ -40,7 +41,7 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |AustralieSudEst|AustralieSudEst|
 |AsieSudEst|AsieSudEst|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChineEst2<sup>3</sup>|ChinaEast2|
 |JaponEst|JaponEst|
 |**Europe**||
 |RoyaumeUniSud|RoyaumeUniSud|
@@ -48,11 +49,13 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |SwitzerlandNorth|SwitzerlandNorth|
 |**Gouvernement des États-Unis**||
 |USGovVirginie|USGovVirginie|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> Le mappage EastUS entre des espaces de travail Log Analytics et des comptes Automation n’est pas un mappage exact de région à région, mais c’est le mappage correct.
 
-<sup>2</sup> Dans cette région, seul Update Management est pris en charge, d’autres fonctionnalités comme Change Tracking et Inventory ne sont pas disponibles pour l’instant.
+<sup>2</sup> Le mappage USAEst2 entre des espaces de travail Log Analytics et des comptes Automation n'est pas un mappage exact de région à région, mais il s'agit du mappage qui convient.
+
+<sup>3</sup> Dans cette région, seul Update Management est pris en charge ; d'autres fonctionnalités comme Suivi des modifications et inventaire ne sont pas disponibles pour l'instant.
 
 ## <a name="unlink-a-workspace"></a>Supprimer la liaison d’un espace de travail
 
@@ -63,9 +66,9 @@ Une fois les fonctionnalités supprimées, vous pouvez suivre les étapes ci-des
 > [!NOTE]
 > Certaines fonctionnalités, dont les versions antérieures d’Azure SQL Monitoring, ont peut-être créé des ressources Automation qui doivent également être supprimées avant de dissocier l’espace de travail.
 
-1. À partir du Portail Azure, ouvrez votre compte Automation. Sur la page de votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes** .
+1. À partir du Portail Azure, ouvrez votre compte Automation. Sur la page de votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes**.
 
-2. Dans la page Dissocier l’espace de travail, sélectionnez **Dissocier l’espace de travail** . Vous recevez une invite de confirmation de la poursuite de l’opération.
+2. Dans la page Dissocier l’espace de travail, sélectionnez **Dissocier l’espace de travail**. Vous recevez une invite de confirmation de la poursuite de l’opération.
 
 3. Pour suivre la progression de la suppression de la liaison du compte depuis votre espace de travail Log Analytics par Azure Automation, sélectionnez **Notifications** dans le menu.
 
@@ -82,11 +85,11 @@ Une fois les fonctionnalités supprimées, vous pouvez suivre les étapes ci-des
 
 Vous pouvez également dissocier votre espace de travail de votre compte Automation dans l’espace de travail.
 
-1. Dans l’espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes** .
-2. Sur la page du compte Automation, sélectionnez **Dissocier le compte** .
+1. Dans l’espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**.
+2. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez Update Management dans [Vue d’ensemble de Update Management](../update-management/update-mgmt-overview.md).
+* Découvrez Update Management dans [Vue d’ensemble de Update Management](../update-management/overview.md).
 * Découvrez Change Tracking and Inventory dans [Vue d’ensemble de Change Tracking and Inventory](../change-tracking/overview.md).
 * Découvrez Start/Stop VMs during off-hours dans [Vue d’ensemble de Start/Stop VMs during off-hours](../automation-solution-vm-management.md).

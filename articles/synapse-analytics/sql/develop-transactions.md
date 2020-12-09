@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323836"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451710"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utiliser des transactions avec un pool SQL dédié dans Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ En toute logique, un pool SQL dédié prend en charge les transactions dans le c
 
 ## <a name="transaction-isolation-levels"></a>Niveaux d’isolation des transactions
 
-Le pool SQL implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l'option de base de données READ_COMMITTED_SNAPSHOT pour une base de données utilisateur lorsqu'elle est connectée à la base de données MASTER.  
+Le pool SQL dédié implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l'option de base de données READ_COMMITTED_SNAPSHOT pour une base de données utilisateur lorsqu'elle est connectée à la base de données MASTER.  
 
 Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true).
 
@@ -89,7 +89,7 @@ Pour optimiser et réduire la quantité de données écrites dans le journal, co
 
 ## <a name="transaction-state"></a>État des transactions
 
-Le pool SQL utilise la fonction XACT_STATE() pour signaler une transaction non réussie, avec la valeur -2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
+Le pool SQL dédié utilise la fonction XACT_STATE() pour signaler une transaction non réussie, avec la valeur −2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
 
 > [!NOTE]
 > L’association de la valeur -2 à la fonction XACT_STATE afin de signaler l’échec d’une transaction constitue un comportement différent par rapport à SQL Server. SQL Server utilise la valeur -1 pour représenter une transaction non validable. De plus, il peut tolérer la présence de certaines erreurs au sein d’une transaction sans pour autant signaler que cette dernière ne peut pas être validée. Par exemple, la valeur `SELECT 1/0` entraîne une erreur, mais ne fait pas passer une transaction à l’état non validable. Par ailleurs, SQL Server autorise également les lectures dans une transaction non validable. Toutefois, le pool SQL dédié ne vous permet pas d’effectuer cette opération. Si une erreur se produit dans une transaction de pool SQL dédié, celle-ci passe automatiquement à l’état -2 et il n’est pas possible d’utiliser d’autres instructions SELECT tant que l’instruction n’a pas été restaurée. Vous devez donc impérativement vérifier le code de votre application afin de vous assurer qu’il utilise la fonction XACT_STATE(), car des modifications du code peuvent être nécessaires.
@@ -193,7 +193,7 @@ THROW est l’implémentation plus moderne du déclenchement d’exceptions dans
 
 ## <a name="limitations"></a>Limites
 
-En ce qui concerne les transactions, le pool SQL présente quelques restrictions supplémentaires. Les voici :
+En ce qui concerne les transactions, le pool SQL dédié présente quelques restrictions supplémentaires. Les voici :
 
 * Les transactions distribuées ne sont pas acceptées.
 * Les transactions imbriquées ne sont pas autorisées.
@@ -204,4 +204,4 @@ En ce qui concerne les transactions, le pool SQL présente quelques restrictions
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Des guides supplémentaires sur les bonnes pratiques sont également fournis pour le [pool SQL](best-practices-sql-pool.md) et le [pool SQL serverless (préversion)](best-practices-sql-on-demand.md).
+Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Des guides supplémentaires sur les meilleures pratiques sont également fournis pour le [Pool SQL dédié](best-practices-sql-pool.md) et le [Pool SQL serverless](best-practices-sql-on-demand.md).

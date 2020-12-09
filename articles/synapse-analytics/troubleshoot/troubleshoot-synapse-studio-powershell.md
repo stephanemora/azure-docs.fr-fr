@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445259"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Résoudre les problèmes de connectivité de Synapse Studio à l'aide de PowerShell
 
-Le bon fonctionnement d'Azure Synapse Studio (préversion) s'appuie sur un ensemble de points de terminaison d’API web. Ce guide vous aidera à identifier les causes des problèmes de connectivité lorsque vous :
+Le bon fonctionnement d'Azure Synapse Studio s'appuie sur un ensemble de points de terminaison d'API web. Ce guide vous aidera à identifier les causes des problèmes de connectivité lorsque vous :
 - configurez votre réseau local (réseau derrière un pare-feu d’entreprise, par exemple) pour accéder à Azure Synapse Studio.
 - rencontrez des problèmes de connectivité avec Azure Synapse Studio.
 
