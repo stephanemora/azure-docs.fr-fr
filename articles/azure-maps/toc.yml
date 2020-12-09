@@ -87,10 +87,12 @@
       href: supported-map-styles.md
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
-    - name: Structure des données Mobility Service
+    - name: Services de mobilité
       href: mobility-service-data-structure.md
-    - name: Concepts du service météo
+    - name: Concepts des services Météo
       href: weather-services-concepts.md
+    - name: Questions fréquentes (FAQ) sur le services Météo
+      href: weather-services-faq.md
 - name: Guides pratiques
   items:
     - name: Gérer les comptes Maps
@@ -288,7 +290,7 @@
           href: /rest/api/maps/data
         - name: Service de géolocalisation
           href: /rest/api/maps/geolocation
-        - name: Service Mobilité
+        - name: Services de mobilité
           href: /rest/api/maps/mobility
         - name: Render Service
           href: /rest/api/maps/render
@@ -304,7 +306,7 @@
           href: /rest/api/maps/timezone
         - name: Traffic Service
           href: /rest/api/maps/traffic
-        - name: Service météo
+        - name: Services Météo
           href: /rest/api/maps/weather
         - name: Service de création de cartes
           items:

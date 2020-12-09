@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980199"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905551"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
@@ -125,10 +125,6 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 ## <a name="known-issues"></a>Problèmes connus
 
 Gardez à l’esprit les problèmes connus suivants concernant les points de terminaison privés pour le Stockage Azure.
-
-### <a name="copy-blob-support"></a>Prise en charge de la copie Blob
-
-Si le compte de stockage est protégé par un pare-feu et accessible via des points de terminaison privés, ce compte ne peut pas faire office de source dans le cadre d'une opération [Copie d'un objet blob](/rest/api/storageservices/copy-blob).
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Contraintes d’accès au stockage pour les clients dans des réseaux virtuels avec des points de terminaison privés
 
