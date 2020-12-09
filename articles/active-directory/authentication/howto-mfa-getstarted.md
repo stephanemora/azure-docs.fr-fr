@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839248"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861304"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure AD Multi-Factor Authentication
 
@@ -165,7 +165,7 @@ En procédant comme suit, un accès conditionnel stratégie peut forcer les util
 2. À l’aide de l’accès conditionnel, forcez l’authentification multifacteur pour ce groupe lors de l’accès à toutes les ressources.
 3. Périodiquement, réévaluez l’appartenance au groupe et retirez les utilisateurs qui se sont inscrits.
 
-Vous pouvez identifier les utilisateurs inscrits et non inscrits à Azure AD MFA à l'aide des commandes PowerShell qui reposent sur le [module MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Vous pouvez identifier les utilisateurs inscrits et non inscrits à Azure AD MFA à l'aide des commandes PowerShell qui reposent sur le [module MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identifier les utilisateurs inscrits
 

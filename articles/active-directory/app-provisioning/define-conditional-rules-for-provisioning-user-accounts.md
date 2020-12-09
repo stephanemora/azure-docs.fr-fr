@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993990"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861389"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -94,7 +94,7 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
    
    j. **Greater_Than_OR_EQUALS.** La clause renvoie « true » si l’attribut évalué est supérieur ou égal à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
    
-   k. **Includes.** La clause renvoie « true » si l’attribut évalué contient la valeur de chaîne (respecte la casse) comme décrit [ici](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** La clause renvoie « true » si l’attribut évalué contient la valeur de chaîne (respecte la casse) comme décrit [ici](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

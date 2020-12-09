@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa4e112d182eb41c3d0c262289a2d3263c17ef0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488571"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859876"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -27,7 +28,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
 > [!IMPORTANT]
 > Certains paramètres nécessitent une licence Azure Active Directory Premium P1. Pour plus d’informations, consultez le tableau [Paramètres de modèle](#template-settings).
 
-Pour plus d’informations sur la façon d’empêcher les utilisateurs non-administrateurs de créer des groupes de sécurité, définissez `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` tel que décrit dans [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Pour plus d’informations sur la façon d’empêcher les utilisateurs non-administrateurs de créer des groupes de sécurité, définissez `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` tel que décrit dans [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 Les paramètres des groupes Microsoft 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Au départ, vous ne voyez aucun objet Paramètres dans votre répertoire, car votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres du groupe Microsoft 365 pour votre répertoire, vous utilisez le modèle nommé « Group.Unified ». Pour configurer les paramètres du groupe Microsoft 365 sur un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe Microsoft 365. 
 
@@ -318,7 +319,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Informations de référence sur la syntaxe des applets de commande
-Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174562"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861338"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -93,7 +93,7 @@ Le schéma d’une autorité de certification se présente comme suit :
     }
 ```
 
-Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) :
+Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2) :
 
 1. Démarrez Windows PowerShell avec les privilèges administrateur.
 2. Installez le module Azure AD, version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou ultérieure.
@@ -106,7 +106,7 @@ Comme première étape de configuration, vous devez établir une connexion avec 
 
 ### <a name="connect"></a>Se connecter
 
-Pour établir une connexion avec votre client, utilisez l’applet de commande [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) :
+Pour établir une connexion avec votre client, utilisez l’applet de commande [Connect-AzureAD](/powershell/module/azuread/connect-azuread) :
 
 ```azurepowershell
     Connect-AzureAD
@@ -114,7 +114,7 @@ Pour établir une connexion avec votre client, utilisez l’applet de commande [
 
 ### <a name="retrieve"></a>Récupération
 
-Pour récupérer les autorités de certification approuvées qui sont définies dans votre répertoire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0).
+Pour récupérer les autorités de certification approuvées qui sont définies dans votre répertoire, utilisez l’applet de commande [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority).
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ Pour récupérer les autorités de certification approuvées qui sont définies 
 
 ### <a name="add"></a>Ajouter
 
-Pour créer une autorité de certification approuvée, utilisez l’applet de commande [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) et définissez l’attribut **crlDistributionPoint** à une valeur correcte :
+Pour créer une autorité de certification approuvée, utilisez l’applet de commande [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) et définissez l’attribut **crlDistributionPoint** à une valeur correcte :
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ Pour créer une autorité de certification approuvée, utilisez l’applet de co
 
 ### <a name="remove"></a>Supprimer
 
-Pour supprimer une autorité de certification approuvée, utilisez l’applet de commande [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) :
+Pour supprimer une autorité de certification approuvée, utilisez l’applet de commande [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority) :
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ Pour supprimer une autorité de certification approuvée, utilisez l’applet de
 
 ### <a name="modify"></a>Modifier
 
-Pour modifier une autorité de certification approuvée, utilisez l’applet de commande [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) :
+Pour modifier une autorité de certification approuvée, utilisez l’applet de commande [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) :
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority

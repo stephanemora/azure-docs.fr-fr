@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173394"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860964"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
@@ -165,7 +165,7 @@ Nous fournirons une mise à jour concernant ce [problème](https://github.com/Az
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problème connu avec Azure AD B2C
 
-MSAL.NET prend en charge un [cache de jeton](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clé de la mise en cache de jeton est basée sur les revendications renvoyées par le fournisseur d’identité.
+MSAL.NET prend en charge un [cache de jeton](/dotnet/api/microsoft.identity.client.tokencache). La clé de la mise en cache de jeton est basée sur les revendications renvoyées par le fournisseur d’identité.
 
 Actuellement, MSAL.NET a besoin de deux revendications pour générer une clé de cache de jeton :
 

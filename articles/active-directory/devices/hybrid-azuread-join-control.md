@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252710"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860930"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -82,7 +82,7 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Quand le point de connexion de service côté client est configuré pour AD FS, la source des objets d’appareil est établie en tant qu’Azure AD.
 
 > [!NOTE]
-> Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validation contrôlée de la jonction Azure AD hybride sur des appareils Windows de bas niveau
 

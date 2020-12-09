@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172344"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858771"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -52,7 +52,7 @@ Azure Active Directory Connect exécute les scripts PowerShell signés dans le c
 
 La stratégie d’exécution recommandée lors de l’installation est « RemoteSigned ».
 
-Pour plus d’informations sur la définition de la stratégie d’exécution de PowerShell, consultez [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Pour plus d’informations sur la définition de la stratégie d’exécution de PowerShell, consultez [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect

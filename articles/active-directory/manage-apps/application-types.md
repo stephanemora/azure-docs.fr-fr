@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648172"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858227"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités
 La [série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md) vous guide parmi les concepts de base. Vous y apprenez comment afficher toutes les applications qui utilisent votre locataire Azure AD pour la gestion des identités. Cet article aborde plus en détail les types d’applications que vous trouverez.
@@ -31,7 +31,7 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 - Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Registre d’application](../develop/quickstart-register-app.md).
 - Lorsque vous ajoutez une inscription pour une nouvelle application en créant une application personnalisée à l’aide du [Portail d’inscription des applications V2.0](../develop/quickstart-register-app.md).
 - Lorsque vous ajoutez une application que vous développez à l’aide des [méthodes d’authentification ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou des [services connectés](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) de Visual Studio.
-- Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+- Lorsque vous créez un objet Principal de service à l’aide du [module Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 - Lorsque vous [donnez votre consentement à une application](../develop/howto-convert-app-to-be-multi-tenant.md) en tant qu’administrateur concernant l’utilisation des données de votre locataire.
 - Lorsqu’un [utilisateur donne son consentement à une application](../develop/howto-convert-app-to-be-multi-tenant.md) concernant l’utilisation des données de votre locataire.
 - Lorsque vous activez certains services qui stockent des données dans votre client. Un exemple correspond à l’opération de réinitialisation du mot de passe, qui est modélisée en tant que principal de service pour stocker de façon sécurisée votre stratégie de réinitialisation du mot de passe.

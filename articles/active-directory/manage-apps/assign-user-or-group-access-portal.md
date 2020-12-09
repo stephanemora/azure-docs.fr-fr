@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651275"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861675"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 
@@ -81,11 +81,11 @@ Vous pouvez utiliser l’API Graph pour attribuer ou désattribuer des utilisate
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Pour affecter un groupe à une application d’entreprise, vous devez remplacer `Get-AzureADUser` par `Get-AzureADGroup`, et `New-AzureADUserAppRoleAssignment` par `New-AzureADGroupAppRoleAssignment`.
 
-Pour plus d’informations sur la façon d’affecter un groupe à un rôle d’application, consultez la documentation de [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Pour plus d’informations sur la façon d’affecter un groupe à un rôle d’application, consultez la documentation de [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Exemple
 

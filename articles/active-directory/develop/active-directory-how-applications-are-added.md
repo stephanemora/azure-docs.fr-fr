@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706181"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861117"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -104,7 +104,7 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
   * Revendication des règles de transformation
   * Mappages d'attributs (déploiement de l'utilisateur)
 * Pour plus d’informations détaillées sur le principal de service et les objets d’application, consultez la documentation de référence sur l’API Microsoft Graph :
-  * [Application](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Application](/graph/api/resources/application)
   * [Principal du service](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Pourquoi les applications s’intègrent à Azure AD ?
@@ -118,6 +118,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des s
 * Le contrôle d’accès basé sur les rôles : utilisez le répertoire pour définir les rôles d’application, afin d’effectuer des vérifications d’autorisation basées sur les rôles dans une application
 * Les services d’autorisation OAuth : utilisés par Microsoft 365 et d’autres applications Microsoft pour autoriser l’accès aux API/ressources
 * La publication et le proxy d’applications : publiez une application sur Internet à partir d’un réseau privé
+* Attributs d’extension de schéma d’annuaire : [Étendre le schéma du principal du service et des objets utilisateur](active-directory-schema-extensions.md) pour stocker des données supplémentaires dans Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Qui a l'autorisation d'ajouter des applications à mon instance Azure AD ?
 

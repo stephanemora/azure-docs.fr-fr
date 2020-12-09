@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442080"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860624"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -45,7 +45,7 @@ Avec la fédération directe, les utilisateurs invités se connectent à votre c
 ## <a name="limitations"></a>Limites
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
-Le domaine avec lequel vous voulez vous fédérer ne doit * **pas** _ être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
+Le domaine avec lequel vous voulez vous fédérer ne doit ***pas** _ être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
 
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
@@ -66,7 +66,7 @@ Par exemple, lorsque vous configurez la fédération directe pour _*fabrikam.com
 Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
 
 ### <a name="limit-on-federation-relationships"></a>Limite des relations de fédération
-Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0).
+Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](/powershell/module/msonline/set-msoldomainfederationsettings).
 
 ### <a name="limit-on-multiple-domains"></a>Limite des domaines multiples
 Nous ne prenons pas en charge actuellement la fédération directe avec plusieurs domaines du même locataire.
@@ -150,7 +150,7 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
 
     ![Capture d’écran montrant le bouton pour ajouter un nouveau fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. Sur la page **Nouveau fournisseur d’identité SAML/WS-Fed** , sous **Protocole de fournisseur d’identité** , sélectionnez **SAML** ou **WS-FED**.
+4. Sur la page **Nouveau fournisseur d’identité SAML/WS-Fed**, sous **Protocole de fournisseur d’identité**, sélectionnez **SAML** ou **WS-FED**.
 
     ![Capture d’écran montrant le bouton d’analyse sur la page Fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
@@ -195,7 +195,7 @@ Testez maintenant la configuration de votre fédération directe en invitant un 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
 2. Sélectionnez **Identités externes**.
 3. Sélectionnez **Tous les fournisseurs d’identité**
-4. Sous **Fournisseurs d’identité SAML/WS-Fed** , sélectionnez le fournisseur.
+4. Sous **Fournisseurs d’identité SAML/WS-Fed**, sélectionnez le fournisseur.
 5. Dans le volet des informations du fournisseur identité, mettez à jour les valeurs.
 6. Sélectionnez **Enregistrer**.
 

@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: makromer
-ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015169"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854003"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,9 +20,6 @@ ms.locfileid: "95015169"
 Le système de métadonnées Common Data Model (CDM) permet de partager facilement des données et leur signification entre des applications et des processus d’entreprise. Pour plus d’informations, consultez la vue d’ensemble de [Common Data Model](/common-data-model/).
 
 Dans Azure Data Factory, les utilisateurs peuvent transformer les données des entités CDM à la fois sous forme de model.json et de manifeste stocké dans [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) à l’aide de flux de données de mappage. Vous pouvez également recevoir des données au format CDM à l’aide des références d’entité CDM qui déposeront vos données au format CSV ou Parquet dans des dossiers partitionnés. 
-
-> [!NOTE]
-> Le connecteur de format Common Data Model (CDM) pour les flux de données ADF est actuellement disponible en préversion publique.
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -37,7 +34,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Le format doit être `cdm` | Oui | `cdm` | format |
+| Format | Le format doit être `cdm`. | Oui | `cdm` | format |
 | Format de métadonnées | Où se trouve la référence d’entité aux données. Si vous utilisez la version 1.0 de CDM, choisissez manifeste. Si vous utilisez une version CDM antérieure à 1.0, choisissez model.json. | Oui | `'manifest'` ou `'model'` | manifestType |
 | Emplacement racine : conteneur | Nom de conteneur du dossier CDM | Oui | String | fileSystem |
 | Emplacement racine : chemin d’accès au dossier | Emplacement du dossier racine du dossier CDM | Oui | String | folderPath |
@@ -88,7 +85,6 @@ Lors du mappage des colonnes de flux de données aux propriétés des entités d
 2. Recherchez les partitions.Location, propriété 
 3. Remplacez « blob.core.windows.net » par « dfs.store.core.windows.net »
 4. Corrigez tout encodage « % 2F » dans l’URL en « / »
- 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Exemple de script de flux de données sources CDM
 

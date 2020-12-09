@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836374"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861814"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -115,7 +115,7 @@ Vérifiez les paramètres qui peuvent avoir été personnalisés pour la concept
 Pour plus d’informations, voir les articles suivants :
 
 * [AD FS prompt=login parameter support](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > Si **SupportsMfa** est défini sur **True**, cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Ce programme d’installation ne fonctionne plus pour les scénarios d’authentification Azure AD après conversion de ce domaine de l’authentification fédérée à l’authentification gérée. Après la désactivation de la fédération, vous interrompez la relation avec votre fédération en local, y compris les adaptateurs MFA locaux. 

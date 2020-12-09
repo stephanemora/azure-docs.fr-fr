@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61c445a7df05eda578fb6b3de6de915a94402049
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647067"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860641"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -50,7 +50,7 @@ Pour vérifier que le module est prêt à l’emploi, utilisez la commande suiva
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
 > Les cmdlets Azure AD PowerShell ne fonctionnent pas avec le nouveau PowerShell 7, car celui-ci est basé sur .NET Core. Nous sommes conscients qu’il s’agit d’un processus de mise à jour. À ce stade, nous vous suggérons d’utiliser le module Windows PowerShell 5.x pour les opérations Azure AD PowerShell. 
@@ -338,7 +338,7 @@ L’écriture différée de groupe Microsoft 365 est une fonctionnalité d’é
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Intégration des identités locales dans Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285858"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859629"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
@@ -28,7 +28,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 - État 1 : Hébergé dans une instance externe d’Azure AD et représenté sous la forme d’un utilisateur invité de l’organisation à l’origine de l’invitation. Dans ce cas, l’utilisateur B2B se connecte avec un compte Azure AD qui appartient au locataire invité. Même si l’organisation partenaire n’utilise pas Azure AD, l’utilisateur invité d’Azure AD est créé. Les conditions requises sont les suivantes : les utilisateurs se servent de leur invitation et Azure AD vérifie leur adresse e-mail. Dans ce cas, on parle également de location juste-à-temps (JIT) ou de location « virale ».
 
    > [!IMPORTANT]
-   > **À compter du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 - État 2 : Hébergé dans un compte Microsoft ou autre et représenté en tant qu’utilisateur invité dans l’organisation hôte. Dans ce cas, l’utilisateur invité se connecte avec un compte Microsoft ou un compte social (google.com ou similaire). L’identité de l’utilisateur invité est créée en tant que compte Microsoft dans l’annuaire de l’organisation à l’origine de l’invitation durant l’utilisation de l’offre.
 
@@ -59,7 +59,7 @@ Pour les utilisateurs invités dans l’état 2, la propriété **Source** a la
 
 ![Utilisateur invité dans l’état 2 après l’utilisation de l’offre](media/user-properties/after-redemption-state2.png)
 
-Pour les utilisateurs invités dans l’état 3 et l’état 4, la propriété **Source** a la valeur **Azure Active Directory** ou **Windows Server Active Directory** , comme décrit dans la section suivante.
+Pour les utilisateurs invités dans l’état 3 et l’état 4, la propriété **Source** a la valeur **Azure Active Directory** ou **Windows Server Active Directory**, comme décrit dans la section suivante.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Propriétés clés de l’utilisateur Azure AD B2B collaboration
 ### <a name="usertype"></a>UserType
@@ -110,7 +110,7 @@ Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adr
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Puis-je mettre à jour l’adresse de messagerie d’un utilisateur invité ?
 
-Si un utilisateur invité accepte votre invitation et qu’il modifie par la suite son adresse e-mail, le nouvel e-mail n’est pas automatiquement synchronisé avec l’objet utilisateur invité dans votre annuaire. La propriété de messagerie est créée via [Microsoft API Graph](/graph/api/resources/user?view=graph-rest-1.0). Vous pouvez mettre à jour la propriété de messagerie via l’API Microsoft Graph, le centre d’administration Exchange ou [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modification sera reflétée dans l’objet utilisateur invité Azure AD.
+Si un utilisateur invité accepte votre invitation et qu’il modifie par la suite son adresse e-mail, le nouvel e-mail n’est pas automatiquement synchronisé avec l’objet utilisateur invité dans votre annuaire. La propriété de messagerie est créée via [Microsoft API Graph](/graph/api/resources/user). Vous pouvez mettre à jour la propriété de messagerie via l’API Microsoft Graph, le centre d’administration Exchange ou [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). La modification sera reflétée dans l’objet utilisateur invité Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

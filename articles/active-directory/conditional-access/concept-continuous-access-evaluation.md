@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520660"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860301"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -28,7 +28,7 @@ Une réponse en temps utile aux violations de stratégie ou autres problèmes de
 
 L’implémentation initiale de l’évaluation continue de l’accès se concentre sur Exchange, Teams et SharePoint Online.
 
-Pour préparer vos applications à utiliser l’évaluation continue de l’accès, consultez [Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications](/develop/app-resilience-continuous-access-evaluation.md).
+Pour préparer vos applications à utiliser l’évaluation continue de l’accès, consultez [Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### <a name="key-benefits"></a>Principaux avantages
 
@@ -105,7 +105,7 @@ Si vous n’utilisez pas de clients compatibles avec l’évaluation continue de
 
 1. Un client compatible avec l’évaluation continue de l’accès présente à Azure AD des informations d’identification ou un jeton d’actualisation demandant un jeton d’accès pour une certaine ressource.
 1. Un jeton d’accès est retourné au client avec d’autres artefacts.
-1. Un administrateur [révoque explicitement tous les jetons d’actualisation d’un utilisateur](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Un événement de révocation sera envoyé au fournisseur de ressources à partir d’Azure AD.
+1. Un administrateur [révoque explicitement tous les jetons d’actualisation d’un utilisateur](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Un événement de révocation sera envoyé au fournisseur de ressources à partir d’Azure AD.
 1. Un jeton d’accès est présenté au fournisseur de ressources. Le fournisseur de ressources évalue la validité du jeton et vérifie s’il existe un événement de révocation pour l’utilisateur. Le fournisseur de ressources utilise ces informations pour décider d’accorder ou non l’accès à la ressource.
 1. Dans ce cas, le fournisseur de ressources refuse l’accès et renvoie une contestation de revendication 401+ au client.
 1. Le client compatible avec l’EAC comprend la contestation de revendication 401+. Il contourne les caches et revient à l’étape 1, en renvoyant à Azure AD son jeton d’actualisation avec la contestation de revendication. Azure AD réévalue ensuite toutes les conditions et invite l’utilisateur à se réauthentifier dans ce cas.

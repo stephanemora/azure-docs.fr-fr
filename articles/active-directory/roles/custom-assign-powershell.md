@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd9148f1084727141f725d76f7ae756f44e210e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d4695d0844ef8b707edce53a05de611c91223a46
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379517"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861950"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
-Cet article explique comment créer une attribution de rôle à l’échelle de l’organisation dans Azure Active Directory (Azure AD). L’attribution d’un rôle à l’échelle de l’organisation accorde l’accès à l’ensemble de l’organisation Azure AD. Pour créer une attribution de rôle avec une étendue d’une seule ressource Azure AD, consultez [Comment créer un rôle personnalisé et l’affecter à l’étendue de la ressource](custom-create.md). Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
+Cet article explique comment créer une attribution de rôle à l’échelle de l’organisation dans Azure Active Directory (Azure AD). L’attribution d’un rôle à l’échelle de l’organisation accorde l’accès à l’ensemble de l’organisation Azure AD. Pour créer une attribution de rôle avec une étendue d’une seule ressource Azure AD, consultez [Comment créer un rôle personnalisé et l’affecter à l’étendue de la ressource](custom-create.md). Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles).
 
 Pour plus d'informations sur les rôles d'administrateur Azure AD, consultez [Attribuer des rôles d'administrateur dans Azure Active Directory](permissions-reference.md).
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Pour affecter le rôle à un principal du service au lieu d’un utilisateur, utilisez l’applet de commande [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Pour affecter le rôle à un principal du service au lieu d’un utilisateur, utilisez l’applet de commande [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
 ## <a name="operations-on-roledefinition"></a>Opérations sur RoleDefinition
 

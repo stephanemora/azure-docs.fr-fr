@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cc9c3e75d92b20bef15e18e0ca6560e9965c61c
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 1a46cc3f4a0f2fb25fc693103a64a319dcec0324
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490787"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860879"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Changer l’appartenance au groupe statique en dynamique dans Azure Active Directory
 
@@ -56,7 +57,7 @@ Les étapes suivantes sont un exemple de modification de l’appartenance d’un
 ## <a name="change-membership-type-for-a-group-powershell"></a>Changer le type d’appartenance pour un groupe (PowerShell)
 
 > [!NOTE]
-> Pour changer les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d’[Azure AD PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Pour changer les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d’[Azure AD PowerShell version 2](/powershell/azure/active-directory/install-adv2). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Dans cet exemple, une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui ne sont pas liées à l’appartenance dynamique.
 

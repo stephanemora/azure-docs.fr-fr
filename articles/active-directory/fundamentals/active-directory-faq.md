@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371866"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860420"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -130,7 +130,7 @@ Pour les utilisateurs Microsoft 365, l’administrateur peut réinitialiser le 
 Pour les comptes Azure AD, les administrateurs peuvent réinitialiser les mots de passe à l’aide de l’une des opérations suivantes :
 
 - [Réinitialiser les comptes dans le portail Azure](active-directory-users-reset-password-azure-portal.md)
-- [Utiliser PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Utiliser PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776134"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861729"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 
@@ -45,7 +45,7 @@ L’accès aux données d’Identity Protection par le biais de Microsoft Graph 
 
 ### <a name="create-a-new-app-registration"></a>Créer une nouvelle inscription d’application
 
-1. Dans le Portail Azure, cliquez sur**Azure Active Directory** > **Inscriptions d’applications**.
+1. Dans le Portail Azure, cliquez sur **Azure Active Directory** > **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
 1. Dans la page **Créer**, effectuez les étapes suivantes :
    1. Dans la zone de texte **Nom**, entrez le nom de votre application (par exemple : API de détections des risques Azure AD).
@@ -173,4 +173,4 @@ Pour plus d’informations, consultez :
 - [Types de détections de risques détectées par Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph (Vue d’ensemble de Microsoft Graph)](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection Service Root (Racine de service d’Azure AD Identity Protection)](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection Service Root (Racine de service d’Azure AD Identity Protection)](/graph/api/resources/identityprotectionroot)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994279"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861287"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -266,7 +266,7 @@ Une fois le service responsable de l’interruption restauré, annulez les modif
 3. Le cas échéant, restaurez les autres modifications que vous avez apportées et documentées pendant l'interruption.
 4. Si vous avez utilisé un compte d'accès d'urgence, n'oubliez pas de régénérer les informations d'identification et de sécuriser physiquement les nouvelles informations d'identification dans le cadre des procédures liées aux comptes d'accès d'urgence.
 5. Continuez à [Trier toutes les détections à risque signalées](../reports-monitoring/concept-sign-ins.md) après l'interruption pour activité suspecte.
-6. Révoquez tous les jetons d'actualisation émis [à l'aide de PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) pour cibler un ensemble d'utilisateurs. La révocation de tous les jetons d’actualisation est importante pour les comptes à privilèges utilisés lors de l’interruption, et elle les obligera à se réauthentifier et à se conformer au contrôle des stratégies restaurées.
+6. Révoquez tous les jetons d'actualisation émis [à l'aide de PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) pour cibler un ensemble d'utilisateurs. La révocation de tous les jetons d’actualisation est importante pour les comptes à privilèges utilisés lors de l’interruption, et elle les obligera à se réauthentifier et à se conformer au contrôle des stratégies restaurées.
 
 ## <a name="emergency-options"></a>Options d'urgence
 
@@ -287,7 +287,7 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
 * [Documentation Azure AD Authentication](./howto-mfaserver-iis.md)
 * [Gérer les comptes d’administration de l’accès d’urgence dans Azure AD](../roles/security-emergency-access.md)
 * [Configurer des emplacements nommés dans Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Comment configurer des appareils hybrides joints à Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
 * [Guide de déploiement de Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Aide sur les mots de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

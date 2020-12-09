@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e9a03c82fd4bd79e7a47fa34ff7a69870c52f018
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658126"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858380"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -204,5 +204,5 @@ Ce scénario n’est pas pris en charge directement. Vos possibilités pour ce s
 1. Publiez les URL HTTP et HTTPS en tant qu’applications distinctes avec un caractère générique, mais donnez à chacune un nom de domaine personnalisé différent. Cette configuration fonctionne, car elles ont des URL externes différentes.
 
 2. Publiez l’URL HTTPS par le biais d’une application générique. Publiez les applications HTTP séparément à l’aide de ces cmdlets PowerShell de proxy d’application :
-   - [Gestion des applications de proxy d’application](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Gestion des connecteurs de proxy d’application](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Gestion des applications de proxy d’application](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Gestion des connecteurs de proxy d’application](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

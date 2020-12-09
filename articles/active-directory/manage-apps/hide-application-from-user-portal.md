@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ef1abd1d72e4435aa59bbb9a99f3cc423f11268e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659061"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858296"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Masquer des applications d’entreprise aux utilisateurs finaux dans Azure Active Directory
 
@@ -47,7 +47,7 @@ Suivez ces étapes pour masquer une application dans le panneau MyApps et dans l
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Utiliser Azure AD PowerShell pour masquer une application
 
-Pour masquer une application dans le panneau MyApps, vous pouvez ajouter manuellement la balise HideApp au principal de service pour l’application. Exécutez les commandes [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) suivantes pour définir la propriété **Visible par les utilisateurs ?** de l’application sur **Non**. 
+Pour masquer une application dans le panneau MyApps, vous pouvez ajouter manuellement la balise HideApp au principal de service pour l’application. Exécutez les commandes [AzureAD PowerShell](/powershell/module/azuread/#service_principals) suivantes pour définir la propriété **Visible par les utilisateurs ?** de l’application sur **Non**. 
 
 ```PowerShell
 Connect-AzureAD

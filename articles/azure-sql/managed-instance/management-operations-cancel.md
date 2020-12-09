@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782499"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861542"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annulation d’opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,13 +55,13 @@ Pour annuler des opérations de gestion à l’aide du portail Azure, procédez 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez au panneau **Vue d’ensemble** de votre instance managée SQL. 
-1. Sélectionnez la zone **Notification** en regard de l’opération en cours pour ouvrir la page **Opération en cours** . 
+1. Sélectionnez la zone **Notification** en regard de l’opération en cours pour ouvrir la page **Opération en cours**. 
 
    :::image type="content" source="media/management-operations-cancel/open-ongoing-operation.png" alt-text="Sélectionnez la zone de l’opération en cours pour ouvrir la page Opération en cours.":::
 
 1. Sélectionnez **Annuler l’opération** en bas de la page. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Sélectionnez la zone de l’opération en cours pour ouvrir la page Opération en cours.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Sélectionnez Annuler pour annuler l’opération.":::
 
 1. Confirmez que vous voulez annuler l’opération. 
 
@@ -116,13 +116,12 @@ Pour une explication détaillée des commandes, consultez [az sql mi op](/cli/az
 
 ## <a name="canceled-deployment-request"></a>Demande de déploiement annulée
 
-Avec la version d’API 2020-02-02, dès que la demande de création d’instance est acceptée, l’instance commence à exister en tant que ressource, quelle que soit la progression du processus de déploiement (l’état de l’instance managée est **Provisionnement** ). Si vous annulez la demande de déploiement de l’instance (création d’une nouvelle instance), l’instance managée passe de l’état **Provisionnement** à **FailedToCreate** .
+Avec la version d’API 2020-02-02, dès que la demande de création d’instance est acceptée, l’instance commence à exister en tant que ressource, quelle que soit la progression du processus de déploiement (l’état de l’instance managée est **Provisionnement**). Si vous annulez la demande de déploiement de l’instance (création d’une nouvelle instance), l’instance managée passe de l’état **Provisionnement** à **FailedToCreate**.
 
 Les instances dont la création a échoué sont toujours présentes en tant que ressource et : 
 
 - Ne sont pas facturées
 - Ne sont pas comptabilisées pour les limites de ressources (quota vCore ou sous-réseau)
-- Conservent le nom d’instance réservé – Pour déployer une instance portant le même nom, supprimez l’instance qui a échoué pour libérer le nom
 
 
 > [!NOTE]

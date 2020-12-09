@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164995"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861151"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Préremplir les informations de contact relatives à l’authentification utilisateur pour la réinitialisation de mot de passe en libre-service Azure Active Directory (SSPR)
 
@@ -28,12 +28,12 @@ Vous pouvez préremplir les informations de contact relatives à l’authentific
 * Vous avez correctement préparé les données au format approprié dans votre annuaire local.
 * Vous avez configuré [Azure AD Connect](../hybrid/how-to-connect-install-express.md) pour votre locataire Azure AD.
 
-Les numéros de téléphone doivent être au format *+IndicatifTéléphoniqueInternational NuméroTéléphone* , par exemple *+1 4251234567* .
+Les numéros de téléphone doivent être au format *+IndicatifTéléphoniqueInternational NuméroTéléphone*, par exemple *+1 4251234567*.
 
 > [!NOTE]
 > Un espace est obligatoire entre l’indicatif téléphonique international et le numéro de téléphone.
 >
-> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345* , les extensions sont supprimées avant l’appel.
+> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format *+1 4251234567X12345*, les extensions sont supprimées avant l’appel.
 
 ## <a name="fields-populated"></a>Champs renseignés
 
@@ -48,7 +48,7 @@ Une fois qu’un utilisateur confirme son numéro de téléphone mobile, le cham
 
 ## <a name="authentication-contact-info"></a>Informations de contact d’authentification
 
-Sur la page **Méthodes d’authentification** d’un utilisateur Azure AD dans le Portail Azure, un administrateur général peut définir manuellement les informations de contact d’authentification. Vous pouvez passer en revue les méthodes existantes sous la section *Méthodes d’authentification utilisables* ou **Ajouter des méthodes d’authentification** , comme indiqué dans la capture d’écran suivante :
+Sur la page **Méthodes d’authentification** d’un utilisateur Azure AD dans le Portail Azure, un administrateur général peut définir manuellement les informations de contact d’authentification. Vous pouvez passer en revue les méthodes existantes sous la section *Méthodes d’authentification utilisables* ou **Ajouter des méthodes d’authentification**, comme indiqué dans la capture d’écran suivante :
 
 :::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Gérer les méthodes d’authentification à partir du portail Azure":::
 
@@ -69,9 +69,9 @@ Lorsqu’un utilisateur s'inscrit, la page d’inscription définit les champs s
 * **E-mail d’authentification**
 * **Questions et réponses de sécurité**
 
-Si vous avez fourni une valeur pour *Téléphone mobile* ou *Adresse e-mail de secours* , les utilisateurs peuvent immédiatement s’en servir pour réinitialiser leur mot de passe, même s’ils ne se sont pas inscrits au service.
+Si vous avez fourni une valeur pour *Téléphone mobile* ou *Adresse e-mail de secours*, les utilisateurs peuvent immédiatement s’en servir pour réinitialiser leur mot de passe, même s’ils ne se sont pas inscrits au service.
 
-Les utilisateurs voient également ces valeurs quand ils s’inscrivent pour la première fois, et peuvent les modifier s’ils le souhaitent. Une fois l’inscription des utilisateurs correctement effectuée, ces valeurs sont conservées dans les champs *Téléphone d’authentification* et *E-mail d’authentification* , respectivement.
+Les utilisateurs voient également ces valeurs quand ils s’inscrivent pour la première fois, et peuvent les modifier s’ils le souhaitent. Une fois l’inscription des utilisateurs correctement effectuée, ces valeurs sont conservées dans les champs *Téléphone d’authentification* et *E-mail d’authentification*, respectivement.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Définir et lire les données d’authentification par le biais de PowerShell
 
@@ -125,7 +125,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Utiliser PowerShell version 2
 
-Pour commencer, [téléchargez et installez le module PowerShell version 2 d’Azure AD](/powershell/module/azuread/?view=azureadps-2.0).
+Pour commencer, [téléchargez et installez le module PowerShell version 2 d’Azure AD](/powershell/module/azuread/).
 
 Pour effectuer une installation rapide à partir de versions récentes de PowerShell qui prennent en charge `Install-Module`, exécutez les commandes suivantes. La première ligne vérifie si le module est déjà installé :
 

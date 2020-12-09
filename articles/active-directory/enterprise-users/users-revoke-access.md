@@ -3,21 +3,22 @@ title: Révoquer les accès utilisateur lors d’une urgence dans Azure Active D
 description: Comment révoquer tous les accès d’un utilisateur dans Azure Active Directory
 services: active-directory
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491e4f996d91fe267593e36b7ff06200c91b93f8
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490695"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860573"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -59,13 +60,13 @@ Dans un environnement hybride où un Active Directory local est synchronisé ave
 
 En tant qu’administrateur dans l’environnement Active Directory, connectez-vous à votre réseau local, ouvrez PowerShell et effectuez les étapes suivantes :
 
-1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > Changer deux fois de suite le mot de passe d’un utilisateur contribue à atténuer le risque d’attaque de type pass-the-hash, surtout quand des délais sont observés durant la réplication du mot de passe local. Si vous avez l’assurance que ce compte n’est pas compromis, vous pouvez vous contenter de réinitialiser le mot de passe une seule fois.
@@ -82,18 +83,18 @@ En tant qu’administrateur dans l’environnement Active Directory, connectez-v
 
 En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exécutez ``Connect-AzureAD`` et effectuez les actions suivantes :
 
-1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

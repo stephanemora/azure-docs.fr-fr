@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377732"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861933"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Résoudre les problèmes de rôles attribués aux groupes cloud
 
@@ -32,16 +32,16 @@ Voici quelques questions courantes et des conseils de résolution des problèmes
 
 **R :** Par défaut, seul l’Administrateur de rôle privilégié ou l’Administrateur général peut gérer l’appartenance à un groupe assignable à un rôle, mais vous pouvez déléguer la gestion des groupes assignables à un rôle en leur ajoutant des propriétaires de groupe.
 
-**Q**  : Je suis Administrateur du support technique dans mon organisation, mais je ne peux pas mettre à jour le mot de passe d’un utilisateur ayant le rôle Lecteur de répertoire. Pourquoi cela se produit-il ?
+**Q** : Je suis Administrateur du support technique dans mon organisation, mais je ne peux pas mettre à jour le mot de passe d’un utilisateur ayant le rôle Lecteur de répertoire. Pourquoi cela se produit-il ?
 
-**R**  : L’utilisateur peut avoir obtenu le rôle Lecteur de répertoire par le biais d’un groupe assignable à un rôle. Tous les membres et propriétaires d’un groupe assignable à un rôle sont protégés. Seuls les utilisateurs ayant les rôles Administrateur d’authentification privilégiée ou Administrateur général peuvent réinitialiser les informations d’identification d’un utilisateur protégé.
+**R** : L’utilisateur peut avoir obtenu le rôle Lecteur de répertoire par le biais d’un groupe assignable à un rôle. Tous les membres et propriétaires d’un groupe assignable à un rôle sont protégés. Seuls les utilisateurs ayant les rôles Administrateur d’authentification privilégiée ou Administrateur général peuvent réinitialiser les informations d’identification d’un utilisateur protégé.
 
 **Q :** Je ne parviens pas à mettre à jour le mot de passe d’un utilisateur. Aucun rôle privilégié plus élevé ne lui est attribué. Pourquoi cela se passe-t-il ?
 
 **R :** L’utilisateur peut être propriétaire d’un groupe assignable à un rôle. Nous protégeons les propriétaires de ces groupes afin d’empêcher une élévation de privilèges. Prenons l’exemple du groupe Contoso_Security_Admins auquel attribué au rôle Administrateur de la sécurité, et où Bob est le propriétaire du groupe et Alice l’Administrateur de mot de passe dans l’organisation. Si cette protection n’était pas présente, Alice pourrait réinitialiser les informations d’identification de Bob et prendre le contrôle de son identité. Ensuite, Alice pourrait s’ajouter elle-même ou toute autre personne au groupe Contoso_Security_Admins pour devenir Administrateur de la sécurité dans l’organisation. Pour déterminer si un utilisateur est propriétaire d’un groupe, obtenez la liste des objets détenus de cet utilisateur et vérifiez si isAssignableToRole a la valeur true pour l’un des groupes. Si c’est le cas, cet utilisateur est protégé et le comportement est normal. Reportez-vous à ces documents pour obtenir les objets détenus :
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [List ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [List ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **Q :** Puis-je créer une révision d’accès sur des groupes qui peuvent être affectés à des rôles Azure AD (plus précisément, les groupes dont la propriété isAssignableToRole est définie sur true) ?  
 
@@ -89,7 +89,7 @@ Utilisateur | Propriétaire de catalogue | Seulement si propriétaire d’un gro
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
 1. Sélectionnez des utilisateurs et ouvrez un profil utilisateur.
-1. Sélectionnez **Rôles attribués** , puis :
+1. Sélectionnez **Rôles attribués**, puis :
 
     - Dans les organisations sous licence Azure AD Premium P1 : Sélectionnez l’icône d’engrenage. Un volet s’ouvre et peut fournir ces informations.
     - Dans les organisations sous licence Azure AD Premium P2 : Vous trouverez des informations sur les licences directes et héritées dans la colonne **Appartenance**.

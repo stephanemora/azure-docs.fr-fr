@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441876"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860590"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -69,7 +69,7 @@ Le pied de page contient d’autres informations sur l’invitation envoyée. Il
 
 ### <a name="blocking-an-organization-unsubscribing"></a>Blocage d’une organisation (annulation d’abonnement)
 
-Dans l’invitation d’une organisation, le pied de page contient une option permettant de **bloquer les futures invitations** . Un utilisateur invité peut sélectionner ce lien pour bloquer les futures invitations de l’organisation. Cette action ajoute également l’organisation à la liste des utilisateurs désabonnés à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+Dans l’invitation d’une organisation, le pied de page contient une option permettant de **bloquer les futures invitations**. Un utilisateur invité peut sélectionner ce lien pour bloquer les futures invitations de l’organisation. Cette action ajoute également l’organisation à la liste des utilisateurs désabonnés à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
 
 ### <a name="viewing-organizations-youve-blocked"></a>Affichage des organisations que vous avez bloquées
 
@@ -79,14 +79,14 @@ Un utilisateur invité peut suivre les étapes suivantes pour afficher ou export
 2. Entrez votre adresse e-mail et suivez les étapes de connexion pour l’authentification par code secret ponctuelle d’e-mail.
 3. Affichez les organisations que vous avez bloquées ou exportez les noms à l’aide d’une opérations de copier-coller.
    > [!NOTE]
-   > Si vous souhaitez autoriser une organisation que vous avez bloquée à vous inviter à nouveau, vous pouvez choisir l’organisation, puis sélectionner **Suivant** .
+   > Si vous souhaitez autoriser une organisation que vous avez bloquée à vous inviter à nouveau, vous pouvez choisir l’organisation, puis sélectionner **Suivant**.
 
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
 
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue.
 
-- Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
--   Propriété **preferredLanguage** spécifiée dans l' [objet utilisateur](/graph/api/resources/user?view=graph-rest-1.0) de l'invité
+- Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) si l'API Créer une invitation est utilisée
+-   Propriété **preferredLanguage** spécifiée dans l'[objet utilisateur](/graph/api/resources/user) de l'invité
 -   **Langue de notification** définie dans les propriétés du client de base de l'utilisateur invité (pour les clients Azure AD uniquement)
 -   **Langue de Notification** définie dans les propriétés du client de la ressource
 

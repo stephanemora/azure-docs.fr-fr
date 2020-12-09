@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737096"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858737"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -53,10 +53,10 @@ La section suivante explique en détail comment fonctionne la synchronisation du
 
 1. Toutes les deux minutes, l’agent de synchronisation du hachage de mot de passe qui se trouve sur le serveur AD Connect demande des hachages de mots de passe stockés (l’attribut unicodePwd) à un contrôleur de domaine.  Cette demande utilise le protocole de réplication [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) permettant de synchroniser les données entre les contrôleurs de domaine. Le compte de service doit disposer des autorisations Répliquer les changements d’annuaires et Répliquer les changements d’annuaire Tout d’Active Directory (accordées par défaut lors de l’installation) pour obtenir les hachages de mot de passe.
 2. Avant l’envoi, le contrôleur de domaine chiffre le hachage de mot de passe MD4 à l’aide d’une clé qui est un hachage [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) de la clé de session RPC et un salt. Il envoie ensuite le résultat à l’agent de synchronisation de hachage de mot de passe via RPC. Le contrôleur de domaine passe également le salt à l’agent de synchronisation à l’aide du protocole de réplication du contrôleur de domaine, pour que l’agent puisse déchiffrer l’enveloppe.
-3. Une fois que l’agent de synchronisation de hachage de mot de passe dispose de l’enveloppe chiffrée, il utilise [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) et le salt pour générer une clé afin de déchiffrer les données reçues dans leur format MD4 d’origine. L’agent de synchronisation du hachage de mot de passe n’a jamais accès au mot de passe en texte clair. L’utilisation de MD5 par l’agent de synchronisation de hachage de mot de passe est strictement destinée à assurer la compatibilité du protocole de réplication avec le contrôleur de domaine, et uniquement en local entre le contrôleur de domaine et l’agent de synchronisation de hachage de mot de passe.
+3. Une fois que l’agent de synchronisation de hachage de mot de passe dispose de l’enveloppe chiffrée, il utilise [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider) et le salt pour générer une clé afin de déchiffrer les données reçues dans leur format MD4 d’origine. L’agent de synchronisation du hachage de mot de passe n’a jamais accès au mot de passe en texte clair. L’utilisation de MD5 par l’agent de synchronisation de hachage de mot de passe est strictement destinée à assurer la compatibilité du protocole de réplication avec le contrôleur de domaine, et uniquement en local entre le contrôleur de domaine et l’agent de synchronisation de hachage de mot de passe.
 4. L’agent de synchronisation de hachage de mot de passe étend le hachage de mot de passe binaire de 16 octets à 64 octets en convertissant d’abord le hachage en chaîne hexadécimale de 32 octets, puis en reconvertissant cette chaîne au format binaire avec l’encodage UTF-16.
 5. L’agent de synchronisation de hachage de mot de passe ajoute pour chaque utilisateur un salt de 10 octets de long au fichier binaire de 64 octets pour renforcer la protection du hachage d’origine.
-6. L’agent de synchronisation de hachage de mot de passe combine alors le hachage MD4 et le salt par utilisateur, puis place le tout dans la fonction [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). 1 000 itérations de l’algorithme de hachage à clé [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) sont utilisées. 
+6. L’agent de synchronisation de hachage de mot de passe combine alors le hachage MD4 et le salt par utilisateur, puis place le tout dans la fonction [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). 1 000 itérations de l’algorithme de hachage à clé [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) sont utilisées. 
 7. L’agent de synchronisation de hachage de mot de passe prend le hachage de 32 octets résultant, concatène le salt par utilisateur et le nombre d’itérations SHA256 (pour une utilisation par Azure AD), puis transmet la chaîne d’Azure AD Connect à Azure AD par TLS.</br> 
 8. Lorsqu’un utilisateur tente de se connecter à Azure AD et entre son mot de passe, le mot de passe est traité par le même processus MD4+salt+PBKDF2+HMAC-SHA256. Si le hachage résultant correspond au hachage stocké dans Azure AD, l’utilisateur a entré le bon mot de passe et est authentifié.
 
@@ -142,7 +142,7 @@ Pour prendre en charge les mots de passe temporaires dans Azure AD pour les util
 
 #### <a name="account-expiration"></a>Expiration du compte
 
-Si votre organisation utilise l’attribut accountExpires dans le cadre de la gestion des comptes d’utilisateur, il n’est pas synchronisé avec Azure AD. Par conséquent, un compte Active Directory expiré dans un environnement configuré pour la synchronisation de hachage de mot de passe sera toujours actif dans Azure AD. Nous recommandons, si le compte a expiré, qu’une action de workflow déclenche un script PowerShell qui désactive le compte Azure AD de l’utilisateur (via l’applet de commande [Set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Inversement, lorsque le compte est activé, l’instance Azure AD doit être activée.
+Si votre organisation utilise l’attribut accountExpires dans le cadre de la gestion des comptes d’utilisateur, il n’est pas synchronisé avec Azure AD. Par conséquent, un compte Active Directory expiré dans un environnement configuré pour la synchronisation de hachage de mot de passe sera toujours actif dans Azure AD. Nous recommandons, si le compte a expiré, qu’une action de workflow déclenche un script PowerShell qui désactive le compte Azure AD de l’utilisateur (via l’applet de commande [Set-AzureADUser](/powershell/module/azuread/set-azureaduser)). Inversement, lorsque le compte est activé, l’instance Azure AD doit être activée.
 
 ### <a name="overwrite-synchronized-passwords"></a>Remplacement des mots de passe synchronisés
 

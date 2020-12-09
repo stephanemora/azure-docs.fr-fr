@@ -5,23 +5,20 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276500"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854969"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment copier des données vers et depuis un lac Delta stocké dans [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) ou [Stockage Blob Azure](connector-azure-blob-storage.md) à l’aide du format Delta. Ce connecteur est disponible sous forme de [jeu de données inline](data-flow-source.md#inline-datasets) dans le flux de données de mappage, en tant que source et récepteur.
-
-> [!NOTE]
-> Le connecteur de format Delta pour les flux de données de mappage est actuellement disponible en préversion publique.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
@@ -78,7 +75,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 | Type de compression | Type de compression de la table Delta | non | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | `Optimal` ou `Fastest` | compressionLevel |
 | Nettoyer | Spécifiez le seuil de rétention en heures pour les anciennes versions de table. Une valeur inférieure ou égale à 0 correspond par défaut à 30 jours | Oui | Integer | vacuum |
-| Mettre à jour la méthode | Spécifiez les opérations de mise à jour autorisées sur le lac Delta. Pour les méthodes autres qu’insert, une transformation de modification de ligne précédente est requise afin de marquer des lignes. | Oui | `true` ou `false` | deletable <br> insertable <br> updateable <br> upsertable |
+| Mettre à jour la méthode | Spécifiez les opérations de mise à jour autorisées sur le lac Delta. Pour les méthodes autres qu’insert, une transformation de modification de ligne précédente est requise afin de marquer des lignes. | Oui | `true` ou `false` | deletable <br> insertable <br> updateable <br> fusion |
 
 ### <a name="delta-sink-script-example"></a>Exemple de script de récepteur Delta
 

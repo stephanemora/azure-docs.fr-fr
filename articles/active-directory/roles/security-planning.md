@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834453"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861984"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -93,7 +93,7 @@ Après avoir activé Azure AD Privileged Identity Management, affichez les utili
 * Administrateur Exchange
 * Administrateur SharePoint
 
-Si vous ne disposez pas d’Azure AD Privileged Identity Management dans votre organisation, vous pouvez utiliser l’[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Commencez avec le rôle d’administrateur général, car celui-ci dispose des mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée. Ces autorisations sont acquises, quelle que soit leur provenance : Centre d’administration Microsoft 365, Portail Azure ou module Azure AD pour Microsoft PowerShell.
+Si vous ne disposez pas d’Azure AD Privileged Identity Management dans votre organisation, vous pouvez utiliser l’[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Commencez avec le rôle d’administrateur général, car celui-ci dispose des mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée. Ces autorisations sont acquises, quelle que soit leur provenance : Centre d’administration Microsoft 365, Portail Azure ou module Azure AD pour Microsoft PowerShell.
 
 Supprimez les comptes qui ne sont plus nécessaires dans ces rôles. Ensuite, classez les comptes restants qui sont affectés aux rôles d’administrateur :
 

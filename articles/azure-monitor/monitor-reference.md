@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186692"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853139"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -135,7 +135,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Network Watcher | Oui | Oui | Non |  |
 |Notification Hubs | Oui | Non | Non |  |
 |Ouvrir des jeux de données | Non | Non | Non |  |
-|Policy | Non | Non | Non |  |
+|Stratégie | Non | Non | Non |  |
 |Power Automate | Non | Non | Non |  |
 |Power BI Embedded | Oui | Oui | Non |  |
 |Private Link | Non | Non | Non |  |
@@ -194,7 +194,7 @@ Les services et solutions figurant dans le tableau suivant stockent leurs donné
 | [Centre de sécurité Azure](../security-center/index.yml) | Collectez et analysez les événements de sécurité et effectue une analyse des menaces. Consultez [Collecte de données dans Azure Security Center](../security-center/security-center-enable-data-collection.md). |
 | [Azure Sentinel](../sentinel/index.yml) | Se connecte à différentes sources, notamment Office 365 et Amazon Web Services CloudTrail. Voir [Connecter des sources de données](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Créez un paramètre de diagnostic pour envoyer des journaux à Azure Monitor. Consultez [Envoyer les données de journal à des comptes de stockage, des hubs d’événements ou Log Analytics dans Intune (préversion)](/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Réseau  | [Network Performance Monitor](insights/network-performance-monitor.md) : supervisez la connectivité et les performances réseau aux points de terminaison de service et d’application.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) : analysez les journaux et les métriques d’Azure Application Gateway.<br>[Traffic Analytics](../network-watcher/traffic-analytics.md) : analyse les journaux de flux de groupe de sécurité réseau Network Watcher pour fournir des informations sur le flux de trafic dans votre cloud Azure. |
+| Réseau  | [Network Performance Monitor](insights/network-performance-monitor.md) : supervisez la connectivité et les performances réseau aux points de terminaison de service et d’application.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) : analysez les journaux et les métriques d’Azure Application Gateway.<br>[Traffic Analytics](../network-watcher/traffic-analytics.md) : analyse les journaux de flux de groupe de sécurité réseau Network Watcher pour fournir des informations sur le flux de trafic dans votre cloud Azure. |
 | [Office 365](insights/solution-office-365.md) | Supervisez votre environnement Office 365. Version mise à jour avec une intégration améliorée disponible par le biais d’Azure Sentinel. |
 | [SQL Analytics](insights/azure-sql.md) | Supervisez à grande échelle les performances des bases de données Azure SQL Database et des instances Azure SQL Managed Instance entre plusieurs abonnements. |
 | [Surface Hub](insights/surface-hubs.md) | Effectuez le suivi de l’intégrité et de l’utilisation des appareils Surface Hub. |

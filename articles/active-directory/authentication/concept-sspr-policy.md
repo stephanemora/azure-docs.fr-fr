@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174379"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861270"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -95,7 +95,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
 * Un domaine personnalisé a été configuré pour votre locataire Azure AD, par exemple *contoso.com* ; ou
 * Azure AD Connect synchronise les identités à partir de votre répertoire local
 
-Vous pouvez désactiver l’utilisation de SSPR pour les comptes d’administrateur à l’aide de l’applet de commande PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). Le paramètre `-SelfServePasswordResetEnabled $False` désactive SSPR pour les administrateurs.
+Vous pouvez désactiver l’utilisation de SSPR pour les comptes d’administrateur à l’aide de l’applet de commande PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings). Le paramètre `-SelfServePasswordResetEnabled $False` désactive SSPR pour les administrateurs.
 
 ### <a name="exceptions"></a>Exceptions
 
@@ -107,7 +107,7 @@ Une stratégie à un verrou nécessite un élément de données d’authentifica
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Stratégies d’expiration de mot de passe
 
-Un *administrateur général* ou un *administrateur d’utilisateurs* peut utiliser le [module Microsoft Azure AD pour Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) afin de définir des mots de passe utilisateur qui n’expirent pas.
+Un *administrateur général* ou un *administrateur d’utilisateurs* peut utiliser le [module Microsoft Azure AD pour Windows PowerShell](/powershell/module/Azuread/) afin de définir des mots de passe utilisateur qui n’expirent pas.
 
 Vous pouvez également utiliser des applets de commande PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer.
 
@@ -118,13 +118,13 @@ Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Micro
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Définir ou vérifier les stratégies de mot de passe à l’aide de PowerShell
 
-Pour commencer, [téléchargez et installez le module Azure AD PowerShell](/powershell/module/Azuread/?view=azureadps-2.0), puis [connectez-le à votre locataire Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Pour commencer, [téléchargez et installez le module Azure AD PowerShell](/powershell/module/Azuread/), puis [connectez-le à votre locataire Azure AD](/powershell/module/azuread/connect-azuread#examples).
 
 Une fois le module installé, suivez les étapes ci-après pour effectuer chaque tâche en fonction des besoins.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Vérifier la stratégie d’expiration d’un mot de passe
 
-1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
+1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
 1. Exécutez l’une des commandes suivantes pour un utilisateur individuel ou tous les utilisateurs :
 
    * Pour voir si le mot de passe d’un seul utilisateur est défini pour ne jamais expirer, exécutez l’applet de commande suivante. Remplacez `<user ID>` par l’identifiant de l’utilisateur que vous souhaitez vérifier, par exemple *driley\@contoso.onmicrosoft.com* :
@@ -141,7 +141,7 @@ Une fois le module installé, suivez les étapes ci-après pour effectuer chaque
 
 ### <a name="set-a-password-to-expire"></a>Définir un mot de passe pour qu’il expire
 
-1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
+1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
 1. Exécutez l’une des commandes suivantes pour un utilisateur individuel ou tous les utilisateurs :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez l’applet de commande suivante. Remplacez `<user ID>` par l’identifiant de l’utilisateur que vous souhaitez vérifier, par exemple *driley\@contoso.onmicrosoft.com* :
@@ -158,7 +158,7 @@ Une fois le module installé, suivez les étapes ci-après pour effectuer chaque
 
 ### <a name="set-a-password-to-never-expire"></a>Définir un mot de passe pour qu’il n’expire jamais
 
-1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
+1. Ouvrez une invite PowerShell et [connectez-vous à votre locataire Azure AD](/powershell/module/azuread/connect-azuread#examples) à l’aide d’un compte d’*administrateur général* ou d’*administrateur d’utilisateurs*.
 1. Exécutez l’une des commandes suivantes pour un utilisateur individuel ou tous les utilisateurs :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il n’expire jamais, exécutez l’applet de commande suivante : Remplacez `<user ID>` par l’identifiant de l’utilisateur que vous souhaitez vérifier, par exemple *driley\@contoso.onmicrosoft.com* :

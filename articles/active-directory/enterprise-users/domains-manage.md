@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/20/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b87dac89f991525e51d4f9dd0a92291eaac3e2c
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488902"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859978"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -72,7 +73,7 @@ Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans vo
 
 Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [Centre d’administration Azure AD](https://aad.portal.azure.com) ou à l’aide de [l’API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Ces options utilisent une opération asynchrone et mettent à jour toutes les références depuis le nom de domaine personnalisé comme « user@contoso.com » vers le nom de domaine par défaut initial comme « user@contoso.onmicrosoft.com ».
 
-Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
+Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
 
 * Vous avez acheté un domaine par le biais des services d’abonnement de domaine Microsoft 365
 * Vous êtes un partenaire qui administre le compte d’une autre organisation cliente
@@ -109,11 +110,11 @@ Si vous remarquez que l’une des conditions n’a pas été respectée, nettoye
 
 La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell ou par programmation à l’aide de l’API Microsoft Graph.
 
-* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
 * [Type de ressource de domaine](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Ajouter des noms de domaines personnalisés](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [Supprimer les groupes de sécurité à extension messagerie](/Exchange/recipients/mail-enabled-security-groups#Remove%20mail-enabled%20security%20groups&preserve-view=true)
 * [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true) (Appliquer une opération ForceDelete sur un nom de domaine personnalisé avec l’API Microsoft Graph)

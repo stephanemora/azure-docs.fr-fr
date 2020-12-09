@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069719"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861355"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Activer l'approvisionnement automatique d'utilisateurs pour votre application multilocataire
 
@@ -89,7 +89,7 @@ Pour plus d'informations sur le service d'approvisionnement Azure AD et SCIM, co
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph pour l'approvisionnement
 
-Lorsque vous utilisez Microsoft Graph pour l'approvisionnement, vous avez accès à toutes les données utilisateur enrichies disponibles dans Graph. Outre les détails relatifs aux utilisateurs et aux groupes, vous pouvez également récupérer des informations supplémentaires telles que les rôles des utilisateurs, leurs supérieurs et collaborateurs directs, les appareils possédés et enregistrés, et des centaines d'autres données disponibles dans [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Lorsque vous utilisez Microsoft Graph pour l'approvisionnement, vous avez accès à toutes les données utilisateur enrichies disponibles dans Graph. Outre les détails relatifs aux utilisateurs et aux groupes, vous pouvez également récupérer des informations supplémentaires telles que les rôles des utilisateurs, leurs supérieurs et collaborateurs directs, les appareils possédés et enregistrés, et des centaines d'autres données disponibles dans [Microsoft Graph](/graph/api/overview). 
 
 Plus de 15 millions d'organisations et 90 % des entreprises figurant dans le classement Fortune 500 utilisent Azure AD tout en s'abonnant à des services cloud Microsoft tels que Microsoft 365, Microsoft Azure ou Enterprise Mobility Suite. Vous pouvez utiliser Microsoft Graph pour intégrer votre application à des flux de travail administratifs, tels que l'intégration (et le licenciement) des employés, la maintenance des profils, etc. 
 

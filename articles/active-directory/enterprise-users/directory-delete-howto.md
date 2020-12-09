@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be40a3cea5aa7abfa257c4e5a2db61c514892dd5
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503640"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861028"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
@@ -84,7 +85,7 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
    ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
 
-6. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez [réactiver l’abonnement](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) pendant la période de trois jours si vous changez d’avis.
+6. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez [réactiver l’abonnement](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) pendant la période de trois jours si vous changez d’avis.
   
    ![Lisez attentivement les termes et conditions](./media/directory-delete-howto/delete-terms.png)
 
@@ -96,7 +97,7 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>J’ai un abonnement d’évaluation qui bloque la suppression
 
-L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire par le biais de Microsoft 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
+L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](/office365/admin/misc/self-service-sign-up). Des utilisateurs individuels peuvent s’inscrire par le biais de Microsoft 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
 
 Il existe deux types de produits disponibles à l’inscription en libre service, selon la façon dont ils sont attribués : 
 
@@ -105,9 +106,9 @@ Il existe deux types de produits disponibles à l’inscription en libre service
 
 Lorsque vous déclenchez la suppression d’un produit attribué à des utilisateurs par une inscription en libre-service, cette action supprime définitivement les données et tous les accès utilisateur du service. Tous les utilisateurs a qui ce produit a été attribué, que ce soit individuellement ou au niveau de l’organisation, ne peuvent plus s’y connecter, ni accéder à leurs données liées à ce produit. Si vous souhaitez éviter toute perte de données liées à un produit attribué par une inscription en libre-service, comme [des tableaux de bord Microsoft Power BI](/power-bi/service-export-to-pbix) ou [une configuration de stratégie Rights Management Services](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), avant de déclencher la suppression, vérifiez que les données sont sauvegardées et enregistrées ailleurs.
 
-Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
-S’il s’agit de l’expiration d’un abonnement d’essai à Microsoft 365 (à l’exception des programmes payants Partenaire/CSP, Contrat Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Microsoft 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Microsoft 365 pour les entreprises ?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+S’il s’agit de l’expiration d’un abonnement d’essai à Microsoft 365 (à l’exception des programmes payants Partenaire/CSP, Contrat Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Microsoft 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Microsoft 365 pour les entreprises ?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 État du produit | Données | Accès aux données
 ------------- | ---- | --------------
