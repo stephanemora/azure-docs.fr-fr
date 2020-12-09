@@ -1,14 +1,17 @@
 ---
 title: Configurer une appliance Azure Migrate dans Azure Government
 description: Apprenez à configurer une appliance Azure Migrate dans Azure Government
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450032"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752190"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurer une appliance dans Azure Government 
 
@@ -158,7 +161,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
 3. Vérifiez la dernière version de l’appliance et la valeur de hachage :
 
-    **Scénario** | **Télécharger*** | **Valeur de hachage**
+    **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
     --- | --- | ---
     Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           

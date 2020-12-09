@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492112"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842702"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -114,23 +114,6 @@ Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage 
 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-En général, les fonctionnalités d’Azure Files et l’interopérabilité avec d’autres services sont les mêmes entre les partages de fichiers Premium et les partages de fichiers Standard (incluant les partages de fichiers optimisés pour les transactions, chauds et froids). Il existe, cependant, quelques différences importantes :
-- **Modèle de facturation**
-    - Les partages de fichiers Premium sont facturés selon un modèle de facturation provisionné, ce qui signifie que vous payez le volume de stockage que vous provisionnez au prix fixe plutôt que la quantité de stockage que vous utilisez. Il n’y a aucun coût supplémentaire pour les transactions et les métadonnées au repos.
-    - Les partages de fichiers Standard sont facturés selon un modèle de paiement à l’utilisation : il comprend un coût de base du stockage pour la quantité de stockage que vous consommez, et un coût de transaction supplémentaire en fonction de la façon dont vous utilisez le partage. Avec les partages de fichiers Standard, votre facture augmente si vous utilisez davantage (en lecture/écriture/montage) le partage de fichiers Azure.
-- **Options de redondance**
-    - Les partages de fichiers Premium sont uniquement disponibles pour le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS).
-    - Les partages de fichiers Standard sont disponibles pour le stockage localement redondant, redondant interzone, géoredondant (GRS) et géoredondant interzone (GZRS).
-- **Taille maximale d’un partage de fichiers**
-    - Les partages de fichiers Premium peuvent être provisionnés jusqu’à 100 Tio sans aucun travail supplémentaire.
-    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la taille des partages de fichiers, consultez [Activer et créer des partages de fichiers volumineux](./storage-files-how-to-create-large-file-share.md).
-- **Disponibilité régionale**
-    - Les partages de fichiers Premium sont disponibles dans la plupart des régions Azure, à l’exception de quelques-unes. La prise en charge de la redondance interzone est disponible dans un sous-ensemble de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions prenant en charge ZRS, consultez [Stockage redondant interzone](../common/storage-redundancy.md#zone-redundant-storage). Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
-    - Le partage de fichiers Standard est disponible dans toutes les régions Azure.
-- Azure Kubernetes Service (AKS) prend en charge le partage de fichiers Premium dans la version 1.13 et ultérieure.
-
-Une fois qu’un partage de fichiers est créé, qu’il soit Premium ou Standard, vous ne pouvez pas le convertir automatiquement à l’autre niveau. Si vous souhaitez basculer vers l’autre niveau, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Nous vous recommandons d’utiliser `robocopy` pour Windows, `rsync` pour macOS et Linux afin d’effectuer cette copie.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Comprendre le provisionnement des partages de fichiers Premium
 Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Toutes les tailles de partages sont proposées à la ligne de base/au débit minimum avec possibilité de rafale. Pour chaque Gio approvisionné, le partage a des IOPS/un débit minimaux et un débit d’IOPS de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’IOPS par seconde/débit. 

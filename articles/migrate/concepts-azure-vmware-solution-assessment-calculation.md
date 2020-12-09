@@ -2,16 +2,16 @@
 title: Calculs d’évaluations AVS dans Azure Migrate | Microsoft Docs
 description: Offre une vue d’ensemble des calculs d’évaluation AVS dans le service Azure Migrate.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
-ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576538"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753805"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers Azure VMware Solution)
 

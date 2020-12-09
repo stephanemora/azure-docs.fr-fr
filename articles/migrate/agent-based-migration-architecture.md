@@ -1,17 +1,17 @@
 ---
 title: Migration basée sur un agent dans Migration de serveur Azure Migrate
 description: Fournit une vue d'ensemble de la migration d’une machine virtuelle VMware basée sur agent dans Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357163"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753890"
 ---
 # <a name="agent-based-migration-architecture"></a>Architecture de la migration basée sur agent
 
@@ -120,7 +120,7 @@ le trafic VMware qui est répliqué sur Azure passe par un serveur de processus 
 
     1. Sur l’ordinateur serveur de processus, ouvrez le composant logiciel enfichable MMC Sauvegarde Azure. Il y a un raccourci sur le bureau ou dans le dossier C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
     2. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
-    3. Dans**Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
+    3. Dans **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

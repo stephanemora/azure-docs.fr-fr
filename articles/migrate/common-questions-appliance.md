@@ -1,14 +1,17 @@
 ---
 title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337589"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753873"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -66,8 +69,8 @@ L’appliance doit avoir accès aux URL Azure. [Examinez](migrate-appliance.md#u
 
 Pour plus d’informations sur les données recueillies par l’appliance Azure Migrate sur les machines virtuelles, consultez les articles suivants :
 
-- **Machine virtuelle VMware**  : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées.
-- **Machine virtuelle Hyper-V**  : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
+- **Machine virtuelle VMware** : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées.
+- **Machine virtuelle Hyper-V** : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
 - **Serveurs physiques ou virtuels** : [révision](migrate-appliance.md#collected-data---physical) des données collectées.
 
 ## <a name="how-is-data-stored"></a>Comment les données sont stockées ?

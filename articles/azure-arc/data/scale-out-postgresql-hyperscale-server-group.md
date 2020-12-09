@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285381"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779972"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Effectuer un scale-out de votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc en ajoutant des nœuds Worker
 Ce document explique comment effectuer un scale-out d’un groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc. Pour ce faire, il vous guide dans un scénario. **Si vous ne souhaitez pas exécuter le scénario mais souhaitez simplement en savoir plus sur la manière d’effectuer un scale-out, allez au paragraphe [Effectuer un scale-out](#scale-out)** .
@@ -252,5 +252,4 @@ Notez la durée d’exécution.
  > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
 
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)
-- [Développement des revendications de volume persistant](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
-- [Modèle de ressource Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Modèle de ressources Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

@@ -58,6 +58,8 @@
           href: api-management-howto-policies.md
         - name: Index de référence de stratégie
           href: api-management-policies.md
+        - name: Gestion des erreurs
+          href: api-management-error-handling-policies.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
@@ -70,8 +72,6 @@
       href: api-management-revisions.md
     - name: Gérer à l’aide d’Automation
       href: automation-manage-api-management.md
-    - name: Gestion des erreurs
-      href: api-management-error-handling-policies.md
     - name: Restrictions à l’importation des API
       href: api-management-api-import-restrictions.md
     - name: Vue d’ensemble de la passerelle auto-hébergée
@@ -240,6 +240,8 @@
           href: api-management-howto-create-groups.md
         - name: Récupérer les adresses IP
           href: api-management-howto-ip-addresses.md
+        - name: Obtenir une analytique des API
+          href: howto-use-analytics.md
         - name: Journaliser les événements dans Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
         - name: Enregistrer des requêtes avec Azure Application Insights
@@ -305,5 +307,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Recommandations relatives à l’implémentation de l’API
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: Résoudre une erreur d’échec de mise à jour de noms d’hôte
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: Dépannage
+      items:
+        - name: Résoudre une erreur d’échec de mise à jour de noms d’hôte
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: Résoudre les erreurs et les délais de réponse
+          href: troubleshoot-response-timeout-and-errors.md

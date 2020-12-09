@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0874f6aeb74b028e92e10d972757cc5971735e39
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840098"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744310"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Foire aux questions concernant la réinitialisation du mot de passe en libre-service
 
@@ -263,7 +263,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Pour quels types de comptes la réécriture du mot de passe fonctionne-t-elle ?**
 
-  > **R :** La réécriture du mot de passe fonctionne pour les comptes d’utilisateur synchronisés entre Active Directory en local et Azure AD, y compris les utilisateurs fédérés, synchronisés avec hachage de mot de passe et à authentification directe.
+  > **R :** La réécriture du mot de passe fonctionne pour les comptes d’utilisateur synchronisés entre Active Directory en local et Azure AD, y compris les utilisateurs fédérés, synchronisés avec hachage de mot de passe et à authentification directe.
   >
   >
 * **Q :  La réécriture du mot de passe applique-t-elle les stratégies de mot de passe de mon domaine ?**
@@ -289,4 +289,4 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](./tutorial-enable-sspr-writeback.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
+* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](./troubleshoot-sspr.md)

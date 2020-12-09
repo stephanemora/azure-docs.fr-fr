@@ -4,12 +4,12 @@ description: Application Insights réalise une analyse télémétrique intellige
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186233"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763772"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -99,7 +99,7 @@ Où est le problème ? Le serveur est-il long à répondre, est-ce la page qui 
 
 Ouvrez le panneau métrique des navigateurs. L'affichage segmenté du temps de chargement de la page de navigateur montre le délai qui s'écoule. 
 
-* Si le **Temps d'envoi de demande** est élevé, le serveur répond lentement ou la demande contient une importante quantité de données. Examinez les [mesures de performances](./web-monitor-performance.md#metrics) pour étudier les temps de réponse.
+* Si le **Temps d'envoi de demande** est élevé, le serveur répond lentement ou la demande contient une importante quantité de données. Examinez les [mesures de performances](./performance-counters.md) pour étudier les temps de réponse.
 * Configurez le [suivi des dépendances](./asp-net-dependencies.md) pour voir si cette lenteur est due à des services externes ou à votre base de données.
 * Si la **réception de réponse** est prédominante, votre page et ses composants dépendants (JavaScript, CSS, images, etc., mais pas de données chargées de manière asynchrone) sont longs. Configurez un [test de disponibilité](./monitor-web-app-availability.md)et veillez à définir l'option de chargement des éléments dépendants. Lorsque vous obtenez des résultats, ouvrez les détails d’un résultat et développez-les pour afficher les temps de chargement de différents fichiers.
 * Des **durées de traitement du client** prolongées suggèrent que l'exécution des scripts est lente. Si la raison n’est pas évidente, pensez à ajouter un code de minutage et à envoyer les heures dans les appels trackMetric.

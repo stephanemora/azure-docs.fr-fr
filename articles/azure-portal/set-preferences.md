@@ -1,20 +1,15 @@
 ---
-title: Gérer les paramètres et les préférences du portail Azure | Microsoft Docs
+title: Gérer les paramètres et les préférences du portail Azure
 description: Vous pouvez changer les paramètres par défaut du portail Azure pour appliquer vos propres préférences. Les paramètres incluent le délai d’expiration des sessions inactives, la vue par défaut, le mode de menu, le contraste, le thème, les notifications et les formats de langue et de région
-services: azure-portal
 keywords: paramètres, délai d’expiration, langue, région
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145937"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745636"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gérer les paramètres et les préférences du portail Azure
 
@@ -44,7 +39,7 @@ Vous pouvez changer la page qui s’ouvre par défaut lorsque vous vous connecte
 
 - La **page d’accueil** ne peut pas être personnalisée.  Elle affiche des raccourcis vers les services Azure populaires et liste les ressources que vous avez utilisées en dernier. Nous vous proposons également des liens utiles vers des ressources comme Microsoft Learn et la feuille de route Azure.
 
-- Vous pouvez personnaliser les tableaux de bord pour créer un espace de travail conçu uniquement pour vous. Par exemple, vous pouvez créer un tableau de bord qui est axé sur un projet, une tâche ou un rôle. Si vous sélectionnez **Tableau de bord** , votre vue par défaut est celle du dernier tableau de bord utilisé. Pour plus d’informations, consultez [Créer et partager des tableaux de bord dans le portail Azure](azure-portal-dashboards.md).
+- Vous pouvez personnaliser les tableaux de bord pour créer un espace de travail conçu uniquement pour vous. Par exemple, vous pouvez créer un tableau de bord qui est axé sur un projet, une tâche ou un rôle. Si vous sélectionnez **Tableau de bord**, votre vue par défaut est celle du dernier tableau de bord utilisé. Pour plus d’informations, consultez [Créer et partager des tableaux de bord dans le portail Azure](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Choisir un mode de menu pour le portail
 
@@ -52,7 +47,7 @@ Le mode par défaut pour le menu du portail contrôle l’espace occupé par le 
 
 ![Capture d’écran montrant comment définir le mode par défaut pour le menu du portail.](./media/set-preferences/menu-mode.png)
 
-- Quand le menu du portail est en mode **volant** , il est masqué jusqu’à ce que vous en ayez besoin. Sélectionnez l’icône de menu pour ouvrir ou fermer le menu.
+- Quand le menu du portail est en mode **volant**, il est masqué jusqu’à ce que vous en ayez besoin. Sélectionnez l’icône de menu pour ouvrir ou fermer le menu.
 
 - Si vous choisissez le mode **ancré** pour le menu du portail, il est toujours visible. Vous pouvez réduire le menu pour libérer davantage d’espace de travail.
 
@@ -90,7 +85,7 @@ Sélectionnez la liste déroulante sous **Me déconnecter lorsque je suis inacti
 
 La modification est enregistrée automatiquement. Si vous êtes inactif, votre session du portail Azure se déconnecte au terme de la durée que vous avez définie.
 
-Si votre administrateur a activé une stratégie de délai d’expiration d’inactivité, vous pouvez toujours définir votre propre stratégie, à condition qu’elle soit inférieure au paramètre au niveau du répertoire. Sélectionnez **Remplacer la stratégie de délai d’inactivité du répertoire** , puis définissez un intervalle de temps.
+Si votre administrateur a activé une stratégie de délai d’expiration d’inactivité, vous pouvez toujours définir votre propre stratégie, à condition qu’elle soit inférieure au paramètre au niveau du répertoire. Sélectionnez **Remplacer la stratégie de délai d’inactivité du répertoire**, puis définissez un intervalle de temps.
 
 ![Capture d’écran montrant les paramètres du portail avec mise en évidence du paramètre Remplacer la stratégie de délai d’inactivité du répertoire](./media/set-preferences/inactive-signout-override.png)
 
@@ -104,7 +99,7 @@ Si vous êtes administrateur général et que vous voulez appliquer un paramètr
 
     ![Capture d’écran montrant les paramètres du portail avec mise en évidence du texte de lien](./media/set-preferences/settings-admin.png)
 
-1. Sur la page **Configurer le délai d’inactivité au niveau du répertoire** , sélectionnez **Activer le délai d’inactivité au niveau du répertoire pour le Portail Azure** pour activer le paramètre.
+1. Sur la page **Configurer le délai d’inactivité au niveau du répertoire**, sélectionnez **Activer le délai d’inactivité au niveau du répertoire pour le Portail Azure** pour activer le paramètre.
 
 1. Ensuite, entrez les **heures** et les **minutes** correspondant à la durée maximale durant laquelle un utilisateur peut être inactif avant que sa session ne soit déconnectée automatiquement.
 

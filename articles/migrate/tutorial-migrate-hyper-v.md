@@ -1,17 +1,20 @@
 ---
 title: Migrer des machines virtuelles Hyper-V vers Azure avec la migration de serveurs Azure Migrate | Microsoft Docs
 description: Découvrir comment migrer des machines virtuelles Hyper-V locales vers Azure avec la migration de serveurs Azure Migrate
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 48fe0c737cf7005676a5c803107b4402c7039141
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995316"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752748"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -43,23 +46,8 @@ Avant de commencer ce didacticiel, vous devez :
 2. [Passez en revue](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) la configuration requise de l’hôte Hyper-V pour la migration et les URL Azure auxquelles les hôtes et les clusters Hyper-V ont besoin d’accéder pour la migration de machine virtuelle.
 3. [Passez en revue](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) la configuration requise des machines virtuelles Hyper-V que vous souhaitez migrer vers Azure.
 4. Nous vous recommandons d’[évaluer les machines virtuelles Hyper-V](tutorial-assess-hyper-v.md) avant de les migrer vers Azure, mais cela n’est pas une obligation.
-
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Ajouter l’outil Azure Migrate : Migration de serveur
-
-Ajoutez l’outil Azure Migrate : Migration de serveur. Si vous n’avez pas encore de projet Azure Migrate, [commencez par en créer un](how-to-add-tool-first-time.md) pour configurer ensuite un projet Azure Migrate. Vous ajoutez l’outil Azure Migrate : Migration de serveur quand vous créez le projet.
-
-Si vous avez un projet configuré, ajoutez l’outil comme suit :
-
-1. Dans le projet Azure Migrate, cliquez sur **Vue d’ensemble**. 
-2. Dans **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Évaluer et migrer des serveurs**.
-3. Dans **Outils de migration**, sélectionnez **Cliquez ici pour ajouter un outil de migration lorsque vous êtes prêt à effectuer la migration**.
-
-    ![Sélectionner un outil](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. Dans la liste des outils, sélectionnez **Azure Migrate : Server Migration** > **Ajouter un outil**
-
-    ![Outil Server Migration](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
+5. Accédez au projet déjà créé ou [créez un nouveau projet](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+6. Vérifiez les autorisations de votre compte Azure – Votre compte Azure a besoin d’autorisations pour créer une machine virtuelle et écrire sur un disque managé Azure.
 
 ## <a name="download-and-install-the-provider"></a>Télécharger et installer le fournisseur
 

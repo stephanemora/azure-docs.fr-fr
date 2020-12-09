@@ -5,12 +5,12 @@ description: Découvrir comment créer un volume persistant de manière dynamiqu
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126394"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744907"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -26,21 +26,21 @@ Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et
 
 ## <a name="create-a-storage-class"></a>Créer une classe de stockage
 
-Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages de fichiers Azure. Faites votre choix parmi les [redondances de stockage Azure][storage-skus] suivantes pour *skuName*  :
+Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages de fichiers Azure. Faites votre choix parmi les [redondances de stockage Azure][storage-skus] suivantes pour *skuName* :
 
-* *Standard_LRS*  : stockage localement redondant (LRS) standard
-* *Standard_GRS*  : stockage géoredondant (GRS) standard
-* *Standard_ZRS*  : stockage redondant interzone (ZRS) standard
-* *Standard_RAGRS*  : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
+* *Standard_LRS* : stockage localement redondant (LRS) standard
+* *Standard_GRS* : stockage géoredondant (GRS) standard
+* *Standard_ZRS* : stockage redondant interzone (ZRS) standard
+* *Standard_RAGRS* : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
 * *Premium_LRS* - Stockage Premium localement redondant (LRS)
-* *Premium_ZRS*  : stockage redondant interzone (ZRS) premium
+* *Premium_ZRS* : stockage redondant interzone (ZRS) premium
 
 > [!NOTE]
 > Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou version ultérieure. Le partage de fichiers premium minimum est de 100 Go.
 
 Pour plus d’informations sur les classes de stockage Kubernetes pour Azure Files, consultez [Classes de stockage Kubernetes][kubernetes-storage-classes].
 
-Créez un fichier nommé `azure-file-sc.yaml` et copiez-le dans l’exemple de manifeste suivant. Pour plus d’informations sur *mountOptions* , consultez la section [Options de montage][mount-options].
+Créez un fichier nommé `azure-file-sc.yaml` et copiez-le dans l’exemple de manifeste suivant. Pour plus d’informations sur *mountOptions*, consultez la section [Options de montage][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -55,6 +55,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -180,6 +181,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

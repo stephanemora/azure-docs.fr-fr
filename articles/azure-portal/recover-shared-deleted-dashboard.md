@@ -1,19 +1,14 @@
 ---
-title: Récupérer un tableau de bord supprimé dans le Portail Azure | Microsoft Docs
+title: Récupérer un tableau de bord supprimé dans le Portail Azure
 description: Si vous supprimez un tableau de bord publié dans le Portail Azure, vous pouvez le récupérer.
-services: azure-portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/21/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 095964691a3cb22f8a805af2e8fe37af4c47cb28
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763973"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745619"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Récupérer un tableau de bord supprimé dans le Portail Azure
 

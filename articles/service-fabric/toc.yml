@@ -797,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Configurer un nouveau cluster Azure Service Fabric avec une identité managée
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Configurer un cluster managé Service Fabric avec une identité managée
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Configuration des applications
           items:
             - name: Guide pratique pour déployer une application avec une identité managée
