@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122253"
 ---
 # <a name="iot-central-device-development-overview"></a>Vue d’ensemble du développement d’appareils IoT Central
 
@@ -135,7 +135,7 @@ Utilisez l’un des [kits Azure IoT device SDK](#languages-and-sdks) pour implé
 
 Pour plus d’informations sur le rôle des modèles d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
 
-Pour accéder à un exemple de code, consultez [Créer et connecter une application cliente Node.js](./tutorial-connect-device-nodejs.md) ou [Créer et connecter une application cliente Python](./tutorial-connect-device-python.md).
+Pour obtenir un exemple de code, consultez [Créer et connecter une application cliente](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Langues et kits de développement logiciel (SDK)
 
@@ -143,6 +143,6 @@ Pour plus d’informations sur les langages et kits de développement logiciel (
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes développeur d’appareils et que vous souhaitez vous immerger dans du code, l’étape suivante suggérée consiste à [Créer et connecter une application cliente à votre application Azure IoT Central](./tutorial-connect-device-nodejs.md).
+Si vous êtes développeur d’appareils et que vous souhaitez vous immerger dans du code, l’étape suivante suggérée consiste à [Créer et connecter une application cliente à votre application Azure IoT Central](./tutorial-connect-device.md).
 
 Si vous souhaitez en savoir plus sur l’utilisation d’IoT Central, nous vous suggérons de tester les démarrages rapides, en commençant par [Créer une application Azure IoT Central](./quick-deploy-iot-central.md).
