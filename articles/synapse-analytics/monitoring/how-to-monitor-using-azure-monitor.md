@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f495de13c20aa2953f55e2837fab15a6c62e1083
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9032fcaf35265c791913f5b69fb0972bada6885f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465495"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602459"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
 
@@ -107,7 +107,6 @@ Voici les journaux émis par les espaces de travail Azure Synapse Analytics :
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | GatewayApiRequests             | Demandes d’API de passerelle Azure Synapse. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Opérations de contrôle d’accès en fonction du rôle (SRBAC) Azure Synapse. |
-| SynapseBuiltinSqlPoolRequestsEnded   | BuiltInSqlReqsEnded    | Fin des demandes SQL serverless intégrées à Azure Synapse. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Journaux des pools SQL dédiés
 

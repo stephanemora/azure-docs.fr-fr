@@ -1,16 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 description: Cet article présente l’utilisation de Gestion des API Azure en tant que passerelle vers vos applications Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.author: vturecek
-ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091132"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575684"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -86,7 +84,7 @@ Dans cet exemple, une instance de service sans état est créée pour chaque uti
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Envoyer le trafic vers plusieurs services avec état
 
-Tout comme l’exemple de service sans état, une opération Gestion des API peut mapper les requêtes à plusieurs instances de service **avec état** . Dans ce cas, vous aurez peut-être aussi besoin d’effectuer la résolution de partition pour chaque instance de service avec état.
+Tout comme l’exemple de service sans état, une opération Gestion des API peut mapper les requêtes à plusieurs instances de service **avec état**. Dans ce cas, vous aurez peut-être aussi besoin d’effectuer la résolution de partition pour chaque instance de service avec état.
 
 Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service avec état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. En plus de mapper une requête à une instance de service spécifique, la requête peut être mappée à une partition spécifique au sein de l’instance de service, et éventuellement au réplica principal ou à un réplica secondaire aléatoire au sein de la partition.
 

@@ -1,17 +1,15 @@
 ---
 title: Présentation de Service Fabric Reliable Actors
 description: Présentation du modèle de programmation Service Fabric Reliable Actors, basé sur le modèle Virtual Actor.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007925"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576381"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Présentation des Acteurs fiables Service Fabric
 Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.
@@ -43,7 +41,7 @@ Cette abstraction de la durée de vie de l’acteur virtuel comporte certains in
 * Bien que Reliable Actors crée implicitement des objets d’acteur, vous avez la possibilité de supprimer explicitement un acteur et son état.
 
 ## <a name="distribution-and-failover"></a>Distribution et basculement
-Dans un souci de fiabilité et d’évolutivité, Service Fabric distribue les acteurs dans l’ensemble du cluster et les migre automatiquement à partir des nœuds ayant échoué vers des nœuds sains selon les besoins. Il s’agit ici d’une abstraction sur une instance [Reliable Service partitionnée avec état](service-fabric-concepts-partitioning.md). L’exécution des acteurs dans une instance Reliable Service avec état appelée *Actor Service*garantit la distribution, l’évolutivité, la fiabilité et le basculement automatique du service.
+Dans un souci de fiabilité et d’évolutivité, Service Fabric distribue les acteurs dans l’ensemble du cluster et les migre automatiquement à partir des nœuds ayant échoué vers des nœuds sains selon les besoins. Il s’agit ici d’une abstraction sur une instance [Reliable Service partitionnée avec état](service-fabric-concepts-partitioning.md). L’exécution des acteurs dans une instance Reliable Service avec état appelée *Actor Service* garantit la distribution, l’évolutivité, la fiabilité et le basculement automatique du service.
 
 Les acteurs sont distribués sur les partitions d’Actor Service, et ces partitions sont réparties entre les nœuds d’un cluster Service Fabric. Chaque partition de service contient un ensemble d’acteurs. Service Fabric gère la distribution et le basculement des partitions du service.
 

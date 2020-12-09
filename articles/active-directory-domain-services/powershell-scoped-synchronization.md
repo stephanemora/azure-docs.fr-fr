@@ -2,20 +2,20 @@
 title: Synchronisation délimitée à l’aide de PowerShell pour Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment utiliser Azure AD PowerShell pour configurer une synchronisation à étendue limitée entre Azure AD et un domaine managé Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
-ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967881"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619009"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configuration d’une synchronisation à étendue limitée entre Azure AD et Azure Active Directory Domain Services à l’aide d’Azure AD PowerShell
 

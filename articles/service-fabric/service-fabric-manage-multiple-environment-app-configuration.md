@@ -1,16 +1,14 @@
 ---
 title: Gérer des applications pour plusieurs environnements
 description: Les applications Azure Fabric Service peuvent être exécutées sur des clusters comportant entre une machine et des milliers. Dans certains cas, vous devez configurer votre application différemment pour les différents environnements. Cet article explique comment définir des paramètres d’application par l’environnement.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mikhegn
-ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51bc77abca8ce2b3878df1c1859203618d3e2e27
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257473"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574443"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestion des applications pour plusieurs environnements
 

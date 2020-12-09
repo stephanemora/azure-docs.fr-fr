@@ -2,22 +2,22 @@
 title: 'Démarrage rapide : Analytique d’une application web Java avec Azure Application Insights'
 description: 'Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. '
 ms.topic: conceptual
-author: lgayhardt
+ms.date: 11/22/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.author: lagayhar
-ms.date: 05/24/2019
-ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.author: jgol
+ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996154"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601303"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
 
-> [!IMPORTANT]
-> L’approche recommandée pour surveiller des applications Java consiste à utiliser l’instrumentation automatique sans modifier le code. Suivez les instructions pour l’[agent Application Insights agent Java 3.0](./java-in-process-agent.md).
+> [!CAUTION]
+> Depuis novembre 2020, pour la surveillance des applications Java, nous vous recommandons d’utiliser l’instrumentation automatique avec l’agent Azure Monitor Application Insights Java 3.0. Pour plus d’informations sur la prise en main, consultez [Agent Application Insights Java 3.0](./java-in-process-agent.md).
 
 Dans ce démarrage rapide, vous utilisez le Kit de développement logiciel (SDK) Application Insights pour instrumenter des requêtes, effectuer le suivi des dépendances, recueillir les compteurs de performances, diagnostiquer les problèmes de performances et les exceptions et écrire du code pour suivre l’utilisation de votre application par les utilisateurs.
 

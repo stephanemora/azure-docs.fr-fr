@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363536"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741114"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe en libre-service dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Pour l’attribution d’une licence au compte administrateur en question, suive
 
 De nombreux éléments de l’interface utilisateur sont masqués jusqu’à ce qu’ils soient nécessaires. Assurez-vous que l’option est activée avant de rechercher des options de configuration particulières.
 
-### <a name="i-dont-see-the-on-premises-integration-tab"></a>Je ne vois pas l’onglet **Intégration locale** .
+### <a name="i-dont-see-the-on-premises-integration-tab"></a>Je ne vois pas l’onglet **Intégration locale**.
 
 La réécriture du mot de passe en local n’est visible que si vous avez téléchargé Azure AD Connect et configuré la fonctionnalité.
 
@@ -48,7 +48,7 @@ Pour plus d’informations, consultez [Bien démarrer avec Azure AD Connect](../
 
 Si vous rencontrez des problèmes avec les rapports SSPR sur le portail Azure, passez en revue les étapes de dépannage suivantes :
 
-### <a name="i-dont-see-any-password-management-activity-types-in-the-self-service-password-management-audit-event-category"></a>Aucun type d’activité de gestion des mots de passe ne s’affiche dans la catégorie d’événement d’audit **Gestion des mots de passe en libre-service** .
+### <a name="i-dont-see-any-password-management-activity-types-in-the-self-service-password-management-audit-event-category"></a>Aucun type d’activité de gestion des mots de passe ne s’affiche dans la catégorie d’événement d’audit **Gestion des mots de passe en libre-service**.
 
 Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’administrateur qui effectue l’opération.
 
@@ -68,7 +68,7 @@ Si vos utilisateurs rencontrent des problèmes lors de l’inscription à SSPR, 
 
 Vous pouvez activer SSPR pour tous les utilisateurs, aucun utilisateur ou pour des groupes sélectionnés d’utilisateurs. Un seul groupe Azure AD peut actuellement être activé pour SSPR à l’aide du portail Azure. Dans le cadre d’un déploiement plus étendu de SSPR, les groupes imbriqués sont pris en charge. Vérifiez que les licences appropriées sont attribuées aux utilisateurs des groupes que vous choisissez.
 
-Dans le portail Azure, définissez **Réinitialisation de mot de passe en libre-service activée** sur *Sélectionné* ou *Tout le monde* , puis sélectionnez **Enregistrer** .
+Dans le portail Azure, définissez **Réinitialisation de mot de passe en libre-service activée** sur *Sélectionné* ou *Tout le monde*, puis sélectionnez **Enregistrer**.
 
 ### <a name="the-user-doesnt-have-an-azure-ad-license-assigned-the-user-may-see-an-error-that-reports-your-administrator-has-not-enabled-you-to-use-this-feature"></a>L’utilisateur n’a pas de licence Azure AD. L’utilisateur peut voir une erreur signalant que « votre administrateur ne vous a pas autorisé à utiliser cette fonctionnalité ».
 
@@ -86,7 +86,7 @@ Si vos utilisateurs ou vous-même rencontrez des problèmes lors de l’utilisat
 
 | Error | Solution |
 | --- | --- |
-| L’annuaire n’est pas activé pour la réinitialisation du mot de passe. | Dans le portail Azure, définissez **Réinitialisation de mot de passe en libre-service activée** sur *Sélectionné* ou *Tout le monde* , puis sélectionnez **Enregistrer** . |
+| L’annuaire n’est pas activé pour la réinitialisation du mot de passe. | Dans le portail Azure, définissez **Réinitialisation de mot de passe en libre-service activée** sur *Sélectionné* ou *Tout le monde*, puis sélectionnez **Enregistrer**. |
 | L’utilisateur n’a pas de licence Azure AD. | Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’utilisateur souhaité. Pour l’attribution d’une licence au compte administrateur en question, suivez les étapes pour [Affecter, vérifier et résoudre les problèmes des licences](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | L’annuaire est activé pour la réinitialisation du mot de passe, mais il manque une information d’authentification ou celle-ci n’est pas bien formée. | Assurez-vous que les informations de contact de l’utilisateur sont correctes dans l’annuaire. Pour plus d’informations, consultez [Données utilisées par la réinitialisation du mot de passe en libre-service Azure AD](howto-sspr-authenticationdata.md). |
 | L’annuaire est activé pour la réinitialisation du mot de passe. Toutefois, l’utilisateur n’a fourni qu’une seule partie des données de contact alors que la stratégie nécessite deux méthodes de vérification. | Vérifiez que l’utilisateur a configuré correctement au moins deux méthodes de contact. Par exemple, il peut combiner un téléphone mobile *et* un téléphone fixe. |
@@ -127,22 +127,22 @@ Si vous ne trouvez pas la réponse à un problème, nos équipes de support tech
 
 Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant de détails que possible au moment de l’ouverture d’un dossier d’incident. Ces détails comprennent ce qui suit :
 
-* **Description générale de l’erreur** . Quelle est l’erreur ? Quel était le comportement que vous avez remarqué ? Comment pouvons-nous reproduire l’erreur ? Fournissez autant de détails que possible.
-* **Page** . Sur quelle page étiez-vous quand vous avez remarqué l’erreur ? Indiquez l’URL si possible, ainsi qu’une capture d’écran de la page.
-* **Code de support** . Quel était le code de support généré quand l’utilisateur a vu l’erreur ?
+* **Description générale de l’erreur**. Quelle est l’erreur ? Quel était le comportement que vous avez remarqué ? Comment pouvons-nous reproduire l’erreur ? Fournissez autant de détails que possible.
+* **Page**. Sur quelle page étiez-vous quand vous avez remarqué l’erreur ? Indiquez l’URL si possible, ainsi qu’une capture d’écran de la page.
+* **Code de support**. Quel était le code de support généré quand l’utilisateur a vu l’erreur ?
    * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Le code de support se trouve en bas à droite de la fenêtre du navigateur web.":::
 
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
-* **Date, heure et fuseau horaire** . Incluez la date et l’heure précises, *avec le fuseau horaire* , d’occurrence de l’erreur.
-* **ID d’utilisateur** . Quel était l’utilisateur qui a vu l’erreur ? *user\@contoso.com* en est un exemple.
+* **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
+* **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? *user\@contoso.com* en est un exemple.
    * S’agit-il d’un utilisateur fédéré ?
    * S’agit-il d’un utilisateur de l’authentification directe ?
    * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?
    * S’agit-il d’un utilisateur cloud uniquement ?
-* **Licences** . L’utilisateur a-t-il une licence Azure AD ?
-* **Journal des événements de l’application** . Si vous utilisez la réécriture de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez inclure une copie compressée du journal des événements de l’application provenant de votre serveur Azure AD Connect.
+* **Licences**. L’utilisateur a-t-il une licence Azure AD ?
+* **Journal des événements de l’application**. Si vous utilisez la réécriture de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez inclure une copie compressée du journal des événements de l’application provenant de votre serveur Azure AD Connect.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

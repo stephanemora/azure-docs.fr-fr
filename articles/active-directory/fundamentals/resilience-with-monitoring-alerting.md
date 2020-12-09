@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb63931f883c6061ded996621a09aacbacd14af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918975"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602154"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Résilience par la surveillance et l’analytique
 
@@ -41,7 +41,7 @@ Par exemple, suivez les métriques suivantes, car une baisse soudaine de l’une
 
   - **Taux de réussite (%)**  : Requêtes réussies/nombre total de requêtes.
 
-  Accédez aux [indicateurs clés](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) dans [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights), où sont stockés les journaux Azure AD B2C basés sur les stratégies, les [journaux d’audit](https://docs.microsoft.coms/azure/active-directory-b2c/analytics-with-application-insights) et les journaux de connexion.  
+  Accédez aux [indicateurs clés](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) dans [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights), où sont stockés les journaux Azure AD B2C basés sur les stratégies, les [journaux d’audit](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) et les journaux de connexion.  
 
    - **Visualisations** : L’utilisation de Log Analytics permet de créer des tableaux de bord pour surveiller visuellement les indicateurs clés.
 

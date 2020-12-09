@@ -2,7 +2,7 @@
 title: Créer et utiliser des stratégies de mot de passe dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment et pourquoi utiliser des stratégies de mot de passe affinées pour sécuriser et contrôler les mots de passe de comptes dans un domaine managé Azure AD DS.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: justinha
+ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393164"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619230"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur des domaines managés Azure Active Directory Domain Services
 

@@ -3,12 +3,12 @@ title: Utiliser des proxys dans Azure Functions
 description: Présentation de l’utilisation de Azure Functions Proxies
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020396"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601371"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -55,11 +55,11 @@ La configuration d’un proxy ne doit pas nécessairement être statique. Vous p
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Fonctions locales de référence
 Vous pouvez utiliser `localhost` pour faire référence à une fonction au sein de la même application de fonction directement, sans demande proxy en aller-retour.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` fait référence à une fonction HTTP locale à l’itinéraire `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` fait référence à une fonction HTTP locale à l’itinéraire `/api/httptriggerC#1`
 
  
 >[!Note]  
->Si votre fonction utilise des niveaux d’autorisation de *fonction, administrateur ou système*, vous devez fournir le code et l’ID client, conformément à l’URL d’origine de la fonction. Dans ce cas, la référence doit ressembler à : `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Nous recommandons de stocker ces clés dans les [paramètres de l’application] et de les référencer dans vos proxies. Cela évite de stocker des secrets dans votre code source. 
+>Si votre fonction utilise des niveaux d’autorisation de *fonction, administrateur ou système*, vous devez fournir le code et l’ID client, conformément à l’URL d’origine de la fonction. Dans ce cas, la référence doit ressembler à : `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Nous recommandons de stocker ces clés dans les [paramètres de l’application] et de les référencer dans vos proxies. Cela évite de stocker des secrets dans votre code source. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Référencement des paramètres de la demande
 

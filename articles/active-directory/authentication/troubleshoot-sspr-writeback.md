@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925796"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741301"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Résoudre les problèmes relatifs à l’écriture différée de réinitialisation de mot de passe libre-service dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Si vous rencontrez des problèmes de réécriture du mot de passe pour Azure AD 
 
 Le point de défaillance le plus courant est que le pare-feu, les ports de proxy, ou les délais d’inactivité sont mal configurés.
 
-Pour Azure AD Connect version  *1.1.443.0* et versions ultérieures, vous avez besoin d’un accès *HTTPS sortant* pour les adresses suivantes :
+Pour Azure AD Connect version *1.1.443.0* et versions ultérieures, vous avez besoin d’un accès *HTTPS sortant* pour les adresses suivantes :
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
@@ -54,7 +54,7 @@ Pour résoudre les problèmes de connectivité ou d’autres problèmes temporai
 1. En tant qu’administrateur sur le serveur qui exécute Azure AD Connect, sélectionnez **Démarrer**.
 1. Entrez *services.msc* dans le champ de recherche, puis sélectionnez **Entrée**.
 1. Recherchez l’entrée *Microsoft Azure AD Sync*.
-1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer** , puis attendez que l’opération soit terminée.
+1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Redémarrer le service de synchronisation Azure AD à l’aide de l’interface graphique utilisateur" border="false":::
 
@@ -67,13 +67,13 @@ Si le redémarrage du service de synchronisation Azure AD Connect ne résout pas
 Pour continuer à résoudre les problèmes, procédez comme suit pour désactiver, puis réactiver la fonctionnalité de réécriture du mot de passe :
 
 1. En tant qu’administrateur sur le serveur qui exécute Azure AD Connect, ouvrez **l’assistant Configuration d’Azure AD Connect**.
-1. Dans **Connexion à Azure AD** , entrez vos informations d’identification d’administrateur général d’Azure AD.
-1. Dans **Se connecter à AD DS** , entrez vos informations d’identification d’administrateur locales pour Active Directory Domain Services.
-1. Dans **Identification de vos utilisateurs uniquement** , sélectionnez le bouton **Suivant**.
-1. Dans **Fonctionnalités facultatives** , décochez la case **Réécriture du mot de passe**.
+1. Dans **Connexion à Azure AD**, entrez vos informations d’identification d’administrateur général d’Azure AD.
+1. Dans **Se connecter à AD DS**, entrez vos informations d’identification d’administrateur locales pour Active Directory Domain Services.
+1. Dans **Identification de vos utilisateurs uniquement**, sélectionnez le bouton **Suivant**.
+1. Dans **Fonctionnalités facultatives**, décochez la case **Réécriture du mot de passe**.
 1. Sélectionnez **Suivant** dans les pages restantes de la boîte de dialogue sans apporter de modification jusqu’à ce que vous atteigniez la page **Prêt pour la configuration**.
 1. Vérifiez que la page **Prêt à configurer** affiche l’option *Réécriture du mot de passe* comme *Désactivée*. Sélectionnez le bouton vert **Configurer** pour valider vos modifications.
-1. Dans **Terminé** , désactivez l’option **Synchroniser maintenant** , puis sélectionnez **Terminer** pour fermer l’Assistant.
+1. Dans **Terminé**, désactivez l’option **Synchroniser maintenant**, puis sélectionnez **Terminer** pour fermer l’Assistant.
 1. Rouvrez **l’Assistant Configuration d’Azure AD Connect**.
 1. Répétez les étapes 2 à 8, en sélectionnant cette fois l’option *Réécriture du mot de passe* dans la page **Fonctionnalités facultatives** pour réactiver le service.
 
@@ -99,10 +99,10 @@ Si l’installation de la dernière version du serveur Azure AD Connect ne réso
 
 ## <a name="verify-that-azure-ad-connect-has-the-required-permissions"></a>Vérifier qu’Azure AD Connect a les autorisations nécessaires
 
-Azure AD Connect a besoin de l’autorisation AD DS **Réinitialiser le mot de passe** pour effectuer une écriture différée du mot de passe. Pour savoir si Azure AD Connect a l’autorisation pour un compte d’utilisateur AD DS local donné, utilisez la fonctionnalité **d’autorisation effective de Windows**  :
+Azure AD Connect a besoin de l’autorisation AD DS **Réinitialiser le mot de passe** pour effectuer une écriture différée du mot de passe. Pour savoir si Azure AD Connect a l’autorisation pour un compte d’utilisateur AD DS local donné, utilisez la fonctionnalité **d’autorisation effective de Windows** :
 
 1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** en sélectionnant **Démarrer** > **Service de synchronisation**.
-1. Sous l’onglet **Connecteurs** , sélectionnez le connecteur **Active Directory Domain Services** , puis sélectionnez **Propriétés**.
+1. Sous l’onglet **Connecteurs**, sélectionnez le connecteur **Active Directory Domain Services**, puis sélectionnez **Propriétés**.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Gestionnaire de service de synchronisation montrant comment modifier des propriétés" border="false":::
   
@@ -119,8 +119,8 @@ Azure AD Connect a besoin de l’autorisation AD DS **Réinitialiser le mot de p
   
 1. Recherchez le compte d’utilisateur AD DS à vérifier. Cliquez avec le bouton droit sur le nom du compte et sélectionnez **Propriétés**.  
 1. Dans la fenêtre indépendante, accédez à l’onglet **Sécurité** et sélectionnez **Avancé**.  
-1. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur** , accédez à l’onglet **Accès effectif**.
-1. Choisissez **Sélectionner un utilisateur** , sélectionnez le compte AD DS utilisé par Azure AD Connect, puis sélectionnez **Afficher l’accès effectif**.
+1. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur**, accédez à l’onglet **Accès effectif**.
+1. Choisissez **Sélectionner un utilisateur**, sélectionnez le compte AD DS utilisé par Azure AD Connect, puis sélectionnez **Afficher l’accès effectif**.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Onglet Accès effectif montrant le compte de synchronisation" border="false":::
   
@@ -221,7 +221,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Le code de support se trouve en bas à droite de la fenêtre du navigateur web.":::
 
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
-* **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire* , d’occurrence de l’erreur.
+* **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
 * **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? *user\@contoso.com* en est un exemple.
    * S’agit-il d’un utilisateur fédéré ?
    * S’agit-il d’un utilisateur de l’authentification directe ?

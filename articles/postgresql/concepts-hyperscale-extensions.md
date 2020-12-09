@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487974"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620900"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -35,8 +35,8 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Fournit un type de chaîne de caractères avec respect de la casse. |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Fournit un type de données pour les cubes multidimensionnels. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Fournit un type de données permettant de stocker des ensembles de paires clé-valeur. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | Fournit une structure de données HyperLogLog. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Fournit un type de données permettant de stocker des ensembles de paires clé-valeur. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Fournit des types de données pour les standards internationaux de numérotation de produits. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Maintenance des objets volumineux (Large Object). |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Fournit un type de données pour les structures hiérarchiques de type arborescence. |
@@ -65,9 +65,9 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Agrégateur et énumérateur d’entier (obsolète). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Fournit des fonctions et des opérateurs permettant de manipuler des tableaux d’entiers non Null. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Fonctions permettent de suivre la dernière heure de modification. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Fournit des fonctions de chiffrement. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gère les tables partitionnées par date ou par ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Fournit des fonctions et des opérateurs permettant de déterminer la similarité entre des textes alphanumériques par rapprochement de trigrammes. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Fournit des fonctions de chiffrement. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Fonctions permettant d’implémenter l’intégrité référentielle (obsolète). |
 > | session\_analytics | Fonctions permettant d’interroger des tables hstore. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Fournit des fonctions qui manipulent des tables entières, y compris les tables croisées. |
@@ -81,7 +81,6 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > | **Extension** | **Description** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Base de données distribuée Citus. |
-> | shard\_rebalancer | Rééquilibrez en toute sécurité les données d’un groupe de serveurs en cas d’ajout ou de suppression de nœud. |
 
 ### <a name="index-types-extensions"></a>Extensions de types d’index
 
@@ -106,6 +105,7 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Fonctions d’administration pour PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Fonctions permettant de vérifier l’intégrité de la relation. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Module prenant en charge les connexions aux autres bases de données PostgreSQL à partir d’une session de base de données. Pour plus d'informations sur cette extension, consultez la section « dblink et postgres_fdw ». |
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Wrapper de données externes pour l’accès de fichier plat. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspectez le contenu de pages de base de données de bas niveau. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Fournit un moyen d’examiner ce qui se passe dans le cache partagé des tampons en temps réel. |
@@ -120,8 +120,6 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Informations sur les certificats TLS/SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Méthode TABLESAMPLE, qui accepte le nombre de lignes en tant que limite. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Méthode TABLESAMPLE, qui accepte le temps en millisecondes en tant que limite. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fournit un moyen de créer des index hypothétiques qui ne consomment pas de ressources processeur ou disque. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Module prenant en charge les connexions aux autres bases de données PostgreSQL à partir d’une session de base de données. Pour plus d'informations sur cette extension, consultez la section « dblink et postgres_fdw ». |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Interrogation de XPath et XSLT. |
 
 

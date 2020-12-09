@@ -2,7 +2,7 @@
 title: Vérifier l’intégrité des services de domaine Azure Active Directory | Microsoft Docs
 description: Découvrez comment vérifier l’intégrité d’un domaine managé Azure Active Directory Domain Services (Azure AD DS) et comprendre les messages d’état à l’aide du portail Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962732"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620322"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine géré par les services de domaine Azure Active Directory
 

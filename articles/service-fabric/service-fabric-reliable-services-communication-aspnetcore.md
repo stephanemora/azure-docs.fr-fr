@@ -1,23 +1,21 @@
 ---
 title: Communication de service avec ASP.NET Core
 description: Découvrez comment utiliser ASP.NET Core dans des applications Azure Service Fabric Reliable Services avec état et sans état.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022188"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576789"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Azure Reliable Services de Service Fabric
 
 ASP.NET Core est une infrastructure open source et multiplateforme. Cette infrastructure est conçue pour générer des applications sur le cloud, connectées à internet, telles que les applications web, les applications IoT, et les backends mobiles.
 
-Cet article constitue un guide détaillé pour héberger des services ASP.NET Core dans le modèle Reliable Services de Service Fabric à l’aide de l’ensemble de packages NuGet**Microsoft.ServiceFabric.AspNetCore.** .
+Cet article constitue un guide détaillé pour héberger des services ASP.NET Core dans le modèle Reliable Services de Service Fabric à l’aide de l’ensemble de packages NuGet **Microsoft.ServiceFabric.AspNetCore.** .
 
 Pour obtenir un didacticiel de présentation d’ASP.NET Core dans Service Fabric et des instructions de configuration de votre environnement de développement, consultez [Didacticiel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état](service-fabric-tutorial-create-dotnet-app.md).
 

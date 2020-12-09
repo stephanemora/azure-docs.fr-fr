@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 3d84f0df44f17bdc7dd68aa9cae1f01b06d261b4
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301841"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601639"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Base de référence de sécurité Azure pour App Service
 
@@ -71,9 +71,9 @@ Utilisez Pare-feu Azure pour envoyer du trafic et créer, appliquer et consigner
 
 - [Présentation de la sécurité réseau assurée par Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Guide pratique pour activer la surveillance et la protection d’App Service](/azure/security-center/defender-for-app-service-intro)
+- [Guide pratique pour activer la surveillance et la protection d’App Service](/azure/security-center/defender-for-app-service-introduction)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -108,7 +108,7 @@ En outre, examinez et suivez les recommandations du document « Verrouiller un 
 
 - [Suivre les alertes WAF et surveiller facilement les tendances grâce à Azure Monitor](../azure-monitor/overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -130,7 +130,7 @@ Utilisez des points de terminaison de service pour restreindre l’accès à vot
 
 - [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](environment/firewall-integration.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -140,7 +140,7 @@ Utilisez des points de terminaison de service pour restreindre l’accès à vot
 
 - [Pare-feu d’applications web Azure sur Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -170,7 +170,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](/azure/app-service/environment/firewall-integration)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -269,7 +269,7 @@ Utilisez Microsoft Azure Sentinel, une solution d’Informations de sécurité e
 
 - [Exporter la télémétrie depuis Application Insights](../azure-monitor/app/export-telemetry.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -286,7 +286,7 @@ En outre, Azure Key Vault fournit une gestion centralisée des secrets avec des 
 
 - [Opérations Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -331,7 +331,7 @@ Surveillez les attaques contre vos applications App Service en utilisant un jour
 
 - [Exporter les alertes et recommandations de sécurité](../security-center/continuous-export.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -343,13 +343,13 @@ Surveillez les attaques contre vos applications App Service en utilisant un jour
 
 **Conseils** : Azure Active Directory (Azure AD) comporte des rôles intégrés qui doivent être explicitement attribués et pouvoir être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Guide pratique pour utiliser des identités managées avec App Service et Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
 - [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../role-based-access-control/role-assignments-portal.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -387,7 +387,7 @@ Créez un processus pour surveiller les configurations des ressources réseau et
 
 - [En savoir plus sur l’octroi de l’accès aux applications aux utilisateurs](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -428,7 +428,7 @@ Implémentez l’authentification multifacteur pour Azure AD. Les administrateur
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -458,7 +458,7 @@ La protection contre les menaces dans Security Center fournit des défenses comp
 
 - [Protection contre les menaces pour les ressources de calcul Azure](../security-center/azure-defender.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -492,7 +492,7 @@ La protection contre les menaces dans Security Center fournit des défenses comp
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -592,7 +592,7 @@ Microsoft gère l’infrastructure sous-jacente d’App Service et a implément�
 
 - [Comprendre le chiffrement en transit pour les applications web Azure App Service](security-recommendations.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -656,7 +656,7 @@ Notez que, même si les disques attachés localement peuvent être utilisés en 
 
 Examinez et suivez les recommandations de Security Center pour sécuriser vos applications App Service.
 
-- [Guide pratique pour ajouter une validation de sécurité continue à votre pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
+- [Guide pratique pour ajouter une validation de sécurité continue à votre pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -686,7 +686,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -721,7 +721,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -891,7 +891,7 @@ Appliquez des définitions de stratégie intégrées, telles que :
 
 Il est recommandé de documenter le processus d’application des définitions de stratégie intégrées pour une utilisation standardisée.   
 
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -917,9 +917,9 @@ Il est recommandé de documenter le processus d’application des définitions d
 
 Utilisez votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration sécurisée éprouvée.
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentation Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1085,7 +1085,7 @@ Par défaut, les données d’un compte de stockage sont chiffrées à l’aide 
 
 En outre, marquez clairement les abonnements (par exemple, production, non-production) et créez un système de nommage pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1105,7 +1105,7 @@ En outre, marquez clairement les abonnements (par exemple, production, non-produ
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

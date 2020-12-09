@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918977"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602182"
 ---
 # <a name="build-resilience-with-device-states"></a>Renforcer la résilience grâce aux états des appareils
 
@@ -44,7 +44,7 @@ Lorsqu’un PRT est utilisé pour demander l’accès à une application, ses re
 
 * Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, déployez l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Outre les capacités de connexion par authentification multifacteur et sans mot de passe, l’application Microsoft Authenticator active l’authentification unique sur une application native via [l’authentification répartie](../develop/brokered-auth.md) avec moins d’invites d’authentification pour les utilisateurs finaux.
 
-* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, utilisez la [gestion des applications mobiles](https://docs.microsoft.com/mem/intune/apps/app-management.md) pour accéder en toute sécurité aux ressources de l’entreprise avec moins de demandes d’authentification. 
+* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, utilisez la [gestion des applications mobiles](https://docs.microsoft.com/mem/intune/apps/app-management) pour accéder en toute sécurité aux ressources de l’entreprise avec moins de demandes d’authentification. 
 
 * [Utilisez le plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple (préversion)](../develop/apple-sso-plugin.md). Celui-ci inscrit l’appareil et fournit une authentification unique sur les différents navigateurs et les applications Azure AD natives. 
 

@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 01/09/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542012"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600470"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -278,7 +278,7 @@ Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode
 
 ### <a name="submit-child-runs"></a>Envoyer des exécutions enfants
 
-Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Cela vous permet de créer des hiérarchies d’exécutions parentes et enfants. 
+Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Cela vous permet de créer des hiérarchies d’exécutions parentes et enfants. Vous ne pouvez pas créer une exécution enfant sans parent : même si l’exécution parente ne fait rien, mais que le lancement de l’enfant s’exécute, il est toujours nécessaire de créer la hiérarchie. L’état de toutes les exécutions est indépendant : un parent peut afficher l’état de réussite `"Completed"` même si une ou plusieurs exécutions enfants ont été annulées ou ont échoué.  
 
 Vous pouvez souhaiter que vos exécutions enfants utilisent une configuration d’exécution différente de celle de l’exécution parente. Par exemple, vous pouvez utiliser une configuration basée sur l’UC et moins puissante pour le parent, tout en utilisant des configurations basées sur le GPU pour les enfants. Une autre volonté courante consiste à passer à chaque enfant des données et des arguments différents. Pour personnaliser une exécution enfant, créez un objet `ScriptRunConfig` pour l’exécution enfant. Le code ci-dessous effectue les actions suivantes :
 
@@ -327,6 +327,24 @@ Pour interroger les exécutions enfants d’un parent spécifique, utilisez la m
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Connexion à l’exécution parente ou racine
+
+Vous pouvez utiliser le champ `Run.parent` pour accéder à l’exécution qui a lancé l’exécution enfant actuelle. Un cas d’utilisation courant est lorsque vous souhaitez consolider les résultats des journaux dans un emplacement unique. Notez que les exécutions enfants s’exécutent de façon asynchrone et qu’il n’y a aucune garantie de classement ou de synchronisation au-delà de la capacité du parent à attendre la fin de l’exécution de ses enfants.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Identifier et rechercher des exécutions
 

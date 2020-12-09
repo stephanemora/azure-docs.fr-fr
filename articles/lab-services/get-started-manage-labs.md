@@ -3,12 +3,12 @@ title: Prise en main d’Azure Lab Services
 description: Cet article explique comment prendre en main Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917101"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602663"
 ---
 # <a name="get-started-with-lab-services"></a>Prise en main de Lab Services 
 
@@ -48,7 +48,7 @@ La chose la plus importante à retenir lors de la gestion des machines virtuelle
 
 ### <a name="overview"></a>Vue d’ensemble
 
-Les tableaux de bord pour les labos de classe dans Azure Lab Services fournissent un instantané des différents aspects d’un labo particulier, notamment les informations sur les machines virtuelles, le nombre de machines virtuelles attribuées et non attribuées, le nombre d’utilisateurs inscrits et non inscrits et les informations sur les planifications relatives aux labos. 
+Les tableaux de bord de labos dans Azure Lab Services fournissent un instantané des différents aspects d’un labo particulier, notamment les informations sur les machines virtuelles, le nombre de machines virtuelles attribuées ou non, le nombre d’utilisateurs inscrits ou non et les informations sur les planifications des labos. 
 
 > [!NOTE]
 > Bien que la plupart des aspects d’administration du tableau de bord et du [site web d’Azure Lab Services](https://labs.azure.com/) soient visibles aux enseignants, les autorisations spécifiques à votre rôle peuvent avoir un impact sur votre capacité à modifier certains critères du tableau de bord. Si vous rencontrez un problème avec la configuration spécifique de votre labo, contactez votre administrateur CTE.
@@ -115,12 +115,8 @@ Les enseignants sont en mesure d’ajouter des utilisateurs étudiants à un lab
 
 1. À partir du [site web d’Azure Lab Services](https://labs.azure.com/), cliquez sur **Utilisateurs** sur le côté gauche de la fenêtre.
 1. En haut de la fenêtre, cliquez sur **Ajouter des utilisateurs** et sélectionnez **Ajouter par adresse e-mail**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="Bouton « Ajouter des utilisateurs »":::
 1. Dans le volet **Ajouter des utilisateurs** qui s’affiche à droite, entrez les adresses e-mail des étudiants sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules.
 1. Cliquez sur **Enregistrer**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Ajouter des étudiants à votre labo":::
 1. Votre liste d’utilisateurs sera désormais mise à jour avec les adresses e-mail, les états, les invitations et les heures de quota.
 
     Une fois les étudiants inscrits à un labo, leurs noms sont mis à jour avec le prénom et le nom figurant dans Azure Active Directory.

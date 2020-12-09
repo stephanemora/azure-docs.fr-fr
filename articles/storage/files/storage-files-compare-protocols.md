@@ -4,16 +4,16 @@ description: Découvrez les protocoles disponibles avant de créer un partage de
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c4cbbc437b633232ea65dd202b7531a1a5ac2c58
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96022584"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620972"
 ---
 # <a name="azure-file-share-protocols"></a>Protocoles de partage de fichiers Azure
 

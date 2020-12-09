@@ -3,13 +3,12 @@ title: Vue d’ensemble d’Azure et des clusters Service Fabric autonomes
 description: Vous pouvez créer des cluster Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans tout environnement dans lequel vous avez des ordinateurs Windows Server ou Linux interconnectés, que ce soit en local sur Microsoft Azure ou à l’aide d’un fournisseur de cloud.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
-ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83ec139c367d9a539db173a42ae909f57d5d71a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842595"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576126"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparaison entre Azure et des clusters Service Fabric autonomes sur Windows Server et Linux
 
