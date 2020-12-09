@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912852"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853530"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analyser la présence de matériau répréhensible dans du contenu vidéo en C#
 
@@ -37,11 +37,11 @@ Suivez les instructions de [Créer un compte Azure Media Services](../../media-s
 
 ### <a name="create-an-azure-active-directory-application"></a>Créer une application Azure Active Directory
 
-Accédez à votre nouvel abonnement AMS sur le Portail Azure et sélectionnez **Accès à l’API** dans le menu latéral. Sélectionnez **Se connecter à Azure Media Services avec le principal de service**. Notez la valeur du champ **Point de terminaison d’API REST**  ; vous en aurez besoin plus tard.
+Accédez à votre nouvel abonnement AMS sur le Portail Azure et sélectionnez **Accès à l’API** dans le menu latéral. Sélectionnez **Se connecter à Azure Media Services avec le principal de service**. Notez la valeur du champ **Point de terminaison d’API REST** ; vous en aurez besoin plus tard.
 
-Dans la section **Application Azure AD** , sélectionnez **Créer** et donnez un nom à votre nouvelle inscription d’application Azure AD (par exemple, « VideoModADApp »). Cliquez sur **Enregistrer** et patientez quelques minutes, le temps que l’application se configure. Votre nouvelle inscription d’application devrait alors apparaître sous la section **Application Azure AD** de la page.
+Dans la section **Application Azure AD**, sélectionnez **Créer** et donnez un nom à votre nouvelle inscription d’application Azure AD (par exemple, « VideoModADApp »). Cliquez sur **Enregistrer** et patientez quelques minutes, le temps que l’application se configure. Votre nouvelle inscription d’application devrait alors apparaître sous la section **Application Azure AD** de la page.
 
-Sélectionnez votre inscription d’application et cliquez sur le bouton **Gérer l’application** qui se trouve en dessous. Notez la valeur du champ **ID d’application**  ; vous en aurez besoin plus tard. Sélectionnez **Paramètres** > **Clés** , puis entrez la description de la nouvelle clé (par exemple, « VideoModKey »). Cliquez sur **Enregistrer** , puis copiez la nouvelle valeur de clé et enregistrez-la dans un endroit sûr.
+Sélectionnez votre inscription d’application et cliquez sur le bouton **Gérer l’application** qui se trouve en dessous. Notez la valeur du champ **ID d’application** ; vous en aurez besoin plus tard. Sélectionnez **Paramètres** > **Clés**, puis entrez la description de la nouvelle clé (par exemple, « VideoModKey »). Cliquez sur **Enregistrer**, puis copiez la nouvelle valeur de clé et enregistrez-la dans un endroit sûr.
 
 Pour une présentation plus détaillée de la procédure ci-dessus, voir [Bien démarrer avec l’authentification Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Une fois le travail de modération du contenu accompli, analysez la réponse JSON. Elle se compose des éléments suivants :
 
 - Résumé des informations sur la vidéo
-- **Captures** en tant que «  **fragments**  »
-- **Images clés** en tant qu’«  **événements**  » avec un indicateur **reviewRecommended" (= true or false)"** basé sur les scores **Adult** et **Racy**
-- **start** , **duration** , **totalDuration** et **timestamp** sont exprimés en « tics ». Divisez par la valeur **timestamp** pour obtenir le nombre de secondes.
+- **Captures** en tant que « **fragments** »
+- **Images clés** en tant qu’« **événements** » avec un indicateur **reviewRecommended" (= true or false)"** basé sur les scores **Adult** et **Racy**
+- **start**, **duration**, **totalDuration** et **timestamp** sont exprimés en « tics ». Divisez par la valeur **timestamp** pour obtenir le nombre de secondes.
  
 > [!NOTE]
 > - `adultScore` représente la présence potentielle et le score de prédiction du contenu pouvant être considéré comme sexuellement explicite ou pour adultes dans certaines situations.
@@ -430,9 +430,5 @@ Une fois le travail de modération du contenu accompli, analysez la réponse JSO
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment générer des [analyses vidéo](video-reviews-quickstart-dotnet.md) à partir du résultat de votre modération.
-
-Ajoutez une [modération des transcriptions](video-transcript-moderation-review-tutorial-dotnet.md) à vos analyses vidéo.
-
-Consultez le didacticiel détaillé sur la création d’une [solution de modération complète des vidéos et transcriptions](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET.

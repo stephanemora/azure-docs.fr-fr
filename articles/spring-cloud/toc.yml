@@ -158,7 +158,7 @@
     - name: Forum Aux Questions (FAQ)
       href: spring-cloud-faq.md
     - name: Référence d’API REST
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

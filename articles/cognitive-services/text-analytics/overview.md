@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 68f892fea01582b16dad5efd8c86dbf0b578e50f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353049"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558774"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -25,7 +25,7 @@ L’API Analyse de texte est un service cloud qui fournit des fonctionnalités d
 
 L’API fait partie d’[Azure Cognitive Services](../index.yml), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou la [bibliothèque de client](quickstarts/text-analytics-sdk.md).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 

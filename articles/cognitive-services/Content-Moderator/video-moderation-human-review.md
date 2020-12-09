@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327217"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853496"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Modération de vidéo avec l’outil de révision
 
@@ -103,4 +103,3 @@ Une fois que les vidéos expirent de l’état Limbo, leurs évaluations sont ma
 - Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md).
 - Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
 - Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
-- Consultez le tutoriel détaillé sur le développement d’une [solution complète de modération de vidéos](video-transcript-moderation-review-tutorial-dotnet.md).

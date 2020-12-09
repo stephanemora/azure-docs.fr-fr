@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425040"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912114"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -30,6 +30,8 @@ Avant de pouvoir faire quoi que ce soit, vous devez installer le [kit SDK Speech
 Utilisez l’exemple de code suivant pour exécuter la reconnaissance vocale à partir de votre microphone d’appareil par défaut. Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région. L’exécution du script démarre une session de reconnaissance sur votre microphone par défaut et le texte de sortie.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Consultez la documentation de référence pour obtenir des informations détaill
 Utilisez l’exemple suivant pour exécuter la reconnaissance vocale à partir d’un fichier audio. Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région. Remplacez également la variable `file` par un chemin vers un fichier .wav. L’exécution du script effectue la reconnaissance vocale à partir du fichier et fournit en sortie le texte obtenu.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"
