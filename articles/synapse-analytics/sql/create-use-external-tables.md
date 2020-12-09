@@ -1,6 +1,6 @@
 ---
-title: Créer et utiliser des tables externes dans un pool SQL serverless (préversion)
-description: Dans cette section, vous allez découvrir comment créer et utiliser des tables externes dans un pool SQL serverless (préversion).
+title: Créer et utiliser des tables externes dans le pool SQL serverless
+description: Dans cette section, vous allez découvrir comment créer et utiliser des tables externes dans le pool SQL serverless.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314731"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462299"
 ---
-# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Créer et utiliser des tables externes avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des tables externes avec le pool SQL serverless dans Azure Synapse Analytics
 
-Dans cette section, vous allez découvrir comment créer et utiliser des [tables externes](develop-tables-external-tables.md) dans un pool SQL serverless (préversion). Les tables externes sont utiles quand vous souhaitez contrôler l’accès aux données externes dans un pool SQL serverless et si vous voulez utiliser des outils comme Power BI en combinaison avec un pool SQL serverless. Les tables externes peuvent accéder à deux types de stockage :
+Dans cette section, vous allez découvrir comment créer et utiliser des [tables externes](develop-tables-external-tables.md) dans le pool SQL serverless. Les tables externes sont utiles quand vous souhaitez contrôler l’accès aux données externes dans un pool SQL serverless et si vous voulez utiliser des outils comme Power BI en combinaison avec un pool SQL serverless. Les tables externes peuvent accéder à deux types de stockage :
 - le stockage public où les utilisateurs accèdent aux fichiers de stockage public ;
 - le stockage protégé où les utilisateurs accèdent aux fichiers de stockage à l’aide d’informations d’identification SAP, d’une identité Azure AD ou de l’identité managée d’un espace de travail Synapse.
 

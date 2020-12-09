@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340173"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463117"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link pour Azure Cosmos DB : Scénarios d‘utilisation courants d’analyse en quasi temps réel
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Sur la base de l’architecture précédente, vous pouvez obtenir les cas d’ut
 
   Synapse Link pour Azure Cosmos DB permet de créer des scénarios riches d’analyse décisionnelle ou de rapports :
 
-  * Interroger des données opérationnelles à partir du magasin analytique Azure Cosmos DB à l’aide de l’intégration native avec Synapse SQL serverless et l’expressivité complète du langage T-SQL.
+  * Interroger des données opérationnelles à partir du magasin analytique Azure Cosmos DB à l’aide de l’intégration native avec un pool SQL serverless et l’expressivité complète du langage T-SQL.
 
-  * Modéliser et publier automatiquement les tableaux de bord BI sur Azure Cosmos DB par le biais de la prise en charge Synapse SQL serverless des outils BI classiques. Par exemple, Azure Analysis Services, Power BI Premium, etc.
+  * Modéliser et publier automatiquement les tableaux de bord BI sur Azure Cosmos DB par le biais de la prise en charge de pool SQL serverless pour des outils BI classiques. Par exemple, Azure Analysis Services, Power BI Premium, etc.
 
 Voici quelques conseils pour l’intégration de données pour les données par lot et les données en flux dans Azure Cosmos DB :
 
@@ -143,4 +143,4 @@ Pour en savoir plus, consultez les documents suivants :
 
 * [Apache Spark dans Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Prise en charge de runtime serverless SQL dans Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Prise en charge du runtime de pool SQL serverless dans Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Intégration et déploiement continus
-description: Expérience DevOps de base de données pour l’entreprise destinée à l’entreposage de données avec prise en charge intégrée de l’intégration et du déploiement continus à l’aide d’Azure Pipelines.
+title: Intégration et déploiement continus pour un pool SQL dédié
+description: Expérience DevOps de base de données de classe Entreprise destinée aux pools SQL dédiés dans Azure Synapse Analytics avec prise en charge intégrée de l’intégration et du déploiement continus à l’aide d’Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480528"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462818"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Intégration et déploiement continus pour l’entreposage de données
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Intégration et déploiement continus pour un pool SQL dédié dans Azure Synapse Analytics
 
 Ce tutoriel simple décrit comment intégrer votre projet de base de données SQL Server Data Tools (SSDT) à Azure DevOps et comment tirer parti d’Azure Pipelines pour configurer l’intégration et le déploiement continus. Ce tutoriel constitue la deuxième étape de la génération de votre pipeline d’intégration et de déploiement continus pour l’entreposage de données.
 
@@ -60,7 +60,7 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorer l’[architecture du pool SQL Synapse](massively-parallel-processing-mpp-architecture.md)
-- [Créer rapidement un pool SQL](create-data-warehouse-portal.md)
+- Explorer l’[Architecture du pool SQL dédié (anciennement SQL DW)](massively-parallel-processing-mpp-architecture.md)
+- Créer rapidement un [pool SQL dédié (anciennement SQL DW)](create-data-warehouse-portal.md)
 - [Charger des exemples de données](load-data-from-azure-blob-storage-using-polybase.md)
 - Explorer les [vidéos](sql-data-warehouse-videos.md)

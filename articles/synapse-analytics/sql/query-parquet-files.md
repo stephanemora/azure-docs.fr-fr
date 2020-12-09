@@ -1,6 +1,6 @@
 ---
-title: Interroger des fichiers Parquet à l’aide d’un pool SQL serverless (préversion)
-description: Cet article vous explique comment interroger des fichiers Parquet à l’aide du pool SQL serverless (préversion).
+title: Interroger des fichiers Parquet à l’aide d’un pool SQL serverless
+description: Cet article explique comment interroger des fichiers Parquet à l’aide du pool SQL serverless.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b34d85e4628c0ef01dd02d3a9be85da7f8291e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462582"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des fichiers Parquet à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers Parquet à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
-Cet article vous explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) pour lire des fichiers Parquet.
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless pour lire des fichiers Parquet.
 
 ## <a name="quickstart-example"></a>Exemple de démarrage rapide
 

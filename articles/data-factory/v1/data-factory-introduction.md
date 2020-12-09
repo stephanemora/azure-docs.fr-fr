@@ -3,8 +3,8 @@ title: Introduction à Data Factory, un service d’intégration de données
 description: Découvrez Azure Data Factory, un service cloud d’intégration de données qui gère et automatise le déplacement et la transformation des données.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 101de32aea47bb3dd3c8a04434993c8614939c37
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436254"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495563"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -35,7 +35,7 @@ Par exemple, une entreprise qui produit des jeux collecte des journaux d’activ
 
 Pour analyser ces journaux d’activité, l’entreprise doit utiliser des données de référence comme des informations sur le client, des informations sur les jeux et des informations sur la campagne marketing qui sont contenues dans un magasin de données local. L’entreprise souhaite donc ingérer des données de journal du magasin de données cloud et des données de référence du magasin de données local. 
 
-Ensuite, elle souhaite traiter les données à l’aide de Hadoop dans le cloud (Azure HDInsight). Elle souhaite publier les données de résultat dans un entrepôt de données cloud comme Azure Synapse Analytics (anciennement SQL Data Warehouse) ou un magasin de données local tel que SQL Server. L’entreprise souhaite exécuter ce flux de travail une fois par semaine. 
+Ensuite, elle souhaite traiter les données à l’aide de Hadoop dans le cloud (Azure HDInsight). Elle souhaite publier les données de résultat dans un entrepôt de données cloud comme Azure Synapse Analytics ou un magasin de données local tel que SQL Server. L’entreprise souhaite exécuter ce flux de travail une fois par semaine. 
 
 L’entreprise a besoin d’une plateforme où elle peut créer un flux de travail pouvant ingérer des données venant de magasins de données locales ou sur le cloud. L’entreprise doit également être en mesure de transformer ou de traiter des données à l’aide de services de calcul existants tels que Hadoop, et publier les résultats dans un magasin de données local ou sur le cloud pour les applications BI à consommer. 
 

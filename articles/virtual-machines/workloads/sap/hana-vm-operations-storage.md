@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967463"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484275"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -112,7 +112,7 @@ L’augmentation du nombre de disques durs virtuels Azure sous un jeu de bandes 
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Fonctionnalité en rafale Azure pour le stockage Premium
-Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](../../linux/disk-bursting.md). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
+Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](../../disk-bursting.md). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
 
 Idéalement, cette fonctionnalité en rafales sera planifiée pour des volumes ou disques contenant des fichiers de données pour les différents SGBD. La charge de travail d’E/S attendue pour ces volumes, en particulier avec les systèmes de petite ou moyenne taille, devrait ressembler à ceci :
 
@@ -134,7 +134,7 @@ En particulier sur les systèmes SGBD plus petits dans lesquels votre charge de 
 > La certification SAP HANA des machines virtuelles Azure de la série M est valable exclusivement avec l’Accélérateur des écritures Azure sur le volume **/hana/log**. Par conséquent, dans les scénarios de production, les déploiements SAP HANA sur des machines virtuelles Azure de la série M doivent être configurés avec l’Accélérateur des écritures Azure sur le volume **/hana/log**.  
 
 > [!NOTE]
-> Dans les scénarios impliquant le stockage Azure Premium, nous implémentons des fonctionnalités en rafales dans la configuration. À mesure que vous utilisez des outils de test de stockage de toute forme, gardez à l’esprit le mode de fonctionnement de [la fonctionnalité en rafales de disque Azure Premium](../../linux/disk-bursting.md). En exécutant les tests de stockage fournis par l’outil SAP HWCCT ou HCMT, nous ne nous attendons pas à ce que tous les tests répondent aux critères, car certains des tests dépasseront les crédits de rafales que vous pouvez cumuler. En particulier lorsque tous les tests s’exécutent séquentiellement sans interruption.
+> Dans les scénarios impliquant le stockage Azure Premium, nous implémentons des fonctionnalités en rafales dans la configuration. À mesure que vous utilisez des outils de test de stockage de toute forme, gardez à l’esprit le mode de fonctionnement de [la fonctionnalité en rafales de disque Azure Premium](../../disk-bursting.md). En exécutant les tests de stockage fournis par l’outil SAP HWCCT ou HCMT, nous ne nous attendons pas à ce que tous les tests répondent aux critères, car certains des tests dépasseront les crédits de rafales que vous pouvez cumuler. En particulier lorsque tous les tests s’exécutent séquentiellement sans interruption.
 
 
 > [!NOTE]
@@ -273,7 +273,7 @@ Pour plus d’informations sur ANF pour HANA, lisez le document [Volumes NFS v4.
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solution économique avec le stockage Premium Azure
-Jusqu’à présent, la solution de stockage premium Azure décrite dans ce document à la section [Solutions avec stockage Premium et Accélérateur d’écriture Azure pour les machines virtuelles Azure de la série M](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) était destinée aux scénarios de production SAP HANA pris en charge. Les configurations de production prises en charge ont pour caractéristique de séparer les volumes pour les données SAP HANA et de rétablir le journal en deux volumes différents. Une telle séparation est due au fait que les caractéristiques des charges de travail sont différentes sur les volumes. Et qu’avec les configurations de production proposées, des types de mise en cache différents ou même des types de stockage bloc Azure pourraient être nécessaires. Les configurations prises en charge pour la production utilisant la cible de stockage de bloc Azure doivent également conformes au [contrat SLA de machine virtuelle unique pour les Machines virtuelles Microsoft Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  Pour les scénarios hors production, certaines des considérations valables pour les systèmes de production peuvent ne pas s’appliquer à des systèmes hors production de bas de gamme. Par conséquent, les données HANA et le volume du fichier journal peuvent être combinés. Bien qu’une telle approche puisse révéler des comportements non conformes, comme le non-respect de certains KPI de débit ou de latence qui sont nécessaires aux systèmes de production. Le [Stockage SSD Standard Azure](./planning-guide-storage.md#azure-standard-ssd-storage) peut constituer un autre moyen de réduire les coûts dans de tels environnements. Bien qu’il s’agisse d’un choix qui invalide le [contrat SLA de machine virtuelle unique pour les Machines virtuelles Microsoft Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Jusqu’à présent, la solution de stockage premium Azure décrite dans ce document à la section [Solutions avec stockage Premium et Accélérateur d’écriture Azure pour les machines virtuelles Azure de la série M](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) était destinée aux scénarios de production SAP HANA pris en charge. Les configurations de production prises en charge ont pour caractéristique de séparer les volumes pour les données SAP HANA et de rétablir le journal en deux volumes différents. Une telle séparation est due au fait que les caractéristiques des charges de travail sont différentes sur les volumes. Et qu’avec les configurations de production proposées, des types de mise en cache différents ou même des types de stockage bloc Azure pourraient être nécessaires. Pour les scénarios hors production, certaines des considérations valables pour les systèmes de production peuvent ne pas s’appliquer à des systèmes hors production de bas de gamme. Par conséquent, les données HANA et le volume du fichier journal peuvent être combinés. Bien qu’une telle approche puisse révéler des comportements non conformes, comme le non-respect de certains KPI de débit ou de latence qui sont nécessaires aux systèmes de production. Le [Stockage SSD Standard Azure](./planning-guide-storage.md#azure-standard-ssd-storage) peut constituer un autre moyen de réduire les coûts dans de tels environnements. N’oubliez pas que le fait de choisir un stockage Azure SSD Standard ou HDD Standard a un impact sur vos contrats SLA de machines virtuelles uniques, comme décrit dans l’article  [SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Une alternative moins coûteuse pour ces configurations peut ressembler à ceci :
 

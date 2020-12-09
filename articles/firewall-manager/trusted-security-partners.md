@@ -5,24 +5,24 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399429"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490106"
 ---
 # <a name="what-are-security-partner-providers"></a>Que sont les fournisseurs de partenaire de sécurité ?
 
-Dans Azure Firewall Manager, les *fournisseurs de partenaire de sécurité* vous permettent d’utiliser les meilleures offres SECaaS (sécurité en tant que service) tierces et familières afin de protéger l’accès à Internet pour vos utilisateurs.
+Dans Azure Firewall Manager, les *fournisseurs de partenaire de sécurité* vous permettent d’utiliser les meilleures offres SECaaS (sécurité en tant que service) tierces afin de protéger l’accès à Internet de vos utilisateurs.
 
 Au moyen d’une configuration rapide, vous pouvez sécuriser un hub avec un partenaire de sécurité pris en charge, et router et filtrer le trafic Internet à partir de vos réseaux virtuels ou positions de filiale au sein d’une région. Pour cela, vous pouvez utiliser la gestion automatisée des routes, sans configuration ni gestion des routes définies par l’utilisateur (UDR).
 
 Vous pouvez déployer des hubs sécurisés configurés avec le partenaire de sécurité de votre choix dans plusieurs régions Azure pour que vos utilisateurs bénéficient de la connectivité et de la sécurité n’importe où dans le monde entier dans ces régions. Avec la possibilité d’utiliser l’offre du partenaire de sécurité pour le trafic des applications SaaS/Internet et Pare-feu Azure pour le trafic privé dans les hubs sécurisés, vous pouvez maintenant commencer à créer sur Azure un périmètre de sécurité proche de vos utilisateurs et applications répartis dans le monde entier.
 
-Les partenaires de sécurité pris en charge sont **ZScaler**, **Check Point** (préversion) et **iboss** (préversion).
+Les partenaires de sécurité pris en charge sont **Zscaler**, **[Check Point](check-point-overview.md)** et **iboss**.
 
 ![Fournisseurs de partenaire de sécurité](media/trusted-security-partners/trusted-security-partners.png)
 

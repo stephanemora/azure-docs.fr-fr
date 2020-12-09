@@ -4,18 +4,18 @@ description: Dans ce guide de démarrage rapide, vous allez écrire du code Java
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 6a63e907e01174042f679c57e1ef0994ad2a11b9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 011dbfef1155b82daca216e9519db07188260130
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909575"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489545"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Envoyer des messages à une rubrique Azure Service Bus et recevoir des messages à partir d’abonnements à la rubrique (Java)
 Dans ce guide de démarrage rapide, vous allez écrire du code Java à l’aide du package azure-messaging-servicebus pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevrez les messages des abonnements à cette rubrique.
 
 > [!IMPORTANT]
-> Ce guide de démarrage rapide utilise le nouveau package azure-messaging-servicebus, qui est en **préversion**. Pour un guide de démarrage rapide qui utilise le package azure-servicebus actuellement en disponibilité générale, consultez [Envoyer et recevoir des messages à l’aide d’azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> Ce guide de démarrage rapide utilise le nouveau package azure-messaging-servicebus. Pour un guide de démarrage rapide qui utilise l’ancien package azure-servicebus, consultez [Envoyer et recevoir des messages à l’aide d’azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ Ajoutez une référence à la bibliothèque Azure Service Bus. La bibliothèque 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 
@@ -226,7 +226,7 @@ Voir la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour Java - Lisez-moi](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Exemples sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Informations de référence sur l’API Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+- [Informations de référence sur l’API Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-preview)
 
 
 [Azure SDK for Java]: /java/api/overview/azure/
@@ -235,4 +235,3 @@ Voir la documentation et les exemples suivants :
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

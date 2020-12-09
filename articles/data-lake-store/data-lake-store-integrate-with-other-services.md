@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 388c0db11c38f3dcdb9c4452b8d7283b2e811885
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 929853f4dbedca7034c8e2a51e6231651a2dd08f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108692"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461658"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Intégration d’Azure Data Lake Storage Gen1 à d’autres services Azure
 Azure Data Lake Storage Gen1 peut être utilisé conjointement à d’autres services Azure afin d’augmenter le nombre de scénarios. L’article suivant liste les services auxquels Data Lake Storage Gen1 peut être intégré.
@@ -54,7 +54,7 @@ Vous pouvez inscrire des données issues de Data Lake Storage Gen1 dans Azure Da
 Vous pouvez utiliser le Gestionnaire de connexions Data Lake Storage Gen1 dans SSIS pour connecter un paquet SSIS à Data Lake Storage Gen1. Pour obtenir plus d’informations, consultez la rubrique [Utiliser Data Lake Storage Gen1 avec SSIS](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
 ## <a name="use-data-lake-storage-gen1-with-azure-synapse-analytics"></a>Utiliser Data Lake Storage Gen1 avec Azure Synapse Analytics
-Vous pouvez utiliser Polybase pour charger des données à partir de Data Lake Storage Gen1 dans Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour plus d’informations, consultez [Utiliser Data Lake Storage Gen1 avec Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+Vous pouvez utiliser PolyBase pour charger des données à partir de Data Lake Storage Gen1 dans Azure Synapse Analytics. Pour plus d’informations, consultez [Utiliser Data Lake Storage Gen1 avec Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Utiliser Data Lake Storage Gen1 avec Azure Event Hubs
 Vous pouvez utiliser Azure Data Lake Storage Gen1 pour archiver et capturer les données reçues par Azure Event Hubs. Pour plus d’informations, consultez la rubrique [Utiliser Data Lake Storage Gen1 avec Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).

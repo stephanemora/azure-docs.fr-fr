@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980743"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463294"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application du centre de distribution numérique
 
@@ -34,8 +34,7 @@ Vous pouvez créer une application à l’aide de la procédure suivante
 
 1. Accédez au site web du gestionnaire d’applications Azure IoT Central. Sélectionnez **Générer** dans la barre de navigation de gauche, puis cliquez sur l’onglet **Distribution**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant comment sélectionner le modèle application du centre de distribution numérique](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Modèle d’application pour un centre de distribution numérique":::
 
 2. Sélectionnez l’onglet **Distribution** et **Créer une application** en dessous de **application de centre de distribution numérique**.
 
@@ -45,11 +44,9 @@ Vous pouvez créer une application à l’aide de la procédure suivante
    **Informations de facturation** : Les informations sur le répertoire, l’abonnement Azure et la région sont requises pour configurer les ressources.
    **Créer** : Sélectionnez Créer en bas de la page pour déployer votre application.
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant comment créer une application à partir du modèle application du centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="Capture d’écran montrant comment créer une application à partir du modèle application du centre de distribution numérique":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant les options de facturation lors de la création de l’application](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="Capture d’écran montrant les options de facturation lors de la création de l’application":::
 
 ## <a name="walk-through-the-application-dashboard"></a>Examiner le tableau de bord de l’application 
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630156"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492044"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
@@ -147,7 +147,7 @@ L'erreur 1816 se produit lorsque vous atteignez la limite autorisée de descript
 
 ### <a name="solution"></a>Solution
 
-Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle).  
 
@@ -176,7 +176,7 @@ Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées co
 Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Impossible de modifier, déplacer/renommer ou supprimer un fichier ou un répertoire
 L’un des principaux objectifs d’un partage de fichiers est que plusieurs utilisateurs et applications puissent interagir simultanément avec les fichiers et les répertoires du partage. Pour faciliter cette interaction, les partages de fichiers offrent plusieurs moyens de négocier l’accès aux fichiers et aux répertoires.
 
 Lorsque vous ouvrez un fichier à partir d’un partage de fichiers Azure monté via SMB, votre application/système d’exploitation demande un descripteur de fichier, qui est une référence au fichier. Entre autres choses, votre application spécifie un mode de partage de fichiers lorsqu’elle demande un descripteur de fichier, qui spécifie le niveau d’exclusivité de votre accès au fichier appliqué par Azure Files : 
@@ -262,7 +262,7 @@ Les performances peuvent être ralenties lorsque vous essayez de transférer des
 - Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mio pour des performances optimales.
 -   Si vous connaissez la taille finale d’un fichier que vous étendez avec des écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsque la fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance au lieu que chaque écriture soit une écriture d’extension.
 -   Utilisez la méthode de copie appropriée :
-    -   Utilisez [AZCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) pour les transferts entre deux partages de fichiers.
+    -   Utilisez [AZCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.
     -   Utilisez [Robocopy](./storage-files-deployment-guide.md#robocopy) entre des partages de fichiers sur un ordinateur local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Informations pour Windows 8.1 ou Windows Server 2012 R2
@@ -401,7 +401,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 L’applet de commande effectue dans l’ordre les vérifications ci-dessous, puis fournit des conseils en cas d’échec :
 1. CheckADObjectPasswordIsCorrect : Vérifier que le mot de passe configuré sur l’identité AD qui représente le compte de stockage correspond à celui de la clé kerb1 ou kerb2 du compte de stockage. Si le mot de passe est incorrect, vous pouvez exécuter [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) pour réinitialiser le mot de passe. 
 2. CheckADObject : Confirmer qu’il existe un objet dans Active Directory qui représente le compte de stockage et qu’il possède le nom de principal du service (SPN) correct. Si le SPN n’est pas correctement configuré, exécutez la cmdlet Set-AD retournée dans la cmdlet debug pour configurer le SPN.
-3. CheckDomainJoined : Vérifier que l’ordinateur client est joint à AD. Si votre ordinateur n’est pas joint à AD, consultez [cet article](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) pour l’instruction de jonction de domaine.
+3. CheckDomainJoined : Vérifier que l’ordinateur client est joint à AD. Si votre ordinateur n’est pas joint à AD, consultez [cet article](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) pour l’instruction de jonction de domaine.
 4. CheckPort445Connectivity : Vérifier que le port 445 est ouvert pour la connexion SMB. Si le port requis n’est pas ouvert, reportez-vous à l’outil de dépannage [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) pour les problèmes de connectivité avec Azure Files.
 5. CheckSidHasAadUser : Vérifiez que l’utilisateur AD connecté est synchronisé avec Azure AD. Si vous souhaitez rechercher si un utilisateur AD spécifique est synchronisé avec Azure AD, vous pouvez spécifier les paramètres -UserName et -Domain dans les paramètres d’entrée. 
 6. CheckGetKerberosTicket : Tenter d’obtenir un ticket Kerberos pour se connecter au compte de stockage. S’il n’existe pas de jeton Kerberos valide, exécutez la cmdlet get cifs/storage-account-name.file.core.windows.net, puis examinez le code d’erreur pour l’analyse de la cause racine de l’échec de la récupération du ticket.

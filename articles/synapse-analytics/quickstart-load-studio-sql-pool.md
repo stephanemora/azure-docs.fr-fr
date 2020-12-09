@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484665"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Démarrage rapide : Chargement en masse avec Synapse SQL
 
-Le chargement de données n’a jamais été aussi simple avec l’utilisation de l’assistant Chargement en masse de Synapse Studio. Cet assistant va vous guider tout au long de la création d’un script T-SQL avec [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour charger en masse des données. 
+Le chargement de données est une tâche aisée avec l’Assistant Chargement en masse dans Synapse Studio. L’assistant Chargement en masse va vous guider tout au long de la création d’un script T-SQL avec [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour charger en masse des données. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Points d’entrée de l’assistant Chargement en masse
 
-Vous pouvez désormais facilement charger des données en masse à l’aide de pools SQL dédiés en cliquant avec le bouton droit sur les zones suivantes de Synapse Studio :
+Vous pouvez facilement charger des données en masse à l’aide de pools SQL dédiés en cliquant avec le bouton droit sur les zones suivantes de Synapse Studio :
 
 - Un fichier ou un dossier à partir d’un compte de stockage Azure attaché à votre espace de travail en ![cliquant avec le bouton droit sur un fichier ou un dossier à partir d’un compte de stockage](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 

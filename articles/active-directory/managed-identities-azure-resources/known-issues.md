@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460937"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -85,6 +85,46 @@ Non. Les identités managées ne prennent actuellement pas en charge les scénar
 - Identité managée affectée par le système : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tel que le [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identité managée affectée par l’utilisateur : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. En plus de l’attribution de rôle [Opérateur d’identités managées](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sur l’identité managée.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Comment empêcher la création d’identités managées affectées par l’utilisateur ?
+
+Vous pouvez empêcher vos utilisateurs de créer des identités managées affectées par l’utilisateur avec [Azure Policy](../../governance/policy/overview.md)
+
+- Accédez au [portail Azure](https://portal.azure.com), puis à **Stratégie**.
+- Choisissez **Définitions**
+- Sélectionnez **+ Définition de stratégie** et entrez les informations nécessaires.
+- Dans la section Règle de stratégie, collez
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Une fois la stratégie créée, affectez-la au groupe de ressources que vous souhaitez utiliser.
+
+- Accédez aux groupes de ressources.
+- Recherchez le groupe de ressources que vous utilisez pour le test.
+- Choisissez **Stratégies** dans le menu de gauche.
+- Sélectionnez **Attribuer la stratégie**
+- Dans la section **De base**, indiquez :
+    - **Étendue** : groupe de ressources utilisé pour le test
+    - **Définition de stratégie** : stratégie que nous avons créée précédemment.
+- Conservez les valeurs par défaut pour tous les autres paramètres, puis choisissez **Vérifier + créer**
+
+À ce stade, toute tentative de création d’une identité managée affectée par l’utilisateur dans le groupe de ressources échoue.
+
+  ![Violation de stratégie](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Problèmes connus
 

@@ -1,5 +1,5 @@
 ---
-title: Recommandations Synapse SQL
+title: Recommandations de pool SQL dédié pour Azure Advisor
 description: Découvrez les recommandations concernant Synapse SQL et la façon dont elles sont générées
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482851"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462864"
 ---
-# <a name="synapse-sql-recommendations"></a>Recommandations Synapse SQL
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recommandations de pool SQL dédié pour Azure Advisor dans Azure Synapse Analytics
 
-Cet article décrit les recommandations Synapse SQL énoncées via Azure Advisor.  
+Cet article décrit les recommandations de pool SQL dédié disponibles dans Azure Advisor.  
 
-Synapse SQL fournit des recommandations pour garantir que la charge de travail de votre entrepôt de données est toujours optimisée pour la performance. Les recommandations sont étroitement intégrées à [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour vous fournir les meilleures pratiques directement dans le [Portail Azure](https://aka.ms/Azureadvisor). Synapse SQL collecte la télémétrie et fait émerger des recommandations pour votre charge de travail active sur une cadence quotidienne. Les scénarios de recommandation pris en charge sont décrits ci-dessous, ainsi que le processus d’application des actions recommandées.
+Un pool SQL dédié fournit des recommandations pour s’assurer que la charge de travail de votre entrepôt de données est toujours optimisée pour les performances. Les recommandations sont étroitement intégrées à [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour vous fournir les meilleures pratiques directement dans le [Portail Azure](https://aka.ms/Azureadvisor). Un pool SQL dédié collecte une télémétrie et fait émerger quotidiennement des recommandations relatives à votre charge de travail active. Les scénarios de recommandation pris en charge sont décrits ci-dessous, ainsi que le processus d’application des actions recommandées.
 
 Vous pouvez [vérifier vos recommandations](https://aka.ms/Azureadvisor) dès aujourd’hui ! 
 
@@ -73,4 +73,4 @@ Les performances des requêtes peuvent se dégrader en cas de forte contention s
 
 ## <a name="data-loading-misconfiguration"></a>Échec de la configuration du chargement des données
 
-Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) suivante. 
+Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL dédié. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) suivante. 

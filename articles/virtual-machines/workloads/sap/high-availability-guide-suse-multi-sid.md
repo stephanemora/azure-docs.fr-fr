@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2ce57911434aa0fdf1a5e624090633e75d98a5ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965236"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484241"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -94,7 +94,7 @@ Les machines virtuelles participant au cluster doivent être dimensionnées de m
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite des partages NFS hautement disponibles. Dans cet exemple, nous partons du principe que les partages NFS SAP sont hébergés sur un [serveur de fichiers NFS](./high-availability-guide-suse-nfs.md) hautement disponible, susceptible d'être utilisé par plusieurs systèmes SAP. Ou que les partages sont déployés sur des [volumes NFS Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Le cluster Pacemaker présente des informations détaillées sur deux clusters multi-SID, msidcl1 et msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > La prise en charge du clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure est limitée à **cinq** SID SAP sur le même cluster. Chaque nouveau SID augmente la complexité. La combinaison de Enqueue Replication Server 1 et Enqueue Replication Server 2 SAP sur le même cluster n'est **pas prise en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker. Actuellement, le clustering multi-SID est uniquement pris en charge pour ASCS/ERS.  
@@ -147,7 +147,7 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 
 > [!IMPORTANT]
-> Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
+> Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
 
 > [!Note]
 > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

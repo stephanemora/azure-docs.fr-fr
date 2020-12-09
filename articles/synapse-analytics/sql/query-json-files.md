@@ -1,5 +1,5 @@
 ---
-title: Interroger des fichiers JSON à l’aide d’un pool SQL serverless (préversion)
+title: Interroger des fichiers JSON à l’aide d’un pool SQL serverless
 description: Cette section explique comment lire des fichiers JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462611"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
-Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics. L’objectif de la requête est de lire des fichiers JSON avec [OPENROWSET](develop-openrowset.md). 
+Cet article explique comment écrire une requête à l’aide d’un pool SQL serverless dans Azure Synapse Analytics. L’objectif de la requête est de lire des fichiers JSON avec [OPENROWSET](develop-openrowset.md). 
 - Fichiers JSON standard où plusieurs documents JSON sont stockés sous la forme d’un tableau JSON.
 - Fichiers JSON délimités par des lignes où les documents JSON sont séparés par un caractère de nouvelle ligne. Les extensions courantes pour ces types de fichiers sont `jsonl`, `ldjson` et `ndjson`.
 

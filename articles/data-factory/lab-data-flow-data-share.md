@@ -1,18 +1,18 @@
 ---
 title: Intégration de données avec Azure Data Factory et Azure Data Share
 description: Copier, transformer et partager des données avec Azure Data Factory et Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318243"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489035"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -22,7 +22,7 @@ ms.locfileid: "93318243"
 
 De l’activation des processus ETL/ELT sans code à la création d’une vue complète de vos données, les améliorations apportées à Azure Data Factory vont donner les moyens à vos ingénieurs Données d’apporter en toute confiance davantage de données, et donc plus de valeur, à votre entreprise. Azure Data Share va vous permettre de faire du partage B2B (interentreprise) de manière régie.
 
-Dans cet atelier, vous allez utiliser Azure Data Factory (ADF) pour ingérer des données provenant d’Azure SQL Database dans Azure Data Lake Storage Gen2 (ADLS Gen2). Une fois que vous avez placé les données dans le lac, vous les transformez via les flux de données de mappage, le service de transformation natif de Data Factory, et vous les déposez dans Azure Synapse Analytics (anciennement SQL DW). Vous partagez ensuite la table contenant les données transformées avec des données supplémentaires, à l’aide d’Azure Data Share. 
+Dans cet atelier, vous allez utiliser Azure Data Factory (ADF) pour ingérer des données provenant d’Azure SQL Database dans Azure Data Lake Storage Gen2 (ADLS Gen2). Une fois que vous avez placé les données dans le lac, vous les transformez par le biais des flux de données de mappage, le service de transformation natif de Data Factory, et vous les déposez dans Azure Synapse Analytics. Vous partagez ensuite la table contenant les données transformées avec des données supplémentaires, à l’aide d’Azure Data Share. 
 
 Les données utilisées dans ce lab sont des données relatives aux taxis de New York. Pour les importer dans votre base de données dans SQL Database, téléchargez le [fichier taxi-data bacpac](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
@@ -30,15 +30,15 @@ Les données utilisées dans ce lab sont des données relatives aux taxis de New
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-* **Azure SQL Database**  : Si vous n’avez pas de base de données SQL DB, découvrez comment [créer un compte SQL DB](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Azure SQL Database** : Si vous n’avez pas de base de données SQL DB, découvrez comment [créer un compte SQL DB](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Compte de stockage Azure Data Lake Storage Gen2**  : Si vous n’avez pas de compte de stockage ADLS Gen2, découvrez comment [créer un compte de stockage ADLS Gen2](../storage/common/storage-account-create.md).
+* **Compte de stockage Azure Data Lake Storage Gen2** : Si vous n’avez pas de compte de stockage ADLS Gen2, découvrez comment [créer un compte de stockage ADLS Gen2](../storage/common/storage-account-create.md).
 
 * **Azure Synapse Analytics (anciennement SQL DW)**  : Si vous n’avez pas Azure Synapse Analytics (anciennement SQL DW), découvrez comment [créer une instance d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory** : Si vous n’avez pas créé de fabrique de données, découvrez comment [créer une fabrique de données](./quickstart-create-data-factory-portal.md).
 
-* **Azure Data Share**  : Si vous n’avez pas créé de partage de données, découvrez comment [créer un partage de données](../data-share/share-your-data.md#create-a-data-share-account).
+* **Azure Data Share** : Si vous n’avez pas créé de partage de données, découvrez comment [créer un partage de données](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Configurer votre environnement Azure Data Factory
 
@@ -70,7 +70,7 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 1. Sous l’onglet Connections (Connexions), cliquez sur **New** (Nouveau) pour ajouter un nouveau service lié.
 
     ![Configuration du portail 3](media/lab-data-flow-data-share/configure3.png)
-1. Le premier service lié que vous allez configurer est un service Azure SQL DB. Vous pouvez utiliser la barre de recherche pour filtrer la liste des magasins de données. Cliquez sur la vignette **Azure SQL Database** , puis cliquez sur Continue (Continuer).
+1. Le premier service lié que vous allez configurer est un service Azure SQL DB. Vous pouvez utiliser la barre de recherche pour filtrer la liste des magasins de données. Cliquez sur la vignette **Azure SQL Database**, puis cliquez sur Continue (Continuer).
 
     ![Configuration du portail 4](media/lab-data-flow-data-share/configure4.png)
 1. Dans le volet de configuration de SQL DB, entrez « SQLDB » en tant que nom de service lié. Entrez vos informations d’identification pour permettre à la fabrique de données de se connecter à votre base de données. Si vous utilisez l’authentification SQL, entrez le nom du serveur, la base de données, votre nom d’utilisateur et le mot de passe. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
@@ -88,7 +88,7 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Créer un service lié Azure Data Lake Storage Gen2
 
-1. Le dernier service lié nécessaire pour ce lab est un service Azure Data Lake Storage Gen2.  Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Data Lake Storage Gen2** , puis cliquez sur Continue.
+1. Le dernier service lié nécessaire pour ce lab est un service Azure Data Lake Storage Gen2.  Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Data Lake Storage Gen2**, puis cliquez sur Continue.
 
     ![Configuration du portail 8](media/lab-data-flow-data-share/configure8.png)
 1. Dans le volet de configuration du service lié, entrez « ADLSGen2 » en tant que nom de service lié. Si vous utilisez l’authentification par clé de compte, sélectionnez votre compte de stockage ADLS Gen2 dans la liste déroulante **Nom du compte de stockage**. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
@@ -126,7 +126,7 @@ Dans Azure Data Factory, un pipeline est un regroupement logique d’activités 
 1. Cliquez sur l’onglet **Source** de l’activité de copie. Pour créer un jeu de données, cliquez sur **New**. Votre source est la table « dbo.TripData » située dans le service lié « SQLDB » configuré.
 
     ![Copie dans le portail 4](media/lab-data-flow-data-share/copy4.png)
-1. Recherchez **Azure SQL Database** , puis cliquez sur Continue.
+1. Recherchez **Azure SQL Database**, puis cliquez sur Continue.
 
     ![Copie dans le portail 5](media/lab-data-flow-data-share/copy5.png)
 1. Appelez votre jeu de données « TripData ». Sélectionnez « SQLDB » en tant que service lié. Sélectionnez le nom de table « dbo.TripData » dans la liste déroulante correspondante. Importez le schéma **à partir de la connexion/du magasin**. Une fois que vous avez fini, cliquez sur OK.
@@ -140,10 +140,10 @@ Vous avez réussi à créer votre jeu de données source. Vérifiez dans les par
 1. Cliquez sur l’onglet **Sink** (Récepteur) de l’activité de copie. Pour créer un jeu de données, cliquez sur **New**.
 
     ![Copie dans le portail 7](media/lab-data-flow-data-share/copy7.png)
-1. Recherchez **Azure Data Lake Storage Gen2** , puis cliquez sur Continue.
+1. Recherchez **Azure Data Lake Storage Gen2**, puis cliquez sur Continue.
 
     ![Copie dans le portail 8](media/lab-data-flow-data-share/copy8.png)
-1. Dans le volet de sélection du format, sélectionnez **DelimitedText** , car vous écrivez dans un fichier CSV. Cliquez sur Continue.
+1. Dans le volet de sélection du format, sélectionnez **DelimitedText**, car vous écrivez dans un fichier CSV. Cliquez sur Continue.
 
     ![Copie dans le portail 9](media/lab-data-flow-data-share/copy9.png)
 1. Nommez votre jeu de données récepteur « TripDataCSV ». Sélectionnez « ADLSGen2 » en tant que service lié. Entrez l’emplacement où vous souhaitez écrire votre fichier CSV. Par exemple, vous pouvez écrire vos données dans le fichier `trip-data.csv` dans le conteneur `staging-container`. Affectez la valeur true à **First row as header** (Première ligne comme en-tête), car vous souhaitez que vos données de sortie aient des en-têtes. Dans la mesure où il n’existe pas encore de fichier à l’emplacement de destination, affectez à **Import schema** (Schéma d’importation) la valeur **None** (Aucun). Une fois que vous avez fini, cliquez sur OK.
@@ -173,7 +173,7 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
 
 ### <a name="add-a-data-flow-activity-to-your-pipeline"></a>Ajouter une activité de flux de données à votre pipeline
 
-1. Dans le volet d’activités du canevas de pipeline, ouvrez l’accordéon **Move and Transform** , puis faites glisser l’activité **Data flow** (Flux de données) vers le canevas.
+1. Dans le volet d’activités du canevas de pipeline, ouvrez l’accordéon **Move and Transform**, puis faites glisser l’activité **Data flow** (Flux de données) vers le canevas.
 
     ![Flux de données dans le portail 1](media/lab-data-flow-data-share/dataflow1.png)
 1. Dans le volet latéral qui s’ouvre, sélectionnez **Create new data flow** (Créer un flux de données), puis choisissez **Mapping data flow** (Flux de données de mappage). Cliquez sur **OK**.
@@ -209,7 +209,7 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
 1. Nommez cette source « TripFaresSQL ». Cliquez sur **New** (Nouveau) à côté du champ du jeu de données source pour créer un jeu de données SQL DB.
 
     ![Flux de données dans le portail 9](media/lab-data-flow-data-share/dataflow9.png)
-1. Sélectionnez la vignette **Azure SQL Database** , puis cliquez sur Continue. *Remarque : Vous remarquerez peut-être que de nombreux connecteurs de la fabrique de données ne sont pas pris en charge dans le flux de données de mappage. Pour transformer les données d’une de ces sources, ingérez-les dans une source prise en charge à l’aide de l’activité de copie*.
+1. Sélectionnez la vignette **Azure SQL Database**, puis cliquez sur Continue. *Remarque : Vous remarquerez peut-être que de nombreux connecteurs de la fabrique de données ne sont pas pris en charge dans le flux de données de mappage. Pour transformer les données d’une de ces sources, ingérez-les dans une source prise en charge à l’aide de l’activité de copie*.
 
     ![Flux de données dans le portail 10](media/lab-data-flow-data-share/dataflow10.png)
 1. Appelez votre jeu de données « TripFares ». Sélectionnez « SQLDB » en tant que service lié. Sélectionnez le nom de table « dbo.TripFares » dans la liste déroulante de noms de table. Importez le schéma **à partir de la connexion/du magasin**. Une fois que vous avez fini, cliquez sur OK.
@@ -308,7 +308,7 @@ Vous avez fini à présent la partie fabrique de données de ce lab. Publiez vos
 
 ## <a name="share-data-using-azure-data-share"></a>Partagez des données avec Azure Data Share
 
-Dans cette section, vous allez apprendre à configurer un nouveau partage de données à l’aide du portail Azure. Cela implique la création d’un partage de données qui contient des jeux de données provenant d’Azure Data Lake Store Gen2 et d’Azure Synapse Analytics (anciennement SQL Data Warehouse). Vous allez configurer ensuite une planification d’instantanés, qui permettra aux consommateurs de données d’actualiser automatiquement les données partagées avec eux. Vous allez ensuite inviter des destinataires à accéder à votre partage de données. 
+Dans cette section, vous allez apprendre à configurer un nouveau partage de données à l’aide du portail Azure. Cela implique la création d’un partage de données qui contient des jeux de données provenant d’Azure Data Lake Store Gen2 et d’Azure Synapse Analytics. Vous allez configurer ensuite une planification d’instantanés, qui permettra aux consommateurs de données d’actualiser automatiquement les données partagées avec eux. Vous allez ensuite inviter des destinataires à accéder à votre partage de données. 
 
 Une fois que vous avez créé un partage de données, vous changez de rôle et devenez le *consommateur de données*. En tant que consommateur de données, vous suivez le flux de l’acceptation d’une invitation à un partage de données, en configurant l’emplacement où vous souhaitez que les données soient reçues et en mappant les jeux de données à différents emplacements de stockage. Vous allez ensuite déclencher une capture instantanée, qui va copier les données partagées avec vous dans la destination spécifiée. 
 
@@ -330,9 +330,9 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. Sous **Share name** (Nom du partage), indiquez le nom de votre choix. Il s’agit du nom de partage visible par votre consommateur de données. Veillez donc à lui donner un nom descriptif, par exemple TaxiData.
 
-1. Sous **Description** , entrez une phrase qui décrit le contenu du partage de données. Le partage de données contient des données relatives aux trajets de taxi dans le monde entier. Ces données sont stockées dans un certain nombre de magasins, notamment Azure Synapse Analytics et Azure Data Lake Store. 
+1. Sous **Description**, entrez une phrase qui décrit le contenu du partage de données. Le partage de données contient des données relatives aux trajets de taxi dans le monde entier. Ces données sont stockées dans un certain nombre de magasins, notamment Azure Synapse Analytics et Azure Data Lake Store. 
 
-1. Sous **Conditions d’utilisation** , spécifiez un ensemble de conditions auxquelles vous souhaitez que votre consommateur de données adhère. Certains exemples incluent « Do not distribute this data outside your organization » (Ne pas diffuser ces données en dehors de votre organisation) ou « Refer to legal agreement » (Se référer à l’accord juridique). 
+1. Sous **Conditions d’utilisation**, spécifiez un ensemble de conditions auxquelles vous souhaitez que votre consommateur de données adhère. Certains exemples incluent « Do not distribute this data outside your organization » (Ne pas diffuser ces données en dehors de votre organisation) ou « Refer to legal agreement » (Se référer à l’accord juridique). 
 
     ![Partager les détails](media/lab-data-flow-data-share/ads-details.png)
 
@@ -342,7 +342,7 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
     ![Ajouter un jeu de données 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Sélectionnez **Azure Synapse Analytics** (anciennement SQL Data Warehouse) pour sélectionner une table Azure Synapse Analytics où vos transformations ADF ont été placées.
+1. Sélectionnez **Azure Synapse Analytics** pour sélectionner une table Azure Synapse Analytics où vos transformations ADF ont été placées.
 
     ![Ajouter un jeu de données SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -360,13 +360,13 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
     
 1. Revenez à Azure Data Share, où vous ajoutez des jeux de données à votre partage de données. 
 
-1. Sélectionnez **EDW** , puis sélectionnez **AggregatedTaxiData** pour la table. 
+1. Sélectionnez **EDW**, puis sélectionnez **AggregatedTaxiData** pour la table. 
 
 1. Sélectionnez **Ajouter un Dataset**
 
     Nous avons désormais une table SQL qui fait partie de notre jeu de données. Nous allons ensuite ajouter d’autres jeux de données à partir d’Azure Data Lake Store. 
 
-1. Sélectionnez **Ajouter un Dataset** , puis **Azure Data Lake Store Gen2**
+1. Sélectionnez **Ajouter un Dataset**, puis **Azure Data Lake Store Gen2**
 
     ![Ajouter un jeu de données ADLS](media/lab-data-flow-data-share/add-dataset-adls.png)
 
@@ -392,7 +392,7 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. Dans cet écran, vous pouvez configurer un paramètre de capture instantanée pour votre consommateur de données. Cela lui permet de recevoir des mises à jour régulières de vos données selon un intervalle que vous avez défini. 
 
-1. Consultez **Planification d’instantanés** , puis configurez une actualisation toutes les heures de vos données à l’aide de la liste déroulante *Périodicité*.  
+1. Consultez **Planification d’instantanés**, puis configurez une actualisation toutes les heures de vos données à l’aide de la liste déroulante *Périodicité*.  
 
 1. Sélectionnez **Create** (Créer).
 
@@ -468,7 +468,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
     
     (Facultatif) Vous pouvez choisir de recevoir les données dans votre lac de données au format CSV ou Parquet. 
 
-1. À côté de **Type de données cible** , sélectionnez Azure SQL Database. 
+1. À côté de **Type de données cible**, sélectionnez Azure SQL Database. 
 
 1. Sélectionnez l’abonnement, le groupe de ressources et le compte de stockage que vous avez utilisés. 
 
@@ -502,7 +502,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
     
 1. Sélectionnez **Details** (Détails). 
 
-    Notez qu’ **Instantané de déclencheur** n’est plus grisé, car le partage de données a désormais des destinations de copie.
+    Notez qu’**Instantané de déclencheur** n’est plus grisé, car le partage de données a désormais des destinations de copie.
 
 1. Sélectionnez Instantané de déclencheur -> Copie complète. 
 

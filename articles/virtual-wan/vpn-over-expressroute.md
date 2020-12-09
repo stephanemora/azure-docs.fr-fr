@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023520"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487505"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Chiffrement ExpressRoute : IPsec sur ExpressRoute pour Virtual WAN
 
@@ -95,7 +95,7 @@ La ressource de site est la même que les sites VPN non ExpressRoute pour un WAN
 
    Si le protocole BGP est activé, il s’applique à toutes les connexions créées pour ce site dans Azure. La configuration du protocole BGP sur un WAN virtuel équivaut à configurer le protocole BGP sur une passerelle VPN Azure. 
    
-   L’adresse du peer BGP local *ne doit pas* être identique à l’adresse IP du réseau VPN vers l’appareil ou à l’espace d’adressage du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il *ne peut pas* s’agir d’une adresse APIPA (169.254.*x*.*x*). Spécifiez cette adresse sur la passerelle de réseau local correspondante qui représente l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   L’adresse du peer BGP local *ne doit pas* être identique à l’adresse IP du réseau VPN vers l’appareil ou à l’espace d’adressage du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il *ne peut pas* s’agir d’une adresse APIPA (169.254.*x*.*x*). Spécifiez cette adresse sur le site VPN correspondant qui représente l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Sélectionnez **Suivant : Vérifier + créer >** pour vérifier les valeurs des paramètres et créer le site VPN. Si vous avez sélectionné **Hubs** pour vous connecter, la connexion sera établie entre le réseau local et la passerelle VPN du hub.
 

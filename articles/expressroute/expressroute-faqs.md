@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027106"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462048"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -46,8 +46,9 @@ Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez vo
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, puis-je utiliser plus que la bande passante fournie ?
 
-Oui, vous pouvez utiliser jusqu’à deux fois la limite de bande passante que vous avez achetée à l’aide de la bande passante disponible sur la connexion secondaire de votre circuit ExpressRoute. La redondance intégrée de votre circuit est configurée à l’aide de connexions principales et secondaires, chacune des bandes passantes fournies, sur deux routeurs Microsoft Enterprise Edge (MSEE). La bande passante disponible par le biais de votre connexion secondaire peut être utilisée pour le trafic supplémentaire, si nécessaire. Étant donné que la connexion secondaire est destinée à être redondante, elle n’est pas garantie et ne doit pas être utilisée pour le trafic supplémentaire pendant une période prolongée. Pour en savoir plus sur l’utilisation des deux connexions pour transmettre le trafic, consultez [ceci](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
-Si vous envisagez d’utiliser uniquement votre connexion principale pour transmettre le trafic, la bande passante de la connexion est fixe et toute tentative de sur-souscription entraînera l’augmentation des abandons de paquets. Si le trafic transite par une passerelle ExpressRoute, la bande passante de la référence est fixe et non modulable.
+Oui, vous pouvez utiliser jusqu’à deux fois la limite de bande passante que vous avez achetée à l’aide de la bande passante disponible sur la connexion secondaire de votre circuit ExpressRoute. La redondance intégrée de votre circuit est configurée à l’aide de connexions principales et secondaires, chacune des bandes passantes fournies, sur deux routeurs Microsoft Enterprise Edge (MSEE). La bande passante disponible par le biais de votre connexion secondaire peut être utilisée pour le trafic supplémentaire, si nécessaire. Étant donné que la connexion secondaire est destinée à être redondante, elle n’est pas garantie et ne doit pas être utilisée pour le trafic supplémentaire pendant une période prolongée. Pour en savoir plus sur l’utilisation des deux connexions pour transmettre le trafic, consultez [Solution : ajoutez le préfixe AS PATH](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
+
+Si vous envisagez d’utiliser uniquement votre connexion principale pour transmettre le trafic, la bande passante de la connexion est fixe et toute tentative de sur-souscription entraînera l’augmentation des abandons de paquets. Si le trafic transite par une passerelle ExpressRoute, la bande passante de la référence (SKU) de passerelle est fixe et non burstable. Pour connaître la bande passante de chaque référence (SKU) de passerelle, consultez [À propos des passerelles de réseau virtuel ExpressRoute](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 

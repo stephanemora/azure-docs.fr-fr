@@ -1,6 +1,6 @@
 ---
-title: Interroger des fichiers CSV à l’aide d’un pool SQL serverless (préversion)
-description: Cet article explique comment interroger des fichiers CSV individuels de formats différents en utilisant un pool SQL serverless (préversion).
+title: Interroger des fichiers CSV à l’aide d’un pool SQL serverless
+description: Cet article explique comment interroger des fichiers CSV individuels de formats différents en utilisant un pool SQL serverless.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462596"
 ---
 # <a name="query-csv-files"></a>Interroger des fichiers CSV
 
-Cet article explique comment interroger un fichier CSV à l’aide d’un pool SQL serverless (préversion) dans Azure Synapse Analytics. Les fichiers CSV peuvent avoir des formats différents : 
+Cet article explique comment interroger un fichier CSV à l’aide d’un pool SQL serverless dans Azure Synapse Analytics. Les fichiers CSV peuvent avoir des formats différents : 
 
 - Avec ou sans ligne d’en-tête
 - Valeurs délimitées par des virgules ou des tabulations

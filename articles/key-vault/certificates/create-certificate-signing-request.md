@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658959"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483761"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Création et fusion d’une demande de signature de certificat dans Key Vault
 
@@ -42,12 +42,14 @@ Les étapes suivantes vous aideront à créer un certificat à partir d’autori
 
 
 
-1.  Tout d’abord, **créez la stratégie de certificat**. Key Vault n’inscrit pas ni ne renouvelle le certificat issu par l’émetteur au nom de l’utilisateur, puisque l’autorité de certification choisie dans ce scénario n’est pas prise en charge et, donc, IssuerName a la valeur Inconnu.
+1. Tout d’abord, **créez la stratégie de certificat**. Key Vault n’inscrit pas ni ne renouvelle le certificat issu par l’émetteur au nom de l’utilisateur, puisque l’autorité de certification choisie dans ce scénario n’est pas prise en charge et, donc, IssuerName a la valeur Inconnu.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
-
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > Si vous utilisez un nom unique relatif qui comporte une virgule (,) dans la valeur, utilisez des guillemets simples et placez la valeur qui contient le caractère spécial entre guillemets doubles. Exemple : `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. Dans cet exemple, la valeur `OU` est **Docs, Contoso**. Ce format fonctionne pour toutes les valeurs qui contiennent une virgule.
 
 2. Créez une **demande de signature de certificat**.
 
@@ -56,7 +58,7 @@ Les étapes suivantes vous aideront à créer un certificat à partir d’autori
    $csr.CertificateSigningRequest
    ```
 
-3. Obtenez la **demande CSR signée par l’autorité de certification**. `$certificateOperation.CertificateSigningRequest` correspond à la demande de signature de certificat codée en base4. Vous pouvez prendre cet objet blob et le vider dans le site web de la demande de certificat de l’émetteur. Cette étape varie d’une autorité de certification à l’autre. Le meilleur moyen consiste à rechercher les instructions de votre autorité de certification quant à l’exécution de cette étape. Vous pouvez également utiliser des outils comme certreq ou openssl pour faire signer la demande de certificat et terminer le processus de génération d’un certificat.
+3. Obtenez la **demande CSR signée par l’autorité de certification**. `$csr.CertificateSigningRequest` correspond à la demande de signature de certificat codée en base4. Vous pouvez prendre cet objet blob et le vider dans le site web de la demande de certificat de l’émetteur. Cette étape varie d’une autorité de certification à l’autre. Le meilleur moyen consiste à rechercher les instructions de votre autorité de certification quant à l’exécution de cette étape. Vous pouvez également utiliser des outils comme certreq ou openssl pour faire signer la demande de certificat et terminer le processus de génération d’un certificat.
 
 
 4. **Fusionnez la demande signée** dans Key Vault. Une fois que la demande de certificat a été signée par l’émetteur, vous pouvez reprendre le certificat signé pour le fusionner avec la paire de clés publique/privée initiale créée dans Azure Key Vault.
@@ -79,15 +81,23 @@ Les étapes suivantes vous aideront à créer un certificat à partir d’autori
     - **Objet :** `"CN=www.contosoHRApp.com"`
     - Sélectionnez les autres valeurs si besoin. Cliquez sur **Créer**.
 
-    ![Propriétés du certificat](../media/certificates/create-csr-merge-csr/create-certificate.png)
+    ![Propriétés du certificat](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
 6.  Vous verrez que le certificat est maintenant ajouté à la liste des certificats. Sélectionnez ce nouveau certificat que vous venez de créer. L’état actuel du certificat est « désactivé », car il n’a pas encore été émis par l’autorité de certification.
 7. Cliquez sur l’onglet **Opération de certificat** et sélectionnez **Télécharger CSR**.
- ![Capture d’écran mettant en évidence le bouton Télécharger CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
+   ![Capture d’écran mettant en évidence le bouton Télécharger CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
 8.  Présentez le fichier .csr à l’autorité de certification pour faire signer la demande.
 9.  Une fois que la demande est signée par l’autorité de certification, reprenez le fichier de certificat pour **fusionner la demande signée** dans le même écran d’opération de certificat.
 
 La demande de certificat est maintenant correctement fusionnée.
+
+> [!NOTE]
+> Si vos valeurs de nom unique relatif comportent des virgules, vous pouvez également les ajouter au champ **Objet** en les mettant entre guillemets doubles, comme indiqué à l’étape 4.
+> Exemple d’entrée pour « Objet » : `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` Dans cet exemple, le nom unique relatif `OU` contient une valeur qui comporte une virgule dans son nom. La sortie obtenue pour `OU` est **Docs, Contoso**.
+
 
 ## <a name="adding-more-information-to-csr"></a>Ajout d’informations supplémentaires à la CSR
 
@@ -102,8 +112,8 @@ Exemple
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->Si vous demandez un certificat DV avec tous ces détails dans la CSR, l’autorité de certification peut rejeter la demande, car l’autorité de certification peut ne pas être en mesure de valider toutes ces informations dans la demande. Si vous demandez un certificat OV, il est plus approprié d’ajouter toutes ces informations dans la CSR.
+> [!NOTE]
+> Si vous demandez un certificat DV avec tous ces détails dans la CSR, l’autorité de certification peut rejeter la demande, car elle peut ne pas être en mesure de valider toutes les informations dans la demande. Si vous demandez un certificat OV, il est plus approprié d’ajouter toutes ces informations dans la CSR.
 
 
 ## <a name="troubleshoot"></a>Dépanner
@@ -116,6 +126,8 @@ Exemple
 - Si le certificat émis est à l’état « désactivé » dans le portail Azure, examinez le message d’erreur pour ce certificat dans **Opération de certificat**.
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+- **Type d’erreur « Le nom d’objet fourni n’est pas un nom X500 valide. »** Cette erreur peut se produire si vous avez inclus des « caractères spéciaux » dans les valeurs de SubjectName. Consultez les notes dans les instructions du portail Azure et de PowerShell, respectivement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

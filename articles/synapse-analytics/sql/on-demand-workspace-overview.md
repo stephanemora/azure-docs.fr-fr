@@ -1,5 +1,5 @@
 ---
-title: Pool SQL serverless (préversion)
+title: Pool SQL serverless
 description: Découvrez le pool SQL serverless dans Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306852"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463170"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Pool SQL serverless (préversion) dans Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless dans Azure Synapse Analytics 
 
-Chaque espace de travail Azure Synapse Analytics (préversion) est fourni avec des points de terminaison de pool SQL serverless (préversion) que vous pouvez utiliser pour interroger les données du lac.
+Chaque espace de travail Azure Synapse Analytics est fourni avec des points de terminaison de pool SQL serverless que vous pouvez utiliser pour interroger les données du lac.
 
 Le pool SQL serverless est un service de requête sur les données de votre lac de données. Il vous permet d’accéder à vos données par le biais des fonctionnalités suivantes :
  
@@ -141,7 +141,7 @@ Un utilisateur connecté au service de pool SQL serverless doit être autorisé 
 
 - Une **signature d’accès partagé (SAS)** fournit un accès délégué aux ressources du compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources d’un compte de stockage sans partager les clés du compte. Une signature d’accès partagé vous fournit un contrôle précis sur le type d’accès que vous accordez aux clients qui disposent de la signature SAS : intervalle de validité, autorisations accordées, plage d’adresses IP acceptée, protocole accepté (https/http).
 
-- L’ **identité de l’utilisateur** (également appelée « pass-through ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD pour accéder aux données. Ce type d’autorisation utilise l’utilisateur Azure AD qui s’est connecté au pool SQL serverless : il n’est donc pas pris en charge pour les types d’utilisateurs SQL.
+- L’**identité de l’utilisateur** (également appelée « pass-through ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD pour accéder aux données. Ce type d’autorisation utilise l’utilisateur Azure AD qui s’est connecté au pool SQL serverless : il n’est donc pas pris en charge pour les types d’utilisateurs SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la connexion aux points de terminaison et sur l’interrogation des fichiers, consultez les articles suivants : 

@@ -1,6 +1,6 @@
 ---
-title: Interroger un stockage de données avec un pool SQL serverless (préversion)
-description: Cet article explique comment interroger Stockage Azure en utilisant la ressource de pool SQL serverless (préversion) au sein d’Azure Synapse Analytics.
+title: Interroger un stockage de données avec un pool SQL serverless
+description: Cet article explique comment interroger Stockage Azure en utilisant la ressource de pool SQL serverless au sein d’Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998921"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462657"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Interroger des fichiers de stockage avec un pool SQL serverless (préversion) dans Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers de stockage avec un pool SQL serverless dans Azure Synapse Analytics
 
-Un pool SQL serverless (préversion) vous permet d’interroger des données dans votre lac de données. Ce service offre une surface d’exposition de requête T-SQL qui prend en charge les requêtes de données semi-structurées et non structurées. Pour l’interrogation, les aspects T-SQL suivants sont pris en charge :
+Un pool SQL serverless vous permet d’interroger des données dans votre lac de données. Ce service offre une surface d’exposition de requête T-SQL qui prend en charge les requêtes de données semi-structurées et non structurées. Pour l’interrogation, les aspects T-SQL suivants sont pris en charge :
 
 - Surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) complète, y compris la majorité des [fonctions et opérateurs SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crée une [table externe](develop-tables-external-tables.md), puis exporte, en parallèle, les résultats d’une instruction SELECT Transact-SQL vers le stockage Azure.
@@ -47,7 +47,7 @@ Pour interroger les données sources Parquet, utilisez FORMAT = 'PARQUET'
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Pour obtenir des exemples d’utilisation, consultez l’article [Interroger des fichiers Parquet](query-parquet-files.md).
@@ -59,7 +59,7 @@ Pour interroger les données sources CSV, utilisez FORMAT = 'CSV'. Vous pouvez s
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Vous pouvez utiliser des options supplémentaires pour ajuster les règles d’analyse au format CSV personnalisé :
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -222,7 +222,7 @@ Vous pouvez en découvrir plus sur l’interrogation des différents types de do
 ### <a name="tools"></a>Outils
 
 Les outils dont vous avez besoin pour émettre des requêtes :
-    - Azure Synapse Studio (préversion)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

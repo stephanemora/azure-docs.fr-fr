@@ -3,8 +3,8 @@ title: 'Démarrage rapide : Créer une fabrique de données Azure à l’aide d
 description: Utilisez une fabrique de données pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1ebeae8e16acf4ca2b82270cc6ec40151794ad58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013324"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497331"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -32,7 +32,7 @@ Dans ce guide de démarrage rapide, vous créez une fabrique de données en util
 
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des workflows orientés données pour orchestrer et automatiser le déplacement et la transformation des données. Il permet de créer et de planifier des workflows basés sur les données (nommés pipelines).
 
-Les pipelines peuvent ingérer des données provenant de différents magasins de données. Les pipelines traitent ou transforment des données à l’aide de services de calcul tels que Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning. Les pipelines publient des données de sortie sur des magasins de données comme Azure Synapse Analytics (anciennement SQL Data Warehouse) pour des applications décisionnelles (BI).
+Les pipelines peuvent ingérer des données provenant de différents magasins de données. Les pipelines traitent ou transforment des données à l’aide de services de calcul tels que Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning. Les pipelines publient des données de sortie dans des magasins de données comme Azure Synapse Analytics pour des applications décisionnelles (BI).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -3,20 +3,20 @@ title: Créer et planifier des pipelines et des activités à la chaîne dans Da
 description: Apprenez à créer un pipeline de données dans Azure Data Factory pour déplacer et transformer des données. Créez un flux de travail piloté par les données pour produire des informations prêtes à l’emploi.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15b61653fcd9428abe41f61ac89b2a37302983c7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369220"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496056"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -34,7 +34,7 @@ Cet article vous aide à comprendre les pipelines et les activités dans Azure D
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
-Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’une base de données SQL Server dans un stockage Blob Azure. Utilisez ensuite une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter/transformer les données du stockage Blob afin de produire des données de sortie. Enfin, utilisez une deuxième activité de copie pour copier les données de sortie dans une instance Azure Synapse Analytics (anciennement SQL Data Warehouse) sur laquelle sont développées des solutions décisionnelles de génération de rapports.
+Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’une base de données SQL Server dans un stockage Blob Azure. Utilisez ensuite une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter/transformer les données du stockage Blob afin de produire des données de sortie. Enfin, utilisez une deuxième activité de copie pour copier les données de sortie dans Azure Synapse Analytics sur lequel des solutions de génération de rapports d’aide à la décision sont développées.
 
 Une activité peut inclure zéro ou plusieurs [jeux de données](data-factory-create-datasets.md) d’entrée et produire un ou plusieurs [jeux de données](data-factory-create-datasets.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données dans Data Factory :
 
@@ -62,10 +62,10 @@ Pour plus d’informations, consultez l’article [Activités de déplacement de
 Pour plus d’informations, consultez l’article [Activités de déplacement des données](data-factory-data-transformation-activities.md).
 
 ### <a name="custom-net-activities"></a>Activités .NET personnalisées
-Si vous devez déplacer des données vers ou à partir d’une banque de données qui n’est pas prise en charge par l’activité de copie, ou transformer des données à l’aide de votre propre logique, créez une **activité .NET personnalisée** . Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
+Si vous devez déplacer des données vers ou à partir d’une banque de données qui n’est pas prise en charge par l’activité de copie, ou transformer des données à l’aide de votre propre logique, créez une **activité .NET personnalisée**. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
 ## <a name="schedule-pipelines"></a>Planifier des pipelines
-Un pipeline est actif uniquement entre son heure de **début** et son heure de **fin** . Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n’est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour comprendre le fonctionnement de planification et de l’exécution dans Azure Data Factory.
+Un pipeline est actif uniquement entre son heure de **début** et son heure de **fin**. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n’est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour comprendre le fonctionnement de planification et de l’exécution dans Azure Data Factory.
 
 ## <a name="pipeline-json"></a>Pipeline JSON
 Examinons de plus près la définition d’un pipeline au format JSON. La structure générique d'un pipeline se présente comme suit :
@@ -203,9 +203,9 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 
 Notez les points suivants :
 
-* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy** .
-* L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset** . Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour en savoir plus sur la définition de jeux de données dans JSON.
-* Dans la section **typeProperties** , **BlobSource** est spécifié en tant que type de source et **SqlSink** , en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
+* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
+* L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour en savoir plus sur la définition de jeux de données dans JSON.
+* Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
 
 Pour obtenir une description complète de la création de ce pipeline, consultez le [Tutoriel : Copier des données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
@@ -259,8 +259,8 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 
 Notez les points suivants :
 
-* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive** .
-* Le fichier de script Hive, **partitionweblogs.hql** , est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService** ) et dans le dossier **script** du conteneur **adfgetstarted** .
+* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
+* Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.
 * La section `defines` est utilisée pour spécifier les paramètres d’exécution transmis au script Hive comme valeurs de configuration Hive (par ex. `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La section **typeProperties** est différente pour chaque activité de transformation. Pour en savoir plus sur les propriétés de type prises en charge pour une activité de transformation, cliquez sur l’activité de transformation dans la table [Activités de transformation des données](#data-transformation-activities).
@@ -306,7 +306,7 @@ Une fois qu’un pipeline est créé/déployé, vous pouvez gérer et surveiller
 - [Surveiller et gérer les pipelines à l’aide de l’application Surveiller et gérer](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>Pipeline onetime
-Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (par exemple  toutes les heures ou tous les jours) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d'informations, consultez Planification des activités. Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime** , comme indiqué dans l’exemple JSON suivant. La valeur par défaut de cette propriété est **scheduled** (planifié).
+Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiquement (par exemple  toutes les heures ou tous les jours) en fonction de l’heure de début et de l’heure de fin que vous spécifiez dans la définition du pipeline. Pour plus d'informations, consultez Planification des activités. Vous pouvez également créer un pipeline qui ne s’exécute qu’une seule fois. Pour ce faire, vous définissez la propriété **pipelineMode** dans la définition du pipeline sur la valeur **onetime**, comme indiqué dans l’exemple JSON suivant. La valeur par défaut de cette propriété est **scheduled**(planifié).
 
 ```json
 {
@@ -347,7 +347,7 @@ Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiqu
 Notez les points suivants :
 
 * Les heures de **début** et de **fin** ne sont pas spécifiées.
-* La **disponibilité** des jeux de données d’entrée et de sortie est spécifiée ( **fréquence** et **intervalle** ) même si les valeurs ne sont pas utilisées par Data Factory.
+* La **disponibilité** des jeux de données d’entrée et de sortie est spécifiée (**fréquence** et **intervalle**) même si les valeurs ne sont pas utilisées par Data Factory.
 * La vue schématique n’affiche pas les pipelines à usage unique (onetime). Ce comportement est normal.
 * Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre.
 

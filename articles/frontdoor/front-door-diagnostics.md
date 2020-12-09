@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961746"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483795"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervision des journaux et des métriques dans Azure Front Door
 
@@ -61,7 +61,7 @@ Les journaux de diagnostic offrent des informations détaillées sur les opérat
 
 Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Journal d’activité":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Journaux de diagnostic":::
 
 Pour configurer les journaux de diagnostic pour votre service Front Door :
 
@@ -91,10 +91,11 @@ Front Door fournit actuellement des journaux de diagnostic (par lot toutes les h
 | RulesEngineMatchNames | Noms des règles correspondant à la demande. |
 | SecurityProtocol | Version du protocole TLS/SSL utilisée par la requête, ou Null si aucun chiffrement. |
 | SentToOriginShield </br> (déconseillé) * **Consultez les notes sur la désapprobation dans la section suivante.**| Si la valeur est true, cela signifie que la requête a été traitée à partir du cache de protection d’origine au lieu du pop de périphérie. La protection d’origine est un cache parent utilisé pour améliorer le taux d’accès au cache. |
-| isReceivedFromClient | Si la valeur est true, cela signifie que la requête provient du client. Si la valeur est false, la requête est en échec dans la périphérie (POP enfant) et reçoit une réponse à partir de la protection d’origine (POP parent). 
+| isReceivedFromClient | Si la valeur est true, cela signifie que la requête provient du client. Si la valeur est false, la requête est en échec dans la périphérie (POP enfant) et reçoit une réponse à partir de la protection d’origine (POP parent). |
 | TimeTaken | Durée, en secondes, écoulée entre le premier octet de la requête Front Door et le dernier octet de la réponse. |
 | TrackingReference | Chaîne de référence unique qui identifie une requête traitée par Front Door, également envoyée en tant qu’en-tête X-Azure-Ref au client. Nécessaire pour pouvoir effectuer une recherche détaillée dans les journaux d’accès pour une requête spécifique. |
 | UserAgent | Type de navigateur utilisé par le client. |
+| ErrorInfo | Ce champ contient le type d’erreur spécifique pour la résolution des problèmes. </br> Les valeurs possibles incluent : </br> **NoError** : Indique qu’aucune erreur n’a été trouvée. </br> **CertificateError** : Erreur de certificat SSL générique.</br> **CertificateNameCheckFailed** : Le nom d’hôte dans le certificat SSL n’est pas valide ou ne correspond pas. </br> **ClientDisconnected** : Échec de la demande en raison de la connexion réseau du client. </br> **UnspecifiedClientError** : Erreur du client générique. </br> **InvalidRequest** : Demande non valide. Cela peut se produire en raison d’un en-tête, d’un corps et d’une URL incorrect(e)s. </br> **DNSFailure** : Échec DNS. </br> **DNSNameNotResolved** : Le nom ou l’adresse du serveur n’a pas pu être résolue. </br> **OriginConnectionAborted** : La connexion avec l’origine a été arrêtée brusquement. </br> **OriginConnectionError** : Erreur de connexion d’origine générique. </br> **OriginConnectionRefused** : La connexion avec l’origine n’a pas pu être établie. </br> **OriginError** : Erreur d’origine générique. </br> **OriginInvalidResponse** : L’origine a renvoyé une réponse non valide ou non reconnue. </br> **OriginTimeout** : Le délai d’expiration de la demande d’origine a expiré. </br> **ResponseHeaderTooBig** : L’origine a retourné un en-tête de réponse trop grand. </br> **RestrictedIP** : La demande a été bloquée en raison d’une adresse IP restreinte. </br> **SSLHandshakeError** : Impossible d’établir la connexion avec l’origine en raison d’un échec d’établissement d’une liaison SSL. </br> **UnspecifiedError** : Une erreur ne correspondant à aucune des erreurs dans le tableau s’est produite. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Dépréciation de Sent to origin shield
 La propriété de journal brut **isSentToOriginShield** est déconseillée et remplacée par un nouveau champ **isReceivedFromClient**. Utilisez le nouveau champ si vous utilisez déjà le champ déconseillé. 
@@ -122,8 +123,8 @@ Si la valeur est false, cela signifie que la requête reçoit une réponse de la
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Règle d’acheminement sans mise en cache | 1 | Code POP Edge | Serveur principal où la demande a été envoyée | True | CONFIG_NOCACHE |
 | Règle d’acheminement avec mise en cache. Correspondance dans le cache au niveau de la périphérie POP | 1 | Code POP Edge | Vide | True | HIT |
-| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Vide | 1. True</br>2. False | 1. MISS</br>2. HIT |
-| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance PARTIAL dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Serveur principal qui permet de remplir le cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance dans le cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Vide | 1. True</br>2. False | 1. MISS</br>2. HIT |
+| Règle d’acheminement avec mise en cache. Absence dans le cache au niveau de la périphérie POP, mais correspondance PARTIAL dans le cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Nom d’hôte POP du cache parent</br>2. Serveur principal qui permet de remplir le cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Règle d’acheminement avec mise en cache. Cache PARTIAL_HIT au niveau de la périphérie POP, mais correspondance dans cache au niveau POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Code POP Edge</br>2. Code POP du cache parent | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
 | Règle d’acheminement avec mise en cache. Absence dans le cache à la fois dans la périphérie et dans le POP du cache parent | 2 | 1. Code POP Edge</br>2. Code POP du cache parent | 1. Code POP Edge</br>2. Code POP du cache parent | 1. True</br>2. False | 1. MISS</br>2. MISS |
 

@@ -3,18 +3,18 @@ title: Présentation d’Azure Data Factory
 description: Découvrez Azure Data Factory, un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491271"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485011"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
 
@@ -28,7 +28,7 @@ Prenons l’exemple d’une société d’édition de jeux qui rassemble plusieu
 
 Pour analyser ces journaux d’activité, l’entreprise doit utiliser des données de référence comme des informations sur le client, des informations sur les jeux et des informations sur la campagne marketing qui sont contenues dans un magasin de données local. L’entreprise souhaite utiliser ces données issues du magasin de données local et les combiner avec d’autres données de journal dont elle dispose dans un magasin de données dans le cloud. 
 
-Pour extraire des insights, elle souhaite traiter les données combinées au moyen d’un cluster Spark dans le cloud (Azure HDInsight) et publier les données transformées dans un entrepôt de données cloud, tel qu’Azure Synapse Analytics (anciennement SQL Data Warehouse) afin de pouvoir créer facilement un rapport à partir de celles-ci. Ils souhaitent automatiser ce flux de travail, et le surveiller et le gérer sur une base quotidienne. Ils veulent également l’exécuter lorsque les fichiers arrivent dans un conteneur de magasin d’objets blob.
+Pour extraire des informations, elle souhaite traiter les données combinées au moyen d’un cluster Spark dans le cloud (Azure HDInsight) et publier les données transformées dans un entrepôt de données cloud, tel qu’Azure Synapse Analytics, afin de pouvoir créer facilement un rapport à partir de celles-ci. Ils souhaitent automatiser ce flux de travail, et le surveiller et le gérer sur une base quotidienne. Ils veulent également l’exécuter lorsque les fichiers arrivent dans un conteneur de magasin d’objets blob.
 
 Azure Data Factory est la plateforme qui résout les scénarios de données de ce type. Il s’agit d’un *service d’ETL et d’intégration de données basé sur le cloud, qui vous permet de créer des workflows orientés données pour l’orchestration des déplacements de données et pour la transformation des données à grande échelle*. À l’aide d’Azure Data Factory, vous pouvez créer et planifier des flux de travail pilotés par les données (appelés pipelines) qui peuvent ingérer des données provenant de différents magasins de données. Vous pouvez créer des processus ETL complexes qui transforment les données visuellement avec des flux de données ou en utilisant des services de calcul comme Azure HDInsight Hadoop, Azure Databricks et Azure SQL Database. 
 

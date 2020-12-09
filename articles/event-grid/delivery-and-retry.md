@@ -3,12 +3,12 @@ title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981100"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463242"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Pour plus d’informations sur l’utilisation d’Azure CLI avec Event Grid, consultez [Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
+
+Quand EventGrid reçoit une erreur lors d’une tentative de remise d’événement, EventGrid décide s’il doit retenter la remise ou mettre l’événement dans la file d’attente de lettres mortes ou supprimer l’événement en fonction du type d’erreur. 
+
+Si l’erreur retournée par le point de terminaison abonné est liée à une erreur de configuration qui ne peut pas être corrigée avec des nouvelles tentatives (par exemple, si le point de terminaison est supprimé), EventGrid met l’événement dans la file d’attente de lettres mortes ou supprime l’événement si la file d’attente de lettres mortes n’est pas configurée.
+
+Voici les types de points de terminaison pour lesquels aucune nouvelle tentative ne se produit :
+
+| Type de point de terminaison | Codes d’erreur |
+| --------------| -----------|
+| Ressources Azure | 400 Requête incorrecte, 413 Entité de la requête trop grande, 403 Interdit | 
+| webhook | 400 Requête incorrecte, 413 Entité de la requête trop grande, 403 Interdit, 404 Introuvable, 401 Non autorisé |
+ 
+> [!NOTE]
+> Si la file d’attente de lettres mortes n’est pas configurée pour le point de terminaison, les événements sont supprimés lorsque les erreurs ci-dessus se produisent. Par conséquent, envisagez de configurer la file d’attente de lettres mortes si vous ne souhaitez pas que ces types d’événements soient supprimés.
+
+Si l’erreur retournée par le point de terminaison abonné ne figure pas dans la liste ci-dessus, EventGrid effectue la nouvelle tentative à l’aide des stratégies décrites ci-dessous :
 
 Event Grid attend une réponse pendant 30 secondes après la distribution d’un message. Après 30 secondes, si le point de terminaison n’a pas répondu, le message est mis en file d’attente en vue d’une nouvelle tentative. Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Dans la mesure du possible, Event Grid tente une nouvelle livraison selon la planification suivante :
 
@@ -256,16 +272,16 @@ Event Grid considère **uniquement** les codes de réponse HTTP suivants en tant
 
 ### <a name="failure-codes"></a>Codes d’échec
 
-Tous les codes ne figurant par dans les codes ci-dessus (200 à 204) sont considérés comme ayant échoué et feront l'objet de nouvelles tentatives. Certains sont associés à des stratégies de nouvelle tentative spécifiques (voir ci-dessous). Toutes les autres suivent le modèle de temporisation exponentielle standard. Il est important de garder à l’esprit qu’en raison de la nature hautement parallélisée de l’architecture d'Event Grid, le comportement d'une nouvelle tentative n'est pas déterministe. 
+Tous les codes ne figurant pas dans les codes ci-dessus (200 à 204) sont considérés comme ayant échoué et feront l’objet de nouvelles tentatives (le cas échéant). Certains sont associés à des stratégies de nouvelle tentative spécifiques (voir ci-dessous). Toutes les autres suivent le modèle de temporisation exponentielle standard. Il est important de garder à l’esprit qu’en raison de la nature hautement parallélisée de l’architecture d'Event Grid, le comportement d'une nouvelle tentative n'est pas déterministe. 
 
 | Code d’état | Comportement pour les nouvelles tentatives |
 | ------------|----------------|
-| 400 Demande incorrecte | Nouvelle tentative après 5 minutes (lettre morte immédiatement, si configurée) |
-| 401 Non autorisé | Nouvelle tentative après 5 minutes ou plus |
-| 403 Interdit | Nouvelle tentative après 5 minutes ou plus |
-| 404 Introuvable | Nouvelle tentative après 5 minutes ou plus |
+| 400 Demande incorrecte | Aucune nouvelle tentative |
+| 401 Non autorisé | Nouvelle tentative au bout de 5 minutes pour les points de terminaison des ressources Azure |
+| 403 Interdit | Aucune nouvelle tentative |
+| 404 Introuvable | Nouvelle tentative au bout de 5 minutes pour les points de terminaison des ressources Azure |
 | 408 Délai d’expiration de la requête | Nouvelle tentative après 2 minutes ou plus |
-| 413 Entité de demande trop grande | Nouvelle tentative après 10 secondes ou plus (lettre morte immédiatement, si configurée) |
+| 413 Entité de demande trop grande | Aucune nouvelle tentative |
 | 503 Service indisponible | Nouvelle tentatives après 30 secondes ou plus |
 | Tous les autres | Nouvelle tentatives après 10 secondes ou plus |
 

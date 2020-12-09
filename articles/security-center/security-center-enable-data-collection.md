@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638765"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490055"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisionnement automatique d’agents et d’extensions à partir d’Azure Security Center
 
@@ -138,7 +138,7 @@ Azure Defender est requis pour le stockage des données d’événements de séc
 Le stockage de données dans Log Analytics peut occasionner des frais supplémentaires de stockage de données. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="information-for-azure-sentinel-users"></a>Informations pour les utilisateurs Azure Sentinel 
-Utilisateurs d’Azure Sentinel : notez que la collecte des événements de sécurité dans le contexte d’un seul espace de travail peut être configurée à partir d’Azure Security Center ou d’Azure Sentinel, mais pas des deux à la fois. Si vous envisagez d’ajouter Azure Sentinel à un espace de travail qui reçoit déjà des alertes Azure Defender du Centre de sécurité Azure, et qui est défini pour collecter des événements de sécurité, vous disposez de deux options :
+Utilisateurs d’Azure Sentinel : notez que la collecte des événements de sécurité dans le contexte d’un seul espace de travail peut être configurée à partir d’Azure Security Center ou d’Azure Sentinel, mais pas des deux à la fois. Si vous envisagez d’ajouter Azure Sentinel à un espace de travail qui reçoit déjà des alertes d’Azure Security Center, et qui est défini pour collecter des événements de sécurité, vous disposez de deux options :
 - Laissez la collecte d’événements de sécurité dans Azure Security Center telle quelle. Vous êtes alors en mesure d’interroger et d’analyser ces événements dans Azure Sentinel ainsi que dans Azure Defender. Toutefois, vous n’êtes pas en mesure de surveiller l’état de connectivité du connecteur ou de modifier sa configuration dans Azure Sentinel. Si cela est important pour vous, envisagez la deuxième option.
 - Désactivez la collecte des événements de sécurité dans Azure Security Center (en définissant **Événements de sécurité Windows** sur **Aucun** dans la configuration de votre agent Log Analytics). Ensuite, ajoutez le connecteur Événements de sécurité dans Azure Sentinel. Comme pour la première option, vous êtes en mesure d’interroger et d’analyser les événements à la fois dans Azure Sentinel et Azure Defender/ASC. Cependant, vous pouvez maintenant surveiller l’état de connectivité du connecteur ou modifier sa configuration dans, et uniquement dans, Azure Sentinel.
 
@@ -211,8 +211,8 @@ Pour installer manuellement l’agent Log Analytics :
 
 1. Pour utiliser PowerShell afin de déployer les agents, suivez les instructions de la documentation relative aux machines virtuelles :
 
-    - [Pour les machines Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
-    - [Pour les machines Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
+    - [Pour les machines Windows](../virtual-machines/extensions/oms-windows.md?toc=%2fazure%2fazure-monitor%2ftoc.json#powershell-deployment)
+    - [Pour les machines Linux](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
 > Pour obtenir des instructions sur la manière d’intégrer Security Center à l’aide de PowerShell, voir [Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell](security-center-powershell-onboarding.md).
@@ -222,7 +222,7 @@ Pour installer manuellement l’agent Log Analytics :
 
 Les cas d’usage suivants spécifient la manière dont l’approvisionnement automatique fonctionne lorsqu’un agent ou une extension sont déjà installés. 
 
-- **Log Analytics Agent est installé sur la machine, mais pas en tant qu’extension (agent direct)** – Si l’agent Log Analytics est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center installe l’extension de l’agent Log Analytics et peut mettre à niveau l’agent Log Analytics vers la dernière version.
+- **Agent Log Analytics est installé sur la machine, mais pas comme extension (agent direct)** – Si l’agent Log Analytics est installé directement sur la machine virtuelle (non pas comme extension Azure), Security Center installe l’extension de l’agent Log Analytics et il est possible que l’agent Log Analytics soit mis à niveau vers sa version la plus récente.
 L’agent installé continue de rendre compte à ses espaces de travail déjà configurés et à l’espace de travail configuré dans Security Center (multihébergement pris en charge sur les machines Windows).
 Si l’espace de travail configuré est un espace de travail utilisateur (pas un espace de travail par défaut de Security Center), vous devez installer la solution « security/securityFree » sur ce dernier pour que Security Center démarre le traitement des événements à partir des machines virtuelles et ordinateurs rendant compte à cet espace de travail.
 

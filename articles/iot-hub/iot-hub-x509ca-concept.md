@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308110"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490718"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
@@ -40,6 +40,8 @@ Un attribut distinctif de l’authentification de l’autorité de certification
 Un autre attribut important de l’authentification de l’autorité de certification X.509 est la simplification de la gestion de la chaîne logistique. L’authentification sécurisée des appareils nécessite que chaque appareil soit associé à un secret unique servant de clé pour l’approbation. Dans l’authentification basée sur les certificats, ce secret est une clé privée. Les flux classiques de fabrication d’appareils impliquent plusieurs étapes et opérateurs. La gestion sécurisée des clés privées des appareils entre plusieurs opérateurs et le maintien de la conformité sont difficiles et coûteux. Le recours aux autorités de certification résout ce problème : chaque opérateur s’inscrit dans une chaîne de confiance cryptographique au lieu de se voir remettre des clés privées d’appareils. Chaque opérateur approuve à son tour les appareils à son étape du processus de fabrication. Résultat : une chaîne logistique optimale avec responsabilité intégrée grâce à l’utilisation d’une chaîne de confiance cryptographique. Il est important de noter que ce processus est le plus sécurisé lorsque les appareils protègent leurs clés privées uniques. À cette fin, nous conseillons vivement l’utilisation de modèles de sécurité matériels capables de générer en interne des clés privées qui ne sortiront jamais du système.
 
 Cet article offre une vue complète de l’utilisation de l’authentification de l’autorité de certification X.509, de la configuration de la chaîne logistique à la connexion des appareils, tout en exploitant un exemple réel pour rendre la présentation plus claire.
+
+Vous pouvez également utiliser des groupes d’inscription avec le Service IoT Hub Device Provisioning (DPS) Azure pour gérer l’approvisionnement des appareils aux hubs. Pour plus d’informations sur l’utilisation de DPS pour approvisionner des appareils de certificat X.509, consultez [Didacticiel : Provisionner plusieurs appareils X.509 à l’aide de groupes d’inscriptions](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introduction
 
@@ -75,7 +77,7 @@ Le processus de création d'un certificat d'autorité de certification X.509 aut
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Inscrire le certificat X.509 dans IoT Hub
 
-L’entreprise X doit inscrire l’autorité de certification X.509 dans IoT Hub, où elle servira à authentifier les widgets Smart-X lors de leur connexion. Il s’agit d’un processus unique qui permet d’authentifier et de gérer autant de widgets Smart-X que vous le souhaitez. Ce processus est unique en raison de la relation un-à-plusieurs entre le certificat d’autorité et les appareils. Il constitue également l’un des principaux avantages de l’utilisation de la méthode d’authentification via l’autorité de certification X.509. L’autre solution consiste à télécharger les empreintes de chaque certificat pour chaque widget Smart-X, ce qui augmente les coûts d’exploitation.
+L’entreprise X doit inscrire l’autorité de certification X.509 dans IoT Hub, où elle servira à authentifier les widgets Smart-X lors de leur connexion. Il s’agit d’un processus unique qui permet d’authentifier et de gérer autant de widgets Smart-X que vous le souhaitez. Il s’agit d’un processus unique en raison d’une relation un-à-plusieurs entre le certificat de l’autorité de certification et les certificats de l’appareil signés par le certificat de l’autorité de certification ou un certificat intermédiaire. Cette relation constitue l’un des principaux avantages de l’utilisation de la méthode d’authentification de l’autorité de certification X.509. L’autre solution consiste à télécharger les empreintes de chaque certificat pour chaque widget Smart-X, ce qui augmente les coûts d’exploitation.
 
 L’inscription du certificat de l’autorité de certification X.509 est un processus en deux étapes, qui comprend le chargement du certificat et une preuve de possession du certificat.
 

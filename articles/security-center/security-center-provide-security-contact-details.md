@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791866"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487930"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -31,9 +31,9 @@ Pour définir vos propres préférences en lien avec les e-mails de notification
 
 Pour éviter la fatigue liée aux alertes, Security Center limite le volume des e-mails sortants. Pour chaque abonnement, Security Center envoie :
 
-- un maximum de **quatre** e-mails par jour pour les alertes de **gravité élevée**
-- un maximum de **deux** e-mails par jour pour les alertes de **gravité moyenne**
-- un maximum d’ **un** e-mail par jour pour les alertes de **faible gravité**
+- Un maximum d’un e-mail toutes les **six heures** (quatre e-mails par jour) pour les alertes de **gravité élevée**.
+- Un maximum d’un e-mail toutes les **12 heures** (deux e-mails par jour) pour les alertes de **gravité moyenne**.
+- Un maximum d’un e-mail toutes les **24 heures** pour les alertes de **faible gravité**.
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuration des détails du contact qui recevra les e-mails sur les alertes de sécurité." :::
  
@@ -62,10 +62,9 @@ Vous pouvez envoyer des notifications par e-mail à des individus ou à tous les
 1. Pour appliquer les coordonnées de sécurité à votre abonnement, sélectionnez **Enregistrer**.
 
 
-## <a name="next-steps"></a>Étapes suivantes
-
+## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur les alertes de sécurité, consultez les pages suivantes :
 
 - [Alertes de sécurité – Guide de référence](alerts-reference.md) : apprenez-en davantage sur les alertes de sécurité possibles du module Protection contre les menaces d’Azure Security Center.
 - [Gérer et résoudre les alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md) : utilisez l’automatisation pour répondre aux déclencheurs Security Center avec une logique de notification personnalisée.
+- [Automatisation de workflow](workflow-automation.md) : automatisez les réponses aux alertes avec une logique de notification personnalisée.

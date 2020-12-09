@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441066"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461234"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copier en bloc à partir d’une base de données avec une table de contrôle
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Pour copier des données à partir d’un entrepôt de données dans Oracle Server, Netezza, Teradata ou SQL Server vers Azure Synapse Analytics (anciennement Azure SQL Data Warehouse), vous devez charger de grandes quantités de données à partir de plusieurs tables. Généralement, les données doivent être partitionnées dans chaque table pour que vous puissiez charger des lignes avec plusieurs threads en parallèle à partir d’une seule table. Cet article décrit un modèle à utiliser dans ces scénarios.
+Pour copier des données à partir d’un entrepôt de données dans Oracle Server, Netezza, Teradata ou SQL Server vers Azure Synapse Analytics, vous devez charger d’importantes quantités de données à partir de plusieurs tables. Généralement, les données doivent être partitionnées dans chaque table pour que vous puissiez charger des lignes avec plusieurs threads en parallèle à partir d’une seule table. Cet article décrit un modèle à utiliser dans ces scénarios.
 
  >REMARQUE : Si vous souhaitez copier des données à partir d’un petit nombre de tables avec un volume de données relativement faible vers Azure Synapse Analytics, il est plus efficace d’utiliser l’[outil Copier des données dans Azure Data Factory](copy-data-tool.md). Le modèle décrit dans cet article suffit amplement pour ce scénario.
 

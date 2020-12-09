@@ -3,18 +3,18 @@ title: 'Azure Data Factory : Forum aux questions '
 description: Réponses aux questions les plus fréquentes concernant Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2d1b9f0e25c460b7f26c31c3d2c6ebe51d958017
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635760"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485012"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -67,7 +67,7 @@ Les utilisateurs peuvent également utiliser les API REST documentées pour inte
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Développement et débogage itératifs avec des outils visuels
 Les outils visuels d’Azure Data Factory autorisent le développement et le débogage itératifs. Vous pouvez créer vos pipelines et effectuer des séries de tests avec la fonctionnalité **Déboguer** dans le canevas du pipeline sans écrire une seule ligne de code. Vous pouvez voire les résultats de vos séries de tests dans la fenêtre **Sortie** de votre canevas de pipeline. Après la réussite de votre série de tests, vous pouvez ajouter d’autres activités à votre pipeline et continuer le débogage de façon itérative. Vous pouvez aussi annuler votre série de tests alors qu’elle est en cours. 
 
-Vous n’êtes pas obligé de publier les modifications que vous avez apportées aux données sur le service Data Factory avant de sélectionner **Déboguer** . Ceci est pratique dans les scénarios où vous voulez être sûr que les nouveaux ajouts ou modifications fonctionnent comme prévu avant de mettre à jour les flux de travail de votre fabrique de données dans des environnements de développement, de test ou de production. 
+Vous n’êtes pas obligé de publier les modifications que vous avez apportées aux données sur le service Data Factory avant de sélectionner **Déboguer**. Ceci est pratique dans les scénarios où vous voulez être sûr que les nouveaux ajouts ou modifications fonctionnent comme prévu avant de mettre à jour les flux de travail de votre fabrique de données dans des environnements de développement, de test ou de production. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacité à déployer des packages SSIS sur Azure 
 Si vous voulez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données et provisionner un runtime d’intégration Azure-SSIS. Un runtime d’intégration Azure-SSIS est un cluster entièrement managé de machines virtuelles Azure (nœuds) dédiées à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel [Déployer des packages SSIS vers Azure](./tutorial-deploy-ssis-packages-azure.md). 
@@ -95,9 +95,9 @@ Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes 
 ## <a name="what-is-the-integration-runtime"></a>Qu’est-ce que le runtime d’intégration ?
 Le runtime d’intégration est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
-- **Déplacement des données**  : pour le mouvement des données, le runtime d’intégration déplace les données entre les magasins de données source et de destination, tout en fournissant une prise en charge des connecteurs intégrés, de la conversion de format, du mappage de colonnes et des transferts de données performants et scalables.
-- **Répartir les activités**  : pour la transformation, le runtime d’intégration offre la possibilité d’exécuter des packages SSIS en mode natif.
-- **Exécuter des packages SSIS**  : le runtime d’intégration exécute en mode natif les packages SSIS dans un environnement de calcul Azure managé. Le runtime d’intégration prend également en charge la répartition et la supervision des activités de transformation exécutées sur un large éventail de services de calcul, comme Azure HDInsight, Azure Machine Learning, SQL Database et SQL Server.
+- **Déplacement des données** : pour le mouvement des données, le runtime d’intégration déplace les données entre les magasins de données source et de destination, tout en fournissant une prise en charge des connecteurs intégrés, de la conversion de format, du mappage de colonnes et des transferts de données performants et scalables.
+- **Répartir les activités** : pour la transformation, le runtime d’intégration offre la possibilité d’exécuter des packages SSIS en mode natif.
+- **Exécuter des packages SSIS** : le runtime d’intégration exécute en mode natif les packages SSIS dans un environnement de calcul Azure managé. Le runtime d’intégration prend également en charge la répartition et la supervision des activités de transformation exécutées sur un large éventail de services de calcul, comme Azure HDInsight, Azure Machine Learning, SQL Database et SQL Server.
 
 Vous pouvez déployer une ou plusieurs instances du runtime d’intégration en fonction de vos besoins pour déplacer ou transformer des données. Le runtime d’intégration peut s’exécuter sur un réseau public Azure ou un réseau privé (localement, réseau virtuel Azure ou cloud privé virtuel Amazon Web Services). 
 
@@ -190,7 +190,7 @@ Quand Microsoft fournit une aide ou une assistance au dépannage pour des flux d
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Comment accéder à des données à l’aide des 90 autres types de jeux de données dans Data Factory ?
 
-La fonctionnalité de mappage de flux de données autorise actuellement Azure SQL Database, Azure Synapse Analytics (anciennement Azure SQL Data Warehouse), les fichiers texte délimités à partir de Stockage Blob Azure ou Azure Data Lake Storage Gen2, et les fichiers Parquet à partir du stockage d’objets blob ou Data Lake Storage Gen2 en mode natif pour la source et le récepteur. 
+La fonctionnalité de flux de données de mappage autorise actuellement Azure SQL Database, Azure Synapse Analytics, les fichiers texte délimités à partir de Stockage Blob Azure ou Azure Data Lake Storage Gen2, et les fichiers Parquet à partir du stockage d’objets blob ou Data Lake Storage Gen2 en mode natif pour la source et le récepteur. 
 
 Utilisez l’activité de copie pour indexer les données des autres connecteurs, puis exécutez une activité de flux de données pour transformer les données une fois qu’elles ont été indexées. Par exemple, votre pipeline copiera tout d’abord dans le stockage d’objets blob, puis une activité de flux de données utilisera un jeu de données dans la source pour transformer ces données.
 

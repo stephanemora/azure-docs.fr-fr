@@ -4,16 +4,16 @@ description: Découvrez comment activer la suppression réversible sur des parta
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 7defa8611080027a67a0d1db1daa4c4a9d44edfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ea98b2d9812fb5c848c7e13b94d46a4142595cd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126139"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492163"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
 
@@ -33,11 +33,29 @@ Les sections suivantes montrent comment activer et utiliser la suppression réve
 
 :::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section des partages de fichiers, du commutateur activer/désactiver, de la définition d’une période de rétention et de l’option Enregistrer. Cela active la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Les cmdlets de suppression réversible sont disponibles dans la version 2.1.3 et les versions ultérieures du [module Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+## <a name="getting-started-with-cli"></a>Bien démarrer avec CLI
+
+Pour activer la suppression réversible, vous devez mettre à jour les propriétés du service du client d’un fichier. L’exemple suivant active la suppression réversible pour tous les partages de fichiers dans un compte de stockage :
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention true -n yourStorageaccount -g yourResourceGroup
+```
+
+Vous pouvez vérifier si la suppression réversible est activée et afficher sa stratégie de rétention à l’aide de la commande suivante :
+
+```azurecli
+az storage account file-service-properties show -n yourStorageaccount -g yourResourceGroup
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ## <a name="prerequisite"></a>Prérequis
 
-Les cmdlets de suppression réversible sont disponibles dans la version [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) du module Az.Storage. 
+Les cmdlets de suppression réversible sont disponibles dans la version 4.8.0 et les versions ultérieures du module Az.Storage. 
 
 ## <a name="getting-started-with-powershell"></a>Prise en main de PowerShell
 
@@ -76,9 +94,29 @@ Pour restaurer un partage de fichiers supprimé de manière réversible :
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Si la colonne État, la colonne à côté de la colonne de nom, est définie sur Actif, votre partage de fichiers a été restauré.":::
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Les cmdlets de suppression réversible sont disponibles dans la version 2.1.3 d’Azure CLI. Pour restaurer un partage de fichiers supprimé de manière réversible, vous devez d’abord obtenir la valeur `--deleted-version` du partage. Pour obtenir cette valeur, utilisez la commande suivante pour répertorier tous les partages supprimés pour votre compte de stockage :
+
+```azurecli
+az storage share-rm list --storage-account yourStorageaccount --include-deleted
+```
+
+Une fois que vous avez identifié le partage que vous souhaitez restaurer, vous pouvez l’utiliser avec la commande suivante pour le restaurer :
+
+```azurecli
+az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Les cmdlets de suppression réversible sont disponibles dans la version 3.0.0 du module Az.Storage. Pour restaurer un partage de fichiers supprimé de manière réversible, utilisez la commande suivante :
+Les cmdlets de suppression réversible sont disponibles dans la version 4.8.0 et les versions ultérieures du module Az.Storage. Pour restaurer un partage de fichiers supprimé de manière réversible, vous devez d’abord obtenir la valeur `-DeletedShareVersion` du partage. Pour obtenir cette valeur, utilisez la commande suivante pour répertorier tous les partages supprimés pour votre compte de stockage :
+
+```azurepowershell-interactive
+Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
+```
+
+Une fois que vous avez identifié le partage que vous souhaitez restaurer, vous pouvez l’utiliser avec la commande suivante pour le restaurer :
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -92,14 +130,21 @@ Si vous souhaitez cesser d’utiliser la suppression réversible ou supprimer d�
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Accédez à votre compte de stockage et sélectionnez **Suppression réversible** sous **Paramètres**.
-1. Sous **Partages de fichiers** , sélectionnez **Désactivé** pour **Suppression réversible pour les partages de fichiers**.
+1. Sous **Partages de fichiers**, sélectionnez **Désactivé** pour **Suppression réversible pour les partages de fichiers**.
 1. Sélectionnez **Enregistrer** pour confirmer vos paramètres de conservation des données.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="La désactivation de la suppression réversible vous permet de supprimer immédiatement et définitivement tous les partages de fichiers de votre compte de stockage.":::
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Les cmdlets de suppression réversible sont disponibles dans la version 2.1.3 d’Azure CLI. Vous pouvez utiliser la commande suivante pour désactiver la suppression réversible sur votre compte de stockage :
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention false -n yourStorageaccount -g yourResourceGroup
+```
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Les cmdlets de suppression réversible sont disponibles dans la version 3.0.0 du module Az.Storage. Vous pouvez utiliser la commande suivante pour désactiver la suppression réversible sur votre compte de stockage :
+Les cmdlets de suppression réversible sont disponibles dans la version 4.8.0 et les versions ultérieures du module Az.Storage. Vous pouvez utiliser la commande suivante pour désactiver la suppression réversible sur votre compte de stockage :
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

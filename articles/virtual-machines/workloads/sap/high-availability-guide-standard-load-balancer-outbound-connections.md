@@ -14,21 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968534"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486300"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
 L’objectif de cet article est de décrire les configurations qui permettront une connectivité sortante vers les points de terminaison publics. Les configurations sont principalement dans le contexte de la haute disponibilité avec Pacemaker pour SUSE/RHEL.  
 
-Si vous utilisez Pacemaker avec l’agent d’isolation Azure dans votre solution de haute disponibilité, les machines virtuelles doivent disposer d’une connectivité sortante à l’API de gestion Azure.  
-L’article présente plusieurs options pour vous permettre de sélectionner l’option qui convient le mieux à votre scénario.  
+Si vous utilisez Pacemaker avec l’agent d’isolation Azure dans votre solution de haute disponibilité, les machines virtuelles doivent disposer d’une connectivité sortante à l’API de gestion Azure. L’article présente plusieurs options pour vous permettre de sélectionner l’option qui convient le mieux à votre scénario.  
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -42,12 +41,12 @@ Lorsque des machines virtuelles sans adresse IP publique sont placées dans le p
 
 Si une machine virtuelle est affectée à une adresse IP publique ou que celle-ci se trouve dans le pool principal d’un équilibreur de charge avec une adresse IP publique, elle aura une connectivité sortante aux points de terminaison publics.  
 
-Les systèmes SAP contiennent souvent des données d’entreprise sensibles. Il est rarement acceptable pour les machines virtuelles hébergeant des systèmes SAP d’avoir des adresses IP publiques. Dans le même temps, il existe des scénarios qui nécessitent une connectivité sortante entre la machine virtuelle et les points de terminaison publics.  
+Les systèmes SAP contiennent souvent des données d’entreprise sensibles. Il est rarement acceptable que des machines virtuelles hébergeant des systèmes SAP soient accessibles via des adresses IP publiques. Dans le même temps, il existe des scénarios qui nécessitent une connectivité sortante entre la machine virtuelle et les points de terminaison publics.  
 
 Voici quelques exemples de scénarios nécessitant l’accès au point de terminaison public Azure :  
-- Utilisation de l’agent d’isolation Azure comme mécanisme de délimitation dans les clusters Pacemaker
-- Sauvegarde Azure
-- Azure Site Recovery  
+- Azure Fence Agent requiert l’accès à **management.azure.com** et à **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Utilisation d’un référentiel public pour la mise à jour corrective du système d’exploitation
 - Le trafic de données de l’application SAP peut nécessiter une connectivité sortante vers le point de terminaison public
 
@@ -70,7 +69,7 @@ Lisez tout d’abord les documents suivants :
 * [Réseaux virtuels - Règles définies par l’utilisateur](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) : concepts et règles de routage Azure  
 * [Balises de service des groupes de sécurité](../../../virtual-network/network-security-groups-overview.md#service-tags) : comment simplifier vos groupes de sécurité réseau et la configuration du pare-feu avec des balises de service
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Un Azure Standard Load Balancer supplémentaire pour les connexions sortantes vers Internet
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Option 1 : Un Azure Standard Load Balancer supplémentaire pour les connexions sortantes vers Internet
 
 Une option pour obtenir une connectivité sortante aux points de terminaison publics, et ce sans autoriser la connectivité entrante à la machine virtuelle à partir du point de terminaison public, consiste à créer un second équilibreur de charge avec une adresse IP publique, à ajouter les machines virtuelles au pool principal du deuxième équilibreur de charge et à définir uniquement les [règles sortantes](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
 Utilisez les [groupes de sécurité réseau](../../../virtual-network/network-security-groups-overview.md) pour contrôler les points de terminaison publics, qui sont accessibles pour les appels sortants à partir de la machine virtuelle.  
@@ -120,7 +119,7 @@ La configuration ressemblerait à ceci :
 
    Pour plus d’informations sur les groupes de sécurité réseau Azure, consultez [Groupes de sécurité](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Pare-feu Azure pour les connexions sortantes vers Internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Option n°2 : Pare-feu Azure pour les connexions sortantes vers Internet
 
 Une autre option pour obtenir une connectivité sortante aux points de terminaison publics, sans autoriser la connectivité entrante à la machine virtuelle à partir de points de terminaison publics, est le pare-feu Azure. Le pare-feu Azure est un service géré avec une haute disponibilité intégrée qui peut s’étendre sur plusieurs zones de disponibilité.  
 Vous devez également déployer un [Itinéraire défini par l’utilisateur](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes), associé au sous-réseau dans lequel les machines virtuelles et l’équilibreur de charge Azure sont déployés, pointant vers le pare-feu Azure, pour acheminer le trafic via le pare-feu Azure.  
@@ -170,7 +169,7 @@ L’architecture ressemblerait à :
    1. Nom de l’itinéraire : ToMyAzureFirewall, préfixe d’adresse : **0.0.0.0/0**. Type de tronçon suivant : Sélectionnez Appliance virtuelle. Adresse du tronçon suivant : entrez l’adresse IP privée du pare-feu que vous avez configuré : **11.97.1.4**.  
    1. Enregistrer
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Utilisation du proxy pour les appels de Pacemaker à l’API de gestion Azure
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Option 3 : Utilisation du proxy pour les appels de Pacemaker à l’API de gestion Azure
 
 Vous pouvez utiliser le proxy pour autoriser les appels de Pacemaker au point de terminaison public de l’API de gestion Azure.  
 
@@ -221,9 +220,9 @@ Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Autres solutions
+## <a name="other-options"></a>Autres options
 
-Si le trafic sortant est routé via un pare-feu tiers :
+Si le trafic sortant est routé via un proxy de pare-feu tiers basé sur une URL :
 
 - Si vous utilisez l’agent de clôture Azure, assurez-vous que la configuration du pare-feu autorise la connectivité sortante vers l’API de gestion Azure : `https://management.azure.com` et `https://login.microsoftonline.com`.   
 - Si vous utilisez l’infrastructure de mise à jour du cloud public Azure de SUSE pour appliquer les mises à jour et les correctifs, consultez [Infrastructure de mise à jour de cloud public Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)

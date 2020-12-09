@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463269"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutoriel : Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central
 
@@ -35,22 +35,19 @@ Vous pouvez créer une application à l’aide de la procédure suivante
 
 1. Accédez au site web du gestionnaire d’applications Azure IoT Central. Sélectionnez **Générer** dans la barre de navigation de gauche, puis cliquez sur l’onglet **Distribution**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant comment sélectionner le modèle d’application de gestion intelligente des stocks](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Capture d’écran montrant comment sélectionner le modèle d’application de gestion intelligente des stocks":::
 
 2. Sélectionnez l’onglet **Détail**, puis **Créer une application** en dessous de **Gestion des stocks intelligente**.
 
 3. **Créer une application** ouvre le nouveau formulaire d’application et remplit les détails demandés comme indiqué ci-dessous.
-   **Nom de l’application** : vous pouvez utiliser le nom suggéré par défaut ou entrer le nom convivial de l’application.
-   **URL** : vous pouvez utiliser l’URL par défaut suggérée ou entrer votre URL conviviale unique et facile à mémoriser. Ensuite, le paramètre par défaut est recommandé si vous disposez déjà d’un abonnement Azure. Vous pouvez commencer avec le plan tarifaire d’essai gratuit de 7 jours pour ensuite le convertir en plan tarifaire standard à tout moment avant l’expiration de l’essai gratuit.
-   **Informations de facturation** : Les informations sur le répertoire, l’abonnement Azure et la région sont requises pour configurer les ressources.
-   **Créer** : Sélectionnez Créer en bas de la page pour déployer votre application.
+    **Nom de l’application** : vous pouvez utiliser le nom suggéré par défaut ou entrer le nom convivial de l’application.
+    **URL** : vous pouvez utiliser l’URL par défaut suggérée ou entrer votre URL conviviale unique et facile à mémoriser. Ensuite, le paramètre par défaut est recommandé si vous disposez déjà d’un abonnement Azure. Vous pouvez commencer avec le plan tarifaire d’essai gratuit de 7 jours pour ensuite le convertir en plan tarifaire standard à tout moment avant l’expiration de l’essai gratuit.
+    **Informations de facturation** : Les informations sur le répertoire, l’abonnement Azure et la région sont requises pour configurer les ressources.
+    **Créer** : Sélectionnez Créer en bas de la page pour déployer votre application.
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant comment créer une application à partir du modèle d’application de gestion intelligente des stocks](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Capture d’écran montrant comment créer une application à partir du modèle d’application de gestion intelligente des stocks":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant les options de facturation lors de la création de l’application](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Capture d’écran montrant les options de facturation lors de la création de l’application":::
 
 ## <a name="walk-through-the-application"></a>examiner l’application 
 

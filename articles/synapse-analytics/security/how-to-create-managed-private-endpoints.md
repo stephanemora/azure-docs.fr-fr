@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323133"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461319"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Créer un point de terminaison privé managé pour votre source de données (version préliminaire)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Créer un point de terminaison privé managé pour votre source de données
 
 Cet article explique comment créer un point de terminaison privé managé pour votre sources de données dans Azure. Pour plus d’informations, consultez [Points de terminaison privés managés](./synapse-workspace-managed-private-endpoints.md).
 
@@ -42,7 +42,7 @@ Dans la fenêtre suivante, entrez les informations relatives à la source de don
 
 Une fois la demande envoyée, son état s’affiche. Pour vérifier que la création de votre point de terminaison privé managé a été correctement créée, vérifiez son *État d’approvisionnement*. Il se peut que vous deviez attendre 1 minute et sélectionner **Actualiser** pour mettre à jour l’état d’approvisionnement. Vous pouvez voir que le point de terminaison privé managé pour le compte ADLS Gen2 a été correctement créé.
 
-Vous pouvez également voir que l’ *État d’approbation* est *En attente*. Le propriétaire de la ressource cible peut approuver ou refuser la demande de connexion du point de terminaison privé. Si le propriétaire approuve la demande de connexion du point de terminaison privé, un lien privé est établi. En cas de refus, aucun lien privé n’est établi.
+Vous pouvez également voir que l’*État d’approbation* est *En attente*. Le propriétaire de la ressource cible peut approuver ou refuser la demande de connexion du point de terminaison privé. Si le propriétaire approuve la demande de connexion du point de terminaison privé, un lien privé est établi. En cas de refus, aucun lien privé n’est établi.
 ![État de la demande de création de point de terminaison privé managé](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes

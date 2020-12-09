@@ -4,12 +4,12 @@ description: Obtenez un aperçu des actions possibles avec les alertes de métri
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342176"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460843"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -57,7 +57,7 @@ Une fois que la règle d’alerte est créée, l’algorithme de machine learnin
 
 ### <a name="view-and-resolution-of-fired-alerts"></a>Affichage et résolution des alertes déclenchées
 
-Les exemples ci-dessus de déclenchement des règles d’alerte sont également consultables dans le portail Azure dans le panneau **Toutes les alertes** .
+Les exemples ci-dessus de déclenchement des règles d’alerte sont également consultables dans le portail Azure dans le panneau **Toutes les alertes**.
 
 Par exemple, si l’utilisation de « myVM » demeure au-dessus du seuil lors les vérifications suivantes, la règle d’alerte ne sera pas déclenchée à nouveau tant que les conditions ne seront pas résolues.
 
@@ -176,6 +176,7 @@ Vous trouverez la liste complète des types de ressources pris en charge dans ce
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrir comment créer, afficher et gérer des alertes de métrique dans Azure](alerts-metric.md)
+- [Découvrir comment créer des alertes dans Azure Monitor Metrics Explorer](./metrics-charts.md#create-alert-rules)
 - [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
 - [En savoir plus sur les groupes d’actions](action-groups.md)
 - [En savoir plus sur le type de condition des seuils dynamiques](alerts-dynamic-thresholds.md)

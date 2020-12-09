@@ -1,6 +1,6 @@
 ---
 title: Tables de métadonnées partagées
-description: Azure Synapse Analytics fournit un modèle de métadonnées partagées, où le fait de créer une table dans un pool Apache Spark serverless la rend accessible depuis un pool SQL serverless (préversion) et un pool SQL dédié sans duplication des données.
+description: Azure Synapse Analytics fournit un modèle de métadonnées partagées, où le fait de créer une table dans le pool Apache Spark serverless la rend accessible depuis le pool SQL serverless et le pool SQL dédié sans duplication des données.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461388"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tables de métadonnées partagées Azure Synapse Analytics
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables de type Parquet entre ses pools Apache Spark (préversion) et un pool SQL serverless (préversion).
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables de type Parquet entre ses pools Apache Spark et le pool SQL serverless.
 
 Une fois qu’une base de données a été créée par un travail Spark, vous pouvez y créer des tables avec Spark qui utilisent Parquet comme format de stockage. Ces tables sont immédiatement disponibles pour l’interrogation par n’importe lequel des pools Spark de l’espace de travail Azure Synapse. Elles peuvent également être utilisées à partir de n’importe quel travail Spark, soumis à certaines autorisations.
 

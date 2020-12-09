@@ -1,32 +1,30 @@
 ---
 title: Utiliser des étiquettes pour instrumenter des requêtes
-description: Conseils relatifs à l’utilisation de libellés pour instrumenter les requêtes d’un pool SQL Synapse dans le cadre du développement de solutions.
+description: Conseils relatifs à l’utilisation d’étiquettes pour instrumenter les requêtes des pools SQL dédiés dans Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459145"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462745"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utiliser des étiquettes pour instrumenter des requêtes dans un pool SQL Synapse
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Utilisation d’étiquettes pour instrumenter les requêtes des pools SQL dédiés dans Azure Synapse Analytics
 
-Cet article inclut des conseils pour développer des solutions utilisant des étiquettes afin d’instrumenter les requêtes d’un pool SQL.
-
-Conseils relatifs à l’utilisation d’étiquettes pour instrumenter des requêtes dans Azure Synapse Analytics pour le développement de solutions.
+Cet article inclut des conseils pour développer des solutions utilisant des étiquettes afin d’instrumenter les requêtes d’un pool SQL dédié.
 
 ## <a name="what-are-labels"></a>Que sont les étiquettes ?
 
-Un pool SQL prend en charge le concept de « libellé de requête ». Avant de poursuivre l’étude, examinons un exemple :
+Le pool SQL dédié prend en charge le concept d’étiquette de requête. Avant de poursuivre l’étude, examinons un exemple :
 
 ```sql
 SELECT *

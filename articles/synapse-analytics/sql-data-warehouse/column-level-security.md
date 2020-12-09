@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que la sécurité au niveau des colonnes pour Azure Synapse ?
+title: Sécurité au niveau des colonnes pour un pool SQL dédié
 description: La sécurité au niveau des colonnes permet aux clients de contrôler l'accès aux colonnes des tables de base de données en fonction du contexte d'exécution de l'utilisateur ou de son appartenance à un groupe, ce qui simplifie la conception et le codage de la sécurité de votre application et vous permet d'implémenter des restrictions d'accès aux colonnes.
 services: synapse-analytics
 author: julieMSFT
@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259881"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462509"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 
-La sécurité au niveau des colonnes permet aux clients de contrôler l'accès aux colonnes des tables de base de données en fonction du contexte d'exécution de l'utilisateur ou de son appartenance à un groupe.
+La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes des tables de base de données en fonction du contexte d’exécution de l’utilisateur ou de son appartenance à un groupe.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Depuis la publication de cette vidéo, la [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a également été mise en place pour Azure Synapse.
+Depuis la publication de cette vidéo, la [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) est devenue disponible pour un pool SQL dédié dans Azure Synapse.
 
 La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité de votre application, ce qui vous permet de limiter l'accès aux colonnes afin de protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. La base de données applique les restrictions d'accès à chaque tentative d'accès aux données à partir d'un niveau quelconque. Cette restriction renforce la fiabilité et la robustesse de votre sécurité en réduisant la surface d'exposition de votre système de sécurité global. En outre, la sécurité au niveau des colonnes élimine la nécessité d'ajouter des vues pour filtrer les colonnes afin d'imposer des restrictions d'accès aux utilisateurs.
 
-Vous pouvez implémenter la sécurité au niveau des colonnes à l'aide de l'instruction T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Avec ce mécanisme, l’authentification SQL et AAD (Azure AD) sont toutes deux prises en charge.
+Vous pouvez implémenter la sécurité au niveau des colonnes à l’aide de l’instruction T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Avec ce mécanisme, l’authentification SQL et AAD (Azure AD) sont toutes deux prises en charge.
 
 ![Le diagramme montre une table schématique avec la première colonne présentant un cadenas fermé en en-tête et des cellules de couleur orange alors que les autres colonnes sont des cellules blanches.](./media/column-level-security/cls.png)
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Exemples d'utilisation actuelle de la sécurité au niveau des colonnes :
 
-- Une entreprise de services financiers autorise uniquement les gestionnaires de comptes à accéder aux numéros de sécurité sociale, numéros de téléphone et autres informations d’identification personnelle des clients.
+- Une entreprise de services financiers autorise uniquement les gestionnaires de comptes à accéder aux numéros de sécurité sociale, numéros de téléphone et autres données à caractère personnel.
 - Un prestataire de soins de santé autorise uniquement les médecins et infirmières à accéder aux dossiers médicaux sensibles tout en empêchant les membres du service de facturation de consulter ces données.

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488066"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -130,9 +130,11 @@ La configuration décrite dans cet article concerne l’accès à RDS via Site W
 
 | Méthode d'authentification | Configuration client prise en charge |
 | --------------------- | ------------------------------ |
-| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer ou [le mode IE d’Edge Chromium](/deployedge/edge-ie-mode) + module complémentaire ActiveX RDS |
+| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer* ou [le mode IE d’Edge Chromium](/deployedge/edge-ie-mode) + module complémentaire ActiveX RDS |
 | Pré-authentification    | Client Site Web Bureau à distance : navigateur web compatible avec HTML5, tel que Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures) |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
+
+\* Le mode IE de Edge Chromium est requis lorsque le portail Mes applications est utilisé pour accéder à l’application Bureau à distance.  
 
 Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la préauthentification, vous pouvez utiliser les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
 

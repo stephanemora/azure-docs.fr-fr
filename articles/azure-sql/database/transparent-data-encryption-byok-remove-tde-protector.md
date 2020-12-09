@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321402"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461855"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Supprimer un protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "93321402"
 Cette rubrique décrit comment répondre à un protecteur TDE potentiellement compromis pour Azure SQL Database ou Azure Synapse Analytics à l’aide de TDE avec des clés gérées par le client dans Azure Key Vault – Prise en charge du modèle BYOK (Bring Your Own Key). Pour en savoir plus sur la prise en charge BYOK pour TDE, consultez la [page de vue d’ensemble](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> Les procédures décrites dans cet article doivent uniquement être effectuées dans les cas extrêmes ou dans des environnements de test. Examinez attentivement ces étapes, car la suppression des protecteurs TDE activement utilisés d’Azure Key Vault entraîne l’ **indisponibilité de la base de données**.
+> Les procédures décrites dans cet article doivent uniquement être effectuées dans les cas extrêmes ou dans des environnements de test. Examinez attentivement ces étapes, car la suppression des protecteurs TDE activement utilisés d’Azure Key Vault entraîne l’**indisponibilité de la base de données**.
 
 Si vous suspectez qu’une clé est compromise, en cas d’accès non autorisé d’un utilisateur ou d’un service à cet clé, par exemple, nous vous recommandons de supprimer cette clé.
 
@@ -35,13 +35,13 @@ Gardez à l’esprit qu’une fois le protecteur TDE supprimé au sein de Key Va
 Ce guide pratique expose deux approches possibles en fonction du résultat souhaité après la réponse à un incident :
 
 - Pour rendre **inaccessibles** les bases de données dans Azure SQL Database/Azure Synapse Analytics.
-- Pour rendre **inaccessibles** les bases de données dans Azure SQL Database / Azure Synapse Analytics (anciennement SQL Data Warehouse).
+- Pour rendre **inaccessibles** les bases de données dans Azure SQL Database/Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez avoir un abonnement Azure et être un administrateur de cet abonnement
 - Azure PowerShell doit être installé et en cours d’exécution.
-- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour une base de données Azure SQL ou Azure Synapse (anciennement SQL Data Warehouse). Consultez [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption avec la prise en charge Bring Your Own Key pour Azure SQL Database et Data Warehouse) pour en savoir plus.
+- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour Azure SQL Database ou Azure Synapse. Consultez [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](transparent-data-encryption-byok-overview.md) (Transparent Data Encryption avec la prise en charge Bring Your Own Key pour Azure SQL Database et Data Warehouse) pour en savoir plus.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

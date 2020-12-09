@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un pool Apache Spark serverless (préversion) avec Synapse Studio'
+title: 'Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio'
 description: Créez un pool Apache Spark serverless à l’aide de Synapse Studio en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324186"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462028"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Démarrage rapide : Créer un pool Apache Spark serverless (préversion) avec Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Démarrage rapide : Créer un pool Apache Spark serverless avec Synapse Studio
 
 Azure Synapse Analytics propose différents moteurs d’analytique pour vous aider à ingérer, transformer, modéliser, analyser et servir vos données. Un pool Apache Spark offre des fonctionnalités de calcul Big Data open source. Après avoir créé un pool Apache Spark dans votre espace de travail Synapse, vous pouvez charger, modéliser, traiter et servir les données pour obtenir des insights.  
 
@@ -47,7 +47,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 ## <a name="launch-synapse-studio"></a>Lancer Synapse Studio 
 
-Dans la vue d’ensemble de l’espace de travail, sélectionnez l’ **URL web de l’espace de travail** pour ouvrir Synapse Studio.
+Dans la vue d’ensemble de l’espace de travail, sélectionnez l’**URL web de l’espace de travail** pour ouvrir Synapse Studio.
 
 ![Vue d’ensemble de l’espace de travail Synapse du portail Azure avec l’option Lancer Synapse Studio mise en surbrillance.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
@@ -61,9 +61,9 @@ Dans la vue d’ensemble de l’espace de travail, sélectionnez l’ **URL web 
     
     ![Hub de gestion de Synapse Studio avec navigation dans les pools Apache Spark sélectionnée](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-22.png)
 
-1. Sélectionnez la commande **+ Nouveau**  ; l’assistant de création d’un pool Apache Spark s’affiche. 
+1. Sélectionnez la commande **+ Nouveau** ; l’assistant de création d’un pool Apache Spark s’affiche. 
 
-1. Sous l’onglet **Général** , entrez les informations suivantes :
+1. Sous l’onglet **Général**, entrez les informations suivantes :
 
     | Paramètre | Valeur suggérée | Description |
     | :------ | :-------------- | :---------- |
@@ -81,7 +81,7 @@ Dans la vue d’ensemble de l’espace de travail, sélectionnez l’ **URL web 
 
 1. Nous n’ajoutons aucune étiquette pour le moment. Par conséquent, sélectionnez **Vérifier + créer**.
 
-1. Sous l’onglet **Vérifier + créer** , vérifiez que les informations reflètent bien ce que vous avez entré précédemment, puis cliquez sur **Créer**. 
+1. Sous l’onglet **Vérifier + créer**, vérifiez que les informations reflètent bien ce que vous avez entré précédemment, puis cliquez sur **Créer**. 
 
     ![Créer un nouveau pool Apache Spark pour Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
@@ -100,7 +100,7 @@ Effectuez les étapes ci-dessous pour supprimer le pool Apache Spark de l’espa
 Si vous souhaitez supprimer le pool Apache Spark, procédez comme suit :
 
 1. Accédez aux pools Apache Spark dans le hub de gestion de Synapse Studio.
-1. Sélectionnez les points de suspension en regard du pool Apache à supprimer (dans ce cas, **contosospark** ) pour afficher les commandes du pool Apache Spark.
+1. Sélectionnez les points de suspension en regard du pool Apache à supprimer (dans ce cas, **contosospark**) pour afficher les commandes du pool Apache Spark.
 
     ![Liste des pools Apache Spark, avec sélection du pool récemment créé.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 
