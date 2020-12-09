@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14544f58bcda56a55cef33de8fe0a70d5859b589
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019832"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510945"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 par rapport à Media Services v3
 
@@ -80,7 +80,6 @@ Les API v3 présentent les différences de fonctionnalités suivantes par rappor
     * Combinaison de ressources
     * Superpositions
     * Rognage
-    * Sprites de miniatures
     * Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
     * Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
 * Les événements en direct avec transcodage ne gèrent actuellement pas l’insertion d’ardoise à mi-parcours ni l’insertion de marqueur publicitaire par le biais d’un appel d’API. 

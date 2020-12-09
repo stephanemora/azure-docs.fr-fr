@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: c1d21d88ed49cb14aa9f964791154f001a40fbe2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 10dff18f7b9db7273fcd6ec92bcca5970bb83b08
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499575"
+ms.locfileid: "96510367"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Exemples de code Java pour Recherche cognitive Azure
 
@@ -25,7 +25,7 @@ Découvrez les exemples de code Java qui montrent les fonctionnalités de Recher
 | [Azure-Samples/azure-search-java-samples](https://github.com/Azure-Samples/azure-search-java-samples) | Exemples de code qui accompagnent les articles de guide pratique. **Les exemples de ce référentiel n’ont pas encore été mis à jour pour une utilisation avec le Kit de développement logiciel (SDK) Azure pour Java**. Actuellement, ces exemples appellent les API REST en code Java.|
 
 > [!Tip]
-> Essayez le [navigateur d’exemples](/samples/browse/?languages=csharp&products=azure-cognitive-search) pour rechercher des exemples de code Microsoft dans GitHub, filtrés par produit, par service et par langage.
+> Essayez le [navigateur d’exemples](/samples/browse/?languages=java&products=azure-cognitive-search) pour rechercher des exemples de code Microsoft dans GitHub, filtrés par produit, par service et par langage.
 
 ## <a name="java-sdk-samples"></a>Exemples du kit SDK Java
 

@@ -1,24 +1,24 @@
 ---
-title: Tutoriel - Provisionner une instance Azure Spring Cloud avec Terraform
+title: Provisionner une instance Azure Spring Cloud avec Terraform
 description: Provisionnez une instance Azure Spring Cloud avec Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091642"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533789"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutoriel : Provisionner une instance Azure Spring Cloud avec Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Provisionner une instance Azure Spring Cloud avec Terraform
 
 **Cet article s’applique à :** ✔️ Java ✔️ C#
 
-Ce tutoriel crée une instance Azure Spring Cloud à l’aide de Terraform. Les procédures vous guident tout au long de la création des ressources suivantes :
+Cet exemple crée une instance Azure Spring Cloud à l’aide de Terraform. Les procédures vous guident tout au long de la création des ressources suivantes :
 
 > [!div class="checklist"]
 > * Groupe de ressources
@@ -161,7 +161,7 @@ Cette section montre comment mettre à jour la configuration pour activer les jo
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article.
 
-Exécutez la commande [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) pour supprimer les ressources Azure créées dans ce didacticiel :
+Exécutez la commande [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) pour supprimer les ressources Azure créées dans cet exercice :
 
 ```bash
 terraform destroy -auto-approve

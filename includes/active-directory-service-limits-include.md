@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509459"
 ---
 Présentation des contraintes d’utilisation et autres limites de service pour le service Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Présentation des contraintes d’utilisation et autres limites de service pour 
 | Volet d'accès |Le nombre d’applications visibles dans le volet d’accès n’est pas limité par utilisateur, quelles que soient les licences assignées.  |
 | Rapports | 1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées. |
 | Unités administratives | Une ressource Azure AD peut faire partie de 30 unités administratives au maximum. |
-| Rôles et autorisations Azure AD | <ul><li>Vous pouvez créer un maximum de 30 [rôles personnalisés Azure AD](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context) dans une organisation Azure AD.</li><li>Vous ne pouvez pas ajouter un groupe en tant que [groupe propriétaire](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>La capacité d’un utilisateur à lire les informations de locataire d’autres utilisateurs peut être limitée seulement par une option d’activation/désactivation à l’échelle de l’organisation Azure AD pour désactiver l’accès de tous les utilisateurs non administrateurs à l’ensemble des informations de locataire (non recommandé). Pour plus d’informations, consultez [Pour restreindre les autorisations par défaut des utilisateurs membres](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Il peut s’écouler jusqu'à 15 minutes ou bien falloir une déconnexion/connexion pour que les ajouts et révocations de l’appartenance au rôle d’administrateur prennent effet.</li></ul> |
+| Rôles et autorisations Azure AD | <ul><li>Vous pouvez créer un maximum de 30 [rôles personnalisés Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) dans une organisation Azure AD.</li><li>Vous ne pouvez pas ajouter un groupe en tant que [groupe propriétaire](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership).</li><li>La capacité d’un utilisateur à lire les informations de locataire d’autres utilisateurs peut être limitée seulement par une option d’activation/désactivation à l’échelle de l’organisation Azure AD pour désactiver l’accès de tous les utilisateurs non administrateurs à l’ensemble des informations de locataire (non recommandé). Pour plus d’informations, consultez [Pour restreindre les autorisations par défaut des utilisateurs membres](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>Il peut s’écouler jusqu'à 15 minutes ou bien falloir une déconnexion/connexion pour que les ajouts et révocations de l’appartenance au rôle d’administrateur prennent effet.</li></ul> |

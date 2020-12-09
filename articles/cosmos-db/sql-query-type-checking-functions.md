@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2becc9216d847dfe26d8fd3a433993112fff7980
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341499"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546348"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Fonctions de contrôle de type (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,4 +40,4 @@ Les fonctions suivantes prennent en charge la vérification de type par rapport 
 - [Fonctions système Azure Cosmos DB](sql-query-system-functions.md)
 - [Présentation d’Azure Cosmos DB](introduction.md)
 - [Fonctions définies par l’utilisateur](sql-query-udfs.md)
-- [Agrégats](sql-query-aggregates.md)
+- [Agrégats](sql-query-aggregate-functions.md)

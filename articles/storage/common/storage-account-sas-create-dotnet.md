@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a439ce5cd56bde5f9a60a1d99f5299bd16c81f8b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593601"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519074"
 ---
 # <a name="create-an-account-sas-with-net"></a>Créer une SAP de compte avec .NET
 
@@ -67,8 +67,6 @@ static string GetAccountSASToken()
 Afin utiliser la SAP de compte pour accéder aux API au niveau du service pour le service BLOB, construisez un client de service d’objet blob à l’aide de la SAP et du point de terminaison de stockage d’objets blob de votre compte de stockage.
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
-
-
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
 

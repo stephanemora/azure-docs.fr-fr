@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddce982f43a3c730d8c25527f4354983c36e89e8
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695263"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530820"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD
 
@@ -154,7 +154,7 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 * Prise en charge de l'exécution de requêtes d'utilisateurs ou de groupes, conformément à la [section 3.4.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalId`, et les groupes sont interrogés via `displayName`.  
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
 * Prise en charge de l'exécution de requêtes de groupes par ID et par membre, conformément à la section 3.4.2 du protocole SCIM.  
-* Prend en charge le filtre [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) lors de l’interrogation de la ressource de groupe, conformément à la section 3.4.2.5 du protocole SCIM.
+* Prend en charge le filtre [excludedAttributes=members](#get-group) lors de l’interrogation de la ressource de groupe, conformément à la section 3.4.2.5 du protocole SCIM.
 * Acceptation d’un jeton du porteur unique pour l’authentification et l’autorisation d’Azure AD dans votre application.
 * Prise en charge de la suppression réversible d’un utilisateur `active=false` et de la restauration de l’utilisateur `active=true` (l’objet utilisateur doit être retourné dans une demande, que l’utilisateur soit actif ou non). La seule fois où l’utilisateur ne doit pas être retourné est lorsqu’il est supprimé définitivement de l’application. 
 
@@ -199,29 +199,21 @@ Cette section fournit des exemples de requêtes SCIM émises par le client SCIM 
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
   - [Get User](#get-user) ([Request](#request-1) / [Response](#response-1))
   - [Get User by query](#get-user-by-query) ([Request](#request-2) / [Response](#response-2))
-  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3)
-/ [Response](#response-3))
-  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) /  [Response](#response-4))
-  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5)
-/ [Response](#response-5)) 
-  - [Désactiver l’utilisateur](#disable-user) ([Requête](#request-14) / 
-[Réponse](#response-14))
-  - [Delete User](#delete-user) ([Request](#request-6) / 
-[Response](#response-6))
+  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3) / [Response](#response-3))
+  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) / [Response](#response-4))
+  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5) / [Response](#response-5)) 
+  - [Désactiver l’utilisateur](#disable-user) ([Requête](#request-14) / [Réponse](#response-14))
+  - [Delete User](#delete-user) ([Request](#request-6) / [Response](#response-6))
 
 
 [Opérations de groupe](#group-operations)
-  - [Create Group](#create-group) ( [Request](#request-7) / [Response](#response-7))
-  - [Get Group](#get-group) ( [Request](#request-8) / [Response](#response-8))
+  - [Create Group](#create-group) ([Request](#request-7) / [Response](#response-7))
+  - [Get Group](#get-group) ([Request](#request-8) / [Response](#response-8))
   - [Get Group by displayName](#get-group-by-displayname) ([Request](#request-9) / [Response](#response-9))
-  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) /
- [Response](#response-10))
-  - [Update Group [Add Members]](#update-group-add-members) ( [Request](#request-11) /
-[Response](#response-11))
-  - [Update Group [Remove Members]](#update-group-remove-members) ( [Request](#request-12) /
-[Response](#response-12))
-  - [Delete Group](#delete-group) ([Request](#request-13) /
-[Response](#response-13))
+  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) / [Response](#response-10))
+  - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
+  - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
+  - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 ### <a name="user-operations"></a>Opérations utilisateur
 
@@ -750,7 +742,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Plages d’adresses IP
-Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. Notez que vous devez examiner attentivement la liste des plages d’adresses IP pour les adresses calculées. Une adresse telle que « 40.126.25.32 » peut être représentée dans la liste de plages d’adresses IP sous la forme « 40.126.0.0/18 ». Vous pouvez également récupérer par programme la liste de plages d’adresses IP à l’aide de l’[API](/rest/api/virtualnetwork/servicetags/list) suivante.
+Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. Notez que vous devez examiner attentivement la liste des plages d’adresses IP pour les adresses calculées. Une adresse telle que « 40.126.25.32 » peut être représentée dans la liste de plages d’adresses IP sous la forme « 40.126.0.0/18 ». Vous pouvez aussi récupérer programmatiquement la liste de plages d’adresses IP avec l’[API](/rest/api/virtualnetwork/servicetags/list) suivante.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Étape 3 : Créer un point de terminaison SCIM
 
@@ -1173,10 +1165,10 @@ Une fois le cycle initial démarré, vous pouvez sélectionner **Journaux d’ap
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Étape 5 : Publier votre application dans la galerie d’applications Azure AD
 
-Si vous créez une application qui sera utilisée par plusieurs locataires, vous pouvez la rendre disponible dans la galerie d’applications Azure AD. Cela facilite pour les organisations la découverte de l’application et la configuration de l’approvisionnement. Vous pouvez facilement publier votre application dans la galerie Azure AD et mettre l’approvisionnement à la disposition d’autres utilisateurs. Découvrez les étapes [ici](../azuread-dev/howto-app-gallery-listing.md). Microsoft vous aidera à intégrer votre application à la galerie, à tester votre point de terminaison et à publier la [documentation](../saas-apps/tutorial-list.md) d'intégration destinée aux clients. 
+Si vous créez une application qui sera utilisée par plusieurs locataires, vous pouvez la rendre disponible dans la galerie d’applications Azure AD. Cela facilite pour les organisations la découverte de l’application et la configuration de l’approvisionnement. Vous pouvez facilement publier votre application dans la galerie Azure AD et mettre l’approvisionnement à la disposition d’autres utilisateurs. Découvrez les étapes [ici](../develop/v2-howto-app-gallery-listing.md). Microsoft vous aidera à intégrer votre application à la galerie, à tester votre point de terminaison et à publier la [documentation](../saas-apps/tutorial-list.md) d'intégration destinée aux clients.
 
 ### <a name="gallery-onboarding-checklist"></a>Liste de vérification d’intégration à la galerie
-Suivez la liste de vérification ci-dessous pour vous assurer que votre application est intégrée rapidement et que les clients bénéficient d’une expérience de déploiement sans heurts. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
+Suivez la liste de vérification ci-dessous pour assurer l’intégration rapide de votre application et une expérience de déploiement fluide pour les clients. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
 > [!div class="checklist"]
 > * Prise en charge d’un point de terminaison de groupe et d’utilisateur [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (un seul est obligatoire, mais il est recommandé de disposer des deux)
 > * Prise en charge d’au moins 25 requêtes par seconde par locataire pour s’assurer que les utilisateurs et les groupes sont provisionnés et déprovisionnés sans délai (obligatoire)
@@ -1248,3 +1240,4 @@ Pour contribuer à la sensibilisation et à la demande de notre intégration con
 * [Filtres d’étendue pour le provisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifications d’approvisionnement de comptes](user-provisioning.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
+

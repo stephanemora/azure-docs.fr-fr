@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: e67a323e03ae8ac0a0e34df1f7cc1ee4fe0901d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901500"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519006"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -58,7 +58,7 @@ Consultez l’article [Schéma d’événements de stockage Blob](../../event-gr
 
 ## <a name="filtering-events"></a>Filtrage des événements
 
-Les [événements d’objets BLOB peuvent être filtrés](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) par le type d’événement, le nom du conteneur ou le nom de l’objet qui a été créé/supprimé. Les filtres dans Event Grid correspondent au début ou à la fin de l’objet, de sorte que les événements avec un objet correspondant sont dirigés vers l’abonné.
+Les [événements d’objets BLOB peuvent être filtrés](/cli/azure/eventgrid/event-subscription) par le type d’événement, le nom du conteneur ou le nom de l’objet qui a été créé/supprimé. Les filtres dans Event Grid correspondent au début ou à la fin de l’objet, de sorte que les événements avec un objet correspondant sont dirigés vers l’abonné.
 
 Pour en savoir plus sur l’application de filtres, consultez [Filtrer des événements pour Event Grid](../../event-grid/how-to-filter-events.md).
 
@@ -96,7 +96,7 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 > [!div class="checklist"]
 > * Comme plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, il est important de ne pas considérer que les événements proviennent d’une source particulière, mais de vérifier le sujet du message pour vous assurer qu’il provient d’un compte de stockage que vous attendez.
 > * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
-> * Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Les messages pouvant arriver dans le désordre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier. Le champ de séquence est une valeur de chaîne qui représente l’ordre logique des événements pour n’importe quel nom d’objet blob. Vous pouvez utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet blob.
 > * Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
 > * Utilisez le champ blobType pour comprendre le type d’opération autorisé sur l’objet Blob, et les types de bibliothèque client que vous devez utiliser pour accéder à l’objet Blob. Les valeurs valides sont `BlockBlob` ou `PageBlob`. 

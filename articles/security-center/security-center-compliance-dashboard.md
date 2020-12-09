@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951194"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533908"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
@@ -34,7 +34,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour parcourir les fonctionnalités couvertes dans ce tutoriel, [Azure Defender](azure-defender.md) doit être activé. Vous pouvez essayer gratuitement Azure Defender pendant 30 jours.
+Pour parcourir les fonctionnalités couvertes dans ce tutoriel :
+
+- [Azure Defender](azure-defender.md) doit être activé. Vous pouvez essayer gratuitement Azure Defender pendant 30 jours.
+- Vous devez être connecté avec un compte qui dispose d’un accès de lecteur aux données de conformité de la stratégie (**lecteur Sécurité** est insuffisant). Le rôle **Lecteur général** pour l’abonnement fonctionnera. Au minimum, les rôles **Contributeur de stratégie de ressource** et **Administration de sécurité** doivent vous être affectés.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
 
@@ -52,15 +55,15 @@ Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de 
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire":::
 
-1. Sélectionnez un onglet correspondant à une norme de conformité qui vous intéresse (1). Vous verrez sur quels abonnements la norme est appliquée (2) et la liste de tous les contrôles relatifs à cette norme (3). Pour les contrôles applicables, vous pouvez voir les détails des évaluations ayant réussi ou échoué associées à ce contrôle (4), ainsi que le nombre de ressources affectées (5). Certains contrôles sont grisés. Aucune évaluation Security Center n’est associée à ces contrôles. Vérifiez les exigences de ces contrôles et évaluez-les vous-même dans votre environnement. Certaines d’entre eux peuvent être liés au processus et ne pas être d’ordre technique.
+1. Sélectionnez un onglet correspondant à une norme de conformité qui vous intéresse (1). Vous verrez sur quels abonnements la norme est appliquée (2) et la liste de tous les contrôles relatifs à cette norme (3). Pour les contrôles applicables, vous pouvez voir les détails des évaluations ayant réussi ou échoué associées à ce contrôle (4), ainsi que le nombre de ressources affectées (5). Certains contrôles sont grisés. Aucune évaluation Security Center n’est associée à ces contrôles. Vérifiez les exigences de ces contrôles et évaluez-les vous-même dans votre environnement. Certaines d’entre elles peuvent être liés au processus et ne pas être d’ordre technique.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Tableau de bord de conformité réglementaire":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploration des détails de la conformité à une norme spécifique":::
 
 1. Pour générer et télécharger un rapport PDF résumant votre état de compatibilité actuel pour une norme particulière, cliquez sur **Télécharger un rapport**.
 
     Le rapport fournit un résumé détaillé de votre état de conformité pour la norme sélectionnée en fonction des données des évaluations de Security Center, et il est organisé selon les contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Tableau de bord de conformité réglementaire":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Télécharger le rapport de conformité":::
 
 ## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
 
@@ -70,11 +73,11 @@ Compte tenu des informations figurant dans le tableau de bord de conformité ré
 
 1.  Vous pouvez sélectionner une ressource particulière pour voir plus de détails et suivre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0 (nouveau)** , vous pouvez sélectionner la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Tableau de bord de conformité réglementaire":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La sélection d’une recommandation concernant une norme vous amène directement à la page des détails de la recommandation":::
 
 1. Dans cet exemple, quand vous sélectionnez **Entreprendre une action** dans la page des détails de la recommandation, vous arrivez dans les pages relatives aux machines virtuelles Azure du portail Azure, où vous pouvez ouvrir l’onglet **Sécurité** et activer le chiffrement :
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Tableau de bord de conformité réglementaire":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Le bouton Entreprendre une action de la page des détails de la recommandation vous amène aux options de correction":::
 
     Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 

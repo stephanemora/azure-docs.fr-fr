@@ -1,7 +1,7 @@
 ---
 title: Nouveautés des identités externes d’Azure Active Directory
 description: Identités externes Azure Active Directory - Nouvelle documentation et documentation mise à jour.
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f7c296b4a5bed0c3e599f59e9f0461295b86f197
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 35fa6909160ca707035ee9fc599e4035c2ae7981
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550022"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573899"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identités externes d’Azure Active Directory : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation sur les identités externes Azure Active Directory. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés liées au service d’identités externes, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="updated-articles"></a>Articles mis à jour
+- [Partage externe dans Microsoft 365 et collaboration dans Azure Active Directory B2B](o365-external-user.md)
+- [Octroyer aux comptes de partenaires gérés localement un accès aux ressources cloud à l’aide d’Azure AD B2B Collaboration](hybrid-on-premises-to-cloud.md)
+- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](user-properties.md)
+
 
 ## <a name="october-2020"></a>Octobre 2020
 

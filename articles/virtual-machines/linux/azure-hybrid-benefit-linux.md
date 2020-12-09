@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980879"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500612"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Comment Azure Hybrid Benefit s’applique-t-il aux machines virtuelles Linux ?
 
@@ -155,9 +155,13 @@ A : Non, vous ne pouvez pas. Azure Hybrid Benefit prend en charge la conversion
 
 A : Non, vous ne pouvez pas. Azure Hybrid Benefit prend en charge la conversion uniquement sur les images avec Paiement à l'utilisation.
 
-*Q : J’ai chargé ma propre image RHEL à partir d’un dossier local (via ASR ou autre) vers Azure. Puis-je convertir la facturation de ces images de BYOS à PAYG ?*
+*Q : J’ai chargé ma propre image RHEL à partir d’un dossier local (via Azure Migrate, ASR ou autre) vers Azure. Puis-je convertir la facturation de ces images de BYOS à PAYG ?*
 
 A : Non, vous ne pouvez pas. La fonctionnalité Azure Hybrid Benefit est actuellement disponible uniquement pour les images de la Place de marché RHEL et SLES. 
+
+*Q : J’ai chargé ma propre image RHEL à partir d’un dossier local (via Azure Migrate, ASR ou autre) vers Azure. Dois-je faire quelque chose pour tirer parti d’Azure Hybrid Benefit ?*
+
+A : Vous n’avez pas à faire quoi que ce soit. Les images RHEL que vous chargez sont déjà considérées comme BYOS et vous êtes facturé uniquement pour les coûts d’infrastructure Azure. Vous êtes responsable des coûts des abonnements RHEL, comme c’est le cas pour vos environnements locaux. 
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur des machines virtuelles déployées à partir d’images SAP de la Place de marché RHEL et SLES ?*
 
@@ -184,4 +188,4 @@ Cette section contient une liste des problèmes courants susceptibles de se prod
 | « Impossible de terminer l’action, car les informations dont nous disposons indique que vous n’avez pas réussi à activer Red Hat Cloud Access sur votre abonnement Azure... » | Pour pouvoir utiliser l’avantage avec des machines virtuelles RHEL, vous devez d’abord inscrire vos abonnements Azure auprès de Red Hat Cloud Access. Visitez ce lien pour en savoir plus sur l’inscription de vos abonnements Azure pour Red Hat Cloud Access
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment créer et mettre à jour des machines virtuelles et ajouter des types de licences (RHEL_BYOS, SLES_BYOS) pour Azure Hybrid Benefit avec [Azure CLI ici.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)
+* Découvrez comment créer et mettre à jour des machines virtuelles et ajouter des types de licences (RHEL_BYOS, SLES_BYOS) pour Azure Hybrid Benefit avec [Azure CLI ici.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

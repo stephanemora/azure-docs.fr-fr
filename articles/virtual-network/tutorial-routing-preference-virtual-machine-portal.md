@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: dd9c1c23bddf78eb1bdb8fc07f2cb6f8a7faa859
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491211"
+ms.locfileid: "96533704"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide du portail Azure
 
@@ -39,9 +39,9 @@ Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
 2. Sélectionnez **Calculer**, puis **Machine virtuelle Windows Server 2016** ou le système d’exploitation de votre choix.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Value|
+    |Paramètre|Valeur|
     |---|---|
-    |Nom|myVM|
+    |Name|myVM|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|

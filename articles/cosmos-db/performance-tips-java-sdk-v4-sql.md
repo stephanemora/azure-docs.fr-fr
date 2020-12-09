@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 6b87a06620a6e20ff67bde6fde9ed01aaef7fc9e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1359d01136067b6a939efd1cc0cd7db36f4dc2d6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339714"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545466"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Conseils sur les performances pour le SDK Java v4 Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 * **Mode de connexion : Utiliser le mode direct**
 <a id="direct-connection"></a>
     
-    Le mode de connexion par défaut du kit de développement logiciel (SDK) Java est le mode direct. Vous pouvez configurer le mode de connexion dans le générateur de clients à l’aide de la méthode *directMode()* ou *gatewayMode()* , comme indiqué ci-dessous. Pour configurer l’un ou l’autre de ces modes avec les paramètres par défaut, appelez l’une des méthodes sans arguments. Sinon, transmettez une instance de classe de paramètres de configuration comme argument ( *DirectConnectionConfig* pour *directMode()* ,  *GatewayConnectionConfig* pour *gatewayMode()* .). Pour en savoir plus sur les différentes options de connectivité, consultez l’article sur les [modes de connectivité](sql-sdk-connection-modes.md).
+    Le mode de connexion par défaut du kit de développement logiciel (SDK) Java est le mode direct. Vous pouvez configurer le mode de connexion dans le générateur de clients à l’aide de la méthode *directMode()* ou *gatewayMode()* , comme indiqué ci-dessous. Pour configurer l’un ou l’autre de ces modes avec les paramètres par défaut, appelez l’une des méthodes sans arguments. Sinon, transmettez une instance de classe de paramètres de configuration comme argument (*DirectConnectionConfig* pour *directMode()* ,  *GatewayConnectionConfig* pour *gatewayMode()* .). Pour en savoir plus sur les différentes options de connectivité, consultez l’article sur les [modes de connectivité](sql-sdk-connection-modes.md).
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK Java V4
 
@@ -89,7 +89,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 Nous vous recommandons de suivre les instructions relatives à l’activation de l’accélération réseau dans votre machine virtuelle Azure [Windows (instructions ici)](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux (instructions ici)](../virtual-network/create-vm-accelerated-networking-cli.md) pour optimiser les performances.
 
-Sans accélération réseau, les E/S qui transitent entre votre machine virtuelle Azure et d’autres ressources Azure peuvent être inutilement routées par le biais d’un hôte et d’un commutateur virtuel situés entre la machine virtuelle et sa carte réseau. Le fait d’avoir l’hôte et le commutateur virtuel inline dans le chemin de données entraîne non seulement une augmentation de la latence et de l’instabilité dans le canal de communication, mais aussi le vol des cycles processeur de la machine virtuelle. L’accélération réseau offre plusieurs avantages : la machine virtuelle interagit directement avec la carte réseau sans intermédiaires, les détails de la stratégie réseau précédemment gérés par l’hôte et le commutateur virtuel sont désormais gérés dans le matériel au niveau de la carte réseau, et l’hôte et le commutateur virtuel sont contournés. L’activation de l’accélération réseau se traduit généralement par une latence plus faible et plus *cohérente* , un débit plus élevé et une utilisation réduite du processeur.
+Sans accélération réseau, les E/S qui transitent entre votre machine virtuelle Azure et d’autres ressources Azure peuvent être inutilement routées par le biais d’un hôte et d’un commutateur virtuel situés entre la machine virtuelle et sa carte réseau. Le fait d’avoir l’hôte et le commutateur virtuel inline dans le chemin de données entraîne non seulement une augmentation de la latence et de l’instabilité dans le canal de communication, mais aussi le vol des cycles processeur de la machine virtuelle. L’accélération réseau offre plusieurs avantages : la machine virtuelle interagit directement avec la carte réseau sans intermédiaires, les détails de la stratégie réseau précédemment gérés par l’hôte et le commutateur virtuel sont désormais gérés dans le matériel au niveau de la carte réseau, et l’hôte et le commutateur virtuel sont contournés. L’activation de l’accélération réseau se traduit généralement par une latence plus faible et plus *cohérente*, un débit plus élevé et une utilisation réduite du processeur.
 
 Limitations : l’accélération réseau doit être prise en charge sur le système d’exploitation de la machine virtuelle et ne peut être activée que si la machine virtuelle est arrêtée et libérée. La machine virtuelle ne peut pas être déployée avec Azure Resource Manager.
 
@@ -108,7 +108,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
 
 * **Utiliser le niveau de cohérence le plus bas requis pour votre application**
 
-    Quand vous créez un *CosmosClient* , la cohérence par défaut utilisée est *Session* si elle n’est pas explicitement définie. Si la cohérence *Session* n’est pas requise par votre logique d’application, attribuez *Eventual* à *Consistency*. Remarque : Il est recommandé d’utiliser au moins une cohérence *Session* dans les applications utilisant le processeur de flux de modification Azure Cosmos DB.
+    Quand vous créez un *CosmosClient*, la cohérence par défaut utilisée est *Session* si elle n’est pas explicitement définie. Si la cohérence *Session* n’est pas requise par votre logique d’application, attribuez *Eventual* à *Consistency*. Remarque : Il est recommandé d’utiliser au moins une cohérence *Session* dans les applications utilisant le processeur de flux de modification Azure Cosmos DB.
 
 * **Utiliser l’API Async pour maximiser le débit provisionné**
 
@@ -124,7 +124,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
     
     La colocalisation géographique peut vous faire bénéficier d’un débit plus élevé et plus cohérent lors de l’utilisation de l’API Sync (consultez [Colocaliser des clients dans la même région Azure pour les performances](#collocate-clients)), mais elle n’est pas censée dépasser le débit possible de l’API Async.
 
-    Certains utilisateurs peuvent également ne pas connaître [Project Reactor](https://projectreactor.io/), le framework Reactive Streams utilisé pour implémenter l’API Async du SDK Java v4 Azure Cosmos DB. Si cela pose problème, nous vous recommandons de lire notre [guide de présentation des modèles Reactor](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md), puis de consulter cette [introduction à la programmation réactive](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) pour vous familiariser avec ces outils. Si vous avez déjà utilisé Azure Cosmos DB avec une interface Async et le SDK Java v2 Async Azure Cosmos DB, vous connaissez peut-être [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava), mais ne savez pas ce qui a changé dans Project Reactor. Dans ce cas, consultez notre [guide sur Reactor et RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) pour en savoir plus.
+    Certains utilisateurs peuvent également ne pas connaître [Project Reactor](https://projectreactor.io/), le framework Reactive Streams utilisé pour implémenter l’API Async du SDK Java v4 Azure Cosmos DB. Si cela pose problème, nous vous recommandons de lire notre [guide de présentation des modèles Reactor](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md), puis de consulter cette [introduction à la programmation réactive](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) pour vous familiariser avec ces outils. Si vous avez déjà utilisé Azure Cosmos DB avec une interface Async et le SDK Java v2 Async Azure Cosmos DB, vous connaissez peut-être [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava), mais ne savez pas ce qui a changé dans Project Reactor. Dans ce cas, consultez notre [guide sur Reactor et RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) pour en savoir plus.
 
     Les extraits de code suivants montrent comment initialiser votre client Azure Cosmos DB pour l’API Async ou l’API Sync, respectivement :
 
@@ -154,7 +154,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
 
-        L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux* * côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
+        L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux** côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, qui correspond à une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins du **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** route la requête vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 
     * ***Options de configuration du mode direct** _
 
@@ -182,7 +182,7 @@ Pour plus d’informations, consultez les instructions propres à [Windows](../v
 
         Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-    _ * **Optimisation de setMaxBufferedItemCount\:** _
+    _ ***Optimisation de setMaxBufferedItemCount\:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -198,7 +198,7 @@ _ **Effectuer une montée en charge de votre charge de travail cliente**
 
 * **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**
 
-    Pendant une lecture groupée de documents à l’aide de la fonctionnalité de flux de lecture (par exemple, *readItems* ) ou l’émission d’une requête SQL ( *queryItems* ), les résultats sont retournés de façon segmentée si le jeu de résultats est trop volumineux. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
+    Pendant une lecture groupée de documents à l’aide de la fonctionnalité de flux de lecture (par exemple, *readItems*) ou l’émission d’une requête SQL (*queryItems*), les résultats sont retournés de façon segmentée si le jeu de résultats est trop volumineux. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
 
     Supposons que votre application émette une requête pour Azure Cosmos DB et que votre application nécessite l’ensemble complet des résultats de la requête pour effectuer sa tâche. Pour réduire le nombre de boucles réseau nécessaires pour récupérer tous les résultats applicables, vous pouvez augmenter la taille de la page en ajustant le champ de l’en-tête de demande [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). 
 
@@ -237,7 +237,7 @@ _ **Effectuer une montée en charge de votre charge de travail cliente**
 
         La latence d’un enregistreur d’événements synchrone prend nécessairement en compte le calcul de latence globale de votre thread générateur de demandes. Un enregistreur d’événements asynchrone, tel que [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), est recommandé pour découpler la surcharge de journalisation de vos threads d’application hautes performances.
 
-    _* **Désactiver la journalisation de netty** _
+    _***Désactiver la journalisation de netty** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e7f6cf905613866041e72433328ea742706a8c49
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 036cab033e5b70a8940a488c07374e9092d52b33
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453877"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533653"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Base de référence de sécurité Azure pour Azure HPC Cache
 
@@ -56,7 +56,7 @@ Pour utiliser Azure HPC Cache avec un stockage NAS local, vous devez vous assur
 
 - [Guide pratique pour déployer et configurer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -249,7 +249,7 @@ Remarque : La seule authentification basée sur les informations de mot de pass
 
 - [Éliminer les mauvais mots de passe à l’aide de Protection de mots de passe d’Azure AD](../active-directory/authentication/concept-password-ban-bad.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -285,7 +285,7 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -603,7 +603,7 @@ Implémentez une solution tierce de journalisation DNS à partir de la Place de 
 
 - [En savoir plus sur les prérequis pour DNS](hpc-cache-prerequisites.md).
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -637,7 +637,7 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -814,7 +814,7 @@ Utilisez le contrôle d’accès en fonction du rôle dans Sauvegarde Azure, Azu
 
 - [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](../backup/encryption-at-rest-with-cmk.md)  
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-5.1.0)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -824,7 +824,7 @@ Utilisez le contrôle d’accès en fonction du rôle dans Sauvegarde Azure, Azu
 
 **Conseils** : Vérifiez régulièrement que vous pouvez restaurer les clés gérées par le client qui sont sauvegardées.
 
-- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-5.1.0)
+- [Guide pratique pour restaurer des clés du coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -867,11 +867,11 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 -   Normes de chiffrement appropriées
 
 Pour plus d’informations, consultez les références suivantes :
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
 

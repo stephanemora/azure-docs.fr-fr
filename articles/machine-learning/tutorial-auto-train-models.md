@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e1a5370501fe73fb783db9a039d9f060acdb0a35
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886326"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511030"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutoriel : Utiliser le machine learning automatisé pour prédire le prix des courses de taxi
 
@@ -210,7 +210,7 @@ Définissez les paramètres du modèle et de l’expérience pour l’entraînem
 
 |Propriété| Valeur dans ce didacticiel |Description|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limite de temps (en minutes) pour chaque itération. Diminuez cette valeur afin de réduire le runtime total.|
+|**iteration_timeout_minutes**|10|Limite de temps (en minutes) pour chaque itération. Augmentez cette valeur pour les jeux de données plus volumineux qui ont besoin de plus de temps pour chaque itération.|
 |**experiment_timeout_hours**|0.3|Durée maximale en heures pendant laquelle toutes les itérations combinées peuvent être effectuées avant que l’expérience ne se termine.|
 |**enable_early_stopping**|True|Marquez pour permettre une fin anticipée si le score ne s’améliore pas à terme.|
 |**primary_metric**| spearman_correlation | Métrique que vous souhaitez optimiser. Le modèle le mieux adapté est choisi en fonction de cette métrique.|
@@ -222,7 +222,7 @@ Définissez les paramètres du modèle et de l’expérience pour l’entraînem
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538646"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545381"
 ---
 # <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ Le fournisseur de requêtes prend en charge les expressions scalaires suivantes�
     family.children[n].grade; //n is an int variable
   ```
   
-- Expressions arithmétiques, y compris les expressions arithmétiques communes sur les valeurs numériques et booléennes. Pour obtenir la liste complète, consultez la [spécification SQL Azure Cosmos DB](sql-query-system-functions.md).
+- Expressions arithmétiques, y compris les expressions arithmétiques communes sur les valeurs numériques et booléennes. Pour obtenir la liste complète, consultez la [spécification SQL Azure Cosmos DB](sql-query-aggregate-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -85,7 +85,7 @@ Le fournisseur LINQ inclus avec le kit SDK .NET SQL prend en charge les opérate
 - **Where** : les filtres sont traduits en [WHERE](sql-query-where.md) et prennent en charge la traduction de `&&`, `||` et `!` en opérateurs SQL
 - **SelectMany** : autorise le déroulement de tableaux vers la clause [JOIN](sql-query-join.md). Permet d’associer/imbriquer des expressions afin de filtrer les éléments de tableau.
 - **OrderBy** et **OrderByDescending** : sont traduits en [ORDER BY](sql-query-order-by.md) avec ASC ou DESC.
-- Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’[agrégation](sql-query-aggregates.md), et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
+- Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’[agrégation](sql-query-aggregate-functions.md), et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
 - **CompareTo** : se traduit par des comparaisons de plages. Généralement utilisé pour les chaînes, car elles ne sont pas comparables en .NET.
 - **Skip** et **Take** : traduit en [OFFSET et LIMIT](sql-query-offset-limit.md) afin de limiter les résultats d’une requête et d’effectuer la pagination.
 - **Fonctions mathématiques** : prennent en charge la traduction des fonctions .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les [fonctions mathématiques intégrées](sql-query-mathematical-functions.md) équivalentes.

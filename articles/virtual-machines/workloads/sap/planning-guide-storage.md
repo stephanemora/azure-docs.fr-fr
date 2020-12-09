@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955410"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500995"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -34,6 +34,8 @@ Remarquez les unités utilisées dans cet article. Les fournisseurs de cloud pub
 Le stockage Microsoft Azure comprenant des disques HDD Standard et SSD Standard, le Stockage Premium Azure et un disque Ultra conserve le disque dur virtuel de base (avec SE) et les disques de données attachés à des machines virtuelles ou les disques durs virtuels sur trois nœuds de stockage différents. Le basculement vers un autre réplica et l’amorçage d’un nouveau réplica en cas de défaillance d’un nœud de stockage sont transparents. En raison de cette redondance, il n'est **PAS** nécessaire d’utiliser une quelconque couche de redondance de stockage sur plusieurs disques Azure. Il s’agit du stockage localement redondant (LRS). Le LRS est la valeur par défaut pour ces types de stockage dans Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) offre une redondance suffisante pour atteindre les mêmes contrats SLA que les autres stockages Azure natifs.
 
 Il existe plusieurs autres méthodes de redondance, qui sont toutes décrites dans l’article [Réplication du Stockage Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) et qui s’appliquent à certains types de stockage proposés par Azure. 
+
+Gardez également à l’esprit que différents types de stockage Azure influencent la disponibilité de machine virtuelle unique. Les contrats SLA sont publiés dans [Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 ### <a name="azure-managed-disks"></a>Disques managés Azure
 
@@ -91,7 +93,7 @@ Caractéristiques que vous pouvez attendre des types de stockage différents :
 
 | Scénario d’usage | HDD Standard | SSD Standard | Stockage Premium | Disque Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA de débit/IOPS | non | non | oui | oui | Oui |
+| SLA de débit/IOPS | non | non | oui | Oui | Oui |
 | Lectures de latence | high | moyen à élevé | low | sous-milliseconde | sous-milliseconde |
 | Écritures de latence | high | moyen à élevé  | faible (sous-milliseconde<sup>1</sup>) | sous-milliseconde | sous-milliseconde |
 | HANA pris en charge | non | non | Oui<sup>1</sup> | Oui | Oui |
@@ -131,7 +133,6 @@ Ce type de stockage cible les charges de travail SGBD, le trafic de stockage qui
 - Le débit d'entrée/sortie de ce stockage n'est pas linéaire avec la taille de la catégorie de disque. Pour les disques plus petits, comme la catégorie entre 65 Gio et 128 Gio de capacité, le débit est d’environ 780 Ko par Gio. Tandis que pour les disques de grande taille, comme un disque de 32 767 Gio, le débit est de 28 Ko par Gio
 - Les contrats SLA d’IOPS et de débit ne peuvent pas être modifiés sans que la capacité du disque soit modifiée
 
-Azure dispose d’un contrat SLA de machine virtuelle d’instance unique de 99,9 % qui est lié à l’utilisation de Stockage Premium Azure ou de Stockage sur disque Azure Ultra. Le SLA est documenté dans [Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pour se conformer à ce contrat de niveau de service de machine virtuelle unique, le disque dur virtuel de base ainsi que **tous** les disques attachés doivent être de type Stockage Premium Azure ou disque de stockage Ultra Azure.
 
 La matrice de capacité pour la charge de travail SAP ressemble à ceci :
 
@@ -163,7 +164,7 @@ Le stockage premium Azure ne remplit pas les KPI de latence du stockage SAP HANA
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Fonctionnalité en rafale Azure pour le stockage Premium
-Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](../../linux/disk-bursting.md). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
+Pour les disques de stockage Premium Azure plus petits ou égaux à 512 Gio en capacité, une fonctionnalité en rafale est proposée. Le fonctionnement exact du mode rafale des disques est décrit dans l’article [Mode rafale des disques](../../disk-bursting.md). En lisant cet article, vous comprendrez le concept d’IOPS et de débit dans les cas où votre charge de travail d’E/S se trouve au-dessous des valeurs d’IOPS et de débit nominales des disques (pour plus d’informations sur le débit nominal, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)). Vous allez cumuler le delta d’IOPS et de débit entre votre utilisation actuelle et les valeurs nominales du disque. Les rafales sont limitées à un maximum de 30 minutes.
 
 Idéalement, cette fonctionnalité en rafales sera planifiée pour des volumes ou disques contenant des fichiers de données pour les différents SGBD. La charge de travail d’E/S attendue pour ces volumes, en particulier avec les systèmes de petite ou moyenne taille, devrait ressembler à ceci :
 
@@ -375,4 +376,3 @@ Lisez les articles :
 
 - [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](./dbms_guide_general.md)
 - [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md)
- 

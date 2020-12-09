@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019291"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548424"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -65,7 +65,7 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 >Avant de commencer :
 >
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
->- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure et tous les clouds souverains.
+>- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, CRR pour les machines virtuelles Azure est pris en charge uniquement pour les machines virtuelles Azure Resource Manager. Les machines virtuelles Azure classiques ne sont pas prises en charge.  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.

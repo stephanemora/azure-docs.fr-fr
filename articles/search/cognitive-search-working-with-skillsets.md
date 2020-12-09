@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976674"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558111"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Concepts des ensembles de compétences dans Recherche cognitive Azure
 
@@ -222,8 +222,6 @@ L’approche de la modélisation est plus détaillée que la mise en forme inclu
 Pour compléter l’exemple, vous pouvez choisir de supprimer la mise en forme incluse et d’utiliser une compétence de modélisation afin de créer un nœud spécifique pour les expressions clés. Pour créer une forme projetée dans trois tables (`hotelReviewsDocument`, `hotelReviewsPages` et `hotelReviewsKeyPhrases`), vous utilisez les deux options décrites dans les sections suivantes.
 
 #### <a name="shaper-skill-and-projection"></a>Compétence de modélisation et projection
-
-Cette 
 
 > [!Note]
 > Certaines colonnes de la table de documents ont été supprimées de cet exemple par souci de concision.

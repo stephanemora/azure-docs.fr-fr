@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0a180c8325e9b379e919e68afd9a0af6c196b55f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e27f9c0af62c4cbdd550fd9907a0dd88d72bba6e
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332608"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549206"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Fonctions de tableau (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,4 +38,4 @@ Les fonctions scalaires suivantes effectuent une opération sur une valeur d’e
 - [Fonctions système Azure Cosmos DB](sql-query-system-functions.md)
 - [Présentation d’Azure Cosmos DB](introduction.md)
 - [Fonctions définies par l’utilisateur](sql-query-udfs.md)
-- [Agrégats](sql-query-aggregates.md)
+- [Agrégats](sql-query-aggregate-functions.md)

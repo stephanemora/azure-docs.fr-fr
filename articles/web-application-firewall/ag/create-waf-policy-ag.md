@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146606"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518819"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
 
@@ -22,8 +22,6 @@ Vous pouvez créer autant de stratégies que vous le souhaitez. Une fois que vou
 
 Si une stratégie est appliquée à votre Application Gateway, puis que vous appliquez une stratégie différente à un écouteur sur cette Application Gateway, la stratégie de l’écouteur prend effet, mais uniquement pour le ou les écouteurs auxquels elle est attribuée. La stratégie d’Application Gateway s’applique encore à tous les autres écouteurs auxquels aucune stratégie spécifique n’est attribuée. 
 
-   > [!NOTE]
-   > Les stratégies WAF par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Une fois qu’une stratégie de pare-feu est associée à un pare-feu d'applications web (WAF), ce dernier doit toujours avoir une stratégie associée. Vous pouvez remplacer cette stratégie, mais le fait de dissocier entièrement une stratégie du WAF n’est pas pris en charge. 
 

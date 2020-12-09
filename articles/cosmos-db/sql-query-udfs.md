@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 5c7050042d59156e1203b5830d710e61bd8eb382
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341890"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546333"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Fonctions définies par l’utilisateur dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -144,4 +144,4 @@ Comme le montrent les exemples précédents, les fonctions définies par l’uti
 
 - [Présentation d’Azure Cosmos DB](introduction.md)
 - [Fonctions système](sql-query-system-functions.md)
-- [Agrégats](sql-query-aggregates.md)
+- [Agrégats](sql-query-aggregate-functions.md)

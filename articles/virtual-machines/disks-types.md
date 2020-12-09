@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413161"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500765"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -82,9 +82,9 @@ Lorsque vous configurez un disque de stockage Premium, contrairement au stockage
 
 ## <a name="bursting"></a>Mode en rafales
 
-Les tailles de disques SSD Premium inférieures à P30 offrent désormais un mode rafale et peuvent augmenter leur IOPS par disque jusqu’à 3 500 et leur bande passante jusqu’à 170 Mbits/s. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Les crédits s’accumulent automatiquement dans un compartiment de rafales quand le trafic de disque est inférieur aux performances cibles provisionnées et les crédits sont automatiquement consommés quand le trafic dépasse la cible, jusqu’à la limite maximale de rafales. La limite maximale de rafales définit le plafond des IOPS de disque et de la bande passante même si vous disposez de crédits de rafales à consommer. Les rafales de disque offrent une meilleure tolérance aux changements imprévisibles des modèles d’E/S. Vous pouvez en tirer le meilleur parti pour le démarrage du disque du système d’exploitation et les applications dont le trafic est imprévisible.    
+Les tailles de disques SSD Premium inférieures à P30 offrent désormais un mode rafale et peuvent augmenter leur IOPS par disque jusqu’à 3 500 et leur bande passante jusqu’à 170 Mo/s. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Les crédits s’accumulent automatiquement dans un compartiment de rafales quand le trafic de disque est inférieur aux performances cibles provisionnées et les crédits sont automatiquement consommés quand le trafic dépasse la cible, jusqu’à la limite maximale de rafales. La limite maximale de rafales définit le plafond des IOPS de disque et de la bande passante même si vous disposez de crédits de rafales à consommer. Les rafales de disque offrent une meilleure tolérance aux changements imprévisibles des modèles d’E/S. Vous pouvez en tirer le meilleur parti pour le démarrage du disque du système d’exploitation et les applications dont le trafic est imprévisible.    
 
-La prise en charge du mode rafale du disque sera activée sur les nouveaux déploiements des tailles de disque par défaut, sans nécessiter l’intervention de l’utilisateur. Pour les disques existants dont les tailles sont applicables, vous pouvez activer les rafales de l’une ou l’autre des manières suivantes : détacher et rattacher le disque, ou arrêter et redémarrer la machine virtuelle attachée. Toutes les tailles de disques applicables au mode en rafales vont commencer avec un compartiment disposant d’un crédit de rafales complet dès que le disque est attaché à une machine virtuelle qui prend en charge une durée maximale de pointe de rafales limitée à 30 minutes. Pour en savoir plus sur le fonctionnement du mode en rafales sur les disques Azure, consultez [Mode en rafales des disques SSD Premium](linux/disk-bursting.md). 
+La prise en charge du mode rafale du disque sera activée sur les nouveaux déploiements des tailles de disque par défaut, sans nécessiter l’intervention de l’utilisateur. Pour les disques existants dont les tailles sont applicables, vous pouvez activer les rafales de l’une ou l’autre des manières suivantes : détacher et rattacher le disque, ou arrêter et redémarrer la machine virtuelle attachée. Toutes les tailles de disques applicables au mode en rafales vont commencer avec un compartiment disposant d’un crédit de rafales complet dès que le disque est attaché à une machine virtuelle qui prend en charge une durée maximale de pointe de rafales limitée à 30 minutes. Pour en savoir plus sur le fonctionnement du mode en rafales sur les disques Azure, consultez [Mode en rafales des disques SSD Premium](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transactions
 

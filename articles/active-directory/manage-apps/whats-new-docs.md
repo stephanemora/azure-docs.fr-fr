@@ -1,7 +1,7 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654007"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571009"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="new-articles"></a>Nouveaux articles
+- [Authentification unique basée sur l’en-tête pour les applications locales avec le Proxy d’application Azure AD (préversion)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+- [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
+- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Octobre 2020
 

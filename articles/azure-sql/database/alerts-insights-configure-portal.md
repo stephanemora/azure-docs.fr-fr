@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675143"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500969"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse Analytics à l’aide du Portail Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675143"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
+Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse Analytics à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
 
 > [!NOTE]
 > Pour obtenir des instructions spécifiques sur Azure SQL Managed Instance, consultez [Créer des alertes pour Azure SQL Managed Instance](../managed-instance/alerts-create.md).
@@ -54,17 +54,17 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 
    ![Surveillance](./media/alerts-insights-configure-portal/Alerts.png)
   
-3. Sélectionnez le bouton **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle** .
+3. Sélectionnez le bouton **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
   ![Créer une règle](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Dans la section **Condition** , cliquez sur **Ajouter** .
+4. Dans la section **Condition**, cliquez sur **Ajouter**.
   ![Définir la condition](./media/alerts-insights-configure-portal/create-rule.png)
-5. Sur la page **Configurer la logique du signal** , sélectionnez un signal.
+5. Sur la page **Configurer la logique du signal**, sélectionnez un signal.
   ![Sélectionner un signal](./media/alerts-insights-configure-portal/select-signal.png)
-6. Une fois que vous avez sélectionné un signal, par exemple **Pourcentage UC** , la page **Configurer la logique du signal** s’affiche.
+6. Une fois que vous avez sélectionné un signal, par exemple **Pourcentage UC**, la page **Configurer la logique du signal** s’affiche.
   ![Configurer la logique du signal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Sur cette page, configurez ce type de seuil, l’opérateur, le type d’agrégation, la valeur de seuil, la granularité d’agrégation et la fréquence d’évaluation. Cliquez ensuite sur **Terminé** .
-8. Sur la page **Créer une règle** , sélectionnez un **groupe d'actions** existant, ou créez un nouveau groupe. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit.
+7. Sur cette page, configurez ce type de seuil, l’opérateur, le type d’agrégation, la valeur de seuil, la granularité d’agrégation et la fréquence d’évaluation. Cliquez ensuite sur **Terminé**.
+8. Sur la page **Créer une règle**, sélectionnez un **groupe d'actions** existant, ou créez un nouveau groupe. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit.
   ![Définir un groupe d’actions](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Définissez le nom de la règle, fournissez une description facultative, choisissez un niveau de gravité pour la règle, indiquez si vous souhaitez activer la règle lors de la création de la règle, puis cliquez sur **Créer une alerte de règle** pour créer l’alerte de règle de la métrique.

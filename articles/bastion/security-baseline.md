@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7849027c704c8b8d7d36a33cd58c84566ce96da3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325677"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530950"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Base de référence de sécurité Azure pour Azure Bastion
 
@@ -276,7 +276,7 @@ Remarque : Des autorisations supplémentaires peuvent être nécessaires pour o
 
 - [Pour plus d’informations sur l’étiquetage des ressources, consultez le guide de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -300,7 +300,7 @@ Remarque : Des autorisations supplémentaires peuvent être nécessaires pour o
 
 - [Suppression ou déconnexion de force d’une session à distance](session-monitoring.md#view)
 
-- [Interface CLI réseau Azure](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
+- [Interface CLI réseau Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -363,7 +363,7 @@ Activez et collectez les journaux de ressources et de flux des groupes de sécur
 
 - [Surveillance avec Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -527,7 +527,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 **Conseils** : Définissez et implémentez des configurations de sécurité standard pour Azure Bastion avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau d’Azure Bastion. Les clients peuvent également établir des configurations sécurisées en tirant parti d’Azure Blueprints ou de modèles ARM pour déployer des ressources Bastion de manière sécurisée et cohérente.
 
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 **Conseils** : Définissez et implémentez des configurations de sécurité standard pour Azure Bastion avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos ressources Bastion.
 
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -594,11 +594,11 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 -   Normes de chiffrement appropriées
 
 Pour plus d’informations, consultez les références suivantes :
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
 

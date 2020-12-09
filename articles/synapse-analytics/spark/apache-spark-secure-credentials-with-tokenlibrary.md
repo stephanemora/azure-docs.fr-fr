@@ -1,70 +1,236 @@
 ---
-title: Sécurisation des informations d’identification d’accès avec les services liés dans Apache Spark pour Azure Synapse Analytics
-description: Cet article explique comment intégrer de manière sécurisée Apache Spark pour Synapse Analytics à d’autres services en utilisant les services liés et la bibliothèque de jetons
+title: Sécuriser les informations d’identification d’accès avec les services liés dans Apache Spark pour Azure Synapse Analytics
+description: Cet article explique comment intégrer de manière sécurisée Apache Spark pour Azure Synapse Analytics à d’autres services en utilisant les services liés et la bibliothèque de jetons
 services: synapse-analytics
 author: mlee3gsd
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 08/26/2020
+ms.date: 11/19/2020
 ms.author: martinle
-ms.reviewer: euang
-ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.reviewer: nirav
+zone_pivot_groups: programming-languages-spark-all-minus-sql
+ms.openlocfilehash: 8c2e2327667ccb9284a22e65418a80f3066d22df
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324952"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510792"
 ---
-# <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Sécurisation de vos informations d’identification via les services liés avec la bibliothèque de jetons (TokenLibrary)
+# <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>Sécuriser les informations d’identification avec les services liés à l’aide de TokenLibrary
+
 L’accès aux données de sources externes est un modèle courant. À moins que la source de données externe autorise l’accès anonyme, il est probable que vous aurez besoin de sécuriser votre connexion avec des informations d’identification, un secret ou une chaîne de connexion.  
 
-Azure Synapse Analytics propose des services liés pour simplifier le processus d’intégration en stockant les détails de connexion dans un service lié ou Azure Key Vault. Une fois que vous avez créé un service lié, Apache Spark peut faire référence au service lié pour appliquer les informations de connexion dans votre code. 
+Synapse utilise passthrough, le transfert direct, Azure Active Directory (AAD) par défaut pour l’authentification entre les ressources.  Si vous devez vous connecter à une ressource avec d’autres informations d’identification, utilisez TokenLibrary directement.  TokenLibrary simplifie le processus de récupération des jetons SAS, des jetons AAD, des chaînes de connexion et des secrets stockés dans un service lié, ou à partir d’un coffre de clés Azure.
+
+Lorsque vous récupérez des secrets à partir d’Azure Key Vault, nous vous conseillons de créer un service lié à votre coffre de clés Azure.  Vérifiez que les identités managées pour les ressources Azure de l’espace de travail Synapse disposent des privilèges Secret Get sur votre coffre de clés Azure.  Synapse s’authentifie auprès d’Azure Key Vault au moyen des identités managées pour les ressources Azure de l’espace de travail Synapse. Si vous vous connectez directement à Azure Key Vault sans service lié, vous devez vous authentifier avec vos informations d’identification d’utilisateur Azure Active Directory.
 
 Pour plus d’informations, consultez [services liés](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-> [!NOTE]
-> Sachant que l’accès aux fichiers d’Azure Data Lake Storage à partir votre espace de travail utilise l’authentification directe AAD, vous n’avez pas besoin d’utiliser TokenLibrary. 
 
+## <a name="usage"></a>Usage
 
-## <a name="prerequisite"></a>Prérequis
-* Service lié : vous devez créer un service lié à la source de données externe et référencer le service lié à partir de la bibliothèque de jetons. Apprenez-en davantage sur les [services liés](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+### <a name="tokenlibraryhelp"></a>TokenLibrary.help()
+Cette fonction affiche la documentation d’aide de TokenLibrary.
 
-
-## <a name="connect-to-adls-gen2-outside-of-synapse-workspace"></a>Se connecter à ADLS Gen2 en dehors de l’espace de travail Synapse
-
-Synapse propose une expérience de services liés intégrée pour Azure Data Lake Storage Gen2.
+::: zone pivot = "programming-language-scala"
 
 ```scala
-// Scala code
-val sc = spark.sparkContext
-sc.hadoopConfiguration.set("spark.storage.synapse.linkedServiceName", "<LINKED SERVICE NAME>")
-sc.hadoopConfiguration.set("fs.azure.account.auth.type", "SAS")
-sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
-
-val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>")
-
-df.show()
+TokenLibrary.help()
 ```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
 
 ```python
-# Python code
-sc._jsc.hadoopConfiguration().set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
-sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type", "SAS")
-sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+TokenLibrary.help()
+```
 
-df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>")
+::: zone-end
+
+::: zone pivot = "programming-language-csharp"
+
+```csharp
+Console.WriteLine(TokenLibrary.help());
+```
+
+::: zone-end
+
+## <a name="tokenlibrary-for-azure-data-lake-storage-gen2"></a>TokenLibrary pour Azure Data Lake Storage Gen2
+
+#### <a name="adls-gen2-primary-storage"></a>Stockage principal ADLS Gen2
+
+L’accès aux fichiers depuis l’instance Azure Data Lake Storage principale utilise le passthrough Azure Active Directory pour l’authentification par défaut, et n’a pas besoin de l’utilisation explicite de TokenLibrary.
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+display(df.limit(10))
+```
+
+::: zone-end
+
+#### <a name="adls-gen2-storage-with-linked-services"></a>Stockage ADLS Gen2 avec les services liés
+
+Synapse propose une expérience de services liés intégrée lors de la connexion à Azure Data Lake Storage Gen2.  Les services liés peuvent être configurés pour s’authentifier à l’aide d’une **clé de compte**, d’un **principal du service**, d’une **identité managée** ou d’**informations d’identification**.
+
+Lorsque la méthode d’authentification du service lié est définie sur **Clé de compte**, le service lié s’authentifie au moyen de la clé de compte de stockage fournie, il demande une clé SAS et l’applique automatiquement à la requête de stockage à l’aide de **LinkedServiceBasedSASProvider**.
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+val sc = spark.sparkContext
+spark.conf.set("spark.storage.synapse.linkedServiceName", "<LINKED SERVICE NAME>")
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+# Python code
+spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 
 df.show()
 ```
-## <a name="use-the-token-library"></a>Utiliser la bibliothèque de jetons
+
+::: zone-end
+
+Lorsque la méthode d’authentification du service lié est définie sur **Identité managée** ou **Principal du service**, le service lié utilise l’identité managée ou le jeton du principal du service avec le fournisseur **LinkedServiceBasedTokenProvider**.  
+
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+val sc = spark.sparkContext
+spark.conf.set("spark.storage.synapse.linkedServiceName", "<LINKED SERVICE NAME>")
+spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider") 
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+# Python code
+spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
+
+df.show()
+```
+
+::: zone-end
+
+#### <a name="adls-gen2-storage-without-linked-services"></a>Stockage ADLS Gen2 (sans service lié)
+
+Connectez-vous au stockage ADLS Gen2 directement à l’aide d’une clé SAS, utilisez **ConfBasedSASProvider** et fournissez la clé SAS au paramètre de configuration **spark.storage.synapse.sas**.
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.sas", "<SAS KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.sas", "<SAS KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+#### <a name="adls-gen2-storage-with-azure-key-vault"></a>Stockage ADLS Gen2 avec Azure Key Vault
+
+Connectez-vous au stockage ADLS Gen2 à l’aide d’un jeton SAS stocké dans le secret Azure Key Vault.  
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.AkvBasedSASProvider")
+spark.conf.set("spark.storage.synapse.akv", "<AZURE KEY VAULT NAME>")
+spark.conf.set("spark.storage.akv.secret", "<SECRET KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+spark.conf.set("fs.azure.account.auth.type", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.AkvBasedSASProvider")
+spark.conf.set("spark.storage.synapse.akv", "<AZURE KEY VAULT NAME>")
+spark.conf.set("spark.storage.akv.secret", "<SECRET KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+## <a name="tokenlibrary-for-other-linked-services"></a>TokenLibrary pour d’autres services liés
 
 Pour vous connecter à d’autres services liés, vous pouvez effectuer un appel direct à TokenLibrary.
 
-### <a name="getconnectionstring"></a>GetConnectionString
- Pour récupérer la chaîne de connexion, utilisez la fonction <b>getConnectionString</b> et transmettez le <b>nom du service lié</b>.
+#### <a name="getconnectionstring"></a>getConnectionString()
+
+ Pour récupérer la chaîne de connexion, utilisez la fonction **getConnectionString** et transmettez le **nom du service lié**.
+
+::: zone pivot = "programming-language-scala"
 
 ```scala
-// Scala
+%%spark
 // retrieve connectionstring from TokenLibrary
 
 import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
@@ -73,8 +239,12 @@ val connectionString: String = TokenLibrary.getConnectionString("<LINKED SERVICE
 println(connectionString)
 ```
 
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
 ```python
-# Python
+%%pyspark
 # retrieve connectionstring from TokenLibrary
 
 from pyspark.sql import SparkSession
@@ -84,8 +254,13 @@ token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 connection_string = token_library.getConnectionString("<LINKED SERVICE NAME>")
 print(connection_string)
 ```
+
+::: zone-end
+
+::: zone pivot = "programming-language-csharp"
+
 ```csharp
-// C#
+%%csharp
 // retrieve connectionstring from TokenLibrary
 
 using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Utils;
@@ -94,23 +269,38 @@ string connectionString = TokenLibrary.GetConnectionString(<LINKED SERVICE NAME>
 Console.WriteLine(connectionString);
 ```
 
-### <a name="getconnectionstringasmap"></a>GetConnectionStringAsMap
-Pour analyser les valeurs spécifiques d’une paire <i>clé=valeur</i> contenue dans la chaîne de connexion, telle que 
+::: zone-end
 
-<i>DefaultEndpointsProtocol=https;AccountName=\<AccountName>;AccountKey=\<AccountKey></i>
+#### <a name="getconnectionstringasmap"></a>getConnectionStringAsMap()
 
-utilisez la fonction <b>getConnectionStringAsMap</b> et transmettez la clé pour retourner la valeur.
+getConnectionStringAsMap est une fonction d’assistance disponible dans Scala et Python pour analyser des valeurs spécifiques à partir d’une paire _key=value_ dans la chaîne de connexion, par exemple
+
+_`DefaultEndpointsProtocol=https;AccountName=\<ACCOUNT NAME>;AccountKey=\<ACCOUNT KEY>`_
+
+utilisez la fonction **getConnectionStringAsMap** et transmettez la clé pour retourner la valeur.  Dans l’exemple de chaîne de connexion ci-dessus, 
+
+_**TokenLibrary.getConnectionStringAsMap("DefaultEndpointsProtocol")**_
+
+retournerait
+
+**_"https"_**
+
+::: zone pivot = "programming-language-scala"
+
 ```scala
-// Linked services can be used for storing and retreiving credentials (e.g, account key)
+// Linked services can be used for storing and retrieving credentials (e.g, account key)
 // Example connection string (for storage): "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
 val accountKey: String = TokenLibrary.getConnectionStringAsMap("<LINKED SERVICE NAME">).get("<KEY NAME>")
 println(accountKey)
 ```
+::: zone-end
+
+::: zone pivot = "programming-language-python"
 
 ```python
-# Linked services can be used for storing and retreiving credentials (e.g, account key)
+# Linked services can be used for storing and retrieving credentials (e.g, account key)
 # Example connection string (for storage): "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 from pyspark.sql import SparkSession
 
@@ -120,7 +310,53 @@ accountKey = token_library.getConnectionStringAsMap("<LINKED SERVICE NAME>").get
 print(accountKey)
 ```
 
+::: zone-end
+
+#### <a name="getsecret"></a>getSecret()
+
+Pour récupérer un secret stocké depuis Azure Key Vault, nous vous recommandons de créer un service lié à Azure Key Vault au sein de l’espace de travail Synapse. L’autorisation **GET** Secrets au coffre de clés Azure devra être accordée aux identités managées pour les ressources Azure de l’espace de travail Synapse.  Le service lié utilisera les identités managées pour les ressources Azure afin de se connecter au service Azure Key Vault et de récupérer le secret.  Sinon, la connexion directe à Azure Key Vault utilisera les informations d’identification de l’utilisateur Azure Active Directory (AAD).  Dans ce cas, l’utilisateur devra disposer des autorisations Get Secret dans Azure Key Vault.
+
+`TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
+
+Pour récupérer un secret à partir d’Azure Key Vault, utilisez la fonction **TokenLibrary.getSecret()** .
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
+
+val connectionString: String = TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+println(connectionString)
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+import sys
+from pyspark.sql import SparkSession
+
+sc = SparkSession.builder.getOrCreate()
+token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
+
+connection_string = token_library.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+print(connection_string)
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-csharp"
+
+```csharp
+using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Utils;
+
+string connectionString = TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>");
+Console.WriteLine(connectionString);
+```
+
+::: zone-end
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Écrire dans un pool SQL dédié](./synapse-spark-sql-pool-import-export.md)
-

@@ -1,7 +1,7 @@
 ---
 title: Nouveautés en matière d'approvisionnement des applications Azure Active Directory
 description: Approvisionnement des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fd9be81e8c23686695f8cdb49d873d5a663d69c4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174660"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571757"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Approvisionnement des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à l'approvisionnement des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière d'approvisionnement, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="updated-articles"></a>Articles mis à jour
+- [Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md)
+- [Comment fonctionne le provisionnement](how-provisioning-works.md)
+- [Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD](use-scim-to-provision-users-and-groups.md)
+
 
 ## <a name="october-2020"></a>Octobre 2020
 

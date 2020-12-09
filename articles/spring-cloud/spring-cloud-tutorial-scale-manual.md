@@ -1,24 +1,24 @@
 ---
-title: 'Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud | Microsoft Docs'
+title: Mettre à l’échelle une application dans Azure Spring Cloud | Microsoft Docs
 description: Apprenez à mettre à l’échelle une application avec Azure Spring Cloud dans le portail Azure.
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531800"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Mettre à l’échelle une application dans Azure Spring Cloud
 
 **Cet article s’applique à :** ✔️ Java ✔️ C#
 
-Ce tutoriel montre comment mettre à l’échelle une application de microservices à partir du tableau de bord Azure Spring Cloud sur le portail Azure.
+Cette documentation montre comment mettre à l’échelle une application de microservices à partir du tableau de bord Azure Spring Cloud sur le portail Azure.
 
 Effectuez un scale-up ou un scale-down de votre application en modifiant le nombre de processeurs virtuels, ainsi que la quantité de mémoire. Effectuez un scale-in ou un scale-out de votre application en modifiant le nombre d’instances de l’application.
 
@@ -67,7 +67,7 @@ Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrict
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à mettre à l’échelle manuellement une application Azure Spring Cloud. Pour savoir comment superviser votre application en configurant des alertes, passez au tutoriel suivant.
+Cet exemple vous a montré comment mettre à l’échelle manuellement une application Azure Spring Cloud. Pour savoir comment superviser une application en configurant des alertes, consultez [Configurer la mise à l’échelle automatique](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Découvrir comment configurer des alertes](spring-cloud-tutorial-alerts-action-groups.md)

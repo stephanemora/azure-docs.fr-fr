@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565821"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530916"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Concepts de base de l’authentification Key Vault
 
@@ -116,8 +116,6 @@ Les attributions de rôles Azure Key Vault sont un ensemble de rôles intégrés
 * Les autorisations Azure RBAC peuvent être gérées à grande échelle en permettant aux utilisateurs de se voir attribuer ces rôles au niveau d’un abonnement, d’un groupe de ressources ou d’un coffre de clés. Un utilisateur disposera des autorisations de plan de données pour tous les coffres de clés dans l’étendue de l’attribution Azure RBAC. Il n’est donc plus nécessaire d’attribuer des autorisations individuelles de stratégie d’accès par utilisateur/application par coffre de clés.
 
 * Les autorisations Azure RBAC sont compatibles avec Privileged Identity Management (PIM). Cela vous permet de configurer des contrôles d’accès juste-à-temps pour les rôles privilégiés, comme Administrateur de coffre de clés. Il s’agit d’une pratique de sécurité optimale qui suit le principe du moindre privilège en éliminant l’accès permanent à vos coffres de clés.
-
-* Les autorisations Azure RBAC sont compatibles avec les autorisations granulaires par objet. Vous pouvez donc restreindre un utilisateur à effectuer des opérations uniquement sur certains de vos objets de coffre de clés. Cela permet à plusieurs applications de partager un seul coffre de clés tout en isolant l’accès entre les applications.
 
 Pour en savoir plus sur Azure RBAC pour Key Vault, consultez les documents suivants :
 

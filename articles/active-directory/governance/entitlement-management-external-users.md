@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362499"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546129"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
@@ -51,7 +51,7 @@ Le diagramme et les étapes ci-dessous offrent une vue d’ensemble de la façon
 
 1. Vous envoyez un [lien du portail Mon accès](entitlement-management-access-package-settings.md) à votre contact, à l’organisation externe, afin qu’il puisse le partager avec ses utilisateurs qui veulent demander le package d’accès.
 
-1. Un utilisateur externe ( **Demandeur A** dans cet exemple) utilise le lien vers le portail Mon accès pour [demander l’accès](entitlement-management-request-access.md) au package d’accès. La façon dont l’utilisateur se connecte dépend du type d’authentification du répertoire ou domaine défini dans l’organisation connectée.
+1. Un utilisateur externe (**Demandeur A** dans cet exemple) utilise le lien vers le portail Mon accès pour [demander l’accès](entitlement-management-request-access.md) au package d’accès. La façon dont l’utilisateur se connecte dépend du type d’authentification du répertoire ou domaine défini dans l’organisation connectée.
 
 1. Un approbateur [approuve la demande](entitlement-management-request-approve.md) (ou la demande est approuvée automatiquement).
 
@@ -75,7 +75,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 ### <a name="enable-catalog-for-external-users"></a>Activer le catalogue pour les utilisateurs externes
 
-- Par défaut, lorsque vous créez un [nouveau catalogue](entitlement-management-catalog-create.md), il est activé pour autoriser les utilisateurs externes à demander des packages d’accès dans le catalogue. Assurez-vous que le paramètre **Activé pour les utilisateurs externes** est défini sur **Oui** .
+- Par défaut, lorsque vous créez un [nouveau catalogue](entitlement-management-catalog-create.md), il est activé pour autoriser les utilisateurs externes à demander des packages d’accès dans le catalogue. Assurez-vous que le paramètre **Activé pour les utilisateurs externes** est défini sur **Oui**.
 
     ![Modifier les paramètres du catalogue](./media/entitlement-management-shared/catalog-edit.png)
 
@@ -84,7 +84,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 - Autoriser les invités à inviter d’autres invités dans votre répertoire signifie que des invitations d’invités peuvent se produire en dehors de la gestion des droits d’utilisation. Nous vous recommandons de définir **Les invités peuvent inviter** sur **Non** pour autoriser uniquement les invitations correctement régies.
 - Si vous utilisez la liste verte B2B, vous devez vous assurer que tous les domaines que vous souhaitez associer à la gestion des droits d’utilisation sont ajoutés à la liste. De même, si vous utilisez la liste d’exclusion B2B, vous devez vous assurer que tous les domaines auxquels vous souhaitez vous associer ne sont pas ajoutés à la liste.
 - Si vous créez une stratégie de gestion des droits d'utilisation pour **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes) et qu’un utilisateur n’appartient pas à une organisation connectée dans votre annuaire, une organisation connectée est automatiquement créée pour celui-ci quand il demande le package. Tout paramètre de liste d’autorisation ou de refus B2B que vous avez est prioritaire. Par conséquent, veillez à inclure les domaines que vous prévoyez d’inclure dans cette stratégie dans votre liste verte si vous en utilisez une, et excluez-les de votre liste d’exclusion si vous utilisez une liste d’exclusion.
-- Si vous souhaitez créer une stratégie de gestion des droits d’utilisation incluant **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes), vous devez d’abord activer l’authentification par code secret à usage unique d’e-mail pour votre répertoire. Pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail (préversion)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Si vous souhaitez créer une stratégie de gestion des droits d’utilisation incluant **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes), vous devez d’abord activer l’authentification par code secret à usage unique d’e-mail pour votre répertoire. Pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail (préversion)](../external-identities/one-time-passcode.md).
 - Pour plus d’informations sur les paramètres de collaboration B2B externe Azure AD, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../external-identities/delegate-invitations.md).
 
     ![Paramètres de collaboration externe Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
@@ -99,7 +99,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 - Si vous souhaitez inclure des sites SharePoint Online dans vos packages d’accès pour des utilisateurs externes, assurez-vous que votre paramètre de partage externe au niveau de l’organisation est défini sur **Tout le monde** (les utilisateurs n’ont pas besoin de se connecter) ou **Invités nouveaux et existants** (les invités doivent se connecter ou fournir un code de vérification). Pour plus d’informations, consultez [Activer ou désactiver le partage externe](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Si vous souhaitez restreindre le partage externe en dehors de la gestion des droits d’utilisation, vous pouvez définir le paramètre de partage externe sur **Invités existants** . Ensuite, seuls les nouveaux utilisateurs qui sont invités par l’intermédiaire de la gestion des droits d’utilisation pourront accéder à ces sites. Pour plus d’informations, consultez [Activer ou désactiver le partage externe](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Si vous souhaitez restreindre le partage externe en dehors de la gestion des droits d’utilisation, vous pouvez définir le paramètre de partage externe sur **Invités existants**. Ensuite, seuls les nouveaux utilisateurs qui sont invités par l’intermédiaire de la gestion des droits d’utilisation pourront accéder à ces sites. Pour plus d’informations, consultez [Activer ou désactiver le partage externe](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Assurez-vous que les paramètres au niveau du site autorisent l’accès invité (mêmes options que celles précédemment listées). Pour plus d’informations, consultez [Activer ou désactiver le partage externe pour un site](/sharepoint/change-external-sharing-site).
 
@@ -121,29 +121,29 @@ Vous pouvez sélectionner ce qui se passe lorsqu’un utilisateur externe, qui a
 
 **Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
 
-1. Dans le portail Azure, cliquez sur **Azure Active Directory** , puis sur **Identity Governance** .
+1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
-1. Dans le menu de gauche, dans la section **Gestion des droits d’utilisation** , cliquez sur **Paramètres** .
+1. Dans le menu de gauche, dans la section **Gestion des droits d’utilisation**, cliquez sur **Paramètres**.
 
-1. Cliquez sur **Modifier** .
+1. Cliquez sur **Modifier**.
 
     ![Paramètres de la gestion du cycle de vie des utilisateurs externes](./media/entitlement-management-external-users/settings-external-users.png)
 
-1. Dans la section **Gérer le cycle de vie des utilisateurs externes** , sélectionnez les différents paramètres pour les utilisateurs externes.
+1. Dans la section **Gérer le cycle de vie des utilisateurs externes**, sélectionnez les différents paramètres pour les utilisateurs externes.
 
-1. Si, lorsqu’un utilisateur externe perd sa dernière attribution aux packages d’accès, vous souhaitez l’empêcher de se connecter à cet annuaire, définissez **Empêcher l'utilisateur externe de se connecter à cet annuaire** sur **Oui** .
+1. Si, lorsqu’un utilisateur externe perd sa dernière attribution aux packages d’accès, vous souhaitez l’empêcher de se connecter à cet annuaire, définissez **Empêcher l'utilisateur externe de se connecter à cet annuaire** sur **Oui**.
 
     > [!NOTE]
     > Si un utilisateur n’est pas autorisé à se connecter à ce répertoire, il ne peut pas redemander le package d’accès ou demander un accès supplémentaire dans ce répertoire. Ne configurez pas le blocage de leur connexion s’ils doivent par la suite demander l’accès à d’autres packages d’accès.
 
-1. Si, lorsqu’un utilisateur externe perd sa dernière attribution aux packages d’accès, vous souhaitez supprimer son compte d’utilisateur invité dans ce répertoire, définissez **Supprimer l’utilisateur externe**  sur **Oui** .
+1. Si, lorsqu’un utilisateur externe perd sa dernière attribution aux packages d’accès, vous souhaitez supprimer son compte d’utilisateur invité dans ce répertoire, définissez **Supprimer l’utilisateur externe**  sur **Oui**.
 
     > [!NOTE]
     > La gestion des droits d'utilisation supprime uniquement les comptes qui ont été invités par l’intermédiaire de la gestion des droits d'utilisation. Notez également qu’un utilisateur ne pourra pas se connecter et sera supprimé de ce répertoire, même s’il a été ajouté aux ressources du répertoire qui n’étaient pas des attributions de packages d’accès. Si l’invité était présent dans ce répertoire avant de recevoir des attributions de package d’accès, il sera conservé. Toutefois, s’il a été invité par le biais d’une attribution de package d’accès, et qu’après avoir été invité il a également été affecté à un site OneDrive Entreprise ou SharePoint Online, il sera toujours supprimé.
 
-1. Si vous souhaitez supprimer le compte d’utilisateur invité du répertoire, vous pouvez définir le nombre de jours avant sa suppression. Si vous souhaitez supprimer le compte d’utilisateur invité dès qu’il perd la dernière attribution à un package d’accès, définissez **Nombre de jours avant la suppression de l’utilisateur externe de cet annuaire**  sur **0** .
+1. Si vous souhaitez supprimer le compte d’utilisateur invité du répertoire, vous pouvez définir le nombre de jours avant sa suppression. Si vous souhaitez supprimer le compte d’utilisateur invité dès qu’il perd la dernière attribution à un package d’accès, définissez **Nombre de jours avant la suppression de l’utilisateur externe de cet annuaire**  sur **0**.
 
-1. Cliquez sur **Enregistrer** .
+1. Cliquez sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492231"
+ms.locfileid: "96533857"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Ligne de base de la sécurité Azure pour Site Recovery
 
@@ -164,11 +164,11 @@ Visualisez et interrogez les résultats du journal, et configurez des alertes po
 
 **Conseils** : aucun rôle n’est attribué par défaut. Les rôles doivent être explicitement attribués en fonction des besoins de l’entreprise. Toutes les attributions de rôles peuvent être vérifiées à l’aide de l’interface de ligne de commande PowerShell ou d’Azure Active Directory (Azure AD) pour découvrir les comptes membres de groupes d’administration.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -189,7 +189,7 @@ Créez un processus pour effectuer le suivi des identités et du contrôle d’a
 
 - [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -239,7 +239,7 @@ Visualisez les alertes et rapports sur les comportements des utilisateurs à ris
 
 - [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -274,7 +274,7 @@ Créez un processus pour réviser régulièrement les accès utilisateur afin de
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -431,7 +431,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour votre coffre Recovery Services à l’aide d’Azure Policy. 
 
 Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.RecoveryServices » pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration des ressources de coffre Recovery Services du service Site Recovery.
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.RecoverySe
 
 **Conseils** : choisissez des Azure Repos pour stocker et gérer en toute sécurité votre code si vous utilisez des définitions Azure Policy personnalisées pour vos coffres Recovery Services et les ressources associées.
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentation Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -656,7 +656,7 @@ Toutes les ressources de stockage qu’utilisent les services Site Recovery comp
 
 Cela est hors de portée du client et l’équipe du service Site Recovery s’en charge en interne. Le client peut sauvegarder les clés du Key Vault dans Azure.
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -666,7 +666,7 @@ Cela est hors de portée du client et l’équipe du service Site Recovery s’e
 
 **Conseils** : testez régulièrement la restauration des clés gérées par le client sauvegardées.
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -678,7 +678,7 @@ Cela est hors de portée du client et l’équipe du service Site Recovery s’e
 
 - [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -736,7 +736,7 @@ Créez un processus pour examiner les incidents a posteriori pour vous assurer q
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
