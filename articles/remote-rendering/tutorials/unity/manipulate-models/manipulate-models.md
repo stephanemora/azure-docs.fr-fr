@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565968"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559131"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutoriel : Manipulation de modèles
 
@@ -176,7 +176,7 @@ Ce tutoriel utilise MRTK pour l’interaction des objets. La majeure partie de l
 1. Appuyez sur le bouton Play de Unity pour lire la scène, puis ouvrez **Model Tools** (Outils de modèle) à l’intérieur de **AppMenu**.
 ![Contrôleur d’affichage](./media/model-with-view-controller.png)
 
-**AppMenu** contient un sous-menu **Model Tools** (Outils de modèle) qui implémente un contrôleur d’affichage pour établir une liaison avec le modèle. Quand le GameObject contient un composant **RemoteBounds**, le contrôleur d’affichage ajoute un composant [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), qui est un composant MRTK qui affiche un cadre englobant autour d’un objet assorti d’un **BoxCollider**. Un [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator), qui est responsable des interactions avec la main. Ces scripts combinés nous permettront de déplacer, faire pivoter et mettre à l’échelle le modèle rendu à distance.
+**AppMenu** contient un sous-menu **Model Tools** (Outils de modèle) qui implémente un contrôleur d’affichage pour établir une liaison avec le modèle. Quand le GameObject contient un composant **RemoteBounds**, le contrôleur d’affichage ajoute un composant [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), qui est un composant MRTK qui affiche un cadre englobant autour d’un objet assorti d’un **BoxCollider**. Un [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), qui est responsable des interactions avec la main. Ces scripts combinés nous permettront de déplacer, faire pivoter et mettre à l’échelle le modèle rendu à distance.
 
 1. Déplacez votre souris jusqu’au panneau Game (Jeu), puis cliquez à l’intérieur de celui-ci pour lui attribuer le focus.
 1. En utilisant la [simulation de main de MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), maintenez la touche Maj gauche enfoncée.

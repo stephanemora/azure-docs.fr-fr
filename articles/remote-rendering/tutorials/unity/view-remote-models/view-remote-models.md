@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653670"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574732"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -76,7 +76,7 @@ Vous devez modifier le fichier `Packages/manifest.json` qui se trouve dans le do
 
 Après avoir modifié et enregistré le manifeste, Unity s’actualise automatiquement. Vérifiez que les packages ont été chargés dans la fenêtre *Project* (Projet) :
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Nouveau projet Unity":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="vérifier les importations de packages":::
 
 Si vos packages ne se chargent pas, vérifiez s’il y a des erreurs dans votre console Unity. Si ce n’est pas le cas mais que les packages ne figurent toujours pas dans le dossier **Packages**, cochez le bouton bascule de visibilité des packages.\
 ![Capture d’écran avec une flèche pointant vers le bouton bascule de visibilité des packages.](./media/unity-package-visibility.png)
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
