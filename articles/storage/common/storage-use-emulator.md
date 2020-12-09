@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790557"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498215"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -44,7 +44,7 @@ Il existe quelques différences de fonctionnalités entre l’émulateur de stoc
 
 Pour démarrer l’émulateur de stockage Azure :
 
-1. Sélectionnez le bouton **Démarrer** ou appuyez sur la touche **Windows** .
+1. Sélectionnez le bouton **Démarrer** ou appuyez sur la touche **Windows**.
 2. Commencez à taper `Azure Storage Emulator`.
 3. Sélectionnez l’émulateur dans la liste des applications affichées.
 
@@ -184,11 +184,11 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 | Option | Description | Commande | Arguments |
 | --- | --- | --- | --- |
-| **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*  : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
+| **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* : Démarrez l’émulateur dans le processus actuel au lieu de créer un processus. |
 | **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
 | **État** |Permet d’imprimer l’état de l’émulateur de stockage. |`AzureStorageEmulator.exe status` | |
-| **Clear** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*  : Efface les données d’objet blob. <br/>*queue*  : Efface les données de file d’attente. <br/>*table*  : Efface les données de table. <br/>*all*  : Efface toutes les données de tous les services. |
-| **Init** |Effectue une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*  : Spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName*  : Spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate*  : Force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate*  : Ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports*  : Tente de réserver les ports HTTP associés aux services.<br/>*-unreserveports*  : Tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess*  : Effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
+| **Clear** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : Efface les données d’objet blob. <br/>*queue* : Efface les données de file d’attente. <br/>*table* : Efface les données de table. <br/>*all* : Efface toutes les données de tous les services. |
+| **Init** |Effectue une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : Spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName* : Spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate* : Force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate* : Ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports* : Tente de réserver les ports HTTP associés aux services.<br/>*-unreserveports* : Tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess* : Effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Différences entre l’émulateur de stockage et Azure Storage
 
@@ -310,7 +310,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-40"></a>Version 4.0
 
-* L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe* .
+* L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Version 3.2
 

@@ -3,20 +3,20 @@ title: Exécution et déclencheurs du pipeline dans Azure Data Factory
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83996973"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498623"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 
@@ -179,7 +179,7 @@ Les pipelines et les déclencheurs ont une relation plusieurs à plusieurs (à l
 ## <a name="schedule-trigger"></a>Déclencheur de planification
 Un déclencheur de planification exécute les pipelines selon un planning horaire. Ce déclencheur prend en charge les options de calendrier périodiques et avancées. Par exemple, le déclencheur prend en charge les intervalles comme « toutes les semaines » ou « lundi à 17h00 et jeudi à 21h00.» Le déclencheur de planification est flexible, car le modèle de jeu de données n’est pas spécifié et le déclencheur ne distingue pas les données de série chronologique des données de série non chronologique.
 
-Pour plus d'informations sur les déclencheurs de planification et pour obtenir des exemples, consultez [Créer un déclencheur de planification](how-to-create-schedule-trigger.md).
+Pour plus d’informations sur les déclencheurs de planification et pour obtenir des exemples, consultez [Créer un déclencheur qui exécute un pipeline selon une planification](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Définition du déclencheur de planification
 Quand vous créez un déclencheur de planification, vous spécifiez la planification et la périodicité à l’aide d’une définition JSON.
@@ -239,7 +239,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 | --- | --- |
 | **startTime** | Valeur de date-heure. Pour les planifications de base, la valeur de la propriété **startTime** s’applique à la première occurrence. Pour les planifications complexes, le déclencheur ne démarre pas avant la valeur **startTime** spécifiée. |
 | **endTime** | La date et l’heure de fin du déclencheur. Le déclencheur ne s’exécute pas après la date et l’heure de fin spécifiées. La valeur de la propriété ne peut pas être dans le passé. <!-- This property is optional. --> |
-| **timeZone** | Fuseau horaire. Actuellement, seul le fuseau horaire UTC est pris en charge. |
+| **timeZone** | Fuseau horaire. Pour obtenir la liste des fuseaux horaires pris en charge, consultez [Créer un déclencheur qui exécute un pipeline selon une planification](how-to-create-schedule-trigger.md#time-zone-option). |
 | **recurrence** | Un objet de périodicité qui spécifie les règles de périodicité pour le déclencheur. L’objet de périodicité prend en charge les éléments suivants : **frequency**, **interval**, **endTime**, **count** et **schedule**. Lorsqu’un objet de périodicité est défini, l’élément **frequency** est requis. Les autres éléments de l’objet de périodicité sont facultatifs. |
 | **frequency** | L’unité de fréquence à laquelle le déclencheur se répète. Les valeurs prises en charge incluent « minute », « heure », « jour », « semaine » et « mois ». |
 | **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**. La valeur **frequency** détermine la fréquence à laquelle le déclencheur s’exécute. Par exemple, si **l’intervalle** est défini sur 3 et la **fréquence** définie sur « semaine », le déclencheur se répète toutes les trois semaines. |

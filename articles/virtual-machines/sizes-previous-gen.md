@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356771"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500289"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -161,7 +161,7 @@ Les tailles A8 à A11 et celles de la série H sont également appelées *inst
 <sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.  
 
 > [!NOTE]
-> La mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021. Nous vous recommandons vivement de ne pas créer de nouvelles machines virtuelles A8 – A11. Migrez les machines virtuelles A8 – A11 existantes vers des tailles de machines virtuelles hautes performances puissantes et plus récentes telles que H, HB, HC, HBv2, ainsi que des tailles de machines virtuelles de calcul à usage général, telles que D, E et F, pour un meilleur rapport qualité/prix. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> La [mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Nous vous recommandons vivement de ne pas créer de nouvelles machines virtuelles A8 – A11. Migrez les machines virtuelles A8 – A11 existantes vers des tailles de machines virtuelles hautes performances puissantes et plus récentes telles que H, HB, HC, HBv2, ainsi que des tailles de machines virtuelles de calcul à usage général, telles que D, E et F, pour un meilleur rapport qualité/prix. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
@@ -224,7 +224,7 @@ La série DC utilise le processeur Intel XEON E-2176G 3,7 GHz de dernière gén
 
 > [!IMPORTANT]
 >
-> Les machines virtuelles de la série DC sont des [machines virtuelles de 2e génération](./linux/generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
+> Les machines virtuelles de la série DC sont des [machines virtuelles de 2e génération](./generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
 
 
 ### <a name="ds-series"></a>Série DS  

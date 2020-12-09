@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295020"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500204"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -107,7 +107,7 @@ Vous pouvez déployer progressivement l’authentification unique fluide pour vo
 En outre, vous devez activer un paramètre de stratégie Zone intranet appelé **Autoriser les mises à jour de la barre d’état via le script** via la stratégie de groupe. 
 
 >[!NOTE]
-> Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur macOS.
+> Les instructions suivantes ne valent que pour les navigateurs Internet Explorer, Microsoft Edge et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Pourquoi devez-vous modifier les paramètres de la zone Intranet des utilisateurs ?
 
@@ -144,7 +144,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     ![Capture d’écran montrant la fenêtre « Afficher le contenu » avec une attribution de zone sélectionnée.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone Intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+6. Accédez à **Configuration utilisateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone Intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
     ![Capture d’écran montrant la page « Zone Intranet » avec l’option « Autoriser les mises à jour de la barre d’état via le script » sélectionnée.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -161,10 +161,10 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
     ![Capture d’écran montrant « Registre » sélectionné et « Élément de Registre » sélectionné.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Entrez les valeurs suivantes dans les champs appropriés et cliquez sur **OK**.
-   - **Chemin de la clé** : ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nom de la valeur** : ***https***
-   - **Type de valeur** : ***REG_DWORD***
-   - **Données de la valeur** : ***00000001***
+   - **Chemin de la clé** : **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
+   - _*Nom de la valeur** : **_https_*_
+   - _*Type de valeur** : **_REG_DWORD_*_
+   - _*Données de la valeur** : **_00000001_*_
  
      ![Capture d’écran montrant la fenêtre « Nouvelles propriétés de Registre ».](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Chaque utilisateur doit ajouter manuellement l’URL Azure AD à ses paramètres Firefox comme suit :
 1. Exécutez Firefox et entrez `about:config` dans la barre d’adresses. Ignorez les notifications que vous voyez.
-2. Recherchez la préférence **network.negotiate-auth.trusted-URI**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
+2. Recherchez la préférence _ *network.negotiate-auth.trusted-uris**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
 3. Cliquez avec le bouton droit et sélectionnez **Modifier**.
 4. Entrez `https://autologon.microsoftazuread-sso.com` dans le champ.
 5. Sélectionnez **OK** puis rouvrez le navigateur.

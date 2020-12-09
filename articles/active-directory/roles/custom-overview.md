@@ -1,6 +1,6 @@
 ---
-title: Personnaliser des rôles Administrateur dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment comprendre les rôles personnalisés Azure AD dans Azure Active Directory (Azure AD) avec le contrôle d’accès en fonction du rôle et les étendues de ressources.
+title: Vue d’ensemble du contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory
+description: Découvrez quelles sont les différentes parties d’une attribution de rôle et ce qu’est la limitation de l’étendue dans Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,25 +8,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 11/20/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0785d8070a60ae7594ea0b182a0238bf6b4b6a58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95899460"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499235"
 ---
-# <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Rôles d’administrateurs personnalisés Azure Active Directory (préversion)
+# <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory
 
-Cet article explique comment comprendre les rôles personnalisés Azure AD dans Azure Active Directory (Azure AD) avec le contrôle d’accès basé sur les rôles et les étendues de ressources. Les rôles personnalisés Azure AD regroupent les autorisations sous-jacentes des [rôles intégrés](permissions-reference.md), ce qui vous permet de créer et d’organiser vos propres rôles personnalisés. Cette approche vous permet d’accorder l’accès de manière plus granulaire que les rôles intégrés, si nécessaire. La première version des rôles Azure AD personnalisés inclut la possibilité de créer un rôle pour attribuer des autorisations de gestion des inscriptions d’applications. Au fil du temps, des autorisations supplémentaires pour les ressources de l’organisation, telles que les applications d’entreprise, les utilisateurs et les appareils, sont ajoutées.  
+Cet article explique ce qu’est le contrôle d’accès en fonction du rôle Azure AD (Azure Active Directory). Les rôles Azure AD vous permettent d’accorder des autorisations précises à vos administrateurs, en respectant le principe du moindre privilège. Les rôles personnalisés et intégrés Azure AD utilisent des concepts similaires à ceux du [système de contrôle d’accès en fonction du rôle pour les ressources Azure](../../role-based-access-control/overview.md) (rôles Azure). La [différence entre ces deux systèmes de contrôle d’accès en fonction du rôle](../../role-based-access-control/rbac-and-directory-admin-roles.md) est la suivante :
 
-En outre, les rôles personnalisés Azure AD prennent en charge les affectations par ressource en plus des affectations plus traditionnelles à l’échelle de l’organisation. Cette approche vous offre la possibilité d’accorder l’accès pour gérer certaines ressources (par exemple, une inscription d’application) sans accorder l’accès à toutes les ressources (toutes les inscriptions d’applications).
+- Les rôles Azure AD contrôlent l’accès aux ressources Azure AD telles que les utilisateurs, les groupes et les applications à l’aide de l’API Graph.
+- Les rôles Azure contrôlent l’accès aux ressources Azure, telles que les machines virtuelles ou le stockage, à l’aide de Gestion des ressources Azure.
 
-Le contrôle d’accès en fonction du rôle Azure AD est une fonctionnalité en préversion publique d’Azure AD et est disponible avec n’importe quel plan de licence Azure AD payant. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Les deux systèmes contiennent des définitions de rôles et des attributions de rôles à l’usage similaire. Toutefois, les autorisations de rôle Azure AD ne peuvent pas être utilisées dans les rôles personnalisés Azure, et vice versa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Présentation du contrôle d’accès en fonction du rôle Azure AD
 
@@ -41,22 +42,18 @@ Les rôles personnalisés et intégrés Azure AD utilisent des concepts similair
 Voici les principales étapes suivies par Azure AD pour déterminer si vous avez accès à une ressource de gestion. Utilisez ces informations pour résoudre les problèmes d’accès.
 
 1. Un utilisateur (ou un principal de service) acquiert un jeton pour le point de terminaison Microsoft Graph ou Azure AD Graph.
-
 1. L’utilisateur effectue un appel d’API à Azure Active Directory (Azure AD) via Microsoft Graph ou Azure AD Graph à l’aide du jeton émis.
-
 1. Selon les circonstances, Azure AD effectue l’une des actions suivantes :
-
-    - Évalue les appartenances aux rôles de l’utilisateur en fonction de la [revendication wids](../../active-directory-b2c/access-tokens.md) dans le jeton d’accès de l’utilisateur.
-    - Récupère toutes les attributions de rôles qui s’appliquent à l’utilisateur, directement ou via l’appartenance à un groupe, à la ressource sur laquelle l’action est effectuée.
-
+   - Évalue les appartenances aux rôles de l’utilisateur en fonction de la [revendication wids](../../active-directory-b2c/access-tokens.md) dans le jeton d’accès de l’utilisateur.
+   - Récupère toutes les attributions de rôles qui s’appliquent à l’utilisateur, directement ou via l’appartenance à un groupe, à la ressource sur laquelle l’action est effectuée.
 1. Azure AD détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.
 1. Si l’utilisateur n’a aucun rôle avec l’action appropriée dans l’étendue demandée, l’accès n’est pas octroyé. Autrement, l’accès est accordé.
 
-### <a name="role-assignments"></a>Affectations de rôles
+## <a name="role-assignment"></a>Attribution de rôle
 
-Une attribution de rôle est l’objet qui associe une définition de rôle à un utilisateur dans une étendue particulière pour accorder l’accès aux ressources Azure AD. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle. À son cœur, une attribution de rôle se compose de trois éléments :
+Une attribution de rôle est une ressource Azure AD qui associe une *définition de rôle* à un *utilisateur* dans une *étendue* particulière pour accorder l’accès aux ressources Azure AD. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle. À son cœur, une attribution de rôle se compose de trois éléments :
 
-- Utilisateur (une personne disposant d’un profil utilisateur dans Azure Active Directory)
+- Utilisateur Azure AD
 - Définition de rôle
 - Étendue des ressources
 
@@ -68,7 +65,7 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 
 ### <a name="security-principal"></a>Principal de sécurité
 
-Un principal de sécurité représente l’utilisateur auquel l’accès aux ressources Azure AD doit être attribué. Un *utilisateur* est une personne disposant d’un profil utilisateur dans Azure Active Directory.
+Un principal de sécurité représente l’utilisateur auquel l’accès aux ressources Azure AD doit être attribué. Un utilisateur est une personne disposant d’un profil utilisateur dans Azure Active Directory.
 
 ### <a name="role"></a>Role
 
@@ -81,15 +78,12 @@ Une définition de rôle, ou rôle, est une collection d’autorisations. Une d�
 
 Une étendue est la restriction des actions autorisées à une ressource Azure AD particulière dans le cadre d’une attribution de rôle. Lorsque vous attribuez un rôle, vous pouvez spécifier une étendue qui limite l’accès de l’administrateur à une ressource spécifique. Par exemple, si vous souhaitez accorder à un développeur un rôle personnalisé, mais uniquement pour gérer une inscription d’application spécifique, vous pouvez inclure l’inscription d’application spécifique en tant qu’étendue dans l’attribution de rôle.
 
-  > [!Note]
-  > Des rôles personnalisés peuvent être attribués au niveau de l’étendue du répertoire et des ressources dans l’étendue. Ils ne peuvent pas encore être attribués au niveau de l’étendue de l’unité administrative.
-  > Les rôles intégrés peuvent être attribués à l’étendue du répertoire et, dans certains cas, à l’étendue de l’unité administrative. Ils ne peuvent pas encore être affectés à l’étendue des ressources Azure AD.
-
 ## <a name="required-license-plan"></a>Plan de licence obligatoire
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Comprendre les rôles Azure AD](concept-understand-roles.md)
 - Créer des attributions de rôles personnalisés à l’aide du [portail Azure, d’Azure AD PowerShell et de l’API Graph](custom-create.md)
 - [Afficher les attributions d’un rôle personnalisé](custom-view-assignments.md)
