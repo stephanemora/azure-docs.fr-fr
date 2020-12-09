@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e96fa932185a6689c360fe86d519a45581059118
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912635"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600385"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Services Azure qui prennent en charge Azure Data Lake Storage Gen2
 
@@ -37,13 +37,14 @@ Ce tableau répertorie les services Azure que vous pouvez utiliser avec Azure Da
 |Azure Stream Analytics|Mise à la disposition générale|Oui|Oui|[Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Sortie vers Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|Mise à la disposition générale|Non|Oui|[Utiliser Azure Data Box pour migrer les données d’un magasin HDFS local vers Stockage Azure](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
 |HDInsight |Mise à la disposition générale|Oui|Oui|[Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutoriel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
-|IoT Hub |Mise à la disposition générale|Non|Oui|[Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
+|IoT Hub |Mise à la disposition générale|Oui|Oui|[Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Mise à la disposition générale|Oui|Oui|[Analyse des données dans Data Lake Storage Gen2 à l’aide de Power BI](/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (anciennement SQL Data Warehouse)|Mise à la disposition générale|Oui|Oui|[Utiliser avec Azure Synapse Analytics (anciennement SQL Data Warehouse)](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|SQL Server Integration Services (SSIS)|Mise à la disposition générale|Oui|Oui|[Gestionnaire de connexions Stockage Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|Azure Synapse Analytics (anciennement SQL Data Warehouse)|Mise à la disposition générale|Oui|Oui|[Utiliser avec Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|SQL Server Integration Services (SSIS)|Mise à la disposition générale|Oui|Oui|[Gestionnaire de connexions Stockage Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Explorateur de données Azure|Mise à la disposition générale|Oui|Oui|[Interroger des données dans Azure Data Lake à l’aide d’Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Recherche cognitive Azure|PRÉVERSION|Oui|Oui|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Pas encore pris en charge|Non applicable|Non applicable|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../cdn/cdn-overview.md)|
+|Azure SQL Database|Pas encore pris en charge|Non applicable|Non applicable|[Qu’est-ce qu’Azure SQL Database ?](/azure/azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>Voir aussi
 
