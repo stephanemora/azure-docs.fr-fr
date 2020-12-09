@@ -3,12 +3,12 @@ title: Guide du protocole de connexions hybrides Azure Relay | Microsoft Docs
 description: Cet article décrit les interactions côté client avec le relais Connexions hybrides pour la connexion de clients ayant le rôle d’expéditeur ou d’écouteur.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531443"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862324"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
@@ -414,7 +414,7 @@ Le protocole de l’expéditeur est identique au mode d’établissement d’un 
 L’objectif est une transparence maximale pour le WebSocket de bout en bout. L’adresse de connexion est la même que pour l’écouteur, mais « l’action » diffère et le jeton a besoin d’une autorisation différente :
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 _namespace-address_ est le nom de domaine complet de l’espace de noms Azure Relay qui héberge la connexion hybride, généralement de la forme `{myname}.servicebus.windows.net`.
@@ -433,7 +433,7 @@ Voici les options de paramètres des chaînes de requête :
  Le `{path}` est le chemin d’accès de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. L’expression `path` peut être étendue par un suffixe ou une expression de chaîne de requête pour prolonger la communication. Si la connexion hybride est enregistrée sous le chemin `hyco`, l’expression `path` peut être `hyco/suffix?param=value&...`, suivi des paramètres de chaîne de requête définis ici. Ainsi, l’expression complète peut être celle-ci :
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 L’expression `path` est transmise à l’écouteur dans l’URI d’adresse contenu dans le message de contrôle « accept ».
@@ -462,7 +462,7 @@ Le protocole de requête HTTP autorise les requêtes HTTP arbitraires, à l’ex
 Les requêtes HTTP pointent vers l’adresse d’exécution régulière de l’entité, sans l’infixe $hc qui est utilisé pour les clients WebSocket des connexions hybrides.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 _namespace-address_ est le nom de domaine complet de l’espace de noms Azure Relay qui héberge la connexion hybride, généralement de la forme `{myname}.servicebus.windows.net`.

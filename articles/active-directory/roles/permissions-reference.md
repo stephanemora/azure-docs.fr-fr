@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963638"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862055"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -142,7 +142,7 @@ Dans | Peut
 
 ### <a name="compliance-data-administrator"></a>[Administrateur des données de conformité](#compliance-data-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle sont autorisés à suivre les données dans le centre de conformité Microsoft 365, le centre d’administration Microsoft 365 et Azure. Les utilisateurs peuvent également suivre les données de conformité dans le centre d’administration Exchange, le Gestionnaire de compatibilité, le centre d’administration Teams et Skype Entreprise, et créer des tickets de support pour Azure et Microsoft 365. [Cette documentation](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contient des détails sur les différences entre Administrateur de conformité et Administrateur des données de conformité.
+Les utilisateurs dotés de ce rôle sont autorisés à suivre les données dans le centre de conformité Microsoft 365, le centre d’administration Microsoft 365 et Azure. Les utilisateurs peuvent également suivre les données de conformité dans le centre d’administration Exchange, le Gestionnaire de compatibilité, le centre d’administration Teams et Skype Entreprise, et créer des tickets de support pour Azure et Microsoft 365. [Cette documentation](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) contient des détails sur les différences entre Administrateur de conformité et Administrateur des données de conformité.
 
 Dans | Peut
 ----- | ----------
@@ -317,7 +317,7 @@ Les utilisateurs ayant le rôle Utilisateur de Commerce moderne disposent géné
 
 **Quand le rôle Utilisateur de Commerce moderne est-il attribué ?**
 
-* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
 * **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de Marché Azure, le rôle Utilisateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
 * **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Quand la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Utilisateur de Commerce moderne pour accéder au centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce.
 * **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas Administrateur général ou Administrateur de facturation, il obtient le rôle Utilisateur de Commerce moderne qui lui permet d’accéder au centre d’administration.  
