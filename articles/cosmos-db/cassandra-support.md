@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636960"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188545"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -205,7 +205,7 @@ L’API Cassandra Azure Cosmos DB est une plateforme de services managés. Elle 
 
 ## <a name="hosted-cql-shell-preview"></a>Interpréteur de commandes CQL hébergé (préversion)
 
-Vous pouvez ouvrir un interpréteur de commandes Cassandra natif hébergé (CQLSH 5.0.1) directement à partir de l’Explorateur de données dans le [Portail Microsoft Azure](data-explorer.md) ou l’[explorateur Azure Cosmos](https://cosmos.azure.com/). Avant l’interpréteur de commandes CQL, vous devez [activer la fonctionnalité Notebooks](enable-notebooks.md) dans votre compte (si ce n’est déjà fait, vous serez invité à cliquer sur `Open Cassandra Shell`). Consultez la note en surbrillance dans [Activer les notebooks pour un compte Azure Cosmos DB](enable-notebooks.md) pour les régions Azure prises en charge.
+Vous pouvez ouvrir un interpréteur de commandes Cassandra natif hébergé (CQLSH v5.0.1) directement à partir de l’Explorateur de données dans le [portail Azure](data-explorer.md) ou de l’[Explorateur Azure Cosmos DB](https://cosmos.azure.com/). Avant l’interpréteur de commandes CQL, vous devez [activer la fonctionnalité Notebooks](enable-notebooks.md) dans votre compte (si ce n’est déjà fait, vous serez invité à cliquer sur `Open Cassandra Shell`). Consultez la note en surbrillance dans [Activer les notebooks pour un compte Azure Cosmos DB](enable-notebooks.md) pour les régions Azure prises en charge.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Ouvrir CQLSH":::
 

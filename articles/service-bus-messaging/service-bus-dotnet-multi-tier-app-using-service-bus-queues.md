@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029893"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
 
@@ -63,7 +63,7 @@ Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’a
 
 ### <a name="create-the-project"></a>Créer le projet
 
-1. Lancez Visual Studio avec des privilèges d’administrateur : cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
+1. Lancez Visual Studio avec des privilèges d’administrateur : cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**. L’Émulateur de calcul Azure, présenté plus loin dans cet article, nécessite que Visual Studio soit démarré avec des privilèges d’administrateur.
    
    Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 2. Dans **Modèles installés**, sous **Visual C#** , cliquez sur **Cloud**, puis sur **Azure Cloud Service**. Nommez ce projet **MultiTierApp**. Cliquez ensuite sur **OK**.
@@ -316,9 +316,9 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 8. Sous l’onglet **Paramètres** de la boîte de dialogue **Propriétés**, cliquez dans la zone **Valeur** de l’élément **Microsoft.ServiceBus.ConnectionString**, puis collez la valeur du point de terminaison que vous avez copiée à l’étape 6.
    
    ![Capture d’écran de la boîte de dialogue Propriétés avec l’onglet Paramètres sélectionné et la ligne de la table Microsoft.ServiceBus.ConnectionString délimitée en rouge.][25]
-9. Créez une classe **OnlineOrder**pour représenter les commandes à mesure que vous les traitez dans la file d’attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la classe **OrderProcessingRole** (sur l’icône de la classe, non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
+9. Créez une classe **OnlineOrder** pour représenter les commandes à mesure que vous les traitez dans la file d’attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la classe **OrderProcessingRole** (sur l’icône de la classe, non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
 10. Accédez au sous-dossier **FrontendWebRole\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l’ajouter à ce projet.
-11. Dans**WorkerRole.cs**, remplacez la valeur de variable **QueueName**`"ProcessingQueue"` par `"OrdersQueue"`, comme dans le code suivant.
+11. Dans **WorkerRole.cs**, remplacez la valeur de variable **QueueName**`"ProcessingQueue"` par `"OrdersQueue"`, comme dans le code suivant.
     
     ```csharp
     // The name of your queue.
@@ -338,7 +338,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
     Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
     receivedMessage.Complete();
     ```
-14. Vous avez terminé l'application. Vous pouvez tester l’application complète en cliquant avec le bouton droit sur le projet MultiTierApp dans l’Explorateur de solutions, puis en sélectionnant **Définir comme projet de démarrage**et en appuyant sur F5. Notez que le nombre de messages n'augmente pas, car le rôle de travail traite les éléments de la file d'attente et les marque comme terminés. Vous pouvez voir le résultat du suivi de votre rôle de travail en affichant l'interface utilisateur de l'émulateur de calcul Azure. Pour cela, cliquez avec le bouton droit sur l’icône de l’émulateur dans la zone de notification de la barre des tâches, puis sélectionnez l’**interface utilisateur de l’émulateur de calcul Azure**.
+14. Vous avez terminé l'application. Vous pouvez tester l’application complète en cliquant avec le bouton droit sur le projet MultiTierApp dans l’Explorateur de solutions, puis en sélectionnant **Définir comme projet de démarrage** et en appuyant sur F5. Notez que le nombre de messages n'augmente pas, car le rôle de travail traite les éléments de la file d'attente et les marque comme terminés. Vous pouvez voir le résultat du suivi de votre rôle de travail en affichant l'interface utilisateur de l'émulateur de calcul Azure. Pour cela, cliquez avec le bouton droit sur l’icône de l’émulateur dans la zone de notification de la barre des tâches, puis sélectionnez l’**interface utilisateur de l’émulateur de calcul Azure**.
     
     ![Capture d’écran de ce qui s’affiche lorsque vous cliquez sur l’icône de l’émulateur. Afficher l'IU de l'émulateur de calcul se trouve dans la liste d’options.][19]
     

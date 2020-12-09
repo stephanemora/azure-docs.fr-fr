@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: f698c1ac7ab3ad2dbd86710bea9a48d962603d86
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334582"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187321"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,7 +40,7 @@ Le type de compte Azure Cosmos que vous utilisez détermine la façon dont les u
 
 2. **Mode serverless** : Dans ce mode, vous n'avez pas besoin d'approvisionner un débit lors de la création de ressources sur votre compte Azure Cosmos. À la fin de votre période de facturation, vous êtes facturé pour la quantité d’unités de requête consommées par vos opérations de base de données. Pour plus d'informations, consultez l'article [Débit Serverless](serverless.md). 
 
-3. **Mode Mise à l'échelle automatique** : Dans ce mode, vous pouvez effectuer une mise à l'échelle automatique et instantanée du débit (RU/s) de votre base de données ou de votre conteneur en fonction de son utilisation, sans impacter la disponibilité, la latence, le débit ou les performances de la charge de travail. Ce mode convient aux charges de travail stratégiques qui présentent des modèles de trafic variables ou imprévisibles et qui nécessitent des contrats SLA sur des performances et une mise à l'échelle élevées. Pour plus d'informations, consultez l'article [Débit avec mise à l'échelle automatique](provision-throughput-autoscale.md). 
+3. **Mode Mise à l'échelle automatique** : Dans ce mode, vous pouvez effectuer une mise à l’échelle automatique et instantanée du débit (RU/s) de votre base de données ou de votre conteneur en fonction de son utilisation, sans impacter la disponibilité, la latence, le débit ou les performances de la charge de travail. Ce mode convient aux charges de travail stratégiques qui présentent des modèles de trafic variables ou imprévisibles et qui nécessitent des contrats SLA sur des performances et une mise à l'échelle élevées. Pour plus d'informations, consultez l'article [Débit avec mise à l'échelle automatique](provision-throughput-autoscale.md). 
 
 ## <a name="request-unit-considerations"></a>Considérations relatives aux unités de requête
 

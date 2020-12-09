@@ -4,21 +4,17 @@ description: Découvrez les stratégies de restriction des accès disponibles da
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122579"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -26,13 +22,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès
 
--   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
--   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
+-   [Check HTTP header](#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
+-   [Limit call rate by subscription](#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
 -   [Limit call rate by key](#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
--   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
--   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
+-   [Restrict caller IPs](#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
+-   [Set usage quota by subscription](#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
 -   [Set usage quota by key](#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
--   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+-   [Validate JWT](#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 
 > [!TIP]
 > Vous pouvez utiliser des stratégies de restriction d’accès dans différentes étendues à des fins différentes. Par exemple, vous pouvez sécuriser l’intégralité de l’API avec l’authentification AAD en appliquant la stratégie `validate-jwt` au niveau de l’API ou vous pouvez l’appliquer au niveau de l’opération d’API et utiliser `claims` pour un contrôle plus granulaire.
@@ -384,12 +380,12 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 
 ## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Validate JWT
 
-La stratégie `validate-jwt` applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+La stratégie `validate-jwt` applique l’existence et la validité d’un jeton JWT (JSON Web Token) extrait à partir de l’en-tête HTTP spécifié ou du paramètre de requête spécifié.
 
 > [!IMPORTANT]
 > La stratégie `validate-jwt` exige que la revendication inscrite `exp` soit incluse dans le jeton JWT, sauf si l’attribut `require-expiration-time` est spécifié et a la valeur `false`.
-> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour RS256, la clé doit être fournie par le biais d’un point de terminaison de configuration Open ID.
-> La stratégie `validate-jwt` prend en charge les jetons chiffrés avec des clés symétriques à l'aide des algorithmes de chiffrement suivants : A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> La stratégie `validate-jwt` prend en charge les algorithmes de signature HS256 et RS256. Pour HS256, la clé doit être fournie en ligne au sein de la stratégie au format encodé en base 64. Pour l’algorithme RS256, la clé peut être fournie soit via un point de terminaison de configuration OpenID, soit en spécifiant l’ID d’un certificat chargé qui contient la clé publique ou la paire modulo-exposant de la clé publique.
+> La stratégie `validate-jwt` prend en charge les jetons chiffrés avec des clés symétriques à l’aide des algorithmes de chiffrement suivants : A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -440,6 +436,22 @@ La stratégie `validate-jwt` applique l’existence et la validité d’un JWT e
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
         <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
+</validate-jwt>
+```
+
+#### <a name="token-validation-with-rsa-certificate"></a>Validation de jeton avec certificat RSA
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -519,8 +531,8 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Élément racine.                                                                                                                                                                                                                                                                                                                                         | Oui      |
 | audiences           | Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.                                                                     | Non       |
-| issuer-signing-keys | Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.               | Non       |
-| decryption-keys     | Liste de clés codée en Base64 utilisée pour déchiffrer les jetons. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.                                                 | Non       |
+| issuer-signing-keys | Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce qu’il n’en reste plus (ce qui entraîne un échec de validation) ou jusqu’à ce que l’une d’elles soit la clé appropriée (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`. <br/><br/>Vous pouvez également fournir une clé de signature d’émetteur en utilisant :<br/><br/> - `certificate-id` au format `<key certificate-id="mycertificate" />` pour spécifier l’identificateur d’une entité de certificat [chargée](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) vers le service Gestion des API<br/>- Paire RSA du modulo `n` et de l’exposant `e` au format `<key n="<modulus>" e="<exponent>" />` pour spécifier les paramètres RSA au format d’encodage base64url               | Non       |
+| decryption-keys     | Liste de clés codée en Base64 utilisée pour déchiffrer les jetons. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce qu’il n’en reste plus (ce qui entraîne un échec de validation) ou jusqu’à ce que l’une d’elles soit la clé appropriée. Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.<br/><br/>Vous pouvez également fournir une clé de déchiffrement en utilisant :<br/><br/> - `certificate-id` au format `<key certificate-id="mycertificate" />` pour spécifier l’identificateur d’une entité de certificat [chargée](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) vers le service Gestion des API                                                 | Non       |
 | issuers             | Liste des services principaux acceptables qui ont émis le jeton. Si plusieurs valeurs d’émetteur sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse.                                                                                                                                         | Non       |
 | openid-config       | Élément utilisé pour spécifier un point de terminaison de configuration Open ID conforme à partir duquel l’émetteur et les clés de signature peuvent être obtenus.                                                                                                                                                                                                                        | Non       |
 | required-claims     | Contient une liste de revendications censées être présentes sur le jeton pour qu’il soit considéré comme valide. Si l’attribut `match` a la valeur `all`, toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Si l’attribut `match` a la valeur `any`, au moins une revendication doit être présente dans le jeton pour que la validation réussisse. | Non       |

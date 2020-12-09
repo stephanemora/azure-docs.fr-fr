@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925575"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324786"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -83,15 +83,15 @@ La Sauvegarde Azure crée un groupe de ressources distinct au format `AzureBacku
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
 
-Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](../virtual-machines/disks-types.md#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
 
-Il n’est pas possible de prendre des instantanés sur un disque avec Accélérateur d’écriture. Toutefois, le service Sauvegarde Azure peut exclure un tel disque de la sauvegarde.
+Les instantanés ne peuvent être effectués que sur les disques de données avec Accélérateur d’écriture et non sur les disques de système d’exploitation. Ainsi, seuls les disques de données avec Accélérateur d’écriture peuvent être protégés.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>J’ai une machine virtuelle dotée de disques avec Accélérateur d’écriture et sur laquelle SAP HANA est installé. Comment faire pour effectuer une sauvegarde ?
 
-Sauvegarde Azure ne peut pas sauvegarder le disque avec Accélérateur d’écriture, mais peut l’exclure de la sauvegarde. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données car les informations situées sur le disque avec Accélérateur d’écriture ne sont pas sauvegardées. Vous pouvez sauvegarder des disques dans une telle configuration si vous souhaitez que la sauvegarde porte sur les disques du système d’exploitation et les disques sans Accélérateur d’écriture.
+Sauvegarde Azure peut sauvegarder le disque de données avec Accélérateur d’écriture. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données.
 
 Sauvegarde Azure fournit une solution de sauvegarde en continu pour les bases de données SAP HANA avec un RPO de 15 minutes. Elle est certifiée Backint par SAP pour la prise en charge de sauvegarde native à l’aide d’API natives de SAP HANA. En savoir plus [sur la sauvegarde des bases de données SAP HANA dans des machines virtuelles Azure](./sap-hana-db-about.md).
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339674"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurer l’espace de noms agrégé
 
@@ -83,7 +83,7 @@ Cette liste montre le nombre maximum de chemins d’espace de noms par configura
   * Cache de 6 To - 10 chemins d’espace de noms
   * Cache de 23 To - 20 chemins d’espace de noms
 
-* Débit jusqu’à 5 Go/s :
+* Débit jusqu’à 4 Go/s :
 
   * Cache de 6 To - 10 chemins d’espace de noms
   * Cache de 12 To - 10 chemins d’espace de noms

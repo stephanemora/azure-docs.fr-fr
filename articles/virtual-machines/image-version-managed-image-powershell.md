@@ -1,6 +1,6 @@
 ---
-title: Migrer une image managée vers une galerie d’images partagées
-description: Découvrez comment utiliser Azure PowerShell pour migrer une image managée vers une version d’image dans une galerie d’images partagées.
+title: Cloner une image managée vers une galerie d’images partagées
+description: Découvrez comment utiliser Azure PowerShell pour cloner une image managée vers une version d’image dans une galerie d’images partagées.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964879"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349920"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrer à partir d’une image managée vers une image de galerie d’images partagées
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Cloner une image managée vers une image de galerie d’images partagées
 
-Si vous souhaitez migrer une image managée existante dans une galerie d’images partagées, vous pouvez créer une image Shared Image Gallery directement à partir de l’image managée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer l’image managée source. Vous pouvez également effectuer une migration depuis une image managée vers une galerie d’images partagées à l’aide d’[Azure CLI](image-version-managed-image-cli.md).
+Si vous souhaitez cloner et déplacer une image managée existante dans Shared Image Gallery, vous pouvez créer directement une image Shared Image Gallery à partir de l’image managée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer l’image managée source. Vous pouvez également effectuer une migration depuis une image managée vers une galerie d’images partagées à l’aide d’[Azure CLI](image-version-managed-image-cli.md).
 
 Les images d’une galerie d’images comportent deux composants, que nous allons créer dans cet exemple :
 - Une **définition d’image** transporte des informations sur l’image et ses conditions d’utilisation. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, spécialisée ou généralisée, et comprennent les notes de publication et la mémoire maximale et minimale requise. Il s’agit d’une définition de type d’image. 

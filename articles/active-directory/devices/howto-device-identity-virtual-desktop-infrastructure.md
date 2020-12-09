@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029345"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -60,8 +60,7 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 |   |   |   | Non persistante | Non |
 | Appareils inscrits sur Azure AD | Fédérée/managée | Windows actuel/Windows de bas niveau | Persistante/non persistante | Non applicable |
 
-<sup>1</sup> Les appareils **Windows actuels** sont Windows 10, Windows Server 2016 et Windows Server 2019.
-
+<sup>1</sup> Les appareils **Windows actuels** sont Windows 10, Windows Server 2016 v1803 ou ultérieur et Windows Server 2019.
 <sup>2</sup> Les appareils **Windows de bas niveau** sont Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Pour des informations relatives à la prise en charge de Windows 7, consultez [Fin de la prise en charge de Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Pour obtenir des informations de support sur Windows Server 2008 R2, consultez [Préparez-vous à la fin du support de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> Un environnement d’infrastructure d’identité **fédérée** représente un environnement avec un fournisseur d’identité, tel qu’AD FS ou d’autres IdP tiers.

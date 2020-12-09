@@ -3,16 +3,16 @@ title: Supprimer un laboratoire Azure Lab Services à partir de Teams
 description: Découvrez comment supprimer un laboratoire Azure Lab Services à partir de Teams.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 1d2fe73d33a88e595f42b47c1e7122dcbdfe1063
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094128"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433952"
 ---
 # <a name="delete-labs-within-teams"></a>Supprimer des laboratoires dans Teams
 
-Cet article explique comment supprimer un laboratoire de l’application **Azure Lab Services** .
+Cet article explique comment supprimer un laboratoire de l’application **Azure Lab Services**.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -21,7 +21,7 @@ Cet article explique comment supprimer un laboratoire de l’application **Azure
 
 ## <a name="delete-labs"></a>Supprimer des labos
 
-Un laboratoire créé au sein de Teams peut être supprimé sur le [site web de Lab Services](https://labs.azure.com) en supprimant le laboratoire directement, comme décrit dans [Gérer des laboratoires de classe dans Azure Lab Services](how-to-manage-classroom-labs.md). 
+Un labo créé au sein de Teams peut être supprimé directement sur le [site web Lab Services](https://labs.azure.com) (cf. [Gestion des labos dans Azure Lab Services](how-to-manage-classroom-labs.md)). 
 
 La suppression du laboratoire est également déclenchée lorsque l’équipe est supprimée. Si l’équipe dans laquelle le laboratoire est créé est supprimée, le laboratoire est automatiquement supprimé 24 heures après le déclenchement de la synchronisation automatique de la liste d’utilisateurs. 
 

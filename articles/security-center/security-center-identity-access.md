@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967140"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187151"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -52,7 +52,7 @@ Il existe certaines limitations à la protection de l’identité et de l’acc�
 
 - Les recommandations d’identité ne sont pas disponibles pour les abonnements avec plus de 600 comptes. Dans ce cas, ces recommandations sont répertoriées sous « évaluations non disponibles ».
 - Les recommandations d’identité ne sont pas disponibles pour les agents d’administration du partenaire fournisseur de solutions Cloud (CSP).
-- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations**.
+- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, il se peut que des résultats inexacts soient visibles dans le contrôle **Gérer l’accès et les autorisations**.
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Authentification multifacteur (MFA) et Azure Active Directory 
 

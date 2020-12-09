@@ -3,19 +3,19 @@ title: Configurer l’arrêt automatique des machines virtuelles pour un labo da
 description: Découvrez comment activer ou désactiver l’arrêt automatique des machines virtuelles lorsqu'une connexion Bureau à distance est déconnectée.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649879"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433933"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurer l’arrêt automatique des machines virtuelles pour un labo
 
 Cet article explique comment configurer l’arrêt automatique des machines virtuelles pour un labo.
 
 Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrêt automatique afin d’éviter de manière proactive les coûts supplémentaires lorsque les machines virtuelles ne sont pas utilisées activement. La combinaison des trois fonctionnalités suivantes d’arrêt et de déconnexion automatiques permet d’intercepter la plupart des cas où les utilisateurs laissent accidentellement leurs machines virtuelles en marche :
- 
+ 
 * Déconnectez automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives.
 * Arrêt automatique des machines virtuelles quand les utilisateurs se déconnectent.
 * Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
@@ -40,4 +40,4 @@ Veillez à consulter les détails de l’arrêt automatique dans la section [Opt
 > Si vous arrêtez le système d’exploitation Linux ou Windows d’une machine virtuelle avant de vous déconnecter d’une session RDP sur cette machine virtuelle, la fonctionnalité d’arrêt automatique ne marche pas correctement.  
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tableau de bord pour les labs de classe](use-dashboard.md)
+[Tableau de bord des labos](use-dashboard.md)

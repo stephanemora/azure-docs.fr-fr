@@ -1,5 +1,5 @@
 ---
-title: Ajouter l’autocomplétion et les suggestions dans une zone de recherche
+title: Ajouter la saisie semi-automatique dans une zone de recherche
 titleSuffix: Azure Cognitive Search
 description: Activez les actions de recherche en cours de frappe dans la Recherche cognitive Azure en créant des suggesteurs et en formulant des requêtes qui complètent automatiquement une zone de recherche avec des termes ou des expressions complets. Vous pouvez également retourner des correspondances suggérées.
 manager: nitinme
@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426168"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339606"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes à l’aide de Recherche cognitive Azure
 
-La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’*autocomplétion*, qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* sont une autre possibilité : une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
+La recherche en cours de frappe est une technique courante pour améliorer la productivité des requêtes initiées par l’utilisateur. Dans Recherche cognitive Azure, cette expérience est prise en charge via l’*autocomplétion*, qui termine un terme ou une expression en fonction d’une entrée partielle (en complétant « micro » par « microsoft » par exemple). Les *suggestions* constituent une autre expérience utilisateur : il s’agit d’une liste succincte de documents correspondants (retournant des titres de livres avec un ID pour pouvoir lier vers une page d’informations sur ce livre). L’autocomplétion et les suggestions sont basées sur une correspondance dans l’index. Le service ne propose pas de requêtes qui ne retournent aucun résultat.
 
 Pour implémenter ces expériences dans Recherche cognitive Azure, vous avez besoin des éléments suivants :
 
-+ Un *suggesteur* sur le back end.
++ Une définition *suggesteur* qui est incorporée dans le schéma d’index.
 + Une *requête* spécifiant l’API [Autocomplétion](/rest/api/searchservice/autocomplete) ou [Suggestions](/rest/api/searchservice/suggestions) sur la demande.
 + Un *contrôle d’interface utilisateur* pour gérer les interactions de type recherche en cours de frappe dans votre application cliente. Nous vous recommandons d’utiliser une bibliothèque JavaScript existante à cet effet.
 

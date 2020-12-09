@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperfq2
-ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a1d83f91ad82bddacb7e806e31151b8e4a7ab612
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737672"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344927"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure AD
 
@@ -83,7 +83,7 @@ En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits corresp
 `CBool(Expression)`
 
 **Description :**  
-`CBool` retourne une valeur booléenne basée sur l’expression évaluée. Si l’expression retourne une valeur autre que zéro, `CBool` retourne la valeur *True*  ; sinon elle retourne *False*.
+`CBool` retourne une valeur booléenne basée sur l’expression évaluée. Si l’expression retourne une valeur autre que zéro, `CBool` retourne la valeur *True* ; sinon elle retourne *False*.
 
 **Paramètres :** 
 
@@ -377,7 +377,7 @@ Renvoie « Joh ».
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut. |
 | **start** |Obligatoire |entier |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
-| **length** |Obligatoire |entier |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source** , la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
+| **length** |Obligatoire |entier |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -416,10 +416,10 @@ Renvoie « Joh ».
 | **value** |Obligatoire | String | Chaîne de date et d’heure dans le format pris en charge. Pour connaitre les formats pris en charge, consultez https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exemple :**
-* Exemple Workday En supposant que vous souhaitiez mapper l’attribut *ContractEndDate* de Workday, qui est au format *2020-12-31-08:00* , au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux. 
+* Exemple Workday En supposant que vous souhaitiez mapper l’attribut *ContractEndDate* de Workday, qui est au format *2020-12-31-08:00*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
-* Exemple SuccessFactors En supposant que vous souhaitiez mapper l’attribut *endDate* de SuccessFactors, qui est au format *M/j/aaaa hh:mm:ss tt* , au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux.
+* Exemple SuccessFactors En supposant que vous souhaitiez mapper l’attribut *endDate* de SuccessFactors, qui est au format *M/j/aaaa hh:mm:ss tt*, au champ *accountExpires* dans AD, voici comment vous pouvez utiliser cette fonction et modifier le décalage de fuseau horaire pour qu’il corresponde à vos paramètres régionaux.
   `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 
@@ -446,17 +446,17 @@ Renvoie « Joh ».
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
-  * Remplace toutes les occurrences d’ **oldValue** dans la **source** par  **replacementValue**.
+  * Remplace toutes les occurrences d’**oldValue** dans la **source** par  **replacementValue**.
 * Quand **oldValue** et **template** sont fournis :
   
-  * Remplace toutes les occurrences d’ **oldValue** dans le **template** par la valeur **source**.
+  * Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
 * Quand **regexPattern** et **replacementValue** sont fournis :
 
   * La fonction applique **regexPattern** à la chaîne **source** et vous pouvez utiliser les noms de groupes regex pour construire la chaîne pour **replacementValue**.
-* Quand **regexPattern** , **regexGroupName** et **replacementValue** sont fournis :
+* Quand **regexPattern**, **regexGroupName** et **replacementValue** sont fournis :
   
   * La fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par **replacementValue**.
-* Quand **regexPattern** , **regexGroupName** et **replacementAttributeName** sont fournis :
+* Quand **regexPattern**, **regexGroupName** et **replacementAttributeName** sont fournis :
   
   * Si **source** n’a pas de valeur, **source** est retourné
   * Si **source** a une valeur, la fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par la valeur associée à **replacementAttributeName**.
@@ -534,7 +534,7 @@ Renvoie « Joh ».
 ### <a name="switch"></a>Commutateur
 **Fonction :**  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Description :** quand la valeur **source** correspond à une **clé** , retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres. La fonction ne doit pas être utilisée pour les attributs référentiels tels que le gestionnaire. 
+**Description :** quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres. La fonction ne doit pas être utilisée pour les attributs référentiels tels que le gestionnaire. 
 
 **Paramètres :** 
 
@@ -556,7 +556,7 @@ Renvoie « Joh ».
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
-| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2* , où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -569,7 +569,7 @@ Renvoie « Joh ».
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
-| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2* , où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ---
 ### <a name="word"></a>Word
@@ -621,7 +621,7 @@ Si vous utilisez un Sandbox Salesforce, vous devrez peut-être ajouter un suffix
 **Exemple d’entrée/sortie :** 
 
 * **ENTRÉE** : (userPrincipalName) : "John.Doe@contoso.com"
-* **SORTIE** :  "John.Doe@contoso.com.test"
+* **SORTIE**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Générer des alias d’utilisateurs en concaténant des parties du prénom et du nom
 Vous devez générer un alias d’utilisateur en prenant les trois premières lettres du prénom de l’utilisateur et les cinq premières lettres de son nom de famille.
@@ -652,8 +652,8 @@ Vous devez prendre une liste de chaînes délimitées par des virgules, et la fr
 
 **Exemple d’entrée/sortie :** 
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **SORTIE**  :  ["PermissionSetOne", "PermissionSetTwo"]
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **SORTIE** :  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné.  Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
@@ -700,7 +700,7 @@ Dans l’exemple ci-dessous, la valeur UPN est générée en concaténant les ch
 
 * **ENTRÉE** (PreferredFirstName) : "John"
 * **ENTRÉE** (PreferredLastName) : "Smith"
-* **SORTIE**  : "john.smith@contoso.com"
+* **SORTIE** : "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
 En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisateur, vous devez générer une valeur pour l’attribut UPN et vérifier son caractère unique dans le répertoire AD cible avant d’attribuer la valeur à l’attribut UPN.
@@ -719,9 +719,9 @@ En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisa
 
 * **ENTRÉE** (PreferredFirstName) : "John"
 * **ENTRÉE** (PreferredLastName) : "Smith"
-* **SORTIE**  : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
-* **SORTIE**  : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
-* **SORTIE**  : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
+* **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
+* **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
+* **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
 Vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si ce n’est pas le cas, vous souhaitez transmettre la valeur de userPrincipalName à la place.
@@ -733,7 +733,7 @@ Vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si c
 
 * **ENTRÉE** (mail) : NULL
 * **ENTRÉE** (userPrincipalName) : « John.Doe@contoso.com »
-* **SORTIE** :  "John.Doe@contoso.com"
+* **SORTIE**:  "John.Doe@contoso.com"
 
 ## <a name="related-articles"></a>Articles connexes
 * [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](../app-provisioning/user-provisioning.md)

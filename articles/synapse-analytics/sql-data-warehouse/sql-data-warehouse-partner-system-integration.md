@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 11/24/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94872d3765a992fd025f30feaab95248ce6831ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 19941963b5200b3ffdb9f2360301d30fe9df4823
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919080"
+ms.locfileid: "96121851"
 ---
 # <a name="azure-synapse-analytics-system-integration-partners"></a>Partenaires d’intégration de systèmes d’Azure Synapse Analytics
 
 Cet article met en évidence les sociétés partenaires de Microsoft en matière d’intégration de systèmes qui élaborent des solutions avec Azure Synapse.
 
-## <a name="our-public-preview-launch-partners"></a>Nos partenaires de lancement de la préversion publique
+## <a name="system-integration-partners"></a>Partenaires d’intégration de systèmes
 | Partenaire | Description | Site web/lien produit |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>En rassemblant plus de 45 000 professionnels dédiés, Accenture Microsoft Business Group, soutenu par Avanade, permet aux entreprises de prospérer à l’ère du numérique.|[Page du partenaire](https://www.accenture.com/us-en/services/microsoft-index)<br>|

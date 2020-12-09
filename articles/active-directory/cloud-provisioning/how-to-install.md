@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237632"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348532"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installer l’agent de provisionnement cloud Azure AD Connect
 Ce document vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.
@@ -32,7 +32,7 @@ L’installation et la configuration du provisionnement Azure AD Connect sont ac
 
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent.  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent.  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Mise à niveau d’un agent existant pour utiliser le compte gMSA
@@ -107,4 +107,3 @@ Pour vérifier que l’agent est en cours d’exécution, procédez comme suit.
 
 - [Présentation du provisionnement](what-is-provisioning.md)
 - [Présentation du provisionnement cloud Azure AD Connect](what-is-cloud-provisioning.md)
- 

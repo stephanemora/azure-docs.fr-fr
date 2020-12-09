@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227914"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348757"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plateforme d’identité Microsoft et flux d’assertion du porteur SAML OAuth 2.0
 Le flux d’assertion du porteur SAML OAuth 2.0 vous permet de demander un jeton d’accès OAuth à l’aide d’une assertion SAML lorsqu’un client doit utiliser une relation d’approbation existante. La signature appliquée à l’assertion SAML fournit l’authentification de l’application autorisée. Une assertion SAML est un jeton de sécurité XML émis par un fournisseur d’identité et consommé par un fournisseur de services. Le fournisseur de services s’appuie sur son contenu pour identifier l’objet de l’assertion à des fins de sécurité.
@@ -73,7 +73,7 @@ Dans cette étape, récupérez un jeton OAuth2 à l’aide de la réponse d’as
 1. Créez une demande de publication, comme indiqué ci-dessous, avec les valeurs d’en-tête:
 
     ![requête POST](./media/v2-saml-bearer-assertion/5.png)
-1. Dans le corps de la requête, remplacez **client_id**, **client_secret**et **assertion** (l’assertion SAML encodée en base64 a obtenu l’étape précédente) :
+1. Dans le corps de la requête, remplacez **client_id**, **client_secret** et **assertion** (l’assertion SAML encodée en base64 a obtenu l’étape précédente) :
 
     ![Corps de la demande](./media/v2-saml-bearer-assertion/6.png)
 1. Si la requête est réussie, vous recevrez un jeton d’accès à partir d’Azure Active Directory.

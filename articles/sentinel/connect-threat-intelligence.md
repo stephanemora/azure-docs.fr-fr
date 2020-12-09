@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023906"
+ms.locfileid: "96121745"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connecter des données issues de fournisseurs de veille contre les menaces
 
@@ -56,6 +56,11 @@ Vous pouvez transmettre en continu des indicateurs de menace à Azure Sentinel e
 
     Pour plus d’informations, consultez [ThreatConnect Integrations](https://threatconnect.com/integrations/) et recherchez Microsoft Graph Security API dans la page.
 
+- [Plateforme EclecticIQ](https://www.eclecticiq.com/solutions)
+
+- [Plateforme Threat Intelligence ThreatQ](https://www.threatq.com/)
+
+    Pour obtenir des informations et des instructions détaillées, consultez [Connecteur Microsoft Sentinel pour l’intégration de ThreatQ](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=Overview).
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connecter Azure Sentinel à votre plateforme Threat Intelligence
 

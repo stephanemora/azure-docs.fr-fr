@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325806"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325347"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutoriel 1 : Prédire le risque de crédit – Azure Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![oui](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![non ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classique)   ![Cette coche signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -65,7 +64,7 @@ Une fois votre espace de travail créé, ouvrez Machine Learning Studio (classiq
 > [!TIP]
 > Si vous êtes propriétaire de l’espace de travail, vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans l’espace de travail. Pour cela, dans Machine Learning Studio (classique), ouvrez la page **PARAMÈTRES** . Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
 > 
-> Dans la page **PARAMÈTRES** , cliquez sur **UTILISATEURS** , puis cliquez sur **INVITER PLUS D’UTILISATEURS** en bas de la fenêtre.
+> Dans la page **PARAMÈTRES**, cliquez sur **UTILISATEURS**, puis cliquez sur **INVITER PLUS D’UTILISATEURS** en bas de la fenêtre.
 > 
 
 ## <a name="upload-existing-data"></a><a name="upload"></a>Charger des données existantes
@@ -75,7 +74,7 @@ Pour développer un modèle prédictif pour un risque de crédit, vous avez beso
 
 Vous allez utiliser le fichier nommé **german.data**. Téléchargez ce fichier sur votre disque dur.  
 
-Le jeu de données **german.data** contient des lignes de 20 variables pour 1000 candidats à un crédit. Ces 20 variables représentent l’ensemble des caractéristiques du jeu de données (le *vecteur de fonctionnalité* ), qui fournit des caractéristiques permettant d’identifier chaque candidat à un crédit. Une colonne supplémentaire pour chaque ligne représente le risque de crédit calculé de chaque candidat : 700 candidats constituent un faible risque de crédit et 300 un risque élevé.
+Le jeu de données **german.data** contient des lignes de 20 variables pour 1000 candidats à un crédit. Ces 20 variables représentent l’ensemble des caractéristiques du jeu de données (le *vecteur de fonctionnalité*), qui fournit des caractéristiques permettant d’identifier chaque candidat à un crédit. Une colonne supplémentaire pour chaque ligne représente le risque de crédit calculé de chaque candidat : 700 candidats constituent un faible risque de crédit et 300 un risque élevé.
 
 Le site Web UCI fournit une description des attributs du vecteur de fonctionnalité pour ces données. Celles-ci incluent des informations financières, l’historique du crédit, le statut professionnel et des informations personnelles. Une évaluation binaire a été appliquée à chaque candidat, afin d'indiquer s'il constitue un risque de crédit faible ou élevé. 
 
@@ -119,7 +118,7 @@ Une fois les données converties au format CSV, vous devez les charger sur Machi
 
 1. Ouvrez la page d’accueil de Machine Learning Studio (classique) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Cliquez sur le menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) dans le coin supérieur gauche de la fenêtre, cliquez sur **Azure Machine Learning** , sélectionnez **Studio** , puis connectez-vous.
+2. Cliquez sur le menu ![Voici l’icône du menu : trois lignes superposées.](./media/tutorial-part1-credit-risk/menu.png) en haut à gauche de la fenêtre, cliquez sur **Azure Machine Learning**, sélectionnez **Studio**, puis connectez-vous.
 
 3. Cliquez sur **+NOUVEAU** en bas de la fenêtre.
 
@@ -129,7 +128,7 @@ Une fois les données converties au format CSV, vous devez les charger sur Machi
 
     ![Ajouter un jeu de données à partir d’un fichier local](./media/tutorial-part1-credit-risk/add-dataset.png)
 
-6. Dans la boîte de dialogue **Charger un nouveau jeu de données** , cliquez sur Parcourir, puis recherchez le fichier **german.csv** que vous avez créé.
+6. Dans la boîte de dialogue **Charger un nouveau jeu de données**, cliquez sur Parcourir, puis recherchez le fichier **german.csv** que vous avez créé.
 
 7. Entrez le nom du jeu de données. Pour ce tutoriel, appelez-le « Données de carte de crédit allemande UCI ».
 
@@ -154,7 +153,7 @@ Pour plus d’informations sur l’importation d’autres types de données dans
 L’étape suivante de ce tutoriel consiste à créer une expérience dans Machine Learning Studio (classique) qui utilise le jeu de données que vous avez chargé.  
 
 1. Dans Studio (classique), cliquez sur **+NOUVEAU** en bas de la fenêtre.
-1. Sélectionnez **EXPÉRIENCE** , puis sélectionnez « Expérience vide ». 
+1. Sélectionnez **EXPÉRIENCE**, puis sélectionnez « Expérience vide ». 
 
     ![Création d'une expérience](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -207,7 +206,7 @@ Pour utiliser [Modifier les métadonnées][edit-metadata], vous devez commencer 
 
 1. Sélectionnez [Modifier les métadonnées][edit-metadata], puis, dans le panneau **Propriétés** à droite du canevas, cliquez sur **Lancer le sélecteur de colonne**.
 
-1. Dans la boîte de dialogue **Sélectionner les colonnes** , sélectionnez toutes les lignes des **Colonnes disponibles** puis cliquez sur > pour les déplacer vers les **Colonnes sélectionnées**.
+1. Dans la boîte de dialogue **Sélectionner les colonnes**, sélectionnez toutes les lignes des **Colonnes disponibles** puis cliquez sur > pour les déplacer vers les **Colonnes sélectionnées**.
    La boîte de dialogue doit ressembler à ceci :
 
    ![Sélecteur de colonnes avec toutes les colonnes sélectionnées](./media/tutorial-part1-credit-risk/select-columns.png)
@@ -215,7 +214,7 @@ Pour utiliser [Modifier les métadonnées][edit-metadata], vous devez commencer 
 
 1. Cliquez sur la coche **OK**.
 
-1. Dans le panneau **Propriétés** , recherchez le paramètre **Nouveaux noms de colonne**. Dans ce champ, entrez une liste de noms pour les 21 colonnes du jeu de données, séparés par des virgules et dans l’ordre de la colonne. Vous pouvez obtenir le nom des colonnes dans la documentation du jeu de données sur le site web UCI ou, par commodité, vous pouvez copier et coller la liste suivante :  
+1. Dans le panneau **Propriétés**, recherchez le paramètre **Nouveaux noms de colonne**. Dans ce champ, entrez une liste de noms pour les 21 colonnes du jeu de données, séparés par des virgules et dans l’ordre de la colonne. Vous pouvez obtenir le nom des colonnes dans la documentation du jeu de données sur le site web UCI ou, par commodité, vous pouvez copier et coller la liste suivante :  
 
    ```   
    Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
@@ -239,7 +238,7 @@ Pour ce faire, vous utilisez le module [Fractionner les données][split].
 
 1. Recherchez le module [Fractionner les données][split], faites-le glisser sur le canevas et connectez-le au module [Modifier les métadonnées][edit-metadata].
 
-1. Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu’une moitié aléatoire des données sort par un port du module [Fractionner les données][split] et l’autre moitié par l’autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire** , pour changer la répartition entre les données d’apprentissage et de test. Pour cet exemple, vous ne changez rien.
+1. Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu’une moitié aléatoire des données sort par un port du module [Fractionner les données][split] et l’autre moitié par l’autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire**, pour changer la répartition entre les données d’apprentissage et de test. Pour cet exemple, vous ne changez rien.
    
    > [!TIP]
    > La propriété **Fraction de lignes dans le premier jeu de données de sortie** détermine la quantité de données qui est sortie par le port de sortie *gauche*. Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.  
@@ -260,7 +259,7 @@ Vous pouvez procéder à la réplication en utilisant du code R :
 
 1. Double-cliquez sur le module [Exécuter un script R][execute-r-script] et entrez le commentaire « Définir l’ajustement des coûts ».
 
-1. Dans le volet **Propriétés** , supprimez le texte par défaut du paramètre **Script R** , puis entrez le script suivant :
+1. Dans le volet **Propriétés**, supprimez le texte par défaut du paramètre **Script R**, puis entrez le script suivant :
    
     ```r
     dataset1 <- maml.mapInputPort(1)

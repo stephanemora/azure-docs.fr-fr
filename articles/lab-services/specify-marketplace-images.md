@@ -3,12 +3,12 @@ title: Spécifier les images de la Place de Marché pour un labo dans Azure Lab 
 description: Cet article explique comment spécifier les images de la Place de Marché, que le créateur de labo peut utiliser pour créer des labos dans un compte lab dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434734"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Spécifier les images de la Place de marché accessibles aux créateurs lab
 En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier les images de la place de marché que les créateurs de laboratoire peuvent utiliser pour créer des laboratoires dans le compte de laboratoire. 
@@ -60,4 +60,4 @@ Voir les articles suivants :
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)
 - [En tant que propriétaire de labo, configurer et publier des modèles](how-to-create-manage-template.md)
 - [En tant que propriétaire de labo, configurer et contrôler l’utilisation d’un labo](how-to-configure-student-usage.md)
-- [En tant qu’utilisateur du laboratoire, accéder aux laboratoires de classe](how-to-use-classroom-lab.md)
+- [En tant qu’utilisateur de labo, accéder aux labos](how-to-use-classroom-lab.md)

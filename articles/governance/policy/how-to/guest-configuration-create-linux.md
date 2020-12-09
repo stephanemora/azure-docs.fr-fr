@@ -4,12 +4,12 @@ description: Découvrez comment créer une stratégie Guest Configuration pour d
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694240"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302710"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -89,6 +89,10 @@ DSC agit comme un wrapper pour InSpec afin de normaliser son exécution, ainsi q
 #### <a name="configuration-requirements"></a>Exigences de configuration
 
 Le nom de la configuration personnalisée doit être cohérent partout. Le nom du fichier .zip du package de contenu, celui de la configuration dans le fichier MOF et celui de l’affectation d’invité dans le modèle Azure Resource Manager (modèle ARM) doivent être identiques.
+
+Les cmdlets PowerShell aident à créer le package.
+Aucun dossier de niveau racine ou dossier de version n’est requis.
+Le format du package doit être un fichier .zip. Et il ne peut pas dépasser une taille totale de 100 Mo lors de la décompression.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuration Guest Configuration personnalisée sur Linux
 

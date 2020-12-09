@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542148"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339589"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -165,6 +165,8 @@ Le *type* indique la génération du matériel. Les différents types de matéri
 
 Les tailles et les types de matériel varient en fonction de la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
 
+> [!NOTE]
+> Une fois qu’un hôte dédié est provisionné, vous ne pouvez pas modifier la taille ou le type. Si vous avez besoin d’une taille de type différente, vous devez créer un hôte.  
 
 ## <a name="host-life-cycle"></a>Cycle de vie de l’hôte
 

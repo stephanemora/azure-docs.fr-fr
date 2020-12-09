@@ -3,14 +3,14 @@ title: Enregistrements DNS du centre de données Azure utilisés par Azure Autom
 description: Cet article fournit les enregistrements DNS qu’exigent les fonctionnalités d’Azure Automation lors de la restriction de la communication à une région Azure spécifique hébergeant ce compte Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117191"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183717"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Enregistrements DNS pour les régions Azure utilisées par Azure Automation
 
@@ -89,6 +89,9 @@ Remplacez `<accountId>` dans l’enregistrement DNS par le GUID qui représente 
 ![Compte Automation - page de la clé primaire](./media/automation-region-dns-records/automation-account-keys.png)
 
 Copiez la valeur après *accounts/* dans le champ **URL** - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Tous les enregistrements DNS de Webhook et agentservice ont été mis à jour en fonction du nouveau style d’enregistrement DNS pour prendre en charge Private Link. En ce qui concerne les enregistrements DNS JRDS, l’ancien style et le nouveau style d’enregistrement DNS sont pris en charge. Si vous n’utilisez pas Private Link, vous voyez uniquement l’ancien style d’enregistrement DNS, tandis que ceux qui utilisent Private Link voient le nouveau style d’enregistrement DNS.
 
 Il est recommandé d’utiliser les adresses répertoriées lors de la définition d’[exceptions](../automation-runbook-execution.md#exceptions). Pour obtenir la liste des adresses IP régionales plutôt que celle des noms des régions, téléchargez le fichier JSON à partir du Centre de téléchargement Microsoft pour les environnements cloud suivant :
 

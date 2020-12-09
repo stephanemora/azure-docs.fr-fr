@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358573"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349903"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutoriel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 
@@ -67,24 +67,24 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
     ![Capture d’écran de l’onglet Provisionnement pour DocuSign dans le portail Azure. Le mode de provisionnement est défini sur Automatique et les champs Nom d’utilisateur administrateur, Mot de passe et Tester la connexion sont en évidence.](./media/docusign-provisioning-tutorial/provisioning.png)
 
-1. Dans la section **Informations d’identification de l’administrateur** , fournissez les paramètres de configuration suivants :
+1. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
-    a. Dans la zone de texte **Nom d’utilisateur Admin** , tapez le nom d’un compte DocuSign auquel le profil **System Administrator** (Administrateur système) est affecté dans DocuSign.com.
+    a. Dans la zone de texte **Nom d’utilisateur Admin**, tapez le nom d’un compte DocuSign auquel le profil **System Administrator** (Administrateur système) est affecté dans DocuSign.com.
    
-    b. Dans la zone de texte **Mot de passe d’administrateur** , entrez le mot de passe de ce compte.
+    b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
 > [!NOTE]
-> Si l’authentification unique et l’approvisionnement d’utilisateurs sont configurés, les informations d’identification d’autorisation utilisées pour l’approvisionnement doivent être configurées pour fonctionner avec l’authentification unique et le nom d’utilisateur/mot de passe.
+> Si l’authentification unique et le provisionnement d’utilisateurs sont configurés, les informations d’identification d’autorisation utilisées pour le provisionnement doivent être configurées pour fonctionner avec l’authentification unique et le nom d’utilisateur/mot de passe.
 
 1. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application DocuSign.
 
-1. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+1. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
 
 1. Cliquez sur **Enregistrer.**
 
 1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec DocuSign**.
 
-1. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers DocuSign. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans DocuSign pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers DocuSign. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans DocuSign pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 1. Pour activer le service d’approvisionnement Azure AD pour DocuSign, affectez au paramètre **Statut d’approvisionnement** la valeur **Activé** dans la section Paramètres.
 
@@ -95,7 +95,7 @@ Cette commande démarre la synchronisation initiale des utilisateurs affectés �
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
-* L’approvisionnement d’un rôle ou d’un profil d’autorisation pour un utilisateur dans Docusign peut être effectué à l’aide d’une expression dans vos mappages d’attributs à l’aide des fonctions [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) et [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment). Par exemple, l’expression ci-dessous approvisionne l’ID « 8032066 » lorsqu’un utilisateur a le rôle « administrateur DS » affecté dans Azure AD. Aucun profil d’autorisation n’est approvisionné si l’utilisateur n’est pas affecté à un rôle dans Azure AD. L’ID peut être récupéré à partir du [portail](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles) DocuSign.
+* L’approvisionnement d’un rôle ou d’un profil d’autorisation pour un utilisateur dans Docusign peut être effectué à l’aide d’une expression dans vos mappages d’attributs à l’aide des fonctions [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) et [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Par exemple, l’expression ci-dessous approvisionne l’ID « 8032066 » lorsqu’un utilisateur a le rôle « administrateur DS » affecté dans Azure AD. Aucun profil d’autorisation n’est approvisionné si l’utilisateur n’est pas affecté à un rôle dans Azure AD. L’ID peut être récupéré à partir du [portail](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles) DocuSign.
 
 Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
 

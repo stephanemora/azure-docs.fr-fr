@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662488"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172365"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
@@ -70,6 +70,9 @@ Ces attributs sont désormais disponibles par le biais de l’API Microsoft Grap
 > Dans l’API Microsoft Graph, vous devez demander que les attributs soient retournés. Sélectionnez explicitement les attributs comme suit : `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> La synchronisation des valeurs d’attribut d’AADConnect vers des attributs d’extension qui ne sont pas créés par AADConnect n’est pas prise en charge. Cela peut entraîner des problèmes de performances et des résultats inattendus. Seuls les attributs d’extension créés comme indiqué ci-dessus sont pris en charge pour la synchronisation.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Utiliser les attributs dans des groupes dynamiques
 

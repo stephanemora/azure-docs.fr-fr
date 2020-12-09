@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681616"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350124"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accéder au tableau de bord web Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Ouvrir le tableau de bord Kubernetes
+
+> [!WARNING]
+> Le module complémentaire du tableau de bord AKS sera bientôt déconseillé à partir de la version 1.19. Utilisez plutôt l’[affichage des ressources Kubernetes dans le portail Azure][kubernetes-portal] (préversion). 
+> * La commande suivante ouvre l’affichage des ressources du portail Azure à la place du tableau de bord Kubernetes pour la version 1.19 et ultérieures.
 
 Pour ouvrir le tableau de bord Kubernetes sur un cluster, utilisez la commande [az aks browse][az-aks-browse]. Cette commande requiert l’installation sur le cluster du module complémentaire kube-dashboard, qui est inclus par défaut sur les clusters exécutant une version antérieure à Kubernetes 1.18.
 

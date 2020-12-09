@@ -1,18 +1,18 @@
 ---
 title: Paramètres dans les modèles
-description: Explique comment définir des paramètres dans un modèle Azure Resource Manager.
+description: Explique comment définir des paramètres dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911411"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353508"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Paramètres dans les modèles Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Paramètres dans les modèles ARM
 
-Cet article explique comment définir et utiliser des paramètres dans votre modèle Azure Resource Manager. En fournissant des valeurs différentes pour les paramètres, vous pouvez réutiliser un modèle pour différents environnements.
+Cet article explique comment définir et utiliser des paramètres dans un modèle Azure Resource Manager (ARM). En fournissant des valeurs différentes pour les paramètres, vous pouvez réutiliser un modèle pour différents environnements.
 
 Resource Manager résout les valeurs des paramètres avant de démarrer les opérations de déploiement. Chaque fois que le paramètre est utilisé dans le modèle, Resource Manager le remplace par la valeur résolue.
 
@@ -159,9 +159,8 @@ Les exemples suivants illustrent des scénarios d’utilisation de paramètres.
 |[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Montre comment utiliser les fonctions de modèle durant la définition des valeurs par défaut des paramètres. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 |[Objet de paramètre](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Montre comment utiliser un objet pour un paramètre. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les propriétés disponibles pour les paramètres, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour plus d’informations sur les propriétés disponibles pour les paramètres, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
 * Pour en savoir plus sur le passage de valeurs de paramètre sous forme de fichier, consultez [Créer un fichier de paramètres Resource Manager](parameter-files.md).
 * Pour obtenir des recommandations sur la création de paramètres, consultez [Bonnes pratiques - Paramètres](template-best-practices.md#parameters).

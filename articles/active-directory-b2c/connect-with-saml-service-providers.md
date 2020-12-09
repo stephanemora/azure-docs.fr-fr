@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949647"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309645"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -453,7 +453,7 @@ Un jeton SAML est un jeton de sécurité émis par Azure AD B2C après une conne
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Principal sur lequel portent les assertions d’informations du jeton, comme l’ID d’objet de l’utilisateur. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Informations de référence d’URI représentant la classification des informations d’identificateur basées sur une chaîne. Par défaut, cette propriété est omise. Vous pouvez définir la partie de confiance [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) pour spécifier le format `NameID`, tel que `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Heure à laquelle le jeton devient non valide. La valeur d’heure est encodée au format UTC. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Heure à laquelle le jeton devient non valide. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. La valeur est de 15 minutes après `NotBefore` et ne peut pas être modifiée.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Heure à laquelle le jeton devient non valide. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. La valeur par défaut est de 5 minutes après `NotBefore` et peut être mise à jour en ajoutant les [métadonnées](saml-issuer-technical-profile.md#metadata) `TokenLifeTimeInSeconds` du profil technique de l’émetteur du jeton SAML.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Informations de référence d’URI identifiant le public visé. Elles identifient le destinataire du jeton. La valeur est identique à `AssertionConsumerServiceURL` de la requête SAML.|
 |Collection `<Response>` `<Assertion>` `<AttributeStatement>` de `<Attribute>` | | Collection d’assertions (revendications), telle que configurée dans les revendications de sortie du [profil technique de la partie de confiance](relyingparty.md#technicalprofile). Vous pouvez configurer le nom de l’assertion en définissant `PartnerClaimType` dans la revendication de sortie. |
 

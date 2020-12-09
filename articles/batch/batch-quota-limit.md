@@ -4,12 +4,12 @@ description: En savoir plus sur les contraintes, les limites et les quotas par d
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107536"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325964"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -23,15 +23,33 @@ Si vous envisagez d’exécuter des charges de travail de production dans Batch,
 
 ## <a name="resource-quotas"></a>Quotas de ressources
 
-Un quota est une limite de crédit, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
+Un quota est une limite, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
 
 Notez également que les quotas ne sont pas des valeurs garanties. Les quotas peuvent varier en fonction des modifications du service Batch ou d’une demande d’utilisateur visant à modifier une valeur de quota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Quota de cœurs
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de cœurs en mode de service Batch
+
+L’application de quotas de cœurs dédiés est améliorée, les modifications étant mises à disposition par étapes et finalisées pour tous les comptes Batch d’ici à la fin décembre 2020.
+
+Des quotas de cœurs existent pour chaque série de machines virtuelles prises en charge par Batch et s’affichent sur la page **Quotas** dans le portail. Les limites de quota de la série de machines virtuelles peuvent être mises à jour avec une demande de support, comme indiqué ci-dessous.
+
+Une fois le mécanisme existant supprimé, les limites de quota pour les séries de machines virtuelles ne sont pas vérifiées, et seule la limite totale du quota pour le compte est appliquée. Cela signifie qu’il est possible d’allouer plus de cœurs pour une série de machines virtuelles que ce qui est indiqué par le quota de la série de machines virtuelles, jusqu’à la limite totale de quota du compte.
+
+Le mécanisme mis à jour appliquera les quotas de la série de machines virtuelles, en plus du quota total du compte. Dans le cadre de la transition vers le nouveau mécanisme, les valeurs de quota de la série de machines virtuelles peuvent être mises à jour pour éviter les échecs d’allocation : les séries de machines virtuelles utilisées au cours des derniers mois afficheront donc un quota de série de machines virtuelles mis à jour pour correspondre au quota total du compte. Cette modification n’autorise pas l’utilisation d’une capacité supérieure à celle déjà disponible.
+
+Il est possible de déterminer si l’application de quota de la série de machines virtuelles a été activée pour un compte Batch en vérifiant les éléments suivants :
+
+* La propriété d’API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) du compte Batch.
+
+* Texte sur la page **Quotas** du compte Batch dans le portail.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de cœurs en mode Abonnement utilisateur
 
-Si vous avez créé un [compte Batch](accounts.md) avec le mode d’allocation de pool défini sur **abonnement utilisateur**, les quotas sont appliqués de manière différente. Dans ce mode, les machines virtuelles Batch et les autres ressources sont créées directement dans votre abonnement quand un pool est créé. Les quotas de cœurs Azure Batch ne s’appliquent pas à un compte créé dans ce mode. Seuls s’appliquent les quotas de votre abonnement imposés aux cœurs de calcul régionaux et aux autres ressources.
+Si vous avez créé un [compte Batch](accounts.md) en mode d’allocation de pool défini sur **abonnement utilisateur**, les machines virtuelles Batch et les autres ressources, telles que les comptes de stockage, sont créées directement dans votre abonnement lors de la création d’un pool. Les quotas de cœurs Azure Batch ne s’appliquent pas et les quotas de votre abonnement pour les cœurs de calcul régionaux, les cœurs de calcul par série et d’autres ressources sont utilisés et appliqués.
 
 Pour en savoir plus sur ces quotas, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,7 +91,7 @@ Pour voir vos quotas de compte Batch dans le [portail Azure](https://portal.azur
 1. Sélectionnez **Quotas** dans le menu du compte Batch.
 1. Affichez les quotas actuellement appliqués au compte Batch.
 
-    ![Quotas de compte Batch][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Quotas de compte Batch":::
 
 ## <a name="increase-a-quota"></a>Augmenter un quota
 

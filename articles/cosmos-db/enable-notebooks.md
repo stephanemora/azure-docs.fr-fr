@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334172"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187814"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Activer les notebooks pour un compte Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ Les notebooks Jupyter intégrés dans Azure Cosmos DB vous permettent d’analys
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.
-1. Dans la page **Créer un compte Azure Cosmos DB** , sélectionnez **Notebooks**. 
+1. Dans la page **Créer un compte Azure Cosmos DB**, sélectionnez **Notebooks**. 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Sélectionner l’option Notebooks dans le panneau créer d’Azure Cosmos DB":::
 
@@ -76,4 +76,4 @@ Vous pouvez également sélectionner **Nouveau notebook** pour créer un noteboo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez les avantages de [notebooks Jupyter d’Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
+- Découvrez les avantages des [blocs-notes Jupyter d’Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)

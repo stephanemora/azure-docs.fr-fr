@@ -4,21 +4,23 @@ description: Cet article explique comment gérer les administrateurs d’un serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019430"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351722"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 
 Un administrateur de serveur doit être un utilisateur, un principal du service ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le tenant disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser **Administrateurs Analysis Services** pour votre serveur dans le portail Microsoft Azure, ou Propriétés du serveur dans SSMS, PowerShell ou l’API REST. 
 
 Lors de l'ajout d'un **groupe de sécurité**, utilisez `obj:groupid@tenantid`. Les principaux de service ne sont pas pris en charge dans les groupes de sécurité ajoutés au rôle Administrateur du serveur.
+
+Si le pare-feu de serveur est activé, les adresses IP des ordinateurs clients de l’administrateur du serveur doivent être incluses dans une règle de pare-feu. Pour en savoir plus, consultez [Configuration d’un pare-feu de serveur](analysis-services-qs-firewall.md).
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Pour ajouter des administrateurs de serveur à l’aide du portail Azure
 

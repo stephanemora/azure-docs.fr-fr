@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91636912"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348801"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Mappage d’attribut d’approvisionnement cloud Azure AD Connect
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Mappage d’attributs d’approvisionnement cloud Azure AD Connect
 
 L’approvisionnement cloud Azure AD Connect offre une nouvelle fonctionnalité qui vous permet de mapper facilement les attributs entre vos objets utilisateur/groupe locaux et les objets dans Azure AD.  Cette fonctionnalité a été ajoutée à la configuration de l’approvisionnement cloud.
 

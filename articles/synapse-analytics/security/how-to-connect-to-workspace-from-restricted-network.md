@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024463"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296682"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Se connecter aux ressources de l’espace de travail à partir d’un réseau restreint
 
@@ -46,14 +46,11 @@ Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de servi
 
 Créez ensuite des hubs de liaison privée à partir du portail Azure. Pour trouver ces éléments dans le portail, recherchez *Azure Synapse Analytics (hubs de liaison privée)* , puis fournissez les informations requises pour les créer. 
 
-> [!Note]
-> Assurez-vous que la valeur **Région** est identique à celle de votre espace de travail Azure Synapse Analytics.
-
 ![Capture d’écran de la création d’un hub de liaison privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Étape 3 : Créer un point de terminaison privé pour votre passerelle
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Étape 3 : Créer un point de terminaison privé pour Synapse Studio
 
-Pour accéder à la passerelle Azure Synapse Analytics Studio, vous devez créer un point de terminaison privé à partir du portail Azure. Pour trouver ce point dans le portail, recherchez *Liaison privée*. Dans le **Centre de liaisons privées**, sélectionnez **Créer un point de terminaison privé**, puis fournissez les informations requises pour le créer. 
+Pour accéder à Azure Synapse Analytics Studio, vous devez créer un point de terminaison privé à partir du portail Azure. Pour trouver ce point dans le portail, recherchez *Liaison privée*. Dans le **Centre de liaisons privées**, sélectionnez **Créer un point de terminaison privé**, puis fournissez les informations requises pour le créer. 
 
 > [!Note]
 > Assurez-vous que la valeur **Région** est identique à celle de votre espace de travail Azure Synapse Analytics.
@@ -118,6 +115,43 @@ Si vous souhaitez que votre notebook accède aux ressources de stockage liées s
 Une fois ce point de terminaison créé, l’état d’approbation affiche l’état **En attente**. Demandez l’approbation du propriétaire de ce compte de stockage, dans l’onglet **Connexions des points de terminaison privés** de ce compte de stockage dans le portail Azure. Une fois approuvé, votre notebook peut accéder aux ressources de stockage liées sous ce compte de stockage.
 
 Tout est défini à présent. Vous pouvez accéder à votre ressource de l’espace de travail Azure Synapse Analytics Studio.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Annexe : Inscription DNS pour un point de terminaison privé
+
+Si l’option « Intégrer à une zone DNS privée » n’est pas activée lors de la création du point de terminaison privé comme dans la capture d’écran ci-dessous, vous devez créer la « **zone DNS privée** » pour chacun de vos points de terminaison privés.
+![Capture d’écran de la création d’une zone DNS 1 privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+Pour rechercher la **zone DNS privée** dans le portail, recherchez *Zone DNS privée*. Dans la **zone DNS privée**, fournissez les informations requises ci-dessous pour créer la zone.
+
+* Pour **Nom**, entrez le nom dédié de la zone DNS privée pour un point de terminaison privé spécifique, comme indiqué ci-dessous :
+  * **`privatelink.azuresynapse.net`** s’applique au point de terminaison privé pour l’accès à la passerelle Azure Synapse Analytics Studio. Consultez ce type de création de point de terminaison privé à l’étape 3.
+  * **`privatelink.sql.azuresynapse.net`** s’applique à ce type de point de terminaison privé pour l’exécution d’une requête SQL dans le pool SQL et le pool intégré. Consultez la création d’un point de terminaison à l’étape 4.
+  * **`privatelink.dev.azuresynapse.net`** s’applique à ce type de point de terminaison privé pour l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio. Consultez ce type de création de point de terminaison privé à l’étape 4.
+  * **`privatelink.dfs.core.windows.net`** s’applique au point de terminaison privé pour l’accès à l’espace de travail lié Azure Data Lake Storage Gen2. Consultez ce type de création de point de terminaison privé à l’étape 5.
+  * **`privatelink.blob.core.windows.net`** s’applique au point de terminaison privé pour l’accès à l’espace de travail lié Azure Blob Storage. Consultez ce type de création de point de terminaison privé à l’étape 5.
+
+![Capture d’écran de la création d’une zone DNS 2 privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+Une fois la **zone DNS privée** créée, entrez la zone DNS privée créée, puis sélectionnez les **liens de réseau virtuel** pour ajouter le lien à votre réseau virtuel. 
+
+![Capture d’écran de la création d’une zone DNS 3 privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Remplissez les champs obligatoires, comme indiqué ci-dessous :
+* Pour **Nom du lien**, entrez le nom du lien.
+* Pour **Réseau virtuel**, sélectionnez votre réseau virtuel.
+
+![Capture d’écran de la création d’une zone DNS 4 privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+Une fois le lien de réseau virtuel ajouté, vous devez ajouter le jeu d’enregistrements DNS dans la **zone DNS privée** que vous avez créée précédemment.
+
+* Pour **Nom**, entrez les chaînes de noms dédiées pour différents points de terminaison privés : 
+  * **web** s’applique au point de terminaison privé pour l’accès à la passerelle Azure Synapse Analytics Studio.
+  * « ***YourWorkSpaceName**_ » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool SQL, ainsi qu’au point de terminaison privé pour l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio. _ «***  YourWorkSpaceName*-ondemand** » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool intégré.
+* Pour **Type**, sélectionnez le type d’enregistrement DNS **A** uniquement. 
+* Pour **Adresse IP**, entrez l’adresse IP correspondante de chaque point de terminaison privé. Vous pouvez récupérer l’adresse IP dans **Interface réseau** à partir de la vue d’ensemble de votre point de terminaison privé.
+
+![Capture d’écran de la création d’une zone DNS 5 privée Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

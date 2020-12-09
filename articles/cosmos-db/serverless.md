@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490353"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170828"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,8 @@ Lors de l’utilisation d’Azure Cosmos DB, chaque opération de base de donné
 
 Azure Cosmos DB serverless est adapté aux scénarios où vous vous attendez à :
 
-- **Un trafic léger** : Car l’approvisionnement de capacité dans de telles situations n’est pas obligatoire et peut être un coût prohibitif
-- **Des augmentations de trafic modérées** : Car les conteneurs serverless peuvent fournir jusqu’à 5 000 unités de requête par seconde
-- **Des performances modérées**  : Car les conteneurs serverless ont des [caractéristiques de performances spécifiques](#performance)
+- **Trafic faible, intermittent et imprévisible** : Car l’approvisionnement de capacité dans de telles situations n’est pas obligatoire et peut être un coût prohibitif
+- **Des performances modérées** : Car les conteneurs serverless ont des [caractéristiques de performances spécifiques](#performance)
 
 Pour ces raisons, Azure Cosmos DB serverless doit être pris en compte pour les types de charges de travail suivants :
 
@@ -62,7 +61,6 @@ Tout conteneur créé dans un compte serverless est un conteneur serverless. Les
     - Vous ne pouvez pas passer de débit lors de la création d’un conteneur serverless ; faire cela retourne une erreur.
     - Vous ne pouvez pas lire ou mettre à jour le débit sur un conteneur serverless ; faire cela retourne une erreur.
     - Vous ne pouvez pas créer une base de données de débit partagé dans un compte serverless ; faire cela renvoie une erreur.
-- Les conteneurs serverless peuvent offrir une plus grande augmentation de débit maximale avec 5 000 unités de requête par seconde.
 - Les conteneurs serverless peuvent stocker un maximum de 50 Go de données et d’index.
 
 ## <a name="monitoring-your-consumption"></a>Surveillance de votre consommation
@@ -79,8 +77,8 @@ Vous pouvez trouver le même graphique lorsque vous utilisez Azure Monitor, comm
 
 Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit approvisionné :
 
-- **Disponibilité**  : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
-- **Latence**  : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
+- **Disponibilité** : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
+- **Latence** : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
 - **Prise en charge de l’augmentation du trafic** : Une fois que l’offre serverless sera en disponibilité générale, la charge des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 95 %. Cela signifie que la charge maximale peut être atteinte au moins 95 % du temps.
 
 > [!NOTE]

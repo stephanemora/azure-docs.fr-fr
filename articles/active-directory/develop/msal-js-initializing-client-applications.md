@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674080"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343584"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initialiser des applications clientes avec MSAL.js
 
@@ -37,8 +37,8 @@ Une fois l’application inscrite, vous avez besoin d’une partie ou de toutes 
 | Valeur | Obligatoire | Description |
 |:----- | :------: | :---------- |
 | ID d’application (client) | Obligatoire | GUID qui identifie de manière unique votre application dans la plateforme d’identités Microsoft. |
-| Authority | Facultatif | URL du fournisseur d’identité ( *instance* ) et *audience de connexion* de votre application. L’instance et l’audience de connexion, une fois concaténées, constituent l’ *autorité* . |
-| ID de l’annuaire (locataire) | Facultatif | Spécifiez cette valeur si vous générez une application métier seulement pour votre organisation, souvent appelée *application monolocataire* . |
+| Authority | Facultatif | URL du fournisseur d’identité (*instance*) et *audience de connexion* de votre application. L’instance et l’audience de connexion, une fois concaténées, constituent l’*autorité*. |
+| ID de l’annuaire (locataire) | Facultatif | Spécifiez cette valeur si vous générez une application métier seulement pour votre organisation, souvent appelée *application monolocataire*. |
 | URI de redirection | Facultatif | Si vous générez une application web, `redirectUri` spécifie l’emplacement où le fournisseur d’identité (la plateforme d’identités Microsoft) doit retourner les jetons de sécurité émis. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Initialiser des applications MSAL.js 2.x

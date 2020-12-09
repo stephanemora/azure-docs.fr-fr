@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 084a8e247ab8bb3e6e6c75cf8cfe8e204384f549
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388151"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345148"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -77,8 +77,8 @@ Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte L
 
 Définissez un compte LinkedIn en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
-1. Ouvrez le fichier *SocialAndLocalAccounts/ **TrustFrameworkExtensions.xml*** dans votre éditeur. Ce fichier se trouve dans le [Pack de démarrage de stratégie personnalisée][starter-pack] que vous avez téléchargé dans le cadre de l’une des conditions préalables.
-1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
+1. Ouvrez le fichier *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ dans votre éditeur. Ce fichier se trouve dans le [Pack de démarrage de stratégie personnalisée][starter-pack] que vous avez téléchargé dans le cadre de l’une des conditions préalables.
+1. Recherchez l’élément _ *ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
 1. Ajoutez un nouveau **ClaimsProvider** comme suit :
 
     ```xml
@@ -99,7 +99,7 @@ Définissez un compte LinkedIn en tant que fournisseur de revendications en l’
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
           <CryptographicKeys>

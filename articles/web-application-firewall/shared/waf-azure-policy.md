@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 6f05bd5a9798f2feec4424474a63625f812e7148
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100590"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432966"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Pare-feu d’applications web Azure et Azure Policy
 
@@ -30,30 +30,24 @@ Il existe plusieurs définitions Azure Policy intégrées pour gérer les ressou
 
 4. **Le pare-feu d’applications web (WAF) doit utiliser le mode spécifié pour Application Gateway** : Impose l’utilisation du mode de « détection » ou de « blocage » pour être actif sur toutes les stratégies de pare-feu d’applications web pour Application Gateway. La stratégie a trois effets : Audit, refus et désactivation. L’« Audit » permet de suivre les cas où un WAF ne correspond pas au mode spécifié. Le « Refus » empêche la création d’un WAF s’il n’est pas dans le bon mode. La « Désactivation » désactive cette stratégie.
 
-
 ## <a name="launch-an-azure-policy"></a>Lancement d’Azure Policy
-
 
 1.  Sur la page d’accueil Azure, taper « Stratégie » dans la barre de recherche, puis cliquer sur l’icône Azure Policy
 
-2.  Dans le service Azure Policy, sous **Création** , sélectionnez **Affectations**.
+2.  Dans le service Azure Policy, sous **Création**, sélectionnez **Affectations**.
 
-[!div class="mx-imgBorder"]
-![Pare-feu d’applications web (WAF) d’Azure](../media/waf-azure-policy/policy-home.png)
+:::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Onglet Affectations dans Azure Policy":::
 
 3.  Sur la page « Affectations », sélectionnez l’icône **Attribuer une stratégie** en haut.
 
-[!div class="mx-imgBorder"]
-![Capture d’écran montrant l’onglet « niveau De base » sur la page Affecter une stratégie.](../media/waf-azure-policy/assign-policy.png)
+:::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Onglet Informations de base sur la page Affecter une stratégie":::
 
 4.  Dans l’onglet « Informations de base » de la page « Attribuer une stratégie », mettez à jour les champs suivants :
-    1.  **Étendue**  : sélectionnez les abonnements Azure et les groupes de ressources qui doivent être affectés par la définition de stratégie.
+    1.  **Étendue** : sélectionnez les abonnements Azure et les groupes de ressources qui doivent être affectés par la définition de stratégie.
     2.  **Exclusions** : sélectionnez toutes les ressources de l’étendue à exclure de l’affectation de stratégie.
     3.  **Définition de la stratégie** : sélectionnez la définition de stratégie à appliquer à l’étendue avec des exclusions. Tapez « Web Application Firewall » dans la barre de recherche pour choisir la stratégie Azure Web Application Firewall appropriée.
 
-[!div class="mx-imgBorder"]
-![Capture d’écran montrant les définitions de stratégie disponible.](../media/waf-azure-policy/policy-listing.png)
-
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Onglet Informations de base sur la page Affecter une stratégie":::
 
 5.  Sélectionnez l’onglet **Paramètres** et mettez à jour les paramètres d’affectation de stratégie. Pour plus de précisions sur la fonction du paramètre, survolez l’icône d’informations à côté du nom du paramètre.
 

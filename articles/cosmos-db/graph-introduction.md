@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357077"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350056"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Présentation de l’API Gremlin dans Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "93357077"
 Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB et explique comment l’utiliser pour stocker des graphes énormes présentant des milliards de sommets et d’arêtes. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure. L’API Gremlin d’Azure Cosmos DB repose sur [Apache TinkerPop](https://tinkerpop.apache.org), un framework de calcul de graphe. L’API Gremlin dans Azure Cosmos DB utilise le langage de requête Gremlin.
 
 L’API Gremlin d’Azure Cosmos DB combine la puissance des algorithmes de base de données de graphes avec une infrastructure hautement évolutive et gérée pour fournir une solution unique et flexible aux problèmes de données les plus courants associés à l’absence de flexibilité et aux approches relationnelles.
+
+> [!NOTE]
+> Le [mode de capacité serverless](serverless.md) est maintenant disponible sur l’API Gremlin d’Azure Cosmos DB.
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Fonctionnalités de l’API Gremlin d’Azure Cosmos DB
  
@@ -53,7 +56,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
 * **Indexation automatique**
 
-  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](/azure/cosmos-db/index-overview)
+  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](./index-overview.md)
 
 * **Compatibilité avec Apache TinkerPop**
 
@@ -111,19 +114,19 @@ Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes 
 
 Ce graphe présente les types suivants de *sommets* (également appelés « label » dans Gremlin) :
 
-* **Personnes**  : le graphique comporte trois personnes (Robin, Thomas et Ben).
-* **Centres d’intérêt**  : leurs centres d'intérêt, dans cet exemple, le football.
+* **Personnes** : le graphique comporte trois personnes (Robin, Thomas et Ben).
+* **Centres d’intérêt** : leurs centres d'intérêt, dans cet exemple, le football.
 * **Appareils** : les appareils utilisés par ces personnes.
-* **Systèmes d’exploitation**  : systèmes d'exploitation de ces appareils.
-* **Lieu**  : lieux à partir desquels s’effectue l’accès aux appareils
+* **Systèmes d’exploitation** : systèmes d'exploitation de ces appareils.
+* **Lieu** : lieux à partir desquels s’effectue l’accès aux appareils
 
-Nous représentons les relations entre ces entités à l’aide des types d’ *arêtes* suivants :
+Nous représentons les relations entre ces entités à l’aide des types d’*arêtes* suivants :
 
-* **Connaît**  : par exemple, « Thomas connaît Robin »
-* **S’intéresse**  : pour représenter les centres d'intérêt des personnes dans notre graphe, par exemple, « Ben s'intéresse au football »
-* **ExécuteSE**  : l'ordinateur portable exécute le système d'exploitation Windows
-* **Utilise**  : pour représenter l'appareil qu'une personne utilise. Par exemple, Robin utilise un téléphone Motorola dont le numéro de série est 77
-* **Situé dans**  : pour représenter le lieu d’accès aux appareils
+* **Connaît** : par exemple, « Thomas connaît Robin »
+* **S’intéresse** : pour représenter les centres d'intérêt des personnes dans notre graphe, par exemple, « Ben s'intéresse au football »
+* **ExécuteSE** : l'ordinateur portable exécute le système d'exploitation Windows
+* **Utilise** : pour représenter l'appareil qu'une personne utilise. Par exemple, Robin utilise un téléphone Motorola dont le numéro de série est 77
+* **Situé dans** : pour représenter le lieu d’accès aux appareils
 
 La console Gremlin est un terminal interactif offert par Apache TinkerPop. Ce terminal sert à interagir avec les données de graphe. Pour plus d’informations, consultez le document de démarrage rapide expliquant [comment utiliser la console Gremlin](create-graph-gremlin-console.md). Vous pouvez également effectuer ces opérations à l’aide de pilotes de Gremlin dans la plateforme de votre choix (Java, Node.js, Python ou .NET). Les exemples suivants montrent comment exécuter des requêtes sur ces données de graphe à l’aide de la console Gremlin.
 

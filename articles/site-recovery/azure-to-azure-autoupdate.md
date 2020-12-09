@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
-ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426416"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187338"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication interne à Azure
 
@@ -63,13 +63,13 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 
 1. Sélectionnez **Enregistrer**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Paramètres d’extension":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Paramètres de mise à jour de l’extension":::
 
 > [!IMPORTANT]
 > Lorsque vous sélectionnez **Autoriser Site Recovery à gérer**, le paramètre est appliqué à toutes les machines virtuelles présentes dans le coffre.
 
 > [!NOTE]
-> Chaque option vous informe du compte Automation utilisé pour la gestion des mises à jour. Si vous activez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte Automation est créé par défaut. Vous pouvez également personnaliser le paramètre et choisir un compte Automation existant. Toutes les tâches suivantes visant à activer la réplication dans le même coffre utilisent le compte Automation précédemment créé. Actuellement, le menu déroulant répertorie uniquement les comptes Automation qui se trouvent dans le même groupe de ressources que le coffre.
+> Chaque option vous informe du compte Automation utilisé pour la gestion des mises à jour. Si vous activez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte Automation est créé par défaut. Vous pouvez également personnaliser le paramètre et choisir un compte Automation existant. Une fois la fonctionnalité définie, toutes les actions suivantes pour activer la réplication dans le même coffre utiliseront le compte Automation sélectionné. Actuellement, le menu déroulant répertorie uniquement les comptes Automation qui se trouvent dans le même groupe de ressources que le coffre.
 
 > [!IMPORTANT]
 > Le script suivant doit être exécuté dans le contexte d’un compte Automation.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Si de nouvelles mises à jour pour le service Mobilité sont installées sur vos machines virtuelles, vous verrez la notification suivante : **Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Paramètres d’extension":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Fenêtre Éléments répliqués":::
 
 1. Sélectionnez la notification pour ouvrir la page de sélection de machine virtuelle.
 1. Choisissez les machines virtuelles que vous voulez mettre à niveau, puis sélectionnez **OK**. Le service de mise à jour de la Mobilité démarre pour chaque machine virtuelle sélectionnée.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Paramètres d’extension":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Éléments répliqués - Liste des machines virtuelles":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Problèmes courants et résolutions
 
@@ -479,7 +479,7 @@ Si vous ne pouvez pas activer les mises à jour automatiques, consultez les erre
 
   Pour résoudre la plupart des problèmes après avoir activé les mises à jour automatiques, sélectionnez **Réparer**. Si le bouton de réparation n’est pas disponible, consultez le message d’erreur affiché dans le volet des paramètres de mise à jour de l’extension.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Paramètres d’extension":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Bouton de réparation du service Site Recovery dans les paramètres de mise à jour de l’extension":::
 
 - **Erreur** : le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
 
@@ -495,7 +495,7 @@ Si vous ne pouvez pas activer les mises à jour automatiques, consultez les erre
 
   **Action recommandée** : Pour résoudre ce problème, sélectionnez **Réparer**, puis **Renouveler le certificat**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Paramètres d’extension":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renew-cert":::
 
   > [!NOTE]
   > Une fois le certificat renouvelé, actualisez la page pour afficher l’état actuel.

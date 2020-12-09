@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a5bd3c39c293880e31ebe63f85b3814725f6027a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002202"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347291"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutoriel : Configurer SpaceIQ pour l’attribution automatique d’utilisateurs
 
@@ -95,7 +95,7 @@ Avant de configurer SpaceIQ pour l’approvisionnement automatique d’utilisate
 Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans SpaceIQ en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour SpaceIQ en suivant les instructions fournies dans le [didacticiel sur l’authentification unique SpaceIQ](./spaceiq-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
+> Vous pouvez aussi choisir d’activer l’authentification unique basée sur SAML pour SpaceIQ en suivant les instructions fournies dans le [tutoriel sur l’authentification unique pour SpaceIQ](./spaceiq-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
 
 ### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour SpaceIQ dans Azure AD :
 

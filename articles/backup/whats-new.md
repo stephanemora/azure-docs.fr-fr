@@ -3,12 +3,12 @@ title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511362"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309662"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -19,6 +19,7 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
 - Novembre 2020
+  - [Modèle Azure Resource Manager pour une sauvegarde de partage de fichiers Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Sauvegardes incrémentielles pour les bases de données SAP HANA sur des machines virtuelles Azure](#incremental-backups-for-sap-hana-databases)
 - Septembre 2020
   - [Centre de sauvegarde](#backup-center)
@@ -30,6 +31,12 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Sauvegarde SAP HANA dans des machines virtuelles RHEL Azure](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde](#zone-redundant-storage-zrs-for-backup-data)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Modèle Azure Resource Manager pour une sauvegarde AFS
+
+Sauvegarde Azure prend désormais en charge la configuration de la sauvegarde pour les partages de fichiers Azure existants à l’aide d’un modèle Azure Resource Manager (ARM). Le modèle configure la protection d’un partage de fichiers Azure existant en spécifiant les détails appropriés pour le coffre et la stratégie de sauvegarde Recovery Services. Il crée éventuellement un coffre et une stratégie de sauvegarde Recovery Services, puis enregistre le compte de stockage contenant le partage de fichiers dans le coffre Recovery Services.
+
+Pour plus d’informations, consultez [Modèles Azure Resource Manager pour la Sauvegarde Azure](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>Sauvegardes incrémentielles pour les bases de données SAP HANA
 

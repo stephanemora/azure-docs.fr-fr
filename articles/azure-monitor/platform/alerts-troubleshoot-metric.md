@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342125"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029874"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -24,7 +24,7 @@ Azure Monitor vous avertit de façon proactive lorsque des conditions significat
 Si vous pensez qu'une alerte de métrique aurait dû se déclencher mais que cela n'a pas été le cas et qu'elle est introuvable sur le portail Azure, procédez comme suit :
 
 1. **Configuration** - Vérifiez la configuration de la règle d'alerte de métrique pour vous assurer qu'elle est correcte :
-    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation** , **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
+    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
     - Pour une règle d'alerte qui utilise des seuils dynamiques, vérifiez si certains paramètres avancés sont configurés, car l'option **Nombre de violations** peut filtrer les alertes et l'option **Ignorer les données avant** peut impacter le calcul des seuils.
 
        > [!NOTE] 
@@ -37,7 +37,7 @@ Si vous pensez qu'une alerte de métrique aurait dû se déclencher mais que cel
 4. **Dimensions utilisées** - Si vous avez sélectionné des [valeurs de dimension pour une métrique](./alerts-metric-overview.md#using-dimensions), la règle d’alerte supervise chaque série chronologique de métrique (comme défini par la combinaison de valeurs de dimension) pour détecter un dépassement de seuil. Pour superviser également la série chronologique de métrique agrégée (sans aucune dimension sélectionnée), configurez une règle d'alerte supplémentaire sur la métrique sans sélectionner de dimensions.
 
 5. **Agrégation et granularité temporelle** - Si vous visualisez la métrique à l’aide de [graphiques de métriques](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), assurez-vous que :
-    * La valeur d' **Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
+    * La valeur d'**Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
     * La valeur de **Granularité temporelle** sélectionnée est identique à la valeur de **Granularité d'agrégation (période)** de votre règle d'alerte (et qu'elle n'est pas définie sur « Automatique »)
 
 ## <a name="metric-alert-fired-when-it-shouldnt-have"></a>Alerte de métrique déclenchée à tort
@@ -49,17 +49,17 @@ Si vous pensez que votre alerte de métrique a été déclenchée à tort, la pr
     > [!NOTE] 
     > Si vous utilisez un type de condition Seuils dynamiques et pensez que les seuils utilisés ne sont pas corrects, envoyez un smiley mécontent en guise de commentaire. Ce commentaire aura un impact sur la recherche algorithmique de l'apprentissage automatique et contribuera à améliorer les détections futures.
 
-2. Si vous avez sélectionné plusieurs valeurs de dimension pour une métrique, l’alerte sera déclenchée lorsqu’ **une** métrique de la série chronologique (comme défini par la combinaison de valeurs de dimension) dépassera le seuil. Pour plus d’informations sur l’utilisation des dimensions dans les alertes de métrique, consultez [cette page](./alerts-metric-overview.md#using-dimensions).
+2. Si vous avez sélectionné plusieurs valeurs de dimension pour une métrique, l’alerte sera déclenchée lorsqu’**une** métrique de la série chronologique (comme défini par la combinaison de valeurs de dimension) dépassera le seuil. Pour plus d’informations sur l’utilisation des dimensions dans les alertes de métrique, consultez [cette page](./alerts-metric-overview.md#using-dimensions).
 
 3. Vérifiez la configuration de la règle d'alerte pour vous assurer qu'elle est correcte :
-    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation** , **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
+    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
     - Pour une règle d'alerte qui utilise des seuils dynamiques, vérifiez si certains paramètres avancés sont configurés, car l'option **Nombre de violations** peut filtrer les alertes et l'option **Ignorer les données avant** peut impacter le calcul des seuils.
 
    > [!NOTE]
    > Les seuils dynamiques nécessitent au moins 3 jours et 30 échantillons de métriques avant de devenir actifs.
 
 4. Si vous visualisez la métrique à l’aide d’un [graphique de métriques](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), assurez-vous que :
-    - La valeur d' **Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
+    - La valeur d'**Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
     - La valeur de **Granularité temporelle** sélectionnée est identique à la valeur de **Granularité d'agrégation (période)** de votre règle d'alerte (et qu'elle n'est pas définie sur « Automatique »)
 
 5. Si la règle d'alerte a été déclenchée alors que d'autres alertes ont déjà été déclenchées pour superviser les mêmes critères (qui ne sont pas résolus), vérifiez si la règle d'alerte a été configurée avec la propriété *autoMitigate* définie sur **false** (cette propriété ne peut être configurée que par le biais de REST/PowerShell/CLI ; par conséquent, vérifiez le script utilisé pour déployer la règle d'alerte). Dans ce cas, la règle d'alerte ne résout pas automatiquement les alertes déclenchées, et n'exige pas la résolution d'une alerte déclenchée avant un nouveau déclenchement.
@@ -100,9 +100,9 @@ Si vous souhaitez déclencher des alertes liées aux [valeurs de dimension spéc
 Lors de la suppression d’une ressource Azure, les règles d’alerte de métrique associées ne sont pas supprimées automatiquement. Pour supprimer les règles d'alerte associées à une ressource qui a été supprimée :
 
 1. Ouvrez le groupe de ressources dans lequel la ressource supprimée a été définie.
-1. Dans la liste affichant les ressources, cochez la case **Afficher les types masqués** .
-1. Filtrez la liste par Type == **microsoft.insights/metricalerts** .
-1. Sélectionnez les règles d'alerte appropriées, puis **Supprimer** .
+1. Dans la liste affichant les ressources, cochez la case **Afficher les types masqués**.
+1. Filtrez la liste par Type == **microsoft.insights/metricalerts**.
+1. Sélectionnez les règles d'alerte appropriées, puis **Supprimer**.
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Générer des alertes de métrique chaque fois que ma condition est remplie
 
@@ -139,10 +139,10 @@ Pour éviter que le déploiement échoue quand vous tentez de valider les défin
 
 L’exportation du modèle Azure Resource Manager d’une règle d’alerte de métrique vous aide à comprendre sa syntaxe et ses propriétés JSON, et elle peut être utilisée pour automatiser les déploiements futurs.
 1. Accédez à la section **Groupes de ressources** dans le portail et sélectionnez le groupe de ressources contenant la règle.
-2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués** .
-3. Dans le filtre **Type** , sélectionnez *microsoft.insights/metricalerts* .
+2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués**.
+3. Dans le filtre **Type**, sélectionnez *microsoft.insights/metricalerts*.
 4. Sélectionnez la règle d’alerte concernée pour afficher ses détails.
-5. Sous **Paramètres** , sélectionnez **Exporter le modèle** .
+5. Sous **Paramètres**, sélectionnez **Exporter le modèle**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de règles d'alerte de métrique trop bas
 
@@ -165,11 +165,11 @@ Pour vérifier l'utilisation actuelle des règles d'alerte de métrique, procéd
 
 ### <a name="from-the-azure-portal"></a>À partir du portail Azure
 
-1. Ouvrez l’écran **Alertes** , puis cliquez sur **Gérer les règles d’alerte** .
-2. Filtrez sur l'abonnement approprié à l'aide du contrôle de liste déroulante **Abonnement** .
+1. Ouvrez l’écran **Alertes**, puis cliquez sur **Gérer les règles d’alerte**.
+2. Filtrez sur l'abonnement approprié à l'aide du contrôle de liste déroulante **Abonnement**.
 3. Veillez à ne PAS filtrer sur un groupe de ressources, un type de ressource ou une ressource spécifique.
-4. Dans le contrôle de liste déroulante **Type de signal** , sélectionnez **Métriques** .
-5. Vérifiez que le contrôle de liste déroulante **État** est défini sur la valeur **Activé** .
+4. Dans le contrôle de liste déroulante **Type de signal**, sélectionnez **Métriques**.
+5. Vérifiez que le contrôle de liste déroulante **État** est défini sur la valeur **Activé**.
 6. Le nombre total de règles d’alerte de métrique est affiché au-dessus de la liste des règles.
 
 ### <a name="from-api"></a>À partir de l’API
@@ -210,7 +210,7 @@ Veillez à utiliser les commandes CLI appropriées pour les alertes de métrique
 
 - Si vous recevez une erreur `Metric not found` :
 
-   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](./metrics-supported.md) et non le **nom d’affichage de la métrique** .
+   - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](./metrics-supported.md) et non le **nom d’affichage de la métrique**.
 
    - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore) et que vous fournissez l’espace de noms de la métrique personnalisée (consultez un exemple de modèle Azure Resource Manager [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
@@ -241,6 +241,8 @@ Tenez compte des restrictions suivantes pour les noms de règle d’alerte d’i
 - Les noms de règle d’alerte des indicateurs de performance ne peuvent pas contenir les caractères suivants : * # & + : < > ? @ % { } \ / 
 - Les noms de règle d’alerte ne peuvent pas se terminer par un espace ni par un point
 
+> [!NOTE] 
+> Si le nom de la règle d’alerte contient des caractères qui ne sont ni alphabétiques ni numériques (par exemple des espaces, des signes de ponctuation ou des symboles), ces caractères peuvent être encodés dans l’URL quand ils sont récupérés par certains clients.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrictions lors de l’utilisation de dimensions dans une règle d’alerte des indicateurs de performance avec plusieurs conditions
 
@@ -255,7 +257,7 @@ Par exemple :
         * Nombre total de **Transactions** > 5
         * Moyenne de **SuccessE2ELatency** > 250 ms
     - J’aimerais mettre à jour la première condition et surveiller uniquement les transactions où la dimension **ApiName** est égale à *« GetBlob »*
-    - Étant donné que les **Transactions** et les indicateurs de performance **SuccessE2ELatency** prennent en charge une dimension **ApiName** , je dois mettre à jour les deux conditions, et les deux doivent spécifier la dimension **ApiName** avec une valeur *« GetBlob »* .
+    - Étant donné que les **Transactions** et les indicateurs de performance **SuccessE2ELatency** prennent en charge une dimension **ApiName**, je dois mettre à jour les deux conditions, et les deux doivent spécifier la dimension **ApiName** avec une valeur *« GetBlob »* .
 
 ## <a name="setting-the-alert-rules-period-and-frequency"></a>Définition de la période et de la fréquence de la règle d’alerte
 

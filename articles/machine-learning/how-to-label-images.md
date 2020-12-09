@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984445"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324718"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -119,7 +119,7 @@ Vous ne pouvez pas changer l’étiquette d’un cadre englobant. Si vous commet
 
 Par défaut, vous pouvez modifier les cadres englobants existants. L’outil **Verrouiller/déverrouiller des zones**![outil Verrouiller/Déverrouiller des zones](./media/how-to-label-images/lock-bounding-boxes-tool.png), ou « L », permet d’inverser le comportement. Si les zones sont verrouillées, vous pouvez uniquement changer la forme ou l’emplacement d’un nouveau cadre englobant.
 
-L’outil **Manipulation des zones**![outil Manipulation des zones](./media/how-to-label-images/regions-tool.png), ou « M », pour ajuster un rectangle englobant existant. Pour ajuster la forme, faites glisser ses bords ou ses angles. Cliquez à l’intérieur du cadre englobant pour pouvoir le faire glisser entièrement. Si vous ne pouvez pas modifier une zone, c’est que vous avez probablement inversé le comportement de l’outil **Verrouiller/déverrouiller des zones**.
+Utilisez l’outil de **manipulation des régions** ![ Voici l’icône de l’outil de manipulation des régions : quatre flèches pointant vers l’extérieur depuis un point central (vers le haut, vers la droite, vers le bas et vers la gauche).](./media/how-to-label-images/regions-tool.png) ou « M » pour ajuster un cadre englobant existant. Pour ajuster la forme, faites glisser ses bords ou ses angles. Cliquez à l’intérieur du cadre englobant pour pouvoir le faire glisser entièrement. Si vous ne pouvez pas modifier une zone, c’est que vous avez probablement inversé le comportement de l’outil **Verrouiller/déverrouiller des zones**.
 
 L’outil **Zone basée sur un modèle**![Zone basée sur un modèle](./media/how-to-label-images/template-box-tool.png), ou « T », permet de créer plusieurs rectangles englobants de même taille. Si l’image ne contient pas de cadre englobant et si vous activez les cadres basés sur un modèle, l’outil génère des cadres de 50 x 50 pixels. Si vous créez un cadre englobant et si vous activez les cadres basés sur un modèle, les nouveaux cadres englobants ont la taille du dernier cadre créé. Une fois les zones basées sur un modèle placées, vous pouvez les redimensionner. Le redimensionnement d’un cadre basé sur un modèle entraîne uniquement le redimensionnement de ce cadre.
 
@@ -143,7 +143,7 @@ Si vous souhaitez modifier l’étiquette d’un polygone, sélectionnez l’out
 
 Vous pouvez modifier les polygones existants. L’outil **Verrouiller/Déverrouiller les régions** ![Outil Verrouiller/Déverrouiller les régions](./media/how-to-label-images/lock-bounding-boxes-tool.png), ou « L », permet de passer du verrouillage au déverrouillage des régions, et inversement. Si les régions sont verrouillées, vous pourrez uniquement changer la forme ou l’emplacement des nouveaux polygones.
 
-Utilisez l’outil **Ajouter ou supprimer des points de polygone** ![Outil Ajouter ou supprimer des points de polygone](./media/how-to-label-images/add-remove-points-tool.png) ou sélectionnez « U » pour ajuster un polygone existant. Cliquez sur le polygone pour ajouter ou supprimer un point. Si vous ne pouvez pas modifier une zone, c’est que vous avez probablement inversé le comportement de l’outil **Verrouiller/déverrouiller des zones**.
+Utilisez l’outil **Ajouter ou supprimer des points de polygone** ![Voici l’icône de l’outil Ajouter ou supprimer des points de polygone.](./media/how-to-label-images/add-remove-points-tool.png) ou « U » pour ajuster un polygone existant. Cliquez sur le polygone pour ajouter ou supprimer un point. Si vous ne pouvez pas modifier une zone, c’est que vous avez probablement inversé le comportement de l’outil **Verrouiller/déverrouiller des zones**.
 
 Pour supprimer *tous* les polygones de l’image active, sélectionnez l’outil **Supprimer toutes les régions** ![Outil Supprimer toutes les régions](./media/how-to-label-images/delete-regions-tool.png).
 

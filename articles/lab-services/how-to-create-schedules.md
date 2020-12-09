@@ -1,16 +1,16 @@
 ---
-title: Créer une planification pour des labos de classe dans Azure Lab Services | Microsoft Docs
-description: Découvrez comment créer des planifications pour des labos de classe dans Azure Lab Services de sorte que les machines virtuelles utilisées dans les labos démarrent et s’arrêtent à une heure précise.
+title: Création d’une planification pour des labos dans Azure Lab Services | Microsoft Docs
+description: Découvrez comment créer des planifications pour des labos dans Azure Lab Services de sorte que les machines virtuelles de ces labos démarrent et s’arrêtent à une heure précise.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326437"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434023"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour des labos de classe dans Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Création et gestion des planifications pour des labos dans Azure Lab Services 
 Les planifications vous permettent de configurer un labo de classe de sorte que les machines virtuelles utilisées dans le labo démarrent et s’arrêtent automatiquement à une heure précise. Vous pouvez définir une planification ponctuelle ou périodique. Les procédures suivantes décrivent comment créer et gérer des planifications pour un labo de classe : 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Voir les articles suivants :
 - [En tant qu’administrateur, créer et gérer des comptes de labo](how-to-manage-lab-accounts.md)
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)
 - [En tant que propriétaire de labo, configurer et contrôler l’utilisation d’un labo](how-to-configure-student-usage.md)
-- [En tant qu’utilisateur du laboratoire, accéder aux laboratoires de classe](how-to-use-classroom-lab.md)
+- [En tant qu’utilisateur de labo, accéder aux labos](how-to-use-classroom-lab.md)

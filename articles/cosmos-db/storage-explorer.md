@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010569"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348651"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gérer les ressources Azure Cosmos DB à l’aide de l’Explorateur Stockage Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Vous pouvez utiliser l’Explorateur stockage Azure pour vous connecter à Azure
 Utilisez le même outil pour gérer vos différentes entités Azure au même endroit. Vous pouvez gérer des entités Azure Cosmos DB, de manipuler des données, de mettre à jour des procédures stockées et des déclencheurs, ainsi que d’autres entités Azure comme les files d’attente et les objets blob de stockage. L’Explorateur Stockage Azure prend en charge les comptes Cosmos configurés pour les API SQL, MongoDB, Graph et Table.
 
 > [!NOTE]
-> L’intégration d’Azure Cosmos DB avec Explorateur Stockage est déconseillée. Les fonctionnalités existantes ne seront pas supprimées avant au minimum un an après cette mise en production. Vous devez utiliser à la place le [portail Azure](https://portal.azure.com/), l’[application de bureau du portail Azure](https://portal.azure.com/App/Download) ou l’[Explorateur Azure Cosmos](data-explorer.md) autonome. Les autres options contiennent de nombreuses nouvelles fonctionnalités qui ne sont pas actuellement prises en charge dans Explorateur Stockage.
+> L’intégration d’Azure Cosmos DB avec Explorateur Stockage est déconseillée. Les fonctionnalités existantes ne seront pas supprimées avant au minimum un an après cette mise en production. Vous devez utiliser à la place le [portail Azure](https://portal.azure.com/), l’[application de bureau du portail Azure](https://portal.azure.com/App/Download) ou l’[explorateur Azure Cosmos DB](data-explorer.md) autonome. Les autres options contiennent de nombreuses nouvelles fonctionnalités qui ne sont pas actuellement prises en charge dans Explorateur Stockage.
 
 ## <a name="prerequisites"></a>Prérequis
 

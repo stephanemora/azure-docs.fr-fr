@@ -1,19 +1,19 @@
 ---
-title: À propos des labs de salle de classe dans Azure Lab Services | Microsoft Docs
+title: À propos des labos dans Azure Lab Services | Microsoft Docs
 description: 'Découvrez comment configurer rapidement un environnement de lab de salle de classe dans le cloud : configurez un lab avec un modèle de machine virtuelle avec les logiciels nécessaires pour la classe et rendez une copie de la machine virtuelle disponible pour chaque étudiant de la classe.'
 ms.topic: overview
 ms.date: 06/26/2020
-ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85445625"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434802"
 ---
-# <a name="introduction-to-classroom-labs"></a>Introduction aux laboratoires de salle de classe
+# <a name="introduction-to-labs"></a>Introduction aux labos
 Azure Lab Services vous permet de configurer rapidement un environnement pour votre laboratoire de salle de classe dans le cloud. Un formateur crée un laboratoire de salle de classe, configure Windows ou des machines virtuelles Linux, installe les logiciels et laboratoires d’outils nécessaires dans la classe, puis les rend disponibles aux étudiants. Les étudiants de la classe se connectent à des machines virtuelles (VM) dans le laboratoire puis s’en servent pour leurs projets, devoirs et exercices en classe. 
 
-Les labos de salle de classe sont des types de labos managés par Azure. Le service lui-même gère toute l’infrastructure d’un type de labo managé, de l’augmentation de la capacité des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Vous spécifiez le type d’infrastructure dont vous avez besoin et installez les outils ou les logiciels requis pour la classe. 
+Les labos sont des types de labos managés par Azure. Le service lui-même gère toute l’infrastructure d’un type de labo managé, de l’augmentation de la capacité des machines virtuelles à la gestion des erreurs, en passant par la mise à l’échelle de cette infrastructure. Vous spécifiez le type d’infrastructure dont vous avez besoin et installez les outils ou les logiciels requis pour la classe. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Gestion automatique de l’infrastructure et de la mise à l’échelle Azure 
 Azure Lab Services est un service managé, ce qui signifie que le service gère automatiquement le provisionnement et la gestion de l’infrastructure sous-jacente du labo. Ainsi, vous pouvez vous concentrer simplement sur la préparation de l’expérience de labo pour vos utilisateurs. Laissez le service gérer tout le reste et déployer les machines virtuelles de votre labo pour votre public. Mettez à l’échelle votre labo pour des centaines de machines virtuelles en un simple clic.

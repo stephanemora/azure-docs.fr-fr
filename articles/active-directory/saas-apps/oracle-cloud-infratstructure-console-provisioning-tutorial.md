@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92aeedd25a4a60b49de54aaaa90ee4a31490c444
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70b60d340e3af8d726915db513e30eaff26ed217
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004379"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347583"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutoriel : Configurer Oracle Cloud Infrastructure Console pour le provisionnement automatique d’utilisateurs
 
@@ -36,7 +36,7 @@ Ce tutoriel décrit les étapes à suivre dans Oracle Cloud Infrastructure Conso
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Un [locataire](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton) Oracle Cloud Infrastructure Control.
 * Un compte d’utilisateur dans Oracle Cloud Infrastructure Control avec des autorisations d’administrateur.
 
@@ -106,7 +106,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur**, entrez l’**URL du locataire** au format `https://<IdP ID>.identity.oraclecloud.com/admin/v1`. Par exemple, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Oracle Cloud Infrastructure Console. Si la connexion échoue, vérifiez que votre compte Oracle Cloud Infrastructure Console dispose d’autorisations d’administrateur, puis réessayez.
+5. Sous la section **Informations d’identification d’administrateur**, entrez l’**URL de locataire** au format `https://<IdP ID>.identity.oraclecloud.com/admin/v1`. Par exemple, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Oracle Cloud Infrastructure Console. Si la connexion échoue, vérifiez que votre compte Oracle Cloud Infrastructure Console dispose d’autorisations d’administrateur, puis réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 

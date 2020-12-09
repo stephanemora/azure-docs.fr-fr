@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700676"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302684"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -160,7 +160,7 @@ Le package obtenu est utilisé par Guest Configuration pour créer les définiti
 
 Les cmdlets PowerShell aident à créer le package.
 Aucun dossier de niveau racine ou dossier de version n’est requis.
-Le format du package doit être un fichier .zip.
+Le format du package doit être un fichier .zip et ne peut pas dépasser une taille totale de 100 Mo lors de la décompression.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Stockage des artefacts Guest Configuration
 

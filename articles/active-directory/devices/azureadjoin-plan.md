@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308285"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435448"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -90,10 +90,12 @@ Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce o
 
 Si vous créez des utilisateurs dans :
 
-- **Active Directory local**  : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**  : aucune configuration supplémentaire n’est nécessaire.
+- **Active Directory local** : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD** : aucune configuration supplémentaire n’est nécessaire.
 
 Les UPN locaux qui sont différents dans les UPN Azure AD ne sont pas pris en charge sur les appareils joints à Azure AD. Si vos utilisateurs utilisent un nom d’utilisateur principal local, vous devez prévoir d’utiliser leur nom d’utilisateur principal dans Azure AD.
+
+Les modifications d’UPN ne sont prises en charge qu’à partir de la mise à jour Windows 10 2004. Les utilisateurs d’appareils comportant cette mise à jour n’auront pas de problèmes après avoir modifié leurs UPN. Pour les appareils antérieurs à la mise à jour Windows 10 2004, les utilisateurs rencontrent des problèmes liés à l’authentification unique et à l’accès conditionnel sur leurs appareils. Ils doivent se connecter à Windows via la vignette « Autre utilisateur » à l’aide de leur nouvel UPN pour résoudre ce problème. 
 
 ## <a name="assess-your-device-management"></a>Évaluer votre gestion des appareils
 
@@ -116,8 +118,8 @@ La gestion des appareils joints à Azure AD est basée sur une plateforme MDM (c
 
 Il existe deux approches pour la gestion des appareils joints à Azure AD :
 
-- **MDM uniquement**  : un appareil est géré exclusivement par un fournisseur MDM, comme Intune. Toutes les stratégies sont délivrées dans le cadre du processus d’inscription MDM. Pour les clients Azure AD Premium ou EMS, l’inscription MDM est une étape automatisée qui fait partie de la jonction Azure AD.
-- **Cogestion**  : un appareil est géré par un fournisseur MDM et SCCM. Dans cette approche, l’agent SCCM est installé sur un appareil géré par MDM pour administrer certains aspects.
+- **MDM uniquement** : un appareil est géré exclusivement par un fournisseur MDM, comme Intune. Toutes les stratégies sont délivrées dans le cadre du processus d’inscription MDM. Pour les clients Azure AD Premium ou EMS, l’inscription MDM est une étape automatisée qui fait partie de la jonction Azure AD.
+- **Cogestion** : un appareil est géré par un fournisseur MDM et SCCM. Dans cette approche, l’agent SCCM est installé sur un appareil géré par MDM pour administrer certains aspects.
 
 Si vous utilisez des stratégies de groupe, évaluez votre GPO et la parité de stratégie MDM à l’aide de [l’analytique des stratégies de groupe](/mem/intune/configuration/group-policy-analytics) dans Microsoft Endpoint Manager. 
 
@@ -187,13 +189,13 @@ La connexion Bureau à distance à des appareils joints à Azure AD nécessite q
 À partir de la mise à jour de Windows 10 2004, les utilisateurs peuvent également utiliser le Bureau à distance à partir d’un appareil Windows 10 inscrit auprès d’Azure AD pour se connecter à un appareil joint à Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
-**Remarque**  : Les appareils joints à Azure AD ne peuvent pas être déployés à l’aide de l’outil de préparation du système (Sysprep) ou d’outils d’imagerie similaires.
+**Remarque** : Les appareils joints à Azure AD ne peuvent pas être déployés à l’aide de l’outil de préparation du système (Sysprep) ou d’outils d’imagerie similaires.
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
 
-- **Libre-service dans OOBE/Paramètres**  : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md). 
-- **Windows Autopilot**  : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Inscription en bloc**  : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](/intune/windows-bulk-enroll).
+- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md). 
+- **Windows Autopilot** : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Inscription en bloc** : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](/intune/windows-bulk-enroll).
  
 Voici une comparaison de ces trois approches 
  
@@ -219,11 +221,11 @@ Choisissez votre ou vos approches de déploiement en consultant le tableau ci-de
 
 ## <a name="configure-your-device-settings"></a>Configurer les paramètres de vos appareils
 
-Le portail Azure vous permet de contrôler le déploiement d’appareils joints à Azure AD dans votre organisation. Pour configurer les paramètres concernés, dans la **page Azure Active Directory** , sélectionnez `Devices > Device settings`.
+Le portail Azure vous permet de contrôler le déploiement d’appareils joints à Azure AD dans votre organisation. Pour configurer les paramètres concernés, dans la **page Azure Active Directory**, sélectionnez `Devices > Device settings`.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Les utilisateurs peuvent joindre des appareils à Azure AD
 
-Définissez cette option sur **Tous** ou sur **Sélectionné** , en fonction de l’étendue de votre déploiement et de qui vous voulez autoriser à configurer un appareil joint à Azure AD. 
+Définissez cette option sur **Tous** ou sur **Sélectionné**, en fonction de l’étendue de votre déploiement et de qui vous voulez autoriser à configurer un appareil joint à Azure AD. 
 
 ![Les utilisateurs peuvent joindre des appareils à Azure AD](./media/azureadjoin-plan/01.png)
 
@@ -243,9 +245,9 @@ Sélectionnez **« Oui »** si vous exigez que les utilisateurs effectuent MFA
 
 Avant de pouvoir configurer vos paramètres de mobilité, il peut être nécessaire d’ajouter d’abord un fournisseur MDM.
 
-**Pour ajouter un fournisseur MDM**  :
+**Pour ajouter un fournisseur MDM** :
 
-1. Dans la page **Azure Active Directory** , dans la section **Gérer** , cliquez sur `Mobility (MDM and MAM)`. 
+1. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur `Mobility (MDM and MAM)`. 
 1. Cliquez sur **Ajouter une application**.
 1. Sélectionnez votre fournisseur MDM dans la liste.
 
@@ -255,14 +257,14 @@ Sélectionnez votre fournisseur MDM pour configurer les paramètres concernés.
 
 ### <a name="mdm-user-scope"></a>Étendue des utilisateurs MDM
 
-Sélectionnez **Certain(e)s** ou **Tous** , en fonction de l’étendue de votre déploiement. 
+Sélectionnez **Certain(e)s** ou **Tous**, en fonction de l’étendue de votre déploiement. 
 
 ![Étendue des utilisateurs MDM](./media/azureadjoin-plan/05.png)
 
 En fonction de votre étendue, une des actions suivantes se produit : 
 
-- **L'utilisateur est dans l'étendue MDM**  : Si vous disposez d'un abonnement Azure AD Premium, l'inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
-- **L'utilisateur n'est pas dans l'étendue MDM**  : Si les utilisateurs ne sont pas dans l'étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
+- **L'utilisateur est dans l'étendue MDM** : Si vous disposez d'un abonnement Azure AD Premium, l'inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
+- **L'utilisateur n'est pas dans l'étendue MDM** : Si les utilisateurs ne sont pas dans l'étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
 
 ### <a name="mdm-urls"></a>URL MDM
 
@@ -284,7 +286,7 @@ GAM ne s’applique pas à la jonction Azure AD.
 
 Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recommandation**  : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
+**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel
 

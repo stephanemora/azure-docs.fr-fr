@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6a40ffab652a6ae8671d6cd1c0dd9336764ce2c4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791934"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122200"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Répondre aux alertes Azure Defender pour Key Vault
 Lorsque vous recevez une alerte d’Azure Defender pour Key Vault, nous vous recommandons de l’examiner et d’y répondre de la façon suivante. Azure Defender pour Key Vault protège les applications et les informations d’identification. Ainsi, même si vous connaissez l’application ou l’utilisateur qui a déclenché l’alerte, il est important de vérifier la situation dans laquelle s’inscrit cette dernière.  
@@ -23,7 +23,7 @@ Chaque alerte d’Azure Defender pour Key Vault comprend les éléments suivants
 - Nom d’utilisateur principal ou adresse IP de la ressource suspecte
 
 > [!TIP]
-> Selon le *type* d’accès qui s’est produit, il se peut que certains champs ne soient pas disponibles. Par exemple, si c’est une application qui accède à votre coffre de clés, vous ne verrez pas de nom d’utilisateur principal associé. Si le trafic provient de l’extérieur d’Azure, il n’y aura aucun ID objet.
+> En fonction du *type* d’accès qui s’est produit, il se peut que certains champs ne soient pas disponibles. Par exemple, si c’est une application qui accède à votre coffre de clés, vous ne verrez pas de nom d’utilisateur principal associé. Si le trafic provient de l’extérieur d’Azure, il n’y aura aucun ID objet.
 
 ## <a name="step-1-contact"></a>Étape 1. Contact
 

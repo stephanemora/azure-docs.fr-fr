@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999652"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434989"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutoriel : Accéder à Microsoft Graph à partir d’une application sécurisée en tant qu’utilisateur
 
@@ -75,10 +76,12 @@ Enregistrez vos paramètres en sélectionnant **PUT**. La prise en compte de ce 
 
 Votre application web dispose désormais des autorisations nécessaires, et ajoute également l’ID client de Microsoft Graph aux paramètres de connexion. À l’aide de la [bibliothèque Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/), l’application web obtient un jeton d’accès pour l’authentification auprès de Microsoft Graph. Dans la version 1.2.0 et ultérieures, la bibliothèque Microsoft.Identity.Web s’intègre à et peut s’exécuter parallèlement au module d’authentification/d’autorisation App Service. Microsoft.Identity.Web détecte que l’application web est hébergée dans App Service et obtient le jeton d’accès à partir du module d’authentification/d’autorisation App Service. Le jeton d’accès est ensuite transmis aux requêtes authentifiées avec l’API Microsoft Graph.
 
+Pour voir ce code dans un exemple d’application, consultez l’[exemple sur GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
 > [!NOTE]
 > La bibliothèque Microsoft.Identity.Web n’est pas nécessaire dans votre application web pour l’authentification/autorisation de base, ni pour authentifier les demandes auprès de Microsoft Graph. Il est possible d’[appeler de manière sécurisée les API en aval](tutorial-auth-aad.md#call-api-securely-from-server-code) avec uniquement le module d’authentification/autorisation App Service activé.
 > 
-> Toutefois, l’authentification/autorisation App Service est conçue pour les scénarios d’authentification de base. Pour les scénarios plus complexes (par exemple la gestion des revendications personnalisées), vous avez besoin de la bibliothèque Microsoft.Identity.Web ou de la [bibliothèque d’authentification Microsoft](/azure/active-directory/develop/msal-overview). Les tâches d’installation et de configuration sont un peu plus longues au début, mais la bibliothèque Microsoft.Identity.Web peut s’exécuter en même temps que le module d’authentification/autorisation App Service. Plus tard, lorsque votre application web devra gérer des scénarios plus complexes, vous pourrez désactiver le module d’authentification/autorisation App Service, et Microsoft.Identity.Web fera déjà partie de votre application.
+> Toutefois, l’authentification/autorisation App Service est conçue pour les scénarios d’authentification de base. Pour les scénarios plus complexes (par exemple la gestion des revendications personnalisées), vous avez besoin de la bibliothèque Microsoft.Identity.Web ou de la [bibliothèque d’authentification Microsoft](../active-directory/develop/msal-overview.md). Les tâches d’installation et de configuration sont un peu plus longues au début, mais la bibliothèque Microsoft.Identity.Web peut s’exécuter en même temps que le module d’authentification/autorisation App Service. Plus tard, lorsque votre application web devra gérer des scénarios plus complexes, vous pourrez désactiver le module d’authentification/autorisation App Service, et Microsoft.Identity.Web fera déjà partie de votre application.
 
 ### <a name="install-client-library-packages"></a>Installer des packages de bibliothèque de client
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695059"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029759"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -35,7 +35,7 @@ Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-rég
 * [Tirer parti de la solution d'équilibrage de charge existante](#build-cross-region-solution-on-existing-azure-load-balancer) sans aucun besoin d'apprentissage
 
 > [!IMPORTANT]
-> L'Équilibreur de charge inter-région est actuellement en préversion ; il n'est pas encore en phase de disponibilité générale.  Pour accéder à la préversion de l'Équilibreur de charge inter-région, contactez : [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com). </br> </br>
+> L’équilibreur de charge interrégional est en préversion et masqué dans le portail en préversion. Connectez-vous à **https://preview.portal.azure.com/?feature.globallb=true** pour voir et déployer la fonctionnalité. </br> </br>
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'équilibrage de charge inter-région offre les mêmes avantages que l'équilibreur de charge standard régional en termes de hautes performances et de faible latence. 
@@ -149,6 +149,6 @@ L'équilibreur de charge inter-région achemine le trafic vers l'équilibreur de
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour bien démarrer avec les équilibreurs de charge, consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md).
+- Voir le [tutoriel : Créer un équilibreur de charge interrégional à l’aide du portail Azure](tutorial-cross-region-portal.md) pour créer un équilibreur interrégional.
+- Consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md) pour créer un équilibreur de charge régional standard.
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
-- [FAQ](load-balancer-faqs.md) sur les équilibreurs de charge

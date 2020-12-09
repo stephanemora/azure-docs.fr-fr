@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966545"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350702"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -36,7 +36,7 @@ Ce didacticiel décrit les étapes que vous devez effectuer dans ServiceNow et A
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Une [instance ServiceNow](https://www.servicenow.com/) de Calgary ou version ultérieure
 * Une [instance ServiceNow Express](https://www.servicenow.com/) d’Helsinki ou une version ultérieure
 * Un compte d’utilisateur dans ServiceNow avec le rôle d’administrateur
@@ -137,7 +137,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * **InvalidLookupReference :** Lors de l’approvisionnement de certains attributs, tels que le service et l’emplacement dans ServiceNow, les valeurs doivent déjà exister dans une table de référence dans ServiceNow. Par exemple, vous pouvez avoir deux emplacements (Seattle, Los Angeles) et trois départements (ventes, finance, marketing) dans la table **insérer le nom de table** dans ServiceNow. Si vous tentez d’approvisionner un utilisateur dont le service est « Ventes » et où l’emplacement est « Seattle », il sera approvisionné avec succès. Si vous tentez d’approvisionner un utilisateur avec le département « Ventes » et l’emplacement « LA », l’utilisateur ne sera pas approvisionné. L’emplacement LA doit être ajouté à la table de référence dans ServiceNow ou l’attribut utilisateur dans Azure AD doit être mis à jour pour correspondre au format dans ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing :** Passez en revue vos [mappages d’attributs](../app-provisioning/customize-application-attributes.md) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez d’approvisionner. 
 * Passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) pour comprendre les exigences ou les limitations (par exemple, le format pour spécifier l’indicatif du pays pour un utilisateur).
-* Par défaut, les demandes d'approvisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin de l'URL d'un locataire personnalisé, vous pouvez entrer l'URL complète dans le champ du nom de l'instance.
+* Par défaut, les demandes de provisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin de l'URL d'un locataire personnalisé, vous pouvez entrer l'URL complète dans le champ du nom de l'instance.
 * **ServiceNowInstanceInvalid** 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              

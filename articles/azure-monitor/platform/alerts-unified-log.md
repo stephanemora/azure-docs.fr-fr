@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995078"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317552"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les alertes de journal sont l’un des types d’alerte pris en charge dans [Alertes Azure](./alerts-overview.md). Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/get-started-portal.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md).
+Les alertes de journal sont l’un des types d’alerte pris en charge dans [Alertes Azure](./alerts-overview.md). Les alertes de journal permettent aux utilisateurs d’utiliser une requête [Log Analytics](../log-query/log-analytics-tutorial.md) pour évaluer les journaux de ressources à chaque fréquence définie, et de déclencher une alerte en fonction des résultats. Les règles peuvent déclencher une ou plusieurs actions à l’aide des [groupes d’actions](./action-groups.md).
 
 > [!NOTE]
-> Les données de journal d'un [espace de travail Log Analytics](../log-query/get-started-portal.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
+> Les données de journal d'un [espace de travail Log Analytics](../log-query/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
 
 > [!NOTE]
 > Il n’existe actuellement aucun frais supplémentaire pour la version `2020-05-01-preview` de l’API et les alertes de journal centrées sur les ressources.  La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser la nouvelle version de l’API et les alertes de journal centrées sur les ressources après la période de notification, vous serez facturé au tarif en vigueur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser la [rubrique d'exemples de requêtes d'alerte](../log-query/saved-queries.md) de Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/get-started-portal.md).
+Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser la [rubrique d'exemples de requêtes d'alerte](../log-query/example-queries.md) de Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/log-analytics-tutorial.md).
 
 [Contributeur de surveillance Azure](./roles-permissions-security.md) est un rôle courant qui est nécessaire pour créer, modifier et mettre à jour les alertes de journal. Des droits d'accès et d'exécution de requêtes sont également nécessaires pour les journaux de ressources. Un accès partiel aux journaux de ressources peut faire échouer des requêtes ou renvoyer des résultats partiels. [Découvrez-en plus sur la configuration des alertes de journal dans Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ La définition des conditions des règles de recherche dans les journaux commenc
 Les sections suivantes décrivent les différents paramètres que vous pouvez utiliser pour définir la logique ci-dessus.
 
 ### <a name="log-query"></a>Requête de journal
-Requête [Log Analytics](../log-query/get-started-portal.md) utilisée pour évaluer la règle. Les résultats renvoyés par cette requête permettent de déterminer si une alerte doit être déclenchée. La requête peut être étendue à :
+Requête [Log Analytics](../log-query/log-analytics-tutorial.md) utilisée pour évaluer la règle. Les résultats renvoyés par cette requête permettent de déterminer si une alerte doit être déclenchée. La requête peut être étendue à :
 
 - Une ressource spécifique, telle qu'une machine virtuelle.
 - Une ressource à grande échelle, comme un abonnement ou un groupe de ressources.
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Période :** 15 minutes
+- **Période / Précision d’agrégation :** 15 minutes
 - **Fréquence des alertes :** 15 minutes
 - **Valeur de seuil :** Supérieur à 0
 
@@ -145,7 +145,7 @@ Par exemple, vous souhaitez analyser les erreurs de plusieurs machines virtuelle
 - **Colonne d'ID de ressource :** _ResourceId (le fractionnement par colonne d'ID de ressource dans les règles d'alerte n'est actuellement disponible que pour les abonnements et les groupes de ressources)
 - **Dimensions / Agrégé sur :**
   - Computer = VM1, VM2 (Ordinateur = Machine virtuelle 1, Machine virtuelle 2 - Le filtrage des valeurs dans la définition de la règle d'alerte n'est actuellement pas disponible pour les espaces de travail et Application Insights. Il s'effectue dans le texte de la requête.)
-- **Période :** 15 minutes
+- **Période / Précision d’agrégation :** 15 minutes
 - **Fréquence des alertes :** 15 minutes
 - **Valeur de seuil :** Supérieur à 0
 
@@ -209,4 +209,3 @@ Pour obtenir des informations de tarification, consultez la page [Tarification A
 * Comprendre les [webhooks dans les alertes de journal dans Azure](alerts-log-webhook.md).
 * En savoir plus sur [Alertes Azure](./alerts-overview.md).
 * En savoir plus sur [Log Analytics](../log-query/log-query-overview.md).
-

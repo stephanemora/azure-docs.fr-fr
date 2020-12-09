@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013449"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341782"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -459,6 +459,22 @@ Conversion avant et après :
 
 ![Après la modification du certificat](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### <a name="self-hosted-integration-runtime-version-5x"></a>Version 5.x du runtime d’intégration auto-hébergé
+Pour la mise à niveau vers la version 5.x du runtime d'intégration auto-hébergé Azure Data Factory, nous avons besoin du **runtime .NET Framework 4.7.2** ou version ultérieure. La page de téléchargement comporte des liens de téléchargement pour la version 4.x la plus récente et les deux dernières versions 5.x. 
+
+
+Pour les clients ADF V2 :
+- Si la mise à jour automatique est activée et que vous avez déjà mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, le runtime d’intégration auto-hébergé sera automatiquement mis à niveau vers la version 5.x la plus récente.
+- Si la mise à jour automatique est activée et que vous n’avez pas mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, le runtime d’intégration auto-hébergé ne sera pas automatiquement mis à niveau vers la version 5.x la plus récente. Le runtime d’intégration auto-hébergé conservera la version 4.x actuelle. Vous pouvez voir un avertissement pour la mise à niveau du runtime .NET Framework dans le portail et le client du runtime d’intégration auto-hébergé.
+- Si la mise à jour automatique est désactivée et que vous avez déjà mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure, vous pouvez télécharger manuellement les versions 5.x les plus récentes et les installer sur votre ordinateur.
+- Si la mise à jour automatique est désactivée et que vous n’avez pas mis à niveau le runtime .NET Framework vers la version 4.7.2 ou ultérieure. Lorsque vous essayez d’installer manuellement SHIR 5.x et d’inscrire la clé, vous devez d’abord mettre à niveau votre runtime .NET Framework.
+
+
+Pour les clients ADF V1 :
+- Le runtime d’intégration auto-hébergé 5.X ne prend pas en charge ADF V1.
+- Le runtime d’intégration auto-hébergé sera automatiquement mis à niveau vers la version 4.x la plus récente. Et la dernière version de 4.x n’expire pas. 
+- Si vous essayez d’installer manuellement le runtime d’intégration auto-hébergé 5.x et d’inscrire la clé, vous êtes informé que le runtime d’intégration auto-hébergé 5.x ne prend pas en charge V1.
+
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problème de connexion de l’IR auto-hébergé
 
@@ -736,7 +752,7 @@ Deux raisons possibles à ce problème :
 - Pour la raison 1, assurez-vous que le certificat de serveur ADF et sa chaîne de certificats sont approuvés par l’ordinateur sur lequel le runtime d’intégration auto-hébergé est installé.
 - Pour la raison 2, approuvez l’autorité de certification racine remplacée sur l’ordinateur du runtime d’intégration auto-hébergé ou configurez le proxy pour qu’il ne remplace pas le certificat de serveur ADF.
 
-Pour plus d’informations sur l’approbation d’un certificat sur Windows, consultez [cet article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+Pour plus d’informations sur l’approbation d’un certificat sur Windows, consultez [cet article](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### <a name="additional-info"></a>Informations supplémentaires
 Nous déployons un nouveau certificat SSL, qui est signé par DigiCert. Vérifiez si DigiCert Global Root G2 figure parmi les autorités de certification racine approuvées.
@@ -757,6 +773,7 @@ Vous pouvez remarquer d’autres fabriques de données (sur différents locatair
 #### <a name="cause"></a>Cause
 
 Le runtime d’intégration IR auto-hébergé ne peut pas être partagé entre plusieurs locataires.
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

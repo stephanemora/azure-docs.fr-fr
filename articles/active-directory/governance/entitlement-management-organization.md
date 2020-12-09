@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449897"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029368"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -148,9 +148,9 @@ Il existe actuellement deux types de propriétés d’état pour les organisatio
 
 - Une organisation connectée proposée est une organisation connectée qui a été créée automatiquement, sans qu’un administrateur la crée ou l’approuve. Quand un utilisateur s’inscrit pour un package d’accès en dehors d’une organisation connectée configurée, toutes les organisations connectées créées automatiquement se trouvent dans l’état **proposé**, car aucun administrateur dans le locataire n’a configuré ce partenariat. 
     
-    Les organisations connectées proposées ne s’affichent pas dans les sélecteurs pour les organisations connectées configurées, et ne s’inscrivent pas dans l’étendue du paramètre « toutes les organisations connectées configurées » d’aucune stratégie. 
+    Les organisations connectées proposées ne s’inscrivent pas dans l’étendue du paramètre « toutes les organisations connectées configurées » d’aucune stratégie, mais peuvent être utilisées uniquement pour les stratégies ciblant des organisations spécifiques. 
 
-Seuls des utilisateurs d’organisations connectées configurées peuvent demander des packages d’accès disponibles pour les utilisateurs de toutes les organisations configurées. Les utilisateurs d’organisations connectées proposées ont une expérience comme s’il n’y avait pas d’organisation connectée pour ce domaine, et n’ont pas accès au package d’accès tant que l’état n’est pas modifié par un administrateur.
+Seuls des utilisateurs d’organisations connectées configurées peuvent demander des packages d’accès disponibles pour les utilisateurs de toutes les organisations configurées. Les utilisateurs d’organisations connectées proposées ont une expérience comme s’il n’y avait pas d’organisation connectée pour ce domaine ; ils peuvent uniquement voir et demander des packages d’accès limités à leur organisation spécifique ou à n’importe quel utilisateur.
 
 > [!NOTE]
 > Dans le cadre du déploiement de cette nouvelle fonctionnalité, toutes les organisations connectées créées avant 09/09/20 ont été considérées comme **configurées**. Si vous aviez un package d’accès permettant aux utilisateurs de toute organisation de s’inscrire, vous devriez examiner votre liste d’organisations connectées créées avant cette date pour vous assurer qu’aucune n’est erronément catégorisée comme **configurée**.  Un administrateur peut mettre à jour la propriété **État** si nécessaire. Pour obtenir de l’aide, consultez [Mettre à jour une organisation connectée](#update-a-connected-organization).

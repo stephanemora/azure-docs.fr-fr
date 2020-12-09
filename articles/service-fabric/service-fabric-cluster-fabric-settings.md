@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648223"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187219"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -141,6 +141,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Active/désactive DnsService. DnsService est désactivé par défaut, et cette configuration doit être définie pour l’activer. |
 |PartitionPrefix|Chaîne (valeur par défaut : "--")|statique|Contrôle la valeur de la chaîne de préfixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>ne peut pas être une chaîne vide.</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|Chaîne (valeur par défaut : "")|statique|Contrôle la valeur de la chaîne de suffixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Valeur booléenne (valeur par défaut : true)|statique|Le paramètre contrôle les fonctionnalités de nouvelle tentative lors de l’appel des API Service Fabric à partir de DnsService. Lorsqu’il est activé, il effectue jusqu’à trois tentatives en cas d’erreur temporaire.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AzureStorageMaxConnections | Entier (valeur par défaut : 5000) |Dynamique|Nombre maximum de connexions simultanées au stockage Azure. |
 |AzureStorageMaxWorkerThreads | Entier (valeur par défaut : 25) |Dynamique|Nombre maximum de threads de travail en parallèle. |
 |AzureStorageOperationTimeout | Durée en secondes (valeur par défaut : 6000) |Dynamique|Spécifiez la durée en secondes. Délai permettant de finaliser l’opération xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi.<br/> *La bonne pratique est d’utiliser `true`.*
+|CleanupApplicationPackageOnProvisionSuccess|Valeur booléenne, valeur par défaut : true |Dynamique|Active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi.
 |CleanupUnusedApplicationTypes|Valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration, si elle est activée, permet de désinscrire automatiquement des versions inutilisées de types d’applications en ignorant les trois dernières versions inutilisées, ce qui réduit l’espace disque occupé par le magasin d’images. Le nettoyage automatique est déclenché à la fin d’un provisionnement réussi pour ce type d’application spécifique et s’exécute aussi régulièrement une fois par jour pour tous les types d’applications. Le nombre de versions inutilisées à ignorer est configurable à l’aide du paramètre « MaxUnusedAppTypeVersionsToKeep ». <br/> *La bonne pratique est d’utiliser `true`.*
 |DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) |statique| Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
 |DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) |statique|Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |
@@ -520,6 +521,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AutoDetectAvailableResources|Valeur booléenne, valeur par défaut : TRUE|statique|Cette configuration déclenchera la détection automatique des ressources disponibles sur le nœud (processeur et mémoire). Si cette configuration est définie sur true, nous lirons les capacités réelles et les corrigerons si l’utilisateur a spécifié des capacités de nœud incorrectes ou ne les a pas définies du tout. Si cette configuration est définie sur false, nous enverrons un avertissement que l’utilisateur a spécifié des capacités de nœud incorrectes, mais nous ne les corrigerons pas. Ce qui signifie que cet utilisateur souhaite que les capacités spécifiées soient > à celles du nœud ou si les capacités n’ont pas été définies ; cette valeur suppose une capacité illimitée |
 |BalancingDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après l’ajout d’un nouveau nœud. |
 |BalancingDelayAfterNodeDown | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après un événement d’arrêt de nœud. |
+|BlockNodeInUpgradeConstraintPriority | Entier (valeur par défaut : 0) |Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer  |
 |CapacityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Entier (valeur par défaut : 20) | Dynamique|Définit le nombre de fois consécutives que des mouvements émis par ResourceBalancer sont supprimés avant que des diagnostics soient effectués et que des avertissements d’intégrité soient émis. Négatif : aucun avertissement émis sous cette condition. |
 |ConstraintFixPartialDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) |Dynamique| Spécifiez la durée en secondes. Ne corrigez pas les violations de contrainte FaultDomain et UpgradeDomain pendant cette période après l’ajout d’un nouveau nœud. |

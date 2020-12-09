@@ -4,12 +4,12 @@ description: Les pools d’images personnalisées représentent un moyen efficac
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917781"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327302"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
@@ -58,7 +58,7 @@ Dans Azure, il est possible de préparer une image partagée à partir d’une i
 - Disque dur virtuel local généralisé chargé dans le cloud
 
 > [!NOTE]
-> Actuellement, Batch ne prend en charge que des images partagées généralisées. Actuellement, vous ne pouvez pas créer un pool d’images personnalisées à partir d’une image partagée spécialisée.
+> Batch prend uniquement en charge les images partagées généralisées ; une image partagée spécialisée ne peut pas être utilisée pour créer un pool.
 
 Les étapes suivantes expliquent comment préparer une machine virtuelle, en prendre une capture instantanée et créer une image à partir de celle-ci.
 

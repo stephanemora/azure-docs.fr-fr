@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296809"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -31,7 +31,7 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 - Services de chasse gérés
 
 > [!TIP]
-> Lancé à l’origine sous le nom **Windows Defender ATP** , ce produit de détection de point de terminaison et réponse (EDR) a été renommé en 2019 en **Microsoft Defender ATP**.
+> Lancé à l’origine sous le nom **Windows Defender ATP**, ce produit de détection de point de terminaison et réponse (EDR) a été renommé en 2019 en **Microsoft Defender ATP**.
 >
 > À l’occasion d’Ignite 2020, nous avons lancé la [suite Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) et ce composant EDR a été renommé **Microsoft Defender for Endpoint**.
 
@@ -44,7 +44,7 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 | Prix :                        | Nécessite [Azure Defender pour les serveurs](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Plateformes prises en charge :            | ![Oui](./media/icons/yes-icon.png) Machines Azure exécutant Windows<br>![Oui](./media/icons/yes-icon.png) Machines Azure Arc exécutant Windows|
 | Versions de Windows prises en charge :  | Defender for Endpoint est intégré à Windows 10 1703 (et versions ultérieures) et Windows Server 2019.<br>Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1.<br>La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC. |
-| Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité** , **Lecteur** , **Contributeur du groupe de ressources** , **Propriétaire du groupe de ressources** , **Administrateur de la sécurité** , **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**                         |
+| Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**                         |
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux.<br>![Non](./media/icons/no-icon.png) Clients Cloud de la communauté du secteur public exécutant des charges de travail dans des clouds Azure mondiaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
@@ -61,7 +61,7 @@ Microsoft Defender for Endpoint fournit les éléments suivants :
 
 En intégrant Defender for Endpoint à Security Center, vous bénéficierez des capacités supplémentaires suivantes :
 
-- **Intégration automatisée**. Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center (à moins qu’ils n’exécutent Windows Server 2019).
+- **Intégration automatisée**. Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center. Sauf pour ceux qui exécutent Windows Server 2019, et qui doivent être intégrés via un script local, un objet stratégie de groupe (GPO) ou [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (anciennement SCCM).
 
 - **Volet unique**. La console Security Center affiche des alertes Microsoft Defender for Endpoint. Pour approfondir vos recherches, utilisez les pages du portail de Microsoft Defender for Endpoint, où vous verrez des informations supplémentaires telles que l’arborescence du processus d’alerte et le graphique d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
 
@@ -85,7 +85,7 @@ Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifi
 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
 1. Sélectionnez l’abonnement que vous souhaitez modifier.
 1. Sélectionnez **Détection des menaces**.
-1. Sélectionnez **Autoriser Microsoft Defender for Endpoint à accéder à mes données** , puis **Enregistrer**.
+1. Sélectionnez **Autoriser Microsoft Defender for Endpoint à accéder à mes données**, puis **Enregistrer**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Activer l’intégration entre Azure Security Center et la solution EDR de Microsoft, Microsoft Defender for Endpoint":::
 

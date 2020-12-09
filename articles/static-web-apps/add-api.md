@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920489"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349954"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -32,7 +32,7 @@ Vous pouvez ajouter des API serverless à Azure Static Web Apps via l’intégra
 
 Les étapes suivantes montrent comment créer un référentiel et cloner les fichiers sur votre ordinateur.
 
-1. Vérifiez que vous êtes connecté à GitHub et accédez à https://github.com/staticwebdev/vanilla-basic/generate pour créer un dépôt.
+1. Vérifiez que vous êtes connecté à GitHub et accédez à [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) pour créer un dépôt.
 1. Dans la zone _Repository name_ (Nom du référentiel), entrez **my-vanilla-api**.
 1. Cliquez sur **Create repository from template** (Créer un référentiel à partir du modèle).
 

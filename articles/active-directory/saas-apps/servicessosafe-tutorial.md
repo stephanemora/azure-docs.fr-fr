@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Services@SoSafe | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Services@SoSafe.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à SoSafe | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SoSafe.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3fe42dd37bda3bef549570c32018179b88d06957
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ef0c1b95e89916c8fd71d5e0b6c60370e95d8417
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296998"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicessosafe"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Services@SoSafe
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sosafe"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SoSafe
 
-Dans ce tutoriel, vous allez découvrir comment intégrer Services@SoSafe à Azure Active Directory (Azure AD). Quand vous intégrez Services@SoSafe à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez découvrir comment intégrer SoSafe à Azure Active Directory (Azure AD). Quand vous intégrez SoSafe à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à Services@SoSafe.
-* Permettre à vos utilisateurs de se connecter automatiquement à Services@SoSafe avec leur compte Azure AD.
+* Contrôler qui dans Azure AD a accès à SoSafe.
+* Permettre à vos utilisateurs de se connecter automatiquement à SoSafe avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -31,49 +31,49 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Services@SoSafe à Azu
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Services@SoSafe pour lequel l’authentification unique est activée.
+* Un abonnement SoSafe pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Services@SoSafe prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
-* Services@SoSafe prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* SoSafe prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
+* SoSafe prend en charge le provisionnement d’utilisateurs **Juste-à-temps**
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 
-## <a name="adding-servicessosafe-from-the-gallery"></a>Ajout de Services@SoSafe depuis la galerie
+## <a name="adding-sosafe-from-the-gallery"></a>Ajout de SoSafe à partir de la galerie
 
-Pour configurer l’intégration de Services@SoSafe avec Azure AD, vous devez ajouter Services@SoSafe disponible dans la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de SoSafe à Azure AD, vous devez ajouter SoSafe à votre liste d’applications SaaS managées à partir de la galerie.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez Services@SoSafe dans la zone de recherche.
-1. Sélectionnez Services@SoSafe dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, tapez SoSafe dans la zone de recherche.
+1. Sélectionnez SoSafe dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-servicessosafe"></a>Configurer et tester l’authentification unique Azure AD pour Services@SoSafe
+## <a name="configure-and-test-azure-ad-sso-for-sosafe"></a>Configurer et tester l’authentification unique Azure AD pour SoSafe
 
-Configurez et testez l’authentification unique Azure AD avec Services@SoSafe à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Services@SoSafe associé.
+Configurez et testez l’authentification unique Azure AD avec SoSafe pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans SoSafe.
 
-Pour configurer et tester l’authentification unique Azure AD avec Services@SoSafe, effectuez les étapes suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec SoSafe, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique ServicesSoSafe](#configure-servicessosafe-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test ServicesSoSafe](#create-servicessosafe-test-user)** pour avoir un équivalent de B.Simon dans Services@SoSafe lié à la représentation Azure AD associée.
+1. **[Configurer l’authentification unique SoSafe](#configure-sosafe-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test SoSafe](#create-sosafe-test-user)** pour avoir un équivalent de B.Simon dans SoSafe lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application Services@SoSafe, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application SoSafe, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -86,13 +86,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://api.sosafe.de/v1/auth/saml/login/<TENANT_ID>`
 
     > [!NOTE]
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Services@SoSafe](mailto:support@sosafe.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe de support technique SoSafe](mailto:support@sosafe.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section Configurer Services@SoSafe, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section Configurer SoSafe, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -109,19 +109,19 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Services@SoSafe.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SoSafe.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez Services@SoSafe.
+1. Dans la liste des applications, sélectionnez SoSafe.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-servicessosafe-sso"></a>Configurer l’authentification unique ServicesSoSafe
+## <a name="configure-sosafe-sso"></a>Configurer l’authentification unique pour SoSafe
 
-1. Dans une autre fenêtre du navigateur web, connectez-vous au site web Services@SoSafe en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site web SoSafe en tant qu’administrateur.
 
 1. Cliquez sur **Extended Data** (Données étendues) et effectuez les étapes ci-dessous dans la page suivante.
 
@@ -139,9 +139,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Cliquez sur **Save** (Enregistrer).
 
-### <a name="create-servicessosafe-test-user"></a>Créer un utilisateur de test ServicesSoSafe
+### <a name="create-sosafe-test-user"></a>Créer un utilisateur de test SoSafe
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans Services@SoSafe. Services@SoSafe prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Services@SoSafe, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé Britta Simon est créé dans SoSafe. SoSafe prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans SoSafe, il en est créé un après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -149,18 +149,16 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Services@SoSafe, où vous pouvez lancer le processus de connexion.  
+1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion SoSafe, où vous pouvez initier le flux de connexion.  
 
-1. Accédez directement à l’URL de connexion Services@SoSafe pour lancer le processus de connexion.
+1. Accédez directement à l’URL de connexion SoSafe pour initier le flux de connexion.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Services@SoSafe pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** sur le portail Azure ; vous êtes alors connecté automatiquement à l’instance de SoSafe pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Services@SoSafe dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Services@SoSafe pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette SoSafe dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour initier le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de SoSafe pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Services@SoSafe, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Une fois que vous avez configuré SoSafe, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

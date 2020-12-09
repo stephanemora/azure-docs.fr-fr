@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045480"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302607"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -79,7 +79,7 @@ Exemple de charge utile de propriété rapportée :
 
 L’appareil ou le module doit ajouter le marqueur `{"__t": "c"}` pour indiquer que l’élément fait référence à un composant.
 
-DTDL :
+DTDL qui fait référence à un composant :
 
 ```json
 {
@@ -95,7 +95,11 @@ DTDL :
     }
   ]
 }
+```
 
+DTDL qui définit le composant :
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -255,7 +259,7 @@ Lorsqu’un appareil reçoit plusieurs propriétés rapportées dans une seule c
 
 L’appareil ou le module doit confirmer qu’il a reçu les propriétés en envoyant des propriétés rapportées :
 
-DTDL :
+DTDL qui fait référence à un composant :
 
 ```json
 {
@@ -271,7 +275,11 @@ DTDL :
     }
   ]
 }
+```
 
+DTDL qui définit le composant :
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",

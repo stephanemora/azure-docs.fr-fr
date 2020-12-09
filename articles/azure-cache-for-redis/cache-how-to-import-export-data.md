@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536859"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327506"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importer et exporter des données dans le Cache Azure pour Redis
 L’Importation/Exportation est une opération de gestion de données de Cache Azure pour Redisqui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Azure pour Redis, en important ou en exportant une capture instantanée de base de données du Cache Azure pour Redis (RDB) depuis un cache Premium vers un objet blob dans un compte de stockage Azure.
 
-- **Exportation**  : vous pouvez exporter vos captures instantanées du cache Azure pour Redis RDB vers un objet blob de pages.
-- **Importation**  : vous pouvez importer vos captures instantanées du cache Azure pour Redis RDB à partir d’un objet blob de pages ou d’un objet blob de blocs.
+- **Exportation** : vous pouvez exporter vos captures instantanées du cache Azure pour Redis RDB vers un objet blob de pages.
+- **Importation** : vous pouvez importer vos captures instantanées du cache Azure pour Redis RDB à partir d’un objet blob de pages ou d’un objet blob de blocs.
 
 L’Importation/Exportation vous permet de migrer entre différentes instances de cache Azure pour Redis ou de remplir le cache de données avant utilisation.
 
@@ -36,7 +36,7 @@ L’importation peut servir à récupérer les fichiers RDB compatibles Redis de
 >
 >
 
-1. Pour importer un ou plusieurs objets blob de cache exportés, [accédez à votre cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le portail Azure et cliquez sur **Importer des données** dans le **menu Ressource** .
+1. Pour importer un ou plusieurs objets blob de cache exportés, [accédez à votre cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le portail Azure et cliquez sur **Importer des données** dans le **menu Ressource**.
 
     ![Importer des données](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Cliquez sur **Choisir un ou plusieurs objets blob** et sélectionnez le compte de stockage contenant les données à importer.
@@ -45,7 +45,7 @@ L’importation peut servir à récupérer les fichiers RDB compatibles Redis de
 3. Cliquez sur le conteneur des données à importer.
 
     ![Sélection d’un conteneur](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
-4. Sélectionnez un ou plusieurs objets blob à importer en cliquant sur la zone située à gauche de leurs noms, puis cliquez sur **Sélectionnez** .
+4. Sélectionnez un ou plusieurs objets blob à importer en cliquant sur la zone située à gauche de leurs noms, puis cliquez sur **Sélectionnez**.
 
     ![Sélection d’objets blob](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Cliquez sur **Importer** pour commencer le processus d’importation.
@@ -64,9 +64,9 @@ L’importation peut servir à récupérer les fichiers RDB compatibles Redis de
 ## <a name="export"></a>Exporter
 L’exportation vous permet d’exporter les données stockées dans le Cache Azure pour Redis vers un ou plusieurs fichiers RDB compatibles. Vous pouvez utiliser cette fonctionnalité pour déplacer des données d’une instance de Cache Azure pour Redis à une autre, ou vers un autre serveur Redis. Pendant le processus d’exportation, un fichier temporaire est créé sur la machine virtuelle qui héberge l’instance de serveur de cache Azure pour Redis, puis téléchargé vers le compte de stockage désigné. Lorsque l’opération d’exportation se termine avec un état de réussite ou d’échec, le fichier temporaire est supprimé.
 
-1. Pour exporter le contenu actuel du cache vers un espace de stockage, [accédez à votre cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le portail Azure, puis cliquez sur **Exporter des données** à partir du **Menu Ressource** .
+1. Pour exporter le contenu actuel du cache vers un espace de stockage, [accédez à votre cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le portail Azure, puis cliquez sur **Exporter des données** à partir du **Menu Ressource**.
 
-    ![Choisir un conteneur de stockage](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![Dans le volet de navigation de contoso5premium, l’option Exporter des données de la liste Administration est mise en surbrillance.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Cliquez sur **Choisir un conteneur de stockage** et sélectionnez le compte de stockage souhaité. Le compte de stockage doit être situé dans les mêmes région et abonnement que votre cache.
 
    > [!IMPORTANT]
@@ -74,9 +74,9 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
    >
 
     ![Compte de stockage](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Choisissez le conteneur d’objets blob souhaité et cliquez sur **Sélectionnez** . Pour utiliser un nouveau conteneur, cliquez sur **Ajouter un conteneur** , puis sélectionnez-le dans la liste.
+3. Choisissez le conteneur d’objets blob souhaité et cliquez sur **Sélectionnez**. Pour utiliser un nouveau conteneur, cliquez sur **Ajouter un conteneur** , puis sélectionnez-le dans la liste.
 
-    ![Choisir un conteneur de stockage](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![Dans Conteneurs pour contoso55, l’option Conteneur est mise en surbrillance. Il y a un conteneur dans la liste, cachesaves, qui est sélectionné et mis en surbrillance. L’option Sélection est sélectionnée et mise en surbrillance.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Tapez un **préfixe de nom d’objet blob** et cliquez sur **Exporter** pour lancer le processus d’exportation. Le préfixe de nom d’objet blob est utilisé pour préfixer les noms des fichiers générés par cette opération d’exportation.
 
     ![Exporter](./media/cache-how-to-import-export-data/cache-export-data.png)

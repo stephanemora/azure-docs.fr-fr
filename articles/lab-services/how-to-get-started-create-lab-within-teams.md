@@ -3,12 +3,12 @@ title: Prise en main et création d’un laboratoire Azure Lab Services dans Tea
 description: Découvrez comment prendre en main et créer un laboratoire Azure Lab Services dans Teams.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433969"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Prise en main et création d’un laboratoire Lab Services dans Teams
 
@@ -21,7 +21,7 @@ Dans ce tutoriel, vous allez configurer un laboratoire avec des machines virtuel
 Voici le workflow standard quand vous utilisez Azure Lab Services dans Teams :
 
 1. L’utilisateur [crée un compte de laboratoire](tutorial-setup-lab-account.md#create-a-lab-account) sur le portail Azure.
-1. Un [créateur de compte de laboratoire ajoute d’autres utilisateurs](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) au rôle **Créateur de laboratoire** . Par exemple, le créateur/administrateur du compte lab ajoute des formateurs au rôle **Créateur de laboratoire** afin qu’ils puissent créer des laboratoires pour leurs classes.
+1. Un [créateur de compte de laboratoire ajoute d’autres utilisateurs](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) au rôle **Créateur de laboratoire**. Par exemple, le créateur/administrateur du compte lab ajoute des formateurs au rôle **Créateur de laboratoire** afin qu’ils puissent créer des laboratoires pour leurs classes.
 1. Ensuite, les enseignants créent des laboratoires, préconfigurent le modèle de machine virtuelle et publient le laboratoire pour fournir des machines virtuelles à tous les membres de l’équipe.
 1. Une fois le laboratoire publié, une machine virtuelle est attribuée à chaque membre de l’équipe lors de leur première connexion à Azure Lab Services, soit en cliquant sur l’onglet contenant l’application **Azure Lab Services** avec Teams (authentification unique), soit en accédant au [site web du laboratoire](https://labs.azure.com). Les utilisateurs peuvent ensuite utiliser la machine virtuelle pour faire les travaux de classe et leurs devoirs.
 
@@ -40,18 +40,18 @@ En tant que propriétaire d’équipe, vous pouvez ajouter l’application **Azu
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Ajouter un onglet":::
-1. Sélectionnez un compte Lab Services que vous souhaitez utiliser pour créer des laboratoires de salle de classe dans cette équipe. 
+1. Sélectionnez un compte Lab Services que vous souhaitez utiliser pour créer des labos dans cette équipe. 
 
     Azure Lab Services utilise l’authentification unique sur le [site web d’Azure Lab Services](https://labs.azure.com) et extrait tous les comptes de laboratoire auxquels vous avez accès. 
 
-    Les comptes qui se trouvent dans le même locataire que Teams et pour lesquels vous avez un accès **Propriétaire** , **Contributeur** ou **Créateur** sont affichés. 
+    Les comptes qui se trouvent dans le même locataire que Teams et pour lesquels vous avez un accès **Propriétaire**, **Contributeur** ou **Créateur** sont affichés. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Ajouter un onglet":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Bienvenue sur ALS":::
 1. Appuyez sur **Enregistrer** et l’onglet est ajouté au canal.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Ajouter un onglet":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Création de l’onglet ALS":::
 
     Vous pouvez maintenant sélectionner l’onglet **Azure Lab Services** à partir de votre canal et commencer à gérer les laboratoires comme décrit dans les articles suivants.
 

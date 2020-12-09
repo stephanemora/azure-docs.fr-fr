@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989545"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121760"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -36,7 +36,7 @@ Chaque exemple montre un extrait de code du modèle d’appareil qui définit le
 
 Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Pour obtenir un exemple de code d’appareil illustrant l’utilisation de certaines de ces charges utiles, visionnez les tutoriels [Créer et connecter une application cliente à votre application Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) et [Créer et connecter une application cliente à votre application Azure IoT Central (Python)](tutorial-connect-device-python.md).
+Pour obtenir un exemple de code d’appareil illustrant l’utilisation de certaines de ces charges utiles, consultez le tutoriel [Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md).
 
 ## <a name="view-raw-data"></a>Voir les données brutes
 

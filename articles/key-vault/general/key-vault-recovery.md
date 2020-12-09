@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748498"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324956"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Guide pratique pour activer la suppression réversible et la protection contre le vidage
 
@@ -25,7 +25,7 @@ La suppression réversible et la protection contre le vidage sont deux fonctionn
 > [!IMPORTANT]
 > La protection contre la suppression réversible doit être activée sur tous les coffres de clés. La possibilité de désactiver la protection contre la suppression réversible sera déconseillée par d’ici décembre 2020. Vous trouverez plus de détails [**ici**](soft-delete-change.md).
 
-**La suppression réversible** est conçue pour empêcher la suppression accidentelle de votre coffre de clés et de vos clés, secrets et certificats qui y sont stockés. Pensez à la suppression réversible comme à une corbeille. Lorsque vous supprimez un coffre de clés ou un objet de coffre de clés, il reste récupérable pendant une période de rétention configurable par l’utilisateur ou une durée par défaut de 90 jours. Les coffres de clés supprimés de manière réversible peuvent également être **vidés** , ce qui signifie qu’ils sont supprimés définitivement. Cela vous permet de recréer des coffres de clés et des objets de coffre de clés portant le même nom. La récupération et la suppression des coffres de clés et des objets nécessitent des autorisations d’accès élevées. **Une fois la suppression réversible activée, elle ne peut pas être désactivée.**
+**La suppression réversible** est conçue pour empêcher la suppression accidentelle de votre coffre de clés et de vos clés, secrets et certificats qui y sont stockés. Pensez à la suppression réversible comme à une corbeille. Lorsque vous supprimez un coffre de clés ou un objet de coffre de clés, il reste récupérable pendant une période de rétention configurable par l’utilisateur ou une durée par défaut de 90 jours. Les coffres de clés supprimés de manière réversible peuvent également être **vidés**, ce qui signifie qu’ils sont supprimés définitivement. Cela vous permet de recréer des coffres de clés et des objets de coffre de clés portant le même nom. La récupération et la suppression des coffres de clés et des objets nécessitent des autorisations d’accès élevées. **Une fois la suppression réversible activée, elle ne peut pas être désactivée.**
 
 Il est important de noter que **les noms des coffres de clés sont généralement uniques**. Vous ne pourrez donc pas créer un coffre de clés portant le même nom qu’un coffre de clés supprimé de manière réversible. De même, les noms des clés, des secrets et des certificats sont uniques au sein d’un coffre de clés. Vous ne pouvez pas créer un secret, une clé ou un certificat portant le même nom qu’un autre supprimé de manière réversible.
 
@@ -44,7 +44,7 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
 1. Vérifiez que la case d’option située à côté de la suppression réversible est définie sur « Activer la récupération ».
 1. Si la suppression réversible n’est pas activée sur le coffre de clés, cliquez sur la case d’option pour activer la suppression réversible, puis cliquez sur « Enregistrer ».
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="Capture d’écran du portail Azur":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="Dans Propriétés, l’option de suppression réversible est mise en surbrillance, tout comme la valeur pour l’activer.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Accorder l’accès à un principal de service pour vider et récupérer les secrets supprimés
 
@@ -56,7 +56,7 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
 1. Faites défiler vers le bas de la liste déroulante, puis cliquez sur « Récupérer » et « Vider ».
 1. Les principaux de sécurité auront également besoin d’une fonctionnalité d’extraction et de liste pour effectuer la plupart des opérations.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="Capture d’écran du portail Azure":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="Dans le volet de navigation de gauche, le panneau Stratégies d’accès est mis en surbrillance. Dans Stratégies d’accès, la liste déroulante Positions secrètes s’affiche, et quatre éléments sont sélectionnés : Obtenir, Répertorier, Récupérer et Vider.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Répertorier, récupérer ou vider un coffre de clés supprimé de manière réversible
 
@@ -72,9 +72,9 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
 1. Sélectionnez l’option Récupérer en bas du volet contextuel si vous souhaitez récupérer le coffre de clés.
 1. Sélectionnez l’option Vider si vous souhaitez supprimer définitivement le coffre de clés.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Capture d’écran du portail Azure":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Dans les coffres de clés, l’option Gérer les coffres supprimés est mise en surbrillance.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="Capture d’écran du portail Azure":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="Dans le volet Gérer les coffres de clés supprimés, le seul coffre de clés répertorié est mis en surbrillance et sélectionné, et le bouton Récupérer est mis en surbrillance.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Répertorier, récupérer ou vider les secrets, les clés et les certificats supprimés de manière réversible
 
@@ -87,7 +87,7 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
 1. Sélectionnez le secret, la clé ou le certificat que vous souhaitez gérer.
 1. Sélectionnez l’option de récupération ou de vidage en bas du volet contextuel.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Capture d’écran du portail Azure":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Dans le panneau Clés, l’option Gérer les clés supprimées est mise en surbrillance.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

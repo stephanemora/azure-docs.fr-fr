@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1b992150f6013fd597a3e56b243bd6236289b710
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 5c42102c0704d7212411d6b86f4210ad8ecd885c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357995"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347495"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Tutoriel : Configurer Soloinsight-CloudGate SSO pour l’approvisionnement automatique d’utilisateurs
 
@@ -72,7 +72,7 @@ Avant de configurer Soloinsight-CloudGate SSO pour l’approvisionnement automat
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Avant de configurer Soloinsight-CloudGate SSO pour l’approvisionnement automat
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Soloinsight-CloudGate SSO** , sélectionnez **Soloinsight-CloudGate SSO** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Soloinsight-CloudGate SSO**, sélectionnez **Soloinsight-CloudGate SSO** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Soloinsight-CloudGate SSO dans la liste des résultats](common/search-new-app.png)
 
@@ -89,11 +89,11 @@ Avant de configurer Soloinsight-CloudGate SSO pour l’approvisionnement automat
 Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans Soloinsight-CloudGate SSO en fonction des attributions d’utilisateurs et/ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Soloinsight-CloudGate SSO, en suivant les instructions fournies dans le [didacticiel sur l’authentification unique pour Soloinsight-CloudGate SSO](./soloinsight-cloudgate-sso-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
+> Vous pouvez aussi choisir d’activer l’authentification unique basée sur SAML pour Soloinsight-CloudGate SSO en suivant les instructions fournies dans le [tutoriel sur l’authentification unique pour Soloinsight-CloudGate SSO](./soloinsight-cloudgate-sso-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
 
 ### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Soloinsight-CloudGate SSO dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -109,17 +109,17 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://sigateway.com/scim/v2/sync/serviceproviderconfig` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Soloinsight-CloudGate SSO. Si la connexion échoue, vérifiez que votre compte Soloinsight-CloudGate SSO dispose d’autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://sigateway.com/scim/v2/sync/serviceproviderconfig` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Soloinsight-CloudGate SSO. Si la connexion échoue, vérifiez que votre compte Soloinsight-CloudGate SSO dispose d’autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Soloinsight-CloudGate SSO**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Soloinsight-CloudGate SSO**.
 
     ![Soloinsight-CloudGate SSO – Mappages d’utilisateurs](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
 
@@ -127,7 +127,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Soloinsight-CloudGate SSO – Attributs utilisateur](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Soloinsight-CloudGate SSO**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Soloinsight-CloudGate SSO**.
 
     ![Soloinsight-CloudGate SSO – Mappages de groupes](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
 

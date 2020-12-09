@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026053"
 ---
 Les conditions suivantes doivent être remplies afin d’établir un tunnel d’appareil :
 
@@ -22,13 +22,13 @@ Les conditions suivantes doivent être remplies afin d’établir un tunnel d’
 * Un seul tunnel d’appareil peut être configuré par appareil.
 
 1. Installez des certificats clients sur le client Windows 10 comme indiqué dans cet [article sur les clients VPN point à site](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin de l’ordinateur local.
-1. Créez un profil VPN et configurez un tunnel d’appareil dans le contexte du compte SYSTÈME LOCAL en suivant [ces instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
+1. Créez un profil VPN et configurez un tunnel d’appareil dans le contexte du compte SYSTÈME LOCAL en suivant [ces instructions](/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
 ### <a name="configuration-example-for-device-tunnel"></a>Exemple de configuration pour le tunnel d’appareil
 
 Après avoir configuré la passerelle de réseau virtuel et installé le certificat client dans le magasin de l’ordinateur local sur le client Windows 10, utilisez les exemples suivants pour configurer un tunnel d’appareil client :
 
-1. Copiez le texte suivant et enregistrez-le sous le nom ***devicecert.ps1***.
+1. Copiez le texte suivant et enregistrez-le sous le nom ***devicecert.ps1** _.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiez le texte suivant et enregistrez-le sous le nom ***VPNProfile.xml*** dans le même dossier que **devicecert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
+1. Copiez le texte suivant et enregistrez-le sous le nom _*_VPNProfile.xml_*_ dans le même dossier que _*devicecert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,7 +115,7 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Téléchargez **PsExec** de [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) et extrayez les fichiers dans **C:\PSTools**.
+1. Téléchargez **PsExec** de [Sysinternals](/sysinternals/downloads/psexec) et extrayez les fichiers dans **C:\PSTools**.
 1. À partir d’une invite de commandes d’administration, lancez PowerShell en exécutant :
 
    ```

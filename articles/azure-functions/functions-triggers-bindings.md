@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652611"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353542"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -88,6 +88,10 @@ Pour plus d’informations sur les liaisons en préversion ou approuvées pour l
 Utilisez le tableau suivant pour trouver des exemples de types de liaisons spécifiques qui vous montrent comment utiliser des liaisons dans vos fonctions. Tout d’abord, choisissez l’onglet du langage qui correspond à votre projet. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Liaisons personnalisées
+
+Vous pouvez créer des liaisons d’entrée et de sortie personnalisées. Les liaisons doivent être créées dans .NET, mais sont utilisables avec tous les langages pris en charge. Pour plus d’informations sur la création de liaisons personnalisées, consultez [Création de liaisons d’entrée et de sortie personnalisées](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Ressources
 - [Modèles et expressions de liaison](./functions-bindings-expressions-patterns.md)

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097462"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296537"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Vous pouvez configurer le débit sur des bases de données ou des conteneurs, et
 
 Voici quelques indications pour choisir une stratégie de débit approvisionné :
 
-**Provisionnez le débit sur une base de données Azure Cosmos (contenant un ensemble de conteneurs) si**  :
+**Provisionnez le débit sur une base de données Azure Cosmos (contenant un ensemble de conteneurs) si** :
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
@@ -55,7 +55,7 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 Comme indiqué dans le tableau suivant, selon le choix de l’API, vous pouvez approvisionner un débit à différents niveaux de granularité.
 
-|API|Pour un débit **partagé** , configurer |Pour un débit **dédié** , configurer |
+|API|Pour un débit **partagé**, configurer |Pour un débit **dédié**, configurer |
 |----|----|----|
 |API SQL|Base de données|Conteneur|
 |API d’Azure Cosmos DB pour MongoDB|Base de données|Collection|
@@ -137,7 +137,7 @@ Dans la mesure où vous êtes facturé selon le débit approvisionné, adapter l
 
 Pour déterminer le débit approvisionné d’une nouvelle charge de travail, vous pouvez procéder comme suit : 
 
-1. Effectuez une évaluation approximative initiale à l’aide de l’outil Capacity Planner et ajustez vos estimations avec Azure Cosmos Explorer dans le portail Azure. 
+1. Effectuez une évaluation approximative initiale à l’aide de l’outil Capacity Planner et ajustez vos estimations avec l’explorateur Azure Cosmos DB dans le portail Azure. 
 
 2. Il est recommandé de créer les conteneurs avec un débit plus élevé que prévu puis de diminuer ce débit en fonction des besoins. 
 

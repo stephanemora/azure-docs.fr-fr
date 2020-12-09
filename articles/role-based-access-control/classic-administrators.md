@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916163"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343991"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -105,7 +105,7 @@ Procédez comme suit pour modifier l’administrateur de services fédérés dan
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 
-1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
+1. Ouvrez **Facturation et gestion des coûts** et sélectionnez un abonnement.
 
 1. Dans le volet de navigation gauche, cliquez sur **Propriétés**.
 
@@ -140,7 +140,7 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
+1. Ouvrez **Facturation et gestion des coûts** et sélectionnez un abonnement.
 
 1. Dans le volet de navigation gauche, cliquez sur **Propriétés**.
 

@@ -3,12 +3,12 @@ title: Azure Lab Services dans Microsoft Teams
 description: Fournit une vue d’ensemble de l’utilisation d’Azure Lab Services dans Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047826"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433921"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services dans Microsoft Teams
 
@@ -23,7 +23,7 @@ Cet article présente les avantages de l’utilisation d’Azure Lab Services da
 
 L’intégration d’Azure Lab Services à Microsoft Teams aide les enseignants à configurer un environnement de type salle de classe et à fournir des environnements de labo virtuels au sein de l’équipe (salle de classe) : 
 
-* Les enseignants peuvent configurer des labos de salle de classe pour que les étudiants puissent accéder à leurs machines virtuelles depuis Teams, sans quitter Teams et avoir à accéder au [site web Azure Lab Services](https://labs.azure.com).
+* Les enseignants peuvent configurer des labos pour que les étudiants puissent accéder à leurs machines virtuelles depuis Teams, sans quitter Teams et avoir à accéder au [site web Azure Lab Services](https://labs.azure.com).
 * Authentification unique (SSO) depuis Teams vers Azure Lab Services.
 * Les propriétaires d’équipes et de labos n’ont pas besoin de conserver les listes de classe dans deux systèmes différents : la liste des utilisateurs de labo est automatiquement renseignée à partir de l’appartenance à l’équipe et une synchronisation est effectuée automatiquement toutes les 24 heures. 
 * Après la publication initiale de la machine virtuelle modèle, la capacité du labo (c’est-à-dire le nombre de machines virtuelles dans le labo) est automatiquement ajustée en fonction de l’ajout et de la suppression d’utilisateurs de l’appartenance à l’équipe. 

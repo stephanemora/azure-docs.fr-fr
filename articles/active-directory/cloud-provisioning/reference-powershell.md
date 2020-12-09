@@ -1,5 +1,5 @@
 ---
-title: Module PowerShell AADCloudSyncTools pour Azure AD Connect Cloud Sync
+title: Module PowerShell AADCloudSyncTools pour le provisionnement cloud Azure AD Connect
 description: Cet article explique comment installer l’agent d’approvisionnement Azure AD Connect.
 services: active-directory
 author: billmath
@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ce5a7a313ab0f0680558aa60b34e3ebb9b51c9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ba71d3eedbb75780c20499daa890556574494a35
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348135"
 ---
-# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Module PowerShell AADCloudSyncTools pour Azure AD Connect Cloud Sync
+# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-provisioning"></a>Module PowerShell AADCloudSyncTools pour le provisionnement cloud Azure AD Connect
 
 Avec la publication de l’actualisation 2 de la préversion publique, Microsoft a introduit le module PowerShell AADCloudSyncTools.  Ce module fournit un ensemble d’outils utiles que vous pouvez utiliser pour mieux gérer vos déploiements Azure AD Connect Cloud Sync.
 

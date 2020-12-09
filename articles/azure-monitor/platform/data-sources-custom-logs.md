@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2b27da096ed18170ca8c9d70f31dc955fb74950
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911734"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352828"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux personnalisés avec l'agent Log Analytics dans Azure Monitor
 
@@ -30,7 +30,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 
 - Le fichier journal ne doit pas autoriser les journalisations circulaires ni la rotation des journaux, où de nouvelles entrées sont consignées.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
-- Pour Linux, la conversion des fuseaux horaires n’est pas prise en charge pour les horodatages dans les journaux.
+- Sur Linux, la conversion des fuseaux horaires n’est pas prise en charge pour les horodatages dans les journaux.
 
 >[!NOTE]
 > Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte. Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats. Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  

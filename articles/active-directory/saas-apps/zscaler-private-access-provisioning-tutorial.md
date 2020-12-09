@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: a93e2a88201f32ed99698f2bfbab631c81ed8b35
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357706"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351569"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Private Access (ZPA) pour l’approvisionnement automatique d’utilisateurs
 
@@ -54,7 +54,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
     ![Console d’administration Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
 
-2.  Vérifiez qu’un IdP pour l’ **authentification unique** est configuré. Si aucun IdP n’est configuré, ajoutez-en un en cliquant sur l’icône plus dans le coin supérieur droit de l’écran.
+2.  Vérifiez qu’un IdP pour l’**authentification unique** est configuré. Si aucun IdP n’est configuré, ajoutez-en un en cliquant sur l’icône plus dans le coin supérieur droit de l’écran.
 
     ![Zscaler Private Access (ZPA) – Ajouter SCIM](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
 
@@ -70,7 +70,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
     ![Zscaler Private Access (ZPA) – Charger un certificat](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
 
-6.  Faites défiler vers le bas pour indiquer l’ **URL d’authentification unique** et l’ **ID d’entité IdP**.
+6.  Faites défiler vers le bas pour indiquer l’**URL d’authentification unique** et l’**ID d’entité IdP**.
 
     ![Zscaler Private Access (ZPA) – ID d’IdP](media/zscaler-private-access-provisioning-tutorial/idpid.png)
 
@@ -78,7 +78,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
     ![Zscaler Private Access (ZPA) – Créer un jeton](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.  Pour localiser l’ **URL de locataire** , accédez à **Administration > Configuration IdP**. Cliquez sur le nom de la configuration IdP que vous venez d’ajouter sur la page.
+8.  Pour localiser **Tenant URL** (URL de locataire), accédez à **Administration > IdP Configuration (Configuration IdP)** . Cliquez sur le nom de la configuration IdP que vous venez d’ajouter sur la page.
 
     ![Zscaler Private Access (ZPA) – Nom d’IdP](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
@@ -97,7 +97,7 @@ Avant de configurer Zscaler Private Access (ZPA) pour l’approvisionnement auto
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -121,7 +121,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Zscaler Private Access (ZPA) dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -137,29 +137,29 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification Administrateur** , entrez la valeur **Point de terminaison du fournisseur de services SCIM** récupérée précédemment dans **URL de locataire**. Entrez la valeur **Jeton du porteur** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Zscaler Private Access (ZPA). Si la connexion échoue, vérifiez que votre compte Zscaler Private Access (ZPA) dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification Administrateur**, entrez la valeur **Point de terminaison du fournisseur de services SCIM** récupérée précédemment dans **URL de locataire**. Entrez la valeur **Jeton du porteur** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Zscaler Private Access (ZPA). Si la connexion échoue, vérifiez que votre compte Zscaler Private Access (ZPA) dispose des autorisations d’administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zscaler Private Access (ZPA)** .
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zscaler Private Access (ZPA)** .
 
     ![Zscaler Private Access (ZPA) – Mappages d’utilisateur](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
-9. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zscaler Private Access (ZPA). Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler Private Access (ZPA) dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zscaler Private Access (ZPA). Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler Private Access (ZPA) dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Zscaler Private Access (ZPA) – Attributs utilisateur](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Zscaler Private Access (ZPA)** .
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Zscaler Private Access (ZPA)** .
 
     ![Zscaler Private Access (ZPA) – Mappages de groupes](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
-11. Dans la section **Mappages d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler Private Access (ZPA). Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler Private Access (ZPA) dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Zscaler Private Access (ZPA). Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler Private Access (ZPA) dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Zscaler Private Access (ZPA) – Attributs de groupe](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 

@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996623"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348690"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processus d’ajout d’une application OpenID à partir de la galerie
 
-1. Dans le volet gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory](common/select-azuread.png))
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
 2. Accédez à **Applications d’entreprise** > **Toutes les applications**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996623"
 
     ![Openid dans la liste des résultats](common/search-new-app.png)
 
-    > [!NOTE]
-    > Pour les applications OpenID Connect et OAuth, le bouton **Ajouter** est désactivé par défaut. L’administrateur des locataires doit sélectionner le bouton S’inscrire et donner son consentement pour l’application. L’application est alors ajoutée au locataire du client, où vous pouvez effectuer les configurations. Il est inutile d’ajouter l’application explicitement.
+
+1. Dans la page Nom de l’application, cliquez sur le bouton **S’inscrire**.
 
     ![Bouton Ajouter](./media/openidoauth-tutorial/addbutton.png)
 
-5. Lorsque vous sélectionnez le lien d’inscription, vous êtes redirigé vers la page Azure Active Directory (Azure AD) pour entrer les informations d’identification de connexion.
+    > [!NOTE]
+    > L’administrateur des locataires doit sélectionner le bouton S’inscrire et donner son consentement pour l’application. L’application est alors ajoutée au locataire du client, où vous pouvez effectuer les configurations. Il est inutile d’ajouter l’application explicitement.
+
+5. Vous êtes redirigé vers la page Connexion de l’application ou Azure Active Directory (Azure AD) pour entrer les informations d’identification de connexion.
 
 6. Une fois que l’authentification a été effectuée, vous acceptez le consentement dans la page de consentement. La page d’accueil de l’application s’affiche.
 
     > [!NOTE]
     > Vous ne pouvez ajouter qu’une instance de l’application. Si vous en avez déjà ajouté une et que vous avez tenté de fournir une nouvelle fois le consentement, l’application n’est pas ajoutée à nouveau dans le locataire. Vous ne pouvez donc utiliser en toute logique qu’une seule instance de l’application dans le locataire.
+
+1. Suivez la vidéo ci-dessous pour ajouter une application OpenID à partir de la galerie.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Flux d’authentification à l’aide d’OpenID Connect
 
@@ -151,3 +157,7 @@ L’administrateur d’un client peut empêcher les utilisateurs standard de don
 Le paramètre *prompt=admin_consent* peut également être utilisé par les applications qui demandent des autorisations ne nécessitant pas le consentement de l’administrateur. Exemple d’application qui requiert une expérience : l’administrateur des locataires « s’inscrit » une fois et aucun autre utilisateur n’est invité à donner son consentement à compter de ce moment.
 
 Imaginez qu’une application nécessite un consentement administrateur, et qu’un administrateur se connecte sans envoyer le paramètre *prompt=admin_consent*. Si l’administrateur donne son consentement pour l’application, celui-ci s’applique uniquement pour son compte d’utilisateur. Les utilisateurs standard ne peuvent toujours pas se connecter ni donner leur consentement pour l’application. Cette fonctionnalité s’avère particulièrement utile si vous souhaitez donner à l’administrateur des locataires la possibilité d’explorer votre application avant d’autoriser l’accès à d’autres utilisateurs.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Configurer l’authentification unique (SSO) basée sur OIDC pour une application de votre locataire Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

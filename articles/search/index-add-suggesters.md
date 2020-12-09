@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013579"
+ms.locfileid: "96030779"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Créer un suggesteur pour activer l’autocomplétion et les résultats suggérés dans une requête
 
-Dans la recherche cognitive Azure, la « search-as-you-type » (recherche pendant la saisie) est activée par le biais d’une construction de **suggesteur** ajoutée à un [index de recherche](search-what-is-an-index.md). Un suggesteur prend en charge deux expériences : l’*autocomplétion*, qui complète une entrée partielle pour une recherche sur un terme entier, et les *suggestions*, qui invitent à cliquer sur une correspondance particulière. L’autocomplétion génère une requête. Les suggestions produisent un document correspondant.
+Dans Recherche cognitive Azure, la recherche en cours de frappe est activée par le biais d’un *suggesteur*. Un suggesteur est une structure de données interne composée d’une collection de champs. Les champs sont soumis à une tokenisation supplémentaire, générant des séquences de préfixe pour prendre en charge les correspondances sur des termes partiels.
+
+Par exemple, si un suggesteur comprend un champ Ville, les combinaisons de préfixes résultantes « orl », « orlé », « orléa » et « orléan » seraient créées pour le terme « Orléans ». Les préfixes sont stockés dans des index inversés, soit un pour chaque champ spécifié dans une collection de champs de suggesteur.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Expériences de saisie semi-automatique dans Recherche cognitive
+
+Un suggesteur prend en charge deux expériences : l’*autocomplétion*, qui complète une entrée partielle pour une recherche sur un terme entier, et les *suggestions*, qui invitent à cliquer sur une correspondance particulière. L’autocomplétion génère une requête. Les suggestions produisent un document correspondant.
 
 Toutes deux sont illustrées par la capture d’écran suivante, extraite de [Créer votre première application en C#](tutorial-csharp-type-ahead-and-suggestions.md). L’autocomplétion anticipe un terme potentiel, en ajoutant « in » si vous avez tapé « tw ». Les suggestions sont des mini-résultats de recherche, où un champ comme Nom de l’hôtel représente un document de recherche d’hôtels correspondants à partir de l’index. Concernant les suggestions, vous pouvez couvrir n’importe quel champ fournissant des informations descriptives.
 
@@ -31,10 +37,6 @@ Vous pouvez utiliser ces fonctionnalités séparément ou ensemble. Pour implém
 + Appelez une requête activée par un suggesteur, sous la forme d’une requête Suggestion ou Autocomplétion, en utilisant l’une des [API listées ci-dessous](#how-to-use-a-suggester).
 
 La prise en charge de l’expérience « search-as-you-type » est activée par champ pour des champs de chaînes. Vous pouvez implémenter les deux comportements prédictifs dans la même solution de recherche si vous souhaitez une expérience similaire à celle indiquée dans la capture d’écran. Les deux requêtes ciblent la collection de *documents* d’un index spécifique, et les réponses sont renvoyées après qu’un utilisateur a saisi une chaîne d’entrée avec trois caractères minimum.
-
-## <a name="what-is-a-suggester"></a>Qu’est-ce qu’un suggesteur ?
-
-Un suggesteur est une structure de données interne prenant en charge des comportements « search-as-you-type » en stockant des préfixes en vue d’une correspondance lors de requêtes partielles. Comme avec les termes tokenisés, les préfixes sont stockés dans des index inversés, soit un pour chaque champ spécifié dans une collection de champs de suggesteurs.
 
 ## <a name="how-to-create-a-suggester"></a>Comment créer un suggesteur
 
