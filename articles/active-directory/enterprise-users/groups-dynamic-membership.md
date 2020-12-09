@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5a06cf906084e3f87d5f56748476a26587ff17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490729"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860811"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -340,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les [attributs d’extension](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », où X a une valeur de 1 à 15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les [attributs d’extension](/graph/api/resources/onpremisesextensionattributes) sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », où X a une valeur de 1 à 15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 101a2071d4f7c78d1a8df392172dc83c4028af1e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043070"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859213"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) est le service de gestion de l’accès et de
 
 - Ressources internes telles que les applications situées sur votre réseau d’entreprise et intranet ainsi que les applications cloud développées par votre propre organisation. Pour plus d’informations sur la création d’un locataire pour votre organisation, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Pour connaître la différence entre Azure AD et Active Directory Domain Services, consultez [Comparer Active Directory et Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Vous pouvez également utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Microsoft 365.
+Pour connaître la différence entre Azure AD et Active Directory Domain Services, consultez [Comparer Active Directory et Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Vous pouvez également utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](/microsoft-365/solutions/cloud-architecture-models) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Microsoft 365.
 
 ## <a name="who-uses-azure-ad"></a>Qui utilise Azure AD ?
 
