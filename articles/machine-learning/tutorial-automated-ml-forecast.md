@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356499"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921856"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 
@@ -58,13 +58,13 @@ Pour ce tutoriel, vous allez créer l’exécution de votre expérience de ML au
 
 Avant de configurer votre expérience, chargez votre fichier de données dans votre espace de travail sous la forme d’un jeu de données Azure Machine Learning. De cette façon, vous pouvez vérifier que la mise en forme de vos données convient à votre expérience.
 
-1. Dans le formulaire **Sélectionner un jeu de données** , sélectionnez **Des fichiers locaux** dans la liste déroulante **+Créer un jeu de données**. 
+1. Dans le formulaire **Sélectionner un jeu de données**, sélectionnez **Des fichiers locaux** dans la liste déroulante **+Créer un jeu de données**. 
 
-    1. Dans le formulaire **Informations de base** , donnez un nom unique à votre jeu de données et indiquez éventuellement une description. Le type de jeu de données par défaut est **Tabulaire** dans la mesure où le ML automatisé dans Azure Machine Learning Studio ne prend actuellement en charge que les jeux de données tabulaires.
+    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. Le type de jeu de données par défaut est **Tabulaire** dans la mesure où le ML automatisé dans Azure Machine Learning Studio ne prend actuellement en charge que les jeux de données tabulaires.
     
     1. Sélectionnez **Suivant** en bas à gauche.
 
-    1. Dans le formulaire **Sélection d’un magasin de données et de fichiers** , sélectionnez le magasin de données par défaut qui a été automatiquement configuré durant la création de votre espace de travail : **workspaceblobstore (Stockage Blob Azure)** . Il s’agit de l’emplacement de stockage où vous chargerez votre fichier de données. 
+    1. Dans le formulaire **Sélection d’un magasin de données et de fichiers**, sélectionnez le magasin de données par défaut qui a été automatiquement configuré durant la création de votre espace de travail : **workspaceblobstore (Stockage Blob Azure)** . Il s’agit de l’emplacement de stockage où vous chargerez votre fichier de données. 
 
     1. Sélectionnez **Parcourir**. 
     
@@ -86,13 +86,13 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
 
     1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. 
     
-        1. Pour cet exemple, choisissez d’ignorer les colonnes **casual** et **registered**. Ces colonnes étant une décomposition de la colonne **cnt** , nous ne les incluons pas.
+        1. Pour cet exemple, choisissez d’ignorer les colonnes **casual** et **registered**. Ces colonnes étant une décomposition de la colonne **cnt**, nous ne les incluons pas.
 
         1. Dans cet exemple, conservez également les valeurs par défaut pour **Propriétés** et **Type**. 
         
         1. Sélectionnez **Suivant**.
 
-    1. Dans le formulaire **Confirmer les détails** , vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**.
+    1. Dans le formulaire **Confirmer les détails**, vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**.
 
     1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
 
@@ -132,11 +132,11 @@ Une fois vos données chargées et configurées, configurez votre cible de calcu
 
 Terminez la configuration de votre expérience de ML automatisé en spécifiant le type de tâche de Machine Learning et les paramètres de configuration.
 
-1. Dans le formulaire **Type de tâche et paramètres** , sélectionnez **Prévisions de série chronologique** comme type de tâche de Machine Learning.
+1. Dans le formulaire **Type de tâche et paramètres**, sélectionnez **Prévisions de série chronologique** comme type de tâche de Machine Learning.
 
 1. Sélectionnez **date** comme **Colonne Heure** et laissez **Identificateurs de séries chronologiques** vide. 
 
-1. L’ **horizon de prévision** est la période dans le futur pour laquelle vous voulez faire des prédictions.  Décochez Détection automatique et tapez 14 dans le champ. 
+1. L’**horizon de prévision** est la période dans le futur pour laquelle vous voulez faire des prédictions.  Décochez Détection automatique et tapez 14 dans le champ. 
 
 1. Sélectionnez **Afficher des paramètres de configuration supplémentaires** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement, et de spécifier les paramètres de votre prévision. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
 
@@ -157,7 +157,7 @@ Terminez la configuration de votre expérience de ML automatisé en spécifiant 
 Pour exécuter votre expérience, sélectionnez **Terminer**. L’écran **Détails de l’exécution** s’ouvre avec **État de l’exécution**  en haut à côté du numéro de l’exécution. Cet état est mis à jour à mesure que l’expérience progresse.
 
 >[!IMPORTANT]
-> La préparation nécessaire à l’exécution de l’expérience prend **10 à 15**  minutes.
+> La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
 > Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  <br> <br>
 > Dans un environnement de production, ce processus prend du temps. Pendant que vous attendez, nous vous suggérons de commencer à explorer les algorithmes testés sous l’onglet **Modèles** à mesure qu’ils se terminent. 
 
@@ -179,7 +179,7 @@ Pour cette expérience, le déploiement sur un service web signifie que la soci�
 
 Une fois l’exécution terminée, revenez à la page d’exécution du parent en sélectionnant **Exécution 1** en haut de votre écran.
 
-Dans la section **Récapitulatif du meilleur modèle** , **StackEnsemble** est considéré comme étant le meilleur modèle dans le contexte de cette expérience selon la métrique **Erreur quadratique moyenne normalisée**.  
+Dans la section **Récapitulatif du meilleur modèle**, **StackEnsemble** est considéré comme étant le meilleur modèle dans le contexte de cette expérience selon la métrique **Erreur quadratique moyenne normalisée**.  
 
 Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
 
@@ -201,7 +201,7 @@ Nous déployons ce modèle, mais nous vous informons que le déploiement prend 2
 
 1. Sélectionnez **Déployer**.  
 
-    Un message vert de réussite apparaît en haut de l’écran **Exécuter** , indiquant que le déploiement a été correctement démarré. Vous pouvez voir la progression du déploiement dans le volet **Récapitulatif du modèle** sous **État du déploiement**.
+    Un message vert de réussite apparaît en haut de l’écran **Exécuter**, indiquant que le déploiement a été correctement démarré. Vous pouvez voir la progression du déploiement dans le volet **Récapitulatif du modèle** sous **État du déploiement**.
     
 Une fois le déploiement terminé, vous disposez d’un service web opérationnel pour générer des prédictions. 
 
@@ -215,7 +215,7 @@ Les fichiers de déploiement sont plus volumineux que les fichiers de données e
 
 Supprimez uniquement l’instance de déploiement d’Azure Machine Learning Studio si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
 
-1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources** , sélectionnez **Points de terminaison**. 
+1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
 
 1. Sélectionnez le déploiement à supprimer et sélectionnez **Supprimer**. 
 
@@ -235,7 +235,7 @@ Pour savoir comment créer un schéma pris en charge par Power BI pour faciliter
 > [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
-+ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
++ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 + Découvrez-en plus sur la [caractérisation](how-to-configure-auto-features.md#featurization).
 + En savoir plus sur le [profilage des données](how-to-connect-data-ui.md#profile).
 

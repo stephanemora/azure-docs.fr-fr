@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360835"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932215"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centre de déploiement pour Azure Kubernetes
 
@@ -56,7 +56,7 @@ Ce didacticiel présente les procédures suivantes :
 
    ![Capture d’écran montrant le portail Azure avec une flèche pointant vers le centre de déploiement.](media/deployment-center-launcher/settings.png)
 
-1. Choisissez l’emplacement du code, puis sélectionnez **Suivant**. Sélectionnez ensuite l’un des référentiels actuellement pris en charge : **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Choisissez l’emplacement du code, puis sélectionnez **Suivant**. Sélectionnez ensuite l’un des référentiels actuellement pris en charge : **[Azure Repos](/azure/devops/repos/index)** ou **GitHub**.
 
     Azure Repos est un ensemble d’outils de gestion de version qui vous aident à gérer votre code. Quelle que soit la taille de votre projet logiciel, nous vous conseillons d’utiliser la gestion de version au plus tôt.
 
@@ -77,7 +77,7 @@ Ce didacticiel présente les procédures suivantes :
 
     ![Capture d’écran montrant le centre de déploiement avec le message Impossible de trouver Dockerfile dans le référentiel.](media/deployment-center-launcher/dockerfile.png)
 
-1. Sélectionnez un registre de conteneurs existant ou créez-en un, puis sélectionnez **Terminer**. Le pipeline automatiquement met une build en file d’attente dans [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Sélectionnez un registre de conteneurs existant ou créez-en un, puis sélectionnez **Terminer**. Le pipeline automatiquement met une build en file d’attente dans [Azure Pipelines](/azure/devops/pipelines/index).
 
     Azure Pipelines est un service cloud que vous pouvez utiliser pour générer et tester automatiquement votre projet de code et le mettre à la disposition d’autres utilisateurs. Azure Pipelines combine l’intégration continue (CI) et le déploiement continu (CD) afin de tester et générer votre code de manière constante et cohérente, et de l’expédier vers toute cible.
 

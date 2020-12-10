@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359797"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921888"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 
@@ -76,11 +76,11 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
 
 1. Pour créer un jeu de données, sélectionnez **À partir de fichiers locaux** dans la liste déroulante **+ Créer un jeu de données**. 
 
-    1. Dans le formulaire **Informations de base** , donnez un nom unique à votre jeu de données et indiquez éventuellement une description. L’interface de ML automatisé ne prend actuellement en charge que les jeux de données tabulaires. Le type de jeu de données par défaut doit donc être *Tabulaire*.
+    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. L’interface de ML automatisé ne prend actuellement en charge que les jeux de données tabulaires. Le type de jeu de données par défaut doit donc être *Tabulaire*.
 
     1. Sélectionnez **Suivant** en bas à gauche.
 
-    1. Dans le formulaire **Sélection d’un magasin de données et de fichiers** , sélectionnez le magasin de données par défaut qui a été automatiquement configuré durant la création de votre espace de travail : **workspaceblobstore (Stockage Blob Azure)** . C’est là que vous chargerez votre fichier de données pour le rendre accessible à votre espace de travail.
+    1. Dans le formulaire **Sélection d’un magasin de données et de fichiers**, sélectionnez le magasin de données par défaut qui a été automatiquement configuré durant la création de votre espace de travail : **workspaceblobstore (Stockage Blob Azure)** . C’est là que vous chargerez votre fichier de données pour le rendre accessible à votre espace de travail.
 
     1. Sélectionnez **Parcourir**.
     
@@ -102,17 +102,17 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
         En-têtes de colonne| Indique la façon dont les éventuels en-têtes du jeu de données sont traités.| Tous les fichiers ont les mêmes en-têtes
         Ignorer les lignes | Indique le nombre éventuel de lignes ignorées dans le jeu de données.| None
 
-    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week** , afin de ne pas l’inclure pour cette expérience. Sélectionnez **Suivant**.
+    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour cette expérience. Sélectionnez **Suivant**.
 
         ![Configuration de l’onglet Aperçu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. Dans le formulaire **Confirmer les détails** , vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base, magasin de données et sélection de fichiers** et **Paramètres et aperçu**.
+    1. Dans le formulaire **Confirmer les détails**, vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base, magasin de données et sélection de fichiers** et **Paramètres et aperçu**.
     
     1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
     
     1. Sélectionnez votre jeu de données une fois qu’il apparaît dans la liste.
     
-    1. Passez en revue l’ **Aperçu des données** pour vous assurer que vous n’avez pas inclus **day_of_week** , puis sélectionnez **OK**.
+    1. Passez en revue l’**Aperçu des données** pour vous assurer que vous n’avez pas inclus **day_of_week**, puis sélectionnez **OK**.
 
     1. Sélectionnez **Suivant**.
 
@@ -143,7 +143,7 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
 
     1. Sélectionnez **Suivant**.
 
-1. Dans le formulaire **Type et paramètre de la tâche** , configurez votre expérience de machine learning automatisé en spécifiant le type et les paramètres de configuration de la tâche de machine learning.
+1. Dans le formulaire **Type et paramètre de la tâche**, configurez votre expérience de machine learning automatisé en spécifiant le type et les paramètres de configuration de la tâche de machine learning.
     
     1.  Sélectionnez **Classification** comme type de tâche de machine learning.
 
@@ -160,10 +160,10 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
         
         Sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’ **État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience.
+1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience.
 
 >[!IMPORTANT]
-> La préparation nécessaire à l’exécution de l’expérience prend **10 à 15**  minutes.
+> La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
 > Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  
 > Sélectionnez **Actualiser** périodiquement pour voir l’état de l’exécution à mesure que l’expérience progresse.
 >
@@ -209,7 +209,7 @@ Nous déployons ce modèle, mais nous vous informons que le déploiement prend 2
 
 1. Sélectionnez **Déployer**.  
 
-    Un message vert de réussite apparaît en haut de l’écran **Exécuter** , et dans le volet **Récapitulatif du modèle** , un message d’état s’affiche sous **État du déploiement**. Cliquez régulièrement sur **Actualiser** pour vérifier l’état du déploiement.
+    Un message vert de réussite apparaît en haut de l’écran **Exécuter**, et dans le volet **Récapitulatif du modèle**, un message d’état s’affiche sous **État du déploiement**. Cliquez régulièrement sur **Actualiser** pour vérifier l’état du déploiement.
     
 Vous disposez maintenant d’un service web opérationnel pour générer des prédictions. 
 
@@ -223,7 +223,7 @@ Les fichiers de déploiement sont plus volumineux que les fichiers de données e
 
 Supprimez uniquement l’instance de déploiement d’Azure Machine Learning (accessible sur https:\//ml.azure.com/) si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
 
-1. Accéder à [Azure Machine Learning](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources** , sélectionnez **Points de terminaison**. 
+1. Accéder à [Azure Machine Learning](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
 
 1. Sélectionnez le déploiement à supprimer et sélectionnez **Supprimer**. 
 
@@ -241,7 +241,7 @@ Dans ce tutoriel sur le machine learning automatisé, vous avez utilisé l’int
 > [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
-+ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
++ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 + Découvrez-en plus sur la [caractérisation](how-to-configure-auto-features.md#featurization).
 + En savoir plus sur le [profilage des données](how-to-connect-data-ui.md#profile).
 
