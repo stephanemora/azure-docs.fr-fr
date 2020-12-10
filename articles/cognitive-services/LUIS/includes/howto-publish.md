@@ -22,7 +22,7 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran du bouton LUIS Publier sur le point de terminaison dans le menu en haut à droite](../media/howto-publish/publish-button.png)
 
-1. Sélectionnez l’emplacement **Production** , puis sélectionnez **Terminé**.
+1. Sélectionnez l’emplacement **Production**, puis sélectionnez **Terminé**.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran LUIS - Publier sur le point de terminaison](../media/howto-publish/publish-app-popup.png)

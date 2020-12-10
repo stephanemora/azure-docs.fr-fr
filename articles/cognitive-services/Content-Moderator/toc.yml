@@ -12,7 +12,7 @@
   items:
     - name: Essayer Content Moderator sur le web
       href: quick-start.md
-    - name: Utilisation de la bibliothèque de client
+    - name: Utilisation de la bibliothèque de client ou de l’API REST
       href: client-libraries.md
 - name: Tutoriels
   items:
@@ -20,8 +20,6 @@
       href: ecommerce-retail-catalog-moderation.md
     - name: Modérer le contenu de Facebook
       href: facebook-post-moderation.md
-    - name: Modération de vidéos et de transcriptions
-      href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepts
   items:
     - name: Modération d’image
@@ -38,7 +36,7 @@
   items:
     - name: Modérer du contenu
       items:
-        - name: API REST
+        - name: Console d’API
           items:
             - name: "Images\_: console d’API"
               href: try-image-api.md
@@ -60,7 +58,7 @@
       items:
         - name: Outil de révision (navigateur)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: API REST
+        - name: Console d’API
           href: try-review-api-review.md
         - name: Révisions de vidéos (.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -70,11 +68,11 @@
       items:
         - name: Outil de révision (navigateur)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: API REST
+        - name: Console d’API
           href: try-review-api-workflow.md
     - name: Définir et utiliser des travaux
       items:
-        - name: API REST
+        - name: Console d’API
           href: try-review-api-job.md
         - name: Kit de développement logiciel (SDK) .NET
           href: moderation-jobs-quickstart-dotnet.md

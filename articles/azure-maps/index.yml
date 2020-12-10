@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 49de6739fe4d084bc119ffeaa0ffb3e8156f935b
-  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96546299"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905262"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
@@ -214,7 +214,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Structures des données du service Mobility
+    - text: Services de mobilité
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -224,14 +224,16 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Service Mobilité
+    - text: Services de mobilité
       url: /rest/api/maps/mobility
-- title: Développement avec les services météo
+- title: Développement avec les services Météo
   linkLists:
   - linkListType: concept
     links:
-    - text: Concept des services météo
+    - text: Concepts des services Météo
       url: weather-services-concepts.md
+    - text: Questions fréquentes (FAQ) sur le services Météo
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Analyser des données météorologiques avec Azure Notebooks (Python)
@@ -242,5 +244,5 @@ landingContent:
       url: how-to-request-weather-data.md
   - linkListType: reference
     links:
-    - text: Service météo
+    - text: Services Météo
       url: /rest/api/maps/weather

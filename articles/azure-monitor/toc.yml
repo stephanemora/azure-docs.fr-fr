@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: Surveillance des applications
       items:
-        - name: Application .NET
-          href: learn/quick-monitor-portal.md
-        - name: Application .NET Core
-          href: learn/dotnetcore-quick-start.md
         - name: Application Node.js
           href: learn/nodejs-quick-start.md
         - name: Application mobile
@@ -274,6 +270,8 @@
                   href: log-query/resource-expression.md
                 - name: Unifier les ressources de données d’application
                   href: log-query/unify-app-resource-data.md
+                - name: Vue d’ensemble d’une requête inter-services entre Azure Monitor et Azure Data Explorer
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
                 - name: Interroger Azure Data Explorer depuis Azure Monitor
                   href: platform/azure-monitor-data-explorer-proxy.md
         - name: Exportation de données
@@ -678,8 +676,10 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: Configuration d’arguments JVM
                       href: app/java-standalone-arguments.md
-                    - name: "Mettre à niveau à partir de la version\_2.x"
+                    - name: "Mise à niveau à partir du SDK\_2.x"
                       href: app/java-standalone-upgrade-from-2x.md
+                    - name: Dépannage
+                      href: app/java-standalone-troubleshoot.md
             - name: Serveurs locaux
               items:
                 - name: ASP.NET
@@ -888,8 +888,6 @@
               items:
                 - name: Diagnostic approfondi des applications et services web
                   href: app/devops.md
-                - name: Analyse des performances dans les applications web
-                  href: app/web-monitor-performance.md
                 - name: 'Séparer développement, test et production'
                   href: app/separate-resources.md
                 - name: "Comment\_... dans Application Insights\_?"
@@ -1014,6 +1012,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Superviser les volumes persistants
           href: insights/container-insights-persistent-volumes.md
+        - name: Onglet Rapports
+          href: insights/container-insights-reports.md
         - name: Consulter les données en direct
           items:
             - name: Vue d’ensemble de Données en direct (préversion)

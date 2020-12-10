@@ -21,7 +21,7 @@ ms.locfileid: "91449287"
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-ends et pools de back-ends dans Azure Front Door
 Cet article décrit des concepts sur la façon de mapper votre déploiement d’application web avec Azure Front Door. Il explique également les différentes terminologies utilisées dans la configuration de Front Door autour des serveurs principaux d’applications.
 
-## <a name="backends"></a>Serveur principaux
+## <a name="backends"></a>Back-ends
 Un serveur principal fait référence à un déploiement d’application web dans une région. Front Door prend en charge les ressources Azure et non Azure dans le pool principal. L’application peut se trouver dans votre centre de données local ou dans un autre fournisseur de cloud.
 
 Les serveurs principaux de Front Door font référence au nom d’hôte ou à l’adresse IP publique de votre application qui sert les demandes de vos clients. Attention, il ne faut pas confondre les back-ends avec votre niveau de base de données, de stockage, etc. Les serveurs principaux doivent être considérés comme le point de terminaison public de votre serveur principal d’application. Lorsque vous ajoutez un serveur principal à un pool principal Front Door, vous devez également ajouter les éléments suivants :

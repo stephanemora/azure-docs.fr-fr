@@ -25,7 +25,7 @@ ms.locfileid: "91812721"
    * **Nom** : entrez le nom que vous souhaitez donner à votre hub virtuel.
    * **Espace d’adressage privé du hub** : plage d’adresses du hub en notation CIDR.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="nouveau hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="créer un hub virtuel":::
 
 1. Sous l’onglet Point à site, complétez les champs suivants :
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812721"
    * **Pool d’adresses des clients**, pour les utilisateurs distants.
    * **Adresse IP de serveur DNS personnalisé**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="nouveau hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="hub avec point à site":::
 
 1. Sélectionnez **Revoir + créer**.
 1. Dans la page **Validation réussie**, sélectionnez **Créer**.

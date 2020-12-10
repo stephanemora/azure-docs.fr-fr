@@ -179,7 +179,7 @@
         - name: Déployer AKS avec Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Utiliser la visionneuse de ressources Kubernetes (préversion)
+        - name: Vue des ressources Kubernetes dans le portail Azure
           href: kubernetes-portal.md
         - name: Utiliser le tableau de bord Kubernetes
           href: kubernetes-dashboard.md

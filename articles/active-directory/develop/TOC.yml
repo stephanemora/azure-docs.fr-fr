@@ -563,10 +563,10 @@
             - name: "Octroi des informations de mot de passe du propriétaire de la ressource OAuth\_2.0"
               displayName: ROPC
               href: v2-oauth-ropc.md
-            - name: "Flux d’assertion du porteur SAML OAuth\_2.0"
-              href: v2-saml-bearer-assertion.md
             - name: Substitution de la clé de signature
               href: active-directory-signing-key-rollover.md
+            - name: Scénarios d’échange de jetons
+              href: scenario-token-exchange-saml-oauth.md
             - name: Jetons d’ID
               href: id-tokens.md
             - name: Jetons d’accès
