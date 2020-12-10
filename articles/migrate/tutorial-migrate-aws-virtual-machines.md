@@ -1,15 +1,18 @@
 ---
 title: Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) EC2 vers Azure
 description: Cet article explique comment migrer des machines virtuelles AWS vers Azure avec Azure Migrate.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 10b5f84677deb221bf763870b188ef30ee87e9c2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310740"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752853"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -77,7 +80,7 @@ Préparez Azure à la migration avec l’outil Server Migration d’Azure Migrat
 
 **Tâche** | **Détails**
 --- | ---
-**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour créer un projet.
+**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Vérifier les autorisations pour votre compte Azure** | Votre compte Azure a besoin d’autorisations pour créer une machine virtuelle et écrire sur un disque managé Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet
@@ -125,30 +128,6 @@ Préparez le déploiement de l’appliance comme suit :
 
 - L’appliance de réplication utilise MySQL. Passez en revue les [options](migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
 - Passez en revue les URL Azure nécessaires à l’appliance de réplication pour accéder aux clouds [publics](migrate-replication-appliance.md#url-access) et du [secteur public](migrate-replication-appliance.md#azure-government-url-access).
-
-## <a name="add-the-server-migration-tool"></a>Ajouter l’outil Migration de serveur
-
-Configurez un projet Azure Migrate, puis ajoutez-y l’outil Migration de serveur.
-
-1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Azure Migrate**.
-2. Sous **Services**, sélectionnez **Azure Migrate**.
-3. Dans **Vue d’ensemble**, cliquez sur **Évaluer et migrer des serveurs**.
-4. Sous **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Évaluer et migrer des serveurs**.
-
-    ![Découvrir et évaluer des serveurs](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Dans **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Ajouter des outils**.
-6. Dans **Projet de migration**, sélectionnez votre abonnement Azure, puis créez un groupe de ressources si vous n’en avez pas.
-7. Dans **Détails du projet**, spécifiez le nom du projet et la géographie dans laquelle vous souhaitez créer le projet, puis cliquez sur **Suivant**. Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et [gouvernementaux](migrate-support-matrix.md#supported-geographies-azure-government).
-    - La géographie du projet sert uniquement à stocker les métadonnées rassemblées à partir des machines AWS.
-    - Vous pouvez sélectionner n’importe quelle région cible quand vous exécutez une migration.
-
-    ![Créer un projet Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Dans **Sélectionner un outil d’évaluation**, sélectionnez **Ignorer l’ajout d’un outil d’évaluation pour l’instant** > **Suivant**.
-9. Dans **Sélectionner un outil de migration**, sélectionnez **Azure Migrate : Server Migration** > **Suivant**.
-10. Dans **Vérifier + ajouter des outils**, passez en revue les paramètres, puis cliquez sur **Ajouter des outils**.
-11. L’outil ajouté apparaît alors dans le projet Azure Migrate > **Serveurs** > **Outils de migration**.
 
 ## <a name="set-up-the-replication-appliance"></a>Configurer l’appliance de réplication
 

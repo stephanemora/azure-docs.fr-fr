@@ -1,15 +1,18 @@
 ---
 title: Découvrir des instances AWS avec Azure Migrate Server Assessment
 description: Apprenez à découvrir des instances AWS avec Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dda6f6e37a42d4ee55a32fc8e1c05916c6be4367
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311274"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753125"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutoriel : Découvrir des instances AWS avec Server Assessment
 
@@ -132,7 +135,7 @@ Pour configurer l’appliance, vous devez :
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Physiques ou autres (AWS, GCP, Xen, etc.)** .
 3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de serveurs physiques ou virtuels. Le nom doit être alphanumérique et se composer au maximum de 14 caractères.
-1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Détecter des machines pendant la création des ressources.
+1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des machines pendant la création des ressources.
 1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
 1. Copiez la clé, car vous en aurez besoin pour terminer l’inscription de l’appliance pendant sa configuration.
 
@@ -153,13 +156,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
     - Pour le cloud public :
 
-        **Scénario** | **Télécharger*** | **Valeur de hachage**
+        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
         --- | --- | ---
         Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Pour Azure Government :
 
-        **Scénario** | **Télécharger*** | **Valeur de hachage**
+        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
         --- | --- | ---
         Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  

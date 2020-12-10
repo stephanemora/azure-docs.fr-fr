@@ -2,20 +2,20 @@
 title: Activer Azure DS Domain Services à l’aide d’un modèle | Microsoft Docs
 description: Découvrir comment configurer et activer Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041679"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618788"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Créer un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -33,21 +33,21 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 * Installez et configurez Azure AD PowerShell.
     * Si nécessaire, suivez les instructions pour [installer le module Azure AD PowerShell et vous connecter à Azure AD](/powershell/azure/active-directory/install-adv2).
     * Veillez à vous connecter à votre locataire Azure AD à l’aide de l’applet de commande [Connect-AzureAD][Connect-AzureAD].
-* Vous devez disposer des privilèges d’ *Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
+* Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
 
 ## <a name="dns-naming-requirements"></a>Exigences relatives aux noms DNS
 
 Quand vous créez un domaine managé Azure AD DS, vous spécifiez un nom DNS. Voici quelques considérations liées au choix de ce nom DNS :
 
-* **Nom de domaine intégré :** Par défaut, le nom de domaine intégré de l’annuaire est utilisé (un suffixe *.onmicrosoft.com* ). Si vous voulez activer l’accès LDAP sécurisé au domaine managé via Internet, vous ne pouvez pas créer un certificat numérique pour sécuriser la connexion avec ce domaine par défaut. Microsoft détient le domaine *.onmicrosoft.com*  : une autorité de certification n’émettra donc pas de certificat.
+* **Nom de domaine intégré :** Par défaut, le nom de domaine intégré de l’annuaire est utilisé (un suffixe *.onmicrosoft.com*). Si vous voulez activer l’accès LDAP sécurisé au domaine managé via Internet, vous ne pouvez pas créer un certificat numérique pour sécuriser la connexion avec ce domaine par défaut. Microsoft détient le domaine *.onmicrosoft.com* : une autorité de certification n’émettra donc pas de certificat.
 * **Noms de domaine personnalisés :** L’approche la plus courante consiste à spécifier un nom de domaine personnalisé, en général celui que vous possédez déjà et qui est routable. Quand vous utilisez un domaine personnalisé routable, le trafic peut s’écouler correctement en fonction des besoins pour prendre en charge vos applications.
 * **Suffixes de domaine non routables :** D’une façon générale, nous vous recommandons d’éviter un suffixe de nom de domaine non routable, comme *contoso.local*. Le suffixe *.local* n’est pas routable et peut entraîner des problèmes de résolution DNS.
 
 > [!TIP]
 > Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’utiliser un nom de domaine distinct de tout espace de noms DNS local ou Azure existant.
 >
-> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com* , créez un domaine managé avec le nom de domaine personnalisé *aaddscontoso.com*. Si vous devez utiliser le protocole LDAP sécurisé, vous devez inscrire et avoir ce nom de domaine personnalisé pour générer les certificats requis.
+> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com*, créez un domaine managé avec le nom de domaine personnalisé *aaddscontoso.com*. Si vous devez utiliser le protocole LDAP sécurisé, vous devez inscrire et avoir ce nom de domaine personnalisé pour générer les certificats requis.
 >
 > Vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services dans votre environnement, ou des redirecteurs DNS conditionnels entre les espaces de noms DNS existants dans votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
@@ -55,7 +55,7 @@ Quand vous créez un domaine managé Azure AD DS, vous spécifiez un nom DNS. Vo
 
 Les restrictions de nom DNS suivantes s’appliquent également :
 
-* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *aaddscontoso* dans le nom de domaine *aaddscontoso.com* ) doit contenir au maximum 15 caractères.
+* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *aaddscontoso* dans le nom de domaine *aaddscontoso.com*) doit contenir au maximum 15 caractères.
 * **Conflits de noms de réseau :** Le nom de domaine DNS de votre domaine managé ne doit pas déjà exister dans le réseau virtuel. En particulier, recherchez les scénarios suivants, qui aboutiraient à un conflit de noms :
     * Si vous avec un domaine Active Directory avec le même nom de domaine DNS sur le réseau virtuel Azure.
     * Si le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Une fois le groupe *AAD DC Administrators* créé, ajoutez un utilisateur au groupe à l’aide de l’applet de commande [Add-AzureADGroupMember][Add-AzureADGroupMember]. Vous obtenez d’abord l’ID d’objet du groupe *AAD DC Administrators* via l’applet de commande [Get-AzureADGroup][Get-AzureADGroup] et ensuite l’ID d’objet de l’utilisateur souhaité via l’applet de commande [Get-AzureADUser][Get-AzureADUser].
 
-Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@contoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators*  :
+Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@contoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators* :
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -126,7 +126,7 @@ Dans le cadre de la définition de ressources Resource Manager, les paramètres 
 | domainName              | Le nom de domaine DNS de votre domaine managé, en prenant en considération les points précédents sur les préfixes d’attribution de noms et les conflits. |
 | filteredSync            | Azure AD DS vous permet de synchroniser *tous* les utilisateurs et les groupes disponibles dans Azure AD, ou d’effectuer une synchronisation *limitée* seulement à des groupes spécifiques.<br /><br /> Pour en savoir plus sur la synchronisation limitée, consultez [Synchronisation limitée d’Azure AD Domain Services][scoped-sync].|
 | notificationSettings    | Si des alertes sont générées dans le domaine managé, des notifications par e-mail peuvent être envoyées. <br /><br />Les *administrateurs généraux* du locataire Azure et des membres du groupe *AAD DC Administrators* peuvent être *activés* pour ces notifications.<br /><br /> Si vous le souhaitez, vous pouvez ajouter des destinataires supplémentaires auxquels doivent être envoyées les notifications des alertes qui nécessitent une attention particulière.|
-| domainConfigurationType | Par défaut, un domaine managé est créé en tant que forêt d’ *utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Vous n’avez pas besoin de spécifier une valeur *domainConfiguration* pour créer une forêt d’utilisateurs.<br /><br /> Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Définissez la valeur sur *ResourceTrusting* pour créer une forêt de ressources.<br /><br />Pour plus d’informations sur les forêts de *ressources* , notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].|
+| domainConfigurationType | Par défaut, un domaine managé est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Vous n’avez pas besoin de spécifier une valeur *domainConfiguration* pour créer une forêt d’utilisateurs.<br /><br /> Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Définissez la valeur sur *ResourceTrusting* pour créer une forêt de ressources.<br /><br />Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].|
 
 La définition des paramètres condensés suivants montre comment ces valeurs sont déclarées. Une forêt d’utilisateurs nommée *aaddscontoso.com* est créée avec tous les utilisateurs d’Azure AD DS synchronisés avec le domaine managé :
 
@@ -330,7 +330,7 @@ Créer la ressource et retourner le contrôle à l’invite PowerShell prend que
 Une fois que le portail Azure a indiqué que le provisionnement du domaine managé était terminé, voici les tâches qu’il convient d’effectuer :
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
-    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble** , vous êtes invité à configurer automatiquement ces paramètres DNS.
+    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
 * [Activez la synchronisation de mot de passe avec Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les utilisateurs finaux puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="next-steps"></a>Étapes suivantes

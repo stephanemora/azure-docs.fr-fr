@@ -1,15 +1,18 @@
 ---
 title: Évaluer des instances de machine virtuelle GCP en vue de leur migration vers Azure avec Azure Migrate Server Assessment
 description: Explique comment évaluer des instances de machines virtuelles GVP en vue de leur migration vers Azure à l’aide d’Azure Migrate Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: adf936d6d1b99bf81a8c055237ca597020452bd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ba72754362d5a0d9e1b6c95dcc2e1ff7f452207
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716367"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753312"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Tutoriel : Évaluer des instances de machines virtuelles Google Cloud Platform (GCP) en vue de leur migration vers Azure
 

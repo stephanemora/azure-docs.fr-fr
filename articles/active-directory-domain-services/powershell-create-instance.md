@@ -2,7 +2,7 @@
 title: Activer Azure DS Domain Services à l’aide de PowerShell | Microsoft Docs
 description: Découvrez comment configurer et activer Azure Active Directory Domain Services via Azure AD PowerShell et Azure PowerShell.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 10/02/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041956"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619145"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Activer Azure Active Directory Domain Services à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 * Installez et configurez Azure AD PowerShell.
     * Si nécessaire, suivez les instructions pour [installer le module Azure AD PowerShell et vous connecter à Azure AD](/powershell/azure/active-directory/install-adv2).
     * Veillez à vous connecter à votre locataire Azure AD à l’aide de l’applet de commande [Connect-AzureAD][Connect-AzureAD].
-* Vous devez disposer des privilèges d’ *Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
+* Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
 
 ## <a name="create-required-azure-ad-resources"></a>Créer les ressources Azure AD nécessaires
@@ -77,7 +77,7 @@ else {
 
 Une fois le groupe *Administrateurs AAD DC* créé, obtenez l’ID d’objet de l’utilisateur souhaité en utilisant l’applet de commande [Get-AzureADUser][Get-AzureADUser], puis ajoutez l’utilisateur au groupe en utilisant l’applet de commande [Add-AzureADGroupMember][Add-AzureADGroupMember].
 
-Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@contoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators*  :
+Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@contoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators* :
 
 ```powershell
 # Retrieve the object ID of the user you'd like to add to the group.
@@ -226,7 +226,7 @@ Créer la ressource et retourner le contrôle à l’invite PowerShell prend que
 Une fois que le portail Azure a indiqué que le provisionnement du domaine managé était terminé, voici les tâches qu’il convient d’effectuer :
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
-    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble** , vous êtes invité à configurer automatiquement ces paramètres DNS.
+    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
 * [Activez la synchronisation de mot de passe avec Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les utilisateurs finaux puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="complete-powershell-script"></a>Compléter le script PowerShell
@@ -373,7 +373,7 @@ Créer la ressource et retourner le contrôle à l’invite PowerShell prend que
 Une fois que le portail Azure a indiqué que le provisionnement du domaine managé était terminé, voici les tâches qu’il convient d’effectuer :
 
 * Mettez à jour les paramètres DNS pour le réseau virtuel afin que les machines virtuelles puissent trouver le domaine géré pour l’authentification ou la jonction de domaine.
-    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble** , vous êtes invité à configurer automatiquement ces paramètres DNS.
+    * Pour configure le système DNS, sélectionnez votre domaine managé dans le portail. Dans la fenêtre **Vue d’ensemble**, vous êtes invité à configurer automatiquement ces paramètres DNS.
 * [Activez la synchronisation de mot de passe avec Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les utilisateurs finaux puissent se connecter au domaine managé avec leurs informations d’identification d’entreprise.
 
 ## <a name="next-steps"></a>Étapes suivantes

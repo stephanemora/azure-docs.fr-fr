@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093257"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860012"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -169,7 +169,7 @@ Dans le script précédent, `$verifiedDomain = "contoso.com"` est un espace rés
 
 Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-Pour obtenir la liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser le cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
+Pour obtenir la liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser le cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain).
 
 ![Liste des domaines d’entreprise](./media/hybrid-azuread-join-manual/01.png)
 
@@ -328,7 +328,7 @@ Dans la revendication précédente, `<verified-domain-name>` est un espace rése
 
 Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
+Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](/powershell/module/msonline/get-msoldomain).
 
 ![Liste des domaines d’entreprise](./media/hybrid-azuread-join-manual/01.png)
 
@@ -570,7 +570,7 @@ Voici trois méthodes pour rechercher et vérifier l’état de l’appareil :
 
 ### <a name="using-powershell"></a>Utilisation de PowerShell
 
-Vérifiez l’état d’inscription de l’appareil dans votre locataire Azure à l’aide de **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Cette applet de commande figure dans le [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Vérifiez l’état d’inscription de l’appareil dans votre locataire Azure à l’aide de **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Cette applet de commande figure dans le [module Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 Quand vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 

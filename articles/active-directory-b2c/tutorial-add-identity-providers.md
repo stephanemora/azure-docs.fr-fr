@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922147"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608229"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -99,19 +100,21 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
-1. Dans **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD :
+1. Dans **URL des métadonnées**, entrez l’URL suivante en remplaçant `{tenant}` par le nom de domaine de votre locataire Azure AD :
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Par exemple : `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. Dans **ID client**, entrez l’ID d’application que vous avez enregistré précédemment.
 1. Dans **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée précédemment.
-1. Conservez les valeurs par défaut dans **Étendue**, **Type de réponse** et **Mode de réponse**.
-1. (Facultatif) Entrez une valeur pour **Domain_hint**. Par exemple, *ContosoAD*. Les [indications de domaine](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sont des directives incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.
-1. Sous **Mappage des revendications du fournisseur d’identité**, entrez les valeurs de mappage des revendications suivantes :
+1. Pour l'**Étendue**, entrez `openid profile`.
+1. Conservez les valeurs par défaut pour **Type de réponse** et **Mode de réponse**.
+1. (Facultatif) Pour l'**Indication de domaine**, entrez `contoso.com`. Pour plus d’informations, consultez [Configurer la connexion directe avec Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Sous **Mappage des revendications du fournisseur d’identité**, sélectionnez les revendications suivantes :
 
     * **ID d’utilisateur** : *oid*
     * **Nom d’affichage** : *name*

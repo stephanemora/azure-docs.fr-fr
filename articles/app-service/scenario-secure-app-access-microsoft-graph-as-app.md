@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: azureday1
+ms.openlocfilehash: b6521783a0e0b7793067bb47e2856c8816f9dbdc
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999669"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762922"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutoriel : Accéder à Microsoft Graph à partir d’une application sécurisée en tant qu’application
 
@@ -23,7 +24,7 @@ Découvrez comment accéder à Microsoft Graph à partir d’une application web
 
 :::image type="content" alt-text="Diagramme illustrant l’accès à Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Vous souhaitez appeler Microsoft Graph pour le compte de l’application web. Un moyen sûr d’accorder à votre application web l’accès aux données consiste à utiliser une [identité managée affectée par le système](/azure/active-directory/managed-identities-azure-resources/overview). Une identité managée d’Azure Active Directory permet à App Service d’accéder aux ressources par le biais du contrôle d’accès en fonction du rôle (RBAC) sans demander d’informations d’identification d’application. Après avoir affecté une identité managée à votre application web, Azure s’occupe de la création et de la distribution d’un certificat. Vous n’avez pas à vous soucier de la gestion des secrets ou des informations d’identification d’application.
+Vous souhaitez appeler Microsoft Graph pour le compte de l’application web. Un moyen sûr d’accorder à votre application web l’accès aux données consiste à utiliser une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md). Une identité managée d’Azure Active Directory permet à App Service d’accéder aux ressources par le biais du contrôle d’accès en fonction du rôle (RBAC) sans demander d’informations d’identification d’application. Après avoir affecté une identité managée à votre application web, Azure s’occupe de la création et de la distribution d’un certificat. Vous n’avez pas à vous soucier de la gestion des secrets ou des informations d’identification d’application.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -94,7 +95,7 @@ graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].obj
 
 appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
 
-uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spID/appRoleAssignments
+uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spId/appRoleAssignments
 
 body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
 
@@ -120,6 +121,8 @@ Dans **Vue d’ensemble**, sélectionnez **Autorisations** ; vous verrez alors 
 ## <a name="call-microsoft-graph-net"></a>Appeler Microsoft Graph (.NET)
 
 La classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) est utilisée pour obtenir les informations d’identification d’un jeton pour votre code afin d’autoriser les demandes d’accès à Microsoft Graph. Créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), qui utilise l’identité managée pour extraire des jetons et les attacher au client de service. L’exemple de code suivant obtient les informations d’identification du jeton authentifiées, et les utilise pour créer un objet de client de service, qui obtient les utilisateurs du groupe.
+
+Pour voir ce code dans un exemple d’application, consultez l’[exemple sur GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Installer le package de la bibliothèque cliente Microsoft.Graph
 

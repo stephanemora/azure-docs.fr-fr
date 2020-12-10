@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684421"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862069"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutoriel : Intégrer l’authentification unique Azure AD avec Maverics Identity Orchestrator SAML Connector
 
@@ -165,7 +165,7 @@ Vous pouvez configurer un coffre de clés Azure à l’aide du portail Azure ou 
 
 **Utilisation de l’interface de ligne de commande Microsoft Azure**
 
-1. Ouvrez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), puis entrez la commande suivante :
+1. Ouvrez [Azure CLI](/cli/azure/install-azure-cli), puis entrez la commande suivante :
 
     ```shell
     az login

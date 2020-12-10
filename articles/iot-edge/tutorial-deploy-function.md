@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534838"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621244"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure comme modules IoT Edge
 
@@ -237,7 +237,7 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé un module de fonction Azure contenant le code pour filtrer les données brutes générées par votre appareil IoT Edge. Lorsque vous êtes prêt à générer vos propres modules, vous pouvez découvrir comment [développer avec Azure IoT Edge pour Visual Studio Code](how-to-vs-code-develop-module.md).
+Dans ce tutoriel, vous avez créé un module de fonction Azure contenant le code pour filtrer les données brutes générées par votre appareil IoT Edge.
 
 Passez aux tutoriels suivants pour en savoir plus sur les autres façons dont Azure IoT Edge peut vous aider à transformer des données en informations métier « en périphérie».
 

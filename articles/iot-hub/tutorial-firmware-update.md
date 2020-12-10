@@ -15,18 +15,18 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748534"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572335"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
 Vous devrez peut-être mettre à jour le microprogramme sur les appareils connectés à votre hub IoT. Par exemple, il peut être nécessaire d’ajouter de nouvelles fonctionnalités au microprogramme ou d’appliquer des correctifs de sécurité. Dans de nombreux scénarios IoT, il est difficile d’intervenir physiquement puis d’appliquer manuellement les mises à jour du microprogramme à vos appareils. Ce tutoriel montre comment démarrer et surveiller le processus de mise à jour du microprogramme à distance via une application back-end connectée à votre hub.
 
-Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La [gestion automatique des appareils](./iot-hub-automatic-device-management.md) IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_ . L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
+Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La [gestion automatique des appareils](./iot-hub-automatic-device-management.md) IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_. L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
 
 ![Processus de mise à jour du microprogramme](media/tutorial-firmware-update/Process.png)
 
@@ -38,11 +38,9 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 > * Simuler le processus de mise à jour du microprogramme sur un appareil.
 > * Recevoir des mises à jour de l’état de l’appareil tandis que la mise à jour du microprogramme progresse.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre ordinateur de développement doit disposer de Node.js v10.x.x ou ultérieur.
 
@@ -82,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Ce tutoriel utilise un appareil simulé appelé **MyFirmwareUpdateDevice** . Le script suivant ajoute cet appareil dans le registre des identités des appareils, définit une valeur de balise et récupère sa chaîne de connexion :
+Ce tutoriel utilise un appareil simulé appelé **MyFirmwareUpdateDevice**. Le script suivant ajoute cet appareil dans le registre des identités des appareils, définit une valeur de balise et récupère sa chaîne de connexion :
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -199,7 +197,7 @@ Comme les configurations d’appareil automatiques s’exécutent au moment de l
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 
-Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorial-iot-hub-rg** qui contient votre hub IoT, puis cliquez sur **Supprimer** .
+Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorial-iot-hub-rg** qui contient votre hub IoT, puis cliquez sur **Supprimer**.
 
 Vous pouvez également utiliser l’interface de ligne de commande :
 

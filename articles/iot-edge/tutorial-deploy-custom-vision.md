@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044579"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621278"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
@@ -186,7 +186,7 @@ Le modèle de module Python dans Visual Studio Code contient des exemples de cod
 
 3. Ouvrez le dossier du module classifier. Si vous avez utilisé les suggestions de noms dans la section précédente, la structure de dossiers ressemble à **CustomVisionSolution / modules / classifier**. 
 
-4. Collez les fichiers dans le dossier**classifier**. 
+4. Collez les fichiers dans le dossier **classifier**. 
 
 5. Revenez à la fenêtre Visual Studio Code. L’espace de travail de votre solution doit désormais afficher les fichiers de classifieur d’images dans le dossier du module. 
 
@@ -449,9 +449,7 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez entraîné un modèle Custom Vision et l’avez déployé en tant que module sur un appareil IoT Edge. Vous avez ensuite créé un module qui peut interroger le service de classification d’images et renvoyer ses résultats à IoT Hub. 
-
-Si vous souhaitez essayer une version plus détaillée de ce scénario avec un flux de caméra en direct, consultez le projet GitHub [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) (Custom Vision et Azure IoT Edge sur un appareil Raspberry Pi 3). 
+Dans ce didacticiel, vous avez entraîné un modèle Custom Vision et l’avez déployé en tant que module sur un appareil IoT Edge. Vous avez ensuite créé un module qui peut interroger le service de classification d’images et renvoyer ses résultats à IoT Hub.
 
 Passez aux tutoriels suivants pour en savoir plus sur les autres façons dont Azure IoT Edge peut vous aider à transformer des données en informations métier « at the edge » (« en périphérie»).
 

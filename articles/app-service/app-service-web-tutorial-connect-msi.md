@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004923"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862222"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -47,7 +47,9 @@ Cet article se poursuit là où vous l'avez laissé dans [Tutoriel : Créer une
 
 Pour déboguer votre application à l’aide de SQL Database en tant que back-end, assurez-vous que vous avez autorisé la connexion cliente à partir de votre machine. Si ce n’est pas le cas, ajoutez l’adresse IP cliente en suivant les étapes décrites dans [Gérer les règles de pare-feu IP au niveau du serveur avec le portail Azure](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Préparez votre environnement pour l’interface Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>Accorder à l’utilisateur Azure AD un accès à la base de données
 
@@ -87,7 +89,7 @@ Visual Studio pour Mac n’est pas intégré avec l’authentification Azure AD.
 
 Une fois Azure CLI installé sur votre ordinateur local, connectez-vous à Azure CLI avec la commande suivante en utilisant votre compte d’utilisateur Azure AD :
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 Vous êtes maintenant prêt à développer et déboguer votre application avec SQL Database en tant que back-end, à l’aide de l’authentification Azure AD.
@@ -206,7 +208,7 @@ Voici un exemple de sortie :
 
 Dans le Cloud Shell, connectez-vous à SQL Database en utilisant la commande SQLCMD. Remplacez _\<server-name>_ par le nom de votre serveur, _\<db-name>_ par le nom de la base de données que votre application utilise, et _\<aad-user-name>_ et _\<aad-password>_ par les informations d’identification de votre utilisateur Azure AD.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -249,7 +251,7 @@ Dans la page de publication, cliquez sur **Publier**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Lorsque la nouvelle page web affiche votre liste des tâches, votre application se connecte à la base de données à l’aide de l’identité managée.
