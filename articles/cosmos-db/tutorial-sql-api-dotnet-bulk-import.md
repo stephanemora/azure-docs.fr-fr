@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341234"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548067"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -86,7 +86,7 @@ L’exemple d’application doit s’authentifier auprès de votre compte Azure 
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 1.  Accédez à votre compte Azure Cosmos.
-1.  Ouvrez le volet **Clés** et copiez l’ **URI** et la **CLÉ PRIMAIRE** de votre compte.
+1.  Ouvrez le volet **Clés** et copiez l’**URI** et la **CLÉ PRIMAIRE** de votre compte.
 
 Si vous utilisez l’émulateur Azure Cosmos DB, obtenez les [informations d’identification à partir de cet article](local-emulator.md#authenticate-requests).
 
@@ -175,7 +175,7 @@ Pour exécuter l’exemple, vous pouvez tout simplement utiliser la commande `do
 
 Si vous n’avez pas le temps de suivre les étapes de ce didacticiel, ou que vous voulez simplement télécharger les exemples de code, vous pouvez les obtenir à partir de [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-Après avoir cloné le projet, assurez-vous de mettre à jour les informations d’identification souhaitées dans [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+Après avoir cloné le projet, assurez-vous de mettre à jour les informations d’identification souhaitées dans [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 Pour exécuter l'exemple, vous utilisez le répertoire du référentiel et `dotnet` :
 
