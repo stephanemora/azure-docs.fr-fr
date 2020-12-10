@@ -121,16 +121,48 @@
           href: signin-appauth-ios.md
         - name: Android utilisant AppAuth
           href: signin-appauth-android.md
+    - name: Fournisseurs d’identité
+      items:
+        - name: Ajouter un fournisseur d'identité
+          href: add-identity-provider.md
+        - name: AD FS
+          href: identity-provider-adfs.md
+        - name: Amazon
+          href: identity-provider-amazon.md
+        - name: Azure AD (un seul locataire)
+          href: identity-provider-azure-ad-single-tenant.md
+        - name: Azure AD (plusieurs locataires)
+          href: identity-provider-azure-ad-multi-tenant.md
+        - name: Facebook
+          href: identity-provider-facebook.md
+        - name: Fournisseur d’identité générique
+          href: identity-provider-generic-openid-connect.md
+        - name: GitHub
+          href: identity-provider-github.md
+        - name: Google
+          href: identity-provider-google.md
+        - name: LinkedIn
+          href: identity-provider-linkedin.md
+        - name: Compte Microsoft
+          href: identity-provider-microsoft-account.md
+        - name: QQ
+          href: identity-provider-qq.md
+        - name: Salesforce
+          href: identity-provider-salesforce.md
+        - name: Twitter
+          href: identity-provider-twitter.md
+        - name: WeChat
+          href: identity-provider-wechat.md
+        - name: Weibo
+          href: identity-provider-weibo.md
     - name: Flux utilisateur
       items:
         - name: Créer un flux
           items:
-            - name: Créer des flux utilisateur
-              href: create-user-flow.md
+            - name: Inscription ou connexion
+              href: tutorial-create-user-flows.md
             - name: Informations d’identification de mot de passe du propriétaire de ressource
               href: configure-ropc.md
-            - name: Configurer l’authentification par téléphone
-              href: phone-authentication-user-flows.md
             - name: Configurer la réinitialisation de mot de passe en libre-service
               href: user-flow-self-service-password-reset.md
         - name: Ajouter un accès conditionnel
@@ -150,32 +182,6 @@
             - name: "Activer la\_MFA"
               href: custom-policy-multi-factor-authentication.md
               displayName: multi-factor auth
-        - name: Fournisseurs d’identité externes
-          items:
-            - name: Amazon
-              href: identity-provider-amazon.md
-            - name: Azure AD (un seul locataire)
-              href: identity-provider-azure-ad-single-tenant.md
-            - name: Compte Microsoft
-              href: identity-provider-microsoft-account.md
-            - name: Facebook
-              href: identity-provider-facebook.md
-            - name: GitHub
-              href: identity-provider-github.md
-            - name: Google
-              href: identity-provider-google.md
-            - name: LinkedIn
-              href: identity-provider-linkedin.md
-            - name: QQ
-              href: identity-provider-qq.md
-            - name: Twitter
-              href: identity-provider-twitter.md
-            - name: WeChat
-              href: identity-provider-wechat.md
-            - name: Weibo
-              href: identity-provider-weibo.md
-            - name: Fournisseur d’identité générique
-              href: identity-provider-generic-openid-connect.md
         - name: Gestion des jetons et des sessions
           items:
             - name: Configurer des jetons
@@ -236,32 +242,6 @@
               href: javascript-samples.md
             - name: Complexité du mot de passe
               href: custom-policy-password-complexity.md
-        - name: Fournisseurs d’identité externes
-          items:
-            - name: Fournisseurs OIDC/OAuth
-              items:
-                - name: Amazon
-                  href: identity-provider-amazon-custom.md
-                - name: Azure AD (un seul locataire)
-                  href: identity-provider-azure-ad-single-tenant-custom.md
-                - name: Azure AD (plusieurs locataires)
-                  href: identity-provider-azure-ad-multi-tenant-custom.md
-                - name: Google
-                  href: identity-provider-google-custom.md
-                - name: LinkedIn
-                  href: identity-provider-linkedin-custom.md
-                - name: Compte Microsoft
-                  href: identity-provider-microsoft-account-custom.md
-                - name: Twitter
-                  href: identity-provider-twitter-custom.md
-            - name: Fournisseurs SAML
-              items:
-                - name: AD FS
-                  href: identity-provider-adfs2016-custom.md
-                  displayName: SAML
-                - name: Salesforce
-                  href: identity-provider-salesforce-custom.md
-                  displayName: SAML
         - name: Gestion des jetons et des sessions
           items:
             - name: Personnaliser les jetons

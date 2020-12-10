@@ -12,24 +12,24 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8b0955e67c5a35cbea96490a0395522fa145dad1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657818"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858363"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemples Azure AD PowerShell pour le proxy d’application Azure AD
 
-Le tableau suivant contient des liens vers des exemples de scripts PowerShell pour le proxy d’application Azure AD. Ces exemples requièrent [AzureAD v2 PowerShell pour le module Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) ou [AzureAD v2 PowerShell pour la version préliminaire du module Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), sauf indication contraire.
+Le tableau suivant contient des liens vers des exemples de scripts PowerShell pour le proxy d’application Azure AD. Ces exemples requièrent [AzureAD v2 PowerShell pour le module Graph](/powershell/azure/active-directory/install-adv2) ou [AzureAD v2 PowerShell pour la version préliminaire du module Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), sauf indication contraire.
 
 
-Pour plus d’informations sur les applets de commande utilisées dans ces exemples, consultez [Gestion des applications de proxy d’application](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) et [Gestion des connecteurs de proxy d’application](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+Pour plus d’informations sur les applets de commande utilisées dans ces exemples, consultez [Gestion des applications de proxy d’application](/powershell/module/azuread/#application_proxy_application_management) et [Gestion des connecteurs de proxy d’application](/powershell/module/azuread/#application_proxy_connector_management).
 
 | Lien | Description |
 |---|---|
 |**Applications de proxy d’application**||
-| [Répertorier les informations de base pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-basic.md) | Répertorie les informations de base (AppId, DisplayName, ObjId) sur toutes les applications de proxy d’application de votre répertoire. |
+| [Répertorier les informations de base pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-basic.md) | Liste les informations de base (AppId, DisplayName, ObjId) de toutes les applications de proxy d’application de votre répertoire. |
 | [Répertorier les informations étendues pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-extended.md) | Répertorie les informations étendues (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) relatives à toutes les applications de proxy d’application de votre répertoire.  |
 | [Répertorier toutes les applications de proxy d’application par groupe de connecteurs](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Répertorie des informations sur toutes les applications de proxy d’application de votre répertoire et les groupes de connecteurs auxquels les applications sont affectées. |
 | [Obtenir toutes les applications de proxy d’application avec une stratégie de durée de vie de jeton](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Répertorie toutes les applications de proxy d’application de votre répertoire avec une stratégie de durée de vie des jetons et ses détails. Cet exemple nécessite la [version en préversion du module AzureAD v2 PowerShell pour Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
