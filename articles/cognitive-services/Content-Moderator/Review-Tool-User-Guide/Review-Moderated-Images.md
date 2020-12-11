@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903885"
 ---
 # <a name="create-human-reviews"></a>Créer des révisions humaines
 
@@ -27,8 +27,8 @@ Dans ce guide, vous apprendrez à configurer des [révisions](../review-api.md#r
 
 ## <a name="image-reviews"></a>Révisions d’images
 
-1. Accédez à l’ [outil de révision](https://contentmoderator.cognitive.microsoft.com/), sélectionnez l’onglet **Essai** , puis chargez des images à réviser.
-1. Une fois le traitement des images échargées terminé, accédez à l'onglet **Révision** , puis sélectionnez **Image**.
+1. Accédez à l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/), sélectionnez l’onglet **Essai**, puis chargez des images à réviser.
+1. Une fois le traitement des images échargées terminé, accédez à l'onglet **Révision**, puis sélectionnez **Image**.
 
     ![Navigateur Chrome montrant l’outil de révision avec l’option Réviser - Image en surbrillance](images/review-images-1.png)
 
@@ -56,4 +56,4 @@ Les révisions de texte fonctionnent de la même manière que les révisions d'i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez appris à configurer et à utiliser des révisions fournies par l'[outil de révision](https://contentmoderator.cognitive.microsoft.com) Content Moderator. Consultez maintenant le [Guide de l’API REST](../try-review-api-review.md) ou le [Démarrage rapide du kit SDK .NET](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) pour apprendre à créer des révisions programmatiquement.
+Dans ce guide, vous avez appris à configurer et à utiliser des révisions fournies par l'[outil de révision](https://contentmoderator.cognitive.microsoft.com) Content Moderator. Consultez maintenant le [Guide sur la console d’API](../try-review-api-review.md) ou le [Démarrage rapide du SDK .NET](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) pour apprendre à créer des révisions par programmation.

@@ -15,27 +15,30 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-computer-vision
 keywords: vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309816"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533311"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Vision par ordinateur
 
-Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur. Le service Vision par ordinateur vous fournit des algorithmes IA pour le traitement d’images et le retour d’informations sur leurs caractéristiques visuelles. Suivez les étapes suivantes pour installer un package sur votre application et tester l’exemple de code sur différentes tâches de base.
+Découvrez comment bien démarrer avec l’API REST et les bibliothèques de client Vision par ordinateur. Le service Vision par ordinateur vous fournit des algorithmes IA pour le traitement d’images et le retour d’informations sur leurs caractéristiques visuelles. Suivez les étapes suivantes pour installer un package sur votre application et tester l’exemple de code sur différentes tâches de base.
 
-Utilisez la bibliothèque de client Vision par ordinateur pour :
 
-* Analyser une image pour identifier les étiquettes, la description textuelle, les visages, le contenu pour adultes, etc.
-* Lire du texte imprimé et manuscrit avec l’API Lire.
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts-sdk/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 
@@ -51,14 +54,14 @@ Utilisez la bibliothèque de client Vision par ordinateur pour :
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end

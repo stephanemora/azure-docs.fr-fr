@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187929"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763721"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Comment utiliser Postman pour envoyer des demandes aux API Azure Digital Twins
 
@@ -130,7 +130,7 @@ Pour envoyer une demande Postman à l’une des API Azure Digital Twins, vous av
 
 Pour continuer avec un exemple de requête, cet article utilise l’API de requête (et sa [documentation de référence](/rest/api/digital-twins/dataplane/query/querytwins)) pour interroger tous les jumeaux numériques dans une instance.
 
-1. Trouvez l’URL et le type de la demande dans la documentation de référence. Pour l’API de requête, il s’agit de *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31* .
+1. Trouvez l’URL et le type de la demande dans la documentation de référence. Pour l’API de requête, il s’agit actuellement de *POST `https://digitaltwins-hostname/query?api-version=2020-10-31`* .
 1. Dans Postman, définissez le type de la demande, puis entrez son URL en remplissant les espaces réservés dans l’URL de manière appropriée. C’est là que vous allez utiliser le **nom d’hôte** de votre instance, évoqué dans la section [*Conditions préalables*](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Dans les détails de la nouvelle demande, l’URL de requête de la documentation de référence a été renseignée dans la zone URL de la demande." lightbox="media/how-to-use-postman/postman-request-url.png":::

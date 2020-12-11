@@ -71,7 +71,7 @@ Il existe trois paramètres principaux pour tous les conteneurs de Cognitive Ser
 Une clé est utilisée pour démarrer le conteneur d’analyse spatiale ; elle est disponible dans la page `Keys and Endpoint` de la ressource Cognitive Services correspondante sur le portail Azure. Accédez à cette page et recherchez les clés et l’URI de point de terminaison.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="URI de point de terminaison":::
 
 ## <a name="set-up-azure-stack-edge"></a>Configurer Azure Stack Edge
 
@@ -169,17 +169,17 @@ Effectuez les étapes suivantes pour générer le manifeste à partir du fichier
 1. En regard du volet AZURE IOT HUB, sélectionnez l’icône Autres actions pour définir la chaîne de connexion IoT Hub. Vous pouvez copier la chaîne à partir du fichier src/cloud-to-device-console-app/appsettings.json.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Analyse spatiale : chaîne de connexion":::
 1. Cliquez avec le bouton droit sur `src/edge/deployment.spatialAnalysis.template.json` et sélectionnez Générer le manifeste de déploiement IoT Edge.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Analyse spatiale : fichier json amd64 de déploiement":::
     
     Cette action doit créer un fichier manifeste nommé deployment.amd64.json dans le dossier src/edge/config.
 1. Cliquez avec le bouton droit sur `src/edge/config/deployment.spatialAnalysis.amd64.json`, sélectionnez Créer un déploiement pour un seul appareil, puis sélectionnez le nom de votre périphérique.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Vue d’ensemble de l’analyse spatiale":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Analyse spatiale : fichier json du modèle de déploiement":::   
 1. Quand vous êtes invité à sélectionner un appareil IoT Hub, choisissez le nom de votre instance Azure Stack Edge dans le menu déroulant.
 1. Après environ 30 secondes, dans l’angle en bas à gauche de la fenêtre, actualisez Azure IoT Hub. L’appareil de périphérie affiche maintenant les modules déployés suivants :
     
@@ -204,17 +204,17 @@ Pour voir ces événements, effectuez les étapes suivantes :
 1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Paramètres d’extension":::
 1. Recherchez et activez « Afficher le message détaillé ».
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
 1. Ouvrez le volet Explorateur, puis recherchez Azure IoT Hub dans l’angle inférieur gauche.
 1. Développez le nœud Appareils.
 1. Cliquez avec le bouton droit sur votre instance Azure Stack Edge et sélectionnez Start Monitoring Built-in Event Endpoint (Démarrer la surveillance du point de terminaison d’événements intégré).
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Analyse spatiale : démarrer l’analyse":::
      
 ## <a name="run-the-program"></a>Exécuter le programme
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968267"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558757"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
-La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des aspects (comme les attributs de produits ou de services) du texte.
+La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des aspects (comme les attributs de produits ou de services) du texte. 
 
 Les modèles IA utilisés par l’API sont fournis par le service ; vous n’avez qu’à envoyer le contenu à analyser.
 
@@ -51,13 +51,14 @@ Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proche
 
 ## <a name="opinion-mining"></a>Exploration des opinions
 
-Exploration des opinions est une fonctionnalité d’Analyse des sentiments, à compter la version 3.1-preview.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
+Exploration des opinions est une fonctionnalité d’Analyse des sentiments, à compter la version 3.1-preview.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte. 
 
 Par exemple, si un client laisse un commentaire sur un hôtel, comme « la chambre était géniale, mais le personnel peu sympathique », Exploration des opinions va repérer des aspects dans le texte ainsi que les opinions et les sentiments associés. Analyse des sentiments peut signaler seulement un sentiment négatif.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagramme de l’exemple d’Exploration des opinions" lightbox="../media/how-tos/opinion-mining.png":::
 
-Pour avoir l’Exploration des opinions dans vos résultats, vous devez inclure l’indicateur `opinionMining=true` dans une demande d’Analyse de sentiments. Les résultats de l’Exploration des opinions sont inclus dans la réponse de l’Analyse des sentiments.
+Pour avoir l’Exploration des opinions dans vos résultats, vous devez inclure l’indicateur `opinionMining=true` dans une demande d’Analyse de sentiments. Les résultats de l’Exploration des opinions sont inclus dans la réponse de l’Analyse des sentiments. L’exploration des opinions est une extension de l’Analyse des sentiments qui est incluse dans votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) actuel.
+
 
 ## <a name="sending-a-rest-api-request"></a>Envoie d’une requête d’API REST 
 

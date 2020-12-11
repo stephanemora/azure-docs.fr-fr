@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013737"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621533"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -133,7 +133,7 @@ Voici un exemple de réponse JSON correcte :
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Lire 3.2 en préversion ajoute un style de ligne de texte (langues latines uniquement)
 L’[API Lire 3.2 en préversion](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) génère un objet **appearence** qui classe chaque ligne de texte selon le style (écriture d’imprimerie ou manuscrite), avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 
-Commencez par les [Démarrages rapides du SDK OCR Lire Vision par ordinateur](./quickstarts-sdk/client-library.md) et les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) pour commencer à intégrer des fonctionnalités OCR à vos applications.
+Commencez par les [Démarrages rapides sur la bibliothèque de client ou l’API REST Vision par ordinateur](./quickstarts-sdk/client-library.md) pour commencer à intégrer des fonctionnalités OCR à vos applications.
 
 ## <a name="supported-languages-for-print-text"></a>Langues prises en charge pour le texte imprimé
 L’[API Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais.
@@ -147,7 +147,7 @@ L’[API Lire 3.2 en préversion publique](https://westus.dev.cognitive.microso
 L’opération de lecture prend actuellement en charge l’extraction de texte manuscrit en anglais exclusivement.
 
 ## <a name="use-the-rest-api-and-sdk"></a>Utiliser l’API REST et le kit de développement logiciel (SDK)
-La [l’API REST Lire 3.x](./QuickStarts/CSharp-hand-text.md) est l’option préférée pour la plupart des clients en raison de la facilité d’intégration et de la productivité rapide prête à l’emploi. Azure et le service de Vision par ordinateur gèrent l’évolutivité, les performances, la sécurité des données et les besoins en matière de conformité tout en répondant aux besoins de vos clients.
+La [l’API REST Lire 3.x](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) est l’option préférée pour la plupart des clients en raison de la facilité d’intégration et de la productivité rapide prête à l’emploi. Azure et le service de Vision par ordinateur gèrent l’évolutivité, les performances, la sécurité des données et les besoins en matière de conformité tout en répondant aux besoins de vos clients.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Déployer en local avec des conteneurs Docker
 Le [conteneur Docker Lire (préversion)](./computer-vision-how-to-install-containers.md) vous permet de déployer les nouvelles fonctionnalités OCR dans votre propre environnement local. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données.
@@ -197,7 +197,6 @@ Comme pour tous les services Cognitive Services, les développeurs qui utilisent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez avec les [Démarrages rapides du SDK Vision par ordinateur Lire](./quickstarts-sdk/client-library.md) en C#, Java, JavaScript ou Python.
-- Utilisez les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) en C#, Java, JavaScript ou Python pour apprendre à utiliser les API REST.
+- Découvrez comment bien démarrer avec les [démarrages rapides sur la bibliothèque de client ou l’API REST Vision par ordinateur](./quickstarts-sdk/client-library.md).
 - Découvrez l’[API REST Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Découvrez l’[API REST Lire 3.2 en préversion publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) avec ajout de la prise en charge du chinois simplifié et du japonais.

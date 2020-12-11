@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 06e4eea32aefcb400c144be98c274e3e4bb4b121
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188263"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906428"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Linux.
 
@@ -54,17 +54,19 @@ Pour effectuer ce démarrage rapide, vous devez disposer des éléments suivants
 
 ## <a name="configure-go-environment"></a>Configurer l’environnement Go
 
+Effectuez les étapes suivantes afin de configurer votre environnement Go pour qu’il trouve le SDK Speech. Dans ces deux étapes, remplacez `<architecture>` par l’architecture de votre processeur. L’architecture sera `x86`, `x64`, `arm32` ou `arm64`.
+
 1. Étant donné que les liaisons s’appuient sur `cgo`, vous devez définir les variables d’environnement pour que Go puisse trouver le kit de développement logiciel (SDK) :
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. En outre, pour exécuter des applications, y compris le kit de développement logiciel (SDK), nous devons indiquer au système d’exploitation où trouver les bibliothèques :
+1. Pour exécuter des applications, y compris le SDK, nous devons indiquer au système d’exploitation où trouver les bibliothèques :
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes

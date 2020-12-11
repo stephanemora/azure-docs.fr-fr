@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487267"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575531"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -41,12 +41,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Arabe (Bahreïn), standard moderne  |`ar-BH` | Modèle de langage                                   |
 |Arabe (Égypte)                     |`ar-EG` | Modèle de langage                                   |
 |Arabe (Irak)                      |`ar-IQ` | Modèle de langage                                   |
+|Arabe (Israël)                              |`ar-IL` | Modèle de langage                                                   |
 |Arabe (Jordanie)                    |`ar-JO` | Modèle de langage                                   |
 |Arabe (Koweït)                    |`ar-KW` | Modèle de langage                                   |
 |Arabe (Liban)                   |`ar-LB` | Modèle de langage                                   |
 |Arabe (Oman)                      |`ar-OM` | Modèle de langage                                   |
 |Arabe (Qatar)                     |`ar-QA` | Modèle de langage                                   |
 |Arabe (Arabie saoudite)              |`ar-SA` | Modèle de langage                                   |
+|Arabe (État de Palestine)            |`ar-PS` | Modèle de langage                                   |
 |Arabe (Syrie)                     |`ar-SY` | Modèle de langage                                   |
 |Arabe (Émirats arabes unis)      |`ar-AE` | Modèle de langage                                   |
 |Bulgare (Bulgarie)               |`bg-BG` | Modèle de langage                                   |
@@ -64,6 +66,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Anglais (Inde)                    |`en-IN` | Modèle acoustique<br>Modèle de langage                 |
 |Anglais (Irlande)                  |`en-IE` | Modèle de langage                                   |
 |Anglais (Nouvelle-Zélande)              |`en-NZ` | Modèle acoustique<br>Modèle de langage                 |
+|Anglais (Nigeria)                          |`en-NG` | Modèle de langage                                                     |
 |Anglais (Philippines)              |`en-PH` | Modèle de langage                                   |
 |Anglais (Singapour)                |`en-SG` | Modèle de langage                                   |
 |Anglais (Afrique du Sud)             |`en-ZA` | Modèle de langage                                   |
@@ -103,6 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Espagnol (République dominicaine)       |`es-DO` | Modèle de langage                                   |
 |Espagnol (Équateur)                  |`es-EC` | Modèle de langage                                   |
 |Espagnol (Salvador)              |`es-SV` | Modèle de langage                                   |
+|Espagnol (Guinée équatoriale)            |`es-GQ` | Modèle de langage                                   |
 |Espagnol (Guatemala)                |`es-GT` | Modèle de langage                                   |
 |Espagnol (Honduras)                 |`es-HN` | Modèle de langage                                   |
 |Espagnol (Mexique)                   |`es-MX` | Modèle acoustique<br>Modèle de langage                 |

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913107"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852521"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -95,10 +95,13 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
    > [!div class="mx-imgBorder"]
    > ![Configurer Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Vous avez terminé. Ensuite, sélectionnez **Vérifier + créer** , puis **Créer** pour déployer votre application web. Lorsque vous avez terminé, vous pouvez accéder à votre application web à l’URL fournie dans la **Vue d’ensemble** de votre ressource.
+7. Vous avez terminé. Ensuite, sélectionnez **Vérifier + créer**, puis **Créer** pour déployer votre application web. Lorsque vous avez terminé, vous pouvez accéder à votre application web à l’URL fournie dans la **Vue d’ensemble** de votre ressource.
 
 > [!NOTE]
 > Lorsque vous créez votre application web, vous pouvez également configurer l’autorisation/l’authentification. Cela n’est pas nécessaire au départ. 
+
+> [!IMPORTANT]
+> Vous devrez peut-être activer TLS pour votre application web afin de l’afficher à son adresse `https`. Suivez les instructions figurant dans [Activer un point de terminaison TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) pour configurer un conteneur sidecar qui active TLS/SSL pour votre application web.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -136,7 +139,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422397"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546900"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
-Cet article présente les modèles d’utilisation de base de l’interface de ligne de commande (CLI) Speech, un outil en ligne de commande qui permet d’utiliser le service Speech sans écrire de code. Vous pouvez tester tout de suite les principales fonctionnalités du service Speech, sans créer d’environnement de développement ni écrire de code, pour voir s’il correspond bien à vos cas d’utilisation. En outre, l’interface CLI Speech, pleinement utilisable en production, peut servir à automatiser des workflows simples dans le service Speech, à l’aide de scripts `.bat` ou shell.
+Cet article présente les modèles d’utilisation de base de l’interface de ligne de commande (CLI) Speech, un outil en ligne de commande qui permet d’utiliser le service Speech sans écrire de code. Vous pouvez tester tout de suite les principales fonctionnalités du service Speech, sans créer d’environnement de développement ni écrire de code, pour voir s’il correspond bien à vos cas d’utilisation. L’interface CLI Speech est pleinement utilisable en production et peut servir à automatiser des workflows simples dans le service Speech, à l’aide de scripts `.bat` ou shell.
+
+Cet article suppose que vous avez une bonne connaissance de l’invite de commandes, du terminal ou de PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Entrez la commande suivante pour afficher les options de la commande Recognize 
 spx help recognize
 ```
 
-Utilisez maintenant le service Speech pour effectuer une reconnaissance vocale à l'aide de votre microphone par défaut en exécutant la commande suivante.
+À présent, nous allons utiliser l’interface CLI de Speech pour obtenir une reconnaissance vocale en utilisant le micro par défaut de votre système. 
+
+>[!WARNING]
+> Si vous utilisez un conteneur Docker, cette commande ne fonctionnera pas.
+
+Exécutez cette commande :
 
 ```shell
 spx recognize --microphone
 ```
+
+Avec l’interface CLI de Speech, vous pouvez également effectuer une reconnaissance vocale à partir d’un fichier audio.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Si vous effectuez une reconnaissance vocale à partir d’un fichier audio situé dans un conteneur Docker, vérifiez que le fichier audio se trouve dans le répertoire que vous avez monté à l’étape précédente.
 
 Une fois la commande entrée, SPX commence à écouter l’audio sur le périphérique d’entrée actif. Il s’arrête lorsque vous appuyez sur `ENTER`. La parole enregistrée est ensuite reconnue et convertie en texte dans la sortie de la console. La synthèse vocale est également facile à effectuer à l’aide de l’interface CLI Speech. 
 
@@ -65,7 +80,7 @@ Outre la reconnaissance et la synthèse vocales, l’interface CLI Speech permet
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-Dans cette commande, vous spécifiez à la fois la langue source ( **avant** traduction) et la langue cible ( **après** traduction). L’argument `--microphone` permet d’écouter l’audio sur le périphérique d’entrée actif et de s’arrêter lorsque vous appuyez sur `ENTER`. La sortie est une traduction de texte dans la langue cible, écrite dans un fichier texte.
+Dans cette commande, vous spécifiez à la fois la langue source (**avant** traduction) et la langue cible (**après** traduction). L’argument `--microphone` permet d’écouter l’audio sur le périphérique d’entrée actif et de s’arrêter lorsque vous appuyez sur `ENTER`. La sortie est une traduction de texte dans la langue cible, écrite dans un fichier texte.
 
 > [!NOTE]
 > Pour connaître la liste de toutes les langues prises en charge avec le code de paramètres régionaux correspondant, consultez l’article [Langues et paramètres régionaux](language-support.md).

@@ -155,7 +155,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | Emplacement de cette règle d'alerte |USA Est |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names `Get-MetricDefinitions`. |
+| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Écritures disque/s. Consultez l’applet de commande `Get-MetricDefinitions` pour savoir comment récupérer les noms exacts des métriques |
 | operator |GreaterThan |
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |

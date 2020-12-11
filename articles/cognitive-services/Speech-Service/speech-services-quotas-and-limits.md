@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345395"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754162"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
 
@@ -104,7 +104,7 @@ Les limites de demandes simultanées pour les modèles **De base** et **Personna
 La valeur existante du paramètre Limite de demandes simultanées n’est **pas visible** via le portail Azure, des outils en ligne de commande ou des demandes d’API. Pour vérifier la valeur existante, créez une demande de support Azure.
 
 >[!NOTE]
->Les [conteneurs Speech](speech-container-howto.md) n’exigent pas d’augmentation de la limite de demandes simultanées, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés.
+>Les [conteneurs Speech](speech-container-howto.md) n’exigent pas d’augmentation de la limite de demandes simultanées, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés. Toutefois, les conteneurs Speech ont leurs propres limitations de capacité qui doivent être prises en compte. Consultez la question *Pouvez-vous aider à planifier la capacité et à estimer les coûts des conteneurs de reconnaissance vocale locaux ?* qui figure dans la [FAQ sur les conteneurs Speech](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Munissez-vous des informations requises :
 - Pour le **Modèle de base** :
