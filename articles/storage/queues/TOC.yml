@@ -119,6 +119,8 @@
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Mettre à niveau un compte de stockage
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: récupérer un compte de stockage supprimé
+          href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sécuriser les données de file d’attente
       items:
         - name: Autoriser l’accès aux données en file d’attente

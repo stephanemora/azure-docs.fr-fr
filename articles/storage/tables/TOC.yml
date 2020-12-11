@@ -89,6 +89,8 @@
       maintainContext: true
     - name: Mettre à niveau un compte de stockage
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: récupérer un compte de stockage supprimé
+      href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Utiliser l’émulateur de stockage
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
