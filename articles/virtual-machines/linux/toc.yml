@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Évaluer un disque
               href: disks-benchmarks.md
-            - name: Optimisation des performances
-              href: optimization.md
         - name: Rechercher les disques non attachés - CLI
           href: find-unattached-disks.md
         - name: Rechercher les disques non attachés - Portail
