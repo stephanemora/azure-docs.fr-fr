@@ -384,7 +384,7 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 
 ### <a name="add-new-pattern-template-utterances"></a>Ajouter de nouveaux énoncés de modèle
 
-1. Alors que vous êtes toujours dans la section **Modèles** de**Générer**, ajoutez plusieurs nouveaux énoncés de modèle. Sélectionnez **OrgChart-Manager** dans le menu déroulant d’intentions et entrez chacun des énoncés de modèle suivants :
+1. Alors que vous êtes toujours dans la section **Modèles** de **Générer**, ajoutez plusieurs nouveaux énoncés de modèle. Sélectionnez **OrgChart-Manager** dans le menu déroulant d’intentions et entrez chacun des énoncés de modèle suivants :
 
     |Intentionnel|Exemples d’énoncés avec un texte facultatif et des entités prédéfinies|
     |--|--|

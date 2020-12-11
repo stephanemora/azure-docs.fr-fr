@@ -504,6 +504,8 @@
       href: how-to-use-logging.md
     - name: Suivre l’utilisation de la mémoire
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: Activer un point de terminaison privé
+      href: speech-services-private-link.md
     - name: Configurer OpenSSL pour Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md

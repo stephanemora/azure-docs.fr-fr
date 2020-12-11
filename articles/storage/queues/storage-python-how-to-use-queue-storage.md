@@ -302,5 +302,5 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 - [API REST des services d’Azure Storage](/rest/api/storageservices/)
 
 [Bibliothèque de client Stockage File d'attente Azure pour Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
-[Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/azure/azure-sdk-for-python
+[SDK Azure pour Python]: https://github.com/azure/azure-sdk-for-python
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

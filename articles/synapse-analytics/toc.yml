@@ -1095,9 +1095,9 @@
         - name: Utiliser l’Assistant de scoring pour les pools SQL dédiés
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Entraîner un modèle sans code avec Azure AutoML
+        - name: Entraîner un modèle sans code avec le ML automatisé
           href: ./machine-learning/tutorial-automl.md
-        - name: Entraîner un modèle dans Python avec Azure AutoML
+        - name: Entraîner un modèle dans Python avec le ML automatisé
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Créer un modèle avec Apache Spark MLlib
