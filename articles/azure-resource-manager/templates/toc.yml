@@ -515,6 +515,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Ressources
   items:
+    - name: Développer vos compétences avec Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: "Modèles de démarrage rapide Microsoft\_Azure"
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Feuille de route Azure

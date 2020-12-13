@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentation partagée
   items:
+    - name: Déploiement de base de données
+      items:
+        - name: GitHub Actions
+          href: quickstart-mysql-github-actions.md
     - name: Migration
       items:
         - name: Migrer des données avec mysqldump ou phpmyadmin
@@ -88,9 +92,7 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
-            - name: GitHub Actions
-              href: quickstart-mysql-github-actions.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: Concevoir une base de données
           items:

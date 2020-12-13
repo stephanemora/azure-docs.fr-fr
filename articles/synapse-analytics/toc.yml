@@ -96,8 +96,6 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Sécurité
           items:
-            - name: Base de référence de la sécurité
-              href: security-baseline.md
             - name: Chiffrement
               href: ./security/workspaces-encryption.md
             - name: Sécurité réseau

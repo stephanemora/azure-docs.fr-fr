@@ -9,12 +9,12 @@ metadata:
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 3f89d249e126cfeb65b141e39d6a6a998e4d1758
-  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+  ms.openlocfilehash: c729e93f48a0b3ef382edd32a9322ec5c0174b3b
+  ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92207748"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97109400"
 landingContent:
 - title: À propos d’Azure Notebooks
   linkLists:
@@ -22,49 +22,15 @@ landingContent:
     links:
     - text: Qu’est-ce que le service Azure Notebooks ?
       url: azure-notebooks-overview.md
-  - linkListType: deploy
-    links:
-    - text: Exemples d’Azure Notebooks
-      url: azure-notebooks-samples.md
   - linkListType: get-started
     links:
     - text: Accéder à vos fichiers Azure Notebooks
       url: https://notebooks.azure.com/
 - title: Bien démarrer avec Azure Notebooks
   linkLists:
-  - linkListType: learn
-    links:
-    - text: Analyser les données climatiques avec Azure Notebooks
-      url: /learn/modules/analyze-climate-data-with-azure-notebooks/
-  - linkListType: tutorial
-    links:
-    - text: Créer et exécuter un notebook Jupyter avec Python
-      url: tutorial-create-run-jupyter-notebook.md
   - linkListType: quickstart
     links:
     - text: Se connecter et définir un identifiant utilisateur
       url: quickstart-sign-in-azure-notebooks.md
-    - text: Créer et partager un notebook
-      url: quickstart-create-share-jupyter-notebook.md
-    - text: Cloner un notebook
-      url: quickstart-clone-jupyter-notebook.md
-    - text: Migrer un notebook Jupyter local
-      url: quickstart-migrate-local-jupyter-notebook.md
-    - text: Créer un projet avec un environnement personnalisé
-      url: quickstart-create-jupyter-notebook-project-environment.md
     - text: Exporter votre projet
       url: quickstart-export-jupyter-notebook-project.md
-- title: Principales tâches pour Azure Notebooks
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Gérer et configurer des projets
-      url: configure-manage-azure-notebooks-projects.md
-    - text: Utiliser des fichiers de données
-      url: work-with-project-data-files.md
-    - text: Créer et cloner des projets
-      url: create-clone-jupyter-notebooks.md
-    - text: Accéder aux données cloud dans un notebook
-      url: access-data-resources-jupyter-notebooks.md
-    - text: Installer des packages dans un notebook
-      url: install-packages-jupyter-notebook.md

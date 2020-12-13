@@ -121,5 +121,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all'
     - name: Commentaires sur le produit
       href: 'https://feedback.azure.com/forums/922753'
