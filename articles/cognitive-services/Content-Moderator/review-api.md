@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325330"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905194"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
 
@@ -42,7 +42,7 @@ Utilisez la barre d’outils **Search** pour trier les révisions d’après div
 > [!div class="mx-imgBorder"]
 > ![La barre d’outils Rechercher s’affiche. Elle comporte différentes zones de liste modifiable pour l’entrée de critères de recherche, tels que l’état de révision et les balises.](./Review-Tool-user-Guide/images/review-search.png)
 
-Consultez le [guide de l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou le [guide de l’API REST](./try-review-api-review.md) pour apprendre à le faire par programmation.
+Consultez le [guide de l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou le [guide de la console d’API](./try-review-api-review.md) pour apprendre à le faire par programmation.
 
 ## <a name="workflows"></a>Workflows
 
@@ -80,13 +80,13 @@ Les workflows sont définis en tant que chaînes JSON, ce qui les rend accessibl
 }
 ```
 
-Consultez le [guide de l’outil de révision](./review-tool-user-guide/workflows.md) pour commencer à créer et à utiliser des flux de travail, ou le [guide de l’API REST](./try-review-api-workflow.md) pour apprendre à le faire par programmation.
+Consultez le [guide de l’outil de révision](./review-tool-user-guide/workflows.md) pour commencer à créer et à utiliser des flux de travail, ou le [guide de la console d’API](./try-review-api-workflow.md) pour apprendre à le faire par programmation.
 
 ## <a name="jobs"></a>travaux
 
 Un travail de modération est une forme de wrapper des fonctionnalités de modération du contenu, de workflows et de révision. Le travail analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte de Content Moderator, puis compare le résultat obtenu au flux de travail désigné. Selon les résultats de flux de travail, il crée ou non une révision pour le contenu dans l’[outil de révision](./review-tool-user-guide/human-in-the-loop.md). Même s’il est possible de créer et de configurer des révisions et des flux de travail avec leurs API respectives, l'API de travail vous permet d'obtenir un rapport détaillé de l'ensemble du processus (qui peut être envoyé à un point de terminaison de rappel spécifié).
 
-Consultez le [guide de l’API REST](./try-review-api-job.md) pour commencer à utiliser des travaux.
+Consultez le [guide de la console d’API](./try-review-api-job.md) pour commencer à utiliser des travaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

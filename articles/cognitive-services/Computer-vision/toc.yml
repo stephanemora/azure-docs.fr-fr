@@ -41,17 +41,17 @@
       href: concept-generating-thumbnails.md
     - name: Détection de contenu pour adultes
       href: concept-detecting-adult-content.md
-- name: Intelligence artificielle responsable
+- name: Utilisation responsable de l’IA
   items:
     - name: Analyse spatiale
       items:
-        - name: Note de transparence
+        - name: Notes de transparence
           items:
             - name: Présentation de l’analyse spatiale
               href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Caractéristiques et limitations
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-        - name: Instructions de déploiement
+        - name: Intégration et utilisation responsable
           items:
             - name: Utilisation responsable lors du déploiement de l’IA
               href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext

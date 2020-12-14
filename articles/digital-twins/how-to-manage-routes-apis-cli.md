@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452909"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519106"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
-Pour en savoir plus sur la mise en file d’attente de lettres mortes, consultez [*Concepts : Routes d’événements*](concepts-route-events.md#dead-letter-events).
+Pour en savoir plus sur la mise en file d’attente de lettres mortes, consultez [*Concepts : Routes d’événements*](concepts-route-events.md#dead-letter-events). Pour obtenir des instructions sur la configuration d’un point de terminaison avec une mise en file d’attente de lettres mortes, suivez le reste de cette section.
 
 #### <a name="set-up-storage-resources"></a>Configurer des ressources de stockage
 
-Avant de définir l’emplacement des messages non distribués, vous devez disposer d’un [compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal) avec un [conteneur](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurés dans votre compte Azure. Vous devrez fournir l’URL de ce conteneur au moment de créer le point de terminaison ultérieurement.
-Les messages non distribués sont fournis sous la forme d’une URL de conteneur avec un [jeton SAP](../storage/common/storage-sas-overview.md). Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Avant de définir l’emplacement des messages non distribués, vous devez disposer d’un [compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal) avec un [conteneur](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurés dans votre compte Azure. 
+
+Vous devrez fournir l’URL de ce conteneur au moment de créer le point de terminaison ultérieurement. L’emplacement de la file d’attente de lettres mortes est fourni au point de terminaison en tant qu’URL de conteneur avec un [jeton SAS](../storage/common/storage-sas-overview.md). Ce jeton a besoin de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète est au format suivant : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
 
 Suivez les étapes ci-dessous pour configurer ces ressources de stockage dans votre compte Azure, afin de préparer la configuration de la connexion du point de terminaison dans la section suivante.
 
-1. Suivez les instructions de [cet article](../storage/common/storage-account-create.md?tabs=azure-portal) pour créer un compte de stockage et enregistrer le nom de celui-ci en vue d’une utilisation ultérieure.
-2. Créez un conteneur en suivant les instructions de [cet article](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) et enregistrez le nom du conteneur en vue d’une utilisation ultérieure lors de la configuration de la connexion entre le conteneur et le point de terminaison.
-3. Ensuite, créez un jeton SAP pour votre compte de stockage. Commencez par accéder à votre compte de stockage dans le [portail Azure](https://ms.portal.azure.com/#home) (vous pouvez le rechercher par son nom dans la barre de recherche du portail).
-4. Dans la page du compte de stockage, choisissez le lien _Signature d’accès partagé_ dans la barre de navigation de gauche afin de sélectionner les autorisations appropriées pour générer un jeton SAP.
-5. Pour _Services autorisés_ et _Types de ressources autorisés_, sélectionnez les paramètres de votre choix. Vous devez sélectionner au moins une case dans chaque catégorie. Pour Autorisations acceptées, choisissez **Écriture** (vous pouvez également sélectionner d’autres autorisations si vous le souhaitez).
-Définissez les paramètres restants à votre guise.
-6. Ensuite, sélectionnez le bouton _Générer la chaîne de connexion et SAP_ pour générer le jeton SAP. Cela a pour effet de générer plusieurs valeurs de chaîne de connexion et SAP au bas de la même page, sous les sélections de paramètres. Faites défiler l’écran pour afficher les valeurs et utilisez l’icône de copie dans le presse-papiers pour copier la valeur du **jeton SAP**. Enregistrez-la en vue d’une utilisation ultérieure.
+1. Suivez les étapes décrites dans [*Créer un compte de stockage*](../storage/common/storage-account-create.md?tabs=azure-portal) pour créer un **compte de stockage** dans votre abonnement Azure. Prenez note du nom du compte de stockage ; vous en aurez besoin plus tard.
+2. Suivez les étapes décrites dans [*Créer un conteneur*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) pour créer un **conteneur** dans le nouveau compte de stockage. Notez le nom de conteneur ; vous en aurez besoin plus tard.
+3. Ensuite, créez un **jeton SAS** pour votre compte de stockage que le point de terminaison peut utiliser pour y accéder. Commencez par accéder à votre compte de stockage dans le [portail Azure](https://ms.portal.azure.com/#home) (vous pouvez le rechercher par son nom dans la barre de recherche du portail).
+4. Dans la page du compte de stockage, choisissez le lien _Signature d’accès partagé_ dans la barre de navigation de gauche afin de lancer la configuration du jeton SAP.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Page du compte de stockage dans le portail Azure, présentant toutes les sélections de paramètres pour générer un jeton SAP." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Page du compte de stockage dans le portail Azure" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiez le jeton SAP à utiliser dans le secret des messages non distribués." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. Dans la page *Signature d’accès partagé*, sous *Services autorisés* et *Types de ressources autorisés*, sélectionnez les paramètres de votre choix. Vous devez sélectionner au moins une case dans chaque catégorie. Sous *Autorisations acceptées*, choisissez **Écriture** (vous pouvez également sélectionner d’autres autorisations si vous le souhaitez).
+1. Définissez les valeurs de votre choix pour les autres paramètres.
+1. Lorsque vous avez terminé, sélectionnez le bouton _Générer la chaîne de connexion et SAP_ pour générer le jeton SAP. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Page du compte de stockage dans le portail Azure, présentant toutes les sélections de paramètres pour générer un jeton SAP et mise en surbrillance du bouton Générer la chaîne de connexion et SAP" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Cela a pour effet de générer plusieurs valeurs de chaîne de connexion et SAP au bas de la même page, sous les sélections de paramètres. Faites défiler l’écran pour afficher les valeurs et utilisez l’icône de *copie dans le presse-papiers* pour copier la valeur du **jeton SAP**. Enregistrez-la en vue d’une utilisation ultérieure.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiez le jeton SAP à utiliser dans le secret des messages non distribués." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Configurer le point de terminaison
 
-Des points de terminaison de messages non distribués sont créés à l’aide d’API Azure Resource Manager. Lorsque vous créez un point de terminaison, utilisez la [documentation sur les API Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour définir les paramètres de demande requis. Ajoutez également le `deadLetterSecret` à l’objet propriétés dans le **corps** de la demande, qui contient une URL de conteneur et un jeton SAP pour votre compte de stockage.
+Pour créer un point de terminaison pour lequel la file d’attente de lettres mortes est activée, vous devez créer le point de terminaison à l’aide des API Azure Resource Manager. 
+
+1. Tout d’abord, référez-vous à la documentation sur l’[API Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour configurer une demande de création d’un point de terminaison et renseignez les paramètres de demande requis. 
+
+1. Ensuite, ajoutez un champ `deadLetterSecret` à l’objet Properties dans le **corps** de la demande. Définissez cette valeur en fonction du modèle ci-dessous, qui génère une URL à partir du nom du compte de stockage, du nom du conteneur et de la valeur du jeton SAP que vous avez collectés dans la [section précédente](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Envoyez la demande de création du point de terminaison.
+
 Pour plus d’informations sur la structuration de cette demande, consultez la documentation sur l’API REST Azure Digital Twins : [Points de terminaison : DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schéma de stockage des messages
 
-Les messages en file d’attente de lettres mortes sont stockés au format suivant dans votre compte de stockage :
+Une fois que le point de terminaison avec la file d’attente de lettres mortes est configuré, les messages associés sont stockés au format suivant dans votre compte de stockage :
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 

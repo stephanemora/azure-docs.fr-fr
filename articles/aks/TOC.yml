@@ -333,8 +333,10 @@
           href: spark-job.md
         - name: Utiliser des GPU
           href: gpu-cluster.md
-        - name: Utiliser Azure Database pour PostgreSQL
-          href: ../postgresql/concepts-aks.md
+        - name: Créer une application avec PostgreSQL
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: Créer une application avec MySQL
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md

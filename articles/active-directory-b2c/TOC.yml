@@ -155,6 +155,25 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+    - name: Personnalisation de l’expérience utilisateur
+      items:
+        - name: Configurer des entrées d’utilisateur
+          href: configure-user-input.md
+        - name: Personnaliser l’interface utilisateur avec la marque de l’entreprise
+          href: company-branding.md
+        - name: Personnaliser l’interface utilisateur avec un modèle HTML
+          href: customize-ui-with-html.md
+        - name: JavaScript et mises en page
+          href: javascript-and-page-layout.md
+        - name: Personnaliser le langage
+          href: language-customization.md
+        - name: Complexité du mot de passe
+          href: password-complexity.md
+        - name: Désactiver la vérification e-mail
+          href: disable-email-verification.md
+        - name: "Activer la\_MFA"
+          href: multi-factor-authentication.md
+          displayName: multi-factor auth
     - name: Flux utilisateur
       items:
         - name: Créer un flux
@@ -167,21 +186,6 @@
               href: user-flow-self-service-password-reset.md
         - name: Ajouter un accès conditionnel
           href: conditional-access-user-flow.md
-        - name: Personnalisation de l’expérience utilisateur
-          items:
-            - name: Personnaliser l’interface utilisateur
-              href: customize-ui-overview.md
-            - name: JavaScript et mises en page
-              href: user-flow-javascript-overview.md
-            - name: Personnaliser le langage
-              href: user-flow-language-customization.md
-            - name: Complexité du mot de passe
-              href: user-flow-password-complexity.md
-            - name: Désactiver la vérification e-mail
-              href: user-flow-disable-email-verification.md
-            - name: "Activer la\_MFA"
-              href: custom-policy-multi-factor-authentication.md
-              displayName: multi-factor auth
         - name: Gestion des jetons et des sessions
           items:
             - name: Configurer des jetons
@@ -219,29 +223,13 @@
             - name: Inscription et connexion par téléphone
               href: phone-authentication.md
               displayName: 'otp, passwordless, phone number'
-        - name: Personnalisation de l’expérience utilisateur
+        - name: Vérification d’e-mail personnalisée
           items:
-            - name: Configurer des entrées d’utilisateur
-              href: custom-policy-configure-user-input.md
-              displayName: 'ui, ux'
-            - name: Personnaliser l’interface utilisateur
-              href: custom-policy-ui-customization.md
-              displayName: 'ux, input, cors, html, css'
-            - name: Personnaliser le langage
-              href: custom-policy-localization.md
-            - name: Vérification d’e-mail personnalisée
-              items:
-                - name: Mailjet
-                  href: custom-email-mailjet.md
-                - name: SendGrid
-                  href: custom-email-sendgrid.md
-              displayName: verification
-            - name: Désactiver la vérification e-mail
-              href: custom-policy-disable-email-verification.md
-            - name: Activer JavaScript
-              href: javascript-samples.md
-            - name: Complexité du mot de passe
-              href: custom-policy-password-complexity.md
+            - name: Mailjet
+              href: custom-email-mailjet.md
+            - name: SendGrid
+              href: custom-email-sendgrid.md
+          displayName: verification
         - name: Gestion des jetons et des sessions
           items:
             - name: Personnaliser les jetons

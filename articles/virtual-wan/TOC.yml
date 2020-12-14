@@ -141,6 +141,8 @@
           href: howto-firewall.md
         - name: Configurer une connectivité de liaison privée
           href: howto-private-link.md
+        - name: Gérer l’accès aux ressources - Spoke VNet P2S
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: Surveillance
       items:
         - name: Métriques et journaux d’activité

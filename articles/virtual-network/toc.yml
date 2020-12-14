@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: Concepts
   items:
+    - name: Concepts et bonnes pratiques
+      href: concepts-and-best-practices.md
     - name: Continuité de l’activité
       href: virtual-network-disaster-recovery-guidance.md
     - name: Connectivité

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993353"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602782"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -52,11 +52,11 @@ Consultez le tableau ci-dessous pour savoir quelles fonctionnalités vous pouvez
 
 
 > [!NOTE]
-> Si vous souhaitez utiliser les points de terminaison `/analyze` ou `/health`, vous aurez besoin d’une ressource d’Analyse de texte utilisant un [niveau de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S).
+> * Si vous souhaitez utiliser les points de terminaison `/analyze` ou `/health`, vous aurez besoin d’une ressource d’Analyse de texte utilisant un [niveau de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S).
 
-1.  Tout d’abord, accédez au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et créez une ressource d’Analyse de texte si vous n’en avez pas encore. Si vous souhaitez utiliser les points de terminaison `/analyze` ou `/health`, choisissez le niveau de tarification Standard (S).
+1.  Tout d’abord, accédez au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et créez une ressource d’Analyse de texte si vous n’en avez pas encore. Si vous souhaitez utiliser les points de terminaison **ou**, choisissez le `/analyze`niveau de tarification Standard (S)`/health`. Le point de terminaison `/analyze` est inclus dans votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-2.  Sélectionnez la région que votre point de terminaison doit utiliser.
+2.  Sélectionnez la région que votre point de terminaison doit utiliser.  Notez que les points de terminaison `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
 
 3.  Créez la ressource d’Analyse de texte et accédez au panneau « Clés et point de terminaison » dans la partie gauche de la page. Copiez la clé à utiliser ultérieurement lors de l’appel des API. Vous l’ajouterez plus tard en tant que valeur pour l’en-tête `Ocp-Apim-Subscription-Key`.
 
@@ -260,6 +260,8 @@ Si vous avez appelé les points de terminaison asynchrones `/analyze` ou `/healt
 3. Ajoutez `Operation-Location` à la demande.
 
 4. La réponse sera un document JSON unique, avec un élément pour chaque ID de document fourni dans la demande.
+
+Notez que pour les opérations asynchrones `/analyze` ou `/health`, les résultats de la demande GET à l’étape 2 ci-dessus sont disponibles pendant 24 heures à partir du moment où le travail a été créé.  Ce délai est indiqué par la valeur `expirationDateTime` dans la réponse GET.  Après cette période, les résultats sont purgés et ne sont plus disponibles pour récupération.    
 
 ## <a name="example-api-responses"></a>Exemples de réponses de l’API
  
