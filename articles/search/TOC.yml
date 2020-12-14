@@ -256,9 +256,11 @@
       items:
         - name: Types de requêtes et composition
           href: search-query-overview.md
-        - name: Créer une requête simple
+        - name: Créer une requête de base
+          href: search-query-create.md
+        - name: Utiliser une syntaxe simple (exemples)
           href: search-query-simple-examples.md
-        - name: Utiliser la syntaxe Lucene complète
+        - name: Utiliser la syntaxe Lucene complète (exemples)
           href: search-query-lucene-examples.md
         - name: Termes partiels et caractères spéciaux
           href: search-query-partial-matching.md
@@ -536,6 +538,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Présentation des fichiers JFK
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: Présentation des postes de NYC
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: Entrainement
       items:
         - name: Introduction (Microsoft Learn)

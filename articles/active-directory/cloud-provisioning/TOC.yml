@@ -48,6 +48,8 @@
       items:
         - name: Mise à niveau automatique de l’agent
           href: how-to-automatic-upgrade.md
+        - name: Options de registre de l’agent
+          href: how-to-manage-registry-options.md
     - name: Développer
       items:
         - name: Transformations
