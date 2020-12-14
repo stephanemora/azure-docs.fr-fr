@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463154"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549019"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gérer sa facture dans une application IoT Central
 
@@ -34,11 +34,11 @@ Pour mener à bien ce processus en libre-service, effectuez ces étapes :
 
 1. Accédez à la page **Tarifs** de la section **Administration**.
 
-    ![État de la version d'évaluation](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="État de la version d'évaluation":::
 
 1. Sélectionnez **Convert to a paid plan** (Passer à un plan payant).
 
-    ![Convertir la version d'évaluation](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Convertir la version d'évaluation":::
 
 1. Sélectionnez le service Azure Active Directory approprié, ainsi que l’abonnement Azure à utiliser pour l’application associée au plan payant.
 
@@ -55,7 +55,7 @@ Dans la section des tarifs, vous pouvez passer à un niveau tarifaire Azure IoT
 
 1. Accédez à la page **Tarifs** de la section **Administration**.
 
-    ![Mise à niveau du plan tarifaire](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Mettre à niveau le plan tarifaire":::
 
 1. Sélectionnez le **Plan**, puis sélectionnez **Enregistrer** pour passer à un niveau tarifaire supérieur ou inférieur.
 

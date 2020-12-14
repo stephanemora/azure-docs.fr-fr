@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835507"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573882"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utiliser le rapport d’activité des applications AD FS (préversion) pour migrer des applications vers Azure AD
 
@@ -26,9 +26,10 @@ De nombreuses organisations utilisent les services de fédération Active Direct
 
 Le rapport d’activité des applications AD FS (préversion) dans le portail Azure vous permet d’identifier rapidement les applications capables de migrer vers Azure AD. Il évalue la compatibilité de toutes les applications AD FS avec Azure AD, recherche tout problème éventuel et fournit des instructions sur la préparation d’applications individuelles pour la migration. Le rapport d’activité des applications AD FS vous offre les possibilités suivantes :
 
-* **Découvrir des applications AD FS et définir l’ampleur de votre migration.** Le rapport d’activité des applications AD FS répertorie toutes les applications AD FS disponibles au sein de votre organisation, et indique leur état de préparation pour une migration vers Azure AD.
+* **Découvrir des applications AD FS et définir l’ampleur de votre migration.** Le rapport d'activité des applications AD FS répertorie toutes les applications AD FS de votre organisation qui ont fait l'objet d'une connexion utilisateur active au cours des 30 derniers jours. Le rapport indique que les applications sont prêtes pour la migration vers Azure AD. Le rapport n'affiche pas dans AD FS les parties de confiance liées à Microsoft telles qu'Office 365. Par exemple, les parties de confiance portant le nom « urn:federation:MicrosoftOnline ».
+
 * **Hiérarchiser les applications pour la migration.** Obtenez le nombre d’utilisateurs uniques qui se sont connectés à l’application au cours des 1, 7 ou 30 derniers jours afin de déterminer la criticité ou le risque de la migration de l’application.
-* **Exécuter des tests de migration et résoudre des problèmes.** Le service de génération de rapports exécute automatiquement des tests pour déterminer si une application est prête pour la migration. Les résultats sont affichés dans le rapport d’activité des applications AD FS en tant qu’état de la migration. Si des problèmes de migration potentiels sont identifiés, vous obtenez des instructions spécifiques sur la manière de les résoudre.
+* **Exécuter des tests de migration et résoudre des problèmes.** Le service de génération de rapports exécute automatiquement des tests pour déterminer si une application est prête pour la migration. Les résultats sont affichés dans le rapport d’activité des applications AD FS en tant qu’état de la migration. Si la configuration AD FS n'est pas compatible avec une configuration Azure AD, des conseils spécifiques vous sont donnés pour la configuration dans Azure AD.
 
 Les données d’activité des applications AD FS sont disponibles pour les utilisateurs auxquels est attribué l’un des rôles d’administrateur suivants : administrateur général, lecteur de rapport, lecteur de sécurité, administrateur d’application ou administrateur d’application cloud.
 
@@ -39,6 +40,9 @@ Les données d’activité des applications AD FS sont disponibles pour les util
 * L’agent Azure AD Connect Health pour AD FS doit être installé.
    * [Apprenez-en davantage sur l’intégrité d’Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Prise en main de la configuration d’Azure AD Connect Health et installation de l’agent AD FS](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Diverses raisons expliquent pourquoi toutes les applications attendues n'apparaissent pas après l'installation d'Azure AD Connect Health. Le rapport d'activité des applications AD FS affiche uniquement les parties de confiance AD ​​FS qui se sont connectées au cours des 30 derniers jours. De plus, le rapport n'affiche pas les parties de confiance liées à Microsoft telles qu'Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Découvrir les applications AD FS pouvant être migrées 
 
@@ -121,6 +125,17 @@ Le tableau suivant répertorie tous les tests de règle de revendication effectu
 |EXTERNAL_ATTRIBUTE_STORE      | La déclaration d’émission utilise un magasin d’attributs différent d’Active Directory. Actuellement, Azure AD ne reçoit pas de revendications de magasins autres qu’Active Directory ou Azure AD. Si cela vous empêche de migrer des applications vers Azure AD, [faites-le nous savoir](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | La déclaration d’émission utilise ADD pour ajouter des revendications à l’ensemble de revendications entrantes. Dans Azure AD, vous pouvez le configurer en tant que transformations de revendications multiples.  Pour plus d’informations, voir [Personnaliser des revendications émises dans le jeton SAML pour des applications d’entreprise](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | La déclaration d’émission utilise des expressions régulières pour transformer la valeur de la revendication à émettre. Pour obtenir une fonctionnalité similaire dans Azure AD, vous pouvez utiliser une transformation prédéfinie telle que Extract(), Trim(), ToLower ou autre. Pour plus d’informations, voir [Personnaliser des revendications émises dans le jeton SAML pour des applications d’entreprise](../develop/active-directory-saml-claims-customization.md).          |
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>Le rapport n'affiche pas toutes mes applications AD FS
+
+ Si vous avez installé le service Azure AD Connect Health mais que l'invite d'installation de celui-ci apparaît toujours ou que le rapport n'affiche pas toutes vos applications AD FS, il se peut que vous n'ayez pas d'applications AD FS actives ou que vos applications AD FS soient des applications Microsoft.
+ 
+ Le rapport d'activité des applications AD FS répertorie toutes les applications AD FS de votre organisation qui ont fait l'objet d'une connexion utilisateur active au cours des 30 derniers jours. En outre, le rapport n'affiche pas dans AD FS les parties de confiance liées à Microsoft telles qu'Office 365. Par exemple, les parties de confiance portant le nom « urn:federation:MicrosoftOnline », « microsoftonline » ou « microsoft:winhello:cert:prov:server » n'apparaissent pas dans la liste.
+
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

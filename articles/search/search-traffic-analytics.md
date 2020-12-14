@@ -7,20 +7,20 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91333730"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573860"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
 
 L’analyse du trafic de recherche est un modèle pour la collecte des données de télémétrie concernant les interactions de l’utilisateur avec votre application Recherche cognitive Azure, comme les événements de clic initiés par l’utilisateur et les saisies au clavier. À l’aide de ces informations, vous pouvez déterminer l’efficacité de votre solution de recherche, en vous intéressant notamment aux termes de recherche populaires, aux taux de clics et aux entrées de requête qui ne produisent aucun résultat.
 
-Ce modèle dépend d’[Application Insights](../azure-monitor/app/app-insights-overview.md) (fonctionnalité d’[Azure Monitor](../azure-monitor/index.yml)) pour collecter les données utilisateur. Vous devrez également ajouter l’instrumentation à votre code client, comme le décrit cet article. Enfin, vous aurez besoin d’un mécanisme de création de rapports pour analyser les données. Nous vous recommandons Power BI, mais vous pouvez utiliser le tableau de bord d’application n’importe quel autre outil qui se connecte à Application Insights.
+Ce modèle dépend d’[Application Insights](../azure-monitor/app/app-insights-overview.md) (fonctionnalité d’[Azure Monitor](../azure-monitor/index.yml)) pour collecter les données utilisateur. Vous devrez également ajouter l’instrumentation à votre code client, comme le décrit cet article. Enfin, vous aurez besoin d’un mécanisme de création de rapports pour analyser les données. Nous vous recommandons Power BI, mais vous pouvez utiliser le tableau de bord de l'application ou tout autre outil qui se connecte à Application Insights.
 
 > [!NOTE]
 > Le modèle décrit dans cet article est destiné aux scénarios avancés et aux données parcours générées par le code que vous ajoutez à votre client. En revanche, les journaux de service sont faciles à configurer, fournissent une variété de métriques et peuvent être gérés dans le portail sans code requis. L’activation de la journalisation est recommandée pour tous les scénarios. Pour plus d’informations, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
@@ -29,7 +29,7 @@ Ce modèle dépend d’[Application Insights](../azure-monitor/app/app-insights-
 
 Pour obtenir des mesures utiles pour l’analyse du trafic de recherche, il est nécessaire d’enregistrer certains signaux auprès des utilisateurs de votre application de recherche. Ces signaux indiquent le contenu qui intéresse les utilisateurs et qu’ils estiment pertinent. Pour l’analyse du trafic de recherche, il s’agit des éléments suivants :
 
-+ Événements de recherche générés par l’utilisateur : Ce signal se concentre uniquement sur les requêtes de recherche lancées par un utilisateur. Les requêtes de recherche utilisées pour remplir des facettes, du contenu supplémentaire ou des informations internes ne sont pas importantes ; elles ont également tendance à biaiser vos résultats.
++ Événements de recherche générés par l’utilisateur : Ce signal se concentre uniquement sur les requêtes de recherche lancées par un utilisateur. Les autres requêtes de recherche, comme celles utilisées pour renseigner des facettes ou récupérer des informations internes, ne sont pas importantes. Veillez à n'instrumenter que les événements initiés par l'utilisateur afin d'éviter que vos résultats ne soient faussés ou biaisés.
 
 + Événements de clic générés par l’utilisateur : Sur une page de résultats de recherche, un événement de clic signifie généralement qu’un document est un résultat pertinent pour une requête de recherche spécifique.
 
@@ -37,7 +37,7 @@ En liant les événements de recherche et de clic avec un ID de corrélation, vo
 
 ## <a name="add-search-traffic-analytics"></a>Ajouter la fonctionnalité Analytique du trafic des recherches
 
-Dans la page du [portail](https://portal.azure.com) de votre service Recherche cognitive Azure, la page Analytique du trafic des recherches contient un aide-mémoire pour suivre ce modèle de télémétrie. À partir de cette page, vous pouvez sélectionner ou créer une ressource Application Insights, obtenir la clé d’instrumentation, copier des extraits de code que vous pouvez adapter à votre solution et télécharger un rapport Power BI qui est créé sur le schéma reflété dans le modèle.
+Sur la page du [portail](https://portal.azure.com) de votre service Recherche cognitive Azure, ouvrez la page Analytique du trafic des recherches pour accéder à un aide-mémoire permettant de suivre ce modèle de télémétrie. À partir de cette page, vous pouvez sélectionner ou créer une ressource Application Insights, obtenir la clé d’instrumentation, copier des extraits de code que vous pouvez adapter à votre solution et télécharger un rapport Power BI qui est créé sur le schéma reflété dans le modèle.
 
 ![Page Analyse du trafic de recherche dans le portail](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Page Analyse du trafic de recherche dans le portail")
 
@@ -51,7 +51,7 @@ Un raccourci qui fonctionne pour certains types de projets Visual Studio est ref
 
 1. Pour Visual Studio et le développement ASP.NET, ouvrez votre solution et sélectionnez **Projet** > **Ajouter Application Insights Telemetry**.
 
-1. Cliquez sur **Prise en main**.
+1. Cliquez sur **Mise en route**.
 
 1. Inscrivez votre application en fournissant un compte Microsoft, un abonnement Azure et une ressource Application Insights (une nouvelle ressource par défaut). Cliquez sur **S'inscrire**.
 
@@ -61,7 +61,7 @@ Un raccourci qui fonctionne pour certains types de projets Visual Studio est ref
 
 Cette étape consiste à instrumenter votre propre application de recherche, à l’aide de la ressource Application Insights que vous avez créée à l’étape précédente. Il y a quatre étapes pour ce processus, en commençant par la création d’un client de télémétrie.
 
-### <a name="step-1-create-a-telemetry-client"></a>Étape 1 : Créer un client de télémétrie
+### <a name="step-1-create-a-telemetry-client"></a>Étape 1 : Créer un client de télémétrie
 
 Créez un objet qui envoie des événements à Application Insights. Vous pouvez ajouter l’instrumentation à votre code d’application côté serveur ou au code côté client s’exécutant dans un navigateur, exprimé ici en variantes C# et JavaScript (pour les autres langages, consultez la liste complète des [plateformes et frameworks pris en charge](../azure-monitor/app/platforms.md). Choisissez l’approche qui vous donne la profondeur d’informations souhaitée.
 
@@ -71,7 +71,7 @@ Sur le client, vous pouvez avoir du code supplémentaire qui manipule les entré
 
 **Utiliser C#**
 
-Pour C#, **InstrumentationKey** se trouve dans la configuration de votre application, par exemple appsettings.json si vous avez un projet ASP.NET. Reportez-vous aux instructions d’enregistrement si vous avez des doutes sur l’emplacement de la clé.
+Pour C#, **InstrumentationKey** doit être défini dans la configuration de votre application, par exemple appsettings.json si vous avez un projet ASP.NET. Reportez-vous aux instructions d’enregistrement si vous avez des doutes sur l’emplacement de la clé.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,9 +98,26 @@ window.appInsights=appInsights;
 
 Pour mettre en corrélation les requêtes de recherche avec les clics, il est nécessaire de disposer d’un ID de corrélation qui lie ces deux événements distincts. La Recherche cognitive Azure vous fournit un ID de recherche avec un en-tête HTTP.
 
-Le fait de disposer de l’ID de recherche permet de corréler les métriques émises par la Recherche cognitive Azure pour la requête elle-même avec les métriques personnalisées que vous consignez dans Application Insights.  
+Le fait de disposer de l’ID de recherche permet de corréler les métriques émises par la Recherche cognitive Azure pour la requête elle-même avec les métriques personnalisées que vous consignez dans Application Insights.
 
-**Utiliser C#**
+**Utiliser C# (SDK v11 plus récent)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Utiliser C# (SDK v10 plus ancien)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -209,9 +226,9 @@ appInsights.trackEvent("Click", {
 
 Après avoir instrumenté votre application et vérifié qu’elle est correctement connectée à Application Insights, vous pouvez télécharger un modèle de rapport prédéfini pour analyser les données dans Power BI Desktop. Le rapport contient des graphiques et des tableaux prédéfinis utiles pour analyser les données supplémentaires capturées pour l’analytique du trafic des recherches.
 
-1. Dans le volet de navigation de gauche du tableau de bord de la Recherche cognitive Azure, sous **Paramètres** , cliquez sur **Analytique du trafic des recherches**.
+1. Dans le volet de navigation de gauche du tableau de bord de la Recherche cognitive Azure, sous **Paramètres**, cliquez sur **Analytique du trafic des recherches**.
 
-1. Dans la page **Analytique du trafic des recherches** , à l’étape 3, cliquez sur **Obtenir Power BI Desktop** pour installer Power BI.
+1. Dans la page **Analytique du trafic des recherches**, à l’étape 3, cliquez sur **Obtenir Power BI Desktop** pour installer Power BI.
 
    ![Obtenir des rapports Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Obtenir des rapports Power BI")
 

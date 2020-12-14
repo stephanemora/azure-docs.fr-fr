@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350260"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549002"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -46,8 +46,9 @@ Le type de cluster ML Services HDInsight 3.6 ne sera plus pris en charge au 31�
 ### <a name="disabled-vm-sizes"></a>Tailles de machine virtuelle désactivées
 À compter du 16 novembre 2020, HDInsight bloquera les nouveaux clients qui créent des clusters en utilisant les tailles de machine virtuelle standand_A8, standand_A9, standand_A10 et standand_A11. Les clients existants qui ont utilisé ces tailles de machine virtuelle au cours des trois derniers mois ne seront pas concernés. À compter du 9 janvier 2021, HDInsight bloquera tous les clients qui créent des clusters en utilisant les tailles de machine virtuelle standand_A8, standand_A9, standand_A10 et standand_A11. Les clusters existants fonctionneront tels quels. Envisagez de migrer vers HDInsight 4.0 pour éviter une éventuelle interruption du système ou du support.
 
-### <a name="behavior-changes"></a>Changements de comportement
-Cette version n’est associée à aucun changement de comportement.
+## <a name="behavior-changes"></a>Changements de comportement
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Ajout la vérification de la règle NSG avant l'opération de mise à l'échelle
+HDInsight a ajouté la vérification des groupes de sécurité réseau (NSG) et des itinéraires définis par l'utilisateur (UDR) à l'opération de mise à l'échelle. La même validation intervient pour la mise à l'échelle des clusters en plus de leur création. Cette validation permet d'éviter les erreurs imprévisibles. Si la validation échoue, la mise à l'échelle échoue également. Pour en savoir plus sur la configuration des NSG et des UDR, reportez-vous à la section [Adresses IP de gestion HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Changements à venir
 Les changements suivants se produiront dans les prochaines versions.

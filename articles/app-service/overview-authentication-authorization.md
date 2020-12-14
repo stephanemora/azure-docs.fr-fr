@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008444"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601677"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
@@ -166,6 +166,7 @@ Guides pratiques propres à chaque fournisseur :
 * [Comment configurer votre application pour utiliser une connexion par compte Microsoft][MSA]
 * [Comment configurer votre application pour utiliser une connexion Twitter][Twitter]
 * [Comment configurer votre application pour utiliser un fournisseur OpenID Connect pour la connexion (préversion)][OIDC]
+* [Configurer votre application pour utiliser une connexion avec Apple (préversion)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
@@ -173,6 +174,7 @@ Guides pratiques propres à chaque fournisseur :
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
+[Apple]: configure-authentication-provider-apple.md
 
 [custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Découvrez comment résoudre les problèmes courants liés à l’activation et à l’utilisation d’Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636807"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548866"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Résolution des problèmes Azure Dev Spaces
 
@@ -378,6 +378,17 @@ spec:
     spec:
       [...]
 ```
+
+### <a name="error-cannot-get-connection-details-for-azure-dev-spaces-controller-abc-because-it-is-in-the-failed-state-something-wrong-might-have-happened-with-your-controller"></a>Erreur « Impossible d'accéder aux détails de connexion du contrôleur Azure Dev Spaces 'ABC' car il a échoué. Votre contrôleur a peut-être rencontré un problème. »
+
+Pour résoudre ce problème, essayez de supprimer le contrôleur Azure Dev Spaces du cluster et de le réinstaller :
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+En outre, étant donné que la mise hors service d'Azure Dev Spaces est en cours, vous devez envisager de [migrer vers Bridge to Kubernetes](migrate-to-bridge-to-kubernetes.md) qui offre une meilleure expérience.
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Problèmes courants liés à l’utilisation de Visual Studio et de Visual Studio Code avec Azure Dev Spaces
 

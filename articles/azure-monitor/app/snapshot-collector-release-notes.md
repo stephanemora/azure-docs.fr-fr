@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542726"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548169"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notes de publication pour Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -22,6 +22,11 @@ Pour obtenir des rapports de bogues et des commentaires, ouvrez un problème sur
 
 ## <a name="release-notes"></a>Notes de publication
 
+## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+Version intermédiaire qui résout un problème découvert lors du test du scénario d'attachement sans code d'Azure App Service.
+### <a name="changes"></a>Modifications
+- La cible netcoreapp3.0 dépend désormais de Microsoft.ApplicationInsights.AspNetCore version 2.1.1 (anciennement 2.1.2).
+
 ## <a name="1373"></a>[1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 Une version mineure corrective qui résout quelques problèmes à fort impact.
 ### <a name="bug-fixes"></a>Résolution des bogues
@@ -30,9 +35,9 @@ Une version mineure corrective qui résout quelques problèmes à fort impact.
 
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>Modifications
-La cible netcoreapp2.0 de SnapshotCollector dépend de Microsoft.ApplicationInsights.AspNetCore version 2.1.1 ou supérieure (de nouveau). Cela rétablit le comportement antérieur à la version 1.3.5. Nous avons essayé de la mettre à niveau dans la version 1.3.6, mais cela a rompu certains scénarios Azure App Service.
+- La cible netcoreapp2.0 de SnapshotCollector dépend de Microsoft.ApplicationInsights.AspNetCore version 2.1.1 ou supérieure (de nouveau). Cela rétablit le comportement antérieur à la version 1.3.5. Nous avons essayé de la mettre à niveau dans la version 1.3.6, mais cela a rompu certains scénarios Azure App Service.
 ### <a name="new-features"></a>Nouvelles fonctionnalités
-Snapshot Collector lit et analyse ConnectionString à partir de la variable d’environnement APPLICATIONINSIGHTS_CONNECTION_STRING ou de TelemetryConfiguration. Cela sert essentiellement à définir le point de terminaison pour la connexion au service de capture instantanée. Pour plus d’informations, consultez la [documentation sur les chaînes de connexion](./sdk-connection-string.md).
+- Snapshot Collector lit et analyse ConnectionString à partir de la variable d’environnement APPLICATIONINSIGHTS_CONNECTION_STRING ou de TelemetryConfiguration. Cela sert essentiellement à définir le point de terminaison pour la connexion au service de capture instantanée. Pour plus d’informations, consultez la [documentation sur les chaînes de connexion](./sdk-connection-string.md).
 ### <a name="bug-fixes"></a>Résolution des bogues
 - Basculement vers l’utilisation de HttpClient pour toutes les cibles, à l’exception de Net45, car WebRequest échouait dans certains environnements en raison d’une incompatibilité de SecurityProtocol (nécessite TLS 1.2).
 

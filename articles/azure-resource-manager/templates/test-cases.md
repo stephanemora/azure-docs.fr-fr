@@ -2,15 +2,15 @@
 title: Cas de test pour la boîte à outils de test
 description: Décrit les tests qui sont exécutés par la boîte à outils de test de modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378115"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600902"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
@@ -137,9 +137,11 @@ L’exemple suivant **réussit** ce test.
 
 Nom du test : **L’emplacement ne doit pas être codé en dur**
 
-Les utilisateurs de votre modèle peuvent disposer de régions limitées. Lorsque vous définissez l’emplacement de la ressource sur `"[resourceGroup().location]"`, le groupe de ressources peut avoir été créé dans une région à laquelle les autres utilisateurs ne peuvent pas accéder. L’utilisation du modèle est bloquée pour ces utilisateurs.
+Vos modèles doivent comporter un paramètre d'emplacement nommé. Utilisez ce paramètre pour définir l'emplacement des ressources dans votre modèle. Dans le modèle principal (nommé azuredeploy.json ou mainTemplate.json), ce paramètre peut correspondre par défaut à l'emplacement du groupe de ressources. Dans les modèles liés ou imbriqués, le paramètre d'emplacement ne doit pas comporter d'emplacement par défaut.
 
-Lorsque vous définissez l’emplacement de chaque ressource, utilisez un paramètre qui a comme valeur par défaut l’emplacement du groupe de ressources. En fournissant ce paramètre, les utilisateurs peuvent utiliser la valeur par défaut quand cela est pratique, mais également spécifier un autre emplacement.
+Les utilisateurs de votre modèle peuvent disposer de régions limitées. Lorsque vous codez en dur l'emplacement des ressources, les utilisateurs peuvent ne pas être en mesure de créer une ressource dans cette région. Ils peuvent être bloqués même si vous définissez l'emplacement des ressources sur `"[resourceGroup().location]"`. Le groupe de ressources peut avoir été créé dans une région à laquelle les autres utilisateurs n'ont pas accès. L’utilisation du modèle est bloquée pour ces utilisateurs.
+
+En fournissant un paramètre d'emplacement qui correspond par défaut à l'emplacement du groupe de ressources, les utilisateurs peuvent utiliser la valeur par défaut quand cela leur convient, mais aussi spécifier un autre emplacement.
 
 L’exemple suivant **échoue** à ce test, car l’emplacement de la ressource est défini sur `resourceGroup().location`.
 
@@ -195,7 +197,7 @@ Le prochain exemple utilise un paramètre d’emplacement mais **échoue** à ce
 }
 ```
 
-Au lieu de cela, créez un paramètre qui a pour valeur par défaut l’emplacement du groupe de ressources, mais qui permet aux utilisateurs de fournir une valeur différente. L’exemple suivant **réussit** ce test.
+Au lieu de cela, créez un paramètre qui a pour valeur par défaut l’emplacement du groupe de ressources, mais qui permet aux utilisateurs de fournir une valeur différente. L'exemple suivant **réussit** ce test lorsque le modèle est utilisé comme modèle principal.
 
 ```json
 {
@@ -227,6 +229,8 @@ Au lieu de cela, créez un paramètre qui a pour valeur par défaut l’emplacem
     "outputs": {}
 }
 ```
+
+En revanche, si l'exemple précédent est utilisé comme modèle lié, le test **échoue**. Lorsqu'il est utilisé comme modèle lié, supprimez la valeur par défaut.
 
 ## <a name="resources-should-have-location"></a>Les ressources doivent avoir un emplacement
 
