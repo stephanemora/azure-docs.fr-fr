@@ -39,10 +39,10 @@ Pour supprimer un mode de paiement pour un Contrat client Microsoft, effectuez l
 1. Dans la liste du menu de gauche, sous **Facturation**, sélectionnez **Profils de facturation**.  
     :::image type="content" source="./media/delete-azure-payment-method/billing-profiles.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" lightbox="./media/delete-azure-payment-method/billing-profiles.png" :::
 1. Dans la liste des profils de facturation, sélectionnez celui où le mode de paiement est utilisé.  
-    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Exemple d’image montrant la liste de profils de facturation" :::
 1. Dans la liste du menu de gauche, sous **Paramètres**, sélectionnez **Modes de paiement**.
 1. Dans la page Modes de paiement de votre profil de facturation, un tableau des modes de paiement est affiché sous la section **Vos cartes de crédit**. Recherchez la carte de crédit à supprimer, sélectionnez les points de suspension ( **...** ), puis **Supprimer**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Exemple montrant où supprimer une carte de crédit" :::
 1. La page Supprimer un mode de paiement s’affiche. Azure vérifie si le mode de paiement est en cours d’utilisation.
     - Si le mode de paiement n’est pas utilisé, l’option **Supprimer** est activée. Sélectionnez-la pour supprimer les informations de carte de crédit.
     - Si le mode de paiement est utilisé, il doit être remplacé ou détaché. Poursuivez la lecture des sections suivantes. Elles expliquent comment **détacher** le mode de paiement utilisé par votre abonnement.
@@ -51,7 +51,7 @@ Pour supprimer un mode de paiement pour un Contrat client Microsoft, effectuez l
 
 Si votre mode de paiement est utilisé par un profil de facturation MCA, un message semblable à l’exemple suivant s’affiche.
 
-:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Exemple d’image montrant qu’un mode de paiement est utilisé par un Contrat client Microsoft" :::
 
 Pour détacher un mode de paiement, une liste de conditions doit être remplie. Si une des conditions n’est pas remplie, des instructions apparaissent pour vous expliquer comment la satisfaire. De même, un lien apparaît pour vous pour diriger vers l’emplacement où vous pouvez résoudre la condition.
 
@@ -65,7 +65,7 @@ Dès lors que toutes les conditions sont satisfaites, vous pouvez détacher le m
 1. Dans la zone Supprimer un mode de paiement, sélectionnez le lien **Détacher le mode de paiement actif**.
 1. Si toutes les conditions sont remplies, sélectionnez **Détacher**. Sinon, passez à l’étape suivante.
 1. Si l’option Détacher n’est pas disponible, une liste de conditions s’affiche. Effectuez les actions listées. Sélectionnez le lien figurant dans la zone Détacher le mode de paiement par défaut. Voici un exemple d’action corrective qui explique les actions que vous devez entreprendre.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Exemple montrant l’action corrective nécessaire au détachement d’un mode de paiement pour MCA" :::
 1. Quand vous sélectionnez le lien d’une action corrective, vous êtes redirigé vers la page Azure où vous pouvez effectuer l’action. Prenez toutes les mesures de correction nécessaires.
 1. Si besoin, effectuez toutes les autres actions correctives.
 1. Revenez à **Cost Management + Billing** > **Profils de facturation** > **Modes de paiement**. Sélectionnez **Détacher**. Au bas de la page Détacher le mode de paiement par défaut, sélectionnez **Détacher**.
@@ -86,10 +86,10 @@ Si votre mode de paiement est utilisé par un abonnement MOSP, effectuez les ét
 1. Dans la liste du menu de gauche, sous **Paramètres**, sélectionnez **Modes de paiement**.
 1. Dans la zone Modes de paiement, sélectionnez la _ligne_ où figure votre mode de paiement. Ne sélectionnez pas le lien du mode de paiement. Vous n’êtes pas nécessairement informé visuellement que vous avez sélectionné le mode de paiement.
 1. Sélectionnez **Supprimer**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Exemple montrant l’action corrective nécessaire au détachement d’un mode de paiement pour MOSP" :::
 1. Dans la zone Supprimer un mode de paiement, sélectionnez **Supprimer** si toutes les conditions sont remplies. Si l’option Supprimer n’est pas disponible, passez à l’étape suivante.
 1. Une liste de conditions s’affiche. Effectuez les actions listées. Sélectionnez le lien figurant dans la zone Détacher un mode de paiement.  
-    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Exemple de capture d’écran montrant Profils de facturation sur le portail Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Exemple d’image montrant qu’un mode de paiement est utilisé par un abonnement MOSP" :::
 1. Quand vous sélectionnez le lien d’une action corrective, vous êtes redirigé vers la page Azure où vous pouvez effectuer l’action. Prenez toutes les mesures de correction nécessaires.
 1. Si besoin, effectuez toutes les autres actions correctives.
 1. Revenez à **Cost Management + Billing** > **Profils de facturation** > **Modes de paiement** et supprimez le mode de paiement.
