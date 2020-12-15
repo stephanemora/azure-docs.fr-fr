@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236922"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921618"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -30,7 +30,7 @@ Voici quelques concepts de base relatifs à Microsoft Azure Attestation.
 
 Le fournisseur d’attestations appartient au fournisseur de ressources Azure nommé Microsoft.Attestation. Le fournisseur de ressources est un point de terminaison de service qui fournit un contrat REST Azure Attestation et qui est déployé à l’aide d’[Azure Resource Manager](../azure-resource-manager/management/overview.md). Chaque fournisseur d’attestations honore une stratégie spécifique et détectable. 
 
-Les fournisseurs d’attestations sont créés avec une stratégie par défaut pour chaque type d’environnement d’exécution approuvé (TEE, Trusted Execution Environment) (notez que l’enclave VBS n’a pas de stratégie par défaut). Pour plus d’informations sur la stratégie par défaut pour SGX, consultez [Exemples de stratégie d’attestation](policy-examples.md).
+Les fournisseurs d’attestations sont créés avec une stratégie par défaut pour chaque type d’attestation (notez que l’enclave VBS n’a pas de stratégie par défaut). Pour plus d’informations sur la stratégie par défaut pour SGX, consultez [Exemples de stratégie d’attestation](policy-examples.md).
 
 ### <a name="regional-default-provider"></a>Fournisseur par défaut régional
 
@@ -38,11 +38,11 @@ Azure Attestation fournit un fournisseur par défaut dans chaque région. Les cl
 
 | Région | URI d’attestation | 
 |--|--|
-| Sud du Royaume-Uni | https://shareduks.uks.attest.azure.net | 
-| USA Est 2 | https://sharedeus2.eus2.attest.azure.net | 
-| USA Centre | https://sharedcus.cus.attest.azure.net | 
-| USA Est| https://sharedeus.eus.attest.azure.net | 
-| Centre du Canada | https://sharedcac.cac.attest.azure.net | 
+| Sud du Royaume-Uni | `https://shareduks.uks.attest.azure.net` | 
+| USA Est 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| USA Centre | `https://sharedcus.cus.attest.azure.net` | 
+| USA Est| `https://sharedeus.eus.attest.azure.net` | 
+| Centre du Canada | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Demande d’attestation
 
@@ -50,13 +50,13 @@ La demande d’attestation est un objet JSON sérialisé envoyé par une applica
 - « Quote » : la valeur de la propriété « Quote » est une chaîne contenant une représentation encodée Base64URL de la déclaration d’attestation
 - « EnclaveHeldData » : la valeur de la propriété « EnclaveHeldData » est une chaîne contenant une représentation encodée Base64URL des données détenues par l’enclave.
 
-Azure Attestation valide la déclaration fournie par l’environnement TEE, puis s’assure que le hachage SHA256 des données détenues par l’enclave est exprimé dans les 32 premiers octets du champ reportData de la déclaration. 
+Azure Attestation valide le « Quote » fourni et vérifie ensuite que le hachage SHA256 des données détenues par l’enclave est exprimé dans les 32 premiers octets du champ reportData du Quote. 
 
 ## <a name="attestation-policy"></a>Stratégie d’attestation
 
 La stratégie d’attestation est utilisée pour traiter la preuve d’attestation et peut être configurée par les clients. Au cœur d’Azure Attestation se trouve un moteur de stratégie, qui traite les revendications constituant la preuve. Les stratégies sont utilisées pour déterminer si Azure Attestation doit émettre un jeton d’attestation en fonction de la preuve (ou non) et, ainsi, endosser l’attesteur (ou non). En conséquence, si le traitement par toutes les stratégies n’est pas couronné de succès, aucun jeton JWT n’est émis.
 
-Si la stratégie TEE par défaut dans le fournisseur d’attestations ne répond pas aux besoins, les clients peuvent créer des stratégies personnalisées dans l’une des régions prises en charge par Azure Attestation. La gestion des stratégies est une fonctionnalité clé fournie aux clients par Azure Attestation. Les stratégies sont propres à l’environnement TEE et peuvent être utilisées pour identifier les enclaves, ajouter des revendications au jeton de sortie ou modifier des revendications dans un jeton de sortie. 
+Si la stratégie par défaut dans le fournisseur d’attestations ne répond pas aux besoins, les clients peuvent créer des stratégies personnalisées dans l’une des régions prises en charge par Azure Attestation. La gestion des stratégies est une fonctionnalité clé fournie aux clients par Azure Attestation. Les stratégies sont propres au type d’attestation et peuvent être utilisées pour identifier les enclaves, ajouter ou modifier des revendications dans un jeton de sortie. 
 
 Consultez [Exemples de stratégie d’attestation](policy-examples.md) pour connaître le contenu par défaut des stratégies et obtenir des exemples de stratégie.
 
@@ -99,6 +99,15 @@ Exemple de jeton JWT généré pour une enclave SGX :
 }.[Signature]
 ```
 Les revendications telles que « exp », « iat », « iss » et « nbf » sont définies par le [document RFC JWT](https://tools.ietf.org/html/rfc7517), tandis que les autres sont générées par Azure Attestation. Pour plus d’informations, consultez les [revendications émises par Azure Attestation](claim-sets.md).
+
+## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
+
+Pour protéger les données des clients, Azure Attestation conserve ses données dans Stockage Azure. Stockage Azure assure un chiffrement des données au repos à mesure qu’elles sont écrites dans les centres de données et les déchiffre pour permettre aux clients d’y accéder. Ce chiffrement s'effectue à l'aide d'une clé de chiffrement gérée par Microsoft. 
+
+En plus de protéger les données dans Stockage Azure, Azure Attestation tire également parti d’Azure Disk Encryption (ADE) pour chiffrer les machines virtuelles du service. Pour Azure Attestation s’exécutant dans une enclave au sein d’environnements informatiques confidentiels Azure, l’extension ADE n’est actuellement pas prise en charge. En pareil cas, pour empêcher que les données soient stockées en mémoire, le fichier d’échange est désactivé. 
+
+Les données des clients ne sont en aucun cas conservées sur les lecteurs de disque dur locaux de l’instance Azure Attestation.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

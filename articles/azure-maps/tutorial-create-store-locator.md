@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896847"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905772"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -81,13 +81,13 @@ Vous pouvez [télécharger le classeur Excel](https://github.com/Azure-Samples/A
 * D’autres colonnes contiennent des métadonnées sur les cafés : un numéro de téléphone, des colonnes booléennes, ainsi que les heures d’ouverture et de fermeture au format 24 heures. Les colonnes booléennes sont destinées au Wi-Fi et à l’accessibilité pour les personnes en fauteuil roulant. Vous pouvez créer vos propres colonnes contenant des métadonnées plus en rapport avec vos données d’emplacement.
 
 > [!NOTE]
-> Azure Maps affiche les données dans la projection Mercator sphérique « EPSG:3857 », mais lit les données dans « EPSG:4325 » qui utilisent la donnée WGS84.
+> Azure Maps affiche les données dans la projection Mercator sphérique « EPSG:3857 », mais lit les données dans « EPSG:4326 » qui utilisent la donnée WGS84.
 
 Il existe de nombreuses façons d’exposer le jeu de données à l’application. Une approche consiste à charger les données dans une base de données et à exposer un service web qui les interroge. Vous pouvez ensuite envoyer les résultats au navigateur de l’utilisateur. Cette option est idéale pour les jeux de données volumineux ou qui sont fréquemment mis à jour. Cependant, elle demande plus de travail de développement et son coût de revient est plus élevé.
 
 Une autre approche consiste à convertir le jeu de données en fichier texte plat que le navigateur peut analyser facilement. Le fichier lui-même peut être hébergé avec le reste de l’application. Simple de conception, cette option doit cependant être réservée aux jeux de données peu volumineux, car l’utilisateur télécharge toutes les données. Pour ce jeu de données, nous optons pour le fichier texte plat dans la mesure où la taille du fichier de données est inférieure à 1 Mo.  
 
-Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous** . Dans la liste déroulante **Type de fichier** , sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt* .
+Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*.
 
 ![Capture d’écran de la boîte de dialogue Type de fichier](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Si vous ouvrez le fichier texte dans le Bloc-notes, il se présente comme suit 
 
 ## <a name="set-up-the-project"></a>Configuration du projet
 
-Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html* , *index.css* , et *index.js* . Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt* . Créez un autre dossier nommé *images* . Cette application utilise 10 images pour les icônes, les boutons et les marqueurs sur la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
+Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html*, *index.css*, et *index.js*. Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt*. Créez un autre dossier nommé *images*. Cette application utilise 10 images pour les icônes, les boutons et les marqueurs sur la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
 
 ![Capture d’écran du dossier du projet de localisateur de magasin simple](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Créer l’interface utilisateur
 
-Pour créer l’interface utilisateur, ajoutez le code à *index.html*  :
+Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
 
-1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html* . La balise `charset` définit le jeu de caractères (UTF-8). La valeur de `http-equiv` indique à Internet Explorer et à Microsoft Edge d’utiliser les versions les plus récentes du navigateur. De plus, la dernière balise `meta` spécifie une fenêtre d’affichage qui fonctionne bien pour les dispositions dynamiques.
+1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html*. La balise `charset` définit le jeu de caractères (UTF-8). La valeur de `http-equiv` indique à Internet Explorer et à Microsoft Edge d’utiliser les versions les plus récentes du navigateur. De plus, la dernière balise `meta` spécifie une fenêtre d’affichage qui fonctionne bien pour les dispositions dynamiques.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Pour créer l’interface utilisateur, ajoutez le code à *index.html*  :
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Ajoutez des références à *index.js* et *index.css*  :
+1. Ajoutez des références à *index.js* et *index.css* :
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Ajoutez du code à *index.js* . Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](/javascript/api/azure-maps-control/atlas.map#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
+1. Ajoutez du code à *index.js*. Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](/javascript/api/azure-maps-control/atlas.map#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
 
    Quand l’utilisateur sélectionne le bouton de recherche, ou tape une localisation dans la zone de recherche puis appuie sur Entrée, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays/régions à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
@@ -432,7 +432,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

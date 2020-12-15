@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489035"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921036"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -34,7 +34,7 @@ Les données utilisées dans ce lab sont des données relatives aux taxis de New
 
 * **Compte de stockage Azure Data Lake Storage Gen2** : Si vous n’avez pas de compte de stockage ADLS Gen2, découvrez comment [créer un compte de stockage ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anciennement SQL DW)**  : Si vous n’avez pas Azure Synapse Analytics (anciennement SQL DW), découvrez comment [créer une instance d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics** : Si vous n’avez pas Azure Synapse Analytics, découvrez comment [créer une instance d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory** : Si vous n’avez pas créé de fabrique de données, découvrez comment [créer une fabrique de données](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Créer un service lié Azure Synapse Analytics
 
-1. Répétez le même processus pour ajouter un service lié Azure Synapse Analytics. Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Synapse Analytics (anciennement SQL DW)** , puis cliquez sur Continue.
+1. Répétez le même processus pour ajouter un service lié Azure Synapse Analytics. Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Synapse Analytics**, puis cliquez sur Continuer.
 
     ![Configuration du portail 6](media/lab-data-flow-data-share/configure6.png)
 1. Dans le volet de configuration du service lié, entrez « SQLDW » en tant que nom de service lié. Entrez vos informations d’identification pour permettre à la fabrique de données de se connecter à votre base de données. Si vous utilisez l’authentification SQL, entrez le nom du serveur, la base de données, votre nom d’utilisateur et le mot de passe. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
@@ -226,7 +226,7 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
     ![Jointure dans le portail 1](media/lab-data-flow-data-share/join1.png)
 1. Nommez votre transformation de jointure « InnerJoinWithTripFares ». Sélectionnez « TripFaresSQL » dans la liste déroulante de flux de droite. Sélectionnez le type de jointure **Inner** (Interne). Pour en savoir plus sur les différents types de jointure dans le flux de données de mappage, consultez [Types de jointure](./data-flow-join.md#join-types).
 
-    Sélectionnez les colonnes auxquelles vous souhaitez faire correspondre chaque flux via la liste déroulante **Join conditions** (Conditions de jointure). Pour ajouter une condition de jointure supplémentaire, cliquez sur l’icône représentant un signe plus à côté d’une condition existante. Par défaut, toutes les conditions de jointure sont associées à un opérateur AND, ce qui signifie que toutes les conditions doivent être remplies pour une correspondance. Dans ce lab, nous souhaitons faire correspondre les colonnes `medallion`, `hack_license`, `vendor_id` et `pickup_datetime`
+    Sélectionnez les colonnes auxquelles vous souhaitez faire correspondre chaque flux via la liste déroulante **Join conditions** (Conditions de jointure). Pour ajouter une condition de jointure supplémentaire, cliquez sur l’icône représentant un signe plus à côté d’une condition existante. Par défaut, toutes les conditions de jointure sont associées à un opérateur AND, ce qui signifie que toutes les conditions doivent être remplies pour avoir une correspondance. Dans ce lab, nous souhaitons faire correspondre les colonnes `medallion`, `hack_license`, `vendor_id` et `pickup_datetime`
 
     ![Jointure dans le portail 2](media/lab-data-flow-data-share/join2.png)
 1. Vérifiez que vous avez correctement effectué la jointure de 25 colonnes à l’aide d’un aperçu des données.
@@ -274,7 +274,7 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
 
     ![Récepteur dans le portail 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Sélectionnez la vignette **Azure Synapse Analytics (anciennement SQL DW)** , puis cliquez sur Continue.
+1. Sélectionnez la vignette **Azure Synapse Analytics**, puis cliquez sur Continuer.
 
     ![Récepteur dans le portail 3](media/lab-data-flow-data-share/sink3.png)
 1. Appelez votre jeu de données « AggregatedTaxiData ». Sélectionnez « SQLDW » en tant que service lié. Sélectionnez **Create new table** (Créer une table), puis nommez la nouvelle table dbo.AggregateTaxiData. Une fois que vous avez fini, cliquez sur OK

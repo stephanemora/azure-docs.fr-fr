@@ -1,21 +1,21 @@
 ---
 title: Tutoriel - Ajouter des sorties au modèle
-description: Ajoutez des sorties à votre modèle Azure Resource Manager pour simplifier la syntaxe.
+description: Ajoutez des sorties à votre modèle Azure Resource Manager (modèle ARM) pour simplifier la syntaxe.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613864"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931739"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutoriel : Ajouter des sorties à votre modèle ARM
 
-Dans ce tutoriel, vous allez apprendre à retourner une valeur à partir de votre modèle Azure Resource Manager (ARM). Vous utilisez des sorties lorsque vous avez besoin d’une valeur provenant d’une ressource déployée. Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à retourner une valeur à partir de votre modèle Azure Resource Manager (modèle ARM). Vous utilisez des sorties lorsque vous avez besoin d’une valeur provenant d’une ressource déployée. Ce tutoriel dure environ **7 minutes**.
 
 ## <a name="prerequisites"></a>Prérequis
 

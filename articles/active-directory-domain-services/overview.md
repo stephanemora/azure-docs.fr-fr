@@ -2,21 +2,21 @@
 title: Présentation des services de domaine Azure Active Directory | Microsoft Docs
 description: Dans cette vue d’ensemble, découvrez ce qui est fourni par Azure Active Directory Domain Services et comment l’utiliser dans votre organisation pour fournir des services d’identité aux applications et services dans le cloud.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
-ms.author: joflore
+ms.date: 12/03/2020
+ms.author: justinha
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967985"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619111"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégratio
 
 Quand vous créez un domaine managé Azure AD DS, vous définissez un espace de noms unique. Cet espace de noms est le nom de domaine, par exemple *aaddscontoso.com*. Deux contrôleurs de domaine Windows Server sont ensuite déployés dans votre région Azure sélectionnée. Ce déploiement de contrôleurs de domaine est appelé jeu de réplicas.
 
-Vous n’avez pas besoin de gérer, configurer ou mettre à jour ces contrôleurs de domaine. La plateforme Azure gère les contrôleurs de domaine comme faisant partie du domaine managé, y compris les sauvegardes.
+Vous n’avez pas besoin de gérer, configurer ou mettre à jour ces contrôleurs de domaine. La plateforme Azure gère les contrôleurs de domaine comme faisant partie du domaine managé, y compris les sauvegardes et le chiffrement au repos utilisant Azure Disk Encryption.
 
 Un domaine managé est configuré pour effectuer une synchronisation unidirectionnelle à partir d’Azure AD, afin de fournir l’accès à un ensemble centralisé d’utilisateurs, de groupes et d’informations d’identification. Vous pouvez créer des ressources directement dans le domaine managé, mais elles ne sont pas resynchronisées sur Azure AD. Dans Azure, les applications, les services et les machines virtuelles qui se connectent au domaine managé peuvent ensuite utiliser des fonctionnalités AD DS courantes telles que la jonction de domaine, la stratégie de groupe, LDAP et l’authentification Kerberos/NTLM.
 

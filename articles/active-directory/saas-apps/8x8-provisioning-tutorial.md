@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181150"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558859"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutoriel : Configurer 8x8 pour l’approvisionnement automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à suivre dans le Configuration Manager de 8x8 et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et déprovisionne automatiquement des utilisateurs et des groupes pour [8x8](https://www.8x8.com) à l’aide du service Approvisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Ce tutoriel décrit les étapes à suivre à la fois dans la Console d’administration 8x8 et Azure Active Directory (Azure AD) pour configurer l’attribution automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et déprovisionne automatiquement des utilisateurs et des groupes pour [8x8](https://www.8x8.com) à l’aide du service Approvisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
 * Un abonnement 8x8 de série X de n’importe quel niveau.
-* Un compte d’utilisateur 8x8 disposant d’une autorisation d’administrateur dans [Configuration Manager](https://vo-cm.8x8.com).
+* Un compte d’utilisateur 8x8 disposant d’une autorisation d’administrateur dans la [Console d’administration](https://vo-cm.8x8.com).
 * L’[authentification unique avec Azure AD](./8x8virtualoffice-tutorial.md) a déjà été configurée.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -48,19 +48,19 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 Cette section vous guide tout au long des étapes de configuration de 8x8 pour la prise en charge de l’approvisionnement avec Azure AD.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Pour configurer un jeton d’accès d’attribution d’utilisateurs dans le Configuration Manager de 8x8 :
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>Pour configurer un jeton d’accès d’attribution d’utilisateurs dans la Console d’administration 8x8 :
 
-1. Connectez-vous à [Configuration Manager](https://vo-cm.8x8.com). Sélectionnez **Gestion des identités**.
+1. Connectez-vous à la [Console d’administration](https://admin.8x8.com). Sélectionnez **Gestion des identités**.
 
-   ![Gestion des identités](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Administrateur](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Cliquez sur le lien **Afficher les informations d’attribution d’utilisateurs** pour générer un jeton.
 
-   ![Afficher l’attribution d’utilisateurs](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Afficher](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copiez les valeurs d’**URL de 8x8** et **Jeton d’API 8x8**. Ces valeurs doivent être entrées respectivement dans les champs **Tenant URL** (URL de locataire) et **Secret Token** (Jeton secret) sous l’onglet Provisioning (Approvisionnement) de votre application 8x8 dans le portail Azure.
 
-   ![Copier l’URL et le jeton](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Jeton](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter 8x8 à partir de la galerie d’applications Azure AD
 
@@ -102,7 +102,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, copiez la l’**URL de 8x8** de Configuration Manager vers **URL du locataire**. Copiez la valeur de **Jeton d’API 8x8** de Configuration Manager vers **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 8x8. Si la connexion échoue, vérifiez que votre compte 8x8 dispose d’autorisations d’administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, copiez l’**URL de 8x8** de la Console d’administration vers **URL du locataire**. Copiez la valeur de **Jeton d’API 8x8** de la Console d’administration vers **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à 8x8. Si la connexion échoue, vérifiez que votre compte 8x8 dispose d’autorisations d’administrateur, puis réessayez.
 
     ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/8x8-provisioning-tutorial/provisioning.png)
 

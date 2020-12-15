@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 860cd24c623cb6db407c82aa81e2c3662da289ed
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083318"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762973"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -37,9 +37,9 @@ L’inscription de votre application établit une relation d’approbation entre
 Effectuez les étapes suivantes pour créer l’inscription d’application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
-1. Sous **Gérer** , sélectionnez **Inscriptions d’applications** , puis **Nouvelle inscription**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 1. Spécifiez qui peut utiliser l’application. Ces personnes sont parfois appelées *audience de connexion*.
 
@@ -55,7 +55,7 @@ Effectuez les étapes suivantes pour créer l’inscription d’application :
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Capture d’écran du portail Azure dans un navigateur web montrant le volet Inscrire une application.":::
 
-Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’ensemble** de l’inscription d’application, qui comprend son **ID d’application (client)** . Aussi simplement appelée *ID client* , cette valeur identifie de manière unique votre application dans la plateforme d’identités Microsoft.
+Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’ensemble** de l’inscription d’application, qui comprend son **ID d’application (client)** . Aussi simplement appelée *ID client*, cette valeur identifie de manière unique votre application dans la plateforme d’identités Microsoft.
 
 Le code de votre application, ou plus généralement une bibliothèque d’authentification utilisée dans votre application, utilise également l’ID client comme un aspect de la validation des jetons de sécurité reçus de la plateforme d’identités.
 
@@ -71,14 +71,14 @@ Pour ajouter et modifier des URI de redirection pour vos applications inscrites,
 
 ### <a name="configure-platform-settings"></a>Configurer des paramètres de plateforme
 
-Les paramètres de chaque type d’application, dont les URI de redirection, sont configurés dans **Configurations de plateforme** dans le portail Azure. Certaines plateformes, comme le **web** et les **applications monopages** , nécessitent de spécifier manuellement un URI de redirection. Pour les autres plateformes comme les plateformes mobiles et de bureau, vous pouvez sélectionner des URI de redirection générés automatiquement quand vous configurez leurs autres paramètres.
+Les paramètres de chaque type d’application, dont les URI de redirection, sont configurés dans **Configurations de plateforme** dans le portail Azure. Certaines plateformes, comme le **web** et les **applications monopages**, nécessitent de spécifier manuellement un URI de redirection. Pour les autres plateformes comme les plateformes mobiles et de bureau, vous pouvez sélectionner des URI de redirection générés automatiquement quand vous configurez leurs autres paramètres.
 
 Pour configurer des paramètres d’application en fonction de la plateforme ou de l’appareil ciblé :
 
 1. Sélectionnez votre application dans les **Inscriptions d’applications** dans le portail Azure.
-1. Sous **Gérer** , sélectionnez **Authentification**.
-1. Sous **Configurations de plateformes** , sélectionnez **Ajouter une plateforme**.
-1. Dans **Configurer des plateformes** , sélectionnez la vignette correspondant à votre type d’application (plateforme) pour configurer ses paramètres.
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Sous **Configurations de plateformes**, sélectionnez **Ajouter une plateforme**.
+1. Dans **Configurer des plateformes**, sélectionnez la vignette correspondant à votre type d’application (plateforme) pour configurer ses paramètres.
 
     :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Capture d’écran du volet Configuration de la plateforme dans le portail Azure" border="false":::
 
@@ -86,7 +86,7 @@ Pour configurer des paramètres d’application en fonction de la plateforme ou 
     | -------- | ---------------------- |
     | **Web** | Entrez un **URI de redirection** pour votre application, qui est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme pour les applications web standard qui s’exécutent sur un serveur. |
     | **Application monopage** | Entrez un **URI de redirection** pour votre application, qui est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme si vous générez une application web côté client dans JavaScript ou avec un framework comme Angular, Vue.js, React.js ou Blazor WebAssembly. |
-    | **iOS / macOS** | Entrez l’ **ID de bundle** de l’application, qui se trouve dans Xcode dans *Info.plist* ou Paramètres de build.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez un ID de bundle. |
+    | **iOS / macOS** | Entrez l’**ID de bundle** de l’application, qui se trouve dans Xcode dans *Info.plist* ou Paramètres de build.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez un ID de bundle. |
     | **Android** | Entrez le **Nom du package** de l’application, que vous trouverez dans le fichier *AndroidManifest.xml*. Générez et entrez ensuite le **hachage de signature**.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez ces paramètres. |
     | **Applications de bureau et mobiles** | Sélectionnez l’un des **URI de redirection suggérés** ou spécifiez un **URI de redirection personnalisé**.<br/>Pour les applications de bureau, nous vous recommandons d’effectuer les opérations suivantes :<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Sélectionnez cette plateforme pour les applications mobiles qui n’utilisent pas la dernière bibliothèque d’authentification Microsoft (MSAL) ou qui n’utilisent pas de répartiteur. Sélectionnez également cette plateforme pour les applications de bureau. |
 1. Sélectionnez **Configurer** pour effectuer la configuration de la plateforme.
@@ -105,7 +105,7 @@ Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant
 
 ### <a name="add-a-certificate"></a>Ajouter un certificat
 
-Parfois appelés *clé publique* , les certificats sont le type d’informations d’identification recommandé, car ils fournissent un niveau d’assurance plus élevé qu’un secret client.
+Parfois appelés *clé publique*, les certificats sont le type d’informations d’identification recommandé, car ils fournissent un niveau d’assurance plus élevé qu’un secret client.
 
 1. Sélectionnez votre application dans les **Inscriptions d’applications** dans le portail Azure.
 1. Sélectionnez **Certificats et secrets** > **Charger le certificat**.
@@ -114,7 +114,7 @@ Parfois appelés *clé publique* , les certificats sont le type d’information
 
 ### <a name="add-a-client-secret"></a>Ajouter un secret client
 
-Le secret client, également appelé *mot de passe d’application* , est une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier. Souvent utilisé pendant le développement, c’est le plus simple à utiliser des deux types d’informations d’identification, mais il est considéré comme moins sécurisé qu’un certificat. Vous devez utiliser des certificats dans vos applications qui s’exécutent en production.
+Le secret client, également appelé *mot de passe d’application*, est une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier. Souvent utilisé pendant le développement, c’est le plus simple à utiliser des deux types d’informations d’identification, mais il est considéré comme moins sécurisé qu’un certificat. Vous devez utiliser des certificats dans vos applications qui s’exécutent en production.
 
 1. Sélectionnez votre application dans les **Inscriptions d’applications** dans le portail Azure.
 1. Sélectionnez **Certificats et secrets** >  **Nouveau secret client**.

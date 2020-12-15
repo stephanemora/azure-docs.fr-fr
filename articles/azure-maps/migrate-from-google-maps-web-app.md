@@ -1,20 +1,20 @@
 ---
-title: Tutoriel – Migrer une application web à partir de Google Maps | Microsoft Azure Maps
+title: Tutoriel – Migrer une application web de Google Maps vers Microsoft Azure Maps
 description: Tutoriel expliquant comment migrer une application web de Google Maps vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896444"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905058"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Tutoriel : Migrer une application web à partir de Google Maps
 
@@ -75,7 +75,7 @@ Le tableau liste les principales fonctionnalités d’API du SDK JavaScript Goog
 | Service de geocoder        | ✓                          |
 | Service de directions      | ✓                          |
 | Service Matrice des distances | ✓                          |
-| Service d’élévation       | Prévu                     |
+| Service d’élévation       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Différences notables dans les kits de développement logiciel (SDK) Web
 
@@ -332,9 +332,9 @@ map.setStyle({
 
 Dans Azure Maps il existe plusieurs façons de faire en sorte que les données de point soient rendues sur la carte :
 
-- **Marqueurs HTML**  : effectue le rendu des points à l’aide d’éléments DOM traditionnels. Les marqueurs HTML prennent en charge le glissement.
-- **Calque de symbole**  : effectue le rendu des points avec une icône ou un texte dans le contexte WebGL.
-- **Calque de bulles**  : affiche les données de point sous forme de cercles sur la carte. Les rayons des cercles peuvent être mis à l’échelle en fonction des propriétés des données.
+- **Marqueurs HTML** : effectue le rendu des points à l’aide d’éléments DOM traditionnels. Les marqueurs HTML prennent en charge le glissement.
+- **Calque de symbole** : effectue le rendu des points avec une icône ou un texte dans le contexte WebGL.
+- **Calque de bulles** : affiche les données de point sous forme de cercles sur la carte. Les rayons des cercles peuvent être mis à l’échelle en fonction des propriétés des données.
 
 Effectuez le rendu des calques de symboles et de bulles dans le contexte WebGL. Les deux calques peuvent afficher de grands ensembles de points sur la carte. Ces calques requièrent que les données soient stockées dans une source de données. Les sources de données et les calques de rendu doivent être ajoutées à la carte après le déclenchement de l’événement `ready`. Les marqueurs HTML sont rendus sous la forme d’éléments DOM dans la page, et n’utilisent pas de source de données. Plus le nombre d’éléments DOM d’une page est élevé, plus la page devient rapide. En cas de rendu de plus de quelques centaines de points sur une carte, nous vous recommandons d’utiliser à la place l’un des calques de rendu.
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657310"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905674"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -262,7 +262,7 @@ Vous pouvez également grouper et filtrer sur la propriété **PartnerEarnedCred
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exporter des données de coût vers le stockage Azure
 
-Les partenaires ayant accès aux étendues de facturation d’un locataire partenaire peuvent exporter leurs données d’utilisation et de coût vers un objet blob de stockage Azure. L’objet blob doit se trouver sur un abonnement dans le locataire partenaire qui n’est pas un abonnement de service partagé ni l’abonnement d’un client. Pour activer l’exportation des données de coût, nous vous recommandons de configurer un abonnement avec paiement à l’utilisation indépendant dans le locataire partenaire pour héberger les données de coût exportées. Le compte de stockage d’exportation est créé sur l’objet blob de stockage Azure hébergé dans l’abonnement avec paiement à l’utilisation. En fonction de l’étendue dans laquelle le partenaire crée l’exportation, les données associées sont automatiquement exportées vers le compte de stockage de manière récurrente.
+Les partenaires ayant accès aux étendues de facturation d’un locataire partenaire peuvent exporter leurs données d’utilisation et de coût vers un objet blob de stockage Azure. L’objet blob doit se trouver sur un abonnement dans le locataire partenaire qui n’est pas un [abonnement de service partagé](/partner-center/shared-services) ni l’abonnement d’un client. Pour activer l’exportation des données de coût, nous vous recommandons de configurer un abonnement avec paiement à l’utilisation indépendant dans le locataire partenaire pour héberger les données de coût exportées. Le compte de stockage d’exportation est créé sur l’objet blob de stockage Azure hébergé dans l’abonnement avec paiement à l’utilisation. En fonction de l’étendue dans laquelle le partenaire crée l’exportation, les données associées sont automatiquement exportées vers le compte de stockage de manière récurrente.
 
 Les utilisateurs disposant d’un accès Azure RBAC à l’abonnement peuvent également exporter les données de coût vers un objet blob de stockage Azure hébergé dans un abonnement quelconque du locataire client.
 

@@ -4,18 +4,18 @@ description: Explique comment utiliser Azure Resource Manager pour les tâches d
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 317d7cae9c0febcc99831b20525b9d9d2cc96651
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372270"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903188"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
 Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, de mettre à jour et de supprimer des ressources dans votre compte Azure. Vous utilisez des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
 
-Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
+Pour en savoir plus sur les modèles Azure Resource Manager (ARM), consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Couche de gestion cohérente
 
@@ -95,7 +95,7 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 
 * Certaines ressources peuvent exister en dehors d’un groupe de ressources. Ces ressources sont déployées dans l’[abonnement](../templates/deploy-to-subscription.md), le [groupe d’administration](../templates/deploy-to-management-group.md) ou le [locataire](../templates/deploy-to-tenant.md). Seuls des types de ressources spécifiques sont pris en charge dans ces étendues.
 
-* Pour créer un groupe de ressources, vous pouvez utiliser le [portail](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) ou un [modèle Azure Resource Manager (ARM)](../templates/deploy-to-subscription.md#resource-groups).
+* Pour créer un groupe de ressources, vous pouvez utiliser le [portail](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) ou un [modèle ARM](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Résilience d’Azure Resource Manager
 

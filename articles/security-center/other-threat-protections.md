@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900393"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754332"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protections supplémentaires contre les menaces dans Azure Security Center
 En plus des [protections Azure Defender](azure-defender.md) intégrées, Azure Security Center offre les fonctionnalités de protection contre les menaces suivantes.
@@ -29,7 +29,7 @@ En plus des [protections Azure Defender](azure-defender.md) intégrées, Azure S
 ## <a name="threat-protection-for-azure-network-layer"></a>Protection contre les menaces pour la couche réseau Azure <a name="network-layer"></a>
 L’analytique de la couche réseau de Security Center est basée sur des exemples de [données IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), qui sont des en-têtes de paquets collectés par des routeurs de base Azure. En fonction de ce flux de données, les modèles Machine Learning de Security Center identifient et signalent les activités de trafic malveillantes. Security Center utilise également la base de données Microsoft Threat Intelligence pour enrichir les adresses IP.
 
-Certaines configurations réseau peuvent empêcher Security Center de générer des alertes sur une activité réseau suspecte. Pour que Security Center génère des alertes réseau, assurez-vous que :
+Certaines configurations réseau empêchent Security Center de générer des alertes en cas d’activité réseau suspecte. Pour que Security Center génère des alertes réseau, assurez-vous que :
 - Votre machine virtuelle a une adresse IP publique (ou se trouve sur un équilibreur de charge avec une adresse IP publique).
 - Le trafic de sortie réseau de votre machine virtuelle n’est pas bloqué par une solution IDS externe.
 
@@ -41,7 +41,7 @@ La couche de protection de Security Center basée sur Azure Resource Manager est
 
 Security Center offre une couche supplémentaire de protection en utilisant les événements Azure Resource Manager, considérée comme le plan de contrôle pour Azure. En analysant les enregistrements Azure Resource Manager, Security Center détecte les opérations inhabituelles ou potentiellement dangereuses dans l’environnement d’un abonnement Azure.
 
-Pour obtenir la liste des alertes Azure Resource Manager (préversion), consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-azureresourceman).
+Pour obtenir la liste des alertes Azure Defender pour Resource Manager, consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]
@@ -58,7 +58,7 @@ Pour obtenir la liste des alertes Azure Resource Manager (préversion), consulte
 
 1. Définissez l’espace de travail sur lequel vous installez l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
 
-1. Activez **Azure Defender** , puis sélectionnez **Enregistrer**.
+1. Activez **Azure Defender**, puis sélectionnez **Enregistrer**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protection contre les menaces pour Azure Cosmos DB (préversion)<a name="cosmos-db"></a>
@@ -89,7 +89,7 @@ Les attaques DDoS (déni de service distribué) sont connues pour être faciles 
 
 Une attaque DDoS tente d’épuiser les ressources d’une application afin de la rendre indisponible aux utilisateurs légitimes. Les attaques DDoS peuvent cibler n’importe quel point de terminaison accessible sur Internet.
 
-Pour vous défendre contre les attaques DDoS, achetez une licence Azure DDoS Protection, puis veillez à suivre les bonnes pratiques de conception d’applications. DDoS Protection fournit différents niveaux de service. Pour plus d’informations, consultez [Vue d’ensemble du service Azure DDoS Protection](../virtual-network/ddos-protection-overview.md).
+Pour vous défendre contre les attaques DDoS, achetez une licence Azure DDoS Protection, puis veillez à suivre les bonnes pratiques de conception d’applications. DDoS Protection fournit différents niveaux de service. Pour plus d’informations, consultez [Vue d’ensemble du service Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md).
 
 Pour obtenir la liste des alertes Azure DDoS Protection, consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-azureddos).
 

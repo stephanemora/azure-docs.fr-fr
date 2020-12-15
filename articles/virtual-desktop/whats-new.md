@@ -3,17 +3,17 @@ title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537388"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533959"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -25,6 +25,31 @@ Windows Virtual Desktop est mis à jour régulièrement. Vous trouverez dans cet
 - Résolution des bogues
 
 Cet article est mis à jour tous les mois. Pensez à consulter cette page régulièrement pour être tenu informé des nouvelles mises à jour.
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="azure-portal-experience"></a>Utilisation du portail Azure
+
+Nous avons résolu deux bogues dans l’expérience utilisateur du portail Azure :
+
+- Le nom convivial de l’application de bureau n’est plus remplacé dans le workflow « Ajouter une machine virtuelle ».
+- L’onglet de l’hôte de session se chargera désormais si les hôtes de session font partie de groupes identiques.
+
+### <a name="fslogix-client-version-2009"></a>Client FSLogix, version 2009 
+
+Nous avons publié une nouvelle version du client FSLogix avec de nombreux correctifs et améliorations. Pour en savoir plus, consultez [notre billet de blog](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### <a name="rdp-shortpath-public-preview"></a>Préversion publique de RDP Shortpath
+
+RDP Shortpath introduit une connectivité directe à votre hôte de session Windows Virtual Desktop en utilisant ExpressRoute et des VPN de point à site et de site à site. Il présente également le protocole de transport URCP. RDP Shortpath est conçu pour réduire la latence et les sauts de réseau, afin d’améliorer l’expérience utilisateur. Pour en savoir plus, consultez [RDP Shortpath de Windows Virtual Desktop](shortpath.md).
+
+### <a name="azdesktopvirtualization-version-201"></a>Az.DesktopVirtualization, version 2.0.1
+
+Nous avons publié la version 2.0.1 des applets de commande Windows Virtual Desktop. Cette mise à jour comprend des applets de commande qui vous permettent de gérer l’attachement d’application MSIX. Vous pouvez télécharger la nouvelle version depuis [ PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### <a name="azure-advisor-updates"></a>Mises à jour d’Azure Advisor
+
+Azure Advisor comporte désormais une nouvelle recommandation en matière de conseils de proximité dans Windows Virtual Desktop. Pour plus d’informations, consultez le [site web Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Octobre 2020
 
@@ -174,7 +199,6 @@ Les conséquences de ce changement sont les suivantes :
 - Les fonctions de supervision qui étaient auparavant effectuées à l’aide de PowerShell ou de l’application web Service de diagnostics ont été déplacées vers Log Analytics dans le portail Azure. Vous disposez désormais aussi de deux options pour visualiser vos rapports. Vous pouvez exécuter des requêtes Kusto et utiliser des classeurs pour créer des rapports visuels.
 
 - Vous n’avez plus besoin de finaliser le consentement Azure Active Directory (Azure AD) pour utiliser Windows Virtual Desktop. Dans cette mise à jour, le locataire Azure AD sur votre abonnement Azure authentifie vos utilisateurs et fournit des contrôles Azure AD pour vos administrateurs.
-
 
 ### <a name="powershell-support"></a>Prise en charge de PowerShell
 

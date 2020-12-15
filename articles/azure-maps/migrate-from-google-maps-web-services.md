@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187032"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904888"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutoriel – Migrer un service web à partir de Google Maps
 
@@ -40,19 +40,19 @@ Le tableau suivant présente les API du service Azure Maps, qui offrent des fonc
 
 | API du service Google Maps | API du service Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Itinéraire](/rest/api/maps/route)                                     |
-| Matrice des distances         | [Matrice d’itinéraire](/rest/api/maps/route/postroutematrixpreview)       |
-| Géocodage               | [action](/rest/api/maps/search)                                   |
-| Recherche de lieux           | [action](/rest/api/maps/search)                                   |
-| Autocomplétion des lieux      | [action](/rest/api/maps/search)                                   |
-| Snap to Roads            | Consultez la section [Calculer des itinéraires et des directions](#calculate-routes-and-directions).            |
-| Speed Limits            | Consultez la section [Géocodage inverse d’une coordonnée](#reverse-geocode-a-coordinate).                  |
-| Carte statique              | [Render](/rest/api/maps/render/getmapimage)                       |
-| Time Zone (Fuseau horaire)               | [Fuseau horaire](/rest/api/maps/timezone)                              |
+| Directions              | [Itinéraire](/rest/api/maps/route)                                     |                         
+| Matrice des distances         | [Matrice d’itinéraire](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Géocodage               | [action](/rest/api/maps/search)                                   |                         
+| Recherche de lieux           | [action](/rest/api/maps/search)                                   |                         
+| Autocomplétion des lieux      | [action](/rest/api/maps/search)                                   |                         
+| Snap to Roads            | Consultez la section [Calculer des itinéraires et des directions](#calculate-routes-and-directions).            
+| Speed Limits            | Consultez la section [Géocodage inverse d’une coordonnée](#reverse-geocode-a-coordinate).                  
+| Carte statique              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| Time Zone (Fuseau horaire)               | [Fuseau horaire](/rest/api/maps/timezone)                              |                         
+| Elevation               | [Élévation (préversion)](/rest/api/maps/elevation)                   |                         |
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
-- Elevation
 - Géolocalisation
 - Places details and photos (détails et photos des lieux) : les numéros de téléphone et URL de site web sont disponibles dans l’API de recherche Azure Maps.
 - URL de cartes
@@ -203,7 +203,7 @@ Le service de routage Azure Maps fournit les API suivantes pour le calcul des it
 
 - [**Calculer l’itinéraire**](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d’un grand nombre de points de cheminement ou lors de l’utilisation de nombreuses options de routage pour s’assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
 - [**Itinéraire par lots**](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
-- [**Services de mobilité**](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
+- [**Services Mobility (préversion) **](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Google Maps et les paramètres d’API comparables dans Azure Maps.
 
@@ -221,8 +221,8 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* : cette fonctionnalité est liée au géocodage. Utilisez le paramètre *countrySet* lorsque vous utilisez l'API de géocodage d’Azure Maps.  |
 | `traffic_model`               | *N/A* : permet uniquement de spécifier si les données de trafic doivent être utilisées avec le paramètre *traffic*. |
-| `transit_mode`                | Voir la [documentation sur les services de mobilité](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Voir la [documentation sur les services de mobilité](/rest/api/maps/mobility) |
+| `transit_mode`                | Voir la [documentation sur les services Mobility (préversion)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Voir la [documentation sur les services Mobility (préversion)](/rest/api/maps/mobility) |
 | `units`                        | *N/A* : Azure Maps utilise uniquement le système métrique.  |
 | `waypoints`                    | `query`                            |
 

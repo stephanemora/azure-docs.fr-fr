@@ -11,16 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349067"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574154"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutoriel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement (partie 1 sur 4)
 
-Dans cette *série de tutoriels en quatre parties* , vous allez découvrir les notions de base d’Azure Machine Learning et effectuer des tâches de machine learning Python basées sur des travaux, sur la plateforme cloud Azure. 
+Dans cette *série de tutoriels en quatre parties*, vous allez découvrir les notions de base d’Azure Machine Learning et effectuer des tâches de machine learning Python basées sur des travaux, sur la plateforme cloud Azure. 
 
 Dans la partie 1 de cette série de didacticiels, vous allez :
 
@@ -52,7 +52,10 @@ Vous pouvez utiliser les outils que vous connaissez le mieux (par exemple Conda 
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Créer la structure de répertoires pour le code
+> [!div class="nextstepaction"]
+> [J’ai installé le SDK](?success=install-sdk#dir) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Créer la structure de répertoires pour le code
 Nous vous recommandons de configurer la structure de répertoires simple suivante pour ce tutoriel :
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial` : Répertoire de plus haut niveau du projet.
 - `.azureml` : Sous-répertoire masqué pour le stockage des fichiers de configuration Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Création d’un espace de travail Microsoft Azure Machine Learning
+
+> [!div class="nextstepaction"]
+> [J’ai créé un répertoire](?success=create-dir#workspace) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Création d’un espace de travail Microsoft Azure Machine Learning
 
 Un espace de travail est la ressource de niveau supérieur pour Azure Machine Learning et est un endroit centralisé où vous pouvez :
 
@@ -119,7 +126,10 @@ Le fichier `.azureml/config.json` contient les métadonnées nécessaires pour s
 >
 > L’authentification est toujours requise pour interagir avec votre espace de travail Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Créer un cluster de calcul Azure Machine Learning
+> [!div class="nextstepaction"]
+> [J’ai créé un espace de travail](?success=create-workspace#cluster) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Créer un cluster de calcul Azure Machine Learning
 
 Créez un script Python dans le répertoire de plus haut niveau `tutorial` appelé `02-create-compute.py`. Placez-y le code suivant pour créer un cluster de calcul Azure Machine Learning qui sera mis à l’échelle automatiquement entre zéro et quatre nœuds :
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai créé un cluster de calcul](?success=create-compute-cluster#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

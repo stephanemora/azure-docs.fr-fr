@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959626"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932385"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutoriel : Entraîner et déployer un modèle Azure Machine Learning
 
@@ -26,6 +26,14 @@ Dans cet article, vous allez effectuer les tâches suivantes :
 Azure Notebooks bénéficie d’un espace de travail Azure Machine Learning, module essentiel pour expérimenter, entraîner et déployer des modèles Machine Learning
 
 Les étapes de cet article peuvent être généralement effectuées par les scientifiques de données.
+
+Dans cette section du tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> * Créer un projet Azure Notebooks pour entraîner un modèle Machine Learning.
+> * Conteneuriser le modèle Machine Learning entraîné.
+> * Créer un module Azure IoT Edge à partir du modèle Machine Learning conteneurisé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -179,6 +187,10 @@ Pour vérifier si les notebooks se sont correctement exécutés, regardez si cer
 Vous pouvez insérer des instructions Python dans le notebook pour le débogage, telles que la commande `print()` pour afficher des valeurs. Si vous voyez des variables ou des objets qui ne sont pas définis, exécutez les cellules là où ils sont déclarés ou instanciés en premier.
 
 Vous devrez peut-être supprimer les ressources Azure et les fichiers créés si vous avez besoin de restaurer les notebooks.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Ce tutoriel fait partie d’une série où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

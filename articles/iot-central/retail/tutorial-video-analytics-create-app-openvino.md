@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: fbe1e84525eed47127a08abc9fb7ec5d1144d02f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426721"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763607"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Tutoriel : Créer une application d’analytique vidéo pour la détection d’objets et de mouvements dans Azure IoT Central (OpenVINO&trade;)
 
@@ -24,10 +24,10 @@ En tant que créateur de solutions, apprenez à créer une application d’analy
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) : dans ce fichier, vous pouvez enregistrer les différentes options de configuration que vous devrez utiliser tout au long de ces tutoriels.
 - [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) : téléchargez ce fichier uniquement si vous envisagez d’utiliser l’appareil Intel NUC dans le deuxième tutoriel.
 
 [!INCLUDE [iot-central-video-analytics-part2](../../../includes/iot-central-video-analytics-part2.md)]
 
@@ -39,7 +39,7 @@ Pour préparer le manifeste de déploiement :
 
 1. À l’aide d’un éditeur de texte, ouvrez le fichier *deployment.openvino.amd64.json* que vous avez enregistré dans le dossier *lva-configuration*.
 
-1. Recherchez les paramètres `LvaEdgeGatewayModule` et modifiez le nom de l’image comme indiqué dans l’extrait de code suivant :
+1. Recherchez les paramètres `LvaEdgeGatewayModule` et vérifiez que le nom de l’image est identique à celui indiqué dans l’extrait de code suivant :
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -47,7 +47,7 @@ Pour préparer le manifeste de déploiement :
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Ajoutez le nom de votre compte Media Services au nœud `env` de la section `LvaEdgeGatewayModule`. Vous avez noté le nom de ce compte dans le fichier *scratchpad.txt*  :
+1. Ajoutez le nom de votre compte Media Services au nœud `env` de la section `LvaEdgeGatewayModule`. Vous avez noté le nom du compte Media Services dans le fichier *scratchpad.txt* :
 
     ```json
     "env": {
@@ -55,7 +55,7 @@ Pour préparer le manifeste de déploiement :
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -64,7 +64,16 @@ Pour préparer le manifeste de déploiement :
 
     `azureMediaServicesArmId` correspond à l’**ID de ressource** que vous avez noté dans le fichier *scratchpad.txt* lors de la création du compte Media Services.
 
-    Vous avez noté les valeurs `aadTenantId`, `aadServicePrincipalAppId` et `aadServicePrincipalSecret` dans le fichier *scratchpad.txt* lors de la création du principal du service pour votre compte Media Services :
+    Le tableau suivant indique les valeurs de la section **Connect to Media Services API (JSON)** dans le fichier *scratchpad.txt* que vous devez utiliser dans le manifeste de déploiement :
+
+    | Manifeste de déploiement       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Aidez-vous du tableau précédent pour veiller à ajouter les valeurs correctes dans le manifeste de déploiement. Sinon, l’appareil ne fonctionnera pas.
 
     ```json
     {

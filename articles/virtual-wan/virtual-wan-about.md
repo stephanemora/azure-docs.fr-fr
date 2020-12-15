@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 641ed73f507d35d7af548d0164ef8e80979be217
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187428"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530474"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -124,9 +124,9 @@ Pour plus d’informations sur les emplacements, consultez l’article [Partenai
 
 Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de routage préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des itinéraires préexistants et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
 
-* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis essayer de créer de nouvelles tables de routage (disponible dans la section Tables de routage du hub sur le portail Azure).
+* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis essayer de créer de nouvelles tables de routage (disponible dans la section Tables de routage du hub sur le portail Azure). Il est vivement conseillé d’effectuer l’étape de suppression pour tous les hubs dans une instance Virtual WAN.
 
-* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md). Il est vivement conseillé d’effectuer l’étape de suppression pour tous les hubs dans une instance Virtual WAN.
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 

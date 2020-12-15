@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c3fca6cf7782c3aaac91388a8f8395e288f5ea5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993458"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558740"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -55,8 +55,9 @@ Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 Pour suivre ce tutoriel :
 
-* <a href="https://git-scm.com/" target="_blank">Installez Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installer la dernière version du kit SDK .NET Core 3.1</a>
+- <a href="https://git-scm.com/" target="_blank">Installez Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installez la dernière version du kit SDK .NET Core 3.1</a>
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Création de l’application .NET Core locale
 
@@ -77,8 +78,6 @@ Accédez à `http://localhost:5000` et essayez d’ajouter, de modifier et de su
 ![API ASP.NET Core exécuté en local](./media/tutorial-auth-aad/local-run.png)
 
 Pour arrêter ASP.NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-apps-to-azure"></a>Déployer des applications dans Azure
 

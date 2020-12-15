@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426740"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763419"
 ---
 ### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
 
@@ -40,6 +40,12 @@ Pour effectuer la migration de l’appareil **gateway-001** :
 1. Dans la liste de la boîte de dialogue **Migration**, sélectionnez **LVA Edge Gateway v2**, puis **Effectuer la migration**.
 
 La migration se termine au bout de quelques secondes. Votre appareil utilise maintenant le modèle d’appareil **LVA Edge Gateway v2** avec votre manifeste de déploiement personnalisé.
+
+Désormais, aucun appareil n’utilise encore le modèle d’appareil d’origine **LVA Edge Gateway**. Supprimez ce modèle d'appareil :
+
+1. Accédez à la page **Modèles d’appareil** et sélectionnez le modèle d’appareil **LVA Edge Gateway**.
+
+1. Sélectionnez **Supprimer** pour supprimer le modèle d’appareil.
 
 ### <a name="get-the-device-credentials"></a>Obtenir les informations d’identification de l’appareil
 

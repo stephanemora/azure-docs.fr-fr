@@ -3,18 +3,18 @@ title: 'Tutoriel : Migrer des services web à partir de Bing Cartes | Microsoft
 description: Tutoriel sur la migration des services web de Bing Cartes vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897022"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904956"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Tutoriel - Migrer des services web à partir de Bing Cartes
 
@@ -37,21 +37,21 @@ Le tableau suivant présente les API du service Azure Maps qui offrent des fonct
 | Services de données spatiales           | [Recherche](/rest/api/maps/search) + [Itinéraires](/rest/api/maps/route) + autres services Azure |
 | Time Zone (Fuseau horaire)                             | [Fuseau horaire](/rest/api/maps/timezone)  |
 | Incidents de trafic                     | [Détails des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Elevation                             | [Élévation (préversion)](/rest/api/maps/elevation)
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
--   Élévation : planifié
 -   Itinéraires optimisés : planifié. L’API Itinéraire Azure Maps prend en charge l’optimisation pour les commerciaux en déplacement avec un seul véhicule
 -   Métadonnées d’imagerie : principalement utilisées pour obtenir des URL de mosaïques dans Bing Cartes. Azure Maps a un service autonome pour accéder directement aux mosaïques
 
 Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
 
--   [Créateur Azure Maps](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
+-   [Azure Maps Creator (préversion)](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
 -   [opérations spatiales](/rest/api/maps/spatial) : déplacez vers un service les calculs et les opérations spatiales complexes, par exemple le geofencing.
 -   [Mosaïques](/rest/api/maps/render/getmaptile) : accédez aux mosaïques d’imagerie et de route à partir d’Azure Maps en tant que mosaïques vectorielles et raster.
 -   [Itinéraires par lot](/rest/api/maps/route/postroutedirectionsbatchpreview) : permet d’effectuer jusqu’à 1000 requêtes d’itinéraires dans un lot unique sur une période donnée. Les itinéraires sont calculés en parallèle sur le serveur pour un traitement plus rapide.
 -   [Circulation](/rest/api/maps/traffic) : accédez aux données de circulation en temps réel à la fois sous la forme de mosaïques raster et vectorielles.
--   [API de géolocalisation](/rest/api/maps/geolocation/getiptolocationpreview) : permet d’obtenir la localisation d’une adresse IP.
+-   [API de géolocalisation (préversion)](/rest/api/maps/geolocation/getiptolocationpreview) : permet d’obtenir la localisation d’une adresse IP.
 -   [Services météo](/rest/api/maps/weather) : permet d’accéder aux données météo en temps réel et aux prévisions.
 
 Veillez également à consulter les guides de bonnes pratiques suivants :
@@ -186,7 +186,7 @@ Le service d’itinéraire Azure Maps fournit les API suivantes pour le calcul d
 
 -   [Calculer l’itinéraire](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes.
 -   [Itinéraire par lots](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
--   [Services de mobilité](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
+-   [Services Mobility (préversion) ](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -614,7 +614,7 @@ Bing Cartes permet de transmettre jusqu’à 200 000 adresses dans une requête
 
 Azure Maps dispose d’un service de géocodage par lot, mais il permet de transmettre jusqu’à 10 000 adresses en une requête unique et sont traitement prend de quelques secondes à quelques minutes, en fonction de la taille du jeu de données et de la charge sur le service. Chaque adresse de la requête a généré une transaction. Dans Azure Maps, le service de géocodage par lot est uniquement disponible au niveau S1.
 
-Une autre option pour géocoder un grand nombre d’adresses avec Azure Maps consiste à effectuer des requêtes parallèles aux API de recherche standard. Ces services acceptent une seule adresse par requête, mais peuvent être utilisés avec le niveau S0 qui fournit également des limites d’utilisation gratuites. Le niveau S0 autorise jusqu’à 50 requêtes par seconde à la plateforme Azure Maps à partir d’un compte unique. Par conséquent, si votre traitement ne dépasse pas cette limite, il est possible de géocoder jusqu’à 180 000 adresses par heure. Le niveau S1 n’a pas de limite documentée quant au nombre de requêtes par seconde qui peuvent être effectuées à partir d’un compte. Par conséquent, beaucoup plus de données peuvent être traitées plus rapidement lors de l’utilisation de ce niveau tarifaire. Toutefois, l’utilisation du service de géocodage par lot aide à réduire la quantité totale de données transférées et réduit considérablement le trafic réseau.
+Une autre option pour géocoder un grand nombre d’adresses avec Azure Maps consiste à effectuer des requêtes parallèles aux API de recherche standard. Ces services acceptent une seule adresse par requête, mais peuvent être utilisés avec le niveau S0 qui fournit également des limites d’utilisation gratuites. Le niveau S0 autorise jusqu’à 50 requêtes par seconde à la plateforme Azure Maps à partir d’un compte unique. Ainsi, si votre traitement ne dépasse pas cette limite, il est possible de géocoder jusqu’à 180 000 adresses par heure. Le niveau S1 n’a pas de limite documentée quant au nombre de requêtes par seconde qui peuvent être effectuées à partir d’un compte. Par conséquent, beaucoup plus de données peuvent être traitées plus rapidement lors de l’utilisation de ce niveau tarifaire. Toutefois, l’utilisation du service de géocodage par lot aide à réduire la quantité totale de données transférées et réduit considérablement le trafic réseau.
 
 -   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
 -   [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.

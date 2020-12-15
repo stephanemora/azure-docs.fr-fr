@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un index de recherche en Python'
 titleSuffix: Azure Cognitive Search
-description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Python, de Jupyter Notebooks et de la bibliothèque Azure.Documents.Search.
+description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Python, de notebooks et de la bibliothèque Azure.Documents.Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 126fc69678148d4d478c96ff8d05f194c7e3d1b3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917084"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861865"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de notebooks Jupyter
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de Jupyter Notebooks
 
 > [!div class="op_single_selector"]
 > * [Python](search-get-started-python.md)
@@ -26,7 +26,7 @@ ms.locfileid: "94917084"
 > * [Portail](search-get-started-portal.md)
 >
 
-Générez un notebook Jupyter qui crée, charge et interroge un index Recherche cognitive Azure à l’aide de Python et de la [bibliothèque azure-search-documents](/python/api/overview/azure/search-documents-readme) dans le kit Azure SDK pour Python. Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
+Générez une instance de Jupyter Notebook qui crée, charge et interroge un index Recherche cognitive Azure à l’aide de Python et de la [bibliothèque azure-search-documents](/python/api/overview/azure/search-documents-readme) dans le kit Azure SDK pour Python. Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -54,7 +54,7 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 
 ## <a name="connect-to-azure-cognitive-search"></a>Se connecter à la Recherche cognitive Azure
 
-Dans cette tâche, démarrez un notebook Jupyter, puis vérifiez que vous pouvez vous connecter à la Recherche cognitive Azure. Pour ce faire, demandez une liste d’index de votre service. Sur Windows avec Anaconda3, vous pouvez utiliser Anaconda Navigator pour lancer un notebook.
+Dans cette tâche, démarrez une instance de Jupyter Notebook, puis vérifiez que vous pouvez vous connecter à la Recherche cognitive Azure. Pour ce faire, demandez une liste d’index de votre service. Sur Windows avec Anaconda3, vous pouvez utiliser Anaconda Navigator pour lancer un notebook.
 
 1. Créez un notebook Python3.
 

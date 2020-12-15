@@ -9,18 +9,26 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959575"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932351"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
 Dans cet article, nous allons configurer une machine virtuelle Azure qui exécute Linux comme un appareil IoT Edge servant de passerelle transparente. La configuration d’une passerelle transparente permet aux appareils de se connecter à Azure IoT Hub à travers la passerelle sans savoir que la passerelle existe. De la même façon, l’utilisateur qui interagit avec les appareils dans Azure IoT Hub n’a pas conscience de l’appareil de passerelle intermédiaire. À la fin, nous ajouterons des données d’analytique Edge à notre système en ajoutant des modules IoT Edge à la passerelle transparente.
 
 Les étapes décrites dans cet article sont généralement effectuées par un développeur de cloud.
+
+Dans cette section du tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> * Créer des certificats pour permettre à votre appareil de passerelle de se connecter de façon sécurisée à vos appareils en aval.
+> * Créer un appareil IoT Edge.
+> * Créer une machine virtuelle Azure pour simuler votre appareil IoT Edge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -295,6 +303,10 @@ Par la suite, nous mettons à jour les certificats et le nom d’hôte en modifi
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Ce tutoriel fait partie d’un ensemble où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Nous venons de terminer la configuration d’une machine virtuelle Azure comme passerelle transparente d’Azure IoT Edge. Nous avons d’abord généré des certificats de test que nous avons chargés dans Azure Key Vault. Ensuite, nous avons utilisé un script et un modèle Resource Manager pour déployer la machine virtuelle avec l’image « Ubuntu Server 16.04 LTS + Azure IoT Edge runtime » de la Place de marché Azure. Une fois la machine virtuelle en cours d’exécution, nous nous sommes connectés via SSH. Nous nous sommes connectés à Azure et nous avons téléchargé des certificats à partir de Key Vault. Nous avons effectué plusieurs mises à jour de la configuration du runtime IoT Edge en mettant à jour le fichier config.yaml.

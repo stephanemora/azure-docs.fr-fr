@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658381"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573032"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -70,7 +70,8 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Le DNS personnalisé ne fonctionne pas avec le tunneling forcé|Si le tunneling forcé est activé, le DNS personnalisé ne fonctionne pas.|Un correctif est en cours d’étude.|
 |Nouvelle prise en charge des adresses IP publiques pour plusieurs zones de disponibilité|Vous ne pouvez pas ajouter une nouvelle adresse IP publique quand vous déployez un pare-feu avec deux zones de disponibilité (1 et 2, 2 et 3 ou 1 et 3)|Il s’agit d’une limitation des ressources d’adresse IP publique.|
 |Démarrer/Arrêter ne fonctionne pas avec un pare-feu configuré en mode tunnel forcé.|Démarrer/Arrêter ne fonctionne pas avec le pare-feu Azure configuré en mode tunnel forcé. Toute tentative de démarrage de Pare-feu Azure avec le tunneling forcé configuré provoque l’erreur suivante :<br><br>*Set-AzFirewall : impossible d’ajouter la configuration IP de gestion AzureFirewall FW-xx à un pare-feu existant. Redéployez avec une configuration IP de gestion si vous souhaitez utiliser la prise en charge du tunneling forcé.<br>StatusCode : 400<br>ReasonPhrase : Requête incorrecte*|En cours d’examen.<br><br>En guise de solution de contournement, vous pouvez supprimer le pare-feu existant et en créer un nouveau avec les mêmes paramètres.|
-|Impossible d’ajouter des étiquettes de stratégie de pare-feu au moyen du portail|La stratégie du Pare-feu Azure a une limite de prise en charge des correctifs qui vous empêche d’ajouter une étiquette à l’aide du portail Azure. L’erreur suivante est générée : *Impossible d’enregistrer les étiquettes de la ressource*.|Un correctif est en cours d’étude. Sinon, vous pouvez utiliser l’applet de commande Azure PowerShell `Set-AzFirewallPolicy` pour mettre à jour les étiquettes.
+|Impossible d’ajouter des étiquettes de stratégie de pare-feu au moyen du portail|La stratégie du Pare-feu Azure a une limite de prise en charge des correctifs qui vous empêche d’ajouter une étiquette à l’aide du portail Azure. L’erreur suivante est générée : *Impossible d’enregistrer les étiquettes de la ressource*.|Un correctif est en cours d’étude. Sinon, vous pouvez utiliser l’applet de commande Azure PowerShell `Set-AzFirewallPolicy` pour mettre à jour les étiquettes.|
+|IPv6 pas encore pris en charge|Si vous ajoutez une adresse IPv6 à une règle, le pare-feu échoue.|Utilisez uniquement des adresses IPv4. La prise en charge d’IPv6 est en cours d’examen.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

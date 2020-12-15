@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665206"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572709"
 ---
 # <a name="voice-and-video-concepts"></a>Concepts vocaux et vidéo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Vous pouvez utiliser Azure Communication Services pour émettre et recevoir des appels vocaux et vidéo, analyser les métadonnées des appels, enregistrer les appels et même créer des arborescences d’appels. Vos appels peuvent être dirigés vers d’autres appareils connectés à Internet et vers des téléphones traditionnels. Vous pouvez utiliser les bibliothèques de client JavaScript, Android ou iOS de Communication Services pour créer des applications qui permettent à vos utilisateurs de parler entre eux dans le cadre de conversations privées ou de discussions de groupe. Azure Communication Services prend en charge les appels vers et depuis des services ou des bots.
+Vous pouvez utiliser Azure Communication Services pour effectuer ou recevoir des appels un à un ou des appels vocaux et vidéos de groupe. Vos appels peuvent être dirigés vers d’autres appareils connectés à Internet et vers des téléphones traditionnels. Vous pouvez utiliser les bibliothèques de client JavaScript, Android ou iOS de Communication Services pour créer des applications qui permettent à vos utilisateurs de parler entre eux dans le cadre de conversations privées ou de discussions de groupe. Azure Communication Services prend en charge les appels vers et depuis des services ou des bots.
 
 ## <a name="call-types-in-azure-communication-services"></a>Types d’appels dans Azure Communication Services
 

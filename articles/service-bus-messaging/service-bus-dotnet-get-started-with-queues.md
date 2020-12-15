@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498725"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862120"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Échanger des messages avec des files d’attente Azure Service Bus (.NET)
 Dans ce tutoriel, vous créez une application console .NET Core afin d’échanger des messages avec une file d’attente Service Bus à l’aide du package **Azure.Messaging.ServiceBus**. 
@@ -55,26 +55,9 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Entrez votre chaîne de connexion pour l’espace de noms en tant que variable `ServiceBusConnectionString`. Entrez le nom de votre file d’attente.
+    Entrez votre chaîne de connexion pour l’espace de noms en tant que variable `connectionString`. Entrez le nom de votre file d’attente.
 
-1. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. Elle appelle la méthode `SendMessagesAsync()` que vous ajouterez à l’étape suivante pour envoyer des messages à la file d’attente. 
-
-    ```csharp
-    public static async Task Main(string[] args)
-    {    
-        const int numberOfMessages = 10;
-        
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-    }
-    ```
-1. Juste après la méthode `Main()`, ajoutez la méthode `SendMessagesAsync()` suivante qui effectue l’opération d’envoi du nombre de message spécifié par `numberOfMessagesToSend` (la valeur est actuellement définie sur 10) :
+1. Juste en dessous de la méthode `Main()`, ajoutez la méthode `SendMessagesAsync()` suivante qui envoie un message :
 
     ```csharp
         static async Task SendMessageAsync()
@@ -101,9 +84,9 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```

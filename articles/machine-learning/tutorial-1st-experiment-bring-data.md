@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 52b46d67d745017237a8c648abed66e2693d9d6a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320102"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573015"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -45,6 +45,7 @@ Dans ce tutoriel, vous allez :
 * Python (version 3.5 à 3.7).
 
 ## <a name="adjust-the-training-script"></a>Ajuster le script de formation
+
 À présent, votre script d’entraînement (tutorial/src/train.py) s’exécute dans Azure Machine Learning et peut superviser les performances du modèle. Nous allons paramétrer le script d’entraînement en introduisant des arguments. L’utilisation d’arguments vous permet de comparer facilement différents hyperparamètres.
 
 Actuellement, notre script d’entraînement est configuré pour télécharger le jeu de données CIFAR10 à chaque exécution. Le code Python ci-dessous a été ajusté pour lire les données d’un répertoire.
@@ -52,81 +53,7 @@ Actuellement, notre script d’entraînement est configuré pour télécharger l
 >[!NOTE] 
 > L’utilisation de `argparse` paramètre le script.
 
-```python
-# tutorial/src/train.py
-import os
-import argparse
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
-
-from model import Net
-from azureml.core import Run
-
-run = Run.get_context()
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--data_path', type=str, help='Path to the training data')
-    parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for SGD')
-    parser.add_argument('--momentum', type=float, default=0.9, help='Momentum for SGD')
-    args = parser.parse_args()
-    
-    print("===== DATA =====")
-    print("DATA PATH: " + args.data_path)
-    print("LIST FILES IN DATA PATH...")
-    print(os.listdir(args.data_path))
-    print("================")
-    
-    # prepare DataLoader for CIFAR10 data
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-    trainset = torchvision.datasets.CIFAR10(
-        root=args.data_path,
-        train=True,
-        download=False,
-        transform=transform,
-    )
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(
-        net.parameters(),
-        lr=args.learning_rate,
-        momentum=args.momentum,
-    )
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                run.log('loss', loss) # log loss metric to AML
-                print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
-                running_loss = 0.0
-
-    print('Finished Training')
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-your-data/train.py":::
 
 ### <a name="understanding-the-code-changes"></a>Compréhension des modifications du code
 
@@ -151,8 +78,10 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+> [!div class="nextstepaction"]
+> [J’ai modifié le script d’entraînement](?success=adjust-training-script#test-locally) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
-## <a name="test-the-script-locally"></a>Tester le script localement
+## <a name="test-the-script-locally"></a><a name="test-locally"></a> Tester le script localement
 
 Votre script accepte à présent _data path_ (chemin d’accès aux données) en tant qu’argument. Pour commencer, effectuez un test en local. Ajoutez à la structure de répertoires de votre tutoriel un dossier appelé `data`. La structure de votre répertoire doit ressembler à ce qui suit :
 
@@ -182,7 +111,10 @@ python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
 
 Vous ne devez pas télécharger le jeu de données CIFAR10 en passant un chemin d’accès local aux données. Vous pouvez également faire des expériences avec différentes valeurs pour les hyperparamètres _learning rate_ et _momentum_ sans avoir à les coder en dur dans le script d’entraînement.
 
-## <a name="upload-the-data-to-azure"></a>Charger les données dans Azure
+> [!div class="nextstepaction"]
+> [J’ai testé le script localement](?success=test-locally#upload) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=test-locally)
+
+## <a name="upload-the-data-to-azure"></a><a name="upload"></a> Charger les données dans Azure
 
 Pour exécuter ce script dans Azure Machine Learning, vous devez rendre vos données d’entraînement disponibles dans Azure. Votre espace de travail Azure Machine Learning est fourni avec un magasin de données _par défaut_. Il s’agit d’un compte Stockage Blob Azure où vous pouvez stocker vos données d’entraînement.
 
@@ -191,13 +123,7 @@ Pour exécuter ce script dans Azure Machine Learning, vous devez rendre vos donn
 
 Créez un script de contrôle Python appelé `05-upload-data.py` dans le répertoire `tutorial` :
 
-```python
-# tutorial/05-upload-data.py
-from azureml.core import Workspace
-ws = Workspace.from_config()
-datastore = ws.get_default_datastore()
-datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/05-upload-data.py":::
 
 La valeur de `target_path` spécifie le chemin du magasin de données où les données CIFAR10 seront téléchargées.
 
@@ -209,7 +135,9 @@ Exécutez le fichier Python pour charger les données. (Le chargement doit norma
 ```bash
 python 05-upload-data.py
 ```
+
 Vous devez normalement voir la sortie standard suivante :
+
 ```txt
 Uploading ./data\cifar-10-batches-py\data_batch_2
 Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
@@ -220,47 +148,14 @@ Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated to
 Uploaded 9 files
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai chargé les données](?success=upload-data#control-script) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
-## <a name="create-a-control-script"></a>Créer un script de contrôle
+## <a name="create-a-control-script"></a><a name="control-script"></a> Créer un script de contrôle
 
 Comme vous l’avez fait précédemment, créez un script de contrôle Python appelé `06-run-pytorch-data.py` :
 
-```python
-# tutorial/06-run-pytorch-data.py
-from azureml.core import Workspace
-from azureml.core import Experiment
-from azureml.core import Environment
-from azureml.core import ScriptRunConfig
-from azureml.core import Dataset
-
-if __name__ == "__main__":
-    ws = Workspace.from_config()
-    
-    datastore = ws.get_default_datastore()
-    dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))
-
-    experiment = Experiment(workspace=ws, name='day1-experiment-data')
-
-    config = ScriptRunConfig(
-        source_directory='./src',
-        script='train.py',
-        compute_target='cpu-cluster',
-        arguments=[
-            '--data_path', dataset.as_named_input('input').as_mount(),
-            '--learning_rate', 0.003,
-            '--momentum', 0.92],
-        )
-    
-    # set up pytorch environment
-    env = Environment.from_conda_specification(name='pytorch-env',file_path='.azureml/pytorch-env.yml')
-    config.run_config.environment = env
-
-    run = experiment.submit(config)
-    aml_url = run.get_portal_url()
-    print("Submitted to an Azure Machine Learning compute cluster. Click on the link below")
-    print("")
-    print(aml_url)
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/06-run-pytorch-data.py":::
 
 ### <a name="understand-the-code-changes"></a>Comprendre les modifications du code
 
@@ -283,7 +178,10 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-the-run-to-azure-machine-learning"></a>Soumettre l’exécution à Azure Machine Learning
+> [!div class="nextstepaction"]
+> [J’ai créé le script de contrôle](?success=control-script#submit-to-cloud) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=control-script)
+
+## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-to-cloud"></a> Soumettre l’exécution à Azure Machine Learning
 
 À présent, soumettez à nouveau l’exécution pour utiliser la nouvelle configuration :
 
@@ -293,7 +191,10 @@ python 06-run-pytorch-data.py
 
 Ce code va produire une URL vers l’expérience dans Azure Machine Learning Studio. Si vous accédez à ce lien, vous pourrez voir votre code en cours d’exécution.
 
-### <a name="inspect-the-log-file"></a>Examiner le fichier journal
+> [!div class="nextstepaction"]
+> [J’ai resoumis l’exécution](?success=submit-to-cloud#inspect-log) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
+
+### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Examiner le fichier journal
 
 Dans le studio, accédez à l’exécution de l’expérience (en sélectionnant la sortie de l’URL précédente), puis à **Sorties + journaux**. Sélectionnez le fichier `70_driver_log.txt`. Vous devez normalement voir la sortie suivante :
 
@@ -333,6 +234,9 @@ Remarques :
 
 - Azure Machine Learning a monté automatiquement pour vous Stockage Blob sur le cluster de calcul.
 - ``dataset.as_named_input('input').as_mount()`` utilisé dans le script de contrôle donne après résolution le point de montage.
+
+> [!div class="nextstepaction"]
+> [J’ai examiné le fichier journal](?success=inspect-log#clean-up-resources) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

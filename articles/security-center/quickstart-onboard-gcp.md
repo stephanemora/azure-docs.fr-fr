@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372633"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573542"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connectez vos comptes GCP à Azure Security Center
 
@@ -44,6 +44,8 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les projets GCP affiché
 
 ## <a name="connect-your-gcp-account"></a>Connecter votre compte GCP
 
+Suivez les étapes ci-dessous pour créer votre connecteur cloud GCP. 
+
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Étape 1. Configurer la sécurité de GCP et Command Center avec Security Health Analytics
 
 Pour tous les projets GCP de votre organisation, vous devez également :
@@ -59,7 +61,7 @@ Lorsque vous activez pour la première fois Security Health Center, plusieurs he
 
 ### <a name="step-2-enable-gcp-security-command-center-api"></a>Étape 2. Activer l’API GCP Security Command Center
 
-1. À partir de la **bibliothèque d’API de Google Cloud Console** , sélectionnez le projet que vous souhaitez connecter à Azure Security Center.
+1. À partir de la **bibliothèque d’API de Google Cloud Console**, sélectionnez le projet que vous souhaitez connecter à Azure Security Center.
 1. Dans la bibliothèque d’API, recherchez et sélectionnez **API Security Command Center**.
 1. Sur la page de l’API, sélectionnez **ACTIVER**.
 
@@ -68,27 +70,27 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Étape 3. Créer un compte de service dédié pour l’intégration de la configuration de la sécurité
 
-1. Dans la **console GCP** , sélectionnez le projet que vous souhaitez connecter à Security Center.
-1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **Comptes de service**.
+1. Dans la **console GCP**, sélectionnez le projet que vous souhaitez connecter à Security Center.
+1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **Comptes de service**.
 1. Sélectionnez **CRÉER LE COMPTE DE SERVICE**.
 1. Entrez un nom de compte, puis sélectionnez **Créer**.
-1. Spécifiez le **Rôle** comme **Visionneuse d’administration de Security Center** , puis sélectionnez **Continuer**.
+1. Spécifiez le **Rôle** comme **Visionneuse d’administration de Security Center**, puis sélectionnez **Continuer**.
 1. La section **Accorder aux utilisateurs l’accès à ce compte de service** est facultative. Sélectionnez **Terminé**.
 1. Copiez la **valeur E-mail** du compte de service créé, puis enregistrez-la pour une utilisation ultérieure.
-1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **IAM**
+1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **IAM**
     1. Basculez vers le niveau de l’organisation.
     1. Sélectionnez **AJOUTER**.
-    1. Dans le champ **Nouveaux membres** , collez la **valeur E-mail** que vous avez copiée précédemment.
-    1. Spécifiez le rôle **Visionneuse d’administration de Security Center** , puis sélectionnez Enregistrer.
+    1. Dans le champ **Nouveaux membres**, collez la **valeur E-mail** que vous avez copiée précédemment.
+    1. Spécifiez le rôle **Visionneuse d’administration de Security Center**, puis sélectionnez Enregistrer.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Définition les autorisations GCP pertinentes":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Étape 4. Créer une clé privée pour le compte de service dédié
 1. Passez au niveau du projet.
-1. Dans le **menu de navigation** , sous les options **IAM & admin** , sélectionnez **Comptes de service**.
+1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **Comptes de service**.
 1. Ouvrez le compte de service dédié et sélectionnez Modifier.
-1. Dans la section **Clés** , sélectionnez **Ajouter une clé** , puis **Créer une nouvelle clé**.
-1. Sur l’écran Créer une clé privée, sélectionnez **JSON** , puis sélectionnez **CRÉER**.
+1. Dans la section **Clés**, sélectionnez **Ajouter une clé**, puis **Créer une nouvelle clé**.
+1. Sur l’écran Créer une clé privée, sélectionnez **JSON**, puis sélectionnez **CRÉER**.
 1. Enregistrez ce fichier JSON pour une utilisation ultérieure.
 
 
@@ -97,9 +99,9 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 1. Sélectionnez Ajouter un compte GCP.
 1. Dans la page d’intégration, effectuez les opérations suivantes, puis sélectionnez **Suivant**.
     1. Validez l’abonnement choisi.
-    1. Dans le champ **Nom d'affichage** , entrez un nom pour le connecteur.
-    1. Dans le champ **ID d’organisation** , entrez l’ID de votre organisation. Si vous ne le connaissez pas, consultez [Création et gestion des organisations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. Dans la zone de fichier **Clé privée** , accédez au fichier JSON que vous avez téléchargé à l’étape [l’Étape 4. Créer une clé privée pour le compte de service dédié](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. Dans le champ **Nom d'affichage**, entrez un nom pour le connecteur.
+    1. Dans le champ **ID d’organisation**, entrez l’ID de votre organisation. Si vous ne le connaissez pas, consultez [Création et gestion des organisations](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. Dans la zone de fichier **Clé privée**, accédez au fichier JSON que vous avez téléchargé à l’étape [l’Étape 4. Créer une clé privée pour le compte de service dédié](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### <a name="step-6-confirmation"></a>Étape 6. Confirmation

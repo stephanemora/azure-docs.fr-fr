@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350889"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545602"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
 
@@ -139,6 +139,8 @@ Obtenez les données des coûts amortis et filtrez les données pour une instanc
 1. Obtenez les coûts de paiement à l’utilisation estimés. Multipliez la valeur _UnitPrice_ par les valeurs _Quantity_ pour obtenir les coûts de paiement à l’utilisation estimés, si la remise de réservation n’a pas été appliquée à l’utilisation.
 2. Obtenez les coûts de réservation. Effectuez la somme des valeurs _Cost_ pour obtenir la valeur monétaire de ce que vous avez payé pour l’instance réservée. Le résultat inclut les coûts utilisés et non utilisés de la réservation.
 3. Soustrayez les coûts de réservation des coûts de paiement à l’utilisation estimés pour obtenir les économies estimées.
+
+Gardez à l’esprit que si votre réservation est sous-utilisée, l’entrée _UnusedReservation_ pour _ChargeType_ devient un facteur à prendre en compte. Lorsque vous disposez d’une réservation intégralement utilisée, les économies que vous réalisez sont maximales. Toute quantité _UnusedReservation_ réduit les économies.
 
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Achats de réservation et amortissement dans l’analyse des coûts
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959439"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932334"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutoriel : Créer et déployer des modules IoT Edge personnalisés
 
@@ -51,6 +51,15 @@ Le diagramme suivant illustre les modules, les entrées, les sorties et les rout
 ![Diagramme d’architecture des trois modules IoT Edge](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Les étapes décrites dans cet article sont généralement effectuées par un développeur de cloud.
+
+Dans cette section du tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> * Créer un module IoT Edge à partir de code personnalisé.
+> * Générer une image Docker à partir de votre module personnalisé.
+> * Reconfigurer le routage IoT Hub pour prendre en charge vos modules personnalisés.
+> * Générer, publier et déployer vos modules personnalisés.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -804,6 +813,10 @@ En vous connectant à l’appareil IoT Edge (la machine virtuelle Linux dans not
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Ce tutoriel fait partie d’un ensemble où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

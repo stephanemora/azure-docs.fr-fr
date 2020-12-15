@@ -1,20 +1,20 @@
 ---
 title: Résoudre les problèmes de déploiement
-description: Découvrez comment superviser et dépanner les déploiements de modèle Azure Resource Manager. Affiche les journaux d’activité et l’historique des déploiements.
+description: Découvrez comment superviser les déploiements de modèle Azure Resource Manager (modèle ARM), et résoudre les problèmes de déploiement éventuels. Affiche les journaux d’activité et l’historique des déploiements.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891803"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928526"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
-Découvrez comment corriger les erreurs de déploiement des modèles Azure Resource Manager (ARM). Au cours de ce tutoriel, vous allez configurer deux erreurs dans un modèle, puis apprendre à utiliser les journaux d’activité et l’historique de déploiement pour résoudre les problèmes.
+Découvrez comment résoudre les problèmes rencontrés lors du déploiement d’un modèle Azure Resource Manager (modèle ARM). Au cours de ce tutoriel, vous allez configurer deux erreurs dans un modèle, puis apprendre à utiliser les journaux d’activité et l’historique de déploiement pour résoudre les problèmes.
 
 Il existe deux types d’erreurs liées au déploiement d’un modèle :
 
@@ -37,7 +37,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-- Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Créer un modèle problématique
 
@@ -74,7 +74,7 @@ New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; 
 
 Le message d’erreur indique que le problème est lié à **apiVersion1**.
 
-Utilisez Visual Studio Code pour remédier au problème en remplaçant **apiVersion1** par **apiVersion** , puis enregistrez le modèle.
+Utilisez Visual Studio Code pour remédier au problème en remplaçant **apiVersion1** par **apiVersion**, puis enregistrez le modèle.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Résoudre l’erreur de déploiement
 
@@ -94,7 +94,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 Vous trouverez l’erreur de déploiement à partir du portail Azure à l’aide de la procédure suivante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Ouvrez le groupe de ressources en sélectionnant **Groupes de ressources** , puis le nom du groupe de ressources. Vous devez voir **1 Échec** sous **Déploiement**.
+2. Ouvrez le groupe de ressources en sélectionnant **Groupes de ressources**, puis le nom du groupe de ressources. Vous devez voir **1 Échec** sous **Déploiement**.
 
     ![Capture d’écran mettant en évidence le déploiement ayant échoué.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Sélectionnez **Détails de l’erreur**.

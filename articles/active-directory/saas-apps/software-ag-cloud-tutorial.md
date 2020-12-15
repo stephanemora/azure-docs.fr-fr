@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182341"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602017"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Software AG Cloud
 
@@ -77,9 +77,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Software AG Cloud](mailto:support@softwareag.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -121,19 +121,19 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 1.  Cliquez sur **Administration**.
 
-    ![Configuration de Software AG Cloud 1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configuration de l’administration Software AG Cloud](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Accédez à **Single-sign on > Add identity provider** (Authentification unique > Ajouter un fournisseur d’identité)
 
-    ![Configuration de Software AG Cloud 2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Configuration du fournisseur d’identité Software AG Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Effectuez les étapes ci-après dans la page suivante.
 
-    ![Configuration de Software AG Cloud 3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Étapes suivantes de la configuration de Software AG Cloud](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. Dans la zone de texte **Identity Provider Name** (Nom complet du fournisseur d’identité), donnez un nom comme `azure ad`.
 
-    b. Dans la zone de texte **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificateur unique du fournisseur d’identité dans l’URI de redirection Software AG Cloud), collez la valeur **Entity ID** (ID d’entité) que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificateur unique du fournisseur d’identité à utiliser dans l’URI de redirection de Software AG Cloud), entrez un nom unique pour le fournisseur d’identité. Le champ **Software AG Cloud redirect URI** (URI de redirection de Software AG Cloud) est actualisé et rempli avec l’URI. Copiez cet URI et utilisez-le pour configurer l’**ID d’entité** et d’autres informations dans le portail Azure selon les modèles définis.
 
     c. Importez le fichier **XML de métadonnées de fédération** dans **Identity provider configuration** (Configuration du fournisseur d’identité), puis cliquez sur **Next** (Suivant).
 
@@ -147,11 +147,12 @@ Dans cette section, vous créez un utilisateur appelé Britta Simon dans Softwar
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Software AG Cloud où vous pouvez lancer le flux de connexion. 
+* En supposant que Microsoft Azure est configuré en tant que fournisseur dans Software AG Cloud, accédez à `www.softwareag.cloud` et cliquez sur le bouton de connexion, puis entrez le nom de l’environnement. Dans l’écran suivant, cliquez sur le lien « Log in with <IDP NAME> » (Se connecter avec <IDP NAME>), puis entrez les informations d’identification. Une fois authentifié, vous êtes connecté à la page d’accueil de Software AG Cloud.
 
-2. Accédez directement à l’URL de connexion Software AG Cloud pour lancer le flux de connexion à partir de là.
+* Accédez directement à l’URL de connexion Software AG Cloud pour lancer le flux de connexion à partir de là.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Software AG Cloud dans le volet d’accès vous redirige vers l’URL de connexion Software AG Cloud. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Software AG Cloud dans Mes applications vous redirige vers l’URL de connexion Software AG Cloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

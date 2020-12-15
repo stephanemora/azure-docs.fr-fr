@@ -1,21 +1,21 @@
 ---
 title: Tutoriel - Ajouter des étiquettes aux ressources dans un modèle
-description: Ajoutez des étiquettes aux ressources que vous déployez dans votre modèle Azure Resource Manager. Les étiquettes vous permettent d’organiser logiquement les ressources.
+description: Ajoutez des étiquettes aux ressources que vous déployez dans votre modèle Azure Resource Manager (modèle ARM). Les étiquettes vous permettent d’organiser logiquement les ressources.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613201"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930940"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutoriel : Ajouter des étiquettes dans votre modèle ARM
 
-Dans ce tutoriel, vous allez apprendre à ajouter des étiquettes aux ressources dans votre modèle Azure Resource Manager (ARM). Les [étiquettes](../management/tag-resources.md) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes apparaissent dans les rapports financiers. Ce tutoriel dure environ **8 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter des étiquettes aux ressources dans votre modèle Azure Resource Manager (modèle ARM). Les [étiquettes](../management/tag-resources.md) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes apparaissent dans les rapports financiers. Ce tutoriel dure environ **8 minutes**.
 
 ## <a name="prerequisites"></a>Prérequis
 

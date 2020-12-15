@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447037"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859588"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
-Pour que vos applications puissent interagir avec Azure Active Directory B2C (Azure AD B2C), elles doivent être inscrites dans un locataire que vous gérez.
+Pour que vos applications puissent interagir avec Azure Active Directory B2C (Azure AD B2C), elles doivent être inscrites dans un locataire que vous gérez. 
+
+> [!NOTE]
+> Vous pouvez créer jusqu’à 20 locataires par abonnement. Cette limite aide à se prémunir contre les menaces visant vos ressources, telles que les attaques par déni de service, et est appliquée à la fois dans le portail Azure et dans l’API de création de locataire sous-jacente. Si vous avez besoin de créer plus de 20 locataires, contactez le [Support Microsoft](support-options.md).
 
 Dans cet article, vous apprendrez comment :
 
@@ -46,8 +49,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     ![Abonné, filtre Annuaire et abonnement avec locataire d’abonnement sélectionné](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+
+   ![Sélectionner le bouton Créer une ressource](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Recherchez **Azure Active Directory B2C**, puis sélectionnez **Créer**.
-1. Cliquez sur **Créer un nouveau client Azure Active Directory B2C**.
+2. Cliquez sur **Créer un nouveau client Azure Active Directory B2C**.
 
     ![Créer un locataire Azure AD B2C sélectionné dans le portail Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    - **Nom de domaine initial** : entrez un nom de domaine pour votre locataire Azure AD B2C.
    - **Pays ou région** : sélectionnez votre pays ou votre région dans la liste. Il ne sera pas possible de changer cette sélection ultérieurement.
    - **Abonnement** : sélectionnez votre abonnement dans la liste.
-   - **Groupe de ressources** : sélectionnez un groupe de ressources qui contiendra le locataire. Vous pouvez également sélectionner **Créer**, entrer un **Nom** pour le groupe de ressources, sélectionner l’**Emplacement du groupe de ressources**, puis sélectionner **OK**.
+   - **Groupe de ressources** : sélectionnez ou recherchez le groupe de ressources qui contiendra le locataire.
 
     ![Formulaire de création de locataire avec des exemples de valeurs dans le portail Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 

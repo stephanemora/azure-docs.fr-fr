@@ -1,6 +1,6 @@
 ---
 title: Utiliser des scripts de déploiement de modèle | Microsoft Docs
-description: Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager.
+description: Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager (modèles ARM).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825492"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931433"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
-Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager (ARM). Les scripts de déploiement permettent d’effectuer des étapes personnalisées impossibles à réaliser avec des modèles ARM. Créer un certificat auto-signé est un exemple.  Dans ce tutoriel, vous allez créer un modèle pour déployer un coffre de clés Azure, puis utiliser une ressource `Microsoft.Resources/deploymentScripts` dans le même modèle pour créer un certificat et enfin ajouter ce certificat au coffre de clés. Pour en savoir plus sur les scripts de déploiement, consultez [Utiliser des scripts de déploiement dans des modèles ARM](./deployment-script-template.md).
+Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager (modèles ARM). Les scripts de déploiement permettent d’effectuer des étapes personnalisées impossibles à réaliser avec des modèles ARM. Créer un certificat auto-signé est un exemple.  Dans ce tutoriel, vous allez créer un modèle pour déployer un coffre de clés Azure, puis utiliser une ressource `Microsoft.Resources/deploymentScripts` dans le même modèle pour créer un certificat et enfin ajouter ce certificat au coffre de clés. Pour en savoir plus sur les scripts de déploiement, consultez [Utiliser des scripts de déploiement dans des modèles ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur, sont créées dans le même groupe de ressources pour l’exécution du script et la résolution de problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script atteint un état terminal. Vous êtes facturé pour ces ressources tant qu’elles ne sont pas supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 

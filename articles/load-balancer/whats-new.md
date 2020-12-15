@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841031"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573151"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quelles sont les nouveautés d’Azure Load Balancer ?
 
@@ -42,7 +42,7 @@ Le groupe du produit travaille activement sur la résolution des problèmes conn
 
 |Problème |Description  |Limitation des risques  |
 | ---------- |---------|---------|
-| Exportation Log Analytics | Log Analytics ne peut pas exporter des métriques pour les équilibreurs de charge standard ni pour les journaux d’état des sondes d’intégrité pour les équilibreurs de charge de base  | [Utilisez Azure Monitor pour les métriques multidimensionnelles de votre équilibreur de charge standard](load-balancer-standard-diagnostics.md). Bien qu’il ne soit pas possible d’utiliser Log Analytics pour la supervision, Azure Monitor fournit la visualisation d’un ensemble étendu de métriques multidimensionnelles. Vous pouvez tirer parti du tableau de bord des métriques préconfigurées via le sous-panneau Insights de votre équilibreur de charge. Si vous utilisez un équilibreur de charge de base, [effectuez une mise à niveau vers un équilibreur de charge standard](upgrade-basic-standard.md) pour une supervision des métriques au niveau production.
+| Événement d’alerte de l’équilibreur de charge et journaux d’état de la sonde d’intégrité | La journalisation ne fonctionne pas pour les événements d’alerte dans le cas de l’équilibreur de charge De base ou Standard ni pour les journaux d’état de la sonde d’intégrité pour l’équilibreur de charge De base  | [Utilisez Azure Monitor pour les métriques multidimensionnelles de votre équilibreur de charge standard](load-balancer-standard-diagnostics.md). Azure Monitor propose une visualisation pour un ensemble étendu de métriques multidimensionnelles qui peuvent aussi être exportées sous forme de journaux. Vous pouvez tirer parti du tableau de bord des métriques préconfigurées via le sous-panneau Insights de votre équilibreur de charge. Si vous utilisez un équilibreur de charge de base, [effectuez une mise à niveau vers un équilibreur de charge standard](upgrade-basic-standard.md) pour une supervision des métriques au niveau production.
 
   
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555258"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575973"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
 
@@ -48,7 +48,10 @@ Pour créer un pipeline Azure Machine Learning, vous devez disposer d’un espac
 
 ### <a name="create-a-new-workspace"></a>Créer un espace de travail
 
-Pour utiliser le concepteur, vous avez d’abord besoin d’un espace de travail Azure Machine Learning. L’espace de travail est la ressource de niveau supérieur pour Azure Machine Learning. Il fournit un emplacement centralisé où vous interagissez avec tous les artefacts que vous créez dans Azure Machine Learning.
+Vous devez avoir un espace de travail Azure Machine Learning pour utiliser le concepteur. L’espace de travail est la ressource de niveau supérieur pour Azure Machine Learning. Il fournit un emplacement centralisé où vous interagissez avec tous les artefacts que vous créez dans Azure Machine Learning. Pour savoir comment créer un espace de travail, consultez [Créer et gérer les espaces de travail Azure Machine Learning](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Si votre espace de travail utilise un réseau virtuel, vous devez effectuer des étapes de configuration supplémentaires pour utiliser le concepteur. Pour plus d’informations, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 
@@ -275,13 +278,13 @@ Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer 
     
     Vous pouvez voir l’état et les détails de l’exécution en haut à droite du canevas.
     
-    La première fois, l’exécution de votre pipeline peut prendre jusqu’à 20 minutes. Les paramètres de calcul par défaut ont une taille de nœud minimale de 0, ce qui signifie que le concepteur doit allouer des ressources après une période d’inactivité. Les exécutions de pipeline répétées prennent moins de temps dans la mesure où les ressources de calcul sont déjà allouées. Par ailleurs, le concepteur utilise les résultats mis en cache pour chaque module afin d’améliorer l’efficacité.
+    Si c’est la première fois, l’exécution de votre pipeline peut prendre jusqu’à 20 minutes. Les paramètres de calcul par défaut ont une taille de nœud minimale de 0, ce qui signifie que le concepteur doit allouer des ressources après une période d’inactivité. Les exécutions de pipeline répétées prennent moins de temps dans la mesure où les ressources de calcul sont déjà allouées. Par ailleurs, le concepteur utilise les résultats mis en cache pour chaque module afin d’améliorer l’efficacité.
 
 ### <a name="view-scored-labels"></a>Afficher les étiquettes de score
 
 Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécution du pipeline. Tout d’abord, examinez les prédictions générées par le modèle de régression.
 
-1. Cliquez avec le bouton droit sur le module **Score Model** (Noter le modèle) et sélectionnez **Visualiser** pour afficher sa sortie.
+1. Cliquez avec le bouton droit sur le module **Score Model** et sélectionnez **Visualiser** pour afficher sa sortie.
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 

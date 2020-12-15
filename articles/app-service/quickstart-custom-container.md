@@ -7,23 +7,23 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b3d9e2e275b4c0d000759878557e5e14f7dfc04f
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925745"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745075"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Exécuter un conteneur personnalisé dans Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement de conteneur Windows préconfiguré (préversion) verrouille le système d’exploitation et empêche l’accès administrateur, les installations logicielles, les changements du Global Assembly Cache, etc. Pour plus d’informations, consultez [Fonctionnalités de système d’exploitation sur Azure App Service](operating-system-functionality.md). Si votre application nécessite un accès plus important que celui permis par l’environnement préconfiguré, vous pouvez déployer un conteneur Windows personnalisé à la place.
+[Azure App Service](overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement de conteneur Windows préconfiguré verrouille le système d’exploitation et empêche l’accès administrateur, les installations logicielles, les changements du Global Assembly Cache, etc. Pour plus d’informations, consultez [Fonctionnalités de système d’exploitation sur Azure App Service](operating-system-functionality.md). Si votre application nécessite un accès plus important que celui permis par l’environnement préconfiguré, vous pouvez déployer un conteneur Windows personnalisé à la place.
 
 Ce guide de démarrage rapide montre comment déployer une application ASP.NET, dans une image Windows, sur [Docker Hub](https://hub.docker.com/) à partir de Visual Studio. Vous exécutez l’application dans un conteneur personnalisé au sein d’Azure App Service.
 
 > [!NOTE]
-> App Service sur des conteneurs Windows est en préversion.
->
+> Les conteneurs Windows sont limités à Azure Files et ne prennent actuellement pas en charge Azure Blob.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,15 +43,15 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Ouvrez Visual Studio, puis sélectionnez **Créer un projet**.
 
-1. Dans **Créer un projet** , recherchez et choisissez une **application web ASP.NET (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
+1. Dans **Créer un projet**, recherchez et choisissez une **application web ASP.NET (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
 
-1. Dans **Configurer votre nouveau projet** , nommez l’application _myfirstazurewebapp_ , puis sélectionnez **Créer**.
+1. Dans **Configurer votre nouveau projet**, nommez l’application _myfirstazurewebapp_, puis sélectionnez **Créer**.
 
    ![Configurer votre projet d’application web](./media/quickstart-custom-container/configure-web-app-project-container.png)
 
 1. Vous pouvez déployer n’importe quel type d’application web ASP.NET dans Azure. Pour ce guide de démarrage rapide, choisissez le modèle **MVC**.
 
-1. Sélectionnez **Prise en charge de Docker** , puis vérifiez que l’option d’authentification a la valeur **Aucune authentification**. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Prise en charge de Docker**, puis vérifiez que l’option d’authentification a la valeur **Aucune authentification**. Sélectionnez **Create** (Créer).
 
    ![Créer une application web ASP.NET](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
@@ -69,11 +69,11 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 ## <a name="publish-to-docker-hub"></a>Publier sur Docker Hub
 
-1. Dans l’ **Explorateur de solutions** , cliquez avec le bouton droit sur le projet **myfirstazurewebapp** , puis sélectionnez **Publier**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **myfirstazurewebapp**, puis sélectionnez **Publier**.
 
-1. Choisissez **App Service** , puis sélectionnez **Publier**.
+1. Choisissez **App Service**, puis sélectionnez **Publier**.
 
-1. Dans **Choisir une cible de publication** , sélectionnez **Container Registry** , **Docker Hub** , puis cliquez sur **Publier**.
+1. Dans **Choisir une cible de publication**, sélectionnez **Container Registry**, **Docker Hub**, puis cliquez sur **Publier**.
 
    ![Publier à partir de la page de présentation du projet](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
 
@@ -91,21 +91,21 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
 
-1. Dans la zone de recherche située au-dessus de la liste des ressources de la Place de marché Azure, recherchez **Web App pour conteneurs** , puis sélectionnez **Créer**.
+1. Dans la zone de recherche située au-dessus de la liste des ressources de la Place de marché Azure, recherchez **Web App pour conteneurs**, puis sélectionnez **Créer**.
 
-1. Dans **Application web - Créer** , choisissez votre abonnement et un **groupe de ressources**. Vous pouvez créer un groupe de ressources, le cas échéant.
+1. Dans **Application web - Créer**, choisissez votre abonnement et un **groupe de ressources**. Vous pouvez créer un groupe de ressources, le cas échéant.
 
-1. Indiquez un nom d’application, par exemple *win-container-demo* , puis choisissez **Windows** pour **Système d’exploitation**. Sélectionnez **Suivant : Docker** pour continuer.
+1. Indiquez un nom d’application, par exemple *win-container-demo*, puis choisissez **Windows** pour **Système d’exploitation**. Sélectionnez **Suivant : Docker** pour continuer.
 
    ![Créer une application web pour conteneurs](media/quickstart-custom-container/create-web-app-continer.png)
 
-1. Pour **Source d’image** , choisissez **Docker Hub** et pour **Image et étiquette** , entrez le nom de dépôt que vous avez copié dans [Publier sur Docker Hub](#publish-to-docker-hub).
+1. Pour **Source d’image**, choisissez **Docker Hub** et pour **Image et étiquette**, entrez le nom de dépôt que vous avez copié dans [Publier sur Docker Hub](#publish-to-docker-hub).
 
    ![Configurer une application web pour conteneurs](media/quickstart-custom-container/configure-web-app-continer.png)
 
     Si vous avez une image personnalisée ailleurs pour votre application web, comme dans [Azure Container Registry](../container-registry/index.yml) ou dans un autre référentiel privé, vous pouvez le configurer ici.
 
-1. Sélectionnez **Vérifier et créer** , **Créer** , puis attendez qu’Azure crée les ressources nécessaires.
+1. Sélectionnez **Vérifier et créer**, **Créer**, puis attendez qu’Azure crée les ressources nécessaires.
 
 ## <a name="browse-to-the-container-app"></a>Accédez à l’application de conteneur
 
@@ -146,7 +146,7 @@ Les journaux d’activité en continu ressemblent à ceci :
 
 ## <a name="update-locally-and-redeploy"></a>Mise à jour locale et redéploiement
 
-1. Dans Visual Studio, dans l’ **Explorateur de solutions** , ouvrez **Vues** > **Accueil** > **Index.cshtml**.
+1. Dans Visual Studio, dans l’**Explorateur de solutions**, ouvrez **Vues** > **Accueil** > **Index.cshtml**.
 
 1. Recherchez la balise HTML `<div class="jumbotron">` vers le début, puis remplacez la totalité de l’élément par le code suivant :
 
@@ -157,7 +157,7 @@ Les journaux d’activité en continu ressemblent à ceci :
    </div>
    ```
 
-1. Pour effectuer un redéploiement sur Azure, cliquez avec le bouton droit sur le projet **myfirstazurewebapp** dans l’ **Explorateur de solutions** , puis choisissez **Publier**.
+1. Pour effectuer un redéploiement sur Azure, cliquez avec le bouton droit sur le projet **myfirstazurewebapp** dans l’**Explorateur de solutions**, puis choisissez **Publier**.
 
 1. Dans la page de publication, sélectionnez **Publier** et attendez la fin de la publication.
 
@@ -201,7 +201,7 @@ Pour suivre ce guide de démarrage rapide, vous avez besoin d’une image d’ap
 
 ## <a name="sign-in"></a>Se connecter
 
-Ensuite, lancez VS Code et connectez-vous à votre compte Azure à l’aide de l’extension App Service. Pour ce faire, sélectionnez le logo Azure dans la barre d’activités, accédez à l’explorateur **APP SERVICE** , sélectionnez **Connectez-vous à Azure** , puis suivez les instructions affichées.
+Ensuite, lancez VS Code et connectez-vous à votre compte Azure à l’aide de l’extension App Service. Pour ce faire, sélectionnez le logo Azure dans la barre d’activités, accédez à l’explorateur **APP SERVICE**, sélectionnez **Connectez-vous à Azure**, puis suivez les instructions affichées.
 
 ![se connecter à Azure](./media/quickstart-docker/sign-in.png)
 
@@ -225,7 +225,7 @@ Enfin, vérifiez que votre registre Azure Container Registry est connecté. Pour
 
 Maintenant que tout est configuré, vous pouvez déployer votre image dans [Azure App Service](https://azure.microsoft.com/services/app-service/) directement à partir de l’explorateur de l’extension Docker.
 
-Recherchez l’image sous le nœud **Registres** dans l’explorateur **DOCKER** , puis développez-la pour afficher ses balises. Cliquez avec le bouton droit sur une balise, puis sélectionnez **Déployer l’image dans Azure App Service**.
+Recherchez l’image sous le nœud **Registres** dans l’explorateur **DOCKER**, puis développez-la pour afficher ses balises. Cliquez avec le bouton droit sur une balise, puis sélectionnez **Déployer l’image dans Azure App Service**.
 
 À partir de là, suivez les invites pour choisir un abonnement, un nom d’application global unique, un groupe de ressources et un plan App Service. Choisissez **B1 De base** comme niveau tarifaire et une région.
 
@@ -233,11 +233,11 @@ Une fois le déploiement effectué, votre application est disponible à l’adre
 
 Un **groupe de ressources** est une collection nommée de toutes les ressources de votre application dans Azure. Par exemple, un groupe de ressources peut contenir une référence à un site web, une base de données et une fonction Azure.
 
-Un **plan App Service** définit les ressources physiques qui seront utilisées pour héberger votre site web. Ce guide de démarrage rapide utilise un plan d’hébergement **De base** sur l’infrastructure **Linux** , ce qui signifie que le site sera hébergé sur une machine Linux avec d’autres sites web. Si vous commencez avec le plan **De base** , vous pouvez utiliser le portail Azure pour effectuer un scale-up afin que votre site soit le seul à s’exécuter sur un ordinateur.
+Un **plan App Service** définit les ressources physiques qui seront utilisées pour héberger votre site web. Ce guide de démarrage rapide utilise un plan d’hébergement **De base** sur l’infrastructure **Linux**, ce qui signifie que le site sera hébergé sur une machine Linux avec d’autres sites web. Si vous commencez avec le plan **De base**, vous pouvez utiliser le portail Azure pour effectuer un scale-up afin que votre site soit le seul à s’exécuter sur un ordinateur.
 
 ## <a name="browse-the-website"></a>Parcourir le site Web
 
-Le panneau **Sortie** s’ouvre pendant le déploiement pour indiquer l’état de l’opération. Une fois l’opération terminée, recherchez l’application que vous avez créée dans l’explorateur **APP SERVICE** , cliquez dessus avec le bouton droit, puis sélectionnez **Parcourir le site Web** pour ouvrir le site dans votre navigateur.
+Le panneau **Sortie** s’ouvre pendant le déploiement pour indiquer l’état de l’opération. Une fois l’opération terminée, recherchez l’application que vous avez créée dans l’explorateur **APP SERVICE**, cliquez dessus avec le bouton droit, puis sélectionnez **Parcourir le site Web** pour ouvrir le site dans votre navigateur.
 
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)

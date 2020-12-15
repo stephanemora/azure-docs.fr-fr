@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 951dbb6c1a44e3c081f682db49458be165e9e930
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559798"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904066"
 ---
 ## <a name="configure-your-local-environment"></a>Configurer votre environnement local
 
@@ -17,8 +17,8 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"  
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 ou version 2.x ultérieure.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 ou ultérieure.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + La version Azure Functions Core Tools qui correspond à la version de Python installée :
@@ -46,4 +46,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 
+::: zone-end
+::: zone pivot="programming-language-other"
++ Outils de développement pour le langage que vous utilisez. Ce tutoriel utilise le [langage de programmation R](https://www.r-project.org/) à titre d’exemple.
 ::: zone-end

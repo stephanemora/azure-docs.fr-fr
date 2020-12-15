@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850902"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780601"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -89,7 +89,7 @@ En réponse, l’API retourne la liste de tous les comptes d’inscription auxqu
 
 ```
 
-Notez l’`id` de l’un de vos `enrollmentAccounts`. Il s’agit de l’étendue de facturation dans laquelle une requête de création d’abonnement est lancée. 
+La valeur d’une étendue de facturation et celle de `id` sont la même chose. `id`, pour votre compte d’inscription, est l’étendue de facturation sous laquelle la demande d’abonnement est initiée. Il est important de connaître l’ID, car c’est un paramètre obligatoire que vous allez utiliser pour créer un abonnement, plus loin dans cet article.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ Dans le corps de la requête, fournissez comme `billingScope` l’`id` de l’un
   }
 }
 ```
+
+Les valeurs autorisées pour `Workload` sont `Production` et `DevTest`.
 
 #### <a name="response"></a>response
 

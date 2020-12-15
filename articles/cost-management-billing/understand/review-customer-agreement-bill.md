@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447542"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531975"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutoriel : Consulter votre facture Contrat client Microsoft
 
@@ -54,6 +54,8 @@ Si vous avez accès à une seule étendue de facturation, sélectionnez **Propri
 ![Capture d’écran montrant la page de propriétés d’un Contrat client Microsoft](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Si vous avez accès à plusieurs étendues de facturation, vérifiez le type indiqué dans la colonne du compte de facturation. Vous avez accès à un compte de facturation d’un contrat client Microsoft si le type de compte de facturation de l’une des étendues est **Contrat client Microsoft**.
+
+Dans la page des étendues de facturation, sélectionnez **Étendue de facturation**, puis sélectionnez le compte de facturation, qui sera utilisé pour payer l’utilisation des abonnements. Le compte de facturation doit être de type **Contrat client Microsoft**.
 
 ![Capture d’écran montrant un Contrat client Microsoft dans la page listant les comptes de facturation](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Utilisez le fichier CSV Utilisation et frais Azure pour analyser vos frais en fo
 
 ### <a name="download-your-invoice-and-usage-details"></a>Télécharger les détails de facturation et d’utilisation
 
-En fonction de votre type d’accès, vous devrez peut-être sélectionner un compte de facturation ou un profil de facturation dans Gestion des coûts + facturation. Dans le menu de gauche, sélectionnez **Factures** sous **Facturation**. Dans la grille des factures, recherchez la ligne de la facture que vous souhaitez télécharger. Cliquez sur le symbole de téléchargement ou sur les points de suspension (...) à la fin de la ligne. Dans la zone **Télécharger**, téléchargez le fichier de détails d’utilisation et la facture.
+En fonction de votre type d’accès, vous devrez peut-être sélectionner un compte de facturation ou un profil de facturation dans Gestion des coûts + facturation. Dans le menu de gauche, sélectionnez **Factures** sous **Facturation**. Dans la grille des factures, recherchez la ligne de la facture que vous souhaitez télécharger. Sélectionnez le symbole de téléchargement ou les points de suspension (...) à la fin de la ligne. Dans la zone **Télécharger**, téléchargez le fichier de détails d’utilisation et la facture.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Afficher l’utilisation détaillée par section de la facture
 

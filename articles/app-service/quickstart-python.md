@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506190"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780771"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python dans Azure App Service sur Linux
 
@@ -74,23 +74,11 @@ Clonez l’exemple de dépôt à l’aide de la commande suivante et accédez au
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Accédez ensuite à ce dossier :
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Accédez ensuite à ce dossier :
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Vous rencontrez des problèmes ? [Faites-le nous savoir](https://aka.ms/FlaskCL
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
 ::: zone pivot="python-framework-flask"
-1. Vous devez être dans le dossier *python-docs-hello-world*. 
+1. Accédez au dossier *python-docs-hello-world* :
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Créez un environnement virtuel et installez les dépendances :
 
@@ -115,7 +107,11 @@ Vous rencontrez des problèmes ? [Faites-le nous savoir](https://aka.ms/FlaskCL
     flask run
     ```
     
-    Par défaut, le serveur suppose que le module d’entrée de l’application se trouve dans *app.py*, comme dans l’exemple. (Si vous utilisez un autre nom de module, définissez la variable d’environnement `FLASK_APP` sur ce nom.)
+    Par défaut, le serveur suppose que le module d’entrée de l’application se trouve dans *app.py*, comme dans l’exemple.
+
+    Si vous utilisez un autre nom de module, définissez la variable d’environnement `FLASK_APP` sur ce nom.
+
+    Si vous rencontrez l’erreur « Impossible de localiser une application Flask. Vous n’avez pas fourni la variable d’environnement « FLASK_APP », et un module « wsgi.py » ou « app.py » n’a pas été trouvé dans le répertoire actif. », veillez à être dans le dossier `python-docs-hello-world` qui contient l’exemple.
 
 1. Ouvrez un navigateur web et accédez à l’exemple d’application sur `http://localhost:5000/`. L’application affiche le message **Hello, World !** .
 
@@ -125,7 +121,11 @@ Vous rencontrez des problèmes ? [Faites-le nous savoir](https://aka.ms/FlaskCL
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Vous devez être dans le dossier *python-docs-hello-django*. 
+1. Accédez au dossier *python-docs-hello-django* :
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Créez un environnement virtuel et installez les dépendances :
 

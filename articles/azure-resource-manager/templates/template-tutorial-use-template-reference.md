@@ -1,21 +1,21 @@
 ---
 title: Utiliser les informations de référence des modèles
-description: Utilisez les informations de référence des modèles Azure Resource Manager pour créer un modèle.
+description: Utilisez les informations de référence sur le modèle Azure Resource Manager (modèle ARM) pour créer un modèle.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118509"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931416"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutoriel : Utiliser les informations de référence des modèles Resource Manager
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutoriel : Utiliser les informations de référence sur le modèle ARM
 
-Découvrez comment trouver les informations concernant le schéma de modèle et s’en servir pour créer des modèles Azure Resource Manager (ARM).
+Découvrez comment trouver les informations concernant le schéma de modèle et vous en servir pour créer des modèles Azure Resource Manager (modèles ARM).
 
 Dans ce didacticiel, vous utiliserez un modèle de base pris dans les modèles de démarrage rapide Azure. Vous allez personnaliser le modèle en vous appuyant sur la documentation de référence sur le modèle.
 
@@ -36,7 +36,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 

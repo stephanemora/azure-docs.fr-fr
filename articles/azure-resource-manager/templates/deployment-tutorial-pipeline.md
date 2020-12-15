@@ -1,19 +1,19 @@
 ---
 title: Intégration continue avec Azure Pipelines
-description: Découvrez comment générer, tester et déployer des modèles Azure Resource Manager en continu.
+description: Découvrez comment générer, tester et déployer en continu des modèles Azure Resource Manager (modèles ARM).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333235"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906350"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles ARM avec Azure Pipelines
 
-Dans le [tutoriel précédent](./deployment-tutorial-linked-template.md), vous avez déployé un modèle lié.  Dans ce tutoriel, vous allez apprendre à utiliser Azure Pipelines pour générer et déployer en continu des projets de modèle Azure Resource Manager.
+Dans le [tutoriel précédent](./deployment-tutorial-linked-template.md), vous avez déployé un modèle lié.  Dans ce tutoriel, vous allez apprendre à utiliser Azure Pipelines pour générer et déployer en continu des projets de modèle Azure Resource Manager (modèle ARM).
 
 Azure DevOps fournit des services de développement pour prendre en charge les équipes afin de planifier le travail, collaborer sur le développement de code, mais aussi générer et déployer des applications. Les développeurs peuvent travailler dans le cloud à l’aide d’Azure DevOps Services. Azure DevOps fournit un ensemble de fonctionnalités auxquelles vous pouvez accéder via votre navigateur web ou un client IDE. Azure Pipelines est une de ces fonctionnalités. Azure Pipelines est un service complet d’intégration et de diffusion en continu. Il fonctionne avec votre fournisseur Git par défaut et peut être déployé sur la plupart des services cloud majeurs. Une fois déployé, il vous permet d’automatiser la génération, le test et le déploiement de votre code pour Microsoft Azure, Google Cloud Platform, ou Amazon Web Services.
 
@@ -40,7 +40,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 * **Un compte GitHub**, que vous utiliserez pour créer un référentiel pour vos modèles. Si vous n’en avez pas, vous pouvez en [créer un gratuitement](https://github.com). Pour plus d’informations sur l’utilisation de référentiels GitHub, consultez [Développer des référentiels GitHub](/azure/devops/pipelines/repos/github).
 * **Installer Git**. Lors de ce didacticiel, nous utiliserons *Git Bash* ou *Git Shell*. Pour en savoir plus sur leur installation, veuillez consulter la page [Installer Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Une organisation Azure DevOps**. Si vous n’en avez pas, vous pouvez en créer une gratuitement. Pour en savoir plus, veuillez consulter [Créer une organisation ou une collection de projet](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* (facultatif) **Visual Studio Code avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* (facultatif) **Visual Studio Code avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Préparer un dépôt GitHub
 

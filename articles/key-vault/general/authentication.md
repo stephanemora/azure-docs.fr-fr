@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 455caf0b80d82b03f8d00929addeab15a1af6d7e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445538"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754213"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
@@ -102,6 +102,9 @@ Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pa
 Le diagramme suivant illustre le processus pour une application qui appelle une API Key Vault « Obtenir le secret » :
 
 ![Flux d’authentification Azure Key Vault](../media/authentication/authentication-flow.png)
+
+> [!NOTE]
+> Les clients du SDK Key Vault pour les secrets, les certificats et les clés effectuent un appel supplémentaire en direction de Key Vault sans jeton d’accès, ce qui entraîne une réponse 401 pour récupérer les informations du locataire. Pour plus d’informations, consultez [Authentification, requêtes et réponses](authentication-requests-and-responses.md).
 
 ## <a name="code-examples"></a>Exemples de code
 

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489945"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862001"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutoriel : Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -195,7 +195,9 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 Si une défaillance se produit lors de l’envoi d’événements à Azure Functions, Stream Analytics retente la plupart des opérations. Toutes les exceptions HTTP sont retentées jusqu’à réussite, à l’exception de l’erreur HTTP 413 (Entité trop volumineuse). L’erreur causée par une entité trop volumineuse est traitée comme une erreur de données soumise à la [stratégie Retenter ou supprimer](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> Le délai d’expiration des requêtes HTTP adressées à Azure Functions par Stream Analytics est défini sur 100 secondes. Si le traitement d’un lot par votre application Azure Functions prend plus de 100 secondes, Stream Analytics génère une erreur.
+> Le délai d’expiration des requêtes HTTP adressées à Azure Functions par Stream Analytics est défini sur 100 secondes. Si le traitement d’un lot par votre application Azure Functions prend plus de 100 secondes, Stream Analytics génère une erreur et retente l’opération.
+
+Toute nouvelle tentative après expiration du délai peut entraîner l’écriture d’événements en double dans le récepteur de sortie. Lorsque Stream Analytics retente l’opération pour un lot ayant échoué, la nouvelle tentative concerne tous les événements dans le lot. Prenons l’exemple d’un lot de 20 événements qui sont envoyés à Azure Functions à partir de Stream Analytics. Supposons qu’Azure Functions traite les 10 premiers événements de ce lot en 100 secondes. Après ces 100 secondes, Stream Analytics interrompt la requête, car il n’a pas reçu de réponse positive de la part d’Azure Functions, et une autre requête est envoyée pour le même lot. Les dix premiers événements du lot sont retraités par Azure Functions, ce qui crée un doublon. 
 
 ## <a name="known-issues"></a>Problèmes connus
 

@@ -1,20 +1,20 @@
 ---
 title: Importer des fichiers SQL BACPAC avec des modèles
-description: Découvrez comment utiliser les extensions Azure SQL Database pour importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager.
+description: Découvrez comment utiliser les extensions Azure SQL Database pour importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager (modèles ARM).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101883"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931399"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles ARM
 
-Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact.
+Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (modèles ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact.
 
 Dans ce tutoriel, vous allez créer un modèle pour déployer un [serveur SQL logique](../../azure-sql/database/logical-servers.md) et une base de données unique, et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machine virtuelle Azure à l’aide de modèles ARM, consultez [Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -34,7 +34,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code avec l’extension Outils Resource Manager Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de serveur. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
 
     ```console

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82b33a7a9403993ec883090559884a45d04b7aa2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149375"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932198"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>À propos du transfert de propriété de facturation pour un abonnement Azure
 
@@ -36,7 +36,7 @@ Seul l’administrateur de facturation d’un compte peut transférer la propri�
 
 L’administrateur de facturation est la personne autorisée à gérer la facturation d’un compte. Il est autorisé à accéder à la facturation sur le [portail Azure](https://portal.azure.com) et à effectuer différentes tâches liées à la facturation, comme la création d’abonnements, la consultation et le paiement des factures, ou la mise à jour des modes de paiement.
 
-Pour identifier les comptes dont vous êtes l’administrateur de facturation, consultez la page [Gestion des coûts + facturation dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Dans le volet de gauche, sélectionnez **Toutes les étendues de facturation**. La page des abonnements affiche les trois abonnements dont vous êtes l’administrateur de facturation.
+Pour identifier les comptes dont vous êtes l’administrateur de facturation, consultez la page [Gestion des coûts + facturation dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Dans le volet de gauche, sélectionnez **Toutes les étendues de facturation**. La page des abonnements affiche tous les abonnements dont vous êtes l’administrateur de facturation.
 
 Si vous n’êtes pas certain de l’identité de l’administrateur de compte d’un abonnement, accédez à la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Sélectionnez ensuite l’abonnement que vous souhaitez consulter, puis regardez sous **Paramètres**. Sélectionnez **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
 

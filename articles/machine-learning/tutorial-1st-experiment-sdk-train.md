@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f3ba5751e7a0c2369d505535896bbb4ff7523c02
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314565"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574120"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 3 sur 4)
 
@@ -51,92 +51,13 @@ Tout d’abord, vous définissez l’architecture du réseau neuronal dans un fi
 
 Le code suivant est tiré de [cet exemple d’introduction](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) de PyTorch. Notez que les concepts de Azure Machine Learning s’appliquent à tout code Machine Learning, pas seulement à PyTorch.
 
-```python
-# tutorial/src/model.py
-import torch.nn as nn
-import torch.nn.functional as F
-
-
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
-
-    def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
 Ensuite, vous définissez le script de formation. Ce script télécharge le jeu de données CIFAR10 en utilisant les API PyTorch `torchvision.dataset`, configure le réseau défini dans `model.py` et l’entraîne pour deux périodes en utilisant un algorithme de gradient stochastique (ou SGD « Stochastic Gradient Descent ») et du calcul de la perte d’entropie croisée.
 
 Créez un script `train.py` dans le sous-répertoire `src` :
 
-```python
-# tutorial/src/train.py
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
-
-from model import Net
-
-# download CIFAR10 data
-trainset = torchvision.datasets.CIFAR10(
-    root="./data",
-    train=True,
-    download=True,
-    transform=torchvision.transforms.ToTensor(),
-)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True
-)
-
-if __name__ == "__main__":
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
-                running_loss = 0.0
-
-    print("Finished Training")
-
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/train.py":::
 
 Vous disposez maintenant de la structure de répertoires suivante :
 
@@ -153,27 +74,23 @@ tutorial
 └──03-run-hello.py
 ```
 
-## <a name="create-a-python-environment"></a>Créer un environnement Python
+> [!div class="nextstepaction"]
+> [J’ai créé les scripts d’entraînement](?success=create-scripts#environment) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=create-scripts)
+
+## <a name="create-a-python-environment"></a><a name="environment"></a> Créer un environnement Python
 
 À des fins de démonstration, nous allons utiliser un environnement Conda. (Les étapes pour un environnement virtuel pip sont pratiquement identiques.)
 
 Créez un fichier nommé `pytorch-env.yml` dans le répertoire masqué `.azureml` :
 
-```yml
-# tutorial/.azureml/pytorch-env.yml
-name: pytorch-env
-channels:
-    - defaults
-    - pytorch
-dependencies:
-    - python=3.6.2
-    - pytorch
-    - torchvision
-```
+:::code language="yml" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/environments/pytorch-env.yml":::
 
 Cet environnement comporte toutes les dépendances requises par votre modèle et votre script de formation. Notez qu’il n’existe aucune dépendance du SDK Azure Machine Learning pour Python.
 
-## <a name="test-locally"></a>Tester les topologies localement
+> [!div class="nextstepaction"]
+> [J’ai créé le fichier d’environnement](?success=create-env-file#test-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=create-env-file)
+
+## <a name="test-locally"></a><a name="test-local"></a> Tester localement
 
 Utilisez le code suivant pour tester les exécutions de votre script localement dans cet environnement :
 
@@ -185,33 +102,16 @@ python src/train.py                             # train model
 
 Après l’exécution de ce script, vous voyez toutes les données téléchargées dans un répertoire nommé `tutorial/data`.
 
-## <a name="create-the-control-script"></a>Créer le script de contrôle
+> [!div class="nextstepaction"]
+> [J’ai créé le fichier d’environnement](?success=test-local#create-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-local)
+
+## <a name="create-the-control-script"></a><a name="create-local"></a> Créer le script de contrôle
 
 La différence entre le script de contrôle suivant et celui que vous avez utilisé pour soumettre « Hello World ! » est que vous ajoutez quelques lignes supplémentaires pour définir l’environnement.
 
 Créez un fichier Python dans le répertoire `tutorial` nommé `04-run-pytorch.py` :
 
-```python
-# tutorial/04-run-pytorch.py
-from azureml.core import Workspace
-from azureml.core import Experiment
-from azureml.core import Environment
-from azureml.core import ScriptRunConfig
-
-if __name__ == "__main__":
-    ws = Workspace.from_config()
-    experiment = Experiment(workspace=ws, name='day1-experiment-train')
-    config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
-
-    # set up pytorch environment
-    env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')
-    config.run_config.environment = env
-
-    run = experiment.submit(config)
-
-    aml_url = run.get_portal_url()
-    print(aml_url)
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/04-run-pytorch.py":::
 
 ### <a name="understand-the-code-changes"></a>Comprendre les modifications du code
 
@@ -232,9 +132,13 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-the-run-to-azure-machine-learning"></a>Soumettre l’exécution à Azure Machine Learning
+> [!div class="nextstepaction"]
+> [J’ai créé le script de contrôle](?success=control-script#submit) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=control-script)
 
-Si vous êtes passé à des environnements locaux, veillez à revenir à un environnement où le SDK Azure Machine Learning pour Python est installé. 
+
+## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Soumettre l’exécution à Azure Machine Learning
+
+Si vous êtes passé à des environnements locaux, veillez à revenir à un environnement où le SDK Azure Machine Learning pour Python est installé.
 
 Ensuite, exécutez :
 
@@ -245,7 +149,7 @@ python 04-run-pytorch.py
 >[!NOTE] 
 > La première fois que vous exécutez ce script, Azure Machine Learning va générer une nouvelle image Docker à partir de votre environnement PyTorch. La totalité de l’exécution peut prendre 5 à 10 minutes. 
 >
-> Vous pouvez visualiser les journaux de la génération Docker dans Azure Machine Learning Studio. Suivez le lien vers le studio, sélectionnez l’onglet **Sorties + journaux** , puis sélectionnez `20_image_build_log.txt`.
+> Vous pouvez visualiser les journaux de la génération Docker dans Azure Machine Learning Studio. Suivez le lien vers le studio, sélectionnez l’onglet **Sorties + journaux**, puis sélectionnez `20_image_build_log.txt`.
 >
 > Cette image sera réutilisée dans les prochaines exécutions, ce qui les rendra plus rapides.
 
@@ -281,7 +185,10 @@ Azure Machine Learning conserve aussi une collection d’environnements organis�
 
 En bref, l’utilisation d’environnements inscrits peut vous faire gagner du temps ! Pour plus d’informations, consultez [Comment utiliser les environnements](./how-to-use-environments.md).
 
-## <a name="log-training-metrics"></a>Journaliser les métriques de formation
+> [!div class="nextstepaction"]
+> [J’ai soumis l’exécution](?success=test-w-environment#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+
+## <a name="log-training-metrics"></a><a name="log"></a> Journaliser les métriques d’entraînement
 
 Maintenant que vous avez un modèle de formation dans Azure Machine Learning, commencez le suivi de certaines mesures de performances.
 
@@ -291,67 +198,8 @@ Le script de formation en cours imprime les métriques sur le terminal. Azure Ma
 
 Modifiez votre script `train.py` pour y inclure deux lignes de code supplémentaires :
 
-```python
-# train.py
-import torch
-import torch.optim as optim
-import torchvision
-import torchvision.transforms as transforms
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
-from model import Net
-from azureml.core import Run
-
-
-# ADDITIONAL CODE: get Azure Machine Learning run from the current context
-run = Run.get_context()
-
-# download CIFAR10 data
-trainset = torchvision.datasets.CIFAR10(
-    root="./data",
-    train=True,
-    download=True,
-    transform=torchvision.transforms.ToTensor(),
-)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=4, shuffle=True, num_workers=2
-)
-
-if __name__ == "__main__":
-
-    # define convolutional network
-    net = Net()
-
-    # set up pytorch loss /  optimizer
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-
-    # train the network
-    for epoch in range(2):
-
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # unpack the data
-            inputs, labels = data
-
-            # zero the parameter gradients
-            optimizer.zero_grad()
-
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:
-                loss = running_loss / 2000
-                run.log('loss', loss) # ADDITIONAL CODE: log loss metric to Azure Machine Learning
-                print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
-                running_loss = 0.0
-
-    print('Finished Training')
-```
 
 #### <a name="understand-the-additional-two-lines-of-code"></a>Comprendre les deux lignes de code supplémentaires
 
@@ -372,35 +220,31 @@ Les métriques de Azure Machine Learning sont :
 - Équipées d’une interface utilisateur qui vous permet de visualiser les performances de formation dans Studio.
 - Conçues pour être mises à l’échelle, vous conservez ces avantages même lorsque vous exécutez des centaines d’expériences.
 
+> [!div class="nextstepaction"]
+> [J’ai modifié train.py ](?success=modify-train#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=modify-train)
+
 ### <a name="update-the-conda-environment-file"></a>Mettre à jour le fichier d’environnement Conda
 
 Le script `train.py` prenait uniquement une nouvelle dépendance sur `azureml.core`. Mettre à jour `pytorch-env.yml` pour refléter cette modification :
 
-```yaml
-# tutorial/.azureml/pytorch-env.yml
-name: pytorch-env
-channels:
-    - defaults
-    - pytorch
-dependencies:
-    - python=3.6.2
-    - pytorch
-    - torchvision
-    - pip
-    - pip:
-        - azureml-sdk
-```
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
-### <a name="submit-the-run-to-azure-machine-learning"></a>Soumettre l’exécution à Azure Machine Learning
+> [!div class="nextstepaction"]
+> [J’ai mis à jour le fichier d’environnement](?success=update-environment#submit-again) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=update-environment)
+
+### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Soumettre l’exécution à Azure Machine Learning
 Soumettre ce script une fois de plus :
 
 ```bash
 python 04-run-pytorch.py
 ```
 
-Cette fois, quand vous accédez au studio, accédez à l’onglet **Métriques** , où vous pouvez maintenant voir les mises à jour en direct sur la perte du modèle d’entraînement !
+Cette fois, quand vous accédez au studio, accédez à l’onglet **Métriques**, où vous pouvez maintenant voir les mises à jour en direct sur la perte du modèle d’entraînement !
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Graphe des pertes de l’entraînement dans l’onglet Métriques.":::
+
+> [!div class="nextstepaction"]
+> [J’ai resoumis l’exécution](?success=resubmit-with-logging#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

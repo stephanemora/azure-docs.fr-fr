@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995151"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762565"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application web Node à l’aide du flux de code d’authentification
 
@@ -42,15 +42,14 @@ Ce guide de démarrage rapide utilise la bibliothèque d’authentification Micr
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-> 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
-> 1. Sélectionnez [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Sélectionnez **Nouvelle inscription**.
-> 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+> 1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Choisissez `http://localhost:3000/redirect` comme valeur pour **URI de redirection**.
 > 1. Sélectionnez **Inscription**. 
 > 1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
-> 1. Sous **Certificats et secrets**, sélectionnez **Nouveau secret client**.  Laissez la description vide et conservez l’expiration par défaut, puis cliquez sur **Ajouter**.
+> 1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.  Laissez la description vide et conservez l’expiration par défaut, puis sélectionnez **Ajouter**.
 > 1. Notez la **Valeur** de la **clé secrète client** pour une utilisation ultérieure.
 
 #### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet

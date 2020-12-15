@@ -2,15 +2,15 @@
 title: Créer et déployer une spec de modèle
 description: Découvrez comment créer une spec de modèle à partir d’un modèle ARM. Ensuite, déployez la spec de modèle vers un groupe de ressources dans votre abonnement.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747500"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518955"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Démarrage rapide : Créer et déployer une spec de modèle (préversion)
 
@@ -21,15 +21,37 @@ Ce démarrage rapide montre comment empaqueter un modèle Azure Resource Manager
 Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez installer la version la plus récente de PowerShell ou d’Azure CLI. Pour Azure PowerShell, utilisez la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+> La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Créer une spec de modèle
 
-La spec de modèle est un type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
+La spec de modèle est un type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
 
 Avec PowerShell et CLI, le modèle ARM est transmis sous forme de paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
 
 Ces deux options sont présentées ci-dessous.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Dans la partie supérieure de l’écran, dans **Rechercher des ressources, services et documents**, entrez **spécifications de modèle**, puis sélectionnez **Spécifications de modèle**.
+1. Sélectionnez **Créer une spécification de modèle**.
+1. Sélectionnez ou entrez les valeurs suivantes :
+
+    - **Nom** : entrez un nom pour la spec de modèle.  Par exemple, **storageSpec**.
+    - **Abonnement** : sélectionnez l’abonnement Azure utilisé pour créer la spec de modèle.
+    - **Groupe de ressources** : sélectionnez **Créer nouveau**, puis entrez un nouveau nom de groupe de ressources.  Par exemple, **templateSpecRG**.
+    - **Emplacement** : sélectionnez un emplacement pour le groupe de ressources. Par exemple, **USA Ouest 2**.
+    - **Version** : entrez une version pour la spec de modèle. Par exemple, **1.0** ou **v1.0**.
+
+1. Sélectionnez **Suivant : Modifier le modèle**.
+1. Remplacez le contenu du modèle par le JSON suivant :
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Il s’agit du modèle qui sera empaqueté dans la spec de modèle.
+1. Sélectionnez **Vérifier + créer**.
+1. Sélectionnez **Create** (Créer).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Ces deux options sont présentées ci-dessous.
 
 ## <a name="deploy-template-spec"></a>Déployer une spec de modèle
 
-Vous pouvez maintenant déployer la spec de modèle. Le déploiement de la spec de modèle est identique à celui du modèle que celle-ci contient, à l’exception du fait que vous transmettez l’ID de ressource de la spec de modèle. Vous utilisez les mêmes commandes de déploiement et, si nécessaire, transmettez les valeurs de paramètres pour la spec de modèle.
+Vous pouvez maintenant déployer la spec de modèle. Le déploiement de la spec de modèle est identique au déploiement du modèle que celle-ci contient, si ce n’est que vous transmettez l’ID de ressource de la spec de modèle dans Azure PowerShell ou Azure CLI. Vous utilisez les mêmes commandes de déploiement et, si nécessaire, transmettez des valeurs de paramètres pour la spec de modèle.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Sur le portail Azure, ouvrez le groupe de ressources que vous avez créé au cours de la dernière procédure.  Par exemple, **templateSpecRG**.
+1. Sélectionnez la spec de modèle que vous avez créée. Par exemple, **storageSpec**.
+1. Sélectionnez **Déployer**.
+1. Sélectionnez ou entrez les valeurs suivantes :
+
+    - **Abonnement** : sélectionnez un abonnement Azure pour créer la ressource.
+    - **Groupe de ressources**  : sélectionnez **Créer nouveau**, puis entrez **storageRG**.
+    - **Type de compte de stockage** : sélectionnez **Standard_GRS**.
+
+    Vous créez un groupe de ressources puis déployez le modèle de la spec de modèle dans le nouveau groupe de ressources.
+
+1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez **Create** (Créer).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

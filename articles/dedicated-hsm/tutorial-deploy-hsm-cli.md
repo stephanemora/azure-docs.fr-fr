@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460697"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852232"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
 
@@ -233,14 +233,14 @@ La sortie doit ressembler à ceci :
 
 ![Capture d’écran qui montre la sortie dans la fenêtre PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-À ce stade, vous avez alloué toutes les ressources pour un déploiement haute disponibilité à deux HSM, et vous avez vérifié que l’accès était possible et que l’état était opérationnel. Toute configuration ou tests supplémentaires doivent être effectués au niveau du module HSM. Pour cela, vous devez suivre les instructions du chapitre 7 du guide d’administration Gemalto Luna Network HSM 7 pour initialiser le module HSM et créer des partitions. L’ensemble des logiciels et de la documentation peuvent être téléchargés directement sur le site Gemalto une fois que vous vous êtes inscrit dans le portail de support client Gemalto et que vous disposez d’un ID client. Téléchargez le logiciel client version 7.2 pour obtenir tous les composants nécessaires.
+À ce stade, vous avez alloué toutes les ressources pour un déploiement haute disponibilité à deux HSM, et vous avez vérifié que l’accès était possible et que l’état était opérationnel. Toute configuration ou tests supplémentaires doivent être effectués au niveau du module HSM. Pour cela, vous devez suivre les instructions du chapitre 7 du guide d’administration Thales Luna Network HSM 7 pour initialiser le module HSM et créer des partitions. L’ensemble des logiciels et de la documentation peuvent être téléchargés directement sur le site Thales une fois que vous vous êtes inscrit dans le portail de support client Thales et que vous disposez d’un ID client. Téléchargez le logiciel client version 7.2 pour obtenir tous les composants nécessaires.
 
 ## <a name="delete-or-clean-up-resources"></a>Supprimer ou nettoyer des ressources
 
 Si vous n’avez plus besoin du module HSM, vous pouvez le supprimer en tant que ressource, ce qui lui permettra de retourner au pool des modules libres. Lorsque vous supprimez un module, le problème évident qui se pose est celui des données client sensibles qui s’y trouvent. La meilleure façon de « réinitialiser » un appareil consiste à entrer un mot de passe d’administrateur HSM incorrect à trois reprises (remarque : il ne s’agit pas de l’administrateur d’appliance, mais de l’administrateur HSM). En guise de mesure de sécurité pour protéger le matériel de clé, l’appareil ne peut pas être supprimé en tant que ressource Azure tant qu’il n’est pas à l’état réinitialisé.
 
 > [!NOTE]
-> Si vous rencontrez un problème avec la configuration d’un module Gemalto, vous devez contacter le [support technique Gemalto](https://safenet.gemalto.com/technical-support/).
+> Si vous rencontrez un problème avec la configuration d’un module Thales, vous devez contacter le [support technique Thales](https://safenet.gemalto.com/technical-support/).
 
 Si vous n’avez plus besoin des ressources du groupe de ressources, vous pouvez les supprimer toutes avec la commande suivante :
 

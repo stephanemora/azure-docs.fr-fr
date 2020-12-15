@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 383cd286f89bde13f5e557792e980f0455e00917
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 472c1770e2793d8da4e8fc76fafbf3b9073b746d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876692"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763416"
 ---
 ## <a name="deploy-and-configure-azure-media-services"></a>Déployer et configurer Azure Media Services
 
@@ -34,7 +34,15 @@ Dans le portail Azure, créez le [compte Media Services](https://portal.azure.co
 
 Notez le nom de votre compte **Media Services** dans le fichier *scratchpad.txt* .
 
-Une fois le déploiement terminé, accédez à la page **Propriétés** de votre compte **Media Services**. Notez l’**ID de ressource** dans le fichier *scratchpad.txt*. Vous utiliserez plus tard cette valeur lorsque vous configurerez le module IoT Edge.
+Une fois le déploiement terminé, ouvrez une fenêtre Cloud Shell et exécutez la commande suivante pour récupérer l’**ID de ressource** associé à votre compte Media Services :
+
+```azurecli
+az resource list --resource-group lva-rg --resource-type microsoft.media/mediaservices --output table --query "[].{ResourceID:id}"
+```
+
+:::image type="content" source="media/iot-central-video-analytics-part2/get-resource-id.png" alt-text="Utiliser Cloud Shell pour récupérer l’ID de ressource":::
+
+Notez l’**ID de ressource** dans le fichier *scratchpad.txt*. Vous utiliserez plus tard cette valeur lorsque vous configurerez le module IoT Edge.
 
 Ensuite, configurez un principal de service Azure Active Directory pour votre ressource Media Services. Sélectionnez **Accès API**, puis **Authentification du principal de service**. Créez une nouvelle application Azure Active Directory portant le même nom que votre ressource Media Services, puis créez un secret avec pour description *Accès IoT Edge*.
 
@@ -74,7 +82,7 @@ Pour créer une application d’analytique vidéo :
 
 1. Sélectionnez **Create** (Créer).
 
-    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Configurer une application Azure AD pour Azure Media Services":::
+    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Page de création d’une application Azure IoT Central":::
 
 ### <a name="retrieve-the-configuration-data"></a>Récupérer les données de configuration
 
@@ -82,11 +90,11 @@ Plus loin dans ce tutoriel, lorsque vous configurerez la passerelle IoT Edge, vo
 
 Dans la section **Administration**, sélectionnez **votre application** et notez l’**URL d’application** et l’**ID d’application** dans le fichier *scratchpad.txt* :
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Configurer une application Azure AD pour Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Capture d’écran illustrant le volet d’administration d’une page d’analytique vidéo avec l’URL et l’ID de l’application mises en surbrillance.":::
 
 Sélectionnez **Jetons d’API** et générez un nouveau jeton appelé **LVAEdgeToken** pour le rôle **Opérateur** :
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Configurer une application Azure AD pour Azure Media Services":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Générer un jeton":::
 
 Notez le jeton dans le fichier *scratchpad.txt* pour plus tard. Une fois la boîte de dialogue fermée, vous ne pouvez plus afficher le jeton.
 

@@ -3,12 +3,12 @@ title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez les prérequis pour les réseaux et détails sur la connectivité réseau et les ports réseau pour Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 52f973ada23576fd6d542c40c9a9e63e6f270df3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948202"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575157"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -47,9 +47,19 @@ Les sous-réseaux :
 | Utilisation du réseau             | Subnet | Exemple          |
 | ------------------------- | ------ | ---------------- |
 | Gestion de cloud privé  | `/26`  | `10.10.0.0/26`   |
+| Migrations de la gestion HCX       | `/26`  | `10.10.0.64/26`  |
+| Global Reach, réservé     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute, réservé     | `/27`  | `10.10.0.192/27` |
+| Appairage ExpressRoute      | `/27`  | `10.10.0.224/27` |
+| Gestion ESXi           | `/25`  | `10.10.1.0/25`   |
 | Réseau vMotion           | `/25`  | `10.10.1.128/25` |
-| Charges de travail de machine virtuelle              | `/24`  | `10.10.2.0/24`   |
-| Appairage ExpressRoute      | `/29`  | `10.10.3.8/29`   |
+| Réseau de réplication       | `/25`  | `10.10.2.0/25`   |
+| vSAN                      | `/25`  | `10.10.2.128/25` |
+| Liaison montante HCX                | `/26`  | `10.10.3.0/26`   |
+| Réservé                  | `/26`  | `10.10.3.64/26`  |
+| Réservé                  | `/26`  | `10.10.3.128/26` |
+| Réservé                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## <a name="required-network-ports"></a>Ports réseau requis

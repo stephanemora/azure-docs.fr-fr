@@ -5,15 +5,15 @@ description: Cet article fournit une vue d’ensemble du pare-feu d’applicatio
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560789"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621023"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -22,9 +22,6 @@ Le pare-feu d’applications web Azure (WAF) sur Azure Application Gateway fourn
 Le pare-feu d’applications web sur Application Gateway suit l’[ensemble de règles de base (CRS, Core Rule Set)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 ou 2.2.9 d’OWASP (Open Web Application Security Project). Le pare-feu d’applications web se met automatiquement à jour pour inclure la protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise. 
 
 Toutes les fonctionnalités WAF répertoriées ci-dessous existent dans une stratégie WAF. Vous pouvez créer plusieurs stratégies, qui peuvent être associées à une passerelle d’application, à des écouteurs individuels ou à des règles de routage basées sur les chemins d’une passerelle d’application. De cette façon, vous pouvez avoir des stratégies distinctes pour chaque site derrière votre Application Gateway, si nécessaire. Pour plus d’informations sur les stratégies WAF, voir [Créer une stratégie de pare-feu d’applications web (WAF)](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > Les stratégies WAF par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagramme du pare-feu d’applications web d’Application Gateway](../media/ag-overview/waf1.png)
 
@@ -146,7 +143,7 @@ En mode de scoring d’anomalie, le trafic correspondant à une règle n’est p
 Le score d’anomalie doit atteindre le seuil de 5 pour que le trafic soit bloqué. Ainsi, une seule correspondance de règle *Critique* suffit pour que le pare-feu d’applications web d’Application Gateway bloque une demande, même en mode de prévention. Mais une correspondance de règle *Avertissement* augmente considérablement selon le score d’anomalie de 3, ce qui est insuffisant en soi pour bloquer le trafic.
 
 > [!NOTE]
-> Le message journalisé quand une règle de pare-feu d’applications web correspond au trafic inclut la valeur d’action « Bloqué ». Mais le trafic n’est en fait bloqué que pour un score d’anomalie de 5 ou supérieur.  
+> Le message journalisé quand une règle de pare-feu d’applications web correspond au trafic inclut la valeur d’action « Bloqué ». Mais le trafic n’est en fait bloqué que pour un score d’anomalie de 5 ou supérieur. Pour plus d’informations, consultez [Résoudre les problèmes liés au pare-feu d’applications web (WAF) pour Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Surveillance du pare-feu d’applications web
 

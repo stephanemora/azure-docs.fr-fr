@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbf9b199b15815127f0ecb26ae027ef7bfa52d2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355411"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938747"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dropbox for Business pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Dropbox Business et Azure Active Directory (Azure AD) afin de configurer Azure AD pour le provisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Dropbox Business.
 
 > [!IMPORTANT]
-> Microsoft et Dropbox déconseilleront l’ancienne intégration de Dropbox à partir du 01/04/2021. Pour éviter toute interruption de service, nous recommandons de migrer vers la nouvelle intégration de Dropbox qui prend en charge les groupes. Pour migrer vers la nouvelle intégration de Dropbox, ajoutez et configurez une nouvelle instance de Dropbox pour l’approvisionnement dans votre locataire Azure AD en suivant les étapes ci-dessous. Une fois que vous avez configuré la nouvelle intégration de Dropbox, désactivez l’approvisionnement de l’ancienne intégration de Dropbox pour éviter les conflits d’approvisionnement.
+> Microsoft et Dropbox déconseilleront l’ancienne intégration de Dropbox à partir du 01/04/2021. Pour éviter toute interruption de service, nous recommandons de migrer vers la nouvelle intégration de Dropbox qui prend en charge les groupes. Pour migrer vers la nouvelle intégration de Dropbox, ajoutez et configurez une nouvelle instance de Dropbox pour l’approvisionnement dans votre locataire Azure AD en suivant les étapes ci-dessous. Une fois que vous avez configuré la nouvelle intégration de Dropbox, désactivez l’approvisionnement de l’ancienne intégration de Dropbox pour éviter les conflits d’approvisionnement. Pour obtenir des instructions plus détaillées sur la migration vers la nouvelle intégration de Dropbox, consultez [Comment passer à la dernière version de l’application Dropbox Business utilisant Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -46,7 +46,7 @@ Avant de configurer Dropbox Business pour l’attribution automatique des utilis
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Avant de configurer Dropbox Business pour l’attribution automatique des utilis
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Dropbox Business** , sélectionnez **Dropbox Business** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Dropbox Business**, sélectionnez **Dropbox Business** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Dropbox for Business dans la liste des résultats](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-dropbox-for-business-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Dropbox Business dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -97,11 +97,11 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **informations d’identification de l’administrateur** , cliquez sur **Autoriser**. Cela permet d’ouvrir une boîte de dialogue de connexion à Dropbox for Business dans une nouvelle fenêtre de navigateur.
+5. Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Cela permet d’ouvrir une boîte de dialogue de connexion à Dropbox for Business dans une nouvelle fenêtre de navigateur.
 
     ![Approvisionnement ](common/provisioning-oauth.png)
 
-6. Dans la boîte de dialogue **Se connecter à Dropbox Business pour établir une connexion à Azure AD** , connectez-vous à votre locataire Dropbox Business, puis confirmez votre identité.
+6. Dans la boîte de dialogue **Se connecter à Dropbox Business pour établir une connexion à Azure AD**, connectez-vous à votre locataire Dropbox Business, puis confirmez votre identité.
 
     ![Connexion à Dropbox Business](media/dropboxforbusiness-provisioning-tutorial/dropbox01.png)
 
@@ -109,25 +109,25 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![par jeton](common/provisioning-testconnection-oauth.png)
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Dropbox Business**.
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Dropbox Business**.
 
     ![Mappages d’utilisateurs Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-mapping.png)
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Dropbox. Les attributs sélectionnés en tant que propriétés **correspondantes** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Dropbox en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Dropbox. Les attributs sélectionnés en tant que propriétés **correspondantes** sont utilisés pour établir une correspondance avec les comptes d’utilisateur Dropbox en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-attributes.png)
 
-12. Dans la section **Mappages** , sélectionnez **Synchroniser les groupes Azure Active Directory avec Dropbox**.
+12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Dropbox**.
 
     ![Mappages de groupes Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-mapping.png)
 
-13. Dans la section **Mappage d’attributs** , passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Dropbox. Les attributs sélectionnés comme propriétés **correspondantes** sont utilisés pour établir une correspondance avec les groupes Dropbox en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+13. Dans la section **Mappage d’attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Dropbox. Les attributs sélectionnés comme propriétés **correspondantes** sont utilisés pour établir une correspondance avec les groupes Dropbox en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs de groupes Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-attributes.png)
 
@@ -137,7 +137,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-16. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer dans Dropbox en choisissant les valeurs souhaitées sous **Étendue** , dans la section **Paramètres**.
+16. Définissez les utilisateurs et/ou groupes que vous souhaitez attribuer dans Dropbox en choisissant les valeurs souhaitées sous **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

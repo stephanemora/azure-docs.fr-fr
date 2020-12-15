@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c1dba383f259e35b143688b2db68f05f1a67def6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453054"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938194"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutoriel : Créer une hiérarchie d’appareils IoT Edge (préversion)
 
@@ -50,10 +50,19 @@ Ce tutoriel utilise une hiérarchie à deux appareils pour des raisons de simpli
 Pour créer une hiérarchie d’appareils IoT Edge, vous aurez besoin des éléments suivants :
 
 * Un ordinateur (Windows ou Linux) avec une connectivité Internet
-* Deux appareils Linux à configurer en tant qu’appareils IoT Edge. Si vous n’avez pas d’appareils disponibles, vous pouvez utiliser des [machines virtuelles Azure](../virtual-machines/linux/index.yml)
 * Un compte Azure avec un abonnement valide. Si vous n’avez pas [d’abonnement Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) de niveau gratuit ou standard dans Azure
-* Azure CLI v2.3.1 avec l’extension Azure IoT v0.10.6 ou une version ultérieure installée. Ce tutoriel utilise [Azure Cloud Shell](../cloud-shell/overview.md). Si vous ne connaissez pas Azure Cloud Shell, [consultez ce guide de démarrage rapide pour plus d’informations](./quickstart-linux.md#use-azure-cloud-shell).
+* Azure CLI v2.3.1 avec l’extension Azure IoT v0.10.6 ou une version ultérieure installée. Ce tutoriel utilise [Azure Cloud Shell](../cloud-shell/overview.md). Si vous ne connaissez pas Azure Cloud Shell, [consultez ce guide de démarrage rapide pour plus d’informations](./quickstart-linux.md#prerequisites).
+* Deux appareils Linux à configurer en tant qu’appareils IoT Edge. Si vous n’avez pas d’appareils disponibles, vous pouvez créer deux machines virtuelles Azure en remplaçant le texte de l’espace réservé dans la commande suivante, que vous exécuterez deux fois :
+
+   ```azurecli-interactive
+   az vm create \
+    --resource-group <REPLACE_WITH_RESOURCE_GROUP> \
+    --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password <REPLACE_WITH_PASSWORD>
+   ```
 
 Vous pouvez également tester ce scénario en suivant l’[exemple Azure IoT Edge for Industrial IoT](https://aka.ms/iotedge-nested-sample), qui déploie des machines virtuelles Azure en tant qu’appareils préconfigurés pour simuler un environnement d’usine.
 
@@ -185,11 +194,11 @@ Installez IoT Edge en suivant ces étapes sur les deux appareils.
    sudo apt-get install moby-engine
    ```
 
-1. Installer le démon hsmlib et IoT Edge <!-- Update with proper image links on release -->
+1. Installez le hsmlib et le démon IoT Edge. Pour voir les ressources propres à d’autres distributions Linux, [consultez la version GitHub](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -611,7 +620,7 @@ Pour supprimer les ressources :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré deux appareils IoT Edge en tant que passerelles et défini l’un des deux comme appareil parent de l’autre. Ensuite, vous avez démontré l’extraction d’une image conteneur sur l’appareil enfant par le biais d’une passerelle. Vous pouvez également tester ce scénario en suivant l’[exemple Azure IoT Edge for Industrial IoT](https://aka.ms/iotedge-nested-sample), qui déploie des machines virtuelles Azure en tant qu’appareils préconfigurés pour simuler un environnement d’usine.
+Dans ce tutoriel, vous avez configuré deux appareils IoT Edge en tant que passerelles et défini l’un des deux comme appareil parent de l’autre. Ensuite, vous avez démontré l’extraction d’une image conteneur sur l’appareil enfant par le biais d’une passerelle.
 
 Vous pouvez passer à d’autres didacticiels pour savoir comment Azure IoT Edge peut trouver d’autres solutions pour votre entreprise.
 

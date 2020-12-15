@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372776"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573508"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -49,6 +49,8 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les comptes AWS affiché
 
 ## <a name="connect-your-aws-account"></a>Connecter votre compte AWS
 
+Suivez les étapes ci-dessous pour créer votre connecteur cloud AWS. 
+
 ### <a name="step-1-set-up-aws-security-hub"></a>Étape 1. Configurer AWS Security Hub :
 
 1. Pour afficher les recommandations de sécurité pour plusieurs régions, répétez les étapes suivantes pour chaque région concernée.
@@ -66,8 +68,8 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les comptes AWS affiché
 
 Il y a deux façons de permettre à Security Center de s’authentifier auprès d’AWS :
 
-- **Créer un rôle IAM pour Security Center**  : c’est la méthode la plus sécurisée et elle est recommandée
-- **Utilisateur AWS pour Security Center**  : une option moins sécurisée si IAM n’est pas activé
+- **Créer un rôle IAM pour Security Center** : c’est la méthode la plus sécurisée et elle est recommandée
+- **Utilisateur AWS pour Security Center** : une option moins sécurisée si IAM n’est pas activé
 
 #### <a name="create-an-iam-role-for-security-center"></a>Créer un rôle IAM pour Security Center
 1. Depuis votre console Amazon Web Services, sous **Security, Identity & Compliance** (Sécurité, identité et conformité), sélectionnez **IAM**.
@@ -77,12 +79,12 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
 1. Sélectionnez **Another AWS account** (Autre compte AWS).
 1. Entrez les informations suivantes :
 
-    - **ID de compte**  : entrez l’ID de compte Microsoft ( **158177204117** ) comme indiqué sur la page du connecteur AWS dans Security Center.
-    - **Exiger un ID externe**  : doit être sélectionné
-    - **ID externe**  : entrez l’ID d’abonnement comme indiqué sur la page du connecteur AWS dans Security Center 
+    - **ID de compte** : entrez l’ID de compte Microsoft (**158177204117**) comme indiqué sur la page du connecteur AWS dans Security Center.
+    - **Exiger un ID externe** : doit être sélectionné
+    - **ID externe** : entrez l’ID d’abonnement comme indiqué sur la page du connecteur AWS dans Security Center 
 
 1. Sélectionnez **Suivant**.
-1. Dans la section **Attacher des stratégies d’autorisation** , sélectionnez les stratégies suivantes :
+1. Dans la section **Attacher des stratégies d’autorisation**, sélectionnez les stratégies suivantes :
 
     - SecurityAudit
     - AmazonSSMAutomationRole
@@ -96,8 +98,8 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
 1. Enregistrez le Nom de ressource Amazon (ARN) pour plus tard. 
 
 #### <a name="create-an-aws-user-for-security-center"></a>Créer un utilisateur AWS pour Security Center 
-1. Ouvrez l’onglet **Utilisateurs** , puis sélectionnez **Ajouter un utilisateur**.
-1. Dans l’étape **Détails** , entrez un nom d’utilisateur pour Security Center et veillez à sélectionner **Accès programmatique**  pour le type d’accès AWS. 
+1. Ouvrez l’onglet **Utilisateurs**, puis sélectionnez **Ajouter un utilisateur**.
+1. Dans l’étape **Détails**, entrez un nom d’utilisateur pour Security Center et veillez à sélectionner **Accès programmatique**  pour le type d’accès AWS. 
 1. Sélectionnez **Next: Permissions** (Suivant : Autorisations).
 1. Sélectionnez **Attacher directement des stratégies existantes** et appliquez les stratégies suivantes :
     - SecurityAudit
@@ -106,7 +108,7 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
     
 1. Sélectionnez **Suivant : Balises**. Ajoutez des étiquettes si vous le souhaitez. L’ajout d’étiquettes à l’utilisateur n’affecte pas la connexion.
 1. Sélectionnez **Révision**.
-1. Enregistrez l’ **ID de clé d’accès** généré automatiquement et le fichier CSV de la **clé d’accès secrète** pour plus tard.
+1. Enregistrez l’**ID de clé d’accès** généré automatiquement et le fichier CSV de la **clé d’accès secrète** pour plus tard.
 1. Révisez le résumé, puis cliquez sur **Créer un utilisateur**.
 
 
@@ -131,7 +133,7 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
 1. Dans le menu de Security Center, sélectionnez **Connecteurs cloud multiples**.
 1. Sélectionnez **Ajouter un compte AWS**.
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Ajouter un compte AWS sur la page connecteurs multicloud de Security Center":::
-1. Configurez les options dans l’onglet **Authentification AWS**  :
+1. Configurez les options dans l’onglet **Authentification AWS** :
     1. Entrez un **nom d’affichage** pour le connecteur.
     1. Confirmez que l’abonnement est correct. Il s’agit de l’abonnement qui inclura les recommandations relatives au connecteur et à AWS Security Hub.
     1. Selon l’option d’authentification que vous avez choisie dans l’[étape 2. Configurez l’authentification pour Security Center dans AWS](#step-2-set-up-authentication-for-security-center-in-aws) :
@@ -142,7 +144,7 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
 
         - Sélectionnez **Informations d’identification** et collez la **clé d’accès** et la **clé secrète** à partir du fichier .csv que vous avez enregistré dans [Créer un utilisateur AWS pour Security Center](#create-an-aws-user-for-security-center).
 1. Sélectionnez **Suivant**.
-1. Configurez les options dans l’onglet **Configuration d’Azure Arc**  :
+1. Configurez les options dans l’onglet **Configuration d’Azure Arc** :
 
     Security Center Découvre les instances EC2 dans le compte AWS connecté et utilise SSM pour les intégrer à Azure Arc. 
 
@@ -150,7 +152,7 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
     > Pour obtenir la liste des systèmes d’exploitation pris en charge, consultez [Quels sont les systèmes d’exploitation pris en charge pour mes instances EC2 ?](#what-operating-systems-for-my-ec2-instances-are-supported) dans le forum aux questions.
 
     1. Sélectionnez le **groupe de ressources** et la **région Azure** à laquelle les services AWS EC2 découverts seront intégrés dans l’abonnement sélectionné.
-    1. Entrez l’ **ID du principal du service** et la **clé secrète du client du principal du service** pour Azure Arc, comme décrit dans [Créer un principal de service pour l’intégration à l’échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+    1. Entrez l’**ID du principal du service** et la **clé secrète du client du principal du service** pour Azure Arc, comme décrit dans [Créer un principal de service pour l’intégration à l’échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
     1. Si la machine se connecte à Internet via un serveur proxy, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine utilise pour communiquer avec le serveur proxy. Saisissez la valeur au format ```http://<proxyURL>:<proxyport>```
     1. Sélectionnez **Revoir + créer**.
 
@@ -160,7 +162,7 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
 
         En savoir plus sur les étiquettes Azure dans [Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion](../azure-resource-manager/management/tag-resources.md).
 
-### <a name="step-7-confirmation"></a>Étape 7. Confirmation
+### <a name="step-6-confirmation"></a>Étape 6. Confirmation
 
 Lorsque le connecteur est correctement créé et qu’AWS Security Hub a été configuré correctement :
 

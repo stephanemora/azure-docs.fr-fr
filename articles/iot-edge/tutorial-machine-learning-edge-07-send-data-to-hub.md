@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959303"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932317"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutoriel : Envoyer des données via une passerelle transparente
 
@@ -23,6 +23,14 @@ Dans cet article, nous utilisons une fois de plus la machine virtuelle de dével
 Nous surveillons le fonctionnement de l’appareil IoT Edge pendant que l’appareil simulé envoie des données. Une fois que l’appareil a terminé son exécution, nous examinons les données dans notre compte de stockage pour valider que tout a fonctionné comme prévu.
 
 Cette étape est généralement effectuée par un développeur d’appareil.
+
+Dans cette section du tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> * Créer et exécuter un appareil de nœud terminal.
+> * Vérifier que les données générées sont stockées dans votre stockage Blob Azure.
+> * Vérifier que le modèle Machine Learning a classifié les données de l’appareil.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -237,10 +245,7 @@ Si vous envisagez d’explorer les ressources utilisées par ce tutoriel de bout
 
 Dans cet article, nous avons utilisé notre machine virtuelle de développement pour simuler un appareil de nœud terminal envoyant des données de capteur et des données opérationnelles vers notre appareil IoT Edge. Nous avons validé que les modules sur l’appareil ont routé, classé, rendu persistantes et chargé les données en examinant le fonctionnement en temps réel de l’appareil de périphérie et en examinant les fichiers chargés sur le compte de stockage.
 
-Des informations supplémentaires sont disponibles dans les pages suivantes :
+Pour continuer votre apprentissage des fonctionnalités IoT Edge, suivez maintenant ce tutoriel :
 
 > [!div class="nextstepaction"]
-> [Connecter un appareil en aval à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Stocker des données à la périphérie avec Stockage Blob Azure sur IoT Edge (préversion)](how-to-store-data-blob.md)
+> [Créer une hiérarchie d’appareils IoT Edge (préversion)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

@@ -2,20 +2,20 @@
 title: Comparer les services Active Directory dans Azure | Microsoft Docs
 description: Dans cette vue d’ensemble, vous comparez les différentes offres d’identité pour Active Directory Domain Services, Azure Active Directory et Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962664"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620186"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparer les services Active Directory Domain Services automanagés, Azure Active Directory et les services Azure Active Directory Domain Services managés
 
@@ -114,6 +114,9 @@ Avec les appareils joints à Azure AD DS, les applications peuvent utiliser les 
 | Gestion                      | Logiciels de gestion des appareils mobiles (GAM) tels qu’Intune | Stratégie de groupe                                                              |
 | Mise en réseau                      | Fonctionne sur Internet                             | Doit être connecté ou appairé au réseau virtuel sur lequel le domaine managé est déployé |
 | Idéal pour...                    | Appareils mobiles ou de bureau des utilisateurs finaux                  | Machines virtuelles de serveur déployées dans Azure                                              |
+
+
+Si l’environnement local AD DS et Azure AD sont configurés pour l’authentification fédérée avec ADFS, aucun hachage de mot de passe (actuel/valide) n’est disponible dans Azure DS. Il est possible que les comptes d’utilisateurs Azure AD créés avant l’implémentation de l’authentification fédérée disposent d’un ancien hachage de mot de passe, mais il est peu probable que celui-ci corresponde à un hachage de leur mot de passe local. De ce fait, Azure AD DS ne pourra pas valider les informations d’identification des utilisateurs
 
 ## <a name="next-steps"></a>Étapes suivantes
 

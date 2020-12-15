@@ -1,21 +1,21 @@
 ---
 title: Tutoriel - Ajouter des fonctions de modèle
-description: Ajoutez des fonctions de modèle à votre modèle Azure Resource Manager pour élaborer des valeurs.
+description: Ajoutez des fonctions de modèle à votre modèle Azure Resource Manager (modèle ARM) pour construire des valeurs.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613847"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931042"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutoriel : Ajouter des fonctions de modèle à votre modèle ARM
 
-Dans ce tutoriel, vous allez apprendre à ajouter des [fonctions de modèle](template-functions.md) à votre modèle Azure Resource Manager (ARM). Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./template-user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter des [fonctions de modèle](template-functions.md) à votre modèle Azure Resource Manager (modèle ARM). Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./template-user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ L’emplacement du compte de stockage est codé en dur sur **USA Est**. Toutefoi
 
 ## <a name="use-function"></a>Utiliser une fonction
 
-Si vous avez suivi le tutoriel précédent de cette série, vous vous êtes déjà servi d’une fonction. Quand vous avez ajouté  **"[parameters('storageName')]"** , vous avez utilisé la fonction [parameters](template-functions-deployment.md#parameters). Les crochets indiquent que la syntaxe à l’intérieur des crochets est une [expression de modèle](template-expressions.md). Resource Manager résout la syntaxe au lieu de la traiter en tant que valeur littérale.
+Si vous avez suivi le tutoriel précédent de cette série, vous vous êtes déjà servi d’une fonction. Quand vous avez ajouté  `"[parameters('storageName')]"` , vous avez utilisé la fonction [parameters](template-functions-deployment.md#parameters). Les crochets indiquent que la syntaxe à l’intérieur des crochets est une [expression de modèle](template-expressions.md). Resource Manager résout la syntaxe au lieu de la traiter en tant que valeur littérale.
 
 Les fonctions ajoutent de la flexibilité à votre modèle en obtenant de manière dynamique des valeurs pendant le déploiement. Dans ce tutoriel, vous utilisez une fonction pour obtenir l’emplacement du groupe de ressources que vous utilisez pour le déploiement.
 

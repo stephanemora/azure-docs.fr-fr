@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448408"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763738"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Intégration de Key Vault à l’autorité de certification DigiCert
 
@@ -127,6 +127,9 @@ Du fait de cette intégration, le certificat est maintenant correctement émis p
 Si le certificat émis est à l’état « désactivé » sur le portail Azure, examinez le message d’erreur DigiCert pour ce certificat dans **Opération de certificat** .
 
  ![Opération de certificat](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+Message d’erreur « Veuillez effectuer une fusion pour exécuter cette demande de certificat. »
+Vous devez fusionner la demande de signature de certificat signée par l’autorité de certification pour effectuer cette demande. Apprenez-en davantage [ici](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request).
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 

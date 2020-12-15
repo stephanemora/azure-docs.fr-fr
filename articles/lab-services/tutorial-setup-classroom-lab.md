@@ -2,13 +2,13 @@
 title: Configurer un laboratoire de classe à l’aide d’Azure Lab Services | Microsoft Docs
 description: Dans ce tutoriel, vous allez utiliser Azure Lab Services pour configurer un laboratoire de classe composé de machines virtuelles utilisées par les étudiants de votre classe.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336732"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602491"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -116,24 +116,76 @@ Créez un événement planifié pour le labo de sorte que les machines virtuelle
     
     ![Planification dans le calendrier](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Pour plus d’informations sur la création et la gestion des planifications d’une classe, consultez [Créer et gérer une planification pour les laboratoires de classe](how-to-create-schedules.md).
+    Pour plus d’informations sur la création et la gestion des planifications d’une classe, consultez [Créer et gérer une planification pour les labos](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Ajouter des utilisateurs au laboratoire
 
-1. Sélectionnez **Utilisateurs** dans le menu de gauche. Par défaut, l’option **Restreindre l’accès** est activée. Lorsque ce paramètre est activé, l’utilisateur ne peut pas s’inscrire au laboratoire, même s’il dispose du lien d’inscription. Il ne pourra s’inscrire que s’il figure dans la liste des utilisateurs. Seuls les utilisateurs de la liste peuvent s’inscrire au laboratoire à l’aide du lien d’inscription que vous envoyez. Dans cette procédure, vous allez ajouter des utilisateurs à la liste. Vous pouvez également désactiver l’option **Restreindre l’accès** afin de permettre aux utilisateurs disposant du lien d’inscription de s’inscrire au laboratoire. 
-2. Sélectionnez **Ajouter des utilisateurs**  dans la barre d’outils, puis **Ajouter par adresse e-mail**. 
+Quand vous ajoutez des utilisateurs, par défaut, l’option **Restreindre l’accès** est activée et, à moins qu’ils ne soient dans la liste des utilisateurs, les étudiants ne peuvent pas s’inscrire au labo même s’ils disposent d’un lien d’inscription. Seuls les utilisateurs figurant dans la liste peuvent s’inscrire au labo à l’aide du lien d’inscription que vous envoyez. Vous pouvez désactiver l’option **Restreindre l’accès** afin de permettre aux étudiants disposant du lien d’inscription de s’inscrire au labo. 
 
-    ![Bouton Ajouter des utilisateurs](./media/how-to-configure-student-usage/add-users-button.png)
-1. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
+### <a name="add-users-from-an-azure-ad-group"></a>Ajouter des utilisateurs d’un groupe Azure AD
 
-    ![Ajouter les adresses e-mail des utilisateurs](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 
+Vous pouvez synchroniser une liste d’utilisateurs du labo avec un groupe Azure AD (Azure Active Directory) existant, ce qui vous évite d’avoir à ajouter ou supprimer manuellement les utilisateurs. 
 
-    ![Liste des utilisateurs](./media/how-to-configure-student-usage/users-list-new.png)
+Vous pouvez créer un groupe Azure AD au sein de la structure Azure Active Directory de votre organisation pour gérer l’accès aux ressources organisationnelles et aux applications cloud. Pour plus d’informations, consultez [Groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Si votre organisation utilise des services Microsoft Office 365 ou Azure, elle a déjà des administrateurs qui gèrent votre Azure Active Directory. 
 
-    Les noms des utilisateurs s’affichent dans la liste après leur inscription au laboratoire. 
+> [!IMPORTANT]
+> Assurez-vous que la liste des utilisateurs est vide. Si un labo a déjà des utilisateurs que vous aviez ajoutés manuellement ou en important un fichier CSV, l’option de synchronisation du labo avec un groupe existant n’est pas proposée. 
+
+1. Dans le volet gauche, sélectionnez **Utilisateurs**. 
+1. Cliquez sur **Synchroniser à partir du groupe**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Ajouter des utilisateurs par une synchronisation à partir d’un groupe Azure AD":::
     
+1. Vous êtes invité à sélectionner un groupe Azure AD existant avec lequel synchroniser votre labo. 
+    
+    Si vous ne voyez pas de groupe Azure AD dans la liste, cela peut être dû aux raisons suivantes :
+
+    -   Vous êtes un utilisateur invité pour Azure Active Directory (généralement si vous êtes extérieur à l’organisation propriétaire d’Azure AD) et vous n’êtes pas en mesure de rechercher des groupes à l’intérieur d’Azure AD. Dans ce cas, vous ne pouvez pas ajouter un groupe Azure AD au labo. 
+    -   Les groupes Azure AD créés par le biais de Teams ne figurent pas dans cette liste. Vous pouvez ajouter l’application Azure Lab Services dans Teams si vous souhaitez créer et gérer des labos directement à partir de Teams. Pour plus d’informations sur la [gestion de la liste des utilisateurs d’un labo dans Teams](how-to-manage-user-lists-within-teams.md). 
+1. Une fois que vous avez choisi le groupe Azure AD à utiliser pour synchroniser votre labo, cliquez sur **Ajouter**.
+1. Quand un labo est synchronisé, il tire (pull) tous les utilisateurs présents dans le groupe Azure AD en tant qu’utilisateurs du labo, et la liste des utilisateurs est mise à jour. Seules les personnes de ce groupe Azure AD auront accès à votre labo. La liste des utilisateurs est actualisée toutes les 24 heures en fonction de la dernière appartenance du groupe Azure AD. Vous pouvez également cliquer sur le bouton Synchroniser dans l’onglet Utilisateurs pour effectuer une synchronisation manuelle avec les dernières modifications apportées au groupe Azure AD.
+1. Invitez les utilisateurs à votre labo en cliquant sur le bouton **Tous les inviter**. Tous les utilisateurs recevront un e-mail contenant le lien d’inscription au labo. 
+
+### <a name="add-users-manually-from-emails-or-csv-file"></a>Ajouter des utilisateurs manuellement à l’aide des e-mails ou d’un fichier CSV
+
+Dans cette section, vous allez ajouter des étudiants manuellement (par adresse e-mail ou en chargeant un fichier CSV). 
+
+#### <a name="add-users-by-email-address"></a>Ajouter des utilisateurs par adresse e-mail
+
+1. Dans le volet gauche, sélectionnez **Utilisateurs**. 
+1. Cliquez sur **Ajouter des utilisateurs manuellement**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Ajouter des utilisateurs manuellement":::
+1. Sélectionnez **Ajouter par adresse e-mail** (option par défaut), entrez les adresses e-mail des étudiants sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Ajouter les adresses e-mail des utilisateurs":::
+1. Sélectionnez **Enregistrer**. 
+
+    La liste affiche les adresses e-mail et les états des utilisateurs actuels, qu’ils soient inscrits ou non au labo. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Liste des utilisateurs":::
+
+    > [!NOTE]
+    > Une fois les étudiants inscrits au labo, leur nom apparaît dans la liste. Le nom affiché dans la liste est construit en utilisant le prénom et le nom des étudiants dans Azure Active Directory. 
+
+#### <a name="add-users-by-uploading-a-csv-file"></a>Ajouter des utilisateurs en chargeant un fichier CSV
+
+Vous pouvez également ajouter des utilisateurs en chargeant un fichier CSV qui contient leurs adresses e-mail. 
+
+Un fichier texte CSV est utilisé pour stocker des données tabulaires séparées par des virgules (CSV) [nombres et texte]. Au lieu de stocker des informations dans des champs de colonnes (par exemple, dans des feuilles de calcul), un fichier CSV stocke des informations séparées par des virgules. Chaque ligne d’un fichier CSV a le même nombre de « champs » séparés par des virgules. Vous pouvez utiliser Excel pour créer et modifier facilement des fichiers CSV.
+
+1. Dans Microsoft Excel, créez un fichier CSV qui répertorie les adresses e-mail des étudiants dans une colonne.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Liste des utilisateurs dans un fichier CSV":::
+1. En haut du volet **Utilisateurs**, sélectionnez **Ajouter des utilisateurs**, puis **Charger un fichier CSV**.
+1. Sélectionnez le fichier CSV qui contient les adresses e-mail des étudiants, puis sélectionnez **Ouvrir**.
+
+    La fenêtre **Ajouter des utilisateurs** affiche la liste d’adresses e-mail provenant du fichier CSV. 
+1. Sélectionnez **Enregistrer**. 
+1. Dans le volet **Utilisateurs**, affichez la liste des étudiants ajoutés. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Liste des utilisateurs ajoutés dans le volet Utilisateurs"::: 
 
 ## <a name="send-invitation-emails-to-users"></a>Envoyer des e-mails d’invitation aux utilisateurs
 
@@ -145,7 +197,7 @@ Créez un événement planifié pour le labo de sorte que les machines virtuelle
     ![Envoyer un lien d’inscription par e-mail](./media/tutorial-setup-classroom-lab/send-email.png)
 4. L’état de l’**invitation**  est indiqué dans la liste **Utilisateurs**. L’état doit passer à **Envoi**, puis à **Envoyée le &lt;date&gt;** . 
 
-    Pour plus d’informations sur l’ajout d’élèves à une classe et sur la gestion de leur utilisation du laboratoire, consultez [Comment configurer l’utilisation des étudiants](how-to-configure-student-usage.md).
+Pour plus d’informations sur l’ajout d’élèves à une classe et sur la gestion de leur utilisation du laboratoire, consultez [Comment configurer l’utilisation des étudiants](how-to-configure-student-usage.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez créé un laboratoire pour votre classe dans Azure. Pour savoir comment un étudiant peut accéder à une machine virtuelle dans le laboratoire à l’aide du lien d’inscription, passez au didacticiel suivant :

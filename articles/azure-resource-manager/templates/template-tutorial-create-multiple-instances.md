@@ -1,21 +1,21 @@
 ---
 title: Créer plusieurs instances de ressource
-description: Découvrez comment créer un modèle Azure Resource Manager pour déployer plusieurs instances de ressources Azure.
+description: Découvrez comment créer un modèle Azure Resource Manager (modèle ARM) pour déployer plusieurs instances de ressource Azure.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614391"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930796"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
-Découvrez comment procéder à une itération dans votre modèle Azure Resource Manager (ARM) pour créer plusieurs instances d’une ressource Azure. Dans ce tutoriel, vous modifiez un modèle pour créer trois instances de compte de stockage.
+Découvrez comment effectuer une itération dans votre modèle Azure Resource Manager (modèle ARM) pour créer plusieurs instances d’une ressource Azure. Dans ce tutoriel, vous modifiez un modèle pour créer trois instances de compte de stockage.
 
 ![Azure Resource Manager crée plusieurs instances de diagramme](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -32,7 +32,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles Azure Resource Manager avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 

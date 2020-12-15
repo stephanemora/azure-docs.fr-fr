@@ -1,22 +1,22 @@
 ---
-title: Téléchargement de l’émulateur Cosmos Azure et notes de publication
-description: Procurez-vous les notes de publication de l’émulateur Azure Cosmos pour connaître les différentes versions et les informations de téléchargement.
+title: Téléchargement de l’émulateur Azure Cosmos DB et notes de publication
+description: Procurez-vous les notes de publication de l’émulateur Azure Cosmos DB pour connaître les différentes versions et les informations de téléchargement.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: e9f28aeb2a47c2ce7b439cbe46dcc39df3011c33
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997152"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608433"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
+# <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos DB – Notes de publication et informations sur le téléchargement
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Cet article présente les notes de publication de l’émulateur Azure Cosmos avec une liste de mises à jour de fonctionnalités qui ont été apportées à chaque version. Il répertorie également la dernière version de l’émulateur pour vous permettre de la télécharger et de l’utiliser.
+Cet article présente les notes de publication de l’émulateur Azure Cosmos DB avec la liste des mises à jour de fonctionnalités qui ont été apportées à chaque version. Il répertorie également la dernière version de l’émulateur pour vous permettre de la télécharger et de l’utiliser.
 
 ## <a name="download"></a>Téléchargement
 
@@ -26,6 +26,12 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2119-3-december-2020"></a>2.11.9 (3 décembre 2020)
+
+ - Cette version traite deux problèmes liés à la fonctionnalité d’émulateur Azure Cosmos DB en plus de la mise à jour de contenu générale qui reflète les fonctionnalités et améliorations les plus récentes dans Azure Cosmos DB :
+ * Résolution d’un problème lié au fait que les demandes de charge utile de document volumineux échouent lors de l’utilisation du mode direct et des applications clientes Java.
+ * Résolution d’un problème de connectivité avec le point de terminaison MongoDB version 3.6 quand il est ciblé par des applications .NET.
 
 ### <a name="2118-6-november-2020"></a>2.11.8 (6 novembre 2020)
 

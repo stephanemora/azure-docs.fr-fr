@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959677"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932402"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutoriel : Générer des données d’appareil simulées
 
@@ -42,6 +42,14 @@ Le projet DeviceHarness est un projet .NET Core écrit en C# divisé en quatre c
 L’exécution des tâches décrites dans cet article doit prendre environ 20 minutes.
 
 L’équivalent du travail de cette étape dans le monde réel est généralement exécutée par des développeurs d’appareil et des développeurs du cloud.
+
+Dans cette section du tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> * Intégrer un projet externe à votre environnement de développement.
+> * Utiliser l’exemple de projet DeviceHarness pour générer des données d’appareil IoT simulé.
+> * Examiner les données générées dans votre hub IoT.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -157,6 +165,10 @@ Les données que nous venons d’envoyer à votre hub IoT ont été routées ver
 1. Les fichiers sont écrits au format [Avro](https://avro.apache.org/). Double-cliquez sur l’un de ces fichiers pour ouvrir un autre onglet de navigateur et afficher partiellement les données. Si vous êtes invité à ouvrir le fichier dans un programme, vous pouvez choisir VS Code pour qu’il s’affiche correctement.
 
 1. Vous n’avez pas besoin d’essayer de lire ou d’interpréter les données pour le moment, ce sera l’objet de l’article suivant.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Ce tutoriel fait partie d’un ensemble où chaque article s’appuie sur le travail effectué dans les articles précédents. Ne nettoyez pas les ressources avant d’avoir terminé le dernier tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

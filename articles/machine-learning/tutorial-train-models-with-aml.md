@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Entraîner des modèles'
 titleSuffix: Azure Machine Learning
-description: Utilisez Azure Machine Learning pour entraîner un modèle de classification d’images avec scikit-learn dans un notebook Python Jupyter. Ce tutoriel est la première partie d’une série de deux.
+description: Utilisez Azure Machine Learning pour entraîner un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Notebook en Python. Ce tutoriel est la première partie d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321280"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862426"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutoriel : Entraîner des modèles de classification d’images avec des données MNIST et scikit-learn 
 
 
-Dans ce tutoriel, vous allez entraîner un modèle Machine Learning sur des ressources de calcul distantes. Vous allez utiliser le workflow d’entraînement et de déploiement pour Azure Machine Learning dans un notebook Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
+Dans ce tutoriel, vous allez entraîner un modèle Machine Learning sur des ressources de calcul distantes. Vous allez utiliser le workflow d’entraînement et de déploiement pour Azure Machine Learning dans un notebook Jupyter Notebook en Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
 Ce tutoriel montre comment effectuer l’entraînement d’une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec Azure Machine Learning. MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28 x 28 pixels, représentant un nombre de zéro à neuf. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée.
 
@@ -54,7 +54,7 @@ Vous trouverez également le tutoriel et le fichier **utils.py** correspondant s
 > [!Important]
 > Le reste de cet article contient le même contenu que ce que vous voyez dans le notebook.  
 >
-> Basculez maintenant vers le notebook Jupyter si vous voulez lire le code à mesure que vous l’exécutez. 
+> Basculez maintenant vers le notebook Jupyter Notebook si vous voulez lire le code à mesure que vous l’exécutez. 
 > Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Run all** (Tout exécuter) dans la barre d’outils supérieure.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>Configurer votre environnement de développement
@@ -372,11 +372,11 @@ Ce qui se passe pendant que vous attendez :
 
   Cette étape se produit une fois pour chaque environnement Python, puisque le conteneur est mis en cache pour les exécutions suivantes. Lors de la création d’image, les journaux d’activité sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de la création d’image à l’aide de ces journaux d’activité.
 
-- **Mise à l’échelle**  : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
+- **Mise à l’échelle** : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
 
-- **En cours d’exécution**  : Lors de cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul. Ensuite, les banques de données sont montées ou copiées. Pour finir, **entry_script** est exécuté. Pendant que le travail s’exécute, **stdout** et le répertoire **./logs** sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux d’activité.
+- **En cours d’exécution** : Lors de cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul. Ensuite, les banques de données sont montées ou copiées. Pour finir, **entry_script** est exécuté. Pendant que le travail s’exécute, **stdout** et le répertoire **./logs** sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux d’activité.
 
-- **Post-traitement**  : le répertoire **./outputs** de l’exécution est copié dans l’historique des exécutions de votre espace de travail, afin que vous puissiez accéder à ces résultats.
+- **Post-traitement** : le répertoire **./outputs** de l’exécution est copié dans l’historique des exécutions de votre espace de travail, afin que vous puissiez accéder à ces résultats.
 
 Vous pouvez vérifier la progression d’un travail en cours d’exécution de plusieurs façons. Ce tutoriel utilise un widget Jupyter et une méthode `wait_for_completion`.
 

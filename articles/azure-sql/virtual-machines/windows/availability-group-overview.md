@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504388"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600861"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ Le diagramme suivant illustre un groupe de disponibilité pour SQL Server sur l
 
 Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou dans des [zones de disponibilité](../../../availability-zones/az-overview.md) différentes.
 
-Un groupe à haute disponibilité est un regroupement de ressources configurées de sorte qu’il n’y ait pas deux terrains dans la même zone de disponibilité. Cela empêche d’impacter plusieurs ressources présentes dans le groupe au cours des lancements de déploiements. 
+Le fait de placer un ensemble de machines virtuelles dans un même groupe à haute disponibilité protège contre les pannes qui se produisent au sein d’un centre de données en raison d’un équipement défaillant (les machines virtuelles au sein d’un groupe à haute disponibilité ne partagent pas les ressources) ou contre les mises à jour (les machines virtuelles au sein d’un groupe à haute disponibilité ne sont pas mises à jour en même temps). Les zones de disponibilité protègent contre la défaillance d’un centre de données dans son intégralité, chaque zone représentant un ensemble de centres de centres au sein d’une région.  En faisant en sorte de placer les ressources dans différentes zones de disponibilité, aucune panne au niveau d’un centre de données ne peut mettre toutes vos machines virtuelles hors connexion.
+
+Pendant la création de machines virtuelles Azure, vous devez choisir entre configurer des groupes à haute disponibilité ou des zones de disponibilité.  Une machine virtuelle Azure ne peut pas faire partie des deux.
 
 
 ## <a name="connectivity"></a>Connectivité 

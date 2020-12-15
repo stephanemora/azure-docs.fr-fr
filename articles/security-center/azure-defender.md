@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436757"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750983"
 ---
 # <a name="introduction-to-azure-defender"></a>Présentation d’Azure Defender
 
@@ -39,6 +39,8 @@ Lorsque vous activez Azure Defender à partir de la zone **Tarification et param
 - [Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)
 - [Azure Defender pour Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender pour DNS](defender-for-dns-introduction.md)
 
 Chacun de ces plans est expliqué séparément dans la documentation relative à Security Center.
 
@@ -61,9 +63,9 @@ Déployez [Azure Arc](https://azure.microsoft.com/services/azure-arc/) et active
 
 
 
-## <a name="security-alerts"></a>Alertes de sécurité 
+## <a name="azure-defender-security-alerts"></a>Alertes de sécurité Azure Defender 
 
-Quand Azure Defender détecte une menace dans un des domaines de votre environnement, il génère une alerte. Ces alertes décrivent les détails des ressources affectées, les étapes de correction suggérées et, dans certains cas, l’option permettant de déclencher une application logique en réponse.
+Quand Azure Defender détecte une menace dans un des domaines de votre environnement, il génère une alerte de sécurité. Ces alertes décrivent les détails des ressources affectées, les étapes de correction suggérées et, dans certains cas, l’option permettant de déclencher une application logique en réponse.
 
 Il est possible d’exporter les alertes, qu’elles soient générées par Security Center ou envoyées à Security Center par un produit de sécurité intégrée. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions fournies dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
 

@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977865"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576466"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services* . Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
+Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services*. Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
 
 Les bibliothèques de client de service ne sont pas encore disponibles et fournissent l’accès aux plans de données vocales et vidéo brutes, adaptés à une intégration avec des bots et d’autres services.
 
@@ -70,6 +70,26 @@ Le tableau suivant représente l’ensemble des navigateurs pris en charge et de
 *Notez que la dernière version de Chrome est prise en charge en plus des deux versions précédentes.<br/>
 
 **Notez que les versions 13.1+ de Safari sont prises en charge. La vidéo sortante pour Safari macOS n’est pas encore prise en charge, mais elle est prise en charge sur iOS. Le partage d’écran sortant est pris en charge uniquement sur iOS pour ordinateur de bureau.
+
+## <a name="calling-client---browser-security-model"></a>Client appelant – Modèle de sécurité de navigateur
+
+### <a name="user-webrtc-over-https"></a>Utiliser WebRTC sur HTTPS
+
+Les API WebRTC comme `getUserMedia` exigent que l’application qui appelle ces API soit traitée sur HTTPS.
+
+Pour un développement local, vous pouvez utiliser `http://localhost`.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Incorporer le SDK d’appel Communication Services dans un iframe
+
+Une nouvelle [stratégie d’autorisations (aussi appelée « stratégie de fonctionnalité »)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) est adoptée par différents navigateurs. Cette stratégie affecte les scénarios d’appel en contrôlant la façon dont les applications peuvent accéder à la caméra et au microphone d’un appareil via un élément iframe cross-origin.
+
+Si vous souhaitez utiliser un iframe pour héberger une partie de l’application à partir d’un autre domaine, vous devez ajouter l’attribut `allow` à votre iframe avec la valeur correcte.
+
+Par exemple, cet iframe autorise l’accès à la caméra et au microphone :
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
