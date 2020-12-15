@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324922"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547149"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -22,7 +22,11 @@ Par défaut, tous les disques de vos machines virtuelles sont automatiquement ch
 
 ## <a name="encryption-using-customer-managed-keys"></a>Chiffrement à l’aide de clés gérées par le client
 
-Lorsque vous chiffrez des disques avec des clés gérées par le client (CMK), la clé utilisée pour chiffrer les disques est stockée dans Azure Key Vault et elle est gérée par vous. Le chiffrement Storage Service Encryption (SSE) avec CMK est différent du chiffrement Azure Disk Encryption (ADE). ADE utilise les outils de chiffrement du système d’exploitation. SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser le système d’exploitation ou l’image de votre choix pour vos machines virtuelles. Pour plus d’informations sur le chiffrement de disques managés avec des clés gérées par la plateforme, consultez [cet article](../virtual-machines/disk-encryption.md#customer-managed-keys).
+Lorsque vous chiffrez des disques avec des clés gérées par le client (CMK), la clé utilisée pour chiffrer les disques est stockée dans Azure Key Vault et elle est gérée par vous. Le chiffrement Storage Service Encryption (SSE) avec CMK est différent du chiffrement Azure Disk Encryption (ADE). ADE utilise les outils de chiffrement du système d’exploitation. SSE chiffre les données dans le service de stockage, ce qui vous permet d’utiliser le système d’exploitation ou l’image de votre choix pour vos machines virtuelles.
+
+Vous n’avez pas besoin d’effectuer d’actions explicites pour la sauvegarde ou la restauration de machines virtuelles qui utilisent des clés gérées par le client pour chiffrer leurs disques. Les données de sauvegarde de ces machines virtuelles stockées dans le coffre sont chiffrées avec les mêmes méthodes que le [chiffrement utilisé dans le coffre](encryption-at-rest-with-cmk.md).
+
+Pour plus d’informations sur le chiffrement de disques managés avec des clés gérées par la plateforme, consultez [cet article](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Prise en charge du chiffrement avec ADE
 

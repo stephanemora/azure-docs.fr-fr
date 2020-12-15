@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460743"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601609"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Compréhension de la tarification d’Azure Application Gateway et du pare-feu d’applications web
 
@@ -254,9 +254,19 @@ Si une capacité de traitement équivalant à 10 unités de capacité suppléme
 
 Prix fixe = 0,246 USD * 730 (heures) = 179,58 USD
 
-Coûts variables = 0,008 USD * (3 (unités d’instance) * 10 (unités de capacité) + 5 (unités de capacité supplémentaires)) * 730 (heures) = 204,4 USD
+Coûts variables = 0,008 USD * (3 (unités d’instance) * 10 (unités de capacité) + 10 (unités de capacité supplémentaires)) * 730 (heures) = 233,6 USD
 
-Coût total = 179,58 USD + 204,4 USD = 383,98 USD
+Coût total = 179,58 USD + 233,6 USD = 413,18 USD
+
+Toutefois, si une capacité de traitement équivalant à 7 unités de capacité supplémentaires était disponible pour une utilisation dans les 3 instances réservées :
+Dans ce scénario, la ressource Application Gateway est mise à l’échelle et peut entraîner une augmentation de la latence ou la suppression des demandes.
+
+Prix fixe = 0,246 USD * 730 (heures) = 179,58 USD
+
+Coûts variables = 0,008 USD * (3 (unités d’instance) * 10 (unités de capacité) + 7 (unités de capacité supplémentaires)) * 730 (heures) = 216,08 USD
+
+Coût total = 179,58 USD + 216,08 USD = 395,66 USD
+
 
 ![Diagramme de l’échelle manuelle 2.](./media/pricing/manual-scale-2.png)
 

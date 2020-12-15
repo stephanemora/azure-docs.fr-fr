@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462385"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575004"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Science des données avec une Data Science Virtual Machine Windows
 
@@ -49,8 +49,8 @@ Dans cet article vous allez découvrir comment utiliser votre DSVM afin d’effe
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Utiliser des blocs-notes Jupyter
-Jupyter Notebook fournit un IDE basé sur navigateur pour l’exploration et la modélisation des données. Vous pouvez utiliser Python 2, Python 3 ou R (Open Source et Microsoft R Server) dans un notebook Jupyter.
+## <a name="use-jupyter-notebooks"></a>Utiliser des notebooks Jupyter
+Jupyter Notebook fournit un IDE basé sur navigateur pour l’exploration et la modélisation des données. Vous pouvez utiliser Python 2, Python 3 ou R (open source et Microsoft R Server) dans un notebook Jupyter.
 
 Pour démarrer Jupyter Notebook, sélectionnez l’icône **Jupyter Notebook** dans le menu **Démarrer** ou sur le Bureau. À l’invite de commande DSVM, vous pouvez également exécuter la commande ```jupyter notebook``` à partir du répertoire où se trouvent vos notebooks, ou bien à partir de l’emplacement où vous souhaitez en créer d’autres.  
 

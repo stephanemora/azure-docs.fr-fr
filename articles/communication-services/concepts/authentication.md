@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832804"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571094"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
@@ -58,9 +58,9 @@ Si vous n’utilisez pas de bibliothèque cliente pour effectuer les requêtes H
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Générez une signature HMAC-256 de la chaîne encodée en UTF-8 que vous avez créée à l’étape précédente. Encodez ensuite vos résultats au format Base64. Notez que vous devez également décoder la clé de votre compte de stockage en base64. Utilisez le format suivant (affiché comme pseudocode) :
+1. Générez une signature HMAC-256 de la chaîne encodée en UTF-8 que vous avez créée à l’étape précédente. Encodez ensuite vos résultats au format Base64. Notez que vous devez également décoder votre clé d’accès en base64. Utilisez le format suivant (affiché comme pseudocode) :
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Spécifiez l’en-tête d’autorisation comme suit :
     ```

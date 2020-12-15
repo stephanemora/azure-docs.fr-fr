@@ -30,6 +30,8 @@
   items:
     - name: Identifier les anomalies de vos données
       href: how-to/identify-anomalies.md
+    - name: Déployer sur IoT Edge
+      href: how-to/deploy-anomaly-detection-on-iot-edge.md
     - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs

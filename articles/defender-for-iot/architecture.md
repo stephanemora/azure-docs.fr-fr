@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096315"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548917"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architecture de Azure Defender pour IoT
 
@@ -101,11 +101,11 @@ Le portail Defender pour IoT dans Azure a pour but de vous aider à accomplir le
 
 ## <a name="embedded-security-agent-built-in-mode"></a>Agent de sécurité incorporé : Mode intégré
 
-En mode **intégré** , Defender pour IoT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre IoT Hub. Grâce à sa supervision, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode intégré ne nécessite pas d’installation d’agent sur un appareil, et utilise des analyses avancées d’activités journalisées pour analyser et protéger vos appareil de champ et hub IoT.
+En mode **intégré**, Defender pour IoT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre IoT Hub. Grâce à sa supervision, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode intégré ne nécessite pas d’installation d’agent sur un appareil, et utilise des analyses avancées d’activités journalisées pour analyser et protéger vos appareil de champ et hub IoT.
 
 ## <a name="embedded-security-agent-enhanced-mode"></a>Agent de sécurité incorporé : Mode étendu
 
-En mode **étendu** , après l’activation de l’option **Sécurité** dans votre IOT Hub et l’installation des agents d’appareils Defender pour IoT sur vos appareils, les agents collectent, agrègent et analysent les événements de sécurité bruts de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil Defender pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
+En mode **étendu**, après l’activation de l’option **Sécurité** dans votre IOT Hub et l’installation des agents d’appareils Defender pour IoT sur vos appareils, les agents collectent, agrègent et analysent les événements de sécurité bruts de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil Defender pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
 
 Les agents d’appareil et d’autres applications utilisent le **SDK d’envoi de message de sécurité Azure** pour envoyer des informations de sécurité dans Azure IoT Hub. IoT Hub obtient ces informations et les transmet au service Defender pour IoT.
 

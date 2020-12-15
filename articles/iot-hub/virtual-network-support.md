@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ms.author: jlian
-ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413392"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549109"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity
 
@@ -36,7 +36,7 @@ Cet article explique comment atteindre ces objectifs en utilisant [Azure Private
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Connectivité d’entrée vers IoT Hub avec Azure Private Link
 
-Un point de terminaison privé est une adresse IP privée attribuée à l'intérieur d'un réseau virtuel appartenant au client, qui permet l’accès à une ressource Azure. Avec Azure Private Link, vous avez la possibilité de configurer un point de terminaison privé grâce auquel votre hub IoT pourra autoriser les services situés à l'intérieur de votre réseau virtuel à atteindre IoT Hub sans avoir besoin d'envoyer du trafic au point de terminaison public d’IoT Hub. De même, vos appareils locaux peuvent utiliser un [réseau privé virtuel (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un peering [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour obtenir une connectivité à votre réseau virtuel et à votre hub IoT (via son point de terminaison privé). Il vous est ainsi possible de restreindre ou de bloquer entièrement la connectivité aux points de terminaison publics de votre hub IoT à l’aide du [filtre IP IoT Hub](./iot-hub-ip-filtering.md) et de [configurer le routage de sorte qu’il n’envoie aucune donnée au point de terminaison intégré](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Cette approche permet de maintenir la connectivité des appareils à votre hub à l’aide du point de terminaison privé. Cette configuration s’adresse principalement aux appareils situés à l'intérieur d'un réseau local. Cette configuration n'est pas conseillée pour les appareils déployés sur un réseau étendu.
+Un point de terminaison privé est une adresse IP privée attribuée à l'intérieur d'un réseau virtuel appartenant au client, qui permet l’accès à une ressource Azure. Avec Azure Private Link, vous avez la possibilité de configurer un point de terminaison privé grâce auquel votre hub IoT pourra autoriser les services situés à l'intérieur de votre réseau virtuel à atteindre IoT Hub sans avoir besoin d'envoyer du trafic au point de terminaison public d’IoT Hub. De même, vos appareils locaux peuvent utiliser un [réseau privé virtuel (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un peering [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour obtenir une connectivité à votre réseau virtuel et à votre hub IoT (via son point de terminaison privé). Il vous est ainsi possible de restreindre ou de bloquer entièrement la connectivité aux points de terminaison publics de votre hub IoT à l’aide du [filtre IP IoT Hub](./iot-hub-ip-filtering.md) ou du [bouton bascule d’accès au réseau public](iot-hub-public-network-access.md). Cette approche permet de maintenir la connectivité des appareils à votre hub à l’aide du point de terminaison privé. Cette configuration s’adresse principalement aux appareils situés à l'intérieur d'un réseau local. Cette configuration n'est pas conseillée pour les appareils déployés sur un réseau étendu.
 
 ![Entrée du réseau virtuel IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -64,17 +64,12 @@ Un point de terminaison privé fonctionne pour des API d’appareil IoT Hub (com
 
 1. Cliquez sur **Vérifier + Créer** pour créer votre ressource de liaison privée.
 
-### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>Le point de terminaison intégré compatible avec Event Hubs ne prend pas en charge l’accès via un point de terminaison privé
+### <a name="built-in-event-hub-compatible-endpoint"></a>Point de terminaison intégré compatible avec Event Hubs 
 
-Le [point de terminaison intégré compatible avec Event Hubs](iot-hub-devguide-messages-read-builtin.md) ne prend pas en charge l’accès via un point de terminaison privé. Lorsqu’il est configuré, le point de terminaison privé d’un hub IoT est destiné uniquement à la connectivité d’entrée. La consommation de données provenant du point de terminaison intégré compatible avec Event Hubs ne peut être effectuée que sur l’Internet public. 
+Le [point de terminaison intégré compatible avec Event Hubs](iot-hub-devguide-messages-read-builtin.md) est également accessible via un point de terminaison privé. Lorsque la liaison privée est configurée, vous devez voir une connexion de point de terminaison privé supplémentaire pour le point de terminaison intégré. C’est celle qui inclut `servicebus.windows.net` dans le nom de domaine complet.
 
-Le filtre IP [d’IoT Hub](iot-hub-ip-filtering.md) ne contrôle pas non plus l’accès public au point de terminaison intégré. Pour bloquer complètement l’accès réseau public à votre hub IoT, vous devez effectuer les actions suivantes : 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image présentant deux points de terminaison privés en fonction de chaque liaison privée IoT Hub":::
 
-1. Configurer l’accès au point de terminaison privé pour IoT Hub
-1. [Désactiver l’accès au réseau public](iot-hub-public-network-access.md) ou utiliser le filtre IP pour bloquer toutes les adresses IP
-1. Arrêter d’utiliser le point de terminaison Event Hubs intégré en [configurant le routage de sorte qu’il ne lui envoie pas de données](iot-hub-devguide-messages-d2c.md)
-1. Désactiver [l’itinéraire de secours](iot-hub-devguide-messages-d2c.md#fallback-route)
-1. Configurer la sortie vers d’autres ressources Azure à l’aide d'un [service Microsoft approuvé](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-for-private-link"></a>Tarifs de la liaison privée
 
