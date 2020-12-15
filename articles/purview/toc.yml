@@ -104,8 +104,6 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: "Locataire Power\_BI - Portail"
                 href: register-scan-power-bi-tenant.md
-              - name: "Locataire Power\_BI - PowerShell"
-                href: powershell-register-scan-power-bi.md
       - name: Glossaire métier
         items:
           - name: 'Créer, importer et exporter des termes de glossaire'
