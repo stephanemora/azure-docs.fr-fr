@@ -503,7 +503,7 @@
       displayName: pipelines
       items:
         - name: Créer des pipelines ML (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: "Déplacement de données au sein d’un pipeline\_ML et vers un autre pipeline\_ML (Python)"
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Déployer des pipelines ML (Python)
